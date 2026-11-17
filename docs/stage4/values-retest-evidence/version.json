@@ -1,0 +1,33 @@
+{
+  "version": "S04-VALUES-FIX-82f03c66ac3b",
+  "commit": "c547a547f93b3d005d86efca59ed920ef2ef9b2a",
+  "manifest_checks": {
+    "source_files": {
+      "count": 59,
+      "different": []
+    },
+    "artifacts": {
+      "count": 31,
+      "different": []
+    }
+  },
+  "runtime": {
+    "backend": {
+      "container": "4f39585b3276accd41d899de7ba5f957709d0781135be4267935fd47929ca1fe",
+      "image": "sha256:76a571c71a1e824a07148b445f8532e210cf0530bbfa759e90fd9d2a99523818",
+      "matches": true
+    },
+    "web": {
+      "container": "935618bfe99b041ad880a79901e48c057a17af01a13efd3bf9ca1512c20a73ae",
+      "image": "sha256:a92a2333384102eb916d1cb056145b81177a42b700e6de5094ae799acd85d8a5",
+      "matches": true
+    },
+    "db": {
+      "container": "868b4910c4d463c6083eba77dd98a1a1e53faccce7eaf782d99f7e8a6efff960",
+      "image": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+      "matches": true
+    }
+  },
+  "test_image": "sha256:2da63c384a2616d368608fb34b911cb97ce6502ed8ca1ae442a7f586175416f1",
+  "backend_python_files_compared": 15
+}

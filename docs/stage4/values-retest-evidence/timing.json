@@ -1,0 +1,19 @@
+{
+  "unit": "seconds",
+  "preparation_from_version_stabilization": 8.41,
+  "execution_including_gap_review_and_probes": 113.15,
+  "report_to_evidence_recording": 15.1,
+  "build": 0,
+  "pytest_runs": 4,
+  "pytest_unique_cases": 257,
+  "pytest_passed": 257,
+  "pytest_failed": 0,
+  "pytest_durations": [
+    1.17,
+    2.02,
+    1.09,
+    0.48
+  ],
+  "http_normalize_cases": 16,
+  "note": "Initial instruction reading precedes preparation timing. Final diff review and local commit follow report timing. Only new cases selected on fourth run."
+}

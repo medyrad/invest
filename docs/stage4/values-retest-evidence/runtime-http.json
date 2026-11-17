@@ -1,0 +1,299 @@
+[
+  {
+    "case": "valid-persian-money",
+    "status": 200,
+    "passed": true,
+    "response": {
+      "contract_version": 1,
+      "kind": "money",
+      "field": {
+        "namespace": "invest.opportunity.project",
+        "key": "min_capital",
+        "version": 1
+      },
+      "unit": {
+        "code": "BILLION_TOMAN",
+        "version": 1
+      },
+      "status": "known",
+      "source_value": "1.5",
+      "value": "1500000000",
+      "base_unit": "TOMAN",
+      "base_version": 1,
+      "conversion_factor": "1000000000",
+      "basis": null
+    }
+  },
+  {
+    "case": "valid-unicode-return",
+    "status": 200,
+    "passed": true,
+    "response": {
+      "contract_version": 1,
+      "kind": "return",
+      "field": {
+        "namespace": "invest.opportunity.project",
+        "key": "irr",
+        "version": 1
+      },
+      "unit": {
+        "code": "PERCENT",
+        "version": 1
+      },
+      "status": "known",
+      "source_value": "1.5",
+      "value": "1.5",
+      "base_unit": "PERCENT",
+      "base_version": 1,
+      "conversion_factor": "1",
+      "basis": {
+        "version": 1,
+        "metric_type": "irr",
+        "period": "annual",
+        "horizon": {
+          "value": "5",
+          "unit": {
+            "code": "YEAR",
+            "version": 1
+          }
+        },
+        "basis_date": "2024-02-29",
+        "price_basis": "nominal",
+        "scope": "investor",
+        "observation": "claimed",
+        "source": "منبع مصنوعی معتبر 🌱"
+      }
+    }
+  },
+  {
+    "case": "valid-unicode-duration",
+    "status": 200,
+    "passed": true,
+    "response": {
+      "contract_version": 1,
+      "kind": "quantity",
+      "field": {
+        "namespace": "invest.opportunity.project",
+        "key": "execution_months",
+        "version": 1
+      },
+      "unit": {
+        "code": "MONTH",
+        "version": 1
+      },
+      "status": "known",
+      "source_value": "1.5",
+      "value": "1.5",
+      "base_unit": "MONTH",
+      "base_version": 1,
+      "conversion_factor": "1",
+      "basis": {
+        "start_basis": "آغاز قرارداد 🌱"
+      }
+    }
+  },
+  {
+    "case": "nul_not_allowed-field.namespace",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "nul_not_allowed",
+        "message": "نویسه تهی (NUL) در ورودی مجاز نیست.",
+        "fields": {
+          "field.namespace": [
+            "نویسه تهی (NUL) در ورودی مجاز نیست."
+          ]
+        },
+        "request_id": "782de6db-2010-4984-a9cc-6469e3056db9"
+      }
+    }
+  },
+  {
+    "case": "invalid_text-field.namespace",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "invalid_text",
+        "message": "متن شامل نویسه Unicode معتبر نیست.",
+        "fields": {
+          "field.namespace": [
+            "متن شامل نویسه Unicode معتبر نیست."
+          ]
+        },
+        "request_id": "be5047c0-7e1a-4f28-9a4e-b4632d7cc535"
+      }
+    }
+  },
+  {
+    "case": "nul_not_allowed-field.key",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "nul_not_allowed",
+        "message": "نویسه تهی (NUL) در ورودی مجاز نیست.",
+        "fields": {
+          "field.key": [
+            "نویسه تهی (NUL) در ورودی مجاز نیست."
+          ]
+        },
+        "request_id": "acb0a69a-2913-4be3-a84d-ad691ea87b03"
+      }
+    }
+  },
+  {
+    "case": "invalid_text-field.key",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "invalid_text",
+        "message": "متن شامل نویسه Unicode معتبر نیست.",
+        "fields": {
+          "field.key": [
+            "متن شامل نویسه Unicode معتبر نیست."
+          ]
+        },
+        "request_id": "edc309e7-0093-45e3-92da-22e52380c164"
+      }
+    }
+  },
+  {
+    "case": "nul_not_allowed-unit.code",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "nul_not_allowed",
+        "message": "نویسه تهی (NUL) در ورودی مجاز نیست.",
+        "fields": {
+          "unit.code": [
+            "نویسه تهی (NUL) در ورودی مجاز نیست."
+          ]
+        },
+        "request_id": "1d7d0772-538c-4e9d-9504-5dfde97bd248"
+      }
+    }
+  },
+  {
+    "case": "invalid_text-unit.code",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "invalid_text",
+        "message": "متن شامل نویسه Unicode معتبر نیست.",
+        "fields": {
+          "unit.code": [
+            "متن شامل نویسه Unicode معتبر نیست."
+          ]
+        },
+        "request_id": "c065afe7-5a88-4dc5-bc1d-651c59bf57ff"
+      }
+    }
+  },
+  {
+    "case": "nul_not_allowed-basis.horizon.unit.code",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "nul_not_allowed",
+        "message": "نویسه تهی (NUL) در ورودی مجاز نیست.",
+        "fields": {
+          "basis.horizon.unit.code": [
+            "نویسه تهی (NUL) در ورودی مجاز نیست."
+          ]
+        },
+        "request_id": "bb505d09-de4d-4428-b73a-b315a32a820f"
+      }
+    }
+  },
+  {
+    "case": "invalid_text-basis.horizon.unit.code",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "invalid_text",
+        "message": "متن شامل نویسه Unicode معتبر نیست.",
+        "fields": {
+          "basis.horizon.unit.code": [
+            "متن شامل نویسه Unicode معتبر نیست."
+          ]
+        },
+        "request_id": "849e861e-6506-4a30-910c-0ca854f82865"
+      }
+    }
+  },
+  {
+    "case": "nul_not_allowed-basis.source",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "nul_not_allowed",
+        "message": "نویسه تهی (NUL) در ورودی مجاز نیست.",
+        "fields": {
+          "basis.source": [
+            "نویسه تهی (NUL) در ورودی مجاز نیست."
+          ]
+        },
+        "request_id": "edc3b49b-8efb-45b2-983b-93c020b17151"
+      }
+    }
+  },
+  {
+    "case": "invalid_text-basis.source",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "invalid_text",
+        "message": "متن شامل نویسه Unicode معتبر نیست.",
+        "fields": {
+          "basis.source": [
+            "متن شامل نویسه Unicode معتبر نیست."
+          ]
+        },
+        "request_id": "c10c31c2-e6af-4911-8cd5-4cd666b0cf4b"
+      }
+    }
+  },
+  {
+    "case": "nul_not_allowed-basis.start_basis",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "nul_not_allowed",
+        "message": "نویسه تهی (NUL) در ورودی مجاز نیست.",
+        "fields": {
+          "basis.start_basis": [
+            "نویسه تهی (NUL) در ورودی مجاز نیست."
+          ]
+        },
+        "request_id": "c0b08118-a7a6-4180-a3e4-6db70679a49d"
+      }
+    }
+  },
+  {
+    "case": "invalid_text-basis.start_basis",
+    "status": 400,
+    "passed": true,
+    "response": {
+      "error": {
+        "code": "invalid_text",
+        "message": "متن شامل نویسه Unicode معتبر نیست.",
+        "fields": {
+          "basis.start_basis": [
+            "متن شامل نویسه Unicode معتبر نیست."
+          ]
+        },
+        "request_id": "ad8c0f6f-cbee-429e-9786-7fe14e73ee8d"
+      }
+    }
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "before": {
+    "counts": {
+      "catalog_moneyvalue": 0,
+      "catalog_quantity": 0,
+      "catalog_returnmetric": 0
+    },
+    "catalog_migrations": [
+      "0001_initial",
+      "0002_exact_values",
+      "0003_value_definitions",
+      "0004_basis_integrity"
+    ],
+    "basis_triggers": [
+      [
+        "money_basis_guard",
+        "O"
+      ],
+      [
+        "quantity_basis_guard",
+        "O"
+      ],
+      [
+        "return_basis_guard",
+        "O"
+      ]
+    ]
+  },
+  "after": {
+    "counts": {
+      "catalog_moneyvalue": 0,
+      "catalog_quantity": 0,
+      "catalog_returnmetric": 0
+    },
+    "catalog_migrations": [
+      "0001_initial",
+      "0002_exact_values",
+      "0003_value_definitions",
+      "0004_basis_integrity"
+    ],
+    "basis_triggers": [
+      [
+        "money_basis_guard",
+        "O"
+      ],
+      [
+        "quantity_basis_guard",
+        "O"
+      ],
+      [
+        "return_basis_guard",
+        "O"
+      ]
+    ]
+  },
+  "http_status": 200,
+  "value": "1500000000",
+  "unchanged": true
+}
