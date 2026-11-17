@@ -1,0 +1,29 @@
+
+Running 8 tests using 2 workers
+
+(node:1498244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1498245) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [mobile-360] › frontend/tests/browser/catalog-fixes.spec.ts:39:1 › S04-IT-002: real ICO metadata, fresh browser decode and short home navigation smoke (534ms)
+(node:1498691) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [mobile-360] › frontend/tests/browser/catalog-fixes.spec.ts:8:1 › S04-IT-001: customer city copy preserves county, real cities and parent clearing (813ms)
+(node:1498751) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [tablet-768] › frontend/tests/browser/catalog-fixes.spec.ts:8:1 › S04-IT-001: customer city copy preserves county, real cities and parent clearing (751ms)
+  ✓  4 [tablet-768] › frontend/tests/browser/catalog-fixes.spec.ts:39:1 › S04-IT-002: real ICO metadata, fresh browser decode and short home navigation smoke (559ms)
+(node:1499183) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1499192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 [mobile-390] › frontend/tests/browser/catalog-fixes.spec.ts:39:1 › S04-IT-002: real ICO metadata, fresh browser decode and short home navigation smoke (529ms)
+  ✓  5 [mobile-390] › frontend/tests/browser/catalog-fixes.spec.ts:8:1 › S04-IT-001: customer city copy preserves county, real cities and parent clearing (729ms)
+(node:1499659) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1499669) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  8 [desktop-1440] › frontend/tests/browser/catalog-fixes.spec.ts:39:1 › S04-IT-002: real ICO metadata, fresh browser decode and short home navigation smoke (655ms)
+  ✓  7 [desktop-1440] › frontend/tests/browser/catalog-fixes.spec.ts:8:1 › S04-IT-001: customer city copy preserves county, real cities and parent clearing (816ms)
+
+  8 passed (4.2s)

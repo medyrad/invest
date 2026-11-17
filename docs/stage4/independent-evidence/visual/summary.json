@@ -1,0 +1,106 @@
+{
+  "sections": [
+    {
+      "section": "hero",
+      "reference_size": [
+        1425,
+        992
+      ],
+      "target_size": [
+        1425,
+        992
+      ],
+      "height_delta": 0,
+      "title_style_same": true
+    },
+    {
+      "section": "main-categories",
+      "reference_size": [
+        1280,
+        1009.40625
+      ],
+      "target_size": [
+        1280,
+        1009.40625
+      ],
+      "height_delta": 0.0,
+      "title_style_same": true
+    },
+    {
+      "section": "categories",
+      "reference_size": [
+        1280,
+        848.140625
+      ],
+      "target_size": [
+        1280,
+        1194.140625
+      ],
+      "height_delta": 346.0,
+      "title_style_same": true
+    },
+    {
+      "section": "featured",
+      "reference_size": [
+        1280,
+        920.140625
+      ],
+      "target_size": [
+        1280,
+        920.140625
+      ],
+      "height_delta": 0.0,
+      "title_style_same": true
+    },
+    {
+      "section": "how",
+      "reference_size": [
+        1280,
+        570.640625
+      ],
+      "target_size": [
+        1280,
+        570.640625
+      ],
+      "height_delta": 0.0,
+      "title_style_same": true
+    },
+    {
+      "section": "help",
+      "reference_size": [
+        1280,
+        823.140625
+      ],
+      "target_size": [
+        1280,
+        823.140625
+      ],
+      "height_delta": 0.0,
+      "title_style_same": true
+    },
+    {
+      "section": "footer",
+      "reference_size": [
+        1280,
+        109
+      ],
+      "target_size": [
+        1280,
+        109
+      ],
+      "height_delta": 0,
+      "title_style_same": null
+    }
+  ],
+  "reference_errors": [
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+  ],
+  "target_errors": [],
+  "human_approved": false
+}

@@ -1,0 +1,75 @@
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Convertshape2, Element3, Lovely, Login, Logout, MagicStar, ProfileCircle } from "@/components/iconsax";
+import { Logo } from "@/components/brand/algo-pattern";
+import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/components/auth/login-dialog";
+import { cn, faDigits, faNumber } from "@/lib/utils";
+
+const links = [
+  { href: "/opportunities", label: "پروژه‌ها" },
+  { href: "/tools", label: "جذب سرمایه", icon: Element3 },
+  { href: "/assistant", label: "دستیار", icon: MagicStar },
+  { href: "/compare", label: "مقایسه", icon: Convertshape2 },
+  { href: "/saved", label: "علاقه‌مندی‌ها", icon: Lovely },
+];
+
+export function Header({ overlay = false }: { overlay?: boolean }) {
+  const path = usePathname();
+  const { account: user, start: openLogin, logout, busy, ready, triggerRef, notice, activity } = useAuth();
+  const hydrated = ready;
+  const saved: string[] = [], compare: string[] = [];
+  return (
+    <header className={cn("z-40 w-full", overlay ? "absolute inset-x-0 top-0" : "sticky top-0")}>
+      <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6">
+        <nav className={cn("flex h-16 items-center justify-between gap-4 rounded-full px-3 pr-5", overlay ? "glass-dark text-white" : "border border-border bg-white/85 shadow-[0_14px_40px_-30px_rgb(22_32_48/0.3)] backdrop-blur-md")}>
+          <Link href="/" aria-label="صفحه نخست"><Logo light={overlay} /></Link>
+          <ul className="hidden items-center gap-1 lg:flex">
+            {links.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className={cn("flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors", overlay ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-ink/65 hover:bg-ink/[0.04] hover:text-ink", path.startsWith(l.href) && (overlay ? "bg-white/15 text-white" : "bg-ink/[0.06] font-bold text-ink"))}>
+                  {l.icon && <l.icon size={17} variant="Bulk" />}{l.label}
+                  {l.href === "/saved" && hydrated && saved.length > 0 && <span className="grid h-5 min-w-5 place-items-center rounded-full bg-primary px-1 text-[11px] font-bold text-white">{faNumber(saved.length)}</span>}
+                  {l.href === "/compare" && hydrated && compare.length > 0 && <span className="grid h-5 min-w-5 place-items-center rounded-full bg-cobalt px-1 text-[11px] font-bold text-white">{faNumber(compare.length)}</span>}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <DropdownMenu dir="rtl"><DropdownMenuTrigger asChild><Button variant="plain" aria-label="منوی اصلی" className="lg:hidden">منو</Button></DropdownMenuTrigger><DropdownMenuContent className="max-w-[calc(100vw-2rem)] rounded-2xl">{links.map(l => <DropdownMenuItem key={l.href} asChild><Link href={l.href}>{l.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu>
+          {hydrated && user ? (
+            <span role="region" aria-label="وضعیت ورود" className="account-status-header"><span className="sr-only">وارد شده‌اید</span><DropdownMenu dir="rtl">
+              <DropdownMenuTrigger asChild>
+                <Button ref={triggerRef} aria-label="حساب کاربری" variant="plain" size="auto" className={cn("h-10 rounded-full px-4 text-sm font-bold", overlay ? "bg-white text-ink" : "bg-teal-800 text-white hover:bg-teal-900")}>
+                  <ProfileCircle size={20} variant="Bulk" /><span dir="ltr">{faDigits(user.mobile)}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-52 rounded-2xl p-1.5">
+                <DropdownMenuItem asChild className="rounded-xl"><Link href="/saved"><Lovely size={17} variant="Bulk" />علاقه‌مندی‌ها</Link></DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => void activity()} className="rounded-xl">بررسی و تمدید نشست</DropdownMenuItem><DropdownMenuSeparator />
+                <DropdownMenuItem onSelect={logout} variant="destructive" className="rounded-xl"><Logout size={17} />خروج</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu></span>
+          ) : (
+            <Button ref={triggerRef} aria-label="ورود به حساب" disabled={!ready || busy} onClick={() => void openLogin()} className={cn("h-10 rounded-full px-5 font-bold", overlay ? "bg-white text-ink hover:bg-white/90" : "bg-teal-800 text-white hover:bg-teal-900")}>
+              <Login size={18} /> ورود
+            </Button>
+          )}
+        </nav><p role="status" className={notice ? "surface mx-auto mt-3 max-w-3xl rounded-2xl px-5 py-3 text-center text-sm leading-7 text-ink" : "sr-only"}>{notice}</p>
+      </div>
+    </header>
+  );
+}
+
+export function Footer() {
+  return (
+    <footer className="mx-auto mt-24 max-w-7xl px-4 pb-10 sm:px-6">
+      <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground lg:flex-row">
+        <Logo />
+        <p>اطلاعات پروژه‌ها برای تصمیم‌گیری اولیه است و تعهد پرداخت یا تضمین سود نیست.</p>
+        <nav className="flex gap-5 lg:hidden">{links.map((l) => <Link key={l.href} href={l.href} className="font-semibold text-ink/70">{l.label}</Link>)}</nav>
+      </div>
+    </footer>
+  );
+}

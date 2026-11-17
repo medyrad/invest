@@ -1,0 +1,37 @@
+{
+  "backend": {
+    "container": "/invest-backend-1",
+    "image_id": "sha256:6ae9137490d77c617eaddc2dd013835036e27d8d4bb6f7ff422934e5d799b05d",
+    "user": "invest",
+    "created": "2026-11-17T13:01:07.717104685Z",
+    "source_files_compared": 23,
+    "mismatches": []
+  },
+  "web": {
+    "container": "/invest-web-1",
+    "image_id": "sha256:0197aa3c9099bc704a7bfd6720e1a2efb080a7f52f43ce8d13907784ee168039",
+    "user": "node",
+    "created": "2026-11-17T12:59:43.737606702Z",
+    "build_id": "WVfAwNWeqFt0YD4q3IIWw"
+  },
+  "db": {
+    "container": "/invest-db-1",
+    "image_id": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+    "user": "",
+    "created": "2026-11-17T11:50:30.924370403Z"
+  },
+  "test": {
+    "image_id": "sha256:28f5f2ccfcc8c903913e7028384ddae63e9450fcebe2978a9146efa9202e479b",
+    "created": "2026-11-17T16:30:03.919929853+03:30"
+  },
+  "browser-api": {
+    "image_id": "sha256:78a67cb1f53d5d1eed653f072f9c3ef376f6d4fdbec40f9e4f89fadb92fdb6aa",
+    "created": "2026-11-17T16:30:03.919929853+03:30"
+  },
+  "versions": {
+    "python": "3.14.10",
+    "django": "5.2.19",
+    "psycopg": "3.3.9",
+    "postgres": "17.12"
+  }
+}

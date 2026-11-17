@@ -1,0 +1,9 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-backend-run-f3183a1be86c Creating 
+ Container invest-backend-run-f3183a1be86c Created 
+Operations to perform:
+  Apply all migrations: auth, contenttypes, identity, sessions
+Running migrations:
+  Applying identity.0004_loginflow_intent_session... OK

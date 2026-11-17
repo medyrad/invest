@@ -1,0 +1,37 @@
+{
+  "project.minCapital": {
+    "known_count": 85,
+    "maximum": "4000",
+    "max_fraction_digits": 0
+  },
+  "project.budget": {
+    "known_count": 165,
+    "maximum": "5600",
+    "max_fraction_digits": 0
+  },
+  "project.monthlyRent": {
+    "known_count": 1,
+    "maximum": "120",
+    "max_fraction_digits": 0
+  },
+  "fund.minimumMillion": {
+    "known_count": 9,
+    "maximum": "50",
+    "max_fraction_digits": 0
+  },
+  "project.executionMonths": {
+    "known_count": 226,
+    "maximum": "36",
+    "max_fraction_digits": 0
+  },
+  "project.paybackYears": {
+    "known_count": 68,
+    "maximum": "11",
+    "max_fraction_digits": 0
+  },
+  "sale.area": {
+    "known_count": 7,
+    "maximum": "8000",
+    "max_fraction_digits": 0
+  }
+}

@@ -1,0 +1,86 @@
+ Image invest-web Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.08kB done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from frontend.Dockerfile
+#2 transferring dockerfile: 792B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for public.ecr.aws/docker/library/node:24.22.3-bookworm-slim@sha256:0e2646ab57e77b7a384a0cb59b6815b182c77e1f9c3ba36bd8435bd9c4e6680e
+#3 DONE 1.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 231B done
+#4 DONE 0.0s
+
+#5 [builder 1/6] FROM public.ecr.aws/docker/library/node:24.22.3-bookworm-slim@sha256:0e2646ab57e77b7a384a0cb59b6815b182c77e1f9c3ba36bd8435bd9c4e6680e
+#5 resolve public.ecr.aws/docker/library/node:24.22.3-bookworm-slim@sha256:0e2646ab57e77b7a384a0cb59b6815b182c77e1f9c3ba36bd8435bd9c4e6680e 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 36.87kB done
+#6 DONE 0.0s
+
+#7 [builder 2/6] WORKDIR /app
+#7 CACHED
+
+#8 [builder 3/6] COPY frontend/package.json frontend/package-lock.json frontend/.npmrc ./
+#8 CACHED
+
+#9 [builder 4/6] RUN npm ci
+#9 CACHED
+
+#10 [builder 5/6] COPY frontend/ ./
+#10 DONE 0.1s
+
+#11 [builder 6/6] RUN npm run build
+#11 0.177 
+#11 0.177 > invest-frontend@0.1.0 build
+#11 0.177 > next build && node scripts/prepare-standalone.mjs
+#11 0.177 
+#11 0.373 ▲ Next.js 16.4.6 (Turbopack)
+#11 0.389 ✓ Running next.config.ts took 16ms
+#11 0.397 
+#11 0.407   Creating an optimized production build ...
+#11 2.267 ✓ Compiled successfully in 1858ms
+#11 2.269   Running TypeScript ...
+#11 4.010   Finished TypeScript in 1741ms ...
+#11 4.012   Collecting page data using 5 workers ...
+#11 4.318   Generating static pages using 5 workers (0/3) ...
+#11 4.556 ✓ Generating static pages using 5 workers (3/3) in 237ms
+#11 4.557   Finalizing page optimization ...
+#11 4.600 
+#11 4.600 Route (app)
+#11 4.600 ┌ ○ /
+#11 4.600 ├ ○ /_not-found
+#11 4.600 └ ƒ /[...pending]
+#11 4.600 
+#11 4.600 
+#11 4.600 ○  (Static)   prerendered as static content
+#11 4.600 ƒ  (Dynamic)  server-rendered on demand
+#11 4.600 
+#11 DONE 4.7s
+
+#7 [builder 2/6] WORKDIR /app
+#7 CACHED
+
+#12 [runtime 3/3] COPY --from=builder --chown=node:node /app/.next/standalone ./
+#12 DONE 0.1s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 1.0s done
+#13 exporting manifest sha256:22ed4fd31a56f104b71e1af7b3f0c40c7b6b1fb969a83954978bc2076352707a 0.0s done
+#13 exporting config sha256:abb9f90adfcbb064a12b9f0b70d95f21bc1e3e9ed292ab29b0ef3fffc516bee1 0.0s done
+#13 exporting attestation manifest sha256:3666096c4421670f2941b12c0c58e0bc1d714b060f756822ee403d858cff793a 0.0s done
+#13 exporting manifest list sha256:a92a2333384102eb916d1cb056145b81177a42b700e6de5094ae799acd85d8a5 0.0s done
+#13 naming to docker.io/library/invest-web:latest
+#13 naming to docker.io/library/invest-web:latest done
+#13 unpacking to docker.io/library/invest-web:latest
+#13 unpacking to docker.io/library/invest-web:latest 0.2s done
+#13 DONE 1.3s
+
+#14 resolving provenance for metadata file
+#14 DONE 0.0s
+ Image invest-web Built 

@@ -1,0 +1,8 @@
+{
+  "mode": "test",
+  "delivery_mode": "notification",
+  "database": "invest_browser",
+  "compared": 34,
+  "mismatches": [],
+  "image_id": "sha256:78a67cb1f53d5d1eed653f072f9c3ef376f6d4fdbec40f9e4f89fadb92fdb6aa"
+}

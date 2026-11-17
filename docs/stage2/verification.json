@@ -1,0 +1,169 @@
+{
+  "scope": "S02 platform foundation only",
+  "date": "2026-11-17",
+  "backend_tests": {
+    "passed": 57,
+    "failed": 0,
+    "database": "PostgreSQL 17.12"
+  },
+  "browser_tests": {
+    "passed": 4,
+    "failed": 0,
+    "widths": [
+      390,
+      1440
+    ],
+    "production_standalone": true,
+    "browser": "Chrome 151.0.7922.137",
+    "bundled_chromium_executed": false
+  },
+  "checks": {
+    "ruff": true,
+    "ruff_format": true,
+    "eslint": true,
+    "typescript": true,
+    "npm_ci": true,
+    "uv_locked_build": true,
+    "next_production_build": true,
+    "docker_delivery_build": true,
+    "fresh_migration": true,
+    "migration_drift": false,
+    "django_check": true,
+    "openapi_schema": true,
+    "lock_drift_rejected": true,
+    "non_root_runtime": true,
+    "local_env_secrets_absent_from_scoped_sources": true,
+    "compose_config": true,
+    "ci_yaml_and_action_pins": true,
+    "planning_structure_and_local_links": true
+  },
+  "public_check": {
+    "unsafe_configs_rejected": true,
+    "positive_settings_verified": true,
+    "deploy_warning": [
+      "security.W004: real-domain HSTS belongs to S11"
+    ],
+    "public_deployed": false
+  },
+  "red_green": {
+    "initial_backend": "ImportError: config absent before implementation",
+    "initial_frontend": "standalone server absent before implementation",
+    "boundary": "manager newline validation failed, fixed strict anchors; DB had already rejected it",
+    "convergence": "2 protocol code tests failed before handler fix, now pass"
+  },
+  "requirement_evidence": {
+    "FR-001": [
+      "runtime.json",
+      "lock-drift.json",
+      "initial-migration.txt",
+      "smoke.json"
+    ],
+    "FR-002": [
+      "initial-migration.txt",
+      "migration-update.txt",
+      "smoke.json"
+    ],
+    "FR-003": [
+      "backend-tests.txt",
+      "backend/tests/test_accounts.py"
+    ],
+    "FR-004": [
+      "smoke.json",
+      "backend/tests/test_api.py"
+    ],
+    "FR-005": [
+      "backend-tests.txt",
+      "backend/tests/test_api.py",
+      "backend/tests/test_contract.py"
+    ],
+    "FR-006": [
+      "backend/tests/test_api.py",
+      "backend/tests/test_contract.py"
+    ],
+    "FR-007": [
+      "backend/tests/test_security.py",
+      "browser-results.json"
+    ],
+    "FR-008": [
+      "backend/tests/test_settings.py",
+      "runtime.json"
+    ],
+    "FR-009": [
+      "browser-results.json",
+      "smoke.json"
+    ],
+    "FR-010": [
+      "browser-results.json",
+      "foundation-mobile-390.png",
+      "foundation-desktop-1440.png"
+    ],
+    "FR-011": [
+      "backend/tests/test_contract.py",
+      "backend-tests.txt"
+    ],
+    "FR-012": [
+      "backend-quality.txt",
+      "django-checks.txt",
+      "frontend-install.txt",
+      "frontend-build.txt",
+      "lock-drift.json",
+      ".github/workflows/ci.yml"
+    ],
+    "FR-013": [
+      "docs/development.md",
+      "docs/stage2/report.md",
+      "docs/stage2/analysis.md"
+    ],
+    "SC-001": [
+      "runtime.json",
+      "lock-drift.json",
+      "initial-migration.txt"
+    ],
+    "SC-002": [
+      "smoke.json",
+      "backend/tests/test_accounts.py"
+    ],
+    "SC-003": [
+      "smoke.json",
+      "backend/tests/test_api.py",
+      "backend/tests/test_contract.py"
+    ],
+    "SC-004": [
+      "backend/tests/test_security.py",
+      "backend/tests/test_settings.py",
+      "browser-results.json"
+    ],
+    "SC-005": [
+      "browser-results.json",
+      "foundation-mobile-390.png",
+      "foundation-desktop-1440.png"
+    ],
+    "SC-006": [
+      "docs/stage2/analysis.md",
+      "specs/004-platform-foundation/tasks.md"
+    ]
+  },
+  "commands": {
+    "backend": "docker compose --env-file .env -f deploy/compose.yaml run --rm test",
+    "frontend": "npm ci; npm run lint; npm run typecheck; npm run build (cwd frontend)",
+    "browser": "PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/google-chrome npm run test:e2e (cwd frontend)",
+    "smoke": "python3 scripts/foundation_smoke.py",
+    "lock_negative": "python3 scripts/check_lock_drift.py"
+  },
+  "limits": [
+    "GitHub workflow created; no remote run or push",
+    "CDN blocked bundled browser locally; installed Chrome used explicitly",
+    "custom reviewer checklist remains unchecked; no human approval claimed",
+    "OTP, product UI parity, live OpenAI/SMS and full domain not implemented",
+    "S01 manifests are historical snapshots; S02 has a fresh artifact manifest"
+  ],
+  "convergence": {
+    "requirements": 19,
+    "acceptance_scenarios": 12,
+    "plan_decisions": 12,
+    "constitution_principles": 7,
+    "tasks_completed": 22,
+    "remaining_findings": 0,
+    "tasks_added_in_final_pass": 0
+  }
+}

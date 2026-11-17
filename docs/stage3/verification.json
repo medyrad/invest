@@ -1,0 +1,53 @@
+{
+  "mission": "PROGRAMMER-S03-01",
+  "date": "2026-11-17",
+  "status": "ready-for-independent-test",
+  "authorization_scope": "trial identity/session only",
+  "backend": {
+    "passed": 93,
+    "failed": 0,
+    "engine": "PostgreSQL",
+    "evidence": "evidence/backend-tests.txt"
+  },
+  "browser": {
+    "passed": 28,
+    "failed": 0,
+    "widths": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "build": "Next standalone production build",
+    "browser": "151.0.7922.137",
+    "physical_mobile": false,
+    "ui_clock_advanced_for_expiry": true,
+    "server_time_boundaries_separately_tested_on_postgresql": true
+  },
+  "quality_checks_passed": true,
+  "migrations_applied": true,
+  "reference_metric_differences": [],
+  "reference_source_images_preserved": true,
+  "convergence": {
+    "requirements": 11,
+    "success_criteria": 3,
+    "tasks": 13,
+    "remaining_buildable_findings_in_mission": 0,
+    "corrected_tasks": [
+      "T012",
+      "T013"
+    ]
+  },
+  "human_visual_approved": false,
+  "final_s03_accepted": false,
+  "full_product_complete": false,
+  "real_sms_verified": false,
+  "real_sensitive_login_enabled": false,
+  "public_deployed": false,
+  "remote_ci_executed": false,
+  "pushed": false,
+  "next_step_authorized": false,
+  "git_commit_available": false,
+  "reproduction": "../development.md",
+  "artifact_manifest": "evidence/artifact-manifest.json"
+}

@@ -1,0 +1,93 @@
+ Image invest-test Building 
+ Image invest-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.04kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from backend.Dockerfile
+#2 transferring dockerfile: 970B done
+#2 DONE 0.0s
+
+#3 [backend internal] load metadata for public.ecr.aws/docker/library/python:3.14.10-slim-bookworm@sha256:1faf2343e747208b2a36e5f2b5ff908ec3b2d0078a6a7bfe73b535698fe83909
+#3 DONE 0.0s
+
+#4 [backend internal] load .dockerignore
+#4 transferring context: 231B done
+#4 DONE 0.0s
+
+#5 [test builder 1/5] FROM public.ecr.aws/docker/library/python:3.14.10-slim-bookworm@sha256:1faf2343e747208b2a36e5f2b5ff908ec3b2d0078a6a7bfe73b535698fe83909
+#5 resolve public.ecr.aws/docker/library/python:3.14.10-slim-bookworm@sha256:1faf2343e747208b2a36e5f2b5ff908ec3b2d0078a6a7bfe73b535698fe83909 0.0s done
+#5 DONE 0.0s
+
+#6 [backend runtime 3/6] RUN useradd --uid 10001 --create-home invest
+#6 CACHED
+
+#7 [backend builder 4/5] COPY backend/pyproject.toml backend/uv.lock ./
+#7 CACHED
+
+#8 [backend runtime 2/6] WORKDIR /app
+#8 CACHED
+
+#9 [backend builder 5/5] RUN uv sync --locked --no-dev
+#9 CACHED
+
+#10 [backend builder 2/5] RUN pip install --no-cache-dir uv==0.11.32
+#10 CACHED
+
+#11 [backend builder 3/5] WORKDIR /app
+#11 CACHED
+
+#12 [test runtime 4/6] COPY --from=builder /app/.venv /app/.venv
+#12 CACHED
+
+#13 [test test-deps 1/1] RUN uv sync --locked
+#13 CACHED
+
+#14 [backend internal] load build context
+#14 transferring context: 17.72kB done
+#14 ...
+
+#15 [backend runtime 5/6] COPY backend/ ./
+#15 DONE 0.0s
+
+#16 [backend runtime 6/6] COPY contracts/ /contracts/
+#16 DONE 0.0s
+
+#17 [backend] exporting to image
+#17 exporting layers 0.1s done
+#17 exporting manifest sha256:843d06f02f63999b770c65aed8d514ce678961e0f71b3e6bd0e0bfcfd71e332e 0.0s done
+#17 exporting config sha256:eb8fad80aa8864fc7eb00021b024cb8b486cabdb6fc6997ab74432fa2e0791ad 0.0s done
+#17 exporting attestation manifest sha256:28a8702aecb4f81f946cb75eff6b1edb3aeaaf2e53faeae940b3406ae223aeed 0.0s done
+#17 exporting manifest list sha256:543b20fdab76f25c562266cfb9148cbdd88561b76638066d8f20b0abbe72a500
+#17 exporting manifest list sha256:543b20fdab76f25c562266cfb9148cbdd88561b76638066d8f20b0abbe72a500 0.0s done
+#17 naming to docker.io/library/invest-backend:latest done
+#17 unpacking to docker.io/library/invest-backend:latest 0.0s done
+#17 DONE 0.3s
+
+#18 [test test 1/1] COPY --from=test-deps /app/.venv /app/.venv
+#18 DONE 0.4s
+
+#14 [backend internal] load build context
+#14 ...
+
+#19 [backend] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [test] exporting to image
+#20 exporting layers 1.9s done
+#20 exporting manifest sha256:1f873b8d874497e934d2f7faabe0018e48febef2e594d801ae365e7e5ed5652f 0.0s done
+#20 exporting config sha256:7d9e3c27d5b4b80c2645251ddc9a6fc9524d78a381ba734e95c20aa596e5bfaf 0.0s done
+#20 exporting attestation manifest sha256:c45b96741dd387d736b1197b81d7a0b91e60644c7ad2a9c8b2527ff2015dc7fb 0.0s done
+#20 exporting manifest list sha256:549ca8dbb00876fb8f92123ba9ceece5987cde0bf07affb57b83b0a0c25d300b 0.0s done
+#20 naming to docker.io/library/invest-test:latest
+#20 naming to docker.io/library/invest-test:latest done
+#20 unpacking to docker.io/library/invest-test:latest
+#20 unpacking to docker.io/library/invest-test:latest 0.5s done
+#20 DONE 2.5s
+
+#21 [test] resolving provenance for metadata file
+#21 DONE 0.0s
+
+#14 [backend internal] load build context
+ Image invest-backend Built 
+ Image invest-test Built 

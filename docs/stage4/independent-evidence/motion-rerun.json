@@ -1,0 +1,19 @@
+{
+  "cases": [
+    {
+      "name": "mobile-normal-motion-map-cards-do-not-overlap-or-clip",
+      "status": "passed"
+    }
+  ],
+  "details": [
+    {
+      "case": "mobile-motion",
+      "samples": 7,
+      "non_overlapping": true
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 0
+  }
+}

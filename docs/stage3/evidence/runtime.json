@@ -1,0 +1,15 @@
+{
+  "backend": {
+    "python": "3.14.10",
+    "django": "5.2.19",
+    "database_engine": "postgresql",
+    "postgres": "PostgreSQL 17.12 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+    "uid": 10001
+  },
+  "frontend": {
+    "node": "v24.22.3",
+    "uid": 1000,
+    "next": "16.4.6"
+  },
+  "origin": "http://127.0.0.1:3108"
+}

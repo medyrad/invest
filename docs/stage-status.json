@@ -1,0 +1,329 @@
+{
+  "date": "2026-11-17",
+  "current_stage": "S04",
+  "status": "ready-for-independent-test",
+  "implementation_authorized": true,
+  "speckit_initialized": true,
+  "application_implemented": true,
+  "runtime_verified": true,
+  "approved_decisions": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D08",
+    "D14",
+    "D20",
+    "D23",
+    "D24",
+    "D25",
+    "D26",
+    "D27",
+    "D28",
+    "D29"
+  ],
+  "pending_questions": [],
+  "feature_count": 44,
+  "completed": [
+    "Reference archive static inventory and hashes",
+    "Initial business analysis and gap register",
+    "Draft phase roadmap and task packages",
+    "Clarification round 2: expert assignment and contact consent, responsive web, test OTP and public-launch SMS gate",
+    "Clarification round 3: individual and organization owners with one representative, soft budget/location scoring, previously approved public revision retained until replacement approval",
+    "Visual baseline approved: original Sarmayegozin identity and pages, adapted for mobile",
+    "Clarification round 4: compare 2-4 same-kind listings, assistant grounded in platform data with backend scoring and explicit request submission, OpenAI provider selected",
+    "Clarification round 5: case tracking without phone disclosure, manual organizational representation review before publication, limited guest and higher authenticated AI quotas configurable by admin",
+    "Manual draft business specification: six user stories and eighteen functional requirements",
+    "Official SpecKit 1.4.1 Codex skills scaffold and constitution v1.0.0",
+    "Static AST dynamic catalog with reproducible source spans",
+    "46 initial reference screenshots across 23 states and 2 widths",
+    "Draft plan, research, data model, API outline, 73 tasks, test plan and reviewer checklist",
+    "B01 accepted as D25: opportunity and case lifecycle, seven-day closure after final answer, one-business-day first response, operational readiness gate",
+    "B03-C accepted as D26: named-recipient case consent, easy withdrawal and narrowly scoped security/account-recovery exception",
+    "B03-O accepted as D27: private organizational evidence, independent review without self-approval, atomic representative replacement, disputed authority intake hold, independent multi-organization representation",
+    "B02 accepted as D28: versioned source weights, fixed query denominator, separate score and data coverage, no preference-based exclusions, direct results and expert-reviewed fixtures before acceptance",
+    "B04 accepted as D29: exact versioned TOMAN, explicit source/display units and comparable returns, separate deposit/rent, evidence-based charity estimates and inactive form value exclusion",
+    "S01-clarify-and-freeze complete: five accepted answers D25-D29, policies B01-B04 closed, artifacts reconciled, read-only consistency analysis and final arithmetic/structure checks recorded; documentation task T002 complete",
+    "S02 foundation complete: scoped SpecKit cycle, Django/DRF/PostgreSQL custom account and API/CSRF, Next RTL shell and same-origin proxy, locked non-root images, 57 backend + 4 browser tests, database restart/outage recovery, lock drift rejection, CI definition and reproducible guide; baseline T003-T008 complete",
+    "PROGRAMMER-S03-01 trial identity implemented and locally verified: 93 PostgreSQL tests, 28 browser checks at four widths, server OTP/session/revocation/quotas, reference dialog and synthetic audit; ready for independent testing, not final S03 acceptance",
+    "PROGRAMMER-S04-01 home/navigation/server catalog implemented with scoped SpecKit artifacts and local evidence; ready for independent testing, not human or full S04 acceptance"
+  ],
+  "remaining": [
+    "دو اصلاح S04-FIX در TEST-S04-02 قبول فنی و بسته شدند. PROGRAMMER-S04-03 آماده آزمون مستقل است؛ تأیید انسانی S03/طراحی و پذیرش کل S04 باز است؛ S05 و انتشار مجاز نیست.",
+    "Complete per-field/per-rule semantic mappings and schemas before each dependent feature; all by S10",
+    "Stabilize visual state baselines and review mobile/new-panel designs before each UI acceptance",
+    "Validate matching relevance against product-expert reviewed examples before S06 acceptance",
+    "Close B05/B06/B07/B08 at their explicit gates; real OpenAI/SMS and operational acceptance remain unverified"
+  ],
+  "approved_decision_parts": [
+    "D10:owner-types-and-single-representative",
+    "D11:published-edits",
+    "D12:budget-and-location",
+    "D09:visual-baseline",
+    "D07:provider-openai",
+    "D06:without-contact-consent",
+    "D10:representative-verification",
+    "D07:guest-access"
+  ],
+  "integrations": {
+    "openai": {
+      "provider_selected": true,
+      "credential_received": false,
+      "configured": false,
+      "live_connection_verified": false,
+      "model_selected": false
+    }
+  },
+  "business_specification": {
+    "path": "specs/001-business-baseline/spec.md",
+    "status": "policies-agreed-detail-gated",
+    "generated_by_speckit": false,
+    "reviewed_using_speckit_skills": true,
+    "functional_requirements": 30,
+    "user_stories": 6,
+    "success_criteria": 9,
+    "decision_acceptance_scenarios": 92
+  },
+  "speckit": {
+    "version": "1.4.1",
+    "integration": "codex-skills",
+    "constitution_version": "1.0.1",
+    "feature": "007-exact-values",
+    "final_plan_gate_passed": true,
+    "gate_scope": "PROGRAMMER-S04-03 exact values and limited field mappings; no S05 or human/full S04 acceptance"
+  },
+  "reference_audit": {
+    "screenshots": 46,
+    "product_runtime_test": false,
+    "full_visual_state_coverage": false,
+    "dynamic_semantic_coverage_complete": false
+  },
+  "next_step": {
+    "id": "S04-values-independent-test",
+    "description": "آزمون مستقل PROGRAMMER-S04-03؛ مراحل بعد فقط با دستور صریح کاربر",
+    "authorized": false,
+    "scope_path": "docs/stage4/values-report.md",
+    "full_product_implementation_authorized": false
+  },
+  "active_step": {
+    "id": "S04",
+    "mission": "PROGRAMMER-S04-03",
+    "authorization": "مأموریت صریح: مقدار/واحد/تعریف فیلد طبق D29، فقط بخش مشترک؛ بدون S05",
+    "status": "ready-for-independent-test",
+    "implementation_authorized": true,
+    "public_deployment_authorized": false,
+    "feature": "007-exact-values",
+    "human_visual_approved": false,
+    "final_acceptance": false,
+    "report_path": "docs/stage4/values-report.md",
+    "verification_path": "docs/stage4/values-evidence/manifest.json",
+    "full_stage_complete": false
+  },
+  "clarification_step": {
+    "id": "S01-clarify-and-freeze",
+    "authorization": "Latest user message: proceed and help close four business topics with production reasoning",
+    "implementation_authorized": false,
+    "question_limit": 5,
+    "accepted_answers": 5,
+    "prepared": [
+      "P-B01-v1 lifecycle and expert operations",
+      "P-B02-v1 scoring with source weights and unknown coverage",
+      "P-B03-v1 scoped consent and organizational representation",
+      "P-B04-v1 exact units and semantic data policy"
+    ],
+    "proposal_path": "docs/stage1/production-decisions.md",
+    "research_sources": [
+      "Zendesk",
+      "Sharetribe",
+      "Algolia",
+      "Elastic",
+      "Stripe context-dependent verification",
+      "ICO consent pattern (not jurisdictional applicability)",
+      "PostgreSQL exact numeric"
+    ],
+    "checks": {
+      "scoring_states": 729,
+      "non_improvement_when_hiding_known_field": 2916,
+      "source_contexts_reviewed": 20,
+      "product_test": false
+    },
+    "asked_questions": 5,
+    "closed_business_topics": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "approved_packages": [
+      "P-B01-v1",
+      "P-B03-v1/contact",
+      "P-B03-v1/organization",
+      "P-B02-v1",
+      "P-B04-v1"
+    ],
+    "answer_history": [
+      {
+        "id": "Q-B01",
+        "answer": "بستهٔ پیشنهادی را می‌پذیرم",
+        "decision": "D25",
+        "package": "P-B01-v1"
+      },
+      {
+        "id": "Q-B03-C",
+        "answer": "پیشنهاد خودت.",
+        "decision": "D26",
+        "package": "P-B03-v1/contact"
+      },
+      {
+        "id": "Q-B03-O",
+        "answer": "بسته پیشنهادی خودت را ببر جلو.",
+        "decision": "D27",
+        "package": "P-B03-v1/organization"
+      },
+      {
+        "id": "Q-B02",
+        "answer": "بستهٔ P-B02-v1 را می‌پذیرم (پیشنهاد شما)",
+        "decision": "D28",
+        "package": "P-B02-v1"
+      },
+      {
+        "id": "Q-B04",
+        "answer": "بستهٔ P-B04-v1 با واحد پایه تومان را می‌پذیرم (پیشنهاد شما)",
+        "decision": "D29",
+        "package": "P-B04-v1"
+      }
+    ],
+    "closed_business_parts": [
+      "B03-C",
+      "B03-O"
+    ],
+    "status": "complete",
+    "report_path": "docs/stage1/clarification-report.md",
+    "analysis_path": "docs/stage1/clarification-analysis.md",
+    "completed_documentation_tasks": [
+      "T002"
+    ],
+    "analysis_findings": {
+      "critical": 0,
+      "high": 5,
+      "medium": 2,
+      "low": 1,
+      "full_product_gate_passed": false
+    }
+  },
+  "foundation": {
+    "status": "complete",
+    "feature": "004-platform-foundation",
+    "runtime_verified": true,
+    "tasks_completed": 22,
+    "backend_tests_passed": 57,
+    "browser_tests_passed": 4,
+    "report_path": "docs/stage2/report.md",
+    "analysis_path": "docs/stage2/analysis.md",
+    "verification_path": "docs/stage2/verification.json",
+    "full_product_complete": false,
+    "remote_ci_executed": false,
+    "public_deployed": false
+  },
+  "application_implementation_scope": "S02 foundation, S03 trial identity and PROGRAMMER-S04-01 home/navigation/catalog only; full product incomplete",
+  "identity": {
+    "mission": "PROGRAMMER-S03-01",
+    "status": "ready-for-independent-test",
+    "feature": "005-identity-session",
+    "backend_tests_passed": 93,
+    "browser_tests_passed": 28,
+    "human_visual_approved": false,
+    "final_acceptance": false,
+    "real_mobile_verification": false,
+    "sensitive_real_login_enabled": false,
+    "real_sms_verified": false,
+    "public_deployed": false,
+    "report_path": "docs/stage3/report.md",
+    "verification_path": "docs/stage3/verification.json",
+    "trial_parameters_source": "Explicit user mission PROGRAMMER-S03-01",
+    "fixes": {
+      "mission": "PROGRAMMER-S03-02",
+      "status": "ready-for-independent-retest",
+      "report_path": "docs/stage3/fix-report.md",
+      "version_path": "docs/stage3/fix-evidence/version.json",
+      "standard_browser_passed": 37,
+      "independent_backend_passed": 31,
+      "independent_browser_passed": 11,
+      "independent_browser_old_selector_blocked": 1,
+      "independent_boundaries_passed": 4,
+      "final_acceptance": false,
+      "human_visual_approved": false,
+      "independent_retest": {
+        "mission": "TEST-S03-03",
+        "status": "technical-pass",
+        "report_path": "docs/stage3/retest-report.md",
+        "human_visual_approved": false,
+        "final_stage_acceptance": false
+      }
+    }
+  },
+  "home_catalog": {
+    "mission": "PROGRAMMER-S04-01",
+    "feature": "006-home-catalog",
+    "status": "آماده آزمون مستقل PROGRAMMER-S04-01",
+    "backend_tests_passed": 97,
+    "browser_tests_passed": 59,
+    "groups": 11,
+    "subtypes": 78,
+    "provinces": 31,
+    "counties": 478,
+    "source_city_links": 22,
+    "development_preview_listings": 273,
+    "human_visual_approved": false,
+    "full_s04_complete": false,
+    "public_deployed": false,
+    "report_path": "docs/stage4/report.md",
+    "manifest_path": "docs/stage4/evidence/manifest.json",
+    "version": "S04-f811d439b069",
+    "fixes": {
+      "mission": "PROGRAMMER-S04-02",
+      "status": "technical-pass",
+      "issues": [
+        "S04-IT-001",
+        "S04-IT-002"
+      ],
+      "version": "S04-FIX-5d2794c593b5",
+      "targeted_browser_passed": 8,
+      "report_path": "docs/stage4/fix-report.md",
+      "version_path": "docs/stage4/fix-evidence/version.json",
+      "human_visual_approved": false,
+      "full_s04_complete": false,
+      "independent_retest": {
+        "mission": "TEST-S04-02",
+        "status": "technical-pass",
+        "issues_closed": [
+          "S04-IT-001",
+          "S04-IT-002"
+        ],
+        "report_path": "docs/stage4/retest-report.md",
+        "human_visual_approved": false,
+        "full_s04_complete": false
+      }
+    }
+  },
+  "exact_values": {
+    "mission": "PROGRAMMER-S04-03",
+    "feature": "007-exact-values",
+    "status": "آماده آزمون مستقل",
+    "related_tests_passed": 106,
+    "field_definitions": 8,
+    "unit_definitions": 11,
+    "frontend_changed": false,
+    "opportunity_forms_implemented": false,
+    "hidden_field_forms_accepted": false,
+    "baseline_tasks_fully_completed": false,
+    "report_path": "docs/stage4/values-report.md",
+    "manifest_path": "docs/stage4/values-evidence/manifest.json",
+    "human_visual_approved": false,
+    "full_s04_complete": false,
+    "public_deployed": false,
+    "version": "S04-VALUES-41a4dee62c26"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "historical_version": "pre-fix independent capture",
+  "target_version": "S03-FIX-5f377655f1f5",
+  "before_size": [
+    960,
+    578
+  ],
+  "after_size": [
+    960,
+    578
+  ],
+  "regions": {
+    "upper_form_excluding_privacy": {
+      "bounds": [
+        0,
+        0,
+        560,
+        470
+      ],
+      "different_fraction": 0.00011398176291793312,
+      "over_16_fraction": 3.7993920972644378e-06,
+      "mean_channel_difference": 0.0002494934143870314
+    },
+    "visual_column": {
+      "bounds": [
+        560,
+        0,
+        960,
+        578
+      ],
+      "different_fraction": 0.0,
+      "over_16_fraction": 0.0,
+      "mean_channel_difference": 0.0
+    }
+  }
+}

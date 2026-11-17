@@ -1,0 +1,29 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-add414cf2761 Creating 
+ Container invest-test-run-add414cf2761 Created 
+E501 Line too long (105 > 100)
+   --> apps/catalog/migrations/0003_value_definitions.py:167:101
+    |
+165 |     IF NOT FOUND THEN RETURN NEW; END IF;
+166 |     IF d.kind <> TG_ARGV[0] OR u.kind <> d.kind
+167 |        OR NOT d.allowed_units @> jsonb_build_array(jsonb_build_object('code',u.code,'version',u.version))
+    |                                                                                                     ^^^^^
+168 |        OR NEW.base_unit <> u.base_code OR NEW.base_version <> u.base_version
+169 |        OR NEW.conversion_factor <> u.factor
+    |
+
+E501 Line too long (128 > 100)
+   --> tests/test_values.py:354:101
+    |
+352 |     with connection.cursor() as cursor:
+353 |         cursor.execute(
+354 |             "SELECT numeric_scale FROM information_schema.columns WHERE table_name='catalog_moneyvalue' AND column_name='value'"
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+355 |         )
+356 |         assert cursor.fetchone()[0] is None  # numeric without typmod, not a rounding column.
+    |
+
+Found 2 errors.
+

@@ -1,0 +1,12 @@
+all-sections-navigation-and-layout-360 passed
+all-sections-navigation-and-layout-390 passed
+all-sections-navigation-and-layout-768 failed
+all-sections-navigation-and-layout-1440 passed
+all-live-links-direct-refresh-and-no-fake-success passed
+selectors-touch-keyboard-parent-clear-and-rapid-changes passed
+API-is-only-source-and-long-text-is-readable passed
+API-cut-delay-empty-and-retry-with-no-hidden-fallback passed
+public-real-API-and-rendered-home-contain-no-synthetic-items passed
+sample-labels-score-not-calculated-and-contact-hidden passed
+normal-motion-versus-reduced-motion-browser-errors passed
+{"passed":10,"failed":1}

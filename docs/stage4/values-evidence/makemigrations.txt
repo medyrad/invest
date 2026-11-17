@@ -1,0 +1,15 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-051ce9e43f9d Creating 
+ Container invest-test-run-051ce9e43f9d Created 
+Migrations for 'catalog':
+  apps/catalog/migrations/0002_exact_values.py
+    + Create model UnitDefinition
+    + Create model FieldDefinition
+    + Create model ReturnMetric
+    + Create model Quantity
+    + Create model MoneyValue
+    + Create constraint catalog_field_version_unique on model fielddefinition
+    + Create constraint catalog_field_limits on model fielddefinition
+    + Create constraint catalog_field_range on model fielddefinition

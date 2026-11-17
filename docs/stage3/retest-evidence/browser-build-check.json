@@ -1,0 +1,22 @@
+{
+  "browser_build_id": "NIgDNnYoKvyp0_OO0tKjC",
+  "bundle_comparisons": [
+    {
+      "path": "chunks/22z7mnh-qy4_q.js",
+      "local_sha256": "038a2ea1e1032ecd891fce1fa725b1d327179335bdbf0c18234efe459cfe968a",
+      "runtime_sha256": "038a2ea1e1032ecd891fce1fa725b1d327179335bdbf0c18234efe459cfe968a",
+      "match": true
+    }
+  ],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [
+      {
+        "source": "/api/v1/:path*",
+        "destination": "http://127.0.0.1:8008/api/v1/:path*",
+        "regex": "^/api/v1(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+      }
+    ],
+    "fallback": []
+  }
+}

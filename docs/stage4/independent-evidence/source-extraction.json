@@ -1,0 +1,10 @@
+{
+  "archive_sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b",
+  "counts": {
+    "groups": 11,
+    "subtypes": 78,
+    "provinces": 31,
+    "counties": 478,
+    "city_links": 22
+  }
+}

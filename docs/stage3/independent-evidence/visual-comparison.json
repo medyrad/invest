@@ -1,0 +1,26 @@
+{
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "human_approved": false,
+  "scope": "Fresh same-browser dialog crops; complete S04 background excluded; empty mobile step, first office image, fonts ready, reduced motion",
+  "cases": [
+    {
+      "name": "reference",
+      "dimensions": {
+        "width": 960,
+        "height": 578,
+        "font": "Vazirmatn, system-ui, sans-serif"
+      }
+    },
+    {
+      "name": "invest",
+      "dimensions": {
+        "width": 960,
+        "height": 578,
+        "font": "Vazirmatn, system-ui, sans-serif"
+      }
+    }
+  ]
+}

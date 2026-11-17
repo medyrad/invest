@@ -1,0 +1,2 @@
+all-sections-navigation-and-layout-768 passed
+{"passed":1,"failed":0}

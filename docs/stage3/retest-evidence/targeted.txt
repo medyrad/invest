@@ -1,0 +1,12 @@
+IT002-cross-tab-clearing-device-independence-and-secret-free-signals passed
+IT002-late-authenticated-me-does-not-resurrect-identity passed
+IT002-focus-visibility-pageshow-history-and-idle passed
+IT002-spoofed-channel-message-cannot-grant-identity passed
+IT003-copy-layout-controls-360 passed
+IT003-copy-layout-controls-390 passed
+IT003-copy-layout-controls-768 passed
+IT003-copy-layout-controls-1440 passed
+affected-login-reload-logout-old-cookie-and-validation-errors passed
+Waiting on real resend control (60-second boundary)
+IT001-recover-accepted-resend-payload-challenge-TTL-quota-and-login failed
+{"passed":9,"failed":1}

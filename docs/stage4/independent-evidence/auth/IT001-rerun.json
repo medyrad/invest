@@ -1,0 +1,16 @@
+{
+  "version": "S04-f811d439b069",
+  "cases": [
+    {
+      "name": "affected-login-reload-logout-old-cookie-and-validation-errors",
+      "status": "passed"
+    }
+  ],
+  "observations": [],
+  "human_design_approved": false,
+  "browser": "151.0.7922.137",
+  "summary": {
+    "passed": 1,
+    "failed": 0
+  }
+}

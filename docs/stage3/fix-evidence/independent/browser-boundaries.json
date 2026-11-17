@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "name": "privacy-copy-compatible-with-D26",
+      "status": "passed"
+    },
+    {
+      "name": "refresh-reopens-fresh-flow-without-storing-secrets",
+      "status": "passed"
+    },
+    {
+      "name": "five-wrong-codes-then-correct-code-refused-through-ui",
+      "status": "passed"
+    },
+    {
+      "name": "actual-120-second-server-expiry-and-mobile-controls",
+      "status": "passed"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0
+  }
+}

@@ -1,0 +1,2 @@
+affected-login-reload-logout-old-cookie-and-validation-errors passed
+{"passed":1,"failed":0}

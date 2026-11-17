@@ -1,0 +1,17 @@
+{
+  "version": "S03-FIX-5f377655f1f5",
+  "cases": [
+    {
+      "name": "IT001-recover-accepted-resend-payload-challenge-TTL-quota-and-login",
+      "status": "failed",
+      "error": "Expected values to be strictly equal:\n\n3 !== 1\n"
+    }
+  ],
+  "observations": [],
+  "human_design_approved": false,
+  "browser": "151.0.7922.137",
+  "summary": {
+    "passed": 0,
+    "failed": 1
+  }
+}

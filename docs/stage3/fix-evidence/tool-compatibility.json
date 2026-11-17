@@ -1,0 +1,16 @@
+{
+  "mission": "PROGRAMMER-S03-02",
+  "kind": "unchanged-independent-test-selector-incompatible-with-explicit-recovery-label",
+  "independent_case": "resend-lost-response-keeps-idempotency-key",
+  "unchanged_test_sha256": "852a4a9c16b4caea9f4aa6c96cff91dad9472090e05afe15d18f0c4065f5881d",
+  "actual_tool_error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'دریافت کد تازه', exact: true })\u001b[22m\n",
+  "requested_old_control": "دریافت کد تازه",
+  "recovery_control": "تلاش دوباره برای دریافت نتیجه",
+  "functional_evidence": "regressions.json: lost accepted resend recovers its key, challenge, TTL and quota; passed at 360/390/768/1440",
+  "independent_result": {
+    "passed": 11,
+    "failed": 1
+  },
+  "independent_test_modified": false,
+  "treated_as_passing": false
+}

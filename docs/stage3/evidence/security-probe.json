@@ -1,0 +1,11 @@
+{
+  "journey_on_local_delivery": true,
+  "no_store": true,
+  "no_otp_flow_or_cookie_in_service_logs": true,
+  "hashed_storage_and_minimal_audit": true,
+  "trial_does_not_verify_mobile": true,
+  "logout_invalidates_session": true,
+  "private_configuration_not_in_public_assets_documents_or_tests": true,
+  "scanned_files": 238,
+  "scope": "local synthetic data only; public-mode policy covered separately by backend tests"
+}

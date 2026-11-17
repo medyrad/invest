@@ -1,0 +1,2 @@
+[invest-backend:latest] sha256:6ae9137490d77c617eaddc2dd013835036e27d8d4bb6f7ff422934e5d799b05d user=invest
+[invest-web:latest] sha256:0197aa3c9099bc704a7bfd6720e1a2efb080a7f52f43ce8d13907784ee168039 user=node

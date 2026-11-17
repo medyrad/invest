@@ -1,0 +1,37 @@
+{
+  "origin": "http://127.0.0.1:3108",
+  "health": {
+    "status": "ok"
+  },
+  "catalog_version": "advisor-classification-v1",
+  "preview_version": "advisor-preview-v1",
+  "counts": {
+    "groups": 11,
+    "subtypes": 78,
+    "provinces": 31,
+    "counties": 478,
+    "cities": 22,
+    "preview_listings": 273
+  },
+  "images": [
+    {
+      "service": "backend",
+      "container_id": "d24ef2195c802a9be7b0593abd0cc993489667ef670262a96076c893692bfad0",
+      "image_id": "sha256:79d489a93967a5bd1abc96accb5e2b3252a9e1e66beceea72f298ec82cd30c46",
+      "running": true
+    },
+    {
+      "service": "web",
+      "container_id": "64b2363dfa606ab7c7ccfd6ab88a436fe994319d30f6c72590cc3840feee772d",
+      "image_id": "sha256:29f52e4a8cea2a4ab2a79053180dd0d000571f879bcd094469773b8965caf11d",
+      "running": true
+    },
+    {
+      "service": "db",
+      "container_id": "868b4910c4d463c6083eba77dd98a1a1e53faccce7eaf782d99f7e8a6efff960",
+      "image_id": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+      "running": true
+    }
+  ],
+  "public_deployed": false
+}

@@ -1,0 +1,45 @@
+{
+  "mission": "TEST-S04-02",
+  "files": [
+    {
+      "path": "docs/stage4/retest-evidence/browser.json",
+      "sha256": "dc02290230e34ae067995233a9fa6e2384d52e050227913697f5434bbfe99bc0"
+    },
+    {
+      "path": "docs/stage4/retest-evidence/browser.txt",
+      "sha256": "9e108195f45c6375d79221d7d92b39032e9bb4a1d3c50dd68bdb31720de57e9a"
+    },
+    {
+      "path": "docs/stage4/retest-evidence/city-1440.png",
+      "sha256": "1f63503c6e6244352010e32c9d00385479898bd4505b43f84797cd58f57595c0"
+    },
+    {
+      "path": "docs/stage4/retest-evidence/city-360.png",
+      "sha256": "9c2b34347dae95f224dd344694886e09dfcfff28bbdf18a84948ccba86114017"
+    },
+    {
+      "path": "docs/stage4/retest-evidence/favicon.json",
+      "sha256": "32fbc55fed9a1be15061d220a038991e30f6c815377b0bae471d5affa39d0451"
+    },
+    {
+      "path": "docs/stage4/retest-evidence/preservation-before.json",
+      "sha256": "86ad4008c47609755583c993e5084c3cdbd944865936f531b8faacc5aff9a7a7"
+    },
+    {
+      "path": "docs/stage4/retest-evidence/preservation.json",
+      "sha256": "8a8848bff5a3d85362450328950d70dfdbbfa5b7c04a4215fd4a50737a180f83"
+    },
+    {
+      "path": "docs/stage4/retest-evidence/version-check.json",
+      "sha256": "0feefbcc907e8c8f0447e63041c3f328d51b7c800e1171de542490fe0e0c82e7"
+    },
+    {
+      "path": "docs/stage4/retest-report.md",
+      "sha256": "cc5a98f01979aaf9882b5458061c3b3c62970c86e59beb20db14bba88f52730b"
+    },
+    {
+      "path": "docs/stage4/retest-tests/limited.cjs",
+      "sha256": "3bfcd183b7fb1bc3ebe015834c9a7f8c8f161b159916788094981d3cbaa4d97a"
+    }
+  ]
+}

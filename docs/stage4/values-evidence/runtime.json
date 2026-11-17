@@ -1,0 +1,108 @@
+{
+  "health": {
+    "status": "ok"
+  },
+  "definitions": {
+    "units": 11,
+    "fields": 8,
+    "version": "invest-values-v1"
+  },
+  "normalization": {
+    "contract_version": 1,
+    "kind": "money",
+    "field": {
+      "namespace": "invest.opportunity.project",
+      "key": "min_capital",
+      "version": 1
+    },
+    "unit": {
+      "code": "BILLION_TOMAN",
+      "version": 1
+    },
+    "status": "known",
+    "source_value": "1.5",
+    "value": "1500000000",
+    "base_unit": "TOMAN",
+    "base_version": 1,
+    "conversion_factor": "1000000000",
+    "basis": null
+  },
+  "old_table_counts_unchanged": true,
+  "new_tables": {
+    "catalog_fielddefinition": 8,
+    "catalog_moneyvalue": 0,
+    "catalog_quantity": 0,
+    "catalog_returnmetric": 0,
+    "catalog_unitdefinition": 11
+  },
+  "images": {
+    "backend": {
+      "container_id": "1b2ca6cc8f1b69185a4ba5641fd61c48e74a8b8a70f7902b926bb1a1b8c3ec07",
+      "image_id": "sha256:543b20fdab76f25c562266cfb9148cbdd88561b76638066d8f20b0abbe72a500"
+    },
+    "web": {
+      "container_id": "935618bfe99b041ad880a79901e48c057a17af01a13efd3bf9ca1512c20a73ae",
+      "image_id": "sha256:a92a2333384102eb916d1cb056145b81177a42b700e6de5094ae799acd85d8a5"
+    },
+    "db": {
+      "container_id": "868b4910c4d463c6083eba77dd98a1a1e53faccce7eaf782d99f7e8a6efff960",
+      "image_id": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2"
+    }
+  },
+  "web_image_unchanged": true,
+  "database_container_unchanged": true,
+  "home_http_status": 200,
+  "home_html_sha256": "98f8b906c2905e107c53da62aed552922ea05780cc90b85c8d66a6d92adb26ef",
+  "real_sms_or_otp_executed": false,
+  "normalizations": [
+    {
+      "contract_version": 1,
+      "kind": "money",
+      "field": {
+        "namespace": "invest.opportunity.project",
+        "key": "min_capital",
+        "version": 1
+      },
+      "unit": {
+        "code": "BILLION_TOMAN",
+        "version": 1
+      },
+      "status": "known",
+      "source_value": "1.5",
+      "value": "1500000000",
+      "base_unit": "TOMAN",
+      "base_version": 1,
+      "conversion_factor": "1000000000",
+      "basis": null
+    },
+    {
+      "contract_version": 1,
+      "kind": "money",
+      "field": {
+        "namespace": "invest.opportunity.project",
+        "key": "min_capital",
+        "version": 1
+      },
+      "unit": {
+        "code": "MILLION_TOMAN",
+        "version": 1
+      },
+      "status": "known",
+      "source_value": "1500",
+      "value": "1500000000",
+      "base_unit": "TOMAN",
+      "base_version": 1,
+      "conversion_factor": "1000000",
+      "basis": null
+    }
+  ],
+  "test_image_id": "sha256:549ca8dbb00876fb8f92123ba9ceece5987cde0bf07affb57b83b0a0c25d300b",
+  "executed_source_sha256": {
+    "apps/catalog/models.py": "b9ddd45329f5dd6188fb79aa6a436d4d3894e3cc78b4d51550e95ceb8eb3bbc5",
+    "apps/catalog/values.py": "fb478e22cd446afc76d3c8ad1e9d8114463147b6e39974e71a9f32c84473349e",
+    "apps/catalog/decimal_field.py": "400e2cbb59da1e4ac24e067132982de0a323cde63d844510365ee080c60c3b8e",
+    "apps/catalog/schemas.py": "bcafdbed81c68441f5acfed4df9b57251921424b2369e0e49ccdffe3937ac316",
+    "apps/catalog/api.py": "d1b394b603cf317d25ecc81032dd2c8ac0664e8cc3ab4ebe831069a172d0c753",
+    "config/urls.py": "cb30a5b7581a2f610320254cdc2a1a1b031712ad9e715165b9731e4045bd479a"
+  }
+}

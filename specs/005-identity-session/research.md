@@ -1,0 +1,3 @@
+# بررسی فنی ۲۰۲۶/۱۱/۱۷
+
+نسخه‌های قفل‌شده S02 حفظ شدند؛ وابستگی اضافه نشده است. [Django5.2 sessions](https://docs.djangoproject.com/en/5.2/topics/http/sessions/) ذخیره سروری و cookie شناسه را توضیح می‌دهد؛ برای سقف مستقل و ابطال epoch، AuthSession مجزا استفاده می‌شود. [PostgreSQL17 locking](https://www.postgresql.org/docs/17/explicit-locking.html) advisory transaction lock را برای ترتیب‌سازی عملیات برنامه فراهم می‌کند؛ تراکنش تنها بدون قفل کافی نیست. [Next rewrites](https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites) رفتار proxy هم‌مبدأ را تأیید می‌کند. انتخاب روش واقعی حساس و SMS به این اسناد نسبت داده نمی‌شود و گیت مستقل باقی است.

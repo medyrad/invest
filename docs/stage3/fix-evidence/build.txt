@@ -1,0 +1,23 @@
+
+> invest-frontend@0.1.0 build
+> next build && node scripts/prepare-standalone.mjs
+
+▲ Next.js 16.4.6 (Turbopack)
+✓ Running next.config.ts took 16ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 81ms
+  Running TypeScript ...
+  Finished TypeScript in 737ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 165ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+

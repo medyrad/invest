@@ -1,0 +1,866 @@
+[
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-route"
+    },
+    "line": 152
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-province"
+    },
+    "line": 152
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "ext-city",
+      "type": "text",
+      "placeholder": "همه شهرها",
+      "maxlength": "80"
+    },
+    "line": 152
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "ext-query",
+      "type": "search",
+      "placeholder": "مثلاً مسکونی، خانه تاریخی یا SALE",
+      "maxlength": "120"
+    },
+    "line": 152
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-sector"
+    },
+    "line": 152
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-sale-category"
+    },
+    "line": 152
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-order"
+    },
+    "line": 152
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "ext-p-title",
+      "type": "text",
+      "maxlength": "150",
+      "placeholder": "عنوان کوتاه و بدون اطلاعات محرمانه"
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-sector",
+      "required": null
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-type",
+      "required": null
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-province",
+      "required": null
+    },
+    "line": 153
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "ext-p-city",
+      "type": "text",
+      "maxlength": "80",
+      "required": null
+    },
+    "line": 153
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "ext-p-neighborhood",
+      "type": "text",
+      "maxlength": "100"
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-stage",
+      "required": null
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-need",
+      "required": null
+    },
+    "line": 153
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "ext-p-gap",
+      "type": "text",
+      "inputmode": "decimal",
+      "placeholder": "اگر مشخص نیست، خالی بگذارید",
+      "maxlength": "18"
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-land"
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-permit"
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-revenue"
+    },
+    "line": 153
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "ext-p-progress",
+      "type": "text",
+      "inputmode": "decimal",
+      "placeholder": "اختیاری، بین صفر و ۱۰۰",
+      "maxlength": "6"
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-utilities"
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "ext-p-operator"
+    },
+    "line": 153
+  },
+  {
+    "tag": "textarea",
+    "attributes": {
+      "id": "ext-p-description",
+      "maxlength": "1000",
+      "placeholder": "از درج اطلاعات شخصی یا اسناد محرمانه خودداری کنید."
+    },
+    "line": 153
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "lp-role"
+    },
+    "line": 158
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lp-type",
+      "type": "hidden"
+    },
+    "line": 158
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "lp-province"
+    },
+    "line": 158
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lp-city",
+      "type": "text",
+      "maxlength": "80",
+      "placeholder": "همه شهرها"
+    },
+    "line": 158
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lp-neighborhood",
+      "type": "text",
+      "maxlength": "100"
+    },
+    "line": 158
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lp-area",
+      "type": "text",
+      "inputmode": "decimal",
+      "maxlength": "18",
+      "placeholder": "اگر نامشخص است، خالی بگذارید"
+    },
+    "line": 158
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lp-keyword",
+      "type": "text",
+      "maxlength": "150",
+      "placeholder": "عنوان طرح یا ویژگی مهم زمین"
+    },
+    "line": 158
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lp-budget",
+      "type": "text",
+      "inputmode": "decimal",
+      "maxlength": "18",
+      "placeholder": "اختیاری"
+    },
+    "line": 159
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lp-months",
+      "type": "text",
+      "inputmode": "numeric",
+      "maxlength": "5",
+      "placeholder": "اختیاری"
+    },
+    "line": 159
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-sector"
+    },
+    "line": 175
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-type"
+    },
+    "line": 175
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-province"
+    },
+    "line": 176
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "fi-city",
+      "type": "text",
+      "maxlength": "100"
+    },
+    "line": 176
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "fi-project",
+      "type": "text",
+      "maxlength": "200"
+    },
+    "line": 177
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-applicant"
+    },
+    "line": 180
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "fi-country",
+      "type": "text",
+      "maxlength": "80",
+      "placeholder": "نام کشور، در صورت نامشخص بودن خالی بگذارید"
+    },
+    "line": 181
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "fi-amount",
+      "class": "fi-number",
+      "type": "text",
+      "inputmode": "decimal",
+      "maxlength": "20",
+      "placeholder": "مثلاً ۲۵۰۰۰۰۰"
+    },
+    "line": 182
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-currency"
+    },
+    "line": 183
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "checkbox",
+      "name": "fi-contribution",
+      "value": "cash"
+    },
+    "line": 184
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "checkbox",
+      "name": "fi-contribution",
+      "value": "equipment"
+    },
+    "line": 184
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "checkbox",
+      "name": "fi-contribution",
+      "value": "technology"
+    },
+    "line": 184
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "checkbox",
+      "name": "fi-contribution",
+      "value": "services"
+    },
+    "line": 184
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "checkbox",
+      "name": "fi-contribution",
+      "value": "credit"
+    },
+    "line": 184
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-source-kind"
+    },
+    "line": 188
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-contract-form"
+    },
+    "line": 189
+  },
+  {
+    "tag": "textarea",
+    "attributes": {
+      "id": "fi-impact",
+      "maxlength": "1000",
+      "placeholder": "مسئله فعلی، گروه بهره‌مند و نتیجه قابل سنجش را کوتاه بنویسید، اگر مطالعه نشده، مشخص کنید."
+    },
+    "line": 190
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-insurance"
+    },
+    "line": 193
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-risk-cover"
+    },
+    "line": 194
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "checkbox",
+      "id": "fi-blended"
+    },
+    "line": 195
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-revenue"
+    },
+    "line": 198
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-rights"
+    },
+    "line": 199
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-license"
+    },
+    "line": 200
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-permit"
+    },
+    "line": 201
+  },
+  {
+    "tag": "textarea",
+    "attributes": {
+      "id": "fi-notes",
+      "maxlength": "1200",
+      "placeholder": "مثلاً نوع ارز دیگر، شریک ایرانی، منبع درآمد یا محدودیت مهم"
+    },
+    "line": 202
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "fi-source-filter"
+    },
+    "line": 208
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "idea-title",
+      "required": null,
+      "maxlength": "160",
+      "placeholder": "مثلاً مجموعه تفریحی و شهربازی خانوادگی"
+    },
+    "line": 229
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "idea-sector",
+      "required": null
+    },
+    "line": 230
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "idea-stage",
+      "required": null
+    },
+    "line": 231
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "idea-province"
+    },
+    "line": 232
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "idea-city",
+      "maxlength": "100",
+      "placeholder": "محل پیشنهادی یا بدون محدودیت"
+    },
+    "line": 232
+  },
+  {
+    "tag": "textarea",
+    "attributes": {
+      "id": "idea-description",
+      "required": null,
+      "rows": "4",
+      "maxlength": "3000",
+      "placeholder": "چه چیزی می‌سازید، برای چه کسانی و چه نیازی را پاسخ می‌دهید؟"
+    },
+    "line": 233
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "idea-need",
+      "required": null
+    },
+    "line": 234
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "idea-capital",
+      "type": "text",
+      "inputmode": "decimal",
+      "maxlength": "22",
+      "placeholder": "اگر هنوز برآورد نشده، خالی بگذارید"
+    },
+    "line": 235
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "idea-files",
+      "type": "file",
+      "multiple": null,
+      "accept": ".pdf,.docx,.pptx,.xlsx,.png,.jpg,.jpeg,.webp,.zip",
+      "aria-label": "انتخاب فایل‌های پیوست ایده"
+    },
+    "line": 236
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "radio",
+      "name": "role",
+      "value": "investor",
+      "checked": null
+    },
+    "line": 242
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "radio",
+      "name": "role",
+      "value": "contractor"
+    },
+    "line": 242
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "radio",
+      "name": "role",
+      "value": "buyer"
+    },
+    "line": 242
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "radio",
+      "name": "role",
+      "value": "lessee"
+    },
+    "line": 242
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "radio",
+      "name": "role",
+      "value": "fund"
+    },
+    "line": 242
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "radio",
+      "name": "role",
+      "value": "heritage"
+    },
+    "line": 242
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "type": "radio",
+      "name": "role",
+      "value": "charity"
+    },
+    "line": 242
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "sector"
+    },
+    "line": 243
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "subtype",
+      "disabled": null
+    },
+    "line": 243
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "province"
+    },
+    "line": 243
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "city",
+      "disabled": null
+    },
+    "line": 243
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "neighborhood",
+      "type": "text",
+      "maxlength": "120",
+      "placeholder": "اختیاری، مثلاً نام محله"
+    },
+    "line": 243
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "usage"
+    },
+    "line": 243
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "common-keyword",
+      "type": "text",
+      "maxlength": "160",
+      "placeholder": "اختیاری، بخشی از عنوان یا شرح پروژه"
+    },
+    "line": 243
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "area-min",
+      "type": "number",
+      "min": "0",
+      "step": "1",
+      "placeholder": "بدون محدودیت"
+    },
+    "line": 243
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "area-max",
+      "type": "number",
+      "min": "0",
+      "step": "1",
+      "placeholder": "بدون محدودیت"
+    },
+    "line": 243
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "strict-location",
+      "type": "checkbox",
+      "checked": null
+    },
+    "line": 243
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "capital",
+      "type": "number",
+      "min": "0.1",
+      "step": "0.1",
+      "value": "30",
+      "inputmode": "decimal"
+    },
+    "line": 251
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "horizon",
+      "type": "number",
+      "min": "0.1",
+      "max": "50",
+      "step": "0.5",
+      "value": "8"
+    },
+    "line": 251
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lockup",
+      "type": "number",
+      "min": "0",
+      "max": "600",
+      "step": "1",
+      "value": "60"
+    },
+    "line": 251
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "income"
+    },
+    "line": 251
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "name": "risk",
+      "type": "radio",
+      "value": "low"
+    },
+    "line": 251
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "name": "risk",
+      "type": "radio",
+      "value": "medium",
+      "checked": null
+    },
+    "line": 251
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "name": "risk",
+      "type": "radio",
+      "value": "high"
+    },
+    "line": 251
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lease-deposit",
+      "type": "number",
+      "min": "0",
+      "step": "0.1",
+      "value": "5"
+    },
+    "line": 252
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lease-rent",
+      "type": "number",
+      "min": "0",
+      "step": "1",
+      "value": "150"
+    },
+    "line": 252
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "lease-years",
+      "type": "number",
+      "min": "0.1",
+      "max": "50",
+      "step": "0.5",
+      "value": "3"
+    },
+    "line": 252
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "experience"
+    },
+    "line": 252
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "building-funding"
+    },
+    "line": 253
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "building-first-income",
+      "type": "number",
+      "min": "0",
+      "max": "600",
+      "step": "1",
+      "value": "36"
+    },
+    "line": 253
+  },
+  {
+    "tag": "input",
+    "attributes": {
+      "id": "show-excluded",
+      "type": "checkbox"
+    },
+    "line": 256
+  },
+  {
+    "tag": "select",
+    "attributes": {
+      "id": "sort"
+    },
+    "line": 256
+  }
+]

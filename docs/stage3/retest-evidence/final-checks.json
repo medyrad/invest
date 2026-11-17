@@ -1,0 +1,14 @@
+{
+  "main_ready": 200,
+  "temporary_3109_listening": false,
+  "test_script_syntax": [
+    {
+      "path": "docs/stage3/retest-tests/targeted.cjs",
+      "syntax_passed": true
+    },
+    {
+      "path": "docs/stage3/retest-tests/browser-independent.cjs",
+      "syntax_passed": true
+    }
+  ]
+}

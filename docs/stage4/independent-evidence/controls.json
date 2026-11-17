@@ -1,0 +1,40 @@
+{
+  "cases": [
+    {
+      "name": "all-eleven-groups-last-subtype-and-three-route-controls",
+      "status": "passed"
+    },
+    {
+      "name": "all-six-help-answers-keyboard-and-revealed-links",
+      "status": "passed"
+    }
+  ],
+  "observations": [
+    {
+      "case": "groups",
+      "groups": 11,
+      "boundary_subtypes": 11,
+      "route_controls": 3
+    },
+    {
+      "case": "help",
+      "answers": 6,
+      "links": [
+        "/tools/library",
+        "/tools/proposal",
+        "/tools/ideas",
+        "/tools/foreign-investment",
+        "/tools/land-preparation",
+        "/tools/ma-renewal",
+        "/tools/ma-exchange",
+        "/tools/ma-manager",
+        "/tools/ma-notice",
+        "/tools/charity"
+      ]
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 0
+  }
+}

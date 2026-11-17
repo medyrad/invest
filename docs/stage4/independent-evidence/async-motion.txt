@@ -1,0 +1,3 @@
+delayed-old-catalog-response-cannot-replace-new-selection passed
+mobile-normal-motion-map-cards-do-not-overlap-or-clip failed
+{"passed":1,"failed":1}

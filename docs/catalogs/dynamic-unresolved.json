@@ -1,0 +1,59 @@
+{
+  "unresolved_helper_calls": [],
+  "excluded_numeric_conversion_calls": [
+    {
+      "line": 783,
+      "context": "readSalesProfile.areaMin",
+      "definition": "num(a.areaMin)",
+      "reason": "numeric-conversion-not-field-helper"
+    },
+    {
+      "line": 783,
+      "context": "readSalesProfile.areaMax",
+      "definition": "num(a.areaMax)",
+      "reason": "numeric-conversion-not-field-helper"
+    },
+    {
+      "line": 783,
+      "context": "readSalesProfile.priceMin",
+      "definition": "num(a.priceMin)",
+      "reason": "numeric-conversion-not-field-helper"
+    },
+    {
+      "line": 783,
+      "context": "readSalesProfile.priceMax",
+      "definition": "num(a.priceMax)",
+      "reason": "numeric-conversion-not-field-helper"
+    },
+    {
+      "line": 819,
+      "context": "readCommonProfile.areaMin",
+      "definition": "num('area-min')",
+      "reason": "numeric-conversion-not-field-helper"
+    },
+    {
+      "line": 819,
+      "context": "readCommonProfile.areaMax",
+      "definition": "num('area-max')",
+      "reason": "numeric-conversion-not-field-helper"
+    },
+    {
+      "line": 1089,
+      "context": "profile.area",
+      "definition": "num(el('lp-area').value)",
+      "reason": "numeric-conversion-not-field-helper"
+    },
+    {
+      "line": 1089,
+      "context": "profile.budget",
+      "definition": "num(el('lp-budget').value)",
+      "reason": "numeric-conversion-not-field-helper"
+    },
+    {
+      "line": 1089,
+      "context": "profile.months",
+      "definition": "num(el('lp-months').value)",
+      "reason": "numeric-conversion-not-field-helper"
+    }
+  ]
+}

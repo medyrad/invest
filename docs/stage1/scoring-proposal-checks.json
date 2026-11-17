@@ -1,0 +1,46 @@
+{
+  "proposal": "P-B02-v1",
+  "approved": false,
+  "scope": "arithmetic and finite invariants only; no production code or real relevance evaluation",
+  "passed": true,
+  "explicit_score_examples": 5,
+  "six_bucket_states": 729,
+  "hide_known_field_checks": 2916,
+  "source_counterexample": {
+    "known_mismatch_score": 33.333333333333336,
+    "hidden_mismatch_score": 66.66666666666667
+  },
+  "cases": [
+    {
+      "name": "25-Tehran",
+      "score": 100.0,
+      "coverage": 100.0
+    },
+    {
+      "name": "40-Tehran",
+      "score": 33.333333333333336,
+      "coverage": 100.0
+    },
+    {
+      "name": "25-Isfahan",
+      "score": 66.66666666666667,
+      "coverage": 100.0
+    },
+    {
+      "name": "unknown-Tehran",
+      "score": 33.333333333333336,
+      "coverage": 33.333333333333336
+    },
+    {
+      "name": "all-unknown",
+      "score": 0.0,
+      "coverage": 0.0
+    }
+  ],
+  "limitations": [
+    "Not calibrated against customer/expert judgments",
+    "Not a test of production matching API",
+    "Does not validate all source financial or legal rules",
+    "Weights and policy await user decision"
+  ]
+}

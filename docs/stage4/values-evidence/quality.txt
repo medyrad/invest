@@ -1,0 +1,6 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-74832deb1594 Creating 
+ Container invest-test-run-74832deb1594 Created 
+All checks passed!

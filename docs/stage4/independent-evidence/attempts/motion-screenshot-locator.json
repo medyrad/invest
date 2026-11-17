@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {
+      "name": "mobile-normal-motion-map-cards-do-not-overlap-or-clip",
+      "status": "failed",
+      "error": "locator.scrollIntoViewIfNeeded: Error: strict mode violation: locator('[data-map-feed]') resolved to 4 elements:\n    1) <div data-map-feed=\"true\" class=\"absolute z-10\">…</div> aka locator('div').filter({ hasText: /^فارس، شیرازتوسعه مجموعه مسکونیحداقل ورود: ۱۵ میلیارد تومان$/ })\n    2) <div data-map-feed=\"true\" class=\"absolute z-10\">…</div> aka locator('div').filter({ hasText: /^البرز، کرجاجرای بخش عمرانی مسیر دسترسینیاز مالی طرح: اعلام نشده$/ })\n    3) <div data-map-feed=\"true\" class=\"absolute z-10\">…</div> aka locator('div').filter({ hasText: 'خراسان رضوی، مشهدتکمیل مترو و قطار شهری در مشهدنیاز مالی طرح: ۲٬۵۰۰ میلیارد توما' }).nth(3)\n    4) <div data-map-feed=\"true\" class=\"absolute z-10\">…</div> aka locator('div').filter({ hasText: 'هرمزگان، بندرعباساحداث بندر و اسکله در بندرعباسنیاز مالی طرح: ۱٬۶۸۰ میلیارد توما' }).nth(3)\n\nCall log:\n\u001b[2m  - waiting for locator('[data-map-feed]')\u001b[22m\n"
+    }
+  ],
+  "details": [],
+  "summary": {
+    "passed": 0,
+    "failed": 1
+  }
+}

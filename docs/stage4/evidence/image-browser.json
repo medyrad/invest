@@ -1,0 +1,34 @@
+{
+  "origin": "http://127.0.0.1:3108",
+  "viewports": [
+    {
+      "width": 360,
+      "passed": true,
+      "catalog_groups": 11,
+      "preview_cards": 6,
+      "real_login_dialog": true
+    },
+    {
+      "width": 390,
+      "passed": true,
+      "catalog_groups": 11,
+      "preview_cards": 6,
+      "real_login_dialog": true
+    },
+    {
+      "width": 768,
+      "passed": true,
+      "catalog_groups": 11,
+      "preview_cards": 6,
+      "real_login_dialog": true
+    },
+    {
+      "width": 1440,
+      "passed": true,
+      "catalog_groups": 11,
+      "preview_cards": 6,
+      "real_login_dialog": true
+    }
+  ],
+  "errors": []
+}

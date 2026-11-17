@@ -1,0 +1,70 @@
+{
+  "proposal": "P-B02-v1",
+  "approved": true,
+  "decision": "D28",
+  "scope": "arithmetic and finite invariants only; no production code or real relevance evaluation",
+  "passed": true,
+  "explicit_score_examples": 5,
+  "six_bucket_states": 729,
+  "hide_known_field_checks": 2916,
+  "source_counterexample": {
+    "known_mismatch_score": 33.333333333333336,
+    "hidden_mismatch_score": 66.66666666666667
+  },
+  "cases": [
+    {
+      "name": "25-Tehran",
+      "score": 100.0,
+      "coverage": 100.0
+    },
+    {
+      "name": "40-Tehran",
+      "score": 33.333333333333336,
+      "coverage": 100.0
+    },
+    {
+      "name": "25-Isfahan",
+      "score": 66.66666666666667,
+      "coverage": 100.0
+    },
+    {
+      "name": "unknown-Tehran",
+      "score": 33.333333333333336,
+      "coverage": 33.333333333333336
+    },
+    {
+      "name": "all-unknown",
+      "score": 0.0,
+      "coverage": 0.0
+    }
+  ],
+  "unit_policy": {
+    "package": "P-B04-v1",
+    "decision": "D29",
+    "approved": true
+  },
+  "unit_examples_scope": "D29 arithmetic examples only; not production parser, schema or financial calculations",
+  "unit_examples": [
+    {
+      "inputs": [
+        "1.5 billion TOMAN",
+        "1500 million TOMAN"
+      ],
+      "exact_toman": "1500000000"
+    },
+    {
+      "households": 10,
+      "months": 6,
+      "deposit_per_household_toman": "200000000",
+      "monthly_rent_per_household_toman": "5000000",
+      "refundable_deposit_toman": "2000000000",
+      "rent_expense_toman": "300000000"
+    }
+  ],
+  "limitations": [
+    "Not calibrated against customer/expert judgments",
+    "Not a test of production matching API",
+    "Does not validate all source financial or legal rules",
+    "Does not validate route-specific predicates or final B04 unit contracts"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-17",
+  "scope": "final planning artifacts; screenshots separately hashed in evidence manifest",
+  "sha256": {
+    "AGENTS.md": "023d2c1e9ca116fcd35c5af2e62313d3c8cc8232d4100e7f395369f20bfd5b6e",
+    ".specify/memory/constitution.md": "de31c41fbbb70c305e29bd58554a4e47e4f98505cccfad312c1907467feada59",
+    ".specify/integration.json": "e432bd6e3e721173e4d760c39d51313f7c960a6202df662057ea2272d790d042",
+    ".specify/init-options.json": "ed23be4773f03e461e7c8022f530c617f2e2b9e82c56e5f2b83cea526d17a23f",
+    "docs/stage-status.json": "86958836fdc9a8d1aab3d2769ab769e5972e1d27d9c3fe0471df556f95af9be3",
+    "docs/stage1/analysis.md": "ec22695625a7b5ab50047f8ee7f21696fc055431291d02886ea341d1325941de",
+    "docs/stage1/report.md": "2a34be885b4da3bfce1e25d3483a553b7bbdf3807d29d9be3361e8ba670600a8",
+    "docs/stage1/visual-baseline.md": "860ddead0bff4ec220014b2406abc1e9fd3271c2c03c375456e8cf06580429fd",
+    "docs/stage1/review-packet.md": "bd5fbcafb7e6f866468f30c70fcaf70af6b1907e398ecdf53990983c228616b0",
+    "docs/stage1/planning-checks.json": "f0c8e95878c203d53a2a354b5fa4e763c71e08c7d0015fe3585f5b06becd82d9",
+    "docs/stage1/evidence/manifest.json": "2cea3feee63175f2729da378409d6538ed081a5a51e810715770308a02b4cd21",
+    "docs/catalogs/dynamic-summary.json": "9fac45e1c073a7251981b832aea9519d3286990738612e94edff0c63ca311ee5",
+    "docs/catalogs/implementation-traceability.json": "47d27b33eaac34751dceb1a2b30dd10cfb6593e30aa5d7a45b7347ce077526a1",
+    "scripts/validate_planning.py": "306368f665df723c8a3e969a01bb027e47f0aab6fbe6e8f23080f6a0674d4a38",
+    "scripts/capture_reference.mjs": "637275c6ce50c5be334914c960ddf63d9e49573ccacda542ee9f48128eb6f1a8",
+    "scripts/extract_dynamic_catalog.mjs": "976aab20f489f5afbb1c45584b4db2844f85a0706c621524e9eff9d9a394dd7d",
+    "specs/001-business-baseline/checklists/business-ui-quality.md": "5b33b3fe47fcc1dc1b1cbd2043bb6bd1e6e8a722569c622660827714d9b54439",
+    "specs/001-business-baseline/contracts/api.md": "f1bd3226963f188913b565d1f5cfcfc81e09c3708cd099b0dcabf635b63476a7",
+    "specs/001-business-baseline/data-model.md": "6f7c3a98587b9e70c63f8be54b4cad927cf4dcedef7b917af0e10ba38d9085f0",
+    "specs/001-business-baseline/plan.md": "46bafdef733ec0bff9ef213b0edc332fec25f30be7e74819f5d38e5a7dd0961c",
+    "specs/001-business-baseline/quickstart.md": "b198cbebf333a2038af078a6f488800dc5e5b94903d260d6d47eb598db5a8fdb",
+    "specs/001-business-baseline/research.md": "dad716ec13068b50dd1e8bd9e25ef29034090b9a71c03689accf0f91b02e01e5",
+    "specs/001-business-baseline/spec.md": "d1e7c858182251f5e5cb37eaa381d21cd963a433ed73af06427d61b59fcf3da1",
+    "specs/001-business-baseline/tasks.md": "fdde0271c7b82d74e843b04a5428406085cddae6d86e63a3036a1aac11089bd9",
+    "specs/001-business-baseline/test-plan.md": "1d37ccf2c40a8d25608b08fd2552c2f022527b682a53193ac23c2ca6ab07378f"
+  }
+}

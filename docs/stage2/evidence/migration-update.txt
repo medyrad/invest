@@ -1,0 +1,9 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-backend-run-bf57f5d6398a Creating 
+ Container invest-backend-run-bf57f5d6398a Created 
+Operations to perform:
+  Apply all migrations: auth, contenttypes, identity, sessions
+Running migrations:
+  Applying identity.0002_remove_user_identity_user_mobile_canonical_and_more... OK

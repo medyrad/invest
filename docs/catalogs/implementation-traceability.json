@@ -1,0 +1,1544 @@
+{
+  "status": "planned-not-implemented",
+  "tasks": [
+    {
+      "id": "T001",
+      "story": null,
+      "stage": "S01–S10؛ هر جریان پیش از اجرا",
+      "packages": [
+        "T01"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-020",
+        "FR-021",
+        "FR-022",
+        "SC-001",
+        "SC-008"
+      ],
+      "description": "در S01 تا S10 تکمیل تدریجی نگاشت معنایی DF/DR و ۶۷ فیلد و تعیین مقصد همهٔ ۴۴ قابلیت در docs/catalogs/semantic-mapping.csv؛ source/model/API/widget/acceptance و اختلاف مصوب هر ردیف؛ سیاست D29 مصوب و B06 باز"
+    },
+    {
+      "id": "T002",
+      "story": null,
+      "stage": "S01–S02",
+      "packages": [
+        "T01"
+      ],
+      "requirements": [
+        "FR-020",
+        "FR-022"
+      ],
+      "description": "ثبت D25–D29 مصوب B01–B04 و پنج پاسخ کاربر و ثبت نتیجه در docs/03-decisions.md و specs/001-business-baseline/spec.md؛ قواعد حدسی ممنوع؛ سپس analyze مجدد"
+    },
+    {
+      "id": "T003",
+      "story": null,
+      "stage": "S02 پیش از کد",
+      "packages": [
+        "T01"
+      ],
+      "requirements": [
+        "FR-020",
+        "FR-022"
+      ],
+      "description": "ثبت اجازه و دامنهٔ S02 در docs/stage-status.json پس از گزارش گام و دستور کاربر؛ تولید spec/plan/tasks/checklist زیرساخت در specs/004-platform-foundation/ و قرارداد پایه و analyze پیش از کد؛ آماده‌بودن کل محصول را از این اجازه استنتاج نکنید"
+    },
+    {
+      "id": "T004",
+      "story": null,
+      "stage": "S01–S02",
+      "packages": [
+        "T02"
+      ],
+      "requirements": [
+        "FR-022"
+      ],
+      "description": "بررسی/قفل نسخه‌های سازگار و ثبت اجرای تمیز backend/pyproject.toml، backend/uv.lock، frontend/package.json و frontend/package-lock.json مطابق research؛ کد مرجع فقط مبنای UI"
+    },
+    {
+      "id": "T005",
+      "story": null,
+      "stage": "S02",
+      "packages": [
+        "T02"
+      ],
+      "requirements": [
+        "FR-017",
+        "FR-022"
+      ],
+      "description": "ایجاد تنظیمات سرویس و PostgreSQL محلی در backend/config/settings.py و deploy/compose.yaml با جدایی development/test/public و .env.example بدون secret؛ مدل پایه حساب در backend/apps/identity/models.py و تنظیم AUTH_USER_MODEL و migration اولیه پیش از جداول وابسته/fixtureها؛ منطق ورود در S03"
+    },
+    {
+      "id": "T006",
+      "story": null,
+      "stage": "S01–S02",
+      "packages": [
+        "T03"
+      ],
+      "requirements": [
+        "FR-022",
+        "SC-005"
+      ],
+      "description": "ساخت CI با PostgreSQL، migration خالی، backend/frontend checks و browser artifacts در .github/workflows/ci.yml؛ نوشتن راه اجرای تمیز docs/development.md"
+    },
+    {
+      "id": "T007",
+      "story": null,
+      "stage": "S02 پس از T005",
+      "packages": [
+        "T03"
+      ],
+      "requirements": [
+        "FR-017",
+        "SC-004",
+        "SC-005"
+      ],
+      "description": "پس از مدل پایه حساب T005، ایجاد fixtureهای چندحسابی و DB تراکنشی در backend/tests/conftest.py؛ بدون SQLite برای شاهد رقابت"
+    },
+    {
+      "id": "T008",
+      "story": null,
+      "stage": "S02–S04",
+      "packages": [
+        "T03"
+      ],
+      "requirements": [
+        "FR-022",
+        "SC-004"
+      ],
+      "description": "تعریف envelope خطا، CSRF ناشناس، version/idempotency و schema ماشین‌خوان در backend/config/api.py و contracts/openapi.yaml؛ تست در backend/tests/test_contract.py"
+    },
+    {
+      "id": "T009",
+      "story": null,
+      "stage": "S02–S04",
+      "packages": [
+        "T07"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "SC-008",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "طبق D29 تعریف MoneyValue/Quantity/ReturnMetric و FieldDefinition نسخه‌دار/namespace با TOMAN دقیق، واحد ورودی/ضریب و unknown؛ ابزار مقدار/واحد در backend/apps/catalog/values.py و تعریف و taxonomy/geography در backend/apps/catalog/models.py و backend/apps/catalog/schemas.py؛ migration در backend/apps/catalog/migrations/"
+    },
+    {
+      "id": "T010",
+      "story": null,
+      "stage": "S02–S04",
+      "packages": [
+        "T07"
+      ],
+      "requirements": [
+        "FR-016",
+        "SC-001"
+      ],
+      "description": "ایجاد فرمان import نمونه با برچسب صریح و منع seed در public mode در backend/apps/catalog/management/commands/import_reference.py؛ ۱۱ گروه/۷۸ نوع و ۲۷۳ نمونه بدون جعل داده واقعی"
+    },
+    {
+      "id": "T011",
+      "story": null,
+      "stage": "S02–S04",
+      "packages": [
+        "T07"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "SC-008",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "طبق AC-D29-01..08/12 آزمون round-trip دقیق، عدد فارسی/عربی و ورودی مبهم/بیش‌دقت، صفر/unknown/نامربوط، واحد نسخه‌دار/ارز و مبنای بازده و حذف اثر مقدار فیلد پنهان در UI و سرور در backend/tests/unit/test_catalog.py؛ fixture از نگاشت مصوب"
+    },
+    {
+      "id": "T012",
+      "story": null,
+      "stage": "S02–S04",
+      "packages": [
+        "T06"
+      ],
+      "requirements": [
+        "FR-015",
+        "FR-019",
+        "SC-003",
+        "SC-006"
+      ],
+      "description": "تکمیل ماتریس صفحه/state شامل راهنما/صندوق/فروش و popover/خطا/مراحل؛ تثبیت زمان و حرکت baseline و طرح پیشنهادی موبایل در tests/browser/visual/baseline-manifest.json؛ B08"
+    },
+    {
+      "id": "T013",
+      "story": "US05",
+      "stage": "S03 سپس S07",
+      "packages": [
+        "T04"
+      ],
+      "requirements": [
+        "FR-010",
+        "FR-011",
+        "SC-004"
+      ],
+      "description": "نوشتن تست TTL/تلاش/replay/CSRF/challenge binding و عدم افشای public OTP در backend/tests/integration/test_otp.py؛ مقادیر سیاست قبل از اجرا در spec هویت ثبت شوند"
+    },
+    {
+      "id": "T014",
+      "story": "US05",
+      "stage": "S03",
+      "packages": [
+        "T04"
+      ],
+      "requirements": [
+        "FR-010",
+        "FR-011"
+      ],
+      "description": "تکمیل مدل پایه User ساخته‌شده در T005 و پیاده‌سازی Session/OTPChallenge و migrationهای بعدی و adapter تحویل test/SMS در backend/apps/identity/models.py و backend/apps/identity/otp.py؛ مصرف اتمیک و gate public"
+    },
+    {
+      "id": "T015",
+      "story": "US05",
+      "stage": "S03 سپس S07",
+      "packages": [
+        "T04"
+      ],
+      "requirements": [
+        "FR-010",
+        "FR-011",
+        "FR-017"
+      ],
+      "description": "ساخت endpointهای CSRF/challenge/verify/me/logout با نشست و مجوز در backend/apps/identity/api.py؛ ابطال/چرخش نشست"
+    },
+    {
+      "id": "T016",
+      "story": "US05",
+      "stage": "S03 سپس S07",
+      "packages": [
+        "T04"
+      ],
+      "requirements": [
+        "FR-010",
+        "FR-015",
+        "FR-019"
+      ],
+      "description": "اتصال دیالوگ اصلی ورود به API، OTP notification همان صفحه و حالت خطا/انقضا در frontend/src/components/auth/login-dialog.tsx؛ secret یا نقش در localStorage نباشد"
+    },
+    {
+      "id": "T017",
+      "story": "US05",
+      "stage": "S03 سپس S07",
+      "packages": [
+        "T04"
+      ],
+      "requirements": [
+        "FR-010",
+        "FR-019",
+        "SC-002",
+        "SC-006"
+      ],
+      "description": "اجرای سفر ورود/خروج و screenshot دیالوگ مصوب موبایل/دسکتاپ در tests/browser/journeys/auth.spec.ts و tests/browser/visual/auth.spec.ts"
+    },
+    {
+      "id": "T018",
+      "story": "US05",
+      "stage": "S03 سپس S07",
+      "packages": [
+        "T15"
+      ],
+      "requirements": [
+        "FR-017",
+        "SC-004"
+      ],
+      "description": "در S07 نوشتن تست همگامی دو دستگاه، جداسازی مالک و زمان تازه واقعی در backend/tests/integration/test_workspace.py"
+    },
+    {
+      "id": "T019",
+      "story": "US05",
+      "stage": "S03 سپس S07",
+      "packages": [
+        "T15"
+      ],
+      "requirements": [
+        "FR-017"
+      ],
+      "description": "ساخت SavedListing/SavedSearch و CRUD مجاز، last_seen_at واقعی و migration در backend/apps/workspace/models.py و backend/apps/workspace/api.py"
+    },
+    {
+      "id": "T020",
+      "story": "US05",
+      "stage": "S07",
+      "packages": [
+        "T17"
+      ],
+      "requirements": [
+        "FR-017",
+        "SC-004"
+      ],
+      "description": "پیش از اعلان S07 بستن بخش کانال/رفتار اعلان B06 با کاربر در docs/stage7/notification-decisions.md؛ سپس ساخت پروفایل اختیاری بدون اعطای role و اعلان فقط مخاطب مجاز در backend/apps/notifications/models.py و backend/apps/workspace/profile.py؛ migration و تست backend/tests/integration/test_notifications.py"
+    },
+    {
+      "id": "T021",
+      "story": "US05",
+      "stage": "S03 سپس S07",
+      "packages": [
+        "T15",
+        "T17"
+      ],
+      "requirements": [
+        "FR-017",
+        "FR-019",
+        "SC-006"
+      ],
+      "description": "اتصال منتخب/شرایط/پروفایل/اعلان و حالت فرصت متوقف‌شده به طرح مرجع در frontend/src/app/saved/page.tsx و frontend/src/components/workspace/notifications.tsx؛ سفر در tests/browser/journeys/workspace.spec.ts"
+    },
+    {
+      "id": "T022",
+      "story": "US02",
+      "stage": "S03/S05",
+      "packages": [
+        "T05",
+        "T08",
+        "T10"
+      ],
+      "requirements": [
+        "FR-001",
+        "FR-002",
+        "FR-003",
+        "FR-004",
+        "SC-004",
+        "SC-005",
+        "FR-023",
+        "FR-027"
+      ],
+      "description": "بر اساس D25/D27 تست مالکیت، دو approval مستقل، منع خودتأییدی، شواهد مستقل، قطع اختیار قبلی، جداسازی چند سازمان و رقابت جانشین در backend/tests/integration/test_organizations.py و رقابت نسخه در backend/tests/integration/test_publication.py؛ pending revision در جست‌وجو/AI نشت نکند"
+    },
+    {
+      "id": "T023",
+      "story": "US02",
+      "stage": "S03/S05",
+      "packages": [
+        "T05",
+        "T08"
+      ],
+      "requirements": [
+        "FR-001",
+        "FR-002",
+        "FR-027"
+      ],
+      "description": "ساخت Organization/Representation/VerificationEvidence/RepresentationChange/Owner طبق D27 با حداکثر یک نماینده فعال، چند سازمان مستقل، مدارک/شاهد بررسی و گردش تغییر/توقف اختیار در backend/apps/organizations/models.py و backend/apps/organizations/services.py؛ migration و سیاست تغییر نماینده مصوب"
+    },
+    {
+      "id": "T024",
+      "story": "US02",
+      "stage": "S05",
+      "packages": [
+        "T09"
+      ],
+      "requirements": [
+        "FR-002",
+        "FR-017",
+        "SC-004"
+      ],
+      "description": "پیش از فایل S05 بستن نوع/حجم/نگهداری/حذف فایل B07 با کاربر در docs/stage5/file-policy.md؛ سپس ساخت upload/download خصوصی با بررسی mime/content/size و مجوز در backend/apps/documents/storage.py و backend/apps/documents/api.py؛ تست حدس URL در backend/tests/integration/test_files.py"
+    },
+    {
+      "id": "T025",
+      "story": "US02",
+      "stage": "S03/S05",
+      "packages": [
+        "T08",
+        "T09"
+      ],
+      "requirements": [
+        "FR-001",
+        "FR-016",
+        "FR-021"
+      ],
+      "description": "ساخت Opportunity/Revision نوع‌دار، schema validation و draft API در backend/apps/opportunities/models.py و backend/apps/opportunities/api.py؛ فرم پروژه/صندوق/فروش و migration"
+    },
+    {
+      "id": "T026",
+      "story": "US02",
+      "stage": "S03/S05",
+      "packages": [
+        "T10"
+      ],
+      "requirements": [
+        "FR-002",
+        "FR-003",
+        "FR-004",
+        "SC-005",
+        "FR-023",
+        "FR-027"
+      ],
+      "description": "ساخت submit/review/approve با version، تراکنش و public_revision immutable در backend/apps/opportunities/publication.py؛ توقف فوری مالک، بازنشر/رفع تعلیق ادمین، انقضا و رد patch نسخه ارسال‌شده مطابق D25؛ تست AC-D25-01/02/11؛ بازخوانی وضعیت اختیار سازمان طبق D27 هنگام publish و عدم دورزدن توقف با بازنشر"
+    },
+    {
+      "id": "T027",
+      "story": "US02",
+      "stage": "S03/S05",
+      "packages": [
+        "T08",
+        "T09"
+      ],
+      "requirements": [
+        "FR-001",
+        "FR-002",
+        "FR-019",
+        "FR-027"
+      ],
+      "description": "طرح و اجرای پنل مالک/نماینده، فرم نسخه‌دار و پیوست/خطا با اجزای مرجع در frontend/src/app/owner/opportunities/page.tsx و frontend/src/components/owner/editor.tsx؛ انتخاب سازمان با اختیار مستقل و فرم مدارک/اعتبار و درخواست جانشین طبق D27 در frontend/src/app/owner/organizations/page.tsx؛ B08"
+    },
+    {
+      "id": "T028",
+      "story": "US02",
+      "stage": "S03/S05",
+      "packages": [
+        "T10"
+      ],
+      "requirements": [
+        "FR-002",
+        "FR-003",
+        "FR-004",
+        "FR-019",
+        "FR-027"
+      ],
+      "description": "طرح و اجرای پنل ادمین بررسی نمایندگی و فرصت و diff نسخه‌ها در frontend/src/app/admin/reviews/page.tsx؛ دلیل تصمیم و حالت conflict؛ ثبت شواهد بررسی مستقل، تعویض/توقف اختیار و منع خودتأییدی طبق D27"
+    },
+    {
+      "id": "T029",
+      "story": "US02",
+      "stage": "S03/S05",
+      "packages": [
+        "T10"
+      ],
+      "requirements": [
+        "FR-004",
+        "FR-019",
+        "SC-002",
+        "SC-003",
+        "FR-001",
+        "FR-002",
+        "FR-027",
+        "SC-004",
+        "SC-005"
+      ],
+      "description": "سفر انتشار، رد اصلاح، حفظ نسخه قبلی و approval جدید در tests/browser/journeys/publication.spec.ts؛ AC-D27-01..10 برای مدارک خصوصی/نماینده قدیم و جدید/دو سازمان/توقف و نشان نمایندگی در tests/browser/journeys/organizations.spec.ts؛ visual پنل مصوب در tests/browser/visual/publication.spec.ts"
+    },
+    {
+      "id": "T030",
+      "story": "US01",
+      "stage": "S06 سپس S07",
+      "packages": [
+        "T11",
+        "T12"
+      ],
+      "requirements": [
+        "FR-005",
+        "SC-002",
+        "FR-028",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "طبق D28/D29 و پس از نگاشت معنای فیلدهای مسیر نوشتن fixture با انتظار مستقل برای AC-D28-01..14، پنج مثال عددی، W/K صفر، عدم بهبود با حذف داده، مخرج/وزن غیرتکراری، unknown/صفر و حدود مبلغ/مکان؛ ثبت نمونه و قضاوت کارشناس هر مسیر در docs/validation/matching-review.md و تست در backend/tests/unit/test_matching.py؛ تمام مسیرهای سرمایه/صندوق/پیمان/خرید/اجاره/میراث/بهره‌برداری"
+    },
+    {
+      "id": "T031",
+      "story": "US01",
+      "stage": "S06 سپس S07",
+      "packages": [
+        "T12"
+      ],
+      "requirements": [
+        "FR-005",
+        "FR-021",
+        "FR-028"
+      ],
+      "description": "ساخت MatchPolicy نسخه‌دار و ارزیابی با score/coverage/reasons در backend/apps/matching/policy.py و backend/apps/matching/services.py؛ D28: همه ترجیحات فقط رتبه، وزن‌های ۳۰/۲۰/۱۵/۲۰/۱۵/۱۵ و مخرج ثابت، تفکیک unknown/unmet، W/K صفر، مبلغ ورود/خرید/اجاره و مکان نوع‌دار؛ تغییر سیاست نسخه تازه و وابسته به بازبینی نمونه‌ها"
+    },
+    {
+      "id": "T032",
+      "story": "US01",
+      "stage": "S06 سپس S07",
+      "packages": [
+        "T11"
+      ],
+      "requirements": [
+        "FR-005",
+        "FR-016",
+        "FR-028"
+      ],
+      "description": "ساخت public list/detail با cursor پایدار، sort و revision و جغرافیای واقعی در backend/apps/opportunities/public_api.py؛ D28: ورود مستقیم بدون شرط، total_count بدون min_score، sort دقیق/coverage/انتشار/شناسه و cursor با سیاست/شرایط ثابت؛ تست عدم تکرار/افتادگی روی داده ثابت و عدم نشت draft در backend/tests/contracts/test_discovery.py"
+    },
+    {
+      "id": "T033",
+      "story": "US01",
+      "stage": "S06 سپس S07",
+      "packages": [
+        "T11",
+        "T12"
+      ],
+      "requirements": [
+        "FR-005",
+        "FR-015",
+        "FR-019",
+        "FR-028"
+      ],
+      "description": "بازسازی فیلتر/نتایج/نقشه و شناسنامه اصلی با اتصال API در frontend/src/app/opportunities/page.tsx و frontend/src/app/opportunities/[id]/page.tsx؛ متن ناسازگار strictLocation مطابق D12/D28 اصلاح شود؛ ورود مستقیم، score/coverage جدا و برچسب اطلاعات ناکافی/بدون ترجیح و شرط مهم نامنطبق در frontend/src/components/opportunities/match-explanation.tsx؛ هویت و چیدمان مرجع حفظ شود"
+    },
+    {
+      "id": "T034",
+      "story": "US01",
+      "stage": "S06 سپس S07",
+      "packages": [
+        "T11",
+        "T12"
+      ],
+      "requirements": [
+        "FR-005",
+        "FR-019",
+        "SC-002",
+        "SC-003",
+        "SC-006",
+        "FR-028"
+      ],
+      "description": "سفر کشف D28 با ورود مستقیم، همه نتایج نامتناسب/unknown، تفکیک امتیاز/پوشش و شرط مهم، تغییر شرط/نسخه و صفحه‌بندی پایدار و تصویر حالت‌ها در tests/browser/journeys/discovery.spec.ts و tests/browser/visual/discovery.spec.ts"
+    },
+    {
+      "id": "T035",
+      "story": "US01",
+      "stage": "S06 سپس S07",
+      "packages": [
+        "T16"
+      ],
+      "requirements": [
+        "FR-006",
+        "SC-002",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "در S07 تست ۱/۲/۴/۵، mixed/duplicate/unpublished، ارز/واحد و unknown و مبنای بازده طبق D29؛ بدون IRR ساختگی یا برنده cross-currency برای هر سه kind در backend/tests/unit/test_comparison.py"
+    },
+    {
+      "id": "T036",
+      "story": "US01",
+      "stage": "S06 سپس S07",
+      "packages": [
+        "T16"
+      ],
+      "requirements": [
+        "FR-006",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "ساخت comparison API و metric schema مستقل پروژه/صندوق/فروش در backend/apps/matching/comparison.py؛ داده و revision مبنا در پاسخ؛ D29: واحد دقیق/مبنای شاخص و comparable=false با دلیل برای ناسازگاری"
+    },
+    {
+      "id": "T037",
+      "story": "US01",
+      "stage": "S06 سپس S07",
+      "packages": [
+        "T16"
+      ],
+      "requirements": [
+        "FR-006",
+        "FR-019",
+        "SC-003",
+        "SC-006"
+      ],
+      "description": "بازسازی جدول/نمودار/انتخاب مقایسه و حالت خالی از مرجع در frontend/src/app/compare/page.tsx و frontend/src/components/compare/metrics.tsx؛ unknown برنده نشود و جدول موبایل قابل پیمایش"
+    },
+    {
+      "id": "T038",
+      "story": "US01",
+      "stage": "S06 سپس S07",
+      "packages": [
+        "T16"
+      ],
+      "requirements": [
+        "FR-006",
+        "SC-002",
+        "SC-006"
+      ],
+      "description": "اجرای سه سفر مقایسه و حذف/توقف مورد و تصاویر در tests/browser/journeys/comparison.spec.ts و tests/browser/visual/comparison.spec.ts"
+    },
+    {
+      "id": "T039",
+      "story": "US03",
+      "stage": "S06",
+      "packages": [
+        "T13",
+        "T14"
+      ],
+      "requirements": [
+        "FR-007",
+        "FR-008",
+        "FR-009",
+        "FR-013",
+        "SC-004",
+        "SC-005",
+        "FR-024",
+        "FR-025",
+        "SC-009",
+        "FR-026"
+      ],
+      "description": "بر اساس D25/D26 تست نقش/ارجاع/لغو رضایت، replay و stale revision در backend/tests/integration/test_enquiries.py؛ خواندن مستقیم فایل/شماره حساب دوم رد شود"
+    },
+    {
+      "id": "T040",
+      "story": "US03",
+      "stage": "S06",
+      "packages": [
+        "T13"
+      ],
+      "requirements": [
+        "FR-008",
+        "FR-009",
+        "FR-013",
+        "FR-018",
+        "FR-023",
+        "FR-024"
+      ],
+      "description": "ساخت Enquiry/Snapshot/ContactConsent/CaseEvent و migration و submit اتمیک در backend/apps/enquiries/models.py و backend/apps/enquiries/submission.py؛ قرارداد/پول خارج سامانه؛ related_enquiry_id و رسید پیگیری پس از closed/cancelled و عدم ادغام خاموش درخواست مستقل مطابق D25"
+    },
+    {
+      "id": "T041",
+      "story": "US03",
+      "stage": "S06",
+      "packages": [
+        "T14"
+      ],
+      "requirements": [
+        "FR-007",
+        "FR-008",
+        "FR-009",
+        "FR-024",
+        "FR-025",
+        "SC-009",
+        "FR-026",
+        "FR-027"
+      ],
+      "description": "ساخت assignment/message/transition و مجوز recipient-scoped contact در backend/apps/enquiries/services.py و backend/apps/enquiries/api.py؛ در submit وضعیت جاری اختیار سازمان طبق D27 بررسی و intake تازه در اختلاف متوقف شود ولی پرونده/پیام قبلی برقرار بماند؛ بدون رضایت phone اصلاً در response نباشد؛ قرارداد D26 برای گیرنده نام‌برده/لغو/عدم دسترسی cache و مسیر استثنایی سروری با نقش مجزا/احراز مجدد/دلیل در backend/apps/identity/account_support.py و تست backend/tests/integration/test_contact_privacy.py؛ اجرای D25 و job بستن هفت‌روزه/هشدار پاسخ در backend/apps/enquiries/jobs.py، تقویم/موعد/آمادگی تیم در backend/apps/enquiries/operations.py؛ clock/race tests در backend/tests/integration/test_case_lifecycle.py"
+    },
+    {
+      "id": "T042",
+      "story": "US03",
+      "stage": "S06",
+      "packages": [
+        "T13"
+      ],
+      "requirements": [
+        "FR-008",
+        "FR-009",
+        "FR-013",
+        "FR-019"
+      ],
+      "description": "ساخت بازبینی ارسال بدون رضایت پیشینی به کارشناس نامشخص، رسید و replay UI در frontend/src/components/enquiries/submit.tsx؛ اقدام صریح کاربر تنها راه ارسال"
+    },
+    {
+      "id": "T043",
+      "story": "US03",
+      "stage": "S06",
+      "packages": [
+        "T14"
+      ],
+      "requirements": [
+        "FR-007",
+        "FR-008",
+        "FR-019",
+        "FR-024",
+        "FR-025",
+        "FR-009",
+        "FR-026"
+      ],
+      "description": "طرح و ساخت پرونده/پیام برای کاربر، کارتابل کارشناس و ارجاع ادمین با هویت مرجع در frontend/src/app/enquiries/[id]/page.tsx و frontend/src/app/expert/page.tsx و frontend/src/app/admin/enquiries/page.tsx؛ نمایش پاسخ/بستن/لغو/پیگیری مرتبط و هدف پاسخ مطابق D25؛ D26: کنترل رضایت به نام گیرنده و لغو همان صفحه در frontend/src/components/enquiries/contact-consent.tsx و صفحه مستقل مسئول امنیت/بازیابی در frontend/src/app/account-support/page.tsx؛ B08"
+    },
+    {
+      "id": "T044",
+      "story": "US03",
+      "stage": "S06",
+      "packages": [
+        "T13",
+        "T14"
+      ],
+      "requirements": [
+        "FR-007",
+        "FR-008",
+        "FR-009",
+        "FR-013",
+        "SC-002",
+        "SC-004",
+        "SC-006",
+        "FR-024",
+        "FR-025",
+        "SC-009",
+        "FR-026"
+      ],
+      "description": "اجرای اولین سفر سرتاسری بدون phone consent، پاسخ و تعویض ارجاع در tests/browser/journeys/enquiry.spec.ts؛ AC-D25-03..10/12 شامل پیام هم‌زمان با بستن، تعطیلی، تعویض کارشناس و عدم reset موعد؛ AC-D26-01..08 برای گیرنده/لغو/استثنای نقش/احراز مجدد/هدف و عدم افشای پاسخ؛ کنترل DOM/network/attachments و visual پنل‌ها"
+    },
+    {
+      "id": "T045",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T06"
+      ],
+      "requirements": [
+        "FR-015",
+        "FR-019",
+        "SC-003",
+        "SC-006"
+      ],
+      "description": "در S04 انتقال asset/font/token و بازسازی layout/header/footer/home از مرجع در frontend/src/app/layout.tsx و frontend/src/app/page.tsx و frontend/src/styles/tokens.css؛ اصلاح hydration بدون تغییر طرح"
+    },
+    {
+      "id": "T046",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T06"
+      ],
+      "requirements": [
+        "FR-015",
+        "FR-019",
+        "SC-003",
+        "SC-006"
+      ],
+      "description": "تأیید و اجرای layout موبایل و ماتریس state در frontend/src/components/site/header.tsx و tests/browser/visual/shell.spec.ts؛ تست touch/keyboard/motion مستقل"
+    },
+    {
+      "id": "T047",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T18"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-018",
+        "SC-008",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "در S07 تست snapshot راهنما و HTML فارسی دانلود، کتابخانه و پرونده فرصت در backend/tests/unit/test_reports.py؛ دانلود هرگز submitted نشود؛ D29: تغییر واحد/فرض/قاعده گزارش قبلی را تغییر ندهد"
+    },
+    {
+      "id": "T048",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T18"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-018",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "ساخت راهنما/کتابخانه نسخه‌دار و گزارش با snapshot واحد/داده/فرض/نسخه قاعده طبق D29 در backend/apps/documents/reports.py و frontend/src/app/guide/[id]/page.tsx و frontend/src/app/tools/library/page.tsx؛ ساخت پرسش اختصاصی پرونده فرصت در backend/apps/services/dossier.py و frontend/src/app/tools/ma-notice/page.tsx با تست backend/tests/unit/test_dossier.py"
+    },
+    {
+      "id": "T049",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T19"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-017",
+        "FR-021",
+        "SC-008"
+      ],
+      "description": "قبل از S08 بستن schemaهای draft/معرفی طرح/ایده، شرط‌ها/واحدها و پذیرش هر DF/DR مرتبط در specs/002-specialized-services/spec.md و contracts/services/proposal.json و contracts/services/ideas.json"
+    },
+    {
+      "id": "T050",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T19"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-017",
+        "FR-021"
+      ],
+      "description": "تست منابع/کسری/مرحله/پیوست و ادامه پیش‌نویس در backend/tests/unit/test_proposals.py؛ سپس service در backend/apps/services/proposals.py و فرم در frontend/src/components/services/proposals.tsx"
+    },
+    {
+      "id": "T051",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T20"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "SC-008"
+      ],
+      "description": "نهایی‌کردن schema زمین و تست بسته چندخدمتی/ترتیب/تکرار/حذف اثر شرط در contracts/services/land.json و backend/tests/unit/test_land.py؛ نگاشت DF/DR ثبت شود"
+    },
+    {
+      "id": "T052",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T20"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "FR-019"
+      ],
+      "description": "ساخت جریان زمین و summary/report/submit با API مشترک در backend/apps/services/land.py و frontend/src/components/services/land.tsx؛ legacy iframe مقصد نیست"
+    },
+    {
+      "id": "T053",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T21"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "SC-008",
+        "FR-029"
+      ],
+      "description": "نهایی‌کردن schema و تست ارز/کشور/آورده/منبع بدون تبدیل خودکار و واحد/ضریب صریح طبق D29 در contracts/services/international.json و backend/tests/unit/test_international.py"
+    },
+    {
+      "id": "T054",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T21"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "FR-019"
+      ],
+      "description": "ساخت جریان بین‌المللی با واحد و مدرک و گزارش در backend/apps/services/international.py و frontend/src/components/services/international.tsx؛ جابه‌جایی پول ادعا نشود"
+    },
+    {
+      "id": "T055",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T22"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "SC-008",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "نهایی‌کردن schema و تست AC-D29-09/10 برای خانوار×ودیعه و خانوار×اجاره×ماه، خروجی ودیعه برگشت‌پذیر جدا از هزینه اجاره، داده ناقص و واحد/مدت صریح در contracts/services/renewal.json و backend/tests/unit/test_renewal.py"
+    },
+    {
+      "id": "T056",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T22"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "FR-019",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "ساخت نوسازی/اسکان موقت و فرض‌های محاسبه و ودیعه/اجاره مستقل طبق D29 در backend/apps/services/renewal.py و frontend/src/components/services/renewal.tsx"
+    },
+    {
+      "id": "T057",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T23"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "SC-008"
+      ],
+      "description": "نهایی‌کردن دو schema جدا و تست حق استفاده/مالکیت/مدت/تسویه در contracts/services/rental.json و contracts/services/exchange.json و backend/tests/unit/test_rental_exchange.py"
+    },
+    {
+      "id": "T058",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T23"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "FR-019"
+      ],
+      "description": "ساخت دو جریان مستقل اجاره‌داری/معاوضه در backend/apps/services/rental.py و backend/apps/services/exchange.py و frontend/src/components/services/rental.tsx و frontend/src/components/services/exchange.tsx"
+    },
+    {
+      "id": "T059",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T24"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "SC-008",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "نهایی‌کردن ۶۱ پیکربندی و قواعد ساختمان/زمین/خیریه و همهٔ شرط‌های DF/DR مربوط در contracts/services/advisories.json و backend/tests/unit/test_advisories.py؛ AC-D29-11/12: هزینه واحد/ظرفیت/دوره با منبع/تاریخ؛ ضریب نمونه واقعی نباشد و نبود مبنا needs_expert_estimate دهد"
+    },
+    {
+      "id": "T060",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T24"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "FR-019",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "ساخت advisory/charity و summary با فرض‌های مصوب D29 و نتیجه نیازمند برآورد کارشناس بدون عدد ساختگی در نبود مبنا در backend/apps/services/advisories.py و frontend/src/components/services/advisories.tsx و frontend/src/components/services/charity.tsx"
+    },
+    {
+      "id": "T061",
+      "story": "US06",
+      "stage": "پوسته S04، راهنما S07، خدمات S08",
+      "packages": [
+        "T19",
+        "T20",
+        "T21",
+        "T22",
+        "T23",
+        "T24"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-017",
+        "FR-019",
+        "FR-021",
+        "SC-002",
+        "SC-003",
+        "SC-006",
+        "SC-008",
+        "FR-029",
+        "FR-030"
+      ],
+      "description": "اجرای سفر هر خدمت تا draft/report/explicit submit و شرط‌های toggle/مرزی و D29: پاسخ پنهان نامربوط، حفظ واحد/فرض گزارش، ودیعه/اجاره جدا و خیریه بدون مبنا در tests/browser/journeys/services.spec.ts؛ تصویر هر مرحله در tests/browser/visual/services.spec.ts و شاهد نگاشت docs/catalogs/semantic-mapping.csv"
+    },
+    {
+      "id": "T062",
+      "story": "US04",
+      "stage": "S09",
+      "packages": [
+        "T25"
+      ],
+      "requirements": [
+        "FR-012",
+        "FR-014"
+      ],
+      "description": "بستن B05، ثبت مدل/اعداد/دوره/هزینه/خطا/retention و تعریف مهمان در specs/003-assistant/spec.md؛ کلید در محیط خصوصی backend، نه سند"
+    },
+    {
+      "id": "T063",
+      "story": "US04",
+      "stage": "S09",
+      "packages": [
+        "T25",
+        "T27"
+      ],
+      "requirements": [
+        "FR-012",
+        "FR-013",
+        "FR-014",
+        "SC-004",
+        "SC-005",
+        "FR-028"
+      ],
+      "description": "تست quota اتمیک مهمان/حساب و permission ابزار/context injection و retry در backend/tests/integration/test_assistant.py؛ fixture فارسی در backend/tests/fixtures/assistant_cases.json؛ D28: آزمون برابری score/coverage/policy/revision با API تطبیق، عدم ادعای سود و لینک ادامه همه نتایج"
+    },
+    {
+      "id": "T064",
+      "story": "US04",
+      "stage": "S09",
+      "packages": [
+        "T25"
+      ],
+      "requirements": [
+        "FR-012",
+        "FR-014"
+      ],
+      "description": "ساخت Conversation/QuotaPolicy/UsageReservation/Ledger و migration، تنظیم ادمین و adapter OpenAI در backend/apps/assistant/models.py و backend/apps/assistant/provider.py و backend/apps/assistant/quota.py"
+    },
+    {
+      "id": "T065",
+      "story": "US04",
+      "stage": "S09",
+      "packages": [
+        "T25",
+        "T26"
+      ],
+      "requirements": [
+        "FR-012",
+        "FR-013",
+        "FR-014",
+        "FR-028"
+      ],
+      "description": "ساخت ابزار read-only بر revision عمومی، parse/validate criteria و استناد، timeout/retry/تسویه مصرف در backend/apps/assistant/tools.py و backend/apps/assistant/api.py؛ submit tool وجود نداشته باشد؛ D28: مصرف همان score/coverage/reasons سرور و حفظ policy/revision و لینک ادامه نتایج"
+    },
+    {
+      "id": "T066",
+      "story": "US04",
+      "stage": "S09",
+      "packages": [
+        "T26"
+      ],
+      "requirements": [
+        "FR-012",
+        "FR-013",
+        "FR-014",
+        "FR-019"
+      ],
+      "description": "حفظ صفحه/chat مقایسه و افزودن برداشت قابل اصلاح، references، quota/error و بازگشت فرم در frontend/src/app/assistant/page.tsx و frontend/src/components/compare/chat.tsx"
+    },
+    {
+      "id": "T067",
+      "story": "US04",
+      "stage": "S09",
+      "packages": [
+        "T27"
+      ],
+      "requirements": [
+        "FR-012",
+        "FR-013",
+        "FR-014",
+        "SC-002",
+        "SC-007"
+      ],
+      "description": "اجرای ارزیابی فارسی و smoke محدود واقعی OpenAI جدا از mock؛ ثبت مدل/نسخه/نتیجه بدون secret در docs/stage9/verification.json و tests/browser/journeys/assistant.spec.ts"
+    },
+    {
+      "id": "T068",
+      "story": null,
+      "stage": "S10–S11",
+      "packages": [
+        "T28"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-021",
+        "FR-022",
+        "SC-001",
+        "SC-008"
+      ],
+      "description": "تطبیق تمام ۴۴ قابلیت، DF/DR و فرم‌های مرجع با محصول در docs/catalogs/semantic-mapping.csv و docs/catalogs/feature-coverage.csv؛ ردیف باز/حذف خاموش مانع تحویل است"
+    },
+    {
+      "id": "T069",
+      "story": null,
+      "stage": "S10",
+      "packages": [
+        "T28"
+      ],
+      "requirements": [
+        "FR-016",
+        "FR-018"
+      ],
+      "description": "بستن بخش اتصال بیرونی B06 و اجرای فقط اتصال مصوب بازآفرینی با قرارداد واقعی در backend/apps/services/external.py و backend/tests/contracts/test_external.py؛ در نبود API وضعیت deferred با تصمیم صریح، نه fake success"
+    },
+    {
+      "id": "T070",
+      "story": null,
+      "stage": "S10–S11",
+      "packages": [
+        "T29"
+      ],
+      "requirements": [
+        "FR-011",
+        "SC-007"
+      ],
+      "description": "فعال‌سازی SMS واقعی، حذف OTP response/UI در public و اجرای smoke کنترل‌شده؛ شاهد در docs/stage11/sms-verification.json و تست gate در backend/tests/integration/test_public_launch.py"
+    },
+    {
+      "id": "T071",
+      "story": null,
+      "stage": "S11",
+      "packages": [
+        "T29"
+      ],
+      "requirements": [
+        "FR-017",
+        "FR-022",
+        "SC-004",
+        "SC-005",
+        "FR-025",
+        "SC-009"
+      ],
+      "description": "تکمیل بخش عرضه B07 و بازبینی سیاست فایل ثبت‌شده در T024، تست بار هدف/حریم/retention و backup/restore مستقل و rollback در deploy/backup.sh و deploy/restore.sh و tests/load/scenarios.js؛ gate تیم/تقویم/جانشین D25 و fixture تعطیلی/خارج ساعات کاری هم بررسی شود؛ نتیجه docs/stage11/verification.json"
+    },
+    {
+      "id": "T072",
+      "story": null,
+      "stage": "S10–S11",
+      "packages": [
+        "T06",
+        "T28",
+        "T29"
+      ],
+      "requirements": [
+        "FR-015",
+        "FR-019",
+        "FR-022",
+        "SC-003",
+        "SC-006"
+      ],
+      "description": "اجرای تمام سفرهای مصوب و مقایسه تصویری/موبایل/حرکت در tests/browser/؛ ثبت اختلاف و پذیرش انسانی در docs/stage11/acceptance.md؛ baseline بدون دلیل عوض نشود"
+    },
+    {
+      "id": "T073",
+      "story": null,
+      "stage": "S10–S11",
+      "packages": [
+        "T01",
+        "T29"
+      ],
+      "requirements": [
+        "FR-020",
+        "FR-022",
+        "SC-001",
+        "SC-002"
+      ],
+      "description": "بازبینی spec/plan/tasks/checklist و analyze/converge، گزارش نتیجه/محدودیت/قدم بعد در docs/stage-status.json و docs/stage11/report.md؛ انتشار و هر مرحله بعد منتظر دستور کاربر"
+    }
+  ],
+  "features": [
+    {
+      "feature": "F01",
+      "package": "T06",
+      "tasks": [
+        "T012",
+        "T045",
+        "T046",
+        "T072"
+      ]
+    },
+    {
+      "feature": "F02",
+      "package": "T12",
+      "tasks": [
+        "T030",
+        "T031",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F03",
+      "package": "T12",
+      "tasks": [
+        "T030",
+        "T031",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F04",
+      "package": "T12",
+      "tasks": [
+        "T030",
+        "T031",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F05",
+      "package": "T12",
+      "tasks": [
+        "T030",
+        "T031",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F06",
+      "package": "T12",
+      "tasks": [
+        "T030",
+        "T031",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F07",
+      "package": "T12",
+      "tasks": [
+        "T030",
+        "T031",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F08",
+      "package": "T24",
+      "tasks": [
+        "T059",
+        "T060",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F09",
+      "package": "T12",
+      "tasks": [
+        "T030",
+        "T031",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F10",
+      "package": "T07",
+      "tasks": [
+        "T009",
+        "T010",
+        "T011"
+      ]
+    },
+    {
+      "feature": "F11",
+      "package": "T11",
+      "tasks": [
+        "T030",
+        "T032",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F12",
+      "package": "T12",
+      "tasks": [
+        "T030",
+        "T031",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F13",
+      "package": "T11",
+      "tasks": [
+        "T030",
+        "T032",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F14",
+      "package": "T16",
+      "tasks": [
+        "T035",
+        "T036",
+        "T037",
+        "T038"
+      ]
+    },
+    {
+      "feature": "F15",
+      "package": "T16",
+      "tasks": [
+        "T035",
+        "T036",
+        "T037",
+        "T038"
+      ]
+    },
+    {
+      "feature": "F16",
+      "package": "T04",
+      "tasks": [
+        "T013",
+        "T014",
+        "T015",
+        "T016",
+        "T017"
+      ]
+    },
+    {
+      "feature": "F17",
+      "package": "T15",
+      "tasks": [
+        "T018",
+        "T019",
+        "T021"
+      ]
+    },
+    {
+      "feature": "F18",
+      "package": "T15",
+      "tasks": [
+        "T018",
+        "T019",
+        "T021"
+      ]
+    },
+    {
+      "feature": "F19",
+      "package": "T17",
+      "tasks": [
+        "T020",
+        "T021"
+      ]
+    },
+    {
+      "feature": "F20",
+      "package": "T19",
+      "tasks": [
+        "T049",
+        "T050",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F21",
+      "package": "T19",
+      "tasks": [
+        "T049",
+        "T050",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F22",
+      "package": "T20",
+      "tasks": [
+        "T051",
+        "T052",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F23",
+      "package": "T21",
+      "tasks": [
+        "T053",
+        "T054",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F24",
+      "package": "T18",
+      "tasks": [
+        "T047",
+        "T048"
+      ]
+    },
+    {
+      "feature": "F25",
+      "package": "T22",
+      "tasks": [
+        "T055",
+        "T056",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F26",
+      "package": "T23",
+      "tasks": [
+        "T057",
+        "T058",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F27",
+      "package": "T23",
+      "tasks": [
+        "T057",
+        "T058",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F28",
+      "package": "T18",
+      "tasks": [
+        "T047",
+        "T048"
+      ]
+    },
+    {
+      "feature": "F29",
+      "package": "T18",
+      "tasks": [
+        "T047",
+        "T048"
+      ]
+    },
+    {
+      "feature": "F30",
+      "package": "T24",
+      "tasks": [
+        "T059",
+        "T060",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F31",
+      "package": "T25",
+      "tasks": [
+        "T062",
+        "T063",
+        "T064",
+        "T065"
+      ]
+    },
+    {
+      "feature": "F32",
+      "package": "T26",
+      "tasks": [
+        "T065",
+        "T066"
+      ]
+    },
+    {
+      "feature": "F33",
+      "package": "T27",
+      "tasks": [
+        "T063",
+        "T067"
+      ]
+    },
+    {
+      "feature": "F34",
+      "package": "T08",
+      "tasks": [
+        "T022",
+        "T023",
+        "T025",
+        "T027"
+      ]
+    },
+    {
+      "feature": "F35",
+      "package": "T10",
+      "tasks": [
+        "T022",
+        "T026",
+        "T028",
+        "T029"
+      ]
+    },
+    {
+      "feature": "F36",
+      "package": "T13",
+      "tasks": [
+        "T039",
+        "T040",
+        "T042",
+        "T044"
+      ]
+    },
+    {
+      "feature": "F37",
+      "package": "T14",
+      "tasks": [
+        "T039",
+        "T041",
+        "T043",
+        "T044"
+      ]
+    },
+    {
+      "feature": "F38",
+      "package": "T17",
+      "tasks": [
+        "T020",
+        "T021"
+      ]
+    },
+    {
+      "feature": "F39",
+      "package": "T01",
+      "tasks": [
+        "T001",
+        "T002",
+        "T003",
+        "T073"
+      ]
+    },
+    {
+      "feature": "F40",
+      "package": "T28",
+      "tasks": [
+        "T068",
+        "T069",
+        "T072"
+      ]
+    },
+    {
+      "feature": "F41",
+      "package": "T19",
+      "tasks": [
+        "T049",
+        "T050",
+        "T061"
+      ]
+    },
+    {
+      "feature": "F42",
+      "package": "T11",
+      "tasks": [
+        "T030",
+        "T032",
+        "T033",
+        "T034"
+      ]
+    },
+    {
+      "feature": "F43",
+      "package": "T09",
+      "tasks": [
+        "T024",
+        "T025",
+        "T027"
+      ]
+    },
+    {
+      "feature": "F44",
+      "package": "T29",
+      "tasks": [
+        "T070",
+        "T071",
+        "T072",
+        "T073"
+      ]
+    }
+  ]
+}

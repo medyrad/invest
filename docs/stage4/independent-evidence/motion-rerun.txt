@@ -1,0 +1,2 @@
+mobile-normal-motion-map-cards-do-not-overlap-or-clip passed
+{"passed":1,"failed":0}

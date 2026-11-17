@@ -1,0 +1,39 @@
+docker compose --env-file .env -f deploy/compose.yaml run --rm test /app/.venv/bin/ruff check . --no-cache
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-42ecc5062b83 Creating 
+ Container invest-test-run-42ecc5062b83 Created 
+All checks passed!
+docker compose --env-file .env -f deploy/compose.yaml run --rm test /app/.venv/bin/ruff format --check . --no-cache
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-991369f7f90b Creating 
+ Container invest-test-run-991369f7f90b Created 
+40 files already formatted
+docker compose --env-file .env -f deploy/compose.yaml run --rm backend /app/.venv/bin/python manage.py makemigrations --check --dry-run
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-backend-run-dff25ff88818 Creating 
+ Container invest-backend-run-dff25ff88818 Created 
+No changes detected
+docker compose --env-file .env -f deploy/compose.yaml run --rm backend /app/.venv/bin/python manage.py check
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-backend-run-e6af1e7d9f6b Creating 
+ Container invest-backend-run-e6af1e7d9f6b Created 
+System check identified no issues (0 silenced).
+cd frontend && npm run lint && npm run typecheck
+
+> invest-frontend@0.1.0 lint
+> eslint . --max-warnings=0
+
+
+> invest-frontend@0.1.0 typecheck
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully

@@ -1,0 +1,4 @@
+ Container invest-web-1 Recreate 
+ Container invest-web-1 Recreated 
+ Container invest-web-1 Starting 
+ Container invest-web-1 Started 

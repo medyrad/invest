@@ -1,0 +1,14 @@
+live-3108-login-reload-logout-old-cookie passed
+viewport-360-paste-focus-scroll-login passed
+viewport-390-paste-focus-scroll-login passed
+viewport-768-paste-focus-scroll-login passed
+viewport-1440-paste-focus-scroll-login passed
+invalid-input-not-truncated-newline-bidi-long passed
+lost-first-issue-response-same-key-no-extra-issuance passed
+lost-entire-verify-response-no-cookie-requires-new-flow passed
+two-tabs-logout-clears-displayed-private-identity passed
+natural-session-usage-request-inventory passed
+slow-network-focus-and-no-double-submit passed
+Waiting for real 60-second resend boundary
+resend-lost-response-keeps-idempotency-key failed
+{"passed":11,"failed":1}

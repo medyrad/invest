@@ -1,0 +1,12 @@
+{
+  "start_utc": "2026-11-17T15:20:32Z",
+  "phases_wall_clock": {
+    "preparation_seconds": 93.4,
+    "build_seconds": 27.1,
+    "test_seconds": 34.8,
+    "report_seconds": 76.8
+  },
+  "browser_runner_seconds": 4.2,
+  "frontend_build_count": 1,
+  "note": "زمان دیواری فازها؛ آزمون شامل HTTP، مرورگر و بازبینی تصاویر است؛ گزارش شامل ردیابی و ثبت نسخه است."
+}

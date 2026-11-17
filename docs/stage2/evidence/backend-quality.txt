@@ -1,0 +1,12 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-0dadf56ad232 Creating 
+ Container invest-test-run-0dadf56ad232 Created 
+All checks passed!
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-d2dec341b654 Creating 
+ Container invest-test-run-d2dec341b654 Created 
+23 files already formatted

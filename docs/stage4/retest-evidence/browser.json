@@ -1,0 +1,107 @@
+{
+  "version": "S04-FIX-5d2794c593b5",
+  "started_utc": "2026-11-17T15:28:44.705Z",
+  "cases": [
+    {
+      "name": "city-text-parent-controls-home-menu-360",
+      "status": "passed",
+      "seconds": 0.867253149
+    },
+    {
+      "name": "city-text-parent-controls-home-menu-390",
+      "status": "passed",
+      "seconds": 0.7054627740000001
+    },
+    {
+      "name": "city-text-parent-controls-home-menu-768",
+      "status": "passed",
+      "seconds": 0.745193963
+    },
+    {
+      "name": "city-text-parent-controls-home-menu-1440",
+      "status": "passed",
+      "seconds": 0.7766759819999998
+    }
+  ],
+  "observations": [
+    {
+      "width": 360,
+      "horand_preserved": true,
+      "tehran_city_selected": true,
+      "province_and_county_clear_invalid_city": true,
+      "geometry": {
+        "bad": [],
+        "scrollWidth": 295,
+        "clientWidth": 295
+      },
+      "icon": {
+        "width": 64,
+        "height": 64,
+        "href": "http://127.0.0.1:3108/favicon.ico"
+      },
+      "favicon_errors": [],
+      "console_errors": []
+    },
+    {
+      "width": 390,
+      "horand_preserved": true,
+      "tehran_city_selected": true,
+      "province_and_county_clear_invalid_city": true,
+      "geometry": {
+        "bad": [],
+        "scrollWidth": 325,
+        "clientWidth": 325
+      },
+      "icon": {
+        "width": 64,
+        "height": 64,
+        "href": "http://127.0.0.1:3108/favicon.ico"
+      },
+      "favicon_errors": [],
+      "console_errors": []
+    },
+    {
+      "width": 768,
+      "horand_preserved": true,
+      "tehran_city_selected": true,
+      "province_and_county_clear_invalid_city": true,
+      "geometry": {
+        "bad": [],
+        "scrollWidth": 703,
+        "clientWidth": 703
+      },
+      "icon": {
+        "width": 64,
+        "height": 64,
+        "href": "http://127.0.0.1:3108/favicon.ico"
+      },
+      "favicon_errors": [],
+      "console_errors": []
+    },
+    {
+      "width": 1440,
+      "horand_preserved": true,
+      "tehran_city_selected": true,
+      "province_and_county_clear_invalid_city": true,
+      "geometry": {
+        "bad": [],
+        "scrollWidth": 1230,
+        "clientWidth": 1230
+      },
+      "icon": {
+        "width": 64,
+        "height": 64,
+        "href": "http://127.0.0.1:3108/favicon.ico"
+      },
+      "favicon_errors": [],
+      "console_errors": []
+    }
+  ],
+  "browser": "151.0.7922.137",
+  "finished_utc": "2026-11-17T15:28:47.934Z",
+  "wall_seconds": 3.2290265760000003,
+  "summary": {
+    "passed": 4,
+    "failed": 0
+  }
+}

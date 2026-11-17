@@ -1,0 +1,51 @@
+[WebServer] (node:1374153) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 22 tests using 4 workers
+
+(node:1374387) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1374390) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1374388) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1374395) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:61:1 › catalog failure, retry, empty response and recovery never fabricate fresh data (736ms)
+  ✓   2 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:44:1 › catalog parent changes clear invalid children and remove/clear controls work (977ms)
+  ✓   3 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:73:1 › navigation, mobile menu and help disclose future destinations (996ms)
+  ✓   5 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:85:1 › public preview-disabled response renders no synthetic cards or calculated score (332ms)
+(node:1375314) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1375321) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1375330) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:61:1 › catalog failure, retry, empty response and recovery never fabricate fresh data (690ms)
+  ✓   7 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:44:1 › catalog parent changes clear invalid children and remove/clear controls work (945ms)
+  ✓  10 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:85:1 › public preview-disabled response renders no synthetic cards or calculated score (307ms)
+  ✓   9 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:73:1 › navigation, mobile menu and help disclose future destinations (736ms)
+(node:1376096) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1376118) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:44:1 › catalog parent changes clear invalid children and remove/clear controls work (726ms)
+  ✓  13 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:61:1 › catalog failure, retry, empty response and recovery never fabricate fresh data (554ms)
+  ✓  14 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:73:1 › navigation, mobile menu and help disclose future destinations (662ms)
+  ✓  15 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:85:1 › public preview-disabled response renders no synthetic cards or calculated score (242ms)
+(node:1376884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:6:1 › home includes all active sections, real catalog and a truthful sample label (14.5s)
+(node:1377743) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  16 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:6:1 › home includes all active sections, real catalog and a truthful sample label (10.3s)
+  ✓  18 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:61:1 › catalog failure, retry, empty response and recovery never fabricate fresh data (583ms)
+  ✓  17 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:44:1 › catalog parent changes clear invalid children and remove/clear controls work (882ms)
+  ✓  19 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:73:1 › navigation, mobile menu and help disclose future destinations (587ms)
+  ✓  20 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:85:1 › public preview-disabled response renders no synthetic cards or calculated score (330ms)
+  ✓  21 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:92:1 › motion and reduced-motion remain distinct without hydration errors @desktop (718ms)
+  ✓   1 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:6:1 › home includes all active sections, real catalog and a truthful sample label (19.5s)
+  ✓  22 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:112:1 › touch menu and keyboard catalog controls retain focus and clear descendants @desktop (2.0s)
+  ✓  11 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:6:1 › home includes all active sections, real catalog and a truthful sample label (19.1s)
+
+  22 passed (23.0s)

@@ -1,0 +1,16 @@
+{
+  "version": "S04-f811d439b069",
+  "cases": [
+    {
+      "name": "all-sections-navigation-and-layout-768",
+      "status": "passed"
+    }
+  ],
+  "observations": [],
+  "errors": [],
+  "browser": "151.0.7922.137",
+  "summary": {
+    "passed": 1,
+    "failed": 0
+  }
+}

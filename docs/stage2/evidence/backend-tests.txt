@@ -1,0 +1,7 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-f822f93300c6 Creating 
+ Container invest-test-run-f822f93300c6 Created 
+.........................................................                [100%]
+57 passed in 1.80s

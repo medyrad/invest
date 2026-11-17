@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "uv_locked_rejected_manifest_drift": true,
+  "npm_ci_rejected_lock_drift": true,
+  "real_manifests_unchanged": true,
+  "uv_exit": 1,
+  "npm_exit": 1
+}

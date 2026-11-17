@@ -1,0 +1,38 @@
+{
+  "script_syntax": [
+    {
+      "file": "docs/stage3/independent-tests/run-existing-browser.py",
+      "syntax": "passed"
+    },
+    {
+      "file": "docs/stage3/independent-tests/proxy-log-probe.cjs",
+      "syntax": "passed"
+    },
+    {
+      "file": "docs/stage3/independent-tests/test_independent_identity.py",
+      "syntax": "passed"
+    },
+    {
+      "file": "docs/stage3/independent-tests/run-independent-browser.py",
+      "syntax": "passed"
+    },
+    {
+      "file": "docs/stage3/independent-tests/visual-independent.cjs",
+      "syntax": "passed"
+    },
+    {
+      "file": "docs/stage3/independent-tests/browser-independent.cjs",
+      "syntax": "passed"
+    },
+    {
+      "file": "docs/stage3/independent-tests/browser-boundaries.cjs",
+      "syntax": "passed"
+    }
+  ],
+  "main_ready_status": 200,
+  "listening_ports": {
+    "3107": false,
+    "3108": true,
+    "3109": false
+  }
+}

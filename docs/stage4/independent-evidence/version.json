@@ -1,0 +1,22 @@
+{
+  "target": "S04-f811d439b069",
+  "files_checked": 243,
+  "mismatches": [],
+  "images": [
+    {
+      "service": "backend",
+      "image": "sha256:79d489a93967a5bd1abc96accb5e2b3252a9e1e66beceea72f298ec82cd30c46",
+      "matches_target": true
+    },
+    {
+      "service": "web",
+      "image": "sha256:29f52e4a8cea2a4ab2a79053180dd0d000571f879bcd094469773b8965caf11d",
+      "matches_target": true
+    },
+    {
+      "service": "db",
+      "image": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+      "matches_target": true
+    }
+  ]
+}

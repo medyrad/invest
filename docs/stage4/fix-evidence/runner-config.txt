@@ -1,0 +1,2 @@
+import base from '../../frontend/playwright.config';
+export default { ...base, testDir: '../../frontend/tests/browser', testMatch: '**/catalog-fixes.spec.ts', webServer: undefined, use: { ...base.use, baseURL: 'http://127.0.0.1:3108' }, reporter: [['list'], ['json', { outputFile: '/home/mehdirad/Projects/company/invest/docs/stage4/fix-evidence/browser.json' }]], outputDir: './browser-results' };

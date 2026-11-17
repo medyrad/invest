@@ -1,0 +1,69 @@
+[WebServer] (node:1074979) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 24 tests using 7 workers
+
+(node:1075036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1075055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1075061) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1075043) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1075035) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1075037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1075049) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [mobile-360] › frontend/tests/browser/auth-fixes.spec.ts:174:1 › S03-IT-002: cross-tab signals cannot grant identity without server evidence (442ms)
+(node:1076448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [mobile-360] › frontend/tests/browser/auth-fixes.spec.ts:187:1 › S03-IT-003: approved D26 copy wraps readably without changing reference typography (927ms)
+(node:1076727) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [mobile-360] › frontend/tests/browser/auth-fixes.spec.ts:115:1 › S03-IT-002: a delayed old me response cannot restore identity after logout (1.3s)
+(node:1076919) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [tablet-768] › frontend/tests/browser/auth-fixes.spec.ts:115:1 › S03-IT-002: a delayed old me response cannot restore identity after logout (932ms)
+  ✓  11 [tablet-768] › frontend/tests/browser/auth-fixes.spec.ts:174:1 › S03-IT-002: cross-tab signals cannot grant identity without server evidence (144ms)
+  ✓  12 [tablet-768] › frontend/tests/browser/auth-fixes.spec.ts:187:1 › S03-IT-003: approved D26 copy wraps readably without changing reference typography (629ms)
+(node:1077759) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [mobile-360] › frontend/tests/browser/auth-fixes.spec.ts:82:1 › S03-IT-002: logout clears the other tab without affecting an independent device (3.8s)
+(node:1078179) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [mobile-360] › frontend/tests/browser/auth-fixes.spec.ts:153:1 › S03-IT-002: focus, visibility and page return recheck me without extending idle (4.2s)
+(node:1078408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [tablet-768] › frontend/tests/browser/auth-fixes.spec.ts:82:1 › S03-IT-002: logout clears the other tab without affecting an independent device (3.6s)
+(node:1078523) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 [mobile-390] › frontend/tests/browser/auth-fixes.spec.ts:115:1 › S03-IT-002: a delayed old me response cannot restore identity after logout (928ms)
+  ✓  10 [tablet-768] › frontend/tests/browser/auth-fixes.spec.ts:153:1 › S03-IT-002: focus, visibility and page return recheck me without extending idle (3.9s)
+  ✓  17 [mobile-390] › frontend/tests/browser/auth-fixes.spec.ts:174:1 › S03-IT-002: cross-tab signals cannot grant identity without server evidence (162ms)
+(node:1079207) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1079215) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [mobile-390] › frontend/tests/browser/auth-fixes.spec.ts:187:1 › S03-IT-003: approved D26 copy wraps readably without changing reference typography (683ms)
+(node:1079699) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 [mobile-390] › frontend/tests/browser/auth-fixes.spec.ts:82:1 › S03-IT-002: logout clears the other tab without affecting an independent device (3.6s)
+(node:1080057) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  16 [mobile-390] › frontend/tests/browser/auth-fixes.spec.ts:153:1 › S03-IT-002: focus, visibility and page return recheck me without extending idle (3.8s)
+(node:1080393) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  21 [desktop-1440] › frontend/tests/browser/auth-fixes.spec.ts:115:1 › S03-IT-002: a delayed old me response cannot restore identity after logout (915ms)
+  ✓  23 [desktop-1440] › frontend/tests/browser/auth-fixes.spec.ts:174:1 › S03-IT-002: cross-tab signals cannot grant identity without server evidence (185ms)
+  ✓  24 [desktop-1440] › frontend/tests/browser/auth-fixes.spec.ts:187:1 › S03-IT-003: approved D26 copy wraps readably without changing reference typography (576ms)
+  ✓  20 [desktop-1440] › frontend/tests/browser/auth-fixes.spec.ts:82:1 › S03-IT-002: logout clears the other tab without affecting an independent device (3.4s)
+  ✓  22 [desktop-1440] › frontend/tests/browser/auth-fixes.spec.ts:153:1 › S03-IT-002: focus, visibility and page return recheck me without extending idle (3.6s)
+  ✓   7 [tablet-768] › frontend/tests/browser/auth-fixes.spec.ts:40:1 › S03-IT-001: lost accepted resend recovers its key, challenge, TTL and quota (1.1m)
+  ✓   5 [mobile-360] › frontend/tests/browser/auth-fixes.spec.ts:40:1 › S03-IT-001: lost accepted resend recovers its key, challenge, TTL and quota (1.1m)
+  ✓  13 [mobile-390] › frontend/tests/browser/auth-fixes.spec.ts:40:1 › S03-IT-001: lost accepted resend recovers its key, challenge, TTL and quota (1.1m)
+  ✓  19 [desktop-1440] › frontend/tests/browser/auth-fixes.spec.ts:40:1 › S03-IT-001: lost accepted resend recovers its key, challenge, TTL and quota (1.1m)
+
+  24 passed (1.2m)

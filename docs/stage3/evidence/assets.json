@@ -1,0 +1,35 @@
+{
+  "photos": [
+    {
+      "path": "frontend/public/images/hero/construction.jpg",
+      "source": ".tools/reference/advisor/public/images/hero/construction.jpg",
+      "sha256": "86751b4064d3fb09e95ef5344a551f6171bc1d1dc94184461a51a103e64e2b49",
+      "identical": true
+    },
+    {
+      "path": "frontend/public/images/hero/field.jpg",
+      "source": ".tools/reference/advisor/public/images/hero/field.jpg",
+      "sha256": "1a791cd13e96afb76452879c2beeb12f96a72fc26c8da615f70ab911ce469c38",
+      "identical": true
+    },
+    {
+      "path": "frontend/public/images/hero/heritage.webp",
+      "source": ".tools/reference/advisor/public/images/hero/heritage.webp",
+      "sha256": "488e08783b9b99ae20cbab02ddf6ccbb42c98299d6b0600aac21fb4f479c013b",
+      "identical": true
+    },
+    {
+      "path": "frontend/public/images/hero/office.jpg",
+      "source": ".tools/reference/advisor/public/images/hero/office.jpg",
+      "sha256": "eb0432991eab5520f641280121e895430c9cd14034979e841fd3dc064b9cf105",
+      "identical": true
+    },
+    {
+      "path": "frontend/public/images/hero/towers.jpg",
+      "source": ".tools/reference/advisor/public/images/hero/towers.jpg",
+      "sha256": "64f01aa08412bd03fe58884be18d10f78aa603710dfa84da23503f1030ad5e87",
+      "identical": true
+    }
+  ],
+  "icons": "SVG rendered locally from reference iconsax-react 0.0.8 Bulk; source package MIT; no runtime dependency added"
+}

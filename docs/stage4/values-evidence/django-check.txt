@@ -1,0 +1,6 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-backend-run-ad1f16a99a4c Creating 
+ Container invest-backend-run-ad1f16a99a4c Created 
+System check identified no issues (0 silenced).

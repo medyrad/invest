@@ -1,0 +1,32 @@
+{
+  "version": "S04-FIX-5d2794c593b5",
+  "image": "sha256:a92a2333384102eb916d1cb056145b81177a42b700e6de5094ae799acd85d8a5",
+  "image_matches": true,
+  "build": "cVZXosaS-HTzSbx2hjX64",
+  "build_matches": true,
+  "files": {
+    "source_files": {
+      "checked": 246,
+      "different": []
+    },
+    "delivery_files_sha256": {
+      "checked": 9,
+      "different": []
+    },
+    "evidence_sha256": {
+      "checked": 15,
+      "different": []
+    }
+  },
+  "assets": [
+    {
+      "path": "frontend/public/favicon.ico",
+      "image_matches_workspace": true
+    },
+    {
+      "path": "frontend/public/icons/brand-mark.svg",
+      "image_matches_workspace": true
+    }
+  ],
+  "rebuild_performed": false
+}

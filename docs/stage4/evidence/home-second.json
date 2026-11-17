@@ -1,0 +1,926 @@
+{
+  "config": {
+    "argv": [
+      "/home/mehdirad/Projects/company/invest/.tools/runtimes/node-v24.22.3-linux-x64/bin/node",
+      "/home/mehdirad/Projects/company/invest/frontend/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/home/mehdirad/Projects/company/invest/frontend/playwright.config.ts",
+      "home.spec.ts",
+      "--output",
+      "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results"
+    ],
+    "configFile": "/home/mehdirad/Projects/company/invest/frontend/playwright.config.ts",
+    "rootDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 7
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "mobile-360",
+        "name": "mobile-360",
+        "testDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "tablet-768",
+        "name": "tablet-768",
+        "testDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "mobile-390",
+        "name": "mobile-390",
+        "testDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "desktop-1440",
+        "name": "desktop-1440",
+        "testDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": {},
+        "outputDir": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "name": "mobile-360",
+        "testDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "snapshotDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3109",
+          "trace": "retain-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/google-chrome"
+          },
+          "viewport": {
+            "width": 360,
+            "height": 800
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-360"
+      },
+      {
+        "grep": {},
+        "grepInvert": {},
+        "outputDir": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "name": "tablet-768",
+        "testDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "snapshotDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3109",
+          "trace": "retain-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/google-chrome"
+          },
+          "viewport": {
+            "width": 768,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "tablet-768"
+      },
+      {
+        "grep": {},
+        "grepInvert": {},
+        "outputDir": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "name": "mobile-390",
+        "testDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "snapshotDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3109",
+          "trace": "retain-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/google-chrome"
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-390"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "name": "desktop-1440",
+        "testDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "snapshotDir": "/home/mehdirad/Projects/company/invest/frontend/tests/browser",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3109",
+          "trace": "retain-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/google-chrome"
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-1440"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 7,
+    "webServer": {
+      "command": "npm run start",
+      "env": {
+        "PORT": "3109",
+        "HOSTNAME": "127.0.0.1"
+      },
+      "url": "http://127.0.0.1:3109",
+      "reuseExistingServer": false,
+      "timeout": 60000
+    }
+  },
+  "suites": [
+    {
+      "title": "home.spec.ts",
+      "file": "home.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home includes all active sections, real catalog and a truthful sample label",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-360",
+              "projectName": "mobile-360",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 972,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts:20:79",
+                    "location": {
+                      "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                      "column": 79,
+                      "line": 20
+                    },
+                    "snippet": " \u001b[90m 18 |\u001b[39m   \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m section \u001b[36mof\u001b[39m [\u001b[32m'hero'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'main-categories'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'categories'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'featured'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'how'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'help'\u001b[39m]) {\n \u001b[90m 19 |\u001b[39m     \u001b[36mconst\u001b[39m target \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`[data-section=\"${section}\"]`\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     expect(\u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mevaluate(el \u001b[33m=>\u001b[39m el\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m el\u001b[33m.\u001b[39mclientWidth \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 21 |\u001b[39m   }\n \u001b[90m 22 |\u001b[39m   expect(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mdocumentElement\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m innerWidth))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m   expect(errors)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                        "column": 79,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  18 |   for (const section of ['hero','main-categories','categories','featured','how','help']) {\n  19 |     const target = page.locator(`[data-section=\"${section}\"]`); await target.scrollIntoViewIfNeeded();\n> 20 |     expect(await target.evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);\n     |                                                                               ^\n  21 |   }\n  22 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);\n  23 |   expect(errors).toEqual([]);\n    at /home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts:20:79"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:02.611Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results/home-home-includes-all-act-2a87f-and-a-truthful-sample-label-mobile-360/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                    "column": 79,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-768",
+              "projectName": "tablet-768",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "failed",
+                  "duration": 1110,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts:20:79",
+                    "location": {
+                      "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                      "column": 79,
+                      "line": 20
+                    },
+                    "snippet": " \u001b[90m 18 |\u001b[39m   \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m section \u001b[36mof\u001b[39m [\u001b[32m'hero'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'main-categories'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'categories'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'featured'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'how'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'help'\u001b[39m]) {\n \u001b[90m 19 |\u001b[39m     \u001b[36mconst\u001b[39m target \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`[data-section=\"${section}\"]`\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     expect(\u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mevaluate(el \u001b[33m=>\u001b[39m el\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m el\u001b[33m.\u001b[39mclientWidth \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 21 |\u001b[39m   }\n \u001b[90m 22 |\u001b[39m   expect(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mdocumentElement\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m innerWidth))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m   expect(errors)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                        "column": 79,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  18 |   for (const section of ['hero','main-categories','categories','featured','how','help']) {\n  19 |     const target = page.locator(`[data-section=\"${section}\"]`); await target.scrollIntoViewIfNeeded();\n> 20 |     expect(await target.evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);\n     |                                                                               ^\n  21 |   }\n  22 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);\n  23 |   expect(errors).toEqual([]);\n    at /home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts:20:79"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:02.620Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results/home-home-includes-all-act-2a87f-and-a-truthful-sample-label-tablet-768/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                    "column": 79,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 5,
+                  "status": "failed",
+                  "duration": 1056,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts:20:79",
+                    "location": {
+                      "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                      "column": 79,
+                      "line": 20
+                    },
+                    "snippet": " \u001b[90m 18 |\u001b[39m   \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m section \u001b[36mof\u001b[39m [\u001b[32m'hero'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'main-categories'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'categories'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'featured'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'how'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'help'\u001b[39m]) {\n \u001b[90m 19 |\u001b[39m     \u001b[36mconst\u001b[39m target \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`[data-section=\"${section}\"]`\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     expect(\u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mevaluate(el \u001b[33m=>\u001b[39m el\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m el\u001b[33m.\u001b[39mclientWidth \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 21 |\u001b[39m   }\n \u001b[90m 22 |\u001b[39m   expect(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mdocumentElement\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m innerWidth))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m   expect(errors)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                        "column": 79,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  18 |   for (const section of ['hero','main-categories','categories','featured','how','help']) {\n  19 |     const target = page.locator(`[data-section=\"${section}\"]`); await target.scrollIntoViewIfNeeded();\n> 20 |     expect(await target.evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);\n     |                                                                               ^\n  21 |   }\n  22 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);\n  23 |   expect(errors).toEqual([]);\n    at /home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts:20:79"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:04.271Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results/home-home-includes-all-act-2a87f-and-a-truthful-sample-label-mobile-390/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                    "column": 79,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 858,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts:20:79",
+                    "location": {
+                      "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                      "column": 79,
+                      "line": 20
+                    },
+                    "snippet": " \u001b[90m 18 |\u001b[39m   \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m section \u001b[36mof\u001b[39m [\u001b[32m'hero'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'main-categories'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'categories'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'featured'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'how'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'help'\u001b[39m]) {\n \u001b[90m 19 |\u001b[39m     \u001b[36mconst\u001b[39m target \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`[data-section=\"${section}\"]`\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     expect(\u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mevaluate(el \u001b[33m=>\u001b[39m el\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m el\u001b[33m.\u001b[39mclientWidth \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 21 |\u001b[39m   }\n \u001b[90m 22 |\u001b[39m   expect(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mdocumentElement\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m innerWidth))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m   expect(errors)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                        "column": 79,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  18 |   for (const section of ['hero','main-categories','categories','featured','how','help']) {\n  19 |     const target = page.locator(`[data-section=\"${section}\"]`); await target.scrollIntoViewIfNeeded();\n> 20 |     expect(await target.evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);\n     |                                                                               ^\n  21 |   }\n  22 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);\n  23 |   expect(errors).toEqual([]);\n    at /home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts:20:79"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:05.500Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results/home-home-includes-all-act-2a87f-and-a-truthful-sample-label-desktop-1440/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                    "column": 79,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d318381359a9b96acb1e-c5d88474cd6c4c2ebd8f",
+          "file": "home.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "catalog parent changes clear invalid children and remove/clear controls work",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-360",
+              "projectName": "mobile-360",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1493,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:02.613Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-768",
+              "projectName": "tablet-768",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1555,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:02.609Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1507,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:04.639Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 1320,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:05.917Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d318381359a9b96acb1e-5c865d9ef7f2db8627b2",
+          "file": "home.spec.ts",
+          "line": 30,
+          "column": 1
+        },
+        {
+          "title": "catalog failure, retry, empty response and recovery never fabricate fresh data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-360",
+              "projectName": "mobile-360",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1072,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:02.644Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-768",
+              "projectName": "tablet-768",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1029,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:03.970Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 894,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:04.695Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 765,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:06.224Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d318381359a9b96acb1e-ee4bb463ab1775320cab",
+          "file": "home.spec.ts",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "navigation, mobile menu and help disclose future destinations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-360",
+              "projectName": "mobile-360",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1505,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:02.609Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-768",
+              "projectName": "tablet-768",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30060,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts",
+                        "column": 90,
+                        "line": 64
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('header').getByRole('link', { name: 'دستیار', exact: true })\u001b[22m\n\n\n  62 |     await page.getByRole('button', { name: 'منوی اصلی', exact: true }).click();\n  63 |     await page.getByRole('menuitem', { name: 'دستیار', exact: true }).click();\n> 64 |   } else await page.locator('header').getByRole('link', { name: 'دستیار', exact: true }).click();\n     |                                                                                          ^\n  65 |   await expect(page.getByText('این مقصد در نسخه آزمایشی فعلی فعال نیست', { exact: false })).toBeVisible();\n  66 |   await page.getByRole('link', { name: 'بازگشت به خانه', exact: true }).click();\n  67 |   const help = page.locator('[data-section=\"help\"] button[aria-expanded]').nth(1); await help.click();\n    at /home/mehdirad/Projects/company/invest/frontend/tests/browser/home.spec.ts:64:90"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:04.097Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/mehdirad/Projects/company/invest/.tools/s04/browser-results/home-navigation-mobile-men-c7b42-isclose-future-destinations-tablet-768/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1337,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:04.712Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 819,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:06.670Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d318381359a9b96acb1e-548ce1e5573a17a29875",
+          "file": "home.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "public preview-disabled response renders no synthetic cards or calculated score",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-360",
+              "projectName": "mobile-360",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 875,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:02.615Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-768",
+              "projectName": "tablet-768",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 769,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:04.252Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 703,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:05.497Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 549,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-17T14:25:06.670Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d318381359a9b96acb1e-407676fde0f7b00aa9fe",
+          "file": "home.spec.ts",
+          "line": 71,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-17T14:25:02.014Z",
+    "duration": 32374.037,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}

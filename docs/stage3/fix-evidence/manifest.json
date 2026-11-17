@@ -1,0 +1,275 @@
+{
+  "mission": "PROGRAMMER-S03-02",
+  "version": "S03-FIX-5f377655f1f5",
+  "source_baseline": "Pre-edit hash inventory; no Git commit available",
+  "protected_files_verified": 142,
+  "protected_files_unchanged": true,
+  "modified_existing_paths": [
+    "docs/stage-status.json",
+    "frontend/playwright.config.ts",
+    "frontend/src/components/auth/login-dialog.tsx",
+    "specs/005-identity-session/tasks.md"
+  ],
+  "files": [
+    {
+      "path": "docs/stage-status.json",
+      "sha256": "a8f09fc6bf903642f86cc134030485d36c0a41ffad27f05ea057c3815ee76c46",
+      "status": "modified"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/backend.txt",
+      "sha256": "facaaf22e9c32724dec4baf016425d661986f78002b11fcf54b33493e768eedf",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/build.txt",
+      "sha256": "37917065adfda5a10ab3b52bb6d363d632b235fcf7867c4cce9f74f887826b31",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/existing-browser.json",
+      "sha256": "be0592da3649dd65df2d43802b980bd109341c92952788d0b75bcffc53fbd459",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/existing-browser.txt",
+      "sha256": "9b3ac2bd9e128e8491b5fcd03dbe19a859c5f069b88e5b1f3f9dfb6730b90726",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/image-build.txt",
+      "sha256": "8a3fbf21a491d06791eecda37c8a5edde7a06ddf63d0a8a6e166a517a5c83721",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent/browser-boundaries.json",
+      "sha256": "d4e01c465957a1af9134e8dae576e36112d9acc9505c4565bf0573652f5c53ec",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent/independent-browser.json",
+      "sha256": "a47c2e27e228c518840c2a8598249a293d36fa3f7b8c9716017e807e3028e9e1",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent/independent-code-1440.png",
+      "sha256": "93c69aa4908cb423737f7c4a69990c47b202b068b5c8c8a73c51afb602b34331",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent/independent-code-360.png",
+      "sha256": "f48f45474d19803fbe944e29764d5a518b55fc462b7cded8894af22830aa3c11",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent/independent-code-390.png",
+      "sha256": "349645422cccc6105efe497ab291ce99f00800233221ae87f8a8ae5e91a78878",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent/independent-code-768.png",
+      "sha256": "0c4e6580755b120e06d2a2bbb40a37828c85e9af298c056fd3f60ae72009e6e6",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent/live-3108-authenticated.png",
+      "sha256": "b5b69901ac9ba65c1284dfe243b544e3b5b436a2ba1741506f2ea36e829d92ca",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent/lost-verify-without-cookie.png",
+      "sha256": "1202e191449819c6b84ebe47f6ec0dde3496acba9a16130a58abb67baf3ce508",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent/two-tabs-stale-identity.png",
+      "sha256": "3ad3d92eb5a28246b5a6daca8e4c830e46e8f36c08bfd2b8944e3d6aabc32d69",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent-backend.txt",
+      "sha256": "0a17320bed7857a47f27dd6f7006c4c395aceee24ccad0f95668ce16aa8d6713",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent-boundaries.txt",
+      "sha256": "90b4a62e8a3943b3b797bba774783dbc976a1bd2ae35d3e82324d64d715c12a3",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/independent-browser.txt",
+      "sha256": "fbe07a408589ab9d2ca8329311cb510b00b7735baa23d3cee3b88227f42ca556",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/privacy-copy-desktop-1440.png",
+      "sha256": "5de3e91bd486e20394db1da065a219e604bec1384239d3f515612dc26fa3e41b",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/privacy-copy-mobile-360.png",
+      "sha256": "81bbbd14c09e5981727372092e239e3d24b828d220e89fb23ac8b21cdae59758",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/privacy-copy-mobile-390.png",
+      "sha256": "93098e2dd04abd42907868a6f5c2a1b4cb26c3776f0def53ae930f39085a7dfc",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/privacy-copy-tablet-768.png",
+      "sha256": "557e84f561a5f2dd4a225aa24fdd30480a66297544c064e9f79a82767aa27515",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/privacy-note-desktop-1440.png",
+      "sha256": "416632a3c6943c49191aebf05a40995e83e15c4e8b7d3359e6fb1d4d1ebbcd8f",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/privacy-note-mobile-360.png",
+      "sha256": "86faf31a5c7e7e6038c430a6168528b1eaaf9a6734d665c2ce4a2e64be190136",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/privacy-note-mobile-390.png",
+      "sha256": "798b43bf34d6eeda0757f771226f0104da798b1f81230dba9b64f9dd02e612f9",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/privacy-note-tablet-768.png",
+      "sha256": "9da4a14a8fd791e86107aa984c581aeb39e8d4e25c5799a7c39240da81a9cb1a",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/quality.txt",
+      "sha256": "2006203359772be361b80a6e866571f32d5206f1228beafdb05350e8023f2de1",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/browser-boundaries.json",
+      "sha256": "4bfde0a0b3c1ad20824fb63af147ba048f3cf1f668395ae49eb7ce2ba93d7ac9",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/independent-browser.json",
+      "sha256": "ab59710478416e0a6e3a0c3b4b045c09b4bf239067a520c49afc59e1c5a333ec",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/independent-code-1440.png",
+      "sha256": "92f152d35ae38c29fa0a1de63284c3e0474ddda6331bae14b82de118588daa81",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/independent-code-360.png",
+      "sha256": "073b3e230cd230a80108a0dab889f77ef71006bdfaf3ff9b5dd042ee0d326a89",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/independent-code-390.png",
+      "sha256": "1458be8c456d6d7d73a7d02c451ff18853dd436e94cda172890ce5b10d7aa016",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/independent-code-768.png",
+      "sha256": "1a066c9915a9f60b7169596ad4084c85e0cc4b9c5fabf846415862f56c4cb51a",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/live-3108-authenticated.png",
+      "sha256": "b5b69901ac9ba65c1284dfe243b544e3b5b436a2ba1741506f2ea36e829d92ca",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/lost-resend-retry.png",
+      "sha256": "77546f50f5c557cb226a3a2ffa4cf20f714453e74fffa0a77e61bd7c8c4654f4",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/lost-verify-without-cookie.png",
+      "sha256": "367efdcf8104bca092ee0b9bc733e30b93adf1c08dea576112924e914323c506",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/red/two-tabs-stale-identity.png",
+      "sha256": "1887679f346a04096d06ff37613d304697fa75281252bf0268a59e92ef42f64f",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/regressions.json",
+      "sha256": "222beb5d9a7c18a82881fe75666d6b17e30b016c888778a7bd8525a99bb40e6a",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/regressions.txt",
+      "sha256": "34a71be3561f729e6136c21c48176ad79f20a40a1d998ec34e3b00501452f56e",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/reproduction-boundaries.txt",
+      "sha256": "547c86af006a032a78c3c696627d5b690cbc66dde66740a889bc7721439c845e",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/reproduction-browser.txt",
+      "sha256": "5d3f99b58a297447b0ba7af9b5a74c68e871ff039f40ba14d2c9db9fca1e0517",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/standard-suite.json",
+      "sha256": "f68fa45c2cf8647565f8b7790c9e1594b04da561b0343682c0627b0062206ce0",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/standard-suite.txt",
+      "sha256": "85434b409ff20321d1b4b0b332351bbb08b106adfc766df522a1f4ed35223692",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/summary.json",
+      "sha256": "15660a3ba2a8f33052bf47afd0945016fc2703130434c67281018464dce52810",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/tool-compatibility.json",
+      "sha256": "65a5f1686147ca2eb2ace6264e048a7bdddf67f62e87e165365105dbc87c2fae",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-evidence/version.json",
+      "sha256": "f6a5ec67703d5a08ec51ff97543bb07ff97a337c367267f44de8ea43bb365df9",
+      "status": "new"
+    },
+    {
+      "path": "docs/stage3/fix-report.md",
+      "sha256": "896b0001dde4b0a22010e7d7fdacdde18cd9ec2f65e2e876a399fdd85d8d307c",
+      "status": "new"
+    },
+    {
+      "path": "frontend/playwright.config.ts",
+      "sha256": "ed4c918607be51e1e7bfb358d82f21b341e524095f6ffc09a15bf590da8e4094",
+      "status": "modified"
+    },
+    {
+      "path": "frontend/src/components/auth/login-dialog.tsx",
+      "sha256": "5f377655f1f5592f1ed79c0a66deb50e53fe7107b339448e82da8aae85c88f52",
+      "status": "modified"
+    },
+    {
+      "path": "frontend/tests/browser/auth-fixes.spec.ts",
+      "sha256": "db545c5f1ef4028bd6be2c097ad140a314bdee71ee27b2b5a332db9f1cbac476",
+      "status": "new"
+    },
+    {
+      "path": "scripts/redirect_independent_evidence.mjs",
+      "sha256": "0b01551374724f667b97bb71b74096947ed0c4ebb74aeb4dad97cbc6850033ae",
+      "status": "new"
+    },
+    {
+      "path": "specs/005-identity-session/tasks.md",
+      "sha256": "1c03a6f5219d32809db593a4640c594d2f918ad091cbfcb6a07ede4ea5e5682a",
+      "status": "modified"
+    }
+  ]
+}

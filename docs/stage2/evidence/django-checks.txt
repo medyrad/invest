@@ -1,0 +1,17 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-backend-run-00e2827bf16a Creating 
+ Container invest-backend-run-00e2827bf16a Created 
+No changes detected
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-backend-run-8f73add56b42 Creating 
+ Container invest-backend-run-8f73add56b42 Created 
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-backend-run-cbf975fc6e17 Creating 
+ Container invest-backend-run-cbf975fc6e17 Created 
+System check identified no issues (0 silenced).

@@ -1,0 +1,20 @@
+{
+  "backend": {
+    "compared": 46,
+    "different": []
+  },
+  "browser-api": {
+    "compared": 46,
+    "different": []
+  },
+  "isolated_public": {
+    "mode": "public",
+    "database": "invest_browser",
+    "local_http_redirect_disabled": true,
+    "sms_adapter": "sms"
+  },
+  "test": {
+    "compared": 46,
+    "different": []
+  }
+}

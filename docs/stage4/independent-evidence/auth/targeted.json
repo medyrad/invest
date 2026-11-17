@@ -1,0 +1,170 @@
+{
+  "version": "S04-f811d439b069",
+  "cases": [
+    {
+      "name": "IT002-cross-tab-clearing-device-independence-and-secret-free-signals",
+      "status": "passed"
+    },
+    {
+      "name": "IT002-late-authenticated-me-does-not-resurrect-identity",
+      "status": "passed"
+    },
+    {
+      "name": "IT002-focus-visibility-pageshow-history-and-idle",
+      "status": "passed"
+    },
+    {
+      "name": "IT002-spoofed-channel-message-cannot-grant-identity",
+      "status": "passed"
+    },
+    {
+      "name": "IT003-copy-layout-controls-360",
+      "status": "passed"
+    },
+    {
+      "name": "IT003-copy-layout-controls-390",
+      "status": "passed"
+    },
+    {
+      "name": "IT003-copy-layout-controls-768",
+      "status": "passed"
+    },
+    {
+      "name": "IT003-copy-layout-controls-1440",
+      "status": "passed"
+    },
+    {
+      "name": "affected-login-reload-logout-old-cookie-and-validation-errors",
+      "status": "failed",
+      "error": "expect(locator).toBeVisible() failed\n\nLocator: getByRole('region', { name: 'وضعیت ورود' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByRole('region', { name: 'وضعیت ورود' }) with timeout 5000ms\n  - waiting for getByRole('region', { name: 'وضعیت ورود' })\n"
+    },
+    {
+      "name": "IT001-recover-accepted-resend-payload-challenge-TTL-quota-and-login",
+      "status": "passed"
+    }
+  ],
+  "observations": [
+    {
+      "case": "IT002-signals",
+      "messages": [
+        {
+          "type": "session-invalidated"
+        }
+      ],
+      "idle_unchanged": true,
+      "independent_device_authenticated": true
+    },
+    {
+      "case": "IT002-events",
+      "events": [
+        "focus",
+        "visibilitychange",
+        "pageshow"
+      ],
+      "history_back": true,
+      "idle_unchanged": true,
+      "activity_requests": 0
+    },
+    {
+      "case": "IT003-layout",
+      "viewport": 360,
+      "metrics": {
+        "width": 263,
+        "scroll": 263,
+        "height": 74,
+        "fontSize": "12px",
+        "lineHeight": "18px",
+        "fontWeight": "600",
+        "lineTops": [
+          724,
+          705,
+          723,
+          741
+        ],
+        "textInside": true,
+        "dialogNoOverflow": true
+      }
+    },
+    {
+      "case": "IT003-layout",
+      "viewport": 390,
+      "metrics": {
+        "width": 293,
+        "scroll": 293,
+        "height": 74,
+        "fontSize": "12px",
+        "lineHeight": "18px",
+        "fontWeight": "600",
+        "lineTops": [
+          792,
+          773,
+          791,
+          809
+        ],
+        "textInside": true,
+        "dialogNoOverflow": true
+      }
+    },
+    {
+      "case": "IT003-layout",
+      "viewport": 768,
+      "metrics": {
+        "width": 239,
+        "scroll": 239,
+        "height": 78,
+        "fontSize": "12px",
+        "lineHeight": "18px",
+        "fontWeight": "600",
+        "lineTops": [
+          714,
+          694,
+          712,
+          730
+        ],
+        "textInside": true,
+        "dialogNoOverflow": true
+      }
+    },
+    {
+      "case": "IT003-layout",
+      "viewport": 1440,
+      "metrics": {
+        "width": 478,
+        "scroll": 478,
+        "height": 60,
+        "fontSize": "12px",
+        "lineHeight": "18px",
+        "fontWeight": "600",
+        "lineTops": [
+          723,
+          712,
+          730
+        ],
+        "textInside": true,
+        "dialogNoOverflow": true
+      }
+    },
+    {
+      "case": "IT001",
+      "same_key": true,
+      "same_canonical_payload": true,
+      "same_flow": true,
+      "recovered_same_challenge": true,
+      "TTL_unchanged": true,
+      "issued_events_before": 1,
+      "issued_events_unknown": 2,
+      "issued_events_after_recovery": 2,
+      "issued_events_after_login": 2,
+      "challenge_count": 2,
+      "old_code_hidden": true,
+      "login_success": true,
+      "sessions_created": 1
+    }
+  ],
+  "human_design_approved": false,
+  "browser": "151.0.7922.137",
+  "summary": {
+    "passed": 9,
+    "failed": 1
+  }
+}

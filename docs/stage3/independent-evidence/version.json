@@ -1,0 +1,667 @@
+{
+  "manifest_sha256": "ef1afdd98b2c8793eef52e702a24b2550af5d58125dc6a1236a2d7dfb8dda334",
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "expected": "7af5a86a7fd61f09acc126d5500a62066bddf54d9baa555edc429039371cd5ca",
+      "actual": "7af5a86a7fd61f09acc126d5500a62066bddf54d9baa555edc429039371cd5ca",
+      "match": true
+    },
+    {
+      "path": ".specify/feature.json",
+      "expected": "9f5177f31b26360450187146d95bdc0f4c72577c373c4ed9ab5d1d520202af2a",
+      "actual": "9f5177f31b26360450187146d95bdc0f4c72577c373c4ed9ab5d1d520202af2a",
+      "match": true
+    },
+    {
+      "path": "AGENTS.md",
+      "expected": "26c62fdb2b2c87d564a79821a6e0cfa9c4110c1b472ab4cca845fc918fc8c8c6",
+      "actual": "26c62fdb2b2c87d564a79821a6e0cfa9c4110c1b472ab4cca845fc918fc8c8c6",
+      "match": true
+    },
+    {
+      "path": "Makefile",
+      "expected": "264336ae9d887f9aaad86949f8c429cc1188220b49c8cef66b2ec2b90e8fa280",
+      "actual": "264336ae9d887f9aaad86949f8c429cc1188220b49c8cef66b2ec2b90e8fa280",
+      "match": true
+    },
+    {
+      "path": "README.md",
+      "expected": "da5e37abdca73bd07dea3f7af38239f96c45b11c42ff2d7fbc9ebac6fa2f9132",
+      "actual": "da5e37abdca73bd07dea3f7af38239f96c45b11c42ff2d7fbc9ebac6fa2f9132",
+      "match": true
+    },
+    {
+      "path": "backend/apps/identity/api.py",
+      "expected": "9f4a6d7ed398ba65d21f55ad00c604dff06815677f84e074d4325148a3b2e4af",
+      "actual": "9f4a6d7ed398ba65d21f55ad00c604dff06815677f84e074d4325148a3b2e4af",
+      "match": true
+    },
+    {
+      "path": "backend/apps/identity/locking.py",
+      "expected": "c12c955c34d31fddf887d45ff5cb6ac114b8dc9e86e16e226d0689c8b070e3a3",
+      "actual": "c12c955c34d31fddf887d45ff5cb6ac114b8dc9e86e16e226d0689c8b070e3a3",
+      "match": true
+    },
+    {
+      "path": "backend/apps/identity/migrations/0003_auditevent_user_auth_epoch_user_role_authsession_and_more.py",
+      "expected": "1d976a9d8043f422e27f53e09b0556c161dbfa65c4482e37d79b823e2ad3f411",
+      "actual": "1d976a9d8043f422e27f53e09b0556c161dbfa65c4482e37d79b823e2ad3f411",
+      "match": true
+    },
+    {
+      "path": "backend/apps/identity/migrations/0004_loginflow_intent_session.py",
+      "expected": "7e299faae707cb19b2c40007a5f57d062f3677015dbf59bc2a3f5b329873144f",
+      "actual": "7e299faae707cb19b2c40007a5f57d062f3677015dbf59bc2a3f5b329873144f",
+      "match": true
+    },
+    {
+      "path": "backend/apps/identity/models.py",
+      "expected": "0952d3ebd6d04dfb10d0e5740b4dc38df43277b2ba3846603d23b8d8823fceee",
+      "actual": "0952d3ebd6d04dfb10d0e5740b4dc38df43277b2ba3846603d23b8d8823fceee",
+      "match": true
+    },
+    {
+      "path": "backend/apps/identity/otp.py",
+      "expected": "88ad4df7ca433d3687ff6a07cb849571db48bab4d74c19d8fd54717e4f6af79e",
+      "actual": "88ad4df7ca433d3687ff6a07cb849571db48bab4d74c19d8fd54717e4f6af79e",
+      "match": true
+    },
+    {
+      "path": "backend/apps/identity/sessions.py",
+      "expected": "ddb1c1516afae73a5e909c9c08f81a4a1fe8b813ad9f46fa919b65aab255e34c",
+      "actual": "ddb1c1516afae73a5e909c9c08f81a4a1fe8b813ad9f46fa919b65aab255e34c",
+      "match": true
+    },
+    {
+      "path": "backend/config/urls.py",
+      "expected": "bf7f7af0de4ec0a148cc4c52816b4587b47b21a3d8261ee8c3109d55498dc1ea",
+      "actual": "bf7f7af0de4ec0a148cc4c52816b4587b47b21a3d8261ee8c3109d55498dc1ea",
+      "match": true
+    },
+    {
+      "path": "backend/tests/prepare_browser_db.py",
+      "expected": "30a67d366315e5cc77949b94a5ed72325ac9fc8e728c4a8cc631bcf9f58280ae",
+      "actual": "30a67d366315e5cc77949b94a5ed72325ac9fc8e728c4a8cc631bcf9f58280ae",
+      "match": true
+    },
+    {
+      "path": "backend/tests/test_identity.py",
+      "expected": "9dc48bf8a157c70a8e7fec38b670697d7cbbc6ad0dc4ffd4333eecaf38bbee58",
+      "actual": "9dc48bf8a157c70a8e7fec38b670697d7cbbc6ad0dc4ffd4333eecaf38bbee58",
+      "match": true
+    },
+    {
+      "path": "backend/tests/test_identity_races.py",
+      "expected": "c3d3539e1afd9acc4d58b5451d1b6126981d45f5840e5b27e7a6f6104b1d0e92",
+      "actual": "c3d3539e1afd9acc4d58b5451d1b6126981d45f5840e5b27e7a6f6104b1d0e92",
+      "match": true
+    },
+    {
+      "path": "deploy/compose.yaml",
+      "expected": "9c221e8cd5d9ce419e6dd74a43a51d8fcb719b5f29a85b08f8bb5973316fcddc",
+      "actual": "9c221e8cd5d9ce419e6dd74a43a51d8fcb719b5f29a85b08f8bb5973316fcddc",
+      "match": true
+    },
+    {
+      "path": "docs/development.md",
+      "expected": "bcda5f5a1b883199d9855281140f245652dd2bd08d48377921fb4c10b02f21b8",
+      "actual": "bcda5f5a1b883199d9855281140f245652dd2bd08d48377921fb4c10b02f21b8",
+      "match": true
+    },
+    {
+      "path": "docs/stage-status.json",
+      "expected": "fce93a6a2bfb1c5c1fe5525262cace52ddd2b3338068b59c5522ee0e272e990c",
+      "actual": "fce93a6a2bfb1c5c1fe5525262cace52ddd2b3338068b59c5522ee0e272e990c",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/assets.json",
+      "expected": "8d6cf7037e2f6a0b651f2fefb994e47c6db92e60c0377b90b65bdeece11b4c71",
+      "actual": "8d6cf7037e2f6a0b651f2fefb994e47c6db92e60c0377b90b65bdeece11b4c71",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/backend-tests.txt",
+      "expected": "c7dca9d84531d977f778313b635eb9bc2211a7b432ee5930382648421c0fbe99",
+      "actual": "c7dca9d84531d977f778313b635eb9bc2211a7b432ee5930382648421c0fbe99",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/browser-results.json",
+      "expected": "7ce682e0d0b18d82dd5399b49f9d82bdbecdf67c671a791fd4fa08e68bb8b123",
+      "actual": "7ce682e0d0b18d82dd5399b49f9d82bdbecdf67c671a791fd4fa08e68bb8b123",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/browser-tests.txt",
+      "expected": "af5d0a3997ef443e31e30d5084e1ea53632e6b486f7c8edc289cd344af8d3b07",
+      "actual": "af5d0a3997ef443e31e30d5084e1ea53632e6b486f7c8edc289cd344af8d3b07",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/checks.txt",
+      "expected": "83ec880f20d3192c5d62dcf501e0b108e5777882cb0d0b07d642c33d24180e73",
+      "actual": "83ec880f20d3192c5d62dcf501e0b108e5777882cb0d0b07d642c33d24180e73",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/dialog-invest-1440.png",
+      "expected": "17dab329c5a925764a3095edbbf029b7ae9fe1dafedc14c665f008aa129bba44",
+      "actual": "17dab329c5a925764a3095edbbf029b7ae9fe1dafedc14c665f008aa129bba44",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/dialog-reference-1440.png",
+      "expected": "4cc7b22d55ffaf95dd271a1f503c0968f23d2ebb11235c71352e77124965118f",
+      "actual": "4cc7b22d55ffaf95dd271a1f503c0968f23d2ebb11235c71352e77124965118f",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/foundation-desktop-1440.png",
+      "expected": "e4f7d82f3c3c8e0e8269e72d2d50b8cc71aec27e12ba78a6954d246a9d2888f0",
+      "actual": "e4f7d82f3c3c8e0e8269e72d2d50b8cc71aec27e12ba78a6954d246a9d2888f0",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/foundation-mobile-360.png",
+      "expected": "1d8723f1e353d1c3ab417ab4f38deb32fc8078ffdcee11caa474633cd5b46b8a",
+      "actual": "1d8723f1e353d1c3ab417ab4f38deb32fc8078ffdcee11caa474633cd5b46b8a",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/foundation-mobile-390.png",
+      "expected": "4d8db94b13c5998bac0107e5e3e8131baf359975461147a6430d8161344dd17a",
+      "actual": "4d8db94b13c5998bac0107e5e3e8131baf359975461147a6430d8161344dd17a",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/foundation-tablet-768.png",
+      "expected": "80d18b2d73a84d2a9d572fda7801a887deff2d4db99e709d0d159a9877e40d3a",
+      "actual": "80d18b2d73a84d2a9d572fda7801a887deff2d4db99e709d0d159a9877e40d3a",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/images.txt",
+      "expected": "cb7d17af7d613817c5715605f6b8422b8b2ce1aacc27597e397492d54a2f7c18",
+      "actual": "cb7d17af7d613817c5715605f6b8422b8b2ce1aacc27597e397492d54a2f7c18",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-code-step-bottom-mobile-360.png",
+      "expected": "873a5f7dc33cf6ac2ad39da283739c38a75b0c48f8113add7a02f0279bf552bc",
+      "actual": "873a5f7dc33cf6ac2ad39da283739c38a75b0c48f8113add7a02f0279bf552bc",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-code-step-bottom-mobile-390.png",
+      "expected": "ef286df627304a412f23224f15dc552006d4ba0b1ba6b9748b26ffc81a0651c8",
+      "actual": "ef286df627304a412f23224f15dc552006d4ba0b1ba6b9748b26ffc81a0651c8",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-code-step-desktop-1440.png",
+      "expected": "8341bce01957b08377e8a3b3f6a1e915ba4608544f76c710e904cf14a98e41b1",
+      "actual": "8341bce01957b08377e8a3b3f6a1e915ba4608544f76c710e904cf14a98e41b1",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-code-step-mobile-360.png",
+      "expected": "32213a6bff967181b3b032e4d43a8e69dd56ae9806261578f15aa0e4a72b575b",
+      "actual": "32213a6bff967181b3b032e4d43a8e69dd56ae9806261578f15aa0e4a72b575b",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-code-step-mobile-390.png",
+      "expected": "05d6ee477cccadf44878c7b8d06d33faa0c6bfda730551414b223a11957ad1ba",
+      "actual": "05d6ee477cccadf44878c7b8d06d33faa0c6bfda730551414b223a11957ad1ba",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-code-step-tablet-768.png",
+      "expected": "3124acb6824d59c852fe58d7e47e74eef4d82e386617f03ba50a6c2aa0f36313",
+      "actual": "3124acb6824d59c852fe58d7e47e74eef4d82e386617f03ba50a6c2aa0f36313",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-expired-ui-bottom-mobile-360.png",
+      "expected": "99bd010503b8a5688704fe20a38cbaec221563aa6e3e1a5238f76c6564ce1b90",
+      "actual": "99bd010503b8a5688704fe20a38cbaec221563aa6e3e1a5238f76c6564ce1b90",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-expired-ui-bottom-mobile-390.png",
+      "expected": "47830dbdec79d98385a850fecfeddf24e50283ce9a0dcb1eb6910ed1b170afd4",
+      "actual": "47830dbdec79d98385a850fecfeddf24e50283ce9a0dcb1eb6910ed1b170afd4",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-expired-ui-desktop-1440.png",
+      "expected": "f54ee9cd8dd02b506ec9db116a64d31452c7b6e66e6e996e807c3685abdf8446",
+      "actual": "f54ee9cd8dd02b506ec9db116a64d31452c7b6e66e6e996e807c3685abdf8446",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-expired-ui-mobile-360.png",
+      "expected": "eb84c7f13bb5791031f03f70e102b1381fc67d84b8d3732aee4d486b28a07598",
+      "actual": "eb84c7f13bb5791031f03f70e102b1381fc67d84b8d3732aee4d486b28a07598",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-expired-ui-mobile-390.png",
+      "expected": "ca4eb8a7a88635adb4e34b8d435fee25a2ae19e0d3018aa762051a305b181607",
+      "actual": "ca4eb8a7a88635adb4e34b8d435fee25a2ae19e0d3018aa762051a305b181607",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-expired-ui-tablet-768.png",
+      "expected": "f69909327a9d0ef965a64565a5d27672057e507cdbd84046048cd2136d227e34",
+      "actual": "f69909327a9d0ef965a64565a5d27672057e507cdbd84046048cd2136d227e34",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-invalid-mobile-bottom-mobile-360.png",
+      "expected": "14c87936e36fe5d500636b62f27668af8748242d68eba4c206000acfefb16d68",
+      "actual": "14c87936e36fe5d500636b62f27668af8748242d68eba4c206000acfefb16d68",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-invalid-mobile-bottom-mobile-390.png",
+      "expected": "f6a8fd08595cc21c7832719093280fffde4a59a040824d44d8208fd20480e2d8",
+      "actual": "f6a8fd08595cc21c7832719093280fffde4a59a040824d44d8208fd20480e2d8",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-invalid-mobile-desktop-1440.png",
+      "expected": "9aaf8403ffe92159b2a77ac7cc70cb7b8361bdef7e3d644194af3c0f9c62ec16",
+      "actual": "9aaf8403ffe92159b2a77ac7cc70cb7b8361bdef7e3d644194af3c0f9c62ec16",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-invalid-mobile-mobile-360.png",
+      "expected": "1a0566c7df2991cdafbf0fcfd64d7cfbdf480dc19e384765b74130bd96c6e1e1",
+      "actual": "1a0566c7df2991cdafbf0fcfd64d7cfbdf480dc19e384765b74130bd96c6e1e1",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-invalid-mobile-mobile-390.png",
+      "expected": "c747fe9d9712a64ff490fa75658983295c3f943738510c8fda8255b30777d1ac",
+      "actual": "c747fe9d9712a64ff490fa75658983295c3f943738510c8fda8255b30777d1ac",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-invalid-mobile-tablet-768.png",
+      "expected": "f3982a8033101022e816f9fdb79dd1e9053237686bfb1153ff44683f5fd9985b",
+      "actual": "f3982a8033101022e816f9fdb79dd1e9053237686bfb1153ff44683f5fd9985b",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-mobile-step-bottom-mobile-360.png",
+      "expected": "691ee55e8a182b37e97bb093b24a3c2c96ec9bad6a524126ff997ea21df89938",
+      "actual": "691ee55e8a182b37e97bb093b24a3c2c96ec9bad6a524126ff997ea21df89938",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-mobile-step-bottom-mobile-390.png",
+      "expected": "b7d9d62d2c4e5942e6016e2c75d7c47e217379029b62f9f49edd5209eefb5e14",
+      "actual": "b7d9d62d2c4e5942e6016e2c75d7c47e217379029b62f9f49edd5209eefb5e14",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-mobile-step-desktop-1440.png",
+      "expected": "c806540d176f254537c7980220d69ea2b6a85d66723d3234195b7cf2ad287800",
+      "actual": "c806540d176f254537c7980220d69ea2b6a85d66723d3234195b7cf2ad287800",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-mobile-step-mobile-360.png",
+      "expected": "3148ec65570af583148f882ce006f1ed4c52d67eedcf73017c298c33f4ee1641",
+      "actual": "3148ec65570af583148f882ce006f1ed4c52d67eedcf73017c298c33f4ee1641",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-mobile-step-mobile-390.png",
+      "expected": "adf1202a83db886840eedfe82e42c892b5c58b1c318b4e1e2b52e0baee05afe3",
+      "actual": "adf1202a83db886840eedfe82e42c892b5c58b1c318b4e1e2b52e0baee05afe3",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-mobile-step-tablet-768.png",
+      "expected": "6ab231126ffac45f87506f417259d12a01f8ec910dd6a59eaa52efde84a09450",
+      "actual": "6ab231126ffac45f87506f417259d12a01f8ec910dd6a59eaa52efde84a09450",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-rate-limit-bottom-mobile-360.png",
+      "expected": "7ae1b72a78bd2c01a8e5070a75d009556dccd4a610b677aabedde746104487ac",
+      "actual": "7ae1b72a78bd2c01a8e5070a75d009556dccd4a610b677aabedde746104487ac",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-rate-limit-bottom-mobile-390.png",
+      "expected": "c3b8b3b613c6dc628ab3a8ffacc475693306258072272dde6b3332dd81d800dd",
+      "actual": "c3b8b3b613c6dc628ab3a8ffacc475693306258072272dde6b3332dd81d800dd",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-rate-limit-desktop-1440.png",
+      "expected": "7d2fe83c93911a092c9944e43902140f66a0c194c5cef15b903d79a7b0ecfef8",
+      "actual": "7d2fe83c93911a092c9944e43902140f66a0c194c5cef15b903d79a7b0ecfef8",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-rate-limit-mobile-360.png",
+      "expected": "0394dc805c22225f55d75cfe50ebe3ad746a434ace2abe1ddf9ec868aba13e55",
+      "actual": "0394dc805c22225f55d75cfe50ebe3ad746a434ace2abe1ddf9ec868aba13e55",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-rate-limit-mobile-390.png",
+      "expected": "c8db49296b2394f6d19bf11d13c91d8bb43feaa3c4ac13e49e658ffadfa884bb",
+      "actual": "c8db49296b2394f6d19bf11d13c91d8bb43feaa3c4ac13e49e658ffadfa884bb",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-rate-limit-tablet-768.png",
+      "expected": "cd1793fb3dc7261e32a327ab076b8146812168d89783f7e1933db43d3035e496",
+      "actual": "cd1793fb3dc7261e32a327ab076b8146812168d89783f7e1933db43d3035e496",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-success-desktop-1440.png",
+      "expected": "a7ace127cecf4af0caa62f406e91354b38da20ddc0efd0f1aa0a27acd6cf0df3",
+      "actual": "a7ace127cecf4af0caa62f406e91354b38da20ddc0efd0f1aa0a27acd6cf0df3",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-success-mobile-360.png",
+      "expected": "a1516ef5f3e42a36e3d6fade465a57dd3844b8bf213d5d32dab94bd11f456e4f",
+      "actual": "a1516ef5f3e42a36e3d6fade465a57dd3844b8bf213d5d32dab94bd11f456e4f",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-success-mobile-390.png",
+      "expected": "9ee1e61e5c900da394df56c63f5fe859e9c181afbf48efb5f4863f04cbbbb515",
+      "actual": "9ee1e61e5c900da394df56c63f5fe859e9c181afbf48efb5f4863f04cbbbb515",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-success-tablet-768.png",
+      "expected": "99862159e66278c7a3b5bbc016294d23188cb75bbd014eb3011ad18dd4eb7188",
+      "actual": "99862159e66278c7a3b5bbc016294d23188cb75bbd014eb3011ad18dd4eb7188",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-wrong-code-bottom-mobile-360.png",
+      "expected": "66190d4682922e09b0a82091009b8c7b41a561c9faea7fb74b5fd166888036bd",
+      "actual": "66190d4682922e09b0a82091009b8c7b41a561c9faea7fb74b5fd166888036bd",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-wrong-code-bottom-mobile-390.png",
+      "expected": "1075d99599dd4cba196f7428d6d77ce919d694973cbf034757b6f942ceb1a626",
+      "actual": "1075d99599dd4cba196f7428d6d77ce919d694973cbf034757b6f942ceb1a626",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-wrong-code-desktop-1440.png",
+      "expected": "7575dc24b79fda77baa1f3cd1b2f27c13e5db796554c6a66ca1f560a1d33d03d",
+      "actual": "7575dc24b79fda77baa1f3cd1b2f27c13e5db796554c6a66ca1f560a1d33d03d",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-wrong-code-mobile-360.png",
+      "expected": "a9f91fa6723191165194884ca2ac11e0af734d801909c544d3d9db6eebf60582",
+      "actual": "a9f91fa6723191165194884ca2ac11e0af734d801909c544d3d9db6eebf60582",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-wrong-code-mobile-390.png",
+      "expected": "d406e427cf202ef335f49048b3396acb359a23624f05402b86da2598d605105d",
+      "actual": "d406e427cf202ef335f49048b3396acb359a23624f05402b86da2598d605105d",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/login-wrong-code-tablet-768.png",
+      "expected": "11bb10433440b206cbf4acdaab94df959407abe1653d1f8de28b17b3dea9b6de",
+      "actual": "11bb10433440b206cbf4acdaab94df959407abe1653d1f8de28b17b3dea9b6de",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/migrations.txt",
+      "expected": "5dc5af45f37a43b51674fca96c35423bdaa0466c084e6c8ef55c9aef79a93321",
+      "actual": "5dc5af45f37a43b51674fca96c35423bdaa0466c084e6c8ef55c9aef79a93321",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/runtime.json",
+      "expected": "1c990698543071d362764edebfe883365961e9eaa0ecab1df881360567e34b57",
+      "actual": "1c990698543071d362764edebfe883365961e9eaa0ecab1df881360567e34b57",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/security-probe.json",
+      "expected": "1f2afda058c6c26762bb91af94aafc82ebefeea0d360df106d5cbfd8491258dc",
+      "actual": "1f2afda058c6c26762bb91af94aafc82ebefeea0d360df106d5cbfd8491258dc",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/evidence/visual-metrics.json",
+      "expected": "e63bc758e70c09331aa3e675dc2ff032415fba339f21f3de4883b48b7367c87a",
+      "actual": "e63bc758e70c09331aa3e675dc2ff032415fba339f21f3de4883b48b7367c87a",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/mission.txt",
+      "expected": "b64c274131f24fdd70217fc0a1b3831de8c4708fc5eb95d43b17835ff5448c40",
+      "actual": "b64c274131f24fdd70217fc0a1b3831de8c4708fc5eb95d43b17835ff5448c40",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/pre-code-analysis.md",
+      "expected": "aa6302fa591f5a7fd81d29603a48036e6cbc07ec34c159285afa43b990a81c38",
+      "actual": "aa6302fa591f5a7fd81d29603a48036e6cbc07ec34c159285afa43b990a81c38",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/report.md",
+      "expected": "7ac1e7135a998be72b86e736c2ff0002e9b2d0a8fc9ad7265f3114a1bd2ff72a",
+      "actual": "7ac1e7135a998be72b86e736c2ff0002e9b2d0a8fc9ad7265f3114a1bd2ff72a",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/traceability.md",
+      "expected": "2e399fdef7ead671d90b1597b51b0519207f4d788c32ee1f5293572fdcfc4817",
+      "actual": "2e399fdef7ead671d90b1597b51b0519207f4d788c32ee1f5293572fdcfc4817",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/verification.json",
+      "expected": "e1a1ccac0d2d27c9068d4578a0e35570bae7578cb8a5654a23c6e365194c459b",
+      "actual": "e1a1ccac0d2d27c9068d4578a0e35570bae7578cb8a5654a23c6e365194c459b",
+      "match": true
+    },
+    {
+      "path": "docs/stage3/visual-review.md",
+      "expected": "9d6062d588d759c9ee433ccda77c118b9ff18978b41721b9a27656651246a288",
+      "actual": "9d6062d588d759c9ee433ccda77c118b9ff18978b41721b9a27656651246a288",
+      "match": true
+    },
+    {
+      "path": "frontend/playwright.config.ts",
+      "expected": "85ada570dde67d99c8cfe9e899116c2222f2ae17290d31276bea4f5ef09f00e5",
+      "actual": "85ada570dde67d99c8cfe9e899116c2222f2ae17290d31276bea4f5ef09f00e5",
+      "match": true
+    },
+    {
+      "path": "frontend/public/icons/auth/Add.svg",
+      "expected": "3cbf29e525b014f93b70b0c268e6f472cb9f54b6922af6ea8a64fb286a3a1270",
+      "actual": "3cbf29e525b014f93b70b0c268e6f472cb9f54b6922af6ea8a64fb286a3a1270",
+      "match": true
+    },
+    {
+      "path": "frontend/public/icons/auth/ArchiveTick.svg",
+      "expected": "5f9300f79cbf29580def45a4e254c76c4d8e8b1a02380a23a94a28c9a3541fed",
+      "actual": "5f9300f79cbf29580def45a4e254c76c4d8e8b1a02380a23a94a28c9a3541fed",
+      "match": true
+    },
+    {
+      "path": "frontend/public/icons/auth/Lock1.svg",
+      "expected": "5951d968315999868b858ea2c0d08901085607506c69b57cb57bd0d09a37ae52",
+      "actual": "5951d968315999868b858ea2c0d08901085607506c69b57cb57bd0d09a37ae52",
+      "match": true
+    },
+    {
+      "path": "frontend/public/icons/auth/Mobile.svg",
+      "expected": "a603109f8c078c73b4148c9deac138ae2d92759a97f2e42d331475f79a8b3e5b",
+      "actual": "a603109f8c078c73b4148c9deac138ae2d92759a97f2e42d331475f79a8b3e5b",
+      "match": true
+    },
+    {
+      "path": "frontend/public/icons/auth/Notification.svg",
+      "expected": "d13572db8dc1c201a4dad0ccd2020434aca92073a8e01049f57b091357680fea",
+      "actual": "d13572db8dc1c201a4dad0ccd2020434aca92073a8e01049f57b091357680fea",
+      "match": true
+    },
+    {
+      "path": "frontend/public/icons/auth/ShieldTick.svg",
+      "expected": "9805e6782dbd2f0905eb47408c14626c7bf6a3c950f840b508f5d42eda98b2b6",
+      "actual": "9805e6782dbd2f0905eb47408c14626c7bf6a3c950f840b508f5d42eda98b2b6",
+      "match": true
+    },
+    {
+      "path": "frontend/public/icons/auth/UserEdit.svg",
+      "expected": "7dab00c1135a90aec20f5db7ea7bb0440b5b1aedddff41c5a879d38959bb5ed3",
+      "actual": "7dab00c1135a90aec20f5db7ea7bb0440b5b1aedddff41c5a879d38959bb5ed3",
+      "match": true
+    },
+    {
+      "path": "frontend/public/images/hero/construction.jpg",
+      "expected": "86751b4064d3fb09e95ef5344a551f6171bc1d1dc94184461a51a103e64e2b49",
+      "actual": "86751b4064d3fb09e95ef5344a551f6171bc1d1dc94184461a51a103e64e2b49",
+      "match": true
+    },
+    {
+      "path": "frontend/public/images/hero/field.jpg",
+      "expected": "1a791cd13e96afb76452879c2beeb12f96a72fc26c8da615f70ab911ce469c38",
+      "actual": "1a791cd13e96afb76452879c2beeb12f96a72fc26c8da615f70ab911ce469c38",
+      "match": true
+    },
+    {
+      "path": "frontend/public/images/hero/heritage.webp",
+      "expected": "488e08783b9b99ae20cbab02ddf6ccbb42c98299d6b0600aac21fb4f479c013b",
+      "actual": "488e08783b9b99ae20cbab02ddf6ccbb42c98299d6b0600aac21fb4f479c013b",
+      "match": true
+    },
+    {
+      "path": "frontend/public/images/hero/office.jpg",
+      "expected": "eb0432991eab5520f641280121e895430c9cd14034979e841fd3dc064b9cf105",
+      "actual": "eb0432991eab5520f641280121e895430c9cd14034979e841fd3dc064b9cf105",
+      "match": true
+    },
+    {
+      "path": "frontend/public/images/hero/towers.jpg",
+      "expected": "64f01aa08412bd03fe58884be18d10f78aa603710dfa84da23503f1030ad5e87",
+      "actual": "64f01aa08412bd03fe58884be18d10f78aa603710dfa84da23503f1030ad5e87",
+      "match": true
+    },
+    {
+      "path": "frontend/src/app/globals.css",
+      "expected": "4b16f700996876542d6605c1821981b218348b8cb1e38252f92ec4ddef95b550",
+      "actual": "4b16f700996876542d6605c1821981b218348b8cb1e38252f92ec4ddef95b550",
+      "match": true
+    },
+    {
+      "path": "frontend/src/app/page.tsx",
+      "expected": "2eb22ecc5b088988ca5a9c0fbe8ed1b141af2ae012fed259d52e421fd9726ded",
+      "actual": "2eb22ecc5b088988ca5a9c0fbe8ed1b141af2ae012fed259d52e421fd9726ded",
+      "match": true
+    },
+    {
+      "path": "frontend/src/components/auth/login-dialog.tsx",
+      "expected": "c0b3bc40addd8f3dbee4a97041b9bb012bf1140fa4f9cad235b643911ad7b1ea",
+      "actual": "c0b3bc40addd8f3dbee4a97041b9bb012bf1140fa4f9cad235b643911ad7b1ea",
+      "match": true
+    },
+    {
+      "path": "frontend/tests/browser/auth.spec.ts",
+      "expected": "e1c2d5b28686aecdf400431b1ccc058675636d49b99505784b76b52d04c54779",
+      "actual": "e1c2d5b28686aecdf400431b1ccc058675636d49b99505784b76b52d04c54779",
+      "match": true
+    },
+    {
+      "path": "frontend/tests/browser/foundation.spec.ts",
+      "expected": "2db3beef801232fecaaf5596343bc661b8407b5e29fff3ba91c997ff8266d944",
+      "actual": "2db3beef801232fecaaf5596343bc661b8407b5e29fff3ba91c997ff8266d944",
+      "match": true
+    },
+    {
+      "path": "scripts/capture_s03_comparison.mjs",
+      "expected": "9d6b29dfbac880c0068f390c73fb73af1430fe1594702e3cda7961d4a52896e4",
+      "actual": "9d6b29dfbac880c0068f390c73fb73af1430fe1594702e3cda7961d4a52896e4",
+      "match": true
+    },
+    {
+      "path": "scripts/verify_identity_safety.py",
+      "expected": "a2cf3233aaa0a267d50f787704b005e0278b9d9e9451f907c0317caa62bc303d",
+      "actual": "a2cf3233aaa0a267d50f787704b005e0278b9d9e9451f907c0317caa62bc303d",
+      "match": true
+    },
+    {
+      "path": "specs/001-business-baseline/tasks.md",
+      "expected": "e9cbb21ebbdb6c70c3922c03083fade20d2c93efe5ee9dd2e1f5e46112a103e9",
+      "actual": "e9cbb21ebbdb6c70c3922c03083fade20d2c93efe5ee9dd2e1f5e46112a103e9",
+      "match": true
+    },
+    {
+      "path": "specs/005-identity-session/checklists/requirements.md",
+      "expected": "4051bc36a0c7d25a429f8634d350e0af16fc27be0d7b8dc59685ac6063fbb299",
+      "actual": "4051bc36a0c7d25a429f8634d350e0af16fc27be0d7b8dc59685ac6063fbb299",
+      "match": true
+    },
+    {
+      "path": "specs/005-identity-session/contracts/api.md",
+      "expected": "eaa1bdd92b4ad46ab23e2bfcc10766e0913d718e298c045a7f13490d4d9548a1",
+      "actual": "eaa1bdd92b4ad46ab23e2bfcc10766e0913d718e298c045a7f13490d4d9548a1",
+      "match": true
+    },
+    {
+      "path": "specs/005-identity-session/data-model.md",
+      "expected": "1ddc690c493510a253b4ea388efc7df7dd231f7b09b79927f632b542de853d8c",
+      "actual": "1ddc690c493510a253b4ea388efc7df7dd231f7b09b79927f632b542de853d8c",
+      "match": true
+    },
+    {
+      "path": "specs/005-identity-session/plan.md",
+      "expected": "6f3fc82008bd0964248f1e89ff106e942b566740b1d57cc102fe987096d45abe",
+      "actual": "6f3fc82008bd0964248f1e89ff106e942b566740b1d57cc102fe987096d45abe",
+      "match": true
+    },
+    {
+      "path": "specs/005-identity-session/quickstart.md",
+      "expected": "3e0560bbc90db3796994f4951995b4fa93f62f8f31e30aff0c423d0ac4999cd8",
+      "actual": "3e0560bbc90db3796994f4951995b4fa93f62f8f31e30aff0c423d0ac4999cd8",
+      "match": true
+    },
+    {
+      "path": "specs/005-identity-session/research.md",
+      "expected": "4f0678dd3a391895fc2149afdcefb70fb8e483427f3e9b41e8e5663bfe8c89a4",
+      "actual": "4f0678dd3a391895fc2149afdcefb70fb8e483427f3e9b41e8e5663bfe8c89a4",
+      "match": true
+    },
+    {
+      "path": "specs/005-identity-session/spec.md",
+      "expected": "d92eb62ac868728adf25d90ff86b8fdca4675892a9babfa738122a815005c727",
+      "actual": "d92eb62ac868728adf25d90ff86b8fdca4675892a9babfa738122a815005c727",
+      "match": true
+    },
+    {
+      "path": "specs/005-identity-session/tasks.md",
+      "expected": "da7e0268f24935018b729dab0d6ed9dd2478686ae5c69e3ad10bab2b590be098",
+      "actual": "da7e0268f24935018b729dab0d6ed9dd2478686ae5c69e3ad10bab2b590be098",
+      "match": true
+    }
+  ],
+  "matches": 110,
+  "total": 110
+}

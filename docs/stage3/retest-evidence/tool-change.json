@@ -1,0 +1,10 @@
+{
+  "historical_tool_sha256": "852a4a9c16b4caea9f4aa6c96cff91dad9472090e05afe15d18f0c4065f5881d",
+  "matches_compatibility_record": true,
+  "new_copy_sha256": "8b753de689b228290970069571db989218e29fe5e5a33a62e6181572e7214428",
+  "diff": "tool-diff.patch",
+  "assertions_removed": false,
+  "initial_resend_selector": "دریافت کد تازه",
+  "recovery_selector": "تلاش دوباره برای دریافت نتیجه",
+  "conditions": "response received + trial-code visible; second tab identity hidden"
+}

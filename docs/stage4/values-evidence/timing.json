@@ -1,0 +1,9 @@
+{
+  "start_utc": "2026-11-17T15:36:11Z",
+  "preparation_and_speckit_seconds": 274.0,
+  "implementation_builds_and_related_checks_seconds": 1068.8,
+  "live_verification_and_reporting_seconds": 252.9,
+  "final_pytest_seconds": 3.72,
+  "report_generation_seconds": 109.0,
+  "note": "زمان دیواری؛ پیاده‌سازی شامل چرخه اصلاح و آزمون است. آزمون‌های نهایی و زمان هر فرمان در log جدا ثبت شده‌اند."
+}

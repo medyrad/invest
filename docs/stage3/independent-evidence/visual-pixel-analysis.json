@@ -1,0 +1,18 @@
+{
+  "reference_pixels": [
+    961,
+    578
+  ],
+  "invest_pixels": [
+    960,
+    578
+  ],
+  "overlap_pixels": [
+    960,
+    578
+  ],
+  "changed_fraction": 0.39338235294117646,
+  "difference_over_16_fraction": 0.03929858708189158,
+  "mean_absolute_channel_difference": 3.039012038638985,
+  "interpretation": "Raw crops are not pixel-identical. Intentional subtitle differs; reference crop includes fractional positioning. No human approval or full-image equivalence asserted."
+}

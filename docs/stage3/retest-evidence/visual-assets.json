@@ -1,0 +1,14 @@
+{
+  "compared": 13,
+  "mismatches": [],
+  "font_files": [
+    {
+      "path": "frontend/public/fonts/OFL.txt",
+      "match": true
+    },
+    {
+      "path": "frontend/public/fonts/Vazirmatn-variable.woff2",
+      "match": true
+    }
+  ]
+}

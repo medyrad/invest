@@ -1,0 +1,9 @@
+{
+  "compared": 22,
+  "missing_from_local_build": [
+    "/app/.next/static/WVfAwNWeqFt0YD4q3IIWw/_buildManifest.js",
+    "/app/.next/static/WVfAwNWeqFt0YD4q3IIWw/_clientMiddlewareManifest.js",
+    "/app/.next/static/WVfAwNWeqFt0YD4q3IIWw/_ssgManifest.js"
+  ],
+  "different": []
+}

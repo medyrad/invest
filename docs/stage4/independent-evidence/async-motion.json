@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "name": "delayed-old-catalog-response-cannot-replace-new-selection",
+      "status": "passed"
+    },
+    {
+      "name": "mobile-normal-motion-map-cards-do-not-overlap-or-clip",
+      "status": "failed",
+      "error": "Expected values to be strictly equal:\n\n1 !== 2\n"
+    }
+  ],
+  "details": [
+    {
+      "case": "catalog-race",
+      "fresh_response_preserved": true,
+      "selection_preserved": true
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 1
+  }
+}

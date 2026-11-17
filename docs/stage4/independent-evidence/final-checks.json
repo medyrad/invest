@@ -1,0 +1,54 @@
+{
+  "ready_3108": 200,
+  "temporary_ports_listening": {
+    "3107": false,
+    "3109": false,
+    "8011": false
+  },
+  "syntax": [
+    {
+      "path": "docs/stage4/independent-tests/controls.cjs",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/home-independent.cjs",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/run-existing-browser.py",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/public_settings.py",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/navigation-auth-probe.cjs",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/console-probe.cjs",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/async-motion.cjs",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/capture-sections.mjs",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/auth-regression.cjs",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/test_catalog_independent.py",
+      "passed": true
+    },
+    {
+      "path": "docs/stage4/independent-tests/extract-source.py",
+      "passed": true
+    }
+  ]
+}

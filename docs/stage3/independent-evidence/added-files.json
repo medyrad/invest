@@ -1,0 +1,173 @@
+{
+  "mission": "TEST-S03-02",
+  "files": [
+    {
+      "path": "docs/stage3/independent-evidence/browser-boundaries.json",
+      "sha256": "4bfde0a0b3c1ad20824fb63af147ba048f3cf1f668395ae49eb7ce2ba93d7ac9"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/browser-boundaries.txt",
+      "sha256": "547c86af006a032a78c3c696627d5b690cbc66dde66740a889bc7721439c845e"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/browser-image.json",
+      "sha256": "14508e247baeccd1cdc6ef67dac1b4841a711aedb643e20c91d6f1cf183411f1"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/cleanup.txt",
+      "sha256": "002eabd7fd1abf76626459f46a7c22bbed2fffc5c3e2cd0983b09cf08be091b7"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/existing-backend.txt",
+      "sha256": "db528e0853b35ff9a564451073a21b170f4420549f35bf1c523ade3a7949aa0a"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/existing-browser-results.json",
+      "sha256": "d1580438a56c4708b7b08743d2f05f09e195f3f34e26b8831fe4cbc914932b26"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/existing-browser.txt",
+      "sha256": "d2411d92d6dc9247eda4fe38222d2fda3b97c94cdfa8ff02792d96632ed092bb"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/existing-quality.txt",
+      "sha256": "14e9fd4b289cded0cb5798021d16176d8a61c9e4e4b9bd4df6d187cac28001f8"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/final-checks.json",
+      "sha256": "9cf14d7ca4662fda78cacb0fc39e4c34baed2d726da31a0ed05ef105834abc9a"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/final-delivery-check.json",
+      "sha256": "8be778f0b0f142f6338121feba93ac1f0802c3ea1b65c080e30d4547189ff9ae"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/frontend-image-comparison.json",
+      "sha256": "075906759767d6490b77b8d46bd6f133b4658fe477a56d5d0523570dc529d469"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/independent-backend.txt",
+      "sha256": "8afa2107d374eaef14983ac70099ef85b0fabecba08362e08eeacfe8252fc304"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/independent-browser-setup.txt",
+      "sha256": "1f1cc0815eae55ab2d3175886e9844d588fc06b6b31f62212c64fb0d5a21c530"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/independent-browser.json",
+      "sha256": "fc735bf55e47d3127392e214e1593e2127ec40bd64022edbbcd8497cb7ed42b9"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/independent-browser.txt",
+      "sha256": "663f2076591807e18bd121c7e6b320e3e5fa3e525ce4d992036ff4b35d36afcb"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/independent-code-1440.png",
+      "sha256": "580b104a36c05b645d6b1b6dccf3ed7a4af4e172bf00b05d8a9380284da5445c"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/independent-code-360.png",
+      "sha256": "a5f8ae3ec37c8abf8efdbff079f0148ffc76df9f40b908324891db5594969261"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/independent-code-390.png",
+      "sha256": "c1a5b86c5e1db57dbd107701e7c6ea924b2c7e2f17e307aeecfbdb798689e057"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/independent-code-768.png",
+      "sha256": "1117406117ee697f0d4db188fe9643f4188ca9ef7a35bde9f7ad34393815e217"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/independent-polling.txt",
+      "sha256": "de43291dfea5be8c6ba8f46bfe870c7cf66ce0d1cfdb3e5577ad14cd0ac290f5"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/live-3108-authenticated.png",
+      "sha256": "b5b69901ac9ba65c1284dfe243b544e3b5b436a2ba1741506f2ea36e829d92ca"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/lost-resend-retry.png",
+      "sha256": "8127b967fbb51bdf2cb5e5e69c377eed9ddb2dcae79c6d91be7c059651c69b65"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/lost-verify-without-cookie.png",
+      "sha256": "0c91f554c8992acf7d7d54a228fc5d85094a83a45a5fcc936fe01274e633916d"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/migration-check.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/proxy-log-probe.json",
+      "sha256": "d7e56fdc00b4cbcc2efe1afa2a132958ce57ee04e26e9650f5e281f1072bf102"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/runtime.json",
+      "sha256": "93be1951f76bbea2bf08a4b3f7850c8a0a6978888e64e29c6271d5339969a0a4"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/test-image.json",
+      "sha256": "315ba5655df0e4905a211a328dd5700a501d772737fd8069d097b13c3c7219d9"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/two-tabs-stale-identity.png",
+      "sha256": "1887679f346a04096d06ff37613d304697fa75281252bf0268a59e92ef42f64f"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/version.json",
+      "sha256": "daf2c28ab0722741d5c4813d5dac22efdb80d6d1d9943aac4a5d9326441751ef"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/visual-comparison.json",
+      "sha256": "43bc75a03fe08d8268c96b2f908a463ac2af606f73bc644b23a20b16ac1fd0c9"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/visual-comparison.txt",
+      "sha256": "132d32f2aa053454b922a10741621cd76712e0e3c79d994a960cdbccfe5a1c06"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/visual-invest-1440.png",
+      "sha256": "17dab329c5a925764a3095edbbf029b7ae9fe1dafedc14c665f008aa129bba44"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/visual-pixel-analysis.json",
+      "sha256": "e8facd1b7d9123e71aad1fcae6236077cba46a21ddca4443840b2a3932e2ccc7"
+    },
+    {
+      "path": "docs/stage3/independent-evidence/visual-reference-1440.png",
+      "sha256": "4cc7b22d55ffaf95dd271a1f503c0968f23d2ebb11235c71352e77124965118f"
+    },
+    {
+      "path": "docs/stage3/independent-test-report.md",
+      "sha256": "6856a9125777fc1c872cd3b0b6dc8bc7ff3ec29f8bee5bfe81fab4dc6bb5c87c"
+    },
+    {
+      "path": "docs/stage3/independent-tests/browser-boundaries.cjs",
+      "sha256": "29a62f3878cb5fd08820b0a58ba652b3131a4e0f4a88a78afc7eb6c4e0ebe2dc"
+    },
+    {
+      "path": "docs/stage3/independent-tests/browser-independent.cjs",
+      "sha256": "852a4a9c16b4caea9f4aa6c96cff91dad9472090e05afe15d18f0c4065f5881d"
+    },
+    {
+      "path": "docs/stage3/independent-tests/proxy-log-probe.cjs",
+      "sha256": "80b9dce1a57951d130fe314823736bc6936b93d50f00d9a386f73bf1148e2b54"
+    },
+    {
+      "path": "docs/stage3/independent-tests/run-existing-browser.py",
+      "sha256": "0de34d5d613aa57538932957cb209f6ac96ad98b8907e3a3508cfd2328005cc6"
+    },
+    {
+      "path": "docs/stage3/independent-tests/run-independent-browser.py",
+      "sha256": "9d1913cd604dc354ac6e2100b7778c48515e50366bc44c931ac1446c7a75348a"
+    },
+    {
+      "path": "docs/stage3/independent-tests/test_independent_identity.py",
+      "sha256": "a704777a8281822a8c67076a5d4dc2413e963396cb1b0eeccd24f671041aa874"
+    },
+    {
+      "path": "docs/stage3/independent-tests/visual-independent.cjs",
+      "sha256": "4d6a860fa35040819128b0edad5341da8159eb31420e14dd91809c934a5098cc"
+    }
+  ]
+}

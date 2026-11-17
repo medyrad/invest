@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "content_type": "image/x-icon",
+  "bytes": 6014,
+  "ico_header": [
+    0,
+    1,
+    4
+  ],
+  "directory_sizes": [
+    [
+      16,
+      16
+    ],
+    [
+      32,
+      32
+    ],
+    [
+      48,
+      48
+    ],
+    [
+      64,
+      64
+    ]
+  ],
+  "decoded_sizes": [
+    [
+      16,
+      16
+    ],
+    [
+      32,
+      32
+    ],
+    [
+      48,
+      48
+    ],
+    [
+      64,
+      64
+    ]
+  ],
+  "not_html": true,
+  "matches_delivery_asset": true,
+  "sha256": "c68acbb86ccc80d111af92446a58c249700e68cbbf8f9d6cf8c188537981622b",
+  "seconds": 0.02189055099734105
+}

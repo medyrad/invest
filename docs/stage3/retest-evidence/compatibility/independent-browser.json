@@ -1,0 +1,31 @@
+{
+  "cases": [
+    {
+      "name": "two-tabs-logout-clears-displayed-private-identity",
+      "status": "passed",
+      "milliseconds": 6267
+    },
+    {
+      "name": "resend-lost-response-keeps-idempotency-key",
+      "status": "passed",
+      "milliseconds": 61920
+    }
+  ],
+  "observations": [
+    {
+      "name": "other-tab-after-logout",
+      "server_authenticated": false,
+      "private_identity_still_visible": false
+    },
+    {
+      "name": "resend-lost-response",
+      "same_key": true,
+      "retry_status": 200
+    }
+  ],
+  "browser": "151.0.7922.137",
+  "summary": {
+    "passed": 2,
+    "failed": 0
+  }
+}

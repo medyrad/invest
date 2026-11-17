@@ -1,0 +1,90 @@
+{
+  "cases": [
+    {
+      "name": "live-3108-login-reload-logout-old-cookie",
+      "status": "passed",
+      "milliseconds": 1026
+    },
+    {
+      "name": "viewport-360-paste-focus-scroll-login",
+      "status": "passed",
+      "milliseconds": 1143
+    },
+    {
+      "name": "viewport-390-paste-focus-scroll-login",
+      "status": "passed",
+      "milliseconds": 1034
+    },
+    {
+      "name": "viewport-768-paste-focus-scroll-login",
+      "status": "passed",
+      "milliseconds": 1101
+    },
+    {
+      "name": "viewport-1440-paste-focus-scroll-login",
+      "status": "passed",
+      "milliseconds": 1065
+    },
+    {
+      "name": "invalid-input-not-truncated-newline-bidi-long",
+      "status": "passed",
+      "milliseconds": 684
+    },
+    {
+      "name": "lost-first-issue-response-same-key-no-extra-issuance",
+      "status": "passed",
+      "milliseconds": 660
+    },
+    {
+      "name": "lost-entire-verify-response-no-cookie-requires-new-flow",
+      "status": "passed",
+      "milliseconds": 1086
+    },
+    {
+      "name": "two-tabs-logout-clears-displayed-private-identity",
+      "status": "failed",
+      "error": "Other tab still displays private account identity after logout\n\ntrue !== false\n",
+      "milliseconds": 6550
+    },
+    {
+      "name": "natural-session-usage-request-inventory",
+      "status": "passed",
+      "milliseconds": 1966
+    },
+    {
+      "name": "slow-network-focus-and-no-double-submit",
+      "status": "passed",
+      "milliseconds": 2263
+    },
+    {
+      "name": "resend-lost-response-keeps-idempotency-key",
+      "status": "failed",
+      "error": "Retry after lost resend generated a new idempotency key\n+ actual - expected\n\n+ '4d84c11f-ce9e-45a2-8da4-1e33665341f0'\n- '3fa63d03-a9cf-4867-9b42-e4712903e6ea'\n",
+      "milliseconds": 62105
+    }
+  ],
+  "observations": [
+    {
+      "name": "other-tab-after-logout",
+      "server_authenticated": false,
+      "private_identity_still_visible": true
+    },
+    {
+      "name": "activity",
+      "natural_paths": [
+        "/api/v1/auth/me"
+      ],
+      "explicit_button_calls_activity": true
+    },
+    {
+      "name": "resend-lost-response",
+      "same_key": false,
+      "retry_status": 429
+    }
+  ],
+  "browser": "151.0.7922.137",
+  "summary": {
+    "passed": 10,
+    "failed": 2
+  }
+}

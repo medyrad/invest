@@ -1,0 +1,9 @@
+docker compose --env-file .env -f deploy/compose.yaml run --rm test
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-523a3bf982a5 Creating 
+ Container invest-test-run-523a3bf982a5 Created 
+........................................................................ [ 77%]
+.....................                                                    [100%]
+93 passed in 5.31s

@@ -1,0 +1,5 @@
+privacy-copy-compatible-with-D26 failed
+Waiting for actual server TTL boundary
+refresh-reopens-fresh-flow-without-storing-secrets passed
+five-wrong-codes-then-correct-code-refused-through-ui passed
+actual-120-second-server-expiry-and-mobile-controls passed

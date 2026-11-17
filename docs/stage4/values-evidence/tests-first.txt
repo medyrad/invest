@@ -1,0 +1,31 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-5a16341ae861 Creating 
+ Container invest-test-run-5a16341ae861 Created 
+.....................................................F.F................ [ 72%]
+............................                                             [100%]
+=================================== FAILURES ===================================
+___ test_currency_unit_and_definition_versions_never_create_false_comparison ___
+tests/test_values.py:225: in test_currency_unit_and_definition_versions_never_create_false_comparison
+    assert not compare(dollar, toman)["comparable"]
+               ^^^^^^^^^^^^^^^^^^^^^^
+apps/catalog/values.py:225: in compare
+    fail("invalid_snapshot", "مقدار یا قرارداد ذخیره‌شده با تعریف نسخه‌دار سازگار نیست.")
+apps/catalog/values.py:19: in fail
+    raise ValueErrorDetail(code, message, field)
+E   apps.catalog.values.ValueErrorDetail: مقدار یا قرارداد ذخیره‌شده با تعریف نسخه‌دار سازگار نیست.
+___________ test_quantity_units_stay_explicit_and_count_is_integral ____________
+tests/test_values.py:260: in test_quantity_units_stay_explicit_and_count_is_integral
+    assert month["value"] == "2" and day["value"] == "60" and not compare(month, day)["comparable"]
+                                                                  ^^^^^^^^^^^^^^^^^^^
+apps/catalog/values.py:225: in compare
+    fail("invalid_snapshot", "مقدار یا قرارداد ذخیره‌شده با تعریف نسخه‌دار سازگار نیست.")
+apps/catalog/values.py:19: in fail
+    raise ValueErrorDetail(code, message, field)
+E   apps.catalog.values.ValueErrorDetail: مقدار یا قرارداد ذخیره‌شده با تعریف نسخه‌دار سازگار نیست.
+=========================== short test summary info ============================
+FAILED tests/test_values.py::test_currency_unit_and_definition_versions_never_create_false_comparison
+FAILED tests/test_values.py::test_quantity_units_stay_explicit_and_count_is_integral
+2 failed, 98 passed in 3.81s
+

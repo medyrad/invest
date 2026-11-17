@@ -1,0 +1,188 @@
+{
+  "browser": "151.0.7922.137",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "font": "Vazirmatn33",
+  "time": "2026-11-17T12:00:00Z",
+  "reducedMotion": true,
+  "fixture": "advisor-preview-v1",
+  "human_approved": false,
+  "referenceMode": "production",
+  "targetMode": "production",
+  "sections": [
+    {
+      "mode": "reference",
+      "name": "hero",
+      "width": 1425,
+      "height": 992,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "سرمایه‌تان رابه سمت درست ببرید.",
+        "fontSize": "57.6px",
+        "lineHeight": "74.88px"
+      }
+    },
+    {
+      "mode": "reference",
+      "name": "main-categories",
+      "width": 1280,
+      "height": 1009.40625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "سرمایه، تخصص یا توان اجرایی،با کدام وارد می‌شوید؟",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "reference",
+      "name": "categories",
+      "width": 1280,
+      "height": 848.140625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "حوزه‌های مسیر «سرمایه‌گذاری و مشارکت»",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "reference",
+      "name": "featured",
+      "width": 1280,
+      "height": 920.140625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "تازه‌ترین پروژه‌ها",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "reference",
+      "name": "how",
+      "width": 1280,
+      "height": 570.640625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "چرا این پروژه‌ها را به شما نشان می‌دهیم؟",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "reference",
+      "name": "help",
+      "width": 1280,
+      "height": 823.140625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "پیش از تصمیم، این پرسش‌ها را روشن کنید",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "reference",
+      "name": "footer",
+      "width": 1280,
+      "height": 109,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": null
+    },
+    {
+      "mode": "invest",
+      "name": "hero",
+      "width": 1425,
+      "height": 992,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "سرمایه‌تان رابه سمت درست ببرید.",
+        "fontSize": "57.6px",
+        "lineHeight": "74.88px"
+      }
+    },
+    {
+      "mode": "invest",
+      "name": "main-categories",
+      "width": 1280,
+      "height": 1009.40625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "سرمایه، تخصص یا توان اجرایی،با کدام وارد می‌شوید؟",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "invest",
+      "name": "categories",
+      "width": 1280,
+      "height": 1194.140625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "حوزه‌های مسیر «سرمایه‌گذاری و مشارکت»",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "invest",
+      "name": "featured",
+      "width": 1280,
+      "height": 920.140625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "تازه‌ترین پروژه‌ها",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "invest",
+      "name": "how",
+      "width": 1280,
+      "height": 570.640625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "چرا این پروژه‌ها را به شما نشان می‌دهیم؟",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "invest",
+      "name": "help",
+      "width": 1280,
+      "height": 823.140625,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": {
+        "text": "پیش از تصمیم، این پرسش‌ها را روشن کنید",
+        "fontSize": "29.6px",
+        "lineHeight": "44.4px"
+      }
+    },
+    {
+      "mode": "invest",
+      "name": "footer",
+      "width": 1280,
+      "height": 109,
+      "font": "Vazirmatn, system-ui, sans-serif",
+      "title": null
+    }
+  ],
+  "reference_errors": [
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+    "Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+  ],
+  "target_errors": [],
+  "fontSha256": "4e3fa217d38fdafc1fea4414ceb58ca5e662cf0ab5fa735a8c8c20e8b42cad92",
+  "archiveSha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b"
+}

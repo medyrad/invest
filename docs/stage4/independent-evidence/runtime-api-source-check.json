@@ -1,0 +1,8 @@
+{
+  "origin": "http://127.0.0.1:3108",
+  "all_taxonomy_matches_zip": true,
+  "all_geography_matches_zip": true,
+  "city_coverage": "source-linked-only",
+  "preview_count": 273,
+  "preview_synthetic": true
+}

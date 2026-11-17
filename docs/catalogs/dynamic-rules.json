@@ -1,0 +1,1669 @@
+[
+  {
+    "name": "buildLandHousingGuidance",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 402,
+    "end_line": 416,
+    "context": "buildLandHousingGuidance",
+    "source_start": 368342,
+    "source_end": 371516,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "blocks.length",
+      "a.revenue==='support'",
+      "a.revenue==='public'",
+      "b.type==='lhstudy'",
+      "a.revenue==='sale'",
+      "a.revenue==='mixed'",
+      "effect",
+      "b.funding!=='own'",
+      "!blocks.length&&decisions.some(d=>d.review)"
+    ],
+    "returns": [
+      "{title:'مسیر قابل بررسی برای '+c.name,models,why,next,finance:a.revenue==='support'?['منابع عمومی یا حمایتی قابل تخصیص و مستند','بودجه نگهداری و تکمیل خدمات، بدون فرض بازده تجاری']:['آورده نقدی شرکا یا پرداخت کارفرما مطابق قرارداد معتبر','آورده غیرنقدی فقط پس از احراز حق و ارزش‌گذاری','تسهیلات احتمالی پس از احراز پذیرش نهاد مالی و توان بازپرداخت'],revenue:getAnswerText(b.group,b.type,'revenue',a.revenue),checks:[...new Set(checks)],decisions,blocked:blocks.length>0,answers:questions.map(q=>({question:q.label,answer:q.options.find(o=>o[0]===a[q.id])?.[1]||'تعیین نشده'}))}"
+    ],
+    "definition": "function buildLandHousingGuidance(p){\n const b=p.building,a=b.answers,c=getAdvisoryConfig(b.group,b.type),checks=[...c.baseChecks],questions=getQuestionsFor(b.group,b.type,a),blocks=criticalAnswers(b),decisions=[];\n let models=[],why='',next='دامنه کار، اختیار زمین، تعهدات شبکه‌ها و مرجع تحویل را مستند کنید، سپس هزینه، منبع پول و سازوکار پرداخت بررسی شود.';\n if(blocks.length){models=['انتخاب ساختار نهایی تا تعیین تکلیف مانع حقوقی متوقف بماند'];why='اختلاف یا منع صریح برای اقدام اعلام کرده‌اید، افزایش سرمایه یا تغییر نام قرارداد این مانع را رفع نمی‌کند.';next='موضوع اختلاف و حدود اختیار از مرجع ذی‌صلاح روشن شود، پیش از رفع مانع، ورود قطعی پیشنهاد نمی‌شود.';}\n else if(a.revenue==='support'){models=['تامین منابع عمومی یا حمایتی و قرارداد اجرای برنامه مجاز'];why='هدف، پوشش هزینه آماده‌سازی و تحویل قابل استفاده است، بازده یا بازگشت تجاری فرض نمی‌شود.';}\n else if(a.revenue==='public'){models=b.type==='lhstudy'?['قرارداد خدمات مطالعات و طراحی با منبع پرداخت روشن']:['قرارداد اجرای آماده‌سازی با منبع پرداخت معتبر','تامین مالی قراردادی / EPCF فقط در صورت انطباق دامنه و احراز تعهد بازپرداخت'];why='عایدی از پرداخت کارفرماست، اعتبار، زمان‌بندی پرداخت، تعدیل و پذیرش کار تعیین‌کننده‌اند. EPCF برای هر بسته مطالعات یا عملیات به‌صورت خودکار مناسب نیست.';}\n else if(a.revenue==='sale'){models=['مشارکت قراردادی با تسویه سهم زمین یا واحد مجاز','شرکت پروژه / JV فقط پس از احراز اختیار تشکیل و پذیرش آورده'];why='تسویه غیرنقدی انتخاب شده است، قابلیت انتقال، ارزش‌گذاری، زمان تحویل سهم و امکان نقدکردن آن باید مستقل بررسی شوند.';}\n else if(a.revenue==='mixed'){models=['مشارکت با تسویه ترکیبی نقدی و حقوق یا محصول مجاز'];why='منبع و زمان پرداخت نقدی، ارزش سهم غیرنقدی و مسئول اجرای هر تعهد باید جداگانه مشخص شوند.';}\n else {models=['ساختار همکاری پس از تعیین منبع جبران هزینه قابل انتخاب است'];why='منبع جبران هزینه هنوز تعیین نشده است، پیش از برآورد بازده باید سازوکار پرداخت روشن شود.';}\n for(const q of questions){const effect=q.actions?.[a[q.id]];if(effect){checks.push(effect);decisions.push({question:q.label,answer:q.options.find(o=>o[0]===a[q.id])?.[1]||'',effect,blocking:!!q.block?.includes(a[q.id]),review:!!q.review?.includes(a[q.id])});}}\n if(b.funding!=='own')checks.push('منابع نقدی، تسهیلات و سرمایه شریک احتمالی جدا ثبت شوند، منابع تاییدنشده پول آماده محسوب نمی‌شوند.');\n checks.push('هزینه آماده‌سازی از ارزش زمین و هزینه ساخت مسکن تفکیک شود.','کاربری یا انتقال زمین و واحد فقط با احراز اختیار و اسناد معتبر همان طرح بررسی شود.');\n if(!blocks.length&&decisions.some(d=>d.review))next=decisions.find(d=>d.review).effect+'، سپس بودجه، زمان و ساختار قرارداد بازبینی شوند.';\n return {title:'مسیر قابل بررسی برای '+c.name,models,why,next,finance:a.revenue==='support'?['منابع عمومی یا حمایتی قابل تخصیص و مستند','بودجه نگهداری و تکمیل خدمات، بدون فرض بازده تجاری']:['آورده نقدی شرکا یا پرداخت کارفرما مطابق قرارداد معتبر','آورده غیرنقدی فقط پس از احراز حق و ارزش‌گذاری','تسهیلات احتمالی پس از احراز پذیرش نهاد مالی و توان بازپرداخت'],revenue:getAnswerText(b.group,b.type,'revenue',a.revenue),checks:[...new Set(checks)],decisions,blocked:blocks.length>0,answers:questions.map(q=>({question:q.label,answer:q.options.find(o=>o[0]===a[q.id])?.[1]||'تعیین نشده'}))};\n}",
+    "domain": "land-preparation",
+    "task": "T20",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-001"
+  },
+  {
+    "name": "criticalAnswers",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 435,
+    "end_line": 435,
+    "context": "criticalAnswers",
+    "source_start": 374303,
+    "source_end": 374455,
+    "parameters": [
+      "b"
+    ],
+    "conditions": [
+      "!b"
+    ],
+    "returns": [
+      "[]",
+      "getQuestionsFor(b.group||'building',b.type,b.answers).filter(q=>q.block?.includes(b.answers[q.id]))"
+    ],
+    "definition": "function criticalAnswers(b){if(!b)return [];return getQuestionsFor(b.group||'building',b.type,b.answers).filter(q=>q.block?.includes(b.answers[q.id]));}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-002"
+  },
+  {
+    "name": "buildSectorGuidance",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 436,
+    "end_line": 460,
+    "context": "buildSectorGuidance",
+    "source_start": 374456,
+    "source_end": 381304,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "p.building?.group==='landhousing'",
+      "blocked.length",
+      "a.revenue==='support'",
+      "a.phase==='existing'&&a.rehab==='no'",
+      "a.revenue==='saving'",
+      "a.revenue==='sale'||(a.revenue==='mixed'&&b.group==='land')",
+      "a.revenue==='public'",
+      "social",
+      "a.phase==='existing'&&a.rehab==='yes'&&a.owner!=='private'",
+      "a.owner==='private'",
+      "['industry','energy','agriculture','digital'].includes(b.group)",
+      "!blocked.length&&a.revenue!=='support'&&a.phase==='unfinished'",
+      "!['sale','mixed','public','saving'].includes(a.revenue)",
+      "!blocked.length&&a.revenue==='public'&&a.phase==='existing'&&a.rehab==='yes'",
+      "a.phase==='any'",
+      "a.owner==='any'",
+      "action",
+      "!blocked.length&&a.revenue!=='support'",
+      "firstReview",
+      "b.funding!=='own'",
+      "!blocked.length",
+      "a.rehab==='unknown'",
+      "b.group==='heritage'",
+      "!blocked.length&&a.revenue!=='public'&&a.revenue!=='support'&&a.rehab!=='no'"
+    ],
+    "returns": [
+      "buildLandHousingGuidance(p)",
+      "{title:'مسیر قابل بررسی برای '+c.name,models,revenue:getAnswerText(b.group,b.type,'revenue',a.revenue),why,finance,checks:[...new Set(checks.filter(Boolean))],next,decisions,blocked:blocked.length>0,answers:getQuestionsFor(b.group,b.type,a).map(q=>({question:q.label,answer:q.options.find(o=>o[0]===a[q.id])?.[1]||'تعیین نشده'}))}"
+    ],
+    "definition": "function buildSectorGuidance(p){if(p.building?.group==='landhousing')return buildLandHousingGuidance(p);const b=p.building,a=b.answers,c=getAdvisoryConfig(b.group,b.type),checks=[...c.baseChecks],blocked=criticalAnswers(b);let models=[],why='',next='ابتدا اسناد حقوق دارایی، مجوزها و مشخصات فنی را دریافت کنید، سپس تقاضا، هزینه و منبع پرداخت همین خدمت بررسی شود.';\n const social=['flood','streets','fire','ruralroad','natural','protection'].includes(b.type);\n if(blocked.length){models=['پیش‌نیاز ورود حل نشده است، انتخاب قرارداد تا رفع مانع متوقف بماند'];why='بر اساس پاسخ شما، در «'+blocked.map(q=>q.label).join('، ')+'» منع یا مخالفت صریح وجود دارد. نوع قرارداد و سرمایه بیشتر، این مانع را برطرف نمی‌کند.';next='پاسخ مرجع ذی‌صلاح و امکان رفع مانع یا تغییر محدوده طرح را روشن کنید، این وضعیت تایید نشده و فرصت قابل اقدام پیشنهاد نمی‌شود.';}\n else if(a.revenue==='support'){models=['تامین منابع حمایتی / کمک و اجرای برنامه مورد تایید','قرارداد اجرای خدمت و پایش اثر، بدون تعهد بازده تجاری'];why='هدف این مسیر، اثرگذاری و پوشش هزینه است. تا وقتی جریان درآمد معتبر تعریف نشده، دوره بازگشت تجاری محاسبه نمی‌شود.';next='بودجه اجرا و نگهداری، متولی خدمت و شاخص اثرگذاری را مشخص کنید، معیار تصمیم، نتیجه خدمت و کفایت منابع است.';}\n else if(a.phase==='existing'&&a.rehab==='no'){models=['O&M — بهره‌برداری و نگهداری، در صورت انطباق شرح خدمت','اجاره حق استفاده / بهره‌برداری مجاز، برحسب ماهیت دارایی'];why='دارایی موجود است و سرمایه‌گذاری عمده انتخاب نشده، ابتدا قرارداد خدمت و حق‌الزحمه یا اجاره بررسی شود. این مسیر به‌خودی‌خود تامین مالی ساخت نیست.';next='شرح خدمت، مسئول پرداخت هزینه، نیاز احتمالی به سرمایه جدید و شرایط احراز صلاحیت بهره‌بردار مشخص شود.';}\n else if(a.revenue==='saving'){models=['قرارداد مبتنی بر عملکرد و سهم از صرفه‌جوییِ قابل سنجش، منوط به امکان قانونی و تسویه'];why='صرفه‌جویی انتخاب شده است. صرفه‌جویی فیزیکی تنها زمانی مبنای بازپرداخت می‌شود که خط مبنا، اندازه‌گیری، ارزش نقدی و تعهد پرداخت روشن باشد.';next='خط مبنا، روش راستی‌آزمایی و طرف مسئول تسویه صرفه‌جویی را پیش از برآورد بازده نهایی تعیین کنید.';}\n else if(a.revenue==='sale'||(a.revenue==='mixed'&&b.group==='land')){models=['مشارکت در توسعه / تکمیل و تقسیم محصول مجاز','JV — مشارکت در شرکت پروژه، در صورت احراز مجوز'];why='عایدی به عرضه حقوق یا محصول مجاز توسعه وابسته است، ارزش‌گذاری آورده‌ها، حقوق عمومی و امکان عرضه باید پیش از برآورد فروش تایید شوند.';}\n else if(a.revenue==='public'){models=social?['قرارداد اجرای طرح و خدمت با منبع پرداخت مصوب','تامین مالی قراردادی، صرفاً در صورت احراز تعهد بازپرداخت و پذیرش تامین‌کننده مالی']:['DBFO — طراحی، ساخت، تامین مالی و بهره‌برداری، در صورت انطباق دامنه خدمت','مشارکت با خرید خدمت / ظرفیت معتبر، ساختار نهایی پس از احراز اختیار طرف عمومی'];why='منبع بازپرداخت، خریدار خدمت عمومی انتخاب شده است. اختیار تعهد، اعتبار و بودجه و شرایط پرداخت باید مستقل از منافع اجتماعی پروژه احراز شوند.';next='خریدار خدمت، اختیار تعهد، منبع پرداخت و سنجش عملکرد را مستند کنید، بدون این موارد بازده مالی قابل اتکا نیست.';}\n else if(a.phase==='existing'&&a.rehab==='yes'&&a.owner!=='private'){models=['ROT — احیا / بازسازی، بهره‌برداری و انتقال، در صورت انطباق قرارداد','مشارکت در احیا با حق بهره‌برداری مدت‌دار و مجاز'];why='دارایی موجود به سرمایه‌گذاری احیا یا تجهیز نیاز دارد، دوره حق بهره‌برداری و درآمد مجاز باید هزینه احیا و نگهداری را پوشش دهند.';}\n else if(a.owner==='private'){models=['سرمایه‌گذاری در دارایی / شرکت پروژه با مالکیت مجاز','JV — مشارکت سهامی یا قراردادی پس از ارزش‌گذاری آورده‌ها'];if(['industry','energy','agriculture','digital'].includes(b.group))models.push('BOO — ساخت، مالکیت و بهره‌برداری، فقط در صورت مجاز بودن مالکیت و فعالیت');why='عایدی از محصول یا خدمت به مشتری پیش‌بینی شده است، حق فعالیت، بازار، هزینه بهره‌برداری و تقسیم ریسک بین شرکا باید بررسی شوند.';}\n else {models=['BOT — ساخت، بهره‌برداری و انتقال، برای دارایی و درآمد واجد شرایط','مشارکت در توسعه و بهره‌برداری، پس از تعیین حقوق و مجوزها'];why='دریافت درآمد از محصول، استفاده‌کننده یا اجاره ظرفیت مدنظر است، حق دریافت درآمد، تقاضا و تکلیف دارایی در پایان قرارداد باید روشن شوند.';}\n if(!blocked.length&&a.revenue!=='support'&&a.phase==='unfinished'){checks.push('گزارش پیشرفت واقعی، بدهی‌ها، نواقص و هزینه و زمان تکمیل');if(!['sale','mixed','public','saving'].includes(a.revenue))models=['مشارکت در تکمیل و بهره‌برداری، ساختار متناسب با حقوق دارایی موجود'];}\n if(!blocked.length&&a.revenue==='public'&&a.phase==='existing'&&a.rehab==='yes')models=['مشارکت در تامین مالی احیا و خدمت با پرداخت معتبر، متناسب با دارایی موجود'];\n if(a.phase==='any')checks.push('تعیین مرحله واقعی پروژه، قرارداد ساخت برای دارایی موجود خودکار قابل استفاده نیست');\n if(a.owner==='any')checks.push('احراز نوع مالک، اختیار واگذاری و محدودیت‌های مالکیت برای همان فرصت');\n checks.push(({finance:'معرفی و ارزیابی شریک تخصصی اجرا و بهره‌برداری و حقوق نظارت سرمایه‌گذار',develop:'احراز توان مدیریت اجرا، برنامه هزینه و زمان و تضمین تعهدات',operate:'احراز مجوز و توان بهره‌برداری تخصصی و بودجه نگهداری و سرمایه در گردش'})[a.participation]);\n const decisions=[];for(const q of getQuestionsFor(b.group,b.type,a)){const action=q.actions?.[a[q.id]];if(action){checks.push(action);decisions.push({question:q.label,answer:q.options.find(o=>o[0]===a[q.id])?.[1]||'',effect:action,blocking:!!q.block?.includes(a[q.id]),review:!!q.review?.includes(a[q.id])});}}\n if(!blocked.length&&a.revenue!=='support'){const firstReview=decisions.find(x=>x.review);if(firstReview)next=firstReview.effect+'، سپس مدل مالی و ساختار ورود دوباره بررسی شود.';}\n if(b.funding!=='own'){checks.push('مستندکردن منابع قابل تعهد و شرایط واقعی بانک یا شریک، منابع احتمالی به وجه نقد اضافه نشده‌اند');if(!blocked.length)next='میزان منابع نقدی قابل تعهد و شرایط تامین مالی باقی‌مانده را مستند کنید، پیشنهادها بر مبنای پول تاییدنشده تقویت نمی‌شوند.';}\n if(a.rehab==='unknown')checks.push('ارزیابی فنی برای تعیین نیاز به احیا، تجهیز یا تعمیر عمده');\n if(b.group==='heritage'){checks.push('عدم فرض فروش بنا یا تغییر آزادانه کاربری از محل اعطای حق بهره‌برداری');if(!blocked.length&&a.revenue!=='public'&&a.revenue!=='support'&&a.rehab!=='no')models=['مشارکت در مرمت و بهره‌برداری مجاز مدت‌دار','ROT — فقط در صورت انطباق تعهد مرمت، حق بهره‌برداری و تحویل'];}\n const finance=a.revenue==='support'?['آورده حمایتی یا کمک قابل تعهد و مستند','منبع پایدار هزینه نگهداری و پایش، بدون فرض بازپرداخت تجاری']:['آورده نقدی شرکا، آورده غیرنقدی پس از احراز حق، پذیرش و ارزش‌گذاری','بدهی / تسهیلات احتمالی پس از احراز صلاحیت و توان بازپرداخت، بدون احتساب منابع تاییدنشده'];\n if(a.revenue==='saving')finance.push('سرمایه اجرای بهینه‌سازی، بازپرداخت فقط از محل صرفه‌جویی نقدیِ قابل تسویه');\n return {title:'مسیر قابل بررسی برای '+c.name,models,revenue:getAnswerText(b.group,b.type,'revenue',a.revenue),why,finance,checks:[...new Set(checks.filter(Boolean))],next,decisions,blocked:blocked.length>0,answers:getQuestionsFor(b.group,b.type,a).map(q=>({question:q.label,answer:q.options.find(o=>o[0]===a[q.id])?.[1]||'تعیین نشده'}))};\n}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-003"
+  },
+  {
+    "name": "buildGuidance",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 461,
+    "end_line": 461,
+    "context": "buildGuidance",
+    "source_start": 381305,
+    "source_end": 381431,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "(p.building.group||'building')==='building'"
+    ],
+    "returns": [
+      "(p.building.group||'building')==='building'?buildBuildingGuidance(p):buildSectorGuidance(p)"
+    ],
+    "definition": "function buildGuidance(p){return (p.building.group||'building')==='building'?buildBuildingGuidance(p):buildSectorGuidance(p);}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-004"
+  },
+  {
+    "name": "evaluateSectorConditions",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 462,
+    "end_line": 465,
+    "context": "evaluateSectorConditions",
+    "source_start": 381432,
+    "source_end": 382179,
+    "parameters": [
+      "r",
+      "p"
+    ],
+    "conditions": [
+      "!b",
+      "b.group==='building'",
+      "q.block?.includes(a[q.id])",
+      "q.review?.includes(a[q.id])",
+      "a.revenue==='support'",
+      "r.project.capital==null",
+      "p.capital<r.project.capital"
+    ],
+    "returns": [
+      "r",
+      "r",
+      "r"
+    ],
+    "definition": "function evaluateSectorConditions(r,p){const b=p.building;if(!b)return r;if(b.group==='building')return r;const a=b.answers;for(const q of getQuestionsFor(b.group,b.type,a)){if(q.block?.includes(a[q.id]))r.fail.push('پیش‌نیاز ورود حل نشده: '+q.label);else if(q.review?.includes(a[q.id]))r.missing.push(q.actions?.[a[q.id]]||'بررسی اختصاصی کامل نیست: '+q.label);}\n if(a.revenue==='support'){if(r.project.capital==null)r.missing.push('بودجه موردنیاز برنامه مشخص نیست.');else if(p.capital<r.project.capital)r.fail.push('بودجه حمایتی شما از حداقل نیاز فرضی این نمونه کمتر است.');else r.pass.push('بودجه حمایتی با نیاز فرضی این برنامه سازگار است.');r.warnings.push('در این مسیر، بازگشت تجاری و امتیاز ریسک سرمایه‌گذاری سنجیده نشده است.');}\n return r;\n}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-005"
+  },
+  {
+    "name": "readBuildingProfile",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 473,
+    "end_line": 473,
+    "context": "readBuildingProfile",
+    "source_start": 384744,
+    "source_end": 385167,
+    "parameters": [],
+    "conditions": [
+      "!isBuildingPath()",
+      "isSupportPathRaw()",
+      "$('building-first-income').value===''"
+    ],
+    "returns": [
+      "null",
+      "{group:$('sector').value,type:$('subtype').value,answers:Object.fromEntries(Object.entries(buildingAnswers).filter(([k])=>active.has(k))),funding:$('building-funding').value,first:isSupportPathRaw()?null:$('building-first-income').value===''?null:Number($('building-first-income').value)}"
+    ],
+    "definition": "function readBuildingProfile(){if(!isBuildingPath())return null;const active=new Set(visibleBuildingQuestions().map(q=>q.id));return {group:$('sector').value,type:$('subtype').value,answers:Object.fromEntries(Object.entries(buildingAnswers).filter(([k])=>active.has(k))),funding:$('building-funding').value,first:isSupportPathRaw()?null:$('building-first-income').value===''?null:Number($('building-first-income').value)};}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-006"
+  },
+  {
+    "name": "validateBuildingDomain",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 480,
+    "end_line": 480,
+    "context": "validateBuildingDomain",
+    "source_start": 389766,
+    "source_end": 390079,
+    "parameters": [],
+    "conditions": [
+      "!isBuildingPath()",
+      "!buildingAnswers[q.id]",
+      "el"
+    ],
+    "returns": [
+      "''",
+      "'لطفاً «'+q.label+'» را مشخص کنید.'",
+      "''"
+    ],
+    "definition": "function validateBuildingDomain(){if(!isBuildingPath())return '';for(const q of visibleBuildingQuestions()){const el=$('bq-'+q.id);if(!buildingAnswers[q.id]){if(el){el.setAttribute('aria-invalid','true');el.focus();}return 'لطفاً «'+q.label+'» را مشخص کنید.';}if(el)el.removeAttribute('aria-invalid');}return '';}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-007"
+  },
+  {
+    "name": "evaluateCore",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 502,
+    "end_line": 502,
+    "context": "evaluateCore",
+    "source_start": 396229,
+    "source_end": 398628,
+    "parameters": [
+      "project",
+      "p"
+    ],
+    "conditions": [
+      "!p.building||!project.roles.includes(p.role)||project.sector!==(p.building.group||'building')||project.subtype!==p.building.type",
+      "meta",
+      "a.phase!=='any'&&a.phase!==meta.phase",
+      "a.owner!=='any'&&a.owner!==meta.owner",
+      "!meta.revenues.includes(a.revenue)",
+      "a.facility&&meta.facility&&a.facility!==meta.facility",
+      "a.market&&a.market!=='any'&&meta.market&&a.market!==meta.market",
+      "p.building.funding!=='own'",
+      "!isSupportPath(p.building)",
+      "project.first===null",
+      "p.building.first<project.first",
+      "a.revenue==='support'&&!project.support",
+      "a.phase==='existing'&&a.rehab==='no'",
+      "['partner','unknown'].includes(a.operator)||['pending','unknown'].includes(a.license)",
+      "['partial','none'].includes(a.demand)||['partial','none'].includes(a.equipment)",
+      "a.anchor==='none'||a.commitment==='unknown'||a.buyer==='unknown'",
+      "r.fail.length",
+      "r.missing.length"
+    ],
+    "returns": [
+      "r",
+      "r"
+    ],
+    "definition": "function evaluateCore(project,p){const r=evaluateBase(project,p);if(!p.building||!project.roles.includes(p.role)||project.sector!==(p.building.group||'building')||project.subtype!==p.building.type)return r;const a=p.building.answers,meta=buildingProjectMeta[project.id];if(meta){if(a.phase!=='any'&&a.phase!==meta.phase)r.fail.push('مرحله طرح با مرحله موردنظر شما متفاوت است.');else r.pass.push('مرحله طرح با انتخاب شما سازگار است.');if(a.owner!=='any'&&a.owner!==meta.owner)r.fail.push('نوع مالک / صاحب پروژه با انتخاب شما متفاوت است.');if(!meta.revenues.includes(a.revenue))r.fail.push('منبع عایدی این نمونه با مسیر انتخاب‌شده شما متفاوت است.');else r.pass.push('روش کسب عایدی با انتخاب شما هم‌خوان است.');if(a.facility&&meta.facility&&a.facility!==meta.facility)r.fail.push('کاربری تخصصی‌تر این نمونه با انتخاب شما متفاوت است.');if(a.market&&a.market!=='any'&&meta.market&&a.market!==meta.market)r.fail.push('بازار هدف مسکونی این نمونه با انتخاب شما متفاوت است.');}else r.missing.push('اطلاعات اختصاصی این نوع ساختمان کامل نیست.');if(p.building.funding!=='own')r.missing.push('آمادگی منابع نقدی و تامین مالی موردنیاز شما باید احراز شود، منابع تاییدنشده محاسبه نشده‌اند.');if(!isSupportPath(p.building)){if(project.first===null)r.missing.push('زمان اولین دریافت معلوم نیست.');else if(p.building.first<project.first)r.fail.push('اولین دریافت فرضی از زمان موردنیاز شما دیرتر است.');else r.pass.push('زمان اولین دریافت در محدوده شماست.');}if(a.revenue==='support'&&!project.support)r.fail.push('این نمونه سرمایه‌گذاری بازده‌محور است، هدف شما حمایت بدون انتظار بازده مالی است.');if(a.phase==='existing'&&a.rehab==='no')r.fail.push('این نمونه نیازمند سرمایه‌گذاری ساخت / بازسازی است، شما بهره‌برداری بدون سرمایه‌گذاری عمده را انتخاب کرده‌اید.');if(['partner','unknown'].includes(a.operator)||['pending','unknown'].includes(a.license))r.missing.push('شریک تخصصی یا مستندات بهره‌برداری هنوز روشن نیست.');if(['partial','none'].includes(a.demand)||['partial','none'].includes(a.equipment))r.missing.push('مطالعه تقاضا یا برآورد تجهیز موردنیاز کامل نیست.');if(a.anchor==='none'||a.commitment==='unknown'||a.buyer==='unknown')r.missing.push('مستاجر / خریدار خدمت یا مستندات پرداخت هنوز مشخص نیست.');r.warnings.push('نوع دقیق خدمت، ظرفیت، مجوز و نقش اجرایی شما با اسناد فراخوان تطبیق داده نشده است.');evaluateSectorConditions(r,p);r.status=r.fail.length?'excluded':r.missing.length?'review':'match';return r;}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-008"
+  },
+  {
+    "name": "buildBuildingGuidance",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 503,
+    "end_line": 536,
+    "context": "buildBuildingGuidance",
+    "source_start": 398629,
+    "source_end": 404955,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "a.revenue==='support'",
+      "a.phase==='existing'&&a.rehab==='no'",
+      "a.revenue==='sale'||a.revenue==='mixed'",
+      "a.revenue==='public'",
+      "a.phase==='existing'&&a.rehab==='yes'&&a.owner!=='private'",
+      "a.owner==='private'",
+      "a.phase==='existing'&&a.rehab==='yes'&&a.revenue==='public'",
+      "a.phase==='unfinished'",
+      "a.revenue!=='public'&&!['sale','mixed','support'].includes(a.revenue)",
+      "a.phase==='any'",
+      "a.owner==='any'",
+      "a.participation==='finance'",
+      "a.participation==='develop'",
+      "a.participation==='operate'",
+      "a.presale==='yes'",
+      "a.presale==='unknown'",
+      "a.market==='premium'",
+      "a.market==='economic'",
+      "a.market==='any'",
+      "a.operator==='partner'||a.operator==='unknown'",
+      "a.operator==='ready'||a.license==='ready'",
+      "a.license==='pending'||a.license==='unknown'",
+      "a.anchor&&a.anchor!=='signed'",
+      "a.anchor==='signed'",
+      "a.commitment||a.buyer",
+      "a.demand",
+      "a.demand==='ready'",
+      "a.equipment",
+      "a.equipment==='ready'",
+      "a.heritage==='yes'||a.heritage==='unknown'",
+      "a.facility",
+      "b.funding!=='own'",
+      "a.rehab==='unknown'"
+    ],
+    "returns": [
+      "{title:'مسیر قابل بررسی برای پروژه '+c.name,models,revenue,why,finance,checks:[...new Set(checks)],next,answers:getQuestionsFor(b.group||'building',b.type,a).map(q=>({question:q.label,answer:q.options.find(o=>o[0]===a[q.id])?.[1]||'تعیین نشده'}))}"
+    ],
+    "definition": "function buildBuildingGuidance(p){const b=p.building,a=b.answers,c=buildingConfigs[b.type],checks=[...c.baseChecks];let models=[],revenue=answerLabel('revenue',a.revenue),why='',next='ابتدا اسناد مالکیت و کاربری و امکان اجرای طرح را دریافت کنید، سپس مطالعه بازار و جریان نقدی همین نوع پروژه تهیه شود.';\n if(a.revenue==='support'){models=['تامین منابع حمایتی و قرارداد اجرای خدمت، نیازمند طراحی جداگانه'];why='هدف انتخاب‌شده، اثرگذاری اجتماعی و پوشش هزینه است، بدون درآمد مشخص، مدل بازگشت سرمایه تجاری پیشنهاد نمی‌شود.';next='هدف حمایتی، منبع پایدار پوشش هزینه و متولی بهره‌برداری را مشخص کنید، نمونه‌های بازده‌محور زیر با این هدف تطبیق داده نمی‌شوند.';}\n else if(a.phase==='existing'&&a.rehab==='no'){models=['قرارداد اجاره یا بهره‌برداری خدماتی، خارج از سرمایه‌گذاری ساخت'];why='ساختمان موجود است و سرمایه‌گذاری عمده انتخاب نشده، ابتدا باید روشن شود مشارکت سرمایه‌ای لازم است یا قرارداد خدمت کافی است.';next='شرح خدمت، نیاز واقعی به سرمایه جدید و مسئول پرداخت هزینه بهره‌برداری را مشخص کنید.';}\n else if(a.revenue==='sale'||a.revenue==='mixed'){models=['مشارکت در ساخت / تکمیل','JV — مشارکت در شرکت پروژه، در صورت وجود مجوز'];why='درآمد انتخابی به فروش ساختمان یا ترکیب فروش و اجاره وابسته است، سهم آورده‌ها و زمان فروش باید در قرارداد و مدل مالی روشن باشد.';}\n else if(a.revenue==='public'){models=['BLT — ساخت، اجاره و انتقال، در صورت انطباق تعهدات','DBFO — طراحی، ساخت، تامین مالی و بهره‌برداری، در صورت انطباق خدمت'];why='پرداخت از طرف خریدار خدمت یا دستگاه پیش‌بینی شده است، امکان تعهد بلندمدت، کیفیت خدمت و اعتبار پرداخت‌کننده پیش‌شرط بررسی این ساختارهاست.';checks.push('احراز اختیار تعهد بلندمدت، منبع پرداخت و شرایط تعدیل و کسر پرداخت');}\n else if(a.phase==='existing'&&a.rehab==='yes'&&a.owner!=='private'){models=['ROT — بازسازی، بهره‌برداری و انتقال، در صورت انطباق مالکیت و قرارداد'];why='ساختمان موجود است و به بازسازی عمده نیاز دارد، بازپرداخت از عایدی دوره بهره‌برداری بررسی می‌شود.';}\n else if(a.owner==='private'){models=['مشارکت در توسعه و بهره‌برداری','JV — مشارکت سهامی، در صورت انطباق حقوق و قرارداد'];why='درآمد از اجاره یا خدمت و صاحب پروژه خصوصی انتخاب شده است، مالکیت و تقسیم درآمد باید صریحاً در ساختار مشارکت تعیین شود.';}\n else {models=['BOT — ساخت، بهره‌برداری و انتقال، برای طرح جدید واجد شرایط','مشارکت در توسعه و بهره‌برداری، ساختار نهایی پس از بررسی'];why='بازپرداخت از عایدی اجاره یا خدمت مدنظر است، مدت بهره‌برداری، حق دریافت درآمد و تکلیف دارایی در پایان باید بررسی شوند.';}\n if(a.phase==='existing'&&a.rehab==='yes'&&a.revenue==='public'){models=['مشارکت در تامین مالی بازسازی و ارائه خدمت، ساختار متناسب با دارایی موجود'];why='ساختمان موجود به بازسازی نیاز دارد و پرداخت از خریدار خدمت پیش‌بینی شده است، قرارداد باید بازسازی، کیفیت خدمت و منبع پرداخت را پوشش دهد.';}\n if(a.phase==='unfinished'){checks.push('گزارش فنی پیشرفت، بدهی‌ها، هزینه رفع نقص و بودجه تکمیل');if(a.revenue!=='public'&&!['sale','mixed','support'].includes(a.revenue))models=['مشارکت در تکمیل و بهره‌برداری، قرارداد متناسب با دارایی موجود'];}\n if(a.phase==='any')checks.push('تعیین مرحله واقعی طرح، مدل ساخت برای ساختمان موجود به‌صورت خودکار قابل استفاده نیست');\n if(a.owner==='any')checks.push('تفکیک فرصت دولتی و خصوصی و احراز اختیار طرف واگذارکننده');\n if(a.participation==='finance')checks.push('معرفی شریک اجرایی / بهره‌بردار و تعیین حق نظارت سرمایه‌گذار');\n if(a.participation==='develop')checks.push('احراز ظرفیت مدیریت ساخت، برنامه زمان‌بندی و پوشش افزایش هزینه');\n if(a.participation==='operate')checks.push('احراز صلاحیت بهره‌برداری تخصصی و هزینه کارکنان و سرمایه در گردش');\n if(a.presale==='yes')checks.push('احراز شرایط قانونی و اسناد لازم پیش‌فروش، بدون اتکا به دریافت تاییدنشده');\n if(a.presale==='unknown')checks.push('تعیین میزان اتکا به پیش‌فروش و بررسی امکان آن پیش از تکمیل مدل مالی');\n if(a.market==='premium')checks.push('آزمون تقاضای واقعی بازار هدف و حساسیت فروش به افت قیمت');\n if(a.market==='economic')checks.push('تطبیق قیمت تمام‌شده با توان خرید بازار هدف');\n if(a.market==='any')checks.push('تعیین گروه خریدار / مستاجر پیش از برآورد فروش و اجاره');\n if(a.operator==='partner'||a.operator==='unknown'){checks.push('شناسایی و ارزیابی شریک بهره‌بردار تخصصی');next='پیش از برآورد بازده نهایی، شریک بهره‌بردار معرفی و هزینه‌های شروع فعالیت با او برآورد شود.';}\n if(a.operator==='ready'||a.license==='ready')checks.push('راستی‌آزمایی سوابق، مجوزها و تعهدات بهره‌بردار معرفی‌شده');\n if(a.license==='pending'||a.license==='unknown'){checks.push('تعیین مسئول و زمان اخذ مجوز فعالیت تخصصی');next='وضعیت مجوز و بهره‌بردار تخصصی را روشن کنید، سپس برآورد درآمد خدمات مبنای تصمیم قرار گیرد.';}\n if(a.anchor&&a.anchor!=='signed')checks.push('اعتبارسنجی تقاضای مستاجر اصلی و برآورد دوره خالی‌ماندن');\n if(a.anchor==='signed')checks.push('بررسی حدود تعهد و قابلیت اتکای توافق اولیه مستاجر');\n if(a.commitment||a.buyer)checks.push('بررسی حقوقی و مالی مستندات خریدار خدمت، اظهارات اولیه تضمین پرداخت نیست');\n if(a.demand)checks.push(a.demand==='ready'?'اعتبارسنجی مفروضات مطالعه تقاضای ارائه‌شده':'تکمیل مطالعه بازار و سناریوی کاهش استفاده‌کننده');\n if(a.equipment)checks.push(a.equipment==='ready'?'کنترل به‌روز بودن هزینه تجهیزات و اقساط و خدمات پس از فروش':'تکمیل برآورد تجهیزات، جایگزینی آن‌ها و سرمایه در گردش');\n if(a.heritage==='yes'||a.heritage==='unknown')checks.push('بررسی وضعیت حفاظت تاریخی و مرجع مجاز تایید مرمت و تغییر کاربری');\n if(a.facility){const q=c.questions.find(q=>q.id==='facility');checks.push('تطبیق الزامات فنی، ظرفیت و مجوزهای '+q.options.find(x=>x[0]===a.facility)[1]+' با اسناد پروژه');}\n if(b.funding!=='own'){checks.push('اخذ موافقت و شرایط واقعی تامین‌کننده مالی / شریک، منابع احتمالی به نقدینگی اضافه نشده‌اند');next='ابتدا میزان منابع قابل تعهد و شرایط تامین مالی باقی‌مانده را مستند کنید، سپس گزینه‌ها دوباره ارزیابی شوند.';}\n if(a.rehab==='unknown')checks.push('ارزیابی فنی ساختمان برای تعیین نیاز واقعی به بازسازی و تجهیز');\n const finance=a.revenue==='support'?['کمک و آورده حمایتیِ مشخص و قابل تعهد','پیش‌بینی بودجه پایدار نگهداری و خدمت']:['آورده نقدی سرمایه‌گذار و شریک، آورده غیرنقدی فقط پس از ارزش‌گذاری و پذیرش','تسهیلات احتمالی پس از اعتبارسنجی و بررسی توان بازپرداخت، در محاسبه سرمایه نقدی منظور نشده'];\n return {title:'مسیر قابل بررسی برای پروژه '+c.name,models,revenue,why,finance,checks:[...new Set(checks)],next,answers:getQuestionsFor(b.group||'building',b.type,a).map(q=>({question:q.label,answer:q.options.find(o=>o[0]===a[q.id])?.[1]||'تعیین نشده'}))};}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-009"
+  },
+  {
+    "name": "renderBuildingGuidance",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 537,
+    "end_line": 537,
+    "context": "renderBuildingGuidance",
+    "source_start": 404956,
+    "source_end": 407901,
+    "parameters": [],
+    "conditions": [
+      "el.hidden",
+      "isSupportPath(activeProfile.building)",
+      "eligible.length",
+      "g.decisions?.length"
+    ],
+    "returns": [
+      null
+    ],
+    "definition": "function renderBuildingGuidance(){const el=$('building-guidance');el.hidden=!activeProfile?.building;if(el.hidden)return;const g=buildGuidance(activeProfile),related=evaluated.filter(r=>r.project.roles.includes(activeProfile.role)&&r.project.sector===(activeProfile.building.group||'building')&&r.project.subtype===activeProfile.building.type),eligible=related.filter(r=>r.status!=='excluded');const items=xs=>'<ul>'+xs.map(x=>'<li>'+escapeHTML(x)+'</li>').join('')+'</ul>';el.innerHTML=`<article class=\"guidance\"><div class=\"guidance-top\"><div><div class=\"eyebrow\">جمع‌بندی متناسب با پاسخ‌های شما</div><h3>${g.title}</h3></div><button class=\"secondary\" type=\"button\" id=\"download-building-brief\">دریافت راهنمای بررسی ↓</button></div><p>${escapeHTML(g.why)}</p><div class=\"guidance-grid\"><article><h4>ساختارهای قراردادی قابل مطالعه</h4>${items(g.models)}</article><article><h4>منابع تامین مالی قابل بررسی</h4>${items(g.finance)}</article><article><h4>مبنای عایدی</h4><p>${escapeHTML(g.revenue)}</p><p style=\"margin-top:10px\">${isSupportPath(activeProfile.building)?'در این مسیر حمایتی، دوره بازگشت تجاری محاسبه نشده است.':'زمان اولین دریافت، بازگشت کل سرمایه و امکان خروج جداگانه با شرایط شما تطبیق داده شده‌اند.'}</p></article><article><h4>خروجی تطبیق نمونه‌ها</h4><p>از ${fa(related.length)} نمونه فرضی همین نوع پروژه، ${fa(eligible.length)} مورد برای بررسی بیشتر باقی مانده است.</p><p style=\"margin-top:10px\">مراحل، مجوزهای تخصصی و توان فنی باید در بررسی اسناد هر فرصت احراز شوند.</p></article></div><div class=\"next-action\"><h4>قدم پیشنهادی بعدی</h4><p>${escapeHTML(eligible.length?g.next:'نمونه متناسب با شرایط فعلی شما پیدا نشد. '+g.next+' دلایل عدم تناسب را در گزینه‌های پایین صفحه ببینید، محدودیت‌ها خودکار تغییر نکرده‌اند.')}</p></div>${g.decisions?.length?'<details class=\"taxonomy\"><summary>پاسخ‌های من چطور در راهنما اثر گذاشتند؟</summary><div class=\"answer-summary\">'+g.decisions.map(d=>'<div><span>'+escapeHTML(d.question)+'</span><b>'+escapeHTML(d.answer)+'</b><p>'+escapeHTML(d.effect)+'</p></div>').join('')+'</div></details>':''}<details class=\"taxonomy\"><summary>پاسخ‌های من و چک‌لیست بررسی اختصاصی</summary><div class=\"answer-summary\">${g.answers.map(x=>`<div><span>${escapeHTML(x.question)}</span><b>${escapeHTML(x.answer)}</b></div>`).join('')}</div>${items(g.checks)}</details><p class=\"source-note\">این قواعد، منطق پیشنهادی نمونه سامانه‌اند، انتخاب نهایی قرارداد در ایران به مجوز، مالکیت، اسناد طرح و بررسی حقوقی و مالی وابسته است. مبنای تفکیک دارایی، نقش شریک و منبع پرداخت: <a href=\"https://ppp.worldbank.org/ppp-contract-types-and-terminology\" target=\"_blank\" rel=\"noopener\">راهنمای قراردادهای مشارکت بانک جهانی</a>، تفکیک آورده و بدهی: <a href=\"https://ppp.worldbank.org/finance-structures-ppp\" target=\"_blank\" rel=\"noopener\">ساختار تامین مالی</a>.</p></article>`;$('download-building-brief').onclick=()=>download('project-advisory-'+activeProfile.sector+'-'+activeProfile.subtype+'.html',makeBuildingBrief(g),true);}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-010"
+  },
+  {
+    "name": "makeBuildingBrief",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 538,
+    "end_line": 538,
+    "context": "makeBuildingBrief",
+    "source_start": 407902,
+    "source_end": 410668,
+    "parameters": [
+      "g"
+    ],
+    "conditions": [
+      "p.province==='all'",
+      "p.city==='all'",
+      "isSupportPath(p.building)"
+    ],
+    "returns": [
+      "'\\x3c!doctype html>\\x3chtml lang=\"fa\" dir=\"rtl\">\\x3cmeta charset=\"utf-8\">\\x3ctitle>'+escapeHTML(g.title)+'\\x3c/title>\\x3cstyle>body{font:15px/2 Tahoma;max-width:850px;margin:35px auto;padding:20px;color:#17343b}h1{font-size:25px}h2{font-size:18px;border-bottom:1px solid #ddd;padding-top:18px}td,th{border:1px solid #ddd;padding:10px;text-align:right}table{border-collapse:collapse;width:100%}textarea,input[type=text]{font:inherit;width:100%;padding:11px 12px;border:1px solid #c5d2cb;border-radius:5px;color:var(--ink);background:white}textarea{resize:vertical;min-height:85px}.field>label{display:block;margin-bottom:7px}.method-specific{border-top:1px solid var(--line);padding-top:22px;margin-top:25px}.method-specific h3{font-size:19px;font-weight:500;margin-bottom:14px}.method-checks{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}.method-checks .check{margin:3px 0}.common-extra{margin-top:20px}.common-extra summary{color:var(--teal);cursor:pointer;font-size:12px}.common-extra .form-grid{margin-top:15px}@media(max-width:650px){.method-checks{grid-template-columns:1fr}}\\x3c/style><h1>'+g.title+'</h1><p>خلاصه فرضی و آموزشی، درخواست واقعی ثبت نشده است. این فایل تایید یا تضمین سرمایه‌گذاری نیست.</p><p>'+escapeHTML(g.why)+'</p><table><tr><th>محل</th><td>'+escapeHTML(p.province==='all'?'همه مناطق نمونه':p.province+' / '+(p.city==='all'?'همه شهرها':p.city))+'</td></tr><tr><th>نقدینگی خود فرد</th><td>'+fa(p.capital)+' میلیارد تومان</td></tr><tr><th>افق بازگشت / قفل سرمایه</th><td>'+(isSupportPath(p.building)?'در این مسیر حمایتی سنجیده نشده':fa(p.horizon)+' سال / '+fa(p.lockup)+' ماه')+'</td></tr>'+g.answers.map(x=>'<tr><th>'+escapeHTML(x.question)+'</th><td>'+escapeHTML(x.answer)+'</td></tr>').join('')+'</table><h2>شرایط اختصاصی این بخش</h2>'+list(methodSummary(p).map(x=>x.question+': '+x.answer))+'<h2>ساختارهای قابل مطالعه</h2>'+list(g.models)+'<h2>منابع تامین مالی</h2>'+list(g.finance)+'<h2>مبنای عایدی</h2><p>'+escapeHTML(g.revenue)+'</p><h2>چک‌لیست بررسی</h2>'+list(g.checks)+'<h2>قدم بعدی</h2><p>'+escapeHTML(g.next)+'</p><h2>تطبیق نمونه‌های همین نوع پروژه</h2>'+list(evaluated.filter(r=>r.project.sector===(p.building.group||'building')&&r.project.subtype===p.building.type&&r.project.roles.includes(p.role)).map(r=>r.project.id+' — '+r.project.title+' — '+({match:'تناسب اولیه',review:'نیازمند بررسی',excluded:'نامتناسب'}[r.status])+': '+[...r.fail,...r.missing,...r.pass].join('، ')))+'<p>مبنای روش: https://ppp.worldbank.org/ppp-contract-types-and-terminology و https://ppp.worldbank.org/finance-structures-ppp . امکان استفاده از هر ساختار در ایران باید برای همان طرح بررسی شود.</p>\\x3c/html>'"
+    ],
+    "definition": "function makeBuildingBrief(g){const p=activeProfile,list=xs=>'<ul>'+xs.map(x=>'<li>'+escapeHTML(x)+'</li>').join('')+'</ul>';return '\\x3c!doctype html>\\x3chtml lang=\"fa\" dir=\"rtl\">\\x3cmeta charset=\"utf-8\">\\x3ctitle>'+escapeHTML(g.title)+'\\x3c/title>\\x3cstyle>body{font:15px/2 Tahoma;max-width:850px;margin:35px auto;padding:20px;color:#17343b}h1{font-size:25px}h2{font-size:18px;border-bottom:1px solid #ddd;padding-top:18px}td,th{border:1px solid #ddd;padding:10px;text-align:right}table{border-collapse:collapse;width:100%}textarea,input[type=text]{font:inherit;width:100%;padding:11px 12px;border:1px solid #c5d2cb;border-radius:5px;color:var(--ink);background:white}textarea{resize:vertical;min-height:85px}.field>label{display:block;margin-bottom:7px}.method-specific{border-top:1px solid var(--line);padding-top:22px;margin-top:25px}.method-specific h3{font-size:19px;font-weight:500;margin-bottom:14px}.method-checks{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}.method-checks .check{margin:3px 0}.common-extra{margin-top:20px}.common-extra summary{color:var(--teal);cursor:pointer;font-size:12px}.common-extra .form-grid{margin-top:15px}@media(max-width:650px){.method-checks{grid-template-columns:1fr}}\\x3c/style><h1>'+g.title+'</h1><p>خلاصه فرضی و آموزشی، درخواست واقعی ثبت نشده است. این فایل تایید یا تضمین سرمایه‌گذاری نیست.</p><p>'+escapeHTML(g.why)+'</p><table><tr><th>محل</th><td>'+escapeHTML(p.province==='all'?'همه مناطق نمونه':p.province+' / '+(p.city==='all'?'همه شهرها':p.city))+'</td></tr><tr><th>نقدینگی خود فرد</th><td>'+fa(p.capital)+' میلیارد تومان</td></tr><tr><th>افق بازگشت / قفل سرمایه</th><td>'+(isSupportPath(p.building)?'در این مسیر حمایتی سنجیده نشده':fa(p.horizon)+' سال / '+fa(p.lockup)+' ماه')+'</td></tr>'+g.answers.map(x=>'<tr><th>'+escapeHTML(x.question)+'</th><td>'+escapeHTML(x.answer)+'</td></tr>').join('')+'</table><h2>شرایط اختصاصی این بخش</h2>'+list(methodSummary(p).map(x=>x.question+': '+x.answer))+'<h2>ساختارهای قابل مطالعه</h2>'+list(g.models)+'<h2>منابع تامین مالی</h2>'+list(g.finance)+'<h2>مبنای عایدی</h2><p>'+escapeHTML(g.revenue)+'</p><h2>چک‌لیست بررسی</h2>'+list(g.checks)+'<h2>قدم بعدی</h2><p>'+escapeHTML(g.next)+'</p><h2>تطبیق نمونه‌های همین نوع پروژه</h2>'+list(evaluated.filter(r=>r.project.sector===(p.building.group||'building')&&r.project.subtype===p.building.type&&r.project.roles.includes(p.role)).map(r=>r.project.id+' — '+r.project.title+' — '+({match:'تناسب اولیه',review:'نیازمند بررسی',excluded:'نامتناسب'}[r.status])+': '+[...r.fail,...r.missing,...r.pass].join('، ')))+'<p>مبنای روش: https://ppp.worldbank.org/ppp-contract-types-and-terminology و https://ppp.worldbank.org/finance-structures-ppp . امکان استفاده از هر ساختار در ایران باید برای همان طرح بررسی شود.</p>\\x3c/html>';}",
+    "domain": "project-specific-advice",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-011"
+  },
+  {
+    "name": "readFundProfile",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 630,
+    "end_line": 630,
+    "context": "readFundProfile",
+    "source_start": 427320,
+    "source_end": 427792,
+    "parameters": [
+      "a=methodAnswers.fund"
+    ],
+    "conditions": [
+      "a.fundCapital===''",
+      "a.expectedReturn===''",
+      "a.bankGuarantee==='required_both'",
+      "a.bankGuarantee==='required'"
+    ],
+    "returns": [
+      "{capitalMillion:a.fundCapital===''?null:Number(a.fundCapital),expectedAnnualReturn:a.expectedReturn===''?null:Number(a.expectedReturn),returnBasis:'annual_nominal_simple',payout:a.payout,type:a.fundType,bankGuarantee:a.bankGuarantee==='required_both'?'required':a.bankGuarantee,guaranteeScope:a.bankGuarantee==='required_both'?'both':a.bankGuarantee==='required'?(a.guaranteeScope||'principal'):null,risk:a.fundRisk}"
+    ],
+    "definition": "function readFundProfile(a=methodAnswers.fund){return {capitalMillion:a.fundCapital===''?null:Number(a.fundCapital),expectedAnnualReturn:a.expectedReturn===''?null:Number(a.expectedReturn),returnBasis:'annual_nominal_simple',payout:a.payout,type:a.fundType,bankGuarantee:a.bankGuarantee==='required_both'?'required':a.bankGuarantee,guaranteeScope:a.bankGuarantee==='required_both'?'both':a.bankGuarantee==='required'?(a.guaranteeScope||'principal'):null,risk:a.fundRisk};}",
+    "domain": "funds",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-012"
+  },
+  {
+    "name": "validateFundProfile",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 631,
+    "end_line": 631,
+    "context": "validateFundProfile",
+    "source_start": 427793,
+    "source_end": 428278,
+    "parameters": [
+      "f"
+    ],
+    "conditions": [
+      "f.capitalMillion===null||!Number.isFinite(f.capitalMillion)||f.capitalMillion<=0",
+      "f.expectedAnnualReturn!==null&&(!Number.isFinite(f.expectedAnnualReturn)||f.expectedAnnualReturn<0)",
+      "!['low','medium','high','unknown'].includes(f.risk)"
+    ],
+    "returns": [
+      "'مبلغ سرمایه این بخش را با عددی بزرگ‌تر از صفر، به میلیون تومان وارد کنید.'",
+      "'بازده سالانه مورد انتظار باید عددی نامنفی باشد یا خالی بماند.'",
+      "'میزان ریسک‌پذیری خود را انتخاب کنید.'",
+      "''"
+    ],
+    "definition": "function validateFundProfile(f){if(f.capitalMillion===null||!Number.isFinite(f.capitalMillion)||f.capitalMillion<=0)return 'مبلغ سرمایه این بخش را با عددی بزرگ‌تر از صفر، به میلیون تومان وارد کنید.';if(f.expectedAnnualReturn!==null&&(!Number.isFinite(f.expectedAnnualReturn)||f.expectedAnnualReturn<0))return 'بازده سالانه مورد انتظار باید عددی نامنفی باشد یا خالی بماند.';if(!['low','medium','high','unknown'].includes(f.risk))return 'میزان ریسک‌پذیری خود را انتخاب کنید.';return '';}",
+    "domain": "funds",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-013"
+  },
+  {
+    "name": "evaluateFund",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 632,
+    "end_line": 632,
+    "context": "evaluateFund",
+    "source_start": 428279,
+    "source_end": 431815,
+    "parameters": [
+      "project",
+      "p"
+    ],
+    "conditions": [
+      "!project.roles.includes('fund')",
+      "f.type!=='any'&&project.type!==f.type",
+      "project.minimumMillion==null",
+      "f.capitalMillion<project.minimumMillion",
+      "f.expectedAnnualReturn!==null",
+      "project.forecast==null",
+      "project.rateBasis!==f.returnBasis",
+      "project.forecast<f.expectedAnnualReturn",
+      "f.payout!=='any'",
+      "project.payout==null",
+      "project.payout!==f.payout",
+      "f.risk==='unknown'",
+      "!['low','medium','high'].includes(project.risk)",
+      "({low:1,medium:2,high:3}[project.risk])>({low:1,medium:2,high:3}[f.risk])",
+      "f.bankGuarantee==='required'",
+      "g.exists===false",
+      "g.exists==null",
+      "g.exists!==false",
+      "!g.verified",
+      "g.principal===false",
+      "g.principal==null",
+      "f.guaranteeScope==='both'",
+      "g.profit===false",
+      "g.profit==null",
+      "f.bankGuarantee==='unknown'",
+      "p.sector&&p.sector!=='all'",
+      "!project.assetSector",
+      "project.assetSector!==p.sector",
+      "p.province&&p.province!=='all'||p.city&&p.city!=='all'||p.common?.neighborhood||p.common?.usage&&p.common.usage!=='all'||p.common?.areaMin!=null||p.common?.areaMax!=null",
+      "p.common?.keyword&&!project.title.includes(p.common.keyword)",
+      "project.kind==='crowd'",
+      "fail.length",
+      "missing.length"
+    ],
+    "returns": [
+      "{project,status:fail.length?'excluded':missing.length?'review':'match',fail,missing,warnings,pass}"
+    ],
+    "definition": "function evaluateFund(project,p){const f=p.fund||readFundProfile(p.method),fail=[],missing=[],warnings=[],pass=[];if(!project.roles.includes('fund'))fail.push('این گزینه از مسیر صندوق یا طرح جمعی نیست.');if(f.type!=='any'&&project.type!==f.type)fail.push('نوع صندوق یا طرح با انتخاب شما متفاوت است.');else pass.push('نوع ابزار با انتخاب شما سازگار است.');if(project.minimumMillion==null)missing.push('حداقل مبلغ ورود ثبت نشده است.');else if(f.capitalMillion<project.minimumMillion)fail.push('سرمایه این بخش از حداقل ورود نمونه کمتر است.');else pass.push('حداقل مبلغ ورود در محدوده سرمایه شماست.');if(f.expectedAnnualReturn!==null){if(project.forecast==null)missing.push('بازده قابل مقایسه پیش‌بینی نشده، شرط حداقل بازده شما تایید نشده است.');else if(project.rateBasis!==f.returnBasis)missing.push('مبنای نرخ با انتظار سالانه شما یکسان نیست.');else if(project.forecast<f.expectedAnnualReturn)fail.push('پیش‌بینی فرضی سالانه از حداقل انتظار شما کمتر است.');else pass.push('پیش‌بینی فرضی هم‌مبنا در محدوده انتظار شماست، تحقق آن تضمین نشده است.');}if(f.payout!=='any'){if(project.payout==null)missing.push('برنامه توزیع درآمد مشخص نیست.');else if(project.payout!==f.payout)fail.push('فاصله پرداخت / سیاست توزیع نقدی با انتخاب شما سازگار نیست.');else pass.push('سیاست پرداخت فرضی با انتخاب شما سازگار است.');}if(f.risk==='unknown')missing.push('ریسک‌پذیری شما پیش از انتخاب باید ارزیابی شود.');else if(!['low','medium','high'].includes(project.risk))missing.push('ریسک گزینه ارزیابی نشده است.');else if(({low:1,medium:2,high:3}[project.risk])>({low:1,medium:2,high:3}[f.risk]))fail.push('ریسک فرضی گزینه از میزان ریسک‌پذیری شما بیشتر است.');else pass.push('سطح ریسک فرضی در محدوده انتخابی شماست.');const g=project.bank||{};if(f.bankGuarantee==='required'){if(g.exists===false)fail.push('در این سناریو تضمین بانکی وجود ندارد، تضمین غیربانکی جای آن محسوب نمی‌شود.');else if(g.exists==null)missing.push('وجود تضمین بانکی مشخص نیست.');if(g.exists!==false){if(!g.verified)missing.push('اصالت، اعتبار و قابلیت مطالبه تضمین بانکی احراز نشده است.');if(g.principal===false)fail.push('تضمین ادعاشده اصل سرمایه را پوشش نمی‌دهد.');else if(g.principal==null)missing.push('پوشش اصل سرمایه روشن نیست.');if(f.guaranteeScope==='both'){if(g.profit===false)fail.push('پوشش ادعایی اصل سرمایه، سود را تضمین نمی‌کند.');else if(g.profit==null)missing.push('تضمین پرداخت سود احراز نشده است.');}}}else if(f.bankGuarantee==='unknown')missing.push('نیاز شما به تضمین بانکی و دامنه آن هنوز روشن نیست.');if(p.sector&&p.sector!=='all'){if(!project.assetSector)missing.push('حوزه دارایی‌های صندوق برای تطبیق مشخص نیست.');else if(project.assetSector!==p.sector)fail.push('حوزه دارایی یا طرح با گروه پروژه انتخاب‌شده متفاوت است.');}if(p.province&&p.province!=='all'||p.city&&p.city!=='all'||p.common?.neighborhood||p.common?.usage&&p.common.usage!=='all'||p.common?.areaMin!=null||p.common?.areaMax!=null)missing.push('محل دارایی، کاربری و مساحت باید از پرتفوی یا پرونده طرح احراز شود، محل ثبت مدیر صندوق جای آن نیست.');if(p.common?.keyword&&!project.title.includes(p.common.keyword))fail.push('عنوان با عبارت جست‌وجوی شما تطبیق ندارد.');missing.push('وضعیت مجوز، اسناد، نرخ‌ها و شرایط این نمونه فرضی احراز نشده است.');warnings.push('ارقام و سطح ریسک فرضی‌اند، بازده پیش‌بینی‌شده با سود قطعی و بازده گذشته یکسان نیست.');warnings.push(project.exit);if(project.kind==='crowd')warnings.push('این گزینه یک طرح تامین مالی جمعی است، واحد صندوق سرمایه‌گذاری فرض نشده است.');return {project,status:fail.length?'excluded':missing.length?'review':'match',fail,missing,warnings,pass};}",
+    "domain": "funds",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-014"
+  },
+  {
+    "name": "fundBankLabel",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 633,
+    "end_line": 633,
+    "context": "fundBankLabel",
+    "source_start": 431816,
+    "source_end": 432151,
+    "parameters": [
+      "g"
+    ],
+    "conditions": [
+      "!g||g.exists==null",
+      "g.exists===false",
+      "g.other",
+      "g.verified",
+      "g.principal&&g.profit",
+      "g.principal"
+    ],
+    "returns": [
+      "'وجود تضمین نامشخص'",
+      "g.other?'ضامن غیربانکی، بانکی نیست':'بدون تضمین بانکی در سناریو'",
+      "(g.verified?'تضمین بانکیِ احرازشده':'ادعای تضمین بانکی، احراز نشده')+(g.principal&&g.profit?' / اصل و سود':g.principal?' / اصل سرمایه':' / پوشش نیازمند بررسی')"
+    ],
+    "definition": "function fundBankLabel(g){if(!g||g.exists==null)return 'وجود تضمین نامشخص';if(g.exists===false)return g.other?'ضامن غیربانکی، بانکی نیست':'بدون تضمین بانکی در سناریو';return (g.verified?'تضمین بانکیِ احرازشده':'ادعای تضمین بانکی، احراز نشده')+(g.principal&&g.profit?' / اصل و سود':g.principal?' / اصل سرمایه':' / پوشش نیازمند بررسی');}",
+    "domain": "funds",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-015"
+  },
+  {
+    "name": "compareFunds",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 657,
+    "end_line": 657,
+    "context": "compareFunds",
+    "source_start": 440468,
+    "source_end": 441327,
+    "parameters": [],
+    "conditions": [],
+    "returns": [],
+    "definition": "function compareFunds(){const xs=projects.filter(x=>selected.has(x.id));const rows=[['ماهیت',x=>x.kind==='crowd'?'طرح جمعی، گواهی شراکت':'صندوق، واحد سرمایه‌گذاری'],['نوع',x=>fundTypeLabels[x.type]],['حداقل ورود نمونه',x=>fa(x.minimumMillion)+' میلیون تومان'],['پیش‌بینی فرضی سالانه',x=>x.forecast==null?'ثبت نشده':fa(x.forecast)+'٪ اسمی، غیرقطعی'],['توزیع سود فرضی',x=>payoutLabels[x.payout]],['ریسک فرضی',x=>riskNames[x.risk]],['تضمین بانکی',x=>fundBankLabel(x.bank)],['دوره فرضی',x=>x.durationMonths==null?'نامعلوم':fa(x.durationMonths)+' ماه'],['خروج',x=>x.exit]];$('comparison-body').innerHTML='<table><thead><tr><th>معیار</th>'+xs.map(x=>'<th>'+x.title+'</th>').join('')+'</tr></thead><tbody>'+rows.map(([k,fn])=>'<tr><th>'+k+'</th>'+xs.map(x=>'<td>'+escapeHTML(fn(x))+'</td>').join('')+'</tr>').join('')+'</tbody></table>';$('comparison').showModal();}",
+    "domain": "funds",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-016"
+  },
+  {
+    "name": "readCharityProfile",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 695,
+    "end_line": 695,
+    "context": "readCharityProfile",
+    "source_start": 456824,
+    "source_end": 457010,
+    "parameters": [],
+    "conditions": [
+      "a.amount===''"
+    ],
+    "returns": [
+      "{...a,amount:a.amount===''?null:Number(a.amount),years:Number(a.years),dataStatus:'unavailable',realLocalImpact:null}"
+    ],
+    "definition": "function readCharityProfile(){const a=methodAnswers.charity;return {...a,amount:a.amount===''?null:Number(a.amount),years:Number(a.years),dataStatus:'unavailable',realLocalImpact:null};}",
+    "domain": "charity",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-017"
+  },
+  {
+    "name": "validateCharity",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 696,
+    "end_line": 696,
+    "context": "validateCharity",
+    "source_start": 457011,
+    "source_end": 457435,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "!charityCauses[a.cause]||!charityGroups[a.group]?.types.some(t=>t[0]===a.cause)",
+      "a.type==='cash'&&(a.amount===null||!Number.isFinite(a.amount)||a.amount<=0)",
+      "a.type!=='cash'&&!a.description.trim()"
+    ],
+    "returns": [
+      "'حوزه همراهی را انتخاب کنید.'",
+      "'مبلغ هر نوبت را به میلیون تومان و بزرگ‌تر از صفر مشخص کنید.'",
+      "'لطفاً نوع و ظرفیت همراهی غیرنقدی را توضیح دهید.'",
+      "''"
+    ],
+    "definition": "function validateCharity(p){const a=p.charity;if(!charityCauses[a.cause]||!charityGroups[a.group]?.types.some(t=>t[0]===a.cause))return 'حوزه همراهی را انتخاب کنید.';if(a.type==='cash'&&(a.amount===null||!Number.isFinite(a.amount)||a.amount<=0))return 'مبلغ هر نوبت را به میلیون تومان و بزرگ‌تر از صفر مشخص کنید.';if(a.type!=='cash'&&!a.description.trim())return 'لطفاً نوع و ظرفیت همراهی غیرنقدی را توضیح دهید.';return '';}",
+    "domain": "charity",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-018"
+  },
+  {
+    "name": "charityEstimate",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 697,
+    "end_line": 697,
+    "context": "charityEstimate",
+    "source_start": 457436,
+    "source_end": 458109,
+    "parameters": [
+      "a"
+    ],
+    "conditions": [
+      "a.type==='cash'&&a.amount!==null&&Number.isFinite(Number(a.amount))",
+      "a.frequency==='monthly'",
+      "a.demo",
+      "a.demo&&total!==null"
+    ],
+    "returns": [
+      "{annual:a.demo?annual:null,overPeriod:a.demo?annual*Number(a.years):null,unit:c.unit,cumulative:c.cumulative,proposedTotal:total,remaining:a.demo?remaining:null,financingShare:a.demo&&total!==null?Math.min(100,total/remaining*100):null,excess:a.demo&&total!==null?Math.max(0,total-remaining):null,uniqueBeneficiaries:null,attributedToDonor:null,actualLocalImpact:null,scenario:a.demo?'fictional_neighborhood_A':null}"
+    ],
+    "definition": "function charityEstimate(a){const c=charityCauses[a.cause],annual=Math.min(c.base,c.needCount),total=a.type==='cash'&&a.amount!==null&&Number.isFinite(Number(a.amount))?Number(a.amount)*(a.frequency==='monthly'?12:1):null,remaining=c.cost-c.funded;return {annual:a.demo?annual:null,overPeriod:a.demo?annual*Number(a.years):null,unit:c.unit,cumulative:c.cumulative,proposedTotal:total,remaining:a.demo?remaining:null,financingShare:a.demo&&total!==null?Math.min(100,total/remaining*100):null,excess:a.demo&&total!==null?Math.max(0,total-remaining):null,uniqueBeneficiaries:null,attributedToDonor:null,actualLocalImpact:null,scenario:a.demo?'fictional_neighborhood_A':null};}",
+    "domain": "charity",
+    "task": "T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-019"
+  },
+  {
+    "name": "validateHeritage",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 729,
+    "end_line": 729,
+    "context": "validateHeritage",
+    "source_start": 469901,
+    "source_end": 470482,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "!heritageReturnOptions.some(([k])=>k===a.heritageReturn&&k)",
+      "a[k]!==undefined&&a[k]!==''&&(!Number.isFinite(Number(a[k]))||Number(a[k])<0)",
+      "a.heritageYears!==undefined&&a.heritageYears!==''&&Number(a.heritageYears)<=0",
+      "p.common.areaMax!==null&&p.common.areaMax<0"
+    ],
+    "returns": [
+      "'روش جبران هزینه مرمت و دریافت عایدی را انتخاب کنید.'",
+      "'مدت و بازده مورد انتظار باید عدد نامنفی باشند.'",
+      "'مدت بهره‌برداری را بزرگ‌تر از صفر وارد کنید.'",
+      "'حداکثر مساحت نباید منفی باشد.'",
+      "''"
+    ],
+    "definition": "function validateHeritage(p){const a=p.method;if(!heritageReturnOptions.some(([k])=>k===a.heritageReturn&&k))return 'روش جبران هزینه مرمت و دریافت عایدی را انتخاب کنید.';for(const k of ['heritageYears','irrMin'])if(a[k]!==undefined&&a[k]!==''&&(!Number.isFinite(Number(a[k]))||Number(a[k])<0))return 'مدت و بازده مورد انتظار باید عدد نامنفی باشند.';if(a.heritageYears!==undefined&&a.heritageYears!==''&&Number(a.heritageYears)<=0)return 'مدت بهره‌برداری را بزرگ‌تر از صفر وارد کنید.';if(p.common.areaMax!==null&&p.common.areaMax<0)return 'حداکثر مساحت نباید منفی باشد.';return '';}",
+    "domain": "heritage",
+    "task": "T12/T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-020"
+  },
+  {
+    "name": "evaluateHeritage",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 740,
+    "end_line": 748,
+    "context": "evaluateHeritage",
+    "source_start": 473534,
+    "source_end": 476210,
+    "parameters": [
+      "x",
+      "p"
+    ],
+    "conditions": [
+      "!x.roles.includes('heritage')",
+      "p.subtype!=='all'&&x.subtype!==p.subtype",
+      "outside",
+      "p.strict",
+      "c.keyword&&!((x.title+' '+(x.description||'')).includes(c.keyword))",
+      "c.neighborhood",
+      "!x.neighborhood",
+      "!x.neighborhood.includes(c.neighborhood)",
+      "c.usage&&c.usage!=='all'",
+      "!x.usage",
+      "c.usage!==x.usage",
+      "c.areaMax!==null",
+      "x.landArea==null",
+      "x.landArea>c.areaMax",
+      "a.heritagePermit==='blocked'",
+      "!t.returns",
+      "!t.returns.includes(a.heritageReturn)",
+      "a.heritageUse!=='any'",
+      "!t.uses",
+      "!t.uses.includes(a.heritageUse)",
+      "a.heritageYears!==undefined&&a.heritageYears!==''",
+      "t.years==null",
+      "t.years<Number(a.heritageYears)",
+      "a.heritagePayment&&a.heritagePayment!=='any'",
+      "!t.payments",
+      "!t.payments.includes(a.heritagePayment)",
+      "a.irrMin!==undefined&&a.irrMin!==''",
+      "fail.length"
+    ],
+    "returns": [
+      "{project:x,status:fail.length?'excluded':'review',fail,missing,warnings,pass}"
+    ],
+    "definition": "function evaluateHeritage(x,p){const a=p.method,c=p.common,t=x.heritageTerms||{},fail=[],missing=[],warnings=[],pass=[];if(!x.roles.includes('heritage'))fail.push('این نمونه در مسیر مرمت و احیا نیست.');if(p.subtype!=='all'&&x.subtype!==p.subtype)fail.push('نوع بنای تاریخی با انتخاب شما متفاوت است.');const outside=(p.province!=='all'&&x.province!==p.province)||(p.city!=='all'&&x.city!==p.city);if(outside){if(p.strict)fail.push('محل بنا خارج از محدوده قطعی شماست.');else warnings.push('محل بنا خارج از محدوده ترجیحی شماست.');}else pass.push('محل با انتخاب شما سازگار است.');\nif(c.keyword&&!((x.title+' '+(x.description||'')).includes(c.keyword)))fail.push('عنوان یا مشخصات با جست‌وجوی شما تطبیق ندارد.');if(c.neighborhood){if(!x.neighborhood)missing.push('محله بنا احراز نشده است.');else if(!x.neighborhood.includes(c.neighborhood))fail.push('محله متفاوت است.');}if(c.usage&&c.usage!=='all'){if(!x.usage)missing.push('کاربری بنا احراز نشده است.');else if(c.usage!==x.usage)fail.push('کاربری عمومی با انتخاب شما متفاوت است.');}if(c.areaMax!==null){if(x.landArea==null)missing.push('مساحت عرصه مشخص نیست.');else if(x.landArea>c.areaMax)fail.push('مساحت از حداکثر انتخابی بیشتر است.');}\nif(a.heritagePermit==='blocked')fail.push('منع یا مخالفت صریحِ حل‌نشده مانع ورود است.');\nif(!t.returns)missing.push('روش مجاز جبران هزینه در اسناد نمونه مشخص نشده است.');else if(!t.returns.includes(a.heritageReturn))fail.push('روش جبران هزینه این نمونه با انتخاب شما متفاوت است.');else pass.push('ترتیب جبران هزینه با انتخاب شما سازگار است.');\nif(a.heritageUse!=='any'){if(!t.uses)missing.push('کاربری سازگار و قابل واگذاری احراز نشده است.');else if(!t.uses.includes(a.heritageUse))fail.push('کاربری نمونه با انتخاب شما متفاوت است.');}\nif(a.heritageYears!==undefined&&a.heritageYears!==''){if(t.years==null)missing.push('مدت حق اجاره / بهره‌برداری مشخص نیست.');else if(t.years<Number(a.heritageYears))fail.push('مدت بهره‌برداری از حداقل موردنظر کوتاه‌تر است.');}\nif(a.heritagePayment&&a.heritagePayment!=='any'){if(!t.payments)missing.push('برنامه پرداخت مبلغ مرمت مشخص نیست.');else if(!t.payments.includes(a.heritagePayment))fail.push('زمان پرداخت با انتظار شما متفاوت است.');}\nif(a.irrMin!==undefined&&a.irrMin!=='')missing.push('IRR با جریان نقدی هم‌مبنا و قابل اتکا در این نمونه احراز نشده است.');\nmissing.push('اختیار واگذاری، مجوز مرمت و کاربری، صلاحیت و شرایط قرارداد باید احراز شوند.');missing.push('ارزیابی توان مالی از این فرم انجام نشده، هزینه مرمت، تجهیز و منابع آماده باید در بررسی پروژه مشخص شوند.');warnings.push('نمونه و ترتیبات آن فرضی‌اند، تبدیل کاربری یا جبران هزینه تایید نشده است.');return {project:x,status:fail.length?'excluded':'review',fail,missing,warnings,pass};}",
+    "domain": "heritage",
+    "task": "T12/T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-021"
+  },
+  {
+    "name": "compareHeritage",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 752,
+    "end_line": 752,
+    "context": "compareHeritage",
+    "source_start": 479013,
+    "source_end": 479746,
+    "parameters": [],
+    "conditions": [],
+    "returns": [],
+    "definition": "function compareHeritage(){const xs=projects.filter(x=>selected.has(x.id));const rows=[['محل',x=>x.province+' / '+x.city],['جبران هزینه',x=>x.heritageTerms?.returns?.map(k=>heritageReturns[k]).join(' / ')||'نامعلوم'],['کاربری',x=>x.heritageTerms?.uses?.map(k=>heritageUses[k]).join(' / ')||'احراز نشده'],['مدت بهره‌برداری',x=>x.heritageTerms?.years==null?'نامعلوم':fa(x.heritageTerms.years)+' سال'],['وضعیت حقوق و مجوز','نیازمند احراز']];$('comparison-body').innerHTML='<table><tr><th>معیار</th>'+xs.map(x=>'<th>'+escapeHTML(x.title)+'</th>').join('')+'</tr>'+rows.map(([k,f])=>'<tr><th>'+k+'</th>'+xs.map(x=>'<td>'+escapeHTML(typeof f==='function'?f(x):f)+'</td>').join('')+'</tr>').join('')+'</table>';$('comparison').showModal();}",
+    "domain": "heritage",
+    "task": "T12/T24",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-022"
+  },
+  {
+    "name": "readSalesProfile",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 783,
+    "end_line": 783,
+    "context": "readSalesProfile",
+    "source_start": 487966,
+    "source_end": 488514,
+    "parameters": [],
+    "conditions": [
+      "k",
+      "k==='scrap'",
+      "k==='property'"
+    ],
+    "returns": [
+      "{category:k,usage:k==='scrap'?'any':a.usage,buildingType:k==='property'?a.buildingType:'any',scrapType:k==='scrap'?a.scrapType:'any',areaMin:k==='scrap'?null:num(a.areaMin),areaMax:k==='scrap'?null:num(a.areaMax),priceMin:num(a.priceMin),priceMax:num(a.priceMax),priceUnit:salesCategories[k]?.unit||null,priceBasis:'whole_asset_or_lot',province:a.province,city:a.city.trim(),neighborhood:a.neighborhood.trim()}"
+    ],
+    "definition": "function readSalesProfile(){const k=salesState.category,a=k?salesState.filters[k]:freshSaleFilter(),num=v=>v===''?null:Number(v);return {category:k,usage:k==='scrap'?'any':a.usage,buildingType:k==='property'?a.buildingType:'any',scrapType:k==='scrap'?a.scrapType:'any',areaMin:k==='scrap'?null:num(a.areaMin),areaMax:k==='scrap'?null:num(a.areaMax),priceMin:num(a.priceMin),priceMax:num(a.priceMax),priceUnit:salesCategories[k]?.unit||null,priceBasis:'whole_asset_or_lot',province:a.province,city:a.city.trim(),neighborhood:a.neighborhood.trim()};}",
+    "domain": "sales",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-023"
+  },
+  {
+    "name": "validateSales",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 784,
+    "end_line": 784,
+    "context": "validateSales",
+    "source_start": 488515,
+    "source_end": 489142,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "!salesCategories[a?.category]",
+      "a[id]!==null&&(!Number.isFinite(a[id])||a[id]<0)",
+      "a.areaMin!==null&&a.areaMax!==null&&a.areaMin>a.areaMax",
+      "a.priceMin!==null&&a.priceMax!==null&&a.priceMin>a.priceMax",
+      "a.areaMax===0||a.priceMax===0"
+    ],
+    "returns": [
+      "'ابتدا دسته فروش را انتخاب کنید.'",
+      "'مساحت و قیمت باید عدد نامنفی باشند یا خالی بمانند.'",
+      "'حداقل مساحت نباید از حداکثر بیشتر باشد.'",
+      "'حداقل قیمت نباید از حداکثر بیشتر باشد.'",
+      "'حداکثر مساحت یا قیمت را بزرگ‌تر از صفر وارد کنید، یا خالی بگذارید.'",
+      "''"
+    ],
+    "definition": "function validateSales(p){const a=p.sales;if(!salesCategories[a?.category])return 'ابتدا دسته فروش را انتخاب کنید.';for(const id of ['areaMin','areaMax','priceMin','priceMax'])if(a[id]!==null&&(!Number.isFinite(a[id])||a[id]<0))return 'مساحت و قیمت باید عدد نامنفی باشند یا خالی بمانند.';if(a.areaMin!==null&&a.areaMax!==null&&a.areaMin>a.areaMax)return 'حداقل مساحت نباید از حداکثر بیشتر باشد.';if(a.priceMin!==null&&a.priceMax!==null&&a.priceMin>a.priceMax)return 'حداقل قیمت نباید از حداکثر بیشتر باشد.';if(a.areaMax===0||a.priceMax===0)return 'حداکثر مساحت یا قیمت را بزرگ‌تر از صفر وارد کنید، یا خالی بگذارید.';return '';}",
+    "domain": "sales",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-024"
+  },
+  {
+    "name": "normalSaleText",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 787,
+    "end_line": 787,
+    "context": "normalSaleText",
+    "source_start": 489351,
+    "source_end": 489486,
+    "parameters": [
+      "s"
+    ],
+    "conditions": [],
+    "returns": [
+      "String(s||'').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/\\u200c/g,' ').replace(/\\s+/g,' ').trim()"
+    ],
+    "definition": "function normalSaleText(s){return String(s||'').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/\\u200c/g,' ').replace(/\\s+/g,' ').trim();}",
+    "domain": "sales",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-025"
+  },
+  {
+    "name": "evaluateSales",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 788,
+    "end_line": 792,
+    "context": "evaluateSales",
+    "source_start": 489487,
+    "source_end": 491117,
+    "parameters": [
+      "project",
+      "p"
+    ],
+    "conditions": [
+      "!x||x.category!==a.category",
+      "a[key]&&a[key]!=='any'",
+      "!x[key]",
+      "x[key]!==a[key]",
+      "a[min]!==null||a[max]!==null",
+      "x[key]==null",
+      "a[min]!==null&&x[key]<a[min]||a[max]!==null&&x[key]>a[max]",
+      "a.province!=='any'&&x.province!==a.province",
+      "a[key]",
+      "!normalSaleText(x[key]).includes(normalSaleText(a[key]))",
+      "x.price==null&&!missing.some(t=>t.startsWith('قیمت'))",
+      "fail.length"
+    ],
+    "returns": [
+      "{project,status:'excluded',fail:['دسته دارایی با انتخاب شما متفاوت است.'],missing,warnings,pass}",
+      "{project,status:fail.length?'excluded':'review',fail,missing,pass,warnings}"
+    ],
+    "definition": "function evaluateSales(project,p){const a=p.sales,x=project.sales,fail=[],missing=[],pass=[],warnings=['تمام اطلاعات این مورد فرضی است، آگهی فروش واقعی یا مجوز واگذاری تایید نشده است.'];if(!x||x.category!==a.category)return {project,status:'excluded',fail:['دسته دارایی با انتخاب شما متفاوت است.'],missing,warnings,pass};\nfor(const [key,label]of [['usage','کاربری'],['buildingType','نوع ملک'],['scrapType','نوع کالای اسقاطی']]){if(a[key]&&a[key]!=='any'){if(!x[key])missing.push(label+' مشخص نیست.');else if(x[key]!==a[key])fail.push(label+' با انتخاب شما متفاوت است.');else pass.push(label+' با فیلتر شما سازگار است.');}}\nfor(const [key,min,max,label]of [['area','areaMin','areaMax','مساحت'],['price','priceMin','priceMax','قیمت کل']]){if(a[min]!==null||a[max]!==null){if(x[key]==null)missing.push(label+' ثبت نشده، انطباق با بازه شما معلوم نیست.');else if(a[min]!==null&&x[key]<a[min]||a[max]!==null&&x[key]>a[max])fail.push(label+' خارج از بازه انتخابی شماست.');else pass.push(label+' در محدوده انتخابی شماست.');}}\nif(a.province!=='any'&&x.province!==a.province)fail.push('استان متفاوت است.');for(const [key,label]of [['city','شهر / روستا'],['neighborhood','محله / محدوده']])if(a[key]){if(!x[key])missing.push(label+' در شناسنامه ثبت نشده است.');else if(!normalSaleText(x[key]).includes(normalSaleText(a[key])))fail.push(label+' با انتخاب شما متفاوت است.');}\nif(x.price==null&&!missing.some(t=>t.startsWith('قیمت')))missing.push('قیمت فروش هنوز ثبت نشده است.');missing.push('شناسنامه، امکان عرضه و شرایط فروش باید با اسناد معتبر تکمیل شوند.');return {project,status:fail.length?'excluded':'review',fail,missing,pass,warnings};}",
+    "domain": "sales",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-026"
+  },
+  {
+    "name": "compareSales",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 809,
+    "end_line": 809,
+    "context": "compareSales",
+    "source_start": 501058,
+    "source_end": 501854,
+    "parameters": [],
+    "conditions": [],
+    "returns": [],
+    "definition": "function compareSales(){const xs=projects.filter(x=>selected.has(x.id)).map(x=>x.sales),row=(k,f)=>'<tr><th>'+k+'</th>'+xs.map(x=>'<td>'+escapeHTML(f(x))+'</td>').join('')+'</tr>';$('comparison-body').innerHTML='<table><tr><th>معیار</th>'+xs.map(x=>'<th>'+escapeHTML(x.title)+'</th>').join('')+'</tr>'+row('دسته',x=>salesCategories[x.category].title)+row('قیمت کل',salePrice)+row('موقعیت',saleLocation)+row('کاربری / نوع کالا',x=>x.category==='scrap'?salesScrapTypes[x.scrapType]:salesUses[x.usage])+row('مساحت',x=>x.category==='scrap'?'موضوع این دسته نیست':x.area==null?'ثبت نشده':fa(x.area)+' مترمربع')+row('نوع ملک',x=>x.buildingType?salesBuildingTypes[x.buildingType]:'موضوع این دسته نیست')+row('وضعیت اسناد',()=> 'احراز نشده، شناسنامه نیازمند تکمیل')+'</table>';$('comparison').showModal();}",
+    "domain": "sales",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-027"
+  },
+  {
+    "name": "readMethodProfile",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 818,
+    "end_line": 818,
+    "context": "readMethodProfile",
+    "source_start": 505583,
+    "source_end": 505925,
+    "parameters": [],
+    "conditions": [
+      "document.querySelector('[name=role]:checked').value==='buyer'"
+    ],
+    "returns": [
+      "{}",
+      "Object.fromEntries((methodSchemas[role]||[]).filter(f=>!f.when||f.when(a)).map(f=>[f.id,Array.isArray(a[f.id])?[...a[f.id]]:a[f.id]]))"
+    ],
+    "definition": "function readMethodProfile(){if(document.querySelector('[name=role]:checked').value==='buyer')return {};const role=document.querySelector('[name=role]:checked').value;const a=methodAnswers[role]||{};return Object.fromEntries((methodSchemas[role]||[]).filter(f=>!f.when||f.when(a)).map(f=>[f.id,Array.isArray(a[f.id])?[...a[f.id]]:a[f.id]]));}",
+    "domain": "route-contract-conditions",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-028"
+  },
+  {
+    "name": "readCommonProfile",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 819,
+    "end_line": 819,
+    "context": "readCommonProfile",
+    "source_start": 505926,
+    "source_end": 506177,
+    "parameters": [],
+    "conditions": [],
+    "returns": [
+      "{neighborhood:$('neighborhood').value.trim(),usage:$('usage').value,keyword:$('common-keyword').value.trim(),areaMin:num('area-min'),areaMax:num('area-max')}"
+    ],
+    "definition": "function readCommonProfile(){const num=id=>$(id).value===''?null:Number($(id).value);return {neighborhood:$('neighborhood').value.trim(),usage:$('usage').value,keyword:$('common-keyword').value.trim(),areaMin:num('area-min'),areaMax:num('area-max')};}",
+    "domain": "cross-cutting-source-review",
+    "task": "T01.3",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-029"
+  },
+  {
+    "name": "readProfile",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 823,
+    "end_line": 823,
+    "context": "readProfile",
+    "source_start": 508634,
+    "source_end": 509834,
+    "parameters": [],
+    "conditions": [
+      "p.role==='charity'",
+      "p.role==='fund'",
+      "p.role==='contractor'",
+      "p.method.workingCapital===''",
+      "p.role==='heritage'",
+      "p.role==='lessee'",
+      "p.role==='buyer'"
+    ],
+    "returns": [
+      "p"
+    ],
+    "definition": "function readProfile(){const p=readProfileBase();p.method=readMethodProfile();p.common=readCommonProfile();if(p.role==='charity'){p.charity=readCharityProfile();p.capital=null;p.horizon=null;p.lockup=null;p.risk='unknown';p.sector='all';p.subtype='all';p.province='all';p.city='all';p.common={};}if(p.role==='fund'){p.fund=readFundProfile(p.method);p.capital=null;p.horizon=null;p.lockup=null;p.risk=p.fund.risk||'unknown';p.sector='all';p.subtype='all';p.province='all';p.city='all';p.common={neighborhood:'',usage:'all',keyword:'',areaMin:null,areaMax:null};}if(p.role==='contractor'){p.capital=p.method.workingCapital===''?null:Number(p.method.workingCapital);p.horizon=null;p.lockup=null;p.risk='unknown';}if(p.role==='heritage'){p.sector='heritage';p.capital=null;p.horizon=null;p.lockup=null;p.risk='unknown';p.common.areaMin=null;}if(p.role==='lessee'){p.capital=null;p.horizon=null;p.lockup=null;p.risk='unknown';p.sector='all';p.subtype='all';p.common.keyword='';p.common.areaMin=null;}if(p.role==='buyer'){p.sales=readSalesProfile();p.method={};p.capital=null;p.horizon=null;p.lockup=null;p.risk='unknown';p.sector='all';p.subtype='all';p.province='all';p.city='all';p.common={};}return p;}",
+    "domain": "cross-cutting-source-review",
+    "task": "T01.3",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-030"
+  },
+  {
+    "name": "validate",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 824,
+    "end_line": 824,
+    "context": "validate",
+    "source_start": 509835,
+    "source_end": 511516,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "p.role==='buyer'",
+      "p.role==='heritage'",
+      "p.role==='charity'",
+      "p.role==='fund'",
+      "m.irrMin!==undefined&&m.irrMin!==''&&(!Number.isFinite(Number(m.irrMin))||Number(m.irrMin)<0)",
+      "['shareMin','governmentMin','settlePercent'].includes(k)&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<0||Number(v)>100)",
+      "['workingCapital','executionMin','priceMin','priceMax','downPayment','installmentMonths','installmentBudget','offsetValue','lumpBudget'].includes(k)&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<0)",
+      "c.areaMin!==null&&c.areaMin<0||c.areaMax!==null&&c.areaMax<0",
+      "c.areaMin!==null&&c.areaMax!==null&&c.areaMin>c.areaMax",
+      "m.priceMax===''||!Number.isFinite(Number(m.priceMax))||Number(m.priceMax)<=0",
+      "m.priceMin!==''&&Number(m.priceMin)>Number(m.priceMax)",
+      "m.downPayment!==''&&Number(m.downPayment)>Number(m.priceMax)",
+      "p.role==='lessee'&&m.payment==='lump'&&(m.lumpBudget===''||Number(m.lumpBudget)<=0)"
+    ],
+    "returns": [
+      "validateSales(p)",
+      "validateHeritage(p)",
+      "validateCharity(p)",
+      "validateFundProfile(p.fund||readFundProfile(p.method))",
+      "'حداقل IRR مورد انتظار را با عدد نامنفی مشخص کنید.'",
+      "'درصدها باید بین صفر تا صد باشند.'",
+      "'مقادیر مالی و مدت اجرا نباید منفی یا نامعتبر باشند.'",
+      "'محدوده مساحت نباید منفی باشد.'",
+      "'حداقل مساحت نباید از حداکثر بیشتر باشد.'",
+      "'حداکثر بودجه خرید را بزرگ‌تر از صفر مشخص کنید.'",
+      "'حداقل بودجه خرید نباید از حداکثر بیشتر باشد.'",
+      "'پیش‌پرداخت نباید از حداکثر بودجه خرید بیشتر باشد.'",
+      "''",
+      "'بودجه پرداخت یکجای اجاره را مشخص کنید.'",
+      "validateBase(p)"
+    ],
+    "definition": "function validate(p){if(p.role==='buyer')return validateSales(p);if(p.role==='heritage')return validateHeritage(p);if(p.role==='charity')return validateCharity(p);if(p.role==='fund')return validateFundProfile(p.fund||readFundProfile(p.method));const m=p.method||{},c=p.common||{};if(m.irrMin!==undefined&&m.irrMin!==''&&(!Number.isFinite(Number(m.irrMin))||Number(m.irrMin)<0))return 'حداقل IRR مورد انتظار را با عدد نامنفی مشخص کنید.';for(const [k,v]of Object.entries(m)){if(['shareMin','governmentMin','settlePercent'].includes(k)&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<0||Number(v)>100))return 'درصدها باید بین صفر تا صد باشند.';if(['workingCapital','executionMin','priceMin','priceMax','downPayment','installmentMonths','installmentBudget','offsetValue','lumpBudget'].includes(k)&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<0))return 'مقادیر مالی و مدت اجرا نباید منفی یا نامعتبر باشند.';}if(c.areaMin!==null&&c.areaMin<0||c.areaMax!==null&&c.areaMax<0)return 'محدوده مساحت نباید منفی باشد.';if(c.areaMin!==null&&c.areaMax!==null&&c.areaMin>c.areaMax)return 'حداقل مساحت نباید از حداکثر بیشتر باشد.';if(p.role==='buyer'){if(m.priceMax===''||!Number.isFinite(Number(m.priceMax))||Number(m.priceMax)<=0)return 'حداکثر بودجه خرید را بزرگ‌تر از صفر مشخص کنید.';if(m.priceMin!==''&&Number(m.priceMin)>Number(m.priceMax))return 'حداقل بودجه خرید نباید از حداکثر بیشتر باشد.';if(m.downPayment!==''&&Number(m.downPayment)>Number(m.priceMax))return 'پیش‌پرداخت نباید از حداکثر بودجه خرید بیشتر باشد.';return '';}if(p.role==='lessee'&&m.payment==='lump'&&(m.lumpBudget===''||Number(m.lumpBudget)<=0))return 'بودجه پرداخت یکجای اجاره را مشخص کنید.';return validateBase(p);}",
+    "domain": "cross-cutting-source-review",
+    "task": "T01.3",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-031"
+  },
+  {
+    "name": "checkNumber",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 825,
+    "end_line": 825,
+    "context": "addMethodChecks.checkNumber",
+    "source_start": 511632,
+    "source_end": 512006,
+    "parameters": [
+      "key",
+      "threshold",
+      "condition",
+      "fail",
+      "missing"
+    ],
+    "conditions": [
+      "threshold===''||threshold==null",
+      "d[key]==null",
+      "condition(Number(d[key]),Number(threshold))"
+    ],
+    "returns": [
+      null
+    ],
+    "definition": "(key,threshold,condition,fail,missing)=>{if(threshold===''||threshold==null)return;if(d[key]==null)r.missing.push(missing);else if(condition(Number(d[key]),Number(threshold)))r.fail.push(fail);else r.pass.push('شرط «'+({'partnerShare':'حداقل سهم شما','executionMonths':'مدت اجرا','governmentShare':'سهم دولت'}[key]||'مقدار انتخابی')+'» با مقدار ثبت‌شده نمونه سازگار است.');}",
+    "domain": "route-contract-conditions",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-032"
+  },
+  {
+    "name": "checkOption",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 825,
+    "end_line": 825,
+    "context": "addMethodChecks.checkOption",
+    "source_start": 512025,
+    "source_end": 512234,
+    "parameters": [
+      "key",
+      "value",
+      "label"
+    ],
+    "conditions": [
+      "!value||value==='any'",
+      "!d[key]?.length",
+      "!d[key].includes(value)"
+    ],
+    "returns": [
+      null
+    ],
+    "definition": "(key,value,label)=>{if(!value||value==='any')return;if(!d[key]?.length)r.missing.push(label+' در اطلاعات این فرصت مشخص نیست.');else if(!d[key].includes(value))r.fail.push(label+' با انتخاب شما سازگار نیست.');}",
+    "domain": "route-contract-conditions",
+    "task": "T12",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-033"
+  },
+  {
+    "name": "evaluate",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 834,
+    "end_line": 834,
+    "context": "evaluate",
+    "source_start": 517225,
+    "source_end": 517465,
+    "parameters": [
+      "project",
+      "p"
+    ],
+    "conditions": [
+      "p.role==='buyer'",
+      "p.role==='heritage'",
+      "p.role==='fund'"
+    ],
+    "returns": [
+      "evaluateSales(project,p)",
+      "evaluateHeritage(project,p)",
+      "evaluateFund(project,p)",
+      "addMethodChecks(evaluateCore(project,p),p)"
+    ],
+    "definition": "function evaluate(project,p){if(p.role==='buyer')return evaluateSales(project,p);if(p.role==='heritage')return evaluateHeritage(project,p);if(p.role==='fund')return evaluateFund(project,p);return addMethodChecks(evaluateCore(project,p),p);}",
+    "domain": "cross-cutting-source-review",
+    "task": "T01.3",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-034"
+  },
+  {
+    "name": "readProfileBase",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 850,
+    "end_line": 850,
+    "context": "readProfileBase",
+    "source_start": 523867,
+    "source_end": 524773,
+    "parameters": [],
+    "conditions": [
+      "$('lease-deposit').value===''",
+      "$('lease-rent').value===''",
+      "$('lease-years').value===''",
+      "$('capital').value===''",
+      "isSupportPathRaw()",
+      "$('horizon').value===''",
+      "$('lockup').value===''",
+      "isBuildingPath()"
+    ],
+    "returns": [
+      "{role:document.querySelector('[name=role]:checked').value,sector:$('sector').value,subtype:$('subtype').value,leaseDeposit:$('lease-deposit').value===''?null:Number($('lease-deposit').value),leaseRent:$('lease-rent').value===''?null:Number($('lease-rent').value),leaseYears:$('lease-years').value===''?null:Number($('lease-years').value),province:$('province').value,city:$('city').value,strict:$('strict-location').checked,capital:$('capital').value===''?null:Number($('capital').value),horizon:isSupportPathRaw()?null:$('horizon').value===''?null:Number($('horizon').value),lockup:isSupportPathRaw()?null:$('lockup').value===''?null:Number($('lockup').value),income:isBuildingPath()?buildingIncome():$('income').value,risk:isSupportPathRaw()?'unknown':document.querySelector('[name=risk]:checked').value,experience:$('experience').value,building:readBuildingProfile()}"
+    ],
+    "definition": "function readProfileBase(){return {role:document.querySelector('[name=role]:checked').value,sector:$('sector').value,subtype:$('subtype').value,leaseDeposit:$('lease-deposit').value===''?null:Number($('lease-deposit').value),leaseRent:$('lease-rent').value===''?null:Number($('lease-rent').value),leaseYears:$('lease-years').value===''?null:Number($('lease-years').value),province:$('province').value,city:$('city').value,strict:$('strict-location').checked,capital:$('capital').value===''?null:Number($('capital').value),horizon:isSupportPathRaw()?null:$('horizon').value===''?null:Number($('horizon').value),lockup:isSupportPathRaw()?null:$('lockup').value===''?null:Number($('lockup').value),income:isBuildingPath()?buildingIncome():$('income').value,risk:isSupportPathRaw()?'unknown':document.querySelector('[name=risk]:checked').value,experience:$('experience').value,building:readBuildingProfile()};}",
+    "domain": "cross-cutting-source-review",
+    "task": "T01.3",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-035"
+  },
+  {
+    "name": "validateBase",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 853,
+    "end_line": 853,
+    "context": "validateBase",
+    "source_start": 527924,
+    "source_end": 529816,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "p.building",
+      "domainError",
+      "!$('building-funding').value",
+      "!isSupportPath(p.building)&&(p.building.first===null||!Number.isFinite(p.building.first)||p.building.first<0||p.building.first>600)",
+      "isSupportPath(p.building)",
+      "p.capital===null||!Number.isFinite(p.capital)||p.capital<=0",
+      "p.role==='lessee'",
+      "p.method?.right==='ownership_end'&&p.method.leaseType!=='rent_to_own'",
+      "p.method?.leaseType==='one'&&p.leaseYears>1",
+      "p.method?.leaseType==='medium'&&p.leaseYears<=1",
+      "p.leaseDeposit===null||!Number.isFinite(p.leaseDeposit)||p.leaseDeposit<0||((!p.method||['monthly','any'].includes(p.method.payment))&&(p.leaseRent===null||!Number.isFinite(p.leaseRent)||p.leaseRent<0))",
+      "p.leaseYears===null||!Number.isFinite(p.leaseYears)||p.leaseYears<=0||p.leaseYears>50",
+      "!['investor','buyer','heritage'].includes(p.role)",
+      "p.horizon===null||!Number.isFinite(p.horizon)||p.horizon<=0||p.horizon>50",
+      "p.lockup===null||!Number.isFinite(p.lockup)||p.lockup<0||p.lockup>600"
+    ],
+    "returns": [
+      "domainError",
+      "'وضعیت آمادگی منابع نقدی را انتخاب کنید.'",
+      "'زمان اولین دریافت را بین صفر تا ۶۰۰ ماه وارد کنید.'",
+      "p.capital===null||!Number.isFinite(p.capital)||p.capital<=0?'بودجه حمایتی را به‌صورت عددی بزرگ‌تر از صفر وارد کنید.':''",
+      "'برای درخواست مالکیت پس از تحقق شرط تملیک، نوع اجاره به شرط تملیک را انتخاب کنید.'",
+      "'برای اجاره کوتاه‌مدت، مدت موردنیاز را حداکثر یک سال وارد کنید.'",
+      "'برای اجاره بلندمدت، مدت موردنیاز را بیشتر از یک سال وارد کنید.'",
+      "'بودجه ودیعه و اجاره ماهانه را با عدد صفر یا بزرگ‌تر وارد کنید.'",
+      "'مدت اجاره را بزرگ‌تر از صفر و حداکثر ۵۰ سال وارد کنید.'",
+      "''",
+      "''",
+      "'مبلغ سرمایه را به‌صورت عددی بزرگ‌تر از صفر وارد کنید.'",
+      "'افق مدنظر را بین صفر و ۵۰ سال، بزرگ‌تر از صفر وارد کنید.'",
+      "'تحمل قفل سرمایه را بین صفر و ۶۰۰ ماه وارد کنید.'",
+      "''"
+    ],
+    "definition": "function validateBase(p){if(p.building){const domainError=validateBuildingDomain();if(domainError)return domainError;if(!$('building-funding').value)return 'وضعیت آمادگی منابع نقدی را انتخاب کنید.';if(!isSupportPath(p.building)&&(p.building.first===null||!Number.isFinite(p.building.first)||p.building.first<0||p.building.first>600))return 'زمان اولین دریافت را بین صفر تا ۶۰۰ ماه وارد کنید.';if(isSupportPath(p.building))return p.capital===null||!Number.isFinite(p.capital)||p.capital<=0?'بودجه حمایتی را به‌صورت عددی بزرگ‌تر از صفر وارد کنید.':'';}if(p.role==='lessee'){if(p.method?.right==='ownership_end'&&p.method.leaseType!=='rent_to_own')return 'برای درخواست مالکیت پس از تحقق شرط تملیک، نوع اجاره به شرط تملیک را انتخاب کنید.';if(p.method?.leaseType==='one'&&p.leaseYears>1)return 'برای اجاره کوتاه‌مدت، مدت موردنیاز را حداکثر یک سال وارد کنید.';if(p.method?.leaseType==='medium'&&p.leaseYears<=1)return 'برای اجاره بلندمدت، مدت موردنیاز را بیشتر از یک سال وارد کنید.';if(p.leaseDeposit===null||!Number.isFinite(p.leaseDeposit)||p.leaseDeposit<0||((!p.method||['monthly','any'].includes(p.method.payment))&&(p.leaseRent===null||!Number.isFinite(p.leaseRent)||p.leaseRent<0)))return 'بودجه ودیعه و اجاره ماهانه را با عدد صفر یا بزرگ‌تر وارد کنید.';if(p.leaseYears===null||!Number.isFinite(p.leaseYears)||p.leaseYears<=0||p.leaseYears>50)return 'مدت اجاره را بزرگ‌تر از صفر و حداکثر ۵۰ سال وارد کنید.';return '';}if(!['investor','buyer','heritage'].includes(p.role))return '';if(p.capital===null||!Number.isFinite(p.capital)||p.capital<=0)return 'مبلغ سرمایه را به‌صورت عددی بزرگ‌تر از صفر وارد کنید.';if(p.horizon===null||!Number.isFinite(p.horizon)||p.horizon<=0||p.horizon>50)return 'افق مدنظر را بین صفر و ۵۰ سال، بزرگ‌تر از صفر وارد کنید.';if(p.lockup===null||!Number.isFinite(p.lockup)||p.lockup<0||p.lockup>600)return 'تحمل قفل سرمایه را بین صفر و ۶۰۰ ماه وارد کنید.';return '';}",
+    "domain": "cross-cutting-source-review",
+    "task": "T01.3",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-036"
+  },
+  {
+    "name": "evaluateBase",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "main-script",
+    "line": 854,
+    "end_line": 854,
+    "context": "evaluateBase",
+    "source_start": 529817,
+    "source_end": 532974,
+    "parameters": [
+      "project",
+      "p"
+    ],
+    "conditions": [
+      "!project.roles.includes(p.role)",
+      "p.sector!=='all'&&project.sector!==p.sector",
+      "p.subtype&&p.subtype!=='all'&&project.subtype!==p.subtype",
+      "locationMismatch",
+      "p.strict",
+      "financial&&project.roles.includes(p.role)",
+      "project.capital===null",
+      "p.capital<project.capital",
+      "project.lockup===null",
+      "p.lockup<project.lockup",
+      "project.payback===null",
+      "p.horizon<project.payback",
+      "project.risk==='unknown'",
+      "({low:1,medium:2,high:3}[project.risk])>({low:1,medium:2,high:3}[p.risk])",
+      "project.downside!==null&&project.downside>p.horizon",
+      "p.income!=='any'&&project.income!==p.income",
+      "p.income==='periodic'&&project.first>0",
+      "p.role==='lessee'&&project.roles.includes('lessee')",
+      "project.capital===null||project.monthlyRent===null",
+      "p.leaseDeposit<project.capital",
+      "(!p.method||['monthly','any'].includes(p.method.payment))&&p.leaseRent<project.monthlyRent",
+      "project.duration===null",
+      "project.duration<p.leaseYears",
+      "['operator','contractor'].includes(p.role)&&project.roles.includes(p.role)",
+      "p.experience==='no'",
+      "project.legal==='review'",
+      "fail.length",
+      "missing.length"
+    ],
+    "returns": [
+      "{project,status,fail,missing,warnings,pass}"
+    ],
+    "definition": "function evaluateBase(project,p){const fail=[],missing=[],warnings=[],pass=[];const financial=['investor','heritage'].includes(p.role)&&!isSupportPath(p.building);if(!project.roles.includes(p.role))fail.push('نقش ورود این گزینه با هدف شما متفاوت است.');if(p.sector!=='all'&&project.sector!==p.sector)fail.push('گروه پروژه با انتخاب شما یکسان نیست.');if(p.subtype&&p.subtype!=='all'&&project.subtype!==p.subtype)fail.push('نوع دقیق پروژه با انتخاب شما یکسان نیست.');const locationMismatch=(p.province!=='all'&&project.province!==p.province)||(p.city!=='all'&&project.city!==p.city);if(locationMismatch){if(p.strict)fail.push('محل پروژه خارج از محدوده قطعی شماست.');else warnings.push('این گزینه خارج از محل ترجیحی شماست.');}else pass.push('محل با انتخاب شما هم‌خوان است.');if(financial&&project.roles.includes(p.role)){if(project.capital===null)missing.push('حداقل سرمایه ورود معلوم نیست.');else if(p.capital<project.capital)fail.push('سرمایه شما از حداقل ورود کمتر است.');else pass.push('حداقل سرمایه ورود در محدوده شماست.');if(project.lockup===null)missing.push('محدودیت خروج مشخص نشده است.');else if(p.lockup<project.lockup)fail.push('مدت قفل سرمایه بیشتر از تحمل شماست.');else pass.push('مدت قفل سرمایه در محدوده شماست.');if(project.payback===null)missing.push('دوره بازگشت با مدل مالی تعیین نشده است.');else if(p.horizon<project.payback)fail.push('دوره بازگشت پایه از افق شما طولانی‌تر است.');else pass.push('بازگشت پایه در افق انتخاب‌شده است.');if(project.risk==='unknown')missing.push('ریسک سرمایه‌گذاری ارزیابی نشده است.');else if(({low:1,medium:2,high:3}[project.risk])>({low:1,medium:2,high:3}[p.risk]))fail.push('ریسک نمونه بالاتر از تحمل انتخاب‌شده شماست.');if(project.downside!==null&&project.downside>p.horizon)warnings.push('بازگشت در سناریوی بدبینانه از افق شما فراتر می‌رود.');if(p.income!=='any'&&project.income!==p.income)fail.push('الگوی دریافت عایدی با هدف شما متفاوت است.');if(p.income==='periodic'&&project.first>0)warnings.push('اولین دریافت فرضی پس از '+fa(project.first)+' ماه شروع می‌شود، درآمد فوری نیست.');}if(p.role==='lessee'&&project.roles.includes('lessee')){if(project.capital===null||project.monthlyRent===null)missing.push('مبلغ ودیعه یا اجاره مشخص نیست.');else{if(p.leaseDeposit<project.capital)fail.push('ودیعه بیشتر از بودجه شماست.');if((!p.method||['monthly','any'].includes(p.method.payment))&&p.leaseRent<project.monthlyRent)fail.push('اجاره ماهانه بیشتر از بودجه شماست.');}if(project.duration===null)missing.push('مدت اجاره معلوم نیست.');else if(project.duration<p.leaseYears)fail.push('مدت اجاره از حداقل موردنیاز شما کوتاه‌تر است.');warnings.push('بازده سرمایه‌گذاری در این مسیر سنجیده نمی‌شود، کاربری و شروط اجاره بررسی شود.');}if(['operator','contractor'].includes(p.role)&&project.roles.includes(p.role)){missing.push('صلاحیت فنی و شرایط دقیق فراخوان باید احراز شود.');if(p.experience==='no')warnings.push('نبود سابقه مشابه ممکن است با شرایط فراخوان تعارض داشته باشد.');}if(project.legal==='review')missing.push('بررسی حقوقی و مجوزهای این ساختار کامل نیست.');warnings.push(project.caution);const status=fail.length?'excluded':missing.length?'review':'match';return {project,status,fail,missing,warnings,pass};}",
+    "domain": "cross-cutting-source-review",
+    "task": "T01.3",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-037"
+  },
+  {
+    "name": "readProposal",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "ext-script",
+    "line": 966,
+    "end_line": 966,
+    "context": "readProposal",
+    "source_start": 570534,
+    "source_end": 571295,
+    "parameters": [],
+    "conditions": [
+      "need==='support'",
+      "stage==='construction'",
+      "['construction','operation'].includes(stage)||need==='infrastructure'",
+      "operatorRelevant()"
+    ],
+    "returns": [
+      "{title:E('ext-p-title').value.trim(),group:E('ext-p-sector').value,type:E('ext-p-type').value,province:E('ext-p-province').value,city:E('ext-p-city').value.trim(),neighborhood:E('ext-p-neighborhood').value.trim(),stage,need,gap:number(E('ext-p-gap').value),land:E('ext-p-land').value,permit:E('ext-p-permit').value,revenue:need==='support'?'donation':E('ext-p-revenue').value,progress:stage==='construction'?number(E('ext-p-progress').value):null,utilities:['construction','operation'].includes(stage)||need==='infrastructure'?E('ext-p-utilities').value:null,operator:operatorRelevant()?E('ext-p-operator').value:null,description:E('ext-p-description').value.trim()}"
+    ],
+    "definition": "function readProposal(){const stage=E('ext-p-stage').value,need=E('ext-p-need').value;return {title:E('ext-p-title').value.trim(),group:E('ext-p-sector').value,type:E('ext-p-type').value,province:E('ext-p-province').value,city:E('ext-p-city').value.trim(),neighborhood:E('ext-p-neighborhood').value.trim(),stage,need,gap:number(E('ext-p-gap').value),land:E('ext-p-land').value,permit:E('ext-p-permit').value,revenue:need==='support'?'donation':E('ext-p-revenue').value,progress:stage==='construction'?number(E('ext-p-progress').value):null,utilities:['construction','operation'].includes(stage)||need==='infrastructure'?E('ext-p-utilities').value:null,operator:operatorRelevant()?E('ext-p-operator').value:null,description:E('ext-p-description').value.trim()};}",
+    "domain": "proposal",
+    "task": "T19",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-038"
+  },
+  {
+    "name": "validateProposal",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "ext-script",
+    "line": 969,
+    "end_line": 969,
+    "context": "validateProposal",
+    "source_start": 571699,
+    "source_end": 572372,
+    "parameters": [
+      "p",
+      "firstOnly=false"
+    ],
+    "conditions": [
+      "!taxonomy.some(g=>g.id===p.group&&g.subtypes.some(t=>t.id===p.type))",
+      "!salesProvinces.includes(p.province)||!p.city",
+      "!stageLabels[p.stage]||!needLabels[p.need]",
+      "firstOnly",
+      "p.gap!==null&&(!Number.isFinite(p.gap)||p.gap<0)",
+      "p.progress!==null&&(!Number.isFinite(p.progress)||p.progress<0||p.progress>100)"
+    ],
+    "returns": [
+      "'گروه و نوع دقیق پروژه را انتخاب کنید.'",
+      "'استان و شهر یا روستای طرح را وارد کنید.'",
+      "'مرحله طرح و نیاز اصلی خود را انتخاب کنید.'",
+      "''",
+      "'کسری منابع باید عدد صفر یا مثبت، به میلیارد تومان باشد، اگر نامشخص است خالی بگذارید.'",
+      "'درصد پیشرفت باید عددی بین صفر و ۱۰۰ باشد.'",
+      "''"
+    ],
+    "definition": "function validateProposal(p,firstOnly=false){if(!taxonomy.some(g=>g.id===p.group&&g.subtypes.some(t=>t.id===p.type)))return 'گروه و نوع دقیق پروژه را انتخاب کنید.';if(!salesProvinces.includes(p.province)||!p.city)return 'استان و شهر یا روستای طرح را وارد کنید.';if(!stageLabels[p.stage]||!needLabels[p.need])return 'مرحله طرح و نیاز اصلی خود را انتخاب کنید.';if(firstOnly)return '';if(p.gap!==null&&(!Number.isFinite(p.gap)||p.gap<0))return 'کسری منابع باید عدد صفر یا مثبت، به میلیارد تومان باشد، اگر نامشخص است خالی بگذارید.';if(p.progress!==null&&(!Number.isFinite(p.progress)||p.progress<0||p.progress>100))return 'درصد پیشرفت باید عددی بین صفر و ۱۰۰ باشد.';return '';}",
+    "domain": "proposal",
+    "task": "T19",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-039"
+  },
+  {
+    "name": "fundingAdvice",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "ext-script",
+    "line": 970,
+    "end_line": 993,
+    "context": "fundingAdvice",
+    "source_start": 572373,
+    "source_end": 577991,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "p.land==='dispute'",
+      "p.land==='none'",
+      "p.permit!=='ready'",
+      "p.gap===null",
+      "p.gap===0",
+      "p.need==='operator'",
+      "['construction','study','ready'].includes(p.stage)",
+      "p.need==='support'||p.revenue==='donation'",
+      "p.need==='infrastructure'",
+      "commercial",
+      "p.need==='purchase'",
+      "p.need==='loan'",
+      "!commercial",
+      "p.need==='partner'",
+      "p.group==='heritage'",
+      "commercial&&p.group!=='heritage'",
+      "!commercial&&p.need==='partner'",
+      "['idea','study'].includes(p.stage)",
+      "p.progress!==null",
+      "p.utilities==='pending'",
+      "p.operator&&p.operator!=='ready'",
+      "housing"
+    ],
+    "returns": [
+      "{group:group?.name||'',type:type?.name||'',paths,checks:[...new Set(checks)].slice(0,16),barriers,sources,verified:false,officialApplication:false,successProbability:null,irr:null}"
+    ],
+    "definition": "function fundingAdvice(p){\n const group=taxonomy.find(g=>g.id===p.group),type=group?.subtypes.find(t=>t.id===p.type),config=getAdvisoryConfig(p.group,p.type);\n const paths=[],checks=[...(config?.baseChecks||[])],barriers=[],sources=[];\n const commercial=p.revenue&&p.revenue!=='unknown'&&p.revenue!=='donation',housing=p.group==='building'&&p.type==='residential';\n if(p.land==='dispute')barriers.push('ابهام یا اختلاف حقوق دارایی باید پیش از تعهد قراردادی برای بررسی تخصصی تعیین تکلیف شود.');\n if(p.land==='none')barriers.push('دارایی یا زمین در اختیار نیست، تامین محل و احراز اختیار آن یکی از پیش‌نیازهای ادامه است.');\n if(p.permit!=='ready')checks.unshift('فهرست مجوزها و مرجع صدور آن‌ها، وضعیت اخذ و محدودیت‌های اجرا روشن شود.');\n if(p.gap===null)checks.push('مبلغ کسری منابع و زمان نیاز به هر بخش آن برآورد شود، مبلغ نامعلوم صفر تلقی نمی‌شود.');\n if(p.gap===0)checks.push('کسری منابع صفر اعلام شده است، نیاز به قرارداد اجرایی، بهره‌بردار یا اصلاح ساختار دارایی جداگانه بررسی شود.');\n if(p.need==='operator'){paths.push({title:'قرارداد بهره‌برداری و نگهداری (O&M)',why:'نیاز اصلی شما بهره‌برداری است، حق‌الزحمه خدمت، مسئول پرداخت و هزینه نگهداری باید مشخص شوند.',condition:'دارایی و تجهیزات قابل استفاده، مجوز و سطح خدمت مشخص، این مدل به‌تنهایی سرمایه‌گذاری عمده را تامین نمی‌کند.'});if(['construction','study','ready'].includes(p.stage))checks.push('اگر تکمیل یا تجهیز عمده لازم است، هزینه و تامین منابع آن از قرارداد جاری بهره‌برداری تفکیک شود.');}\n else if(p.need==='support'||p.revenue==='donation'){paths.push({title:'منابع حمایتی، کمک و مشارکت خیرین',why:'منبع پیشنهادی شما حمایتی است و انتظار بازده تجاری تعریف نشده است.',condition:'احراز نیاز محلی، مجری معتبر، برنامه مصرف کمک، بهره‌بردار و بودجه ادامه خدمت، روش جذب منابع نیازمند بررسی ضوابط است.'});checks.push('اثر خدمت با منبع داده، دوره سنجش و ظرفیت عملیاتی مشخص گزارش شود، جمع خدمات، تعداد افراد یکتا نیست.');}\n else if(p.need==='infrastructure'){paths.push({title:'تامین منابع تکمیل زیرساخت و هماهنگی دستگاه‌های مسئول',why:'مانع اصلی، آماده‌نبودن زیرساخت است، پیشرفت ساختمان به‌تنهایی امکان بهره‌برداری را ثابت نمی‌کند.',condition:'شرح زیرساخت، مبلغ و مسئول هر تعهد، زمان تحویل و منبع پرداخت احراز شود.'});if(commercial)paths.push({title:'مشارکت یا تامین مالی تکمیل، با منبع بازپرداخت مشخص',why:'درآمد یا پرداخت قراردادی اعلام کرده‌اید، کفایت آن برای بازپرداخت باید مدل‌سازی شود.',condition:'تایید برنامه رفع مانع زیرساخت، مدل جریان نقدی و پذیرش تامین‌کننده مالی.'});}\n else if(p.need==='purchase'){paths.push({title:'بررسی قرارداد خرید محصول یا خدمت / تضمین خرید',why:'هدف شما کاهش ابهام فروش یا دریافت عایدی است، ابتدا طرف خریدار و تعهد قابل اجرا باید مشخص شوند.',condition:'وجود برنامه معتبر و مجوز لازم، مشخصات محصول یا خدمت، فرمول قیمت، زمان تحویل و شرایط پرداخت، قرارداد خرید، لزوماً نقدینگی ساخت را تامین نمی‌کند.'});checks.push('قرارداد یا تعهد خرید با تضمین اصل سرمایه یا تضمین بانکی سود اشتباه نشود.');}\n else if(p.need==='loan'){paths.push({title:'بررسی تسهیلات یا ابزار مالی مجاز متناسب با طرح',why:'نیاز اعلامی شما تامین منابع است، مبلغ، زمان نیاز و توان بازپرداخت مبنای بررسی‌اند.',condition:'پذیرش نهاد مالی، مجوز و اهلیت طرح، جریان نقدی کافی، تضامین و هزینه واقعی تامین منابع باید احراز شوند.'});if(!commercial)barriers.push('منبع قابل اتکای بازپرداخت تعیین نشده است، امکان اخذ تسهیلات یا تامین مالی بازپرداخت‌پذیر قابل نتیجه‌گیری نیست.');}\n else if(p.need==='partner'){paths.push({title:p.group==='heritage'?'مرمت همراه با اجاره یا بهره‌برداری مدت‌دار':'مشارکت در توسعه یا تکمیل پروژه',why:'شریک می‌تواند آورده مالی یا اجرایی داشته باشد، ارزش آورده‌ها و حقوق طرفین مبنای قرارداد خواهند بود.',condition:p.group==='heritage'?'اختیار واگذاری، تایید طرح و کاربری مرمت، دوره بهره‌برداری و جبران هزینه‌ها باید مشخص شوند.':'اختیار معتبر دارایی، ارزش‌گذاری، سازوکار انتخاب شریک، تقسیم ریسک و تسویه منافع احراز شود.'});if(commercial&&p.group!=='heritage')paths.push({title:'ساخت و بهره‌برداری با تامین مالی خصوصی، مدل قراردادی پس از مطالعه',why:'درآمد خدمت، اجاره یا پرداخت قراردادی می‌تواند مبنای بررسی بازیافت منابع باشد.',condition:'توجیه اقتصادی، محدودیت مالکیت، توان پرداخت، مجوز دستگاه و تقسیم ریسک بررسی شوند، BOT یا DBFO صرفاً از نوع پروژه انتخاب نمی‌شوند.'});}\n if(!commercial&&p.need==='partner')checks.push('پیش از وعده بازده به شریک، منبع درآمد و زمان وصول آن تعیین شود.');\n if(['idea','study'].includes(p.stage))checks.push('در این مرحله، امکان‌سنجی و تکمیل اطلاعات بر انتخاب نهایی ابزار مالی مقدم است.');\n if(p.progress!==null)checks.push('پیشرفت '+fa(p.progress)+' درصد، خوداظهاری شماست، با گزارش فنی و وضعیت زیرساخت تطبیق داده شود.');\n if(p.utilities==='pending')barriers.push('یک یا چند زیرساخت آماده نیست، مسئول، بودجه و زمان رفع این مانع مشخص شود.');\n if(p.operator&&p.operator!=='ready')checks.push('بهره‌بردار، مجوز خدمت و منابع هزینه جاری باید تعیین شوند، تکمیل ساخت به‌تنهایی استمرار خدمت را تامین نمی‌کند.');\n if(housing){checks.push('برای مسیرهای حمایتی مسکن، انطباق با جامعه هدف و برنامه فعال از مرجع ذی‌صلاح احراز شود، این سامانه به «تم» یا بانک متصل نیست.');sources.push({title:'اساسنامه منتشرشده صندوق ملی مسکن — شناخت دامنه ماموریت',url:'https://www.nhf.ir/page/nhf-statute',status:'مرجع مطالعه، مجوز پذیرش این طرح نیست'});if(p.need==='purchase')sources.push({title:'اطلاعیه ۳۰ فروردین ۱۴۰۵ درباره تضمین خرید مسکن',url:'https://www.nhf.ir/news/1405-01-30',status:'اعلام‌شده در سایت، تداوم پذیرش و شرایط فعلی احراز نشده است'});}\n checks.push('مدل قرارداد، منبع تامین پول و منبع بازپرداخت جداگانه در مدل مالی ثبت شوند.');\n return {group:group?.name||'',type:type?.name||'',paths,checks:[...new Set(checks)].slice(0,16),barriers,sources,verified:false,officialApplication:false,successProbability:null,irr:null};\n}",
+    "domain": "proposal",
+    "task": "T19",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-040"
+  },
+  {
+    "name": "newServiceGuidance",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "land-preparation-script",
+    "line": 1078,
+    "end_line": 1078,
+    "context": "newServiceGuidance",
+    "source_start": 596133,
+    "source_end": 597211,
+    "parameters": [
+      "p",
+      "t"
+    ],
+    "conditions": [
+      "p.answers.revenue==='support'",
+      "p.answers.revenue==='sale'||p.answers.revenue==='mixed'",
+      "state==='ready'",
+      "p.answers.lpServiceRight==='disputed'"
+    ],
+    "returns": [
+      "{models:['قرارداد خدمات تخصصی با دامنه، خروجی و حق‌الزحمه مشخص'],finance:[p.answers.revenue==='support'?'منابع عمومی یا حمایتیِ قابل تخصیص و مستند':p.answers.revenue==='sale'||p.answers.revenue==='mixed'?'پرداخت نقدی یا تسویه غیرنقدی تنها پس از احراز اختیار، ارزش‌گذاری و توافق معتبر':'پرداخت مرحله‌ای کارفرما بر مبنای خروجی مورد پذیرش'],why:'برای «'+t.name+'»، مسیر بررسی و خروجی خدمت باید از نتیجه تصمیم مرجع ذی‌صلاح تفکیک شود.',checks:[...t.checks,state==='ready'?'راستی‌آزمایی مستندات ارائه‌شده برای این خدمت':'تکمیل مستندات پایه و تعیین مسئول پیگیری این خدمت','تعیین مسئول، هزینه، مدت، نقاط کنترل و معیار پذیرش خروجی خدمت',p.answers.lpServiceRight==='disputed'?'موضوع اختلاف و محدودیت اقدام روشن شود، بررسی حقوقی پرونده می‌تواند موضوع خدمت باشد، اما اقدام اجرایی یا انتقال حقوق نیازمند تعیین حدود اختیار است.':'احراز اختیار سفارش‌دهنده و حدود نمایندگی پیش از اقدام'],next:'مدارک اولیه و شرح نیاز را برای بررسی دامنه خدمات و برآورد مستقل هزینه و زمان آماده کنید.',blocked:false,output:t.output}"
+    ],
+    "definition": "function newServiceGuidance(p,t){const state=p.answers['status-'+t.id];return {models:['قرارداد خدمات تخصصی با دامنه، خروجی و حق‌الزحمه مشخص'],finance:[p.answers.revenue==='support'?'منابع عمومی یا حمایتیِ قابل تخصیص و مستند':p.answers.revenue==='sale'||p.answers.revenue==='mixed'?'پرداخت نقدی یا تسویه غیرنقدی تنها پس از احراز اختیار، ارزش‌گذاری و توافق معتبر':'پرداخت مرحله‌ای کارفرما بر مبنای خروجی مورد پذیرش'],why:'برای «'+t.name+'»، مسیر بررسی و خروجی خدمت باید از نتیجه تصمیم مرجع ذی‌صلاح تفکیک شود.',checks:[...t.checks,state==='ready'?'راستی‌آزمایی مستندات ارائه‌شده برای این خدمت':'تکمیل مستندات پایه و تعیین مسئول پیگیری این خدمت','تعیین مسئول، هزینه، مدت، نقاط کنترل و معیار پذیرش خروجی خدمت',p.answers.lpServiceRight==='disputed'?'موضوع اختلاف و محدودیت اقدام روشن شود، بررسی حقوقی پرونده می‌تواند موضوع خدمت باشد، اما اقدام اجرایی یا انتقال حقوق نیازمند تعیین حدود اختیار است.':'احراز اختیار سفارش‌دهنده و حدود نمایندگی پیش از اقدام'],next:'مدارک اولیه و شرح نیاز را برای بررسی دامنه خدمات و برآورد مستقل هزینه و زمان آماده کنید.',blocked:false,output:t.output};}",
+    "domain": "land-preparation",
+    "task": "T20",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-041"
+  },
+  {
+    "name": "packageGuidance",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "land-preparation-script",
+    "line": 1079,
+    "end_line": 1079,
+    "context": "packageGuidance",
+    "source_start": 597212,
+    "source_end": 598083,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "blocked"
+    ],
+    "returns": [
+      "{entries,blocked,models:[...new Set(entries.flatMap(x=>x.models))],finance:[...new Set(entries.flatMap(x=>x.finance))],checks:[...new Set(entries.flatMap(x=>x.checks))],why:fmt(entries.length)+' خدمت برای یک ملک در یک بسته انتخاب شده است. ترتیب زیر مطابق اولویت شماست، هزینه، مدت و وابستگی هر جزء باید جداگانه مشخص شوند.',next:blocked?'پیگیری خدمات رفع مانع و تکمیل پرونده را از تعهد اجرای عملیات تفکیک کنید، اقدام اجرایی نیازمند روشن‌شدن اختیار و محدودیت‌هاست.':'دامنه و خروجی هر خدمت، ترتیب وابستگی‌ها، مسئول اجرا و معیار تحویل را مشخص کنید، سپس هزینه، زمان و شرایط پرداخت بسته بررسی شود.'}"
+    ],
+    "definition": "function packageGuidance(p){const entries=selectedIds(p).map(id=>{const t=types.find(t=>t.id===id),extra=serviceById(id);return {id,name:t.name,...(extra?newServiceGuidance(p,extra):singleGuidance({...p,type:id,types:[id]}))};});const blocked=entries.some(x=>x.blocked);return {entries,blocked,models:[...new Set(entries.flatMap(x=>x.models))],finance:[...new Set(entries.flatMap(x=>x.finance))],checks:[...new Set(entries.flatMap(x=>x.checks))],why:fmt(entries.length)+' خدمت برای یک ملک در یک بسته انتخاب شده است. ترتیب زیر مطابق اولویت شماست، هزینه، مدت و وابستگی هر جزء باید جداگانه مشخص شوند.',next:blocked?'پیگیری خدمات رفع مانع و تکمیل پرونده را از تعهد اجرای عملیات تفکیک کنید، اقدام اجرایی نیازمند روشن‌شدن اختیار و محدودیت‌هاست.':'دامنه و خروجی هر خدمت، ترتیب وابستگی‌ها، مسئول اجرا و معیار تحویل را مشخص کنید، سپس هزینه، زمان و شرایط پرداخت بسته بررسی شود.'};}",
+    "domain": "land-preparation",
+    "task": "T20",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-042"
+  },
+  {
+    "name": "validateProfile",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "land-preparation-script",
+    "line": 1090,
+    "end_line": 1090,
+    "context": "validateProfile",
+    "source_start": 599855,
+    "source_end": 600777,
+    "parameters": [
+      "p",
+      "first=false"
+    ],
+    "conditions": [
+      "!roleNames[p.role]",
+      "!selectedIds(p).length||selectedIds(p).some(id=>!types.some(t=>t.id===id))",
+      "new Set(selectedIds(p)).size!==selectedIds(p).length",
+      "p.area!==null&&(!Number.isFinite(p.area)||p.area<=0)",
+      "first",
+      "!q.options.some(x=>x[0]===p.answers[q.id])",
+      "p.budget!==null&&(!Number.isFinite(p.budget)||p.budget<0)",
+      "p.months!==null&&(!Number.isInteger(p.months)||p.months<=0)"
+    ],
+    "returns": [
+      "'نقش خود را در آماده‌سازی زمین انتخاب کنید.'",
+      "'حداقل یک خدمت برای زمین یا ملک انتخاب کنید.'",
+      "'هر خدمت فقط یک بار در بسته انتخاب شود.'",
+      "'مساحت باید عددی مثبت، به مترمربع باشد، اگر مشخص نیست خالی بگذارید.'",
+      "''",
+      "'لطفاً «'+q.label+'» را مشخص کنید.'",
+      "'مبلغ باید عدد صفر یا مثبت، به میلیارد تومان باشد، اگر مشخص نیست خالی بگذارید.'",
+      "'زمان اجرا باید تعداد ماهِ صحیح و مثبت باشد.'",
+      "''"
+    ],
+    "definition": "function validateProfile(p,first=false){if(!roleNames[p.role])return 'نقش خود را در آماده‌سازی زمین انتخاب کنید.';if(!selectedIds(p).length||selectedIds(p).some(id=>!types.some(t=>t.id===id)))return 'حداقل یک خدمت برای زمین یا ملک انتخاب کنید.';if(new Set(selectedIds(p)).size!==selectedIds(p).length)return 'هر خدمت فقط یک بار در بسته انتخاب شود.';if(p.area!==null&&(!Number.isFinite(p.area)||p.area<=0))return 'مساحت باید عددی مثبت، به مترمربع باشد، اگر مشخص نیست خالی بگذارید.';if(first)return '';for(const q of serviceQuestions(selectedIds(p),p.answers))if(!q.options.some(x=>x[0]===p.answers[q.id]))return 'لطفاً «'+q.label+'» را مشخص کنید.';if(p.budget!==null&&(!Number.isFinite(p.budget)||p.budget<0))return 'مبلغ باید عدد صفر یا مثبت، به میلیارد تومان باشد، اگر مشخص نیست خالی بگذارید.';if(p.months!==null&&(!Number.isInteger(p.months)||p.months<=0))return 'زمان اجرا باید تعداد ماهِ صحیح و مثبت باشد.';return '';}",
+    "domain": "land-preparation",
+    "task": "T20",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-043"
+  },
+  {
+    "name": "singleGuidance",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "land-preparation-script",
+    "line": 1096,
+    "end_line": 1096,
+    "context": "singleGuidance",
+    "source_start": 602301,
+    "source_end": 603416,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "p.budget===null||p.role==='owner'",
+      "p.role==='contractor'&&!g.blocked",
+      "p.type==='lhstudy'",
+      "p.role==='owner'",
+      "p.role==='explore'",
+      "p.months!==null"
+    ],
+    "returns": [
+      "g"
+    ],
+    "definition": "function singleGuidance(p){const g=buildLandHousingGuidance({building:{group:'landhousing',type:p.type,answers:p.answers,funding:p.budget===null||p.role==='owner'?'unknown':'own',first:null}});if(p.role==='contractor'&&!g.blocked){g.models=[p.type==='lhstudy'?'قرارداد خدمات مطالعات و طراحی آماده‌سازی':'پیمان اجرای بسته مشخص آماده‌سازی'];g.why='مسیر ورود شما، اجرای کار است. دامنه خدمات، شرایط انتخاب مجری، صلاحیت و ظرفیت، منبع پرداخت کارفرما و تضمین‌ها باید در اسناد معتبر روشن شوند.';g.finance=['منبع پرداخت کارفرما طبق اعتبار و قرارداد معتبر','نقدینگی اجرای پیمانکار، مستقل از هزینه کل پروژه'];g.checks.push('نحوه پرداخت صورت‌وضعیت، پیش‌پرداخت، تعدیل و تضمین‌های لازم در اسناد پیمان بررسی شود.');}if(p.role==='owner')g.checks.push('کسری منابع معرفی‌شده، سرمایه قابل تعهد شما فرض نمی‌شود، آورده موجود و نیاز مالی جدا بررسی شوند.');if(p.role==='explore')g.checks.push('در این مرحله توان مالی شما سنجیده نشده است، راهنما برای شناخت روش‌هاست.');if(p.months!==null)g.checks.push('زمان اجرای مدنظر '+fmt(p.months)+' ماه است، برنامه اجرایی معتبر و تعهد زمان در نمونه موجود نیست و انطباق آن احراز نشده است.');return g;}",
+    "domain": "land-preparation",
+    "task": "T20",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-044"
+  },
+  {
+    "name": "evaluateSample",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "land-preparation-script",
+    "line": 1097,
+    "end_line": 1097,
+    "context": "evaluateSample",
+    "source_start": 603417,
+    "source_end": 604734,
+    "parameters": [
+      "x",
+      "p",
+      "g"
+    ],
+    "conditions": [
+      "g.blocked",
+      "p.role==='investor'&&p.budget!==null&&x.capital!=null&&p.budget<x.capital",
+      "p.role==='investor'&&p.budget===null",
+      "p.role==='contractor'",
+      "p.area!==null",
+      "p.months!==null",
+      "p.neighborhood&&!x.neighborhood",
+      "p.answers.phase!=='any'&&meta&&meta.phase!==p.answers.phase",
+      "p.answers.owner!=='any'&&meta&&meta.owner!==p.answers.owner",
+      "meta&&!meta.revenues.includes(p.answers.revenue)",
+      "fail.length"
+    ],
+    "returns": [
+      "{project:x,status:fail.length?'excluded':'review',missing,fail}"
+    ],
+    "definition": "function evaluateSample(x,p,g){const missing=['فراخوان، اختیار اجرا، قیمت و اسناد واقعی این نمونه احراز نشده‌اند.'],fail=[];if(g.blocked)fail.push('مانع حقوقی اعلام‌شده باید پیش از ورود تعیین تکلیف شود.');if(p.role==='investor'&&p.budget!==null&&x.capital!=null&&p.budget<x.capital)fail.push('سرمایه اعلامی شما از حداقل ورود فرضی این نمونه کمتر است.');if(p.role==='investor'&&p.budget===null)missing.push('بودجه سرمایه‌گذاری مشخص نشده است.');if(p.role==='contractor')missing.push('نقدینگی موردنیاز پیمان و صلاحیت مجری احراز نشده، مبلغ ورود سرمایه‌گذار، حداقل نقدینگی پیمانکار نیست.');if(p.area!==null)missing.push('مساحت معتبر عرصه در نمونه ثبت نشده، تناسب مساحت معلوم نیست.');if(p.months!==null)missing.push('زمان اجرای مستند موجود نیست، انطباق با زمان موردنظر احراز نشده است.');if(p.neighborhood&&!x.neighborhood)missing.push('محله نمونه ثبت نشده است.');const meta=buildingProjectMeta[x.id];if(p.answers.phase!=='any'&&meta&&meta.phase!==p.answers.phase)fail.push('مرحله نمونه با مرحله انتخاب‌شده متفاوت است.');if(p.answers.owner!=='any'&&meta&&meta.owner!==p.answers.owner)fail.push('نوع صاحب طرح با انتخاب شما متفاوت است.');if(meta&&!meta.revenues.includes(p.answers.revenue))fail.push('روش جبران هزینه این نمونه با انتخاب شما متفاوت است.');return {project:x,status:fail.length?'excluded':'review',missing,fail};}",
+    "domain": "land-preparation",
+    "task": "T20",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-045"
+  },
+  {
+    "name": "validate",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "foreign-investment-script",
+    "line": 1149,
+    "end_line": 1149,
+    "context": "validate",
+    "source_start": 621286,
+    "source_end": 622326,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "!routes[p.route]",
+      "!taxonomy.some(g=>g.id===p.sector&&g.subtypes.some(t=>t.id===p.type))",
+      "!p.province",
+      "!p.applicant",
+      "p.amount!==null&&(!Number.isFinite(p.amount)||p.amount<=0)",
+      "!p.contributions.length",
+      "!p.revenue||!p.rights",
+      "Array.isArray(kind)",
+      "n===null",
+      "!Number.isFinite(n)||n<0||(['years','percent'].includes(kind)&&n===0)||(kind==='percent'&&n>100)||(['years','months'].includes(kind)&&!Number.isInteger(n))"
+    ],
+    "returns": [
+      "'مسیر ورود را انتخاب کنید.'",
+      "'حوزه و نوع دقیق پروژه را انتخاب کنید.'",
+      "'استان یا گزینه «هنوز محل مشخص نیست» را انتخاب کنید.'",
+      "'وضعیت متقاضی را مشخص کنید.'",
+      "'مبلغ باید عدد مثبت باشد، اگر مشخص نیست، خالی بگذارید.'",
+      "'حداقل یک نوع آورده یا خدمت را انتخاب کنید.'",
+      "'منبع پرداخت و وضعیت حقوق زمین یا دارایی را مشخص کنید، گزینه نامشخص نیز قابل انتخاب است.'",
+      "'مقدار «'+label+'» معتبر نیست، درصد باید در محدوده مجاز و زمان، عدد صحیح مثبت باشد.'",
+      "''"
+    ],
+    "definition": "function validate(p){if(!routes[p.route])return 'مسیر ورود را انتخاب کنید.';if(!taxonomy.some(g=>g.id===p.sector&&g.subtypes.some(t=>t.id===p.type)))return 'حوزه و نوع دقیق پروژه را انتخاب کنید.';if(!p.province)return 'استان یا گزینه «هنوز محل مشخص نیست» را انتخاب کنید.';if(!p.applicant)return 'وضعیت متقاضی را مشخص کنید.';if(p.amount!==null&&(!Number.isFinite(p.amount)||p.amount<=0))return 'مبلغ باید عدد مثبت باشد، اگر مشخص نیست، خالی بگذارید.';if(!p.contributions.length)return 'حداقل یک نوع آورده یا خدمت را انتخاب کنید.';if(!p.revenue||!p.rights)return 'منبع پرداخت و وضعیت حقوق زمین یا دارایی را مشخص کنید، گزینه نامشخص نیز قابل انتخاب است.';for(const[id,label,kind]of routes[p.route].fields){if(Array.isArray(kind))continue;const n=p.specific[id];if(n===null)continue;if(!Number.isFinite(n)||n<0||(['years','percent'].includes(kind)&&n===0)||(kind==='percent'&&n>100)||(['years','months'].includes(kind)&&!Number.isInteger(n)))return 'مقدار «'+label+'» معتبر نیست، درصد باید در محدوده مجاز و زمان، عدد صحیح مثبت باشد.';}return '';}",
+    "domain": "foreign-investment",
+    "task": "T21",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-046"
+  },
+  {
+    "name": "guidance",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "foreign-investment-script",
+    "line": 1150,
+    "end_line": 1165,
+    "context": "guidance",
+    "source_start": 622327,
+    "source_end": 627688,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "p.route==='equity'",
+      "s.horizon!==null",
+      "s.risk==='low'",
+      "p.contributions.every(x=>x==='services')",
+      "p.route==='contract'",
+      "s.term!==null",
+      "p.route==='credit'",
+      "s.guarantee==='state'",
+      "s.tenor!==null&&s.grace!==null",
+      "p.route==='execution'",
+      "s.commitment==='yes'",
+      "s.settlement==='operation'",
+      "p.rights==='direct'",
+      "p.rights==='public'",
+      "p.rights==='unknown'",
+      "p.revenue==='unknown'",
+      "p.permit!=='reported'",
+      "p.license==='issued'",
+      "p.route!=='execution'||s.commitment!=='no'",
+      "p.license==='not-investment'&&p.route!=='execution'",
+      "p.route==='credit'&&!p.contributions.includes('credit')",
+      "p.sector==='landhousing'||p.sector==='land'",
+      "!p.country"
+    ],
+    "returns": [
+      "{title,why,next,checks,barriers,conditions,verified:false,successProbability:null,irr:null}"
+    ],
+    "definition": "function guidance(p){const s=p.specific,checks=['اسناد معرفی متقاضی، منشا منابع و امکان عملی انتقال ارز یا تجهیزات بررسی شود.','مجوزهای تخصصی، اختیار طرف ایرانی و شیوه مجاز انتخاب شریک یا مجری احراز شود.','مدل مالی، ارز درآمد و هزینه، ریسک تغییر نرخ ارز و مسیر بازگشت منابع جدا بررسی شوند.'],barriers=[],conditions=[];let title='',why='',next='';\n if(p.route==='equity'){title='بررسی سرمایه‌گذاری مستقیم در شرکت ایرانی یا شرکت پروژه';why='نقش انتخابی شما، مشارکت در مالکیت و نتایج فعالیت شرکت است. سهم نهایی باید از ارزش‌گذاری آورده‌ها و توافق معتبر به دست آید.';checks.push('ساختار شرکت، ترکیب سهام، ارزش‌گذاری آورده، حاکمیت شرکتی، تقسیم منافع و سازوکار خروج تعیین شوند.','پذیرش و ثبت آورده نقدی و غیرنقدی در چارچوب مجوز مربوط بررسی شود.');next='ابتدا شریک یا شرکت پروژه و طرح توجیهی مشخص شوند، سپس ساختار حقوقی و مسیر پذیرش سرمایه بررسی شود.';if(s.horizon!==null)conditions.push('بازگشت سرمایه در '+s.horizon+' سال، هدف اعلامی شماست، بدون جریان نقدی معتبر، امکان تحقق آن محاسبه نمی‌شود.');if(s.risk==='low')checks.push('ریسک‌پذیری کم با ریسک واقعی ساخت، تقاضا و ارز تطبیق داده شود، کم‌ریسک بودن پروژه احراز نشده است.');if(p.contributions.every(x=>x==='services'))barriers.push('آورده فعلی صرفاً خدمت است، پذیرش آن به‌عنوان سرمایه، ارزش‌گذاری و تعهد مالی باید احراز شود.');}\n if(p.route==='contract'){title='بررسی سرمایه‌گذاری قراردادی با بازیافت منابع از پروژه';why='دامنه ساخت، تجهیز یا بهره‌برداری و منبع درآمد، ساختار قرارداد را مشخص می‌کنند. BOT یا سایر عناوین، صرفاً از نوع پروژه قابل انتخاب قطعی نیستند.';checks.push('دامنه تعهدات، دوره قرارداد، حق بهره‌برداری، تقسیم ریسک و تکلیف دارایی در پایان دوره روشن شوند.','در بررسی بند ب ماده ۳ فیپا، بازیافت منابع از عملکرد اقتصادی طرح و شرایط همان بند بررسی شود.');if(s.term!==null)conditions.push('مدت '+s.term+' سال، پیشنهاد شماست، کفایت آن برای بازیافت سرمایه به مطالعه جریان نقدی نیاز دارد.');next='دامنه کار و حقوق بهره‌برداری را با طرف ایرانی روشن کنید و مطالعات امکان‌سنجی و مدل مالی تهیه شود.';}\n if(p.route==='credit'){title='بررسی فاینانس یا اعتبار خارجی، مسیر بدهی پروژه';why='در این مسیر، تامین‌کننده اعتبار لزوماً شریک مالکیت نیست. تعهد بازپرداخت، هزینه واقعی اعتبار و تضامین باید مستقل از قرارداد ساخت تعیین شوند.';checks.push('اعتباردهنده، اعتبارگیرنده، ارز، کارمزدها، نرخ، تنفس، برنامه پرداخت و بازپرداخت در موافقت‌نامه مالی روشن شوند.','پذیرش بانک‌ها، مجوزهای تعهد و تضمین و امکان انتقال و بازپرداخت منابع بررسی شوند.');if(s.guarantee==='state')barriers.push('تضمین دولتی صرفاً مورد درخواست است، وجود اختیار و مجوز صدور آن احراز نشده است.');if(s.tenor!==null&&s.grace!==null)conditions.push('دوره بازپرداخت '+s.tenor+' سال و تنفس '+s.grace+' ماه، جدا ثبت شده‌اند، داخل یا خارج بودن تنفس از دوره کل باید در قرارداد روشن شود.');next='ابتدا پیشنهاد مالی اعتباردهنده و جریان نقدی بازپرداخت دریافت شود، سپس مسیر مجوزها و تضامین بررسی شود.';}\n if(p.route==='execution'){title=s.commitment==='yes'?'همکاری اجرایی همراه با تعهد مالی، نیازمند تفکیک ساختار':'بررسی قرارداد اجرا، تامین تجهیزات یا بهره‌برداری';why=s.commitment==='yes'?'بخش اجرای کار و بخش تامین منابع باید جدا تعریف شوند، برای جزء مالی، مسیر شراکت، سرمایه‌گذاری قراردادی یا اعتبار نیز بررسی شود.':'دریافت حق‌الزحمه در برابر کار، به‌تنهایی سرمایه‌گذاری خارجی محسوب نمی‌شود. قرارداد و منبع پرداخت مبنای بررسی هستند.';checks.push('صلاحیت، سوابق، دامنه خدمات، برنامه اجرا، مسئولیت‌ها، تضمین‌های لازم و نحوه پرداخت مشخص شوند.');if(s.settlement==='operation')checks.push('بازگشت از منافع بهره‌برداری، بررسی ساختار سرمایه‌گذاری قراردادی و حق معتبر بهره‌برداری را لازم می‌کند.');next='دامنه خدمات و تعهد مالی را تفکیک کنید و اسناد معتبر انتخاب مجری و منبع پرداخت دریافت شود.';}\n if(p.rights==='direct')barriers.push('تملک زمین به نام سرمایه‌گذار خارجی در چارچوب فیپا مجاز نیست، پیش از ادامه، ساختار حقوقی و هدف مالکیت بازنگری شود.');\n if(p.rights==='public')checks.push('برای دارایی دولتی یا عمومی، اختیار واگذاری و حقوق قابل اعطا احراز شود، مشارکت به معنی انتقال خودکار مالکیت نیست.');\n if(p.rights==='unknown')barriers.push('حقوق زمین و دارایی مشخص نیست، پیش از انتخاب قطعی روش، سند و اختیار بهره‌برداری بررسی شود.');\n if(p.revenue==='unknown')barriers.push('منبع بازگشت منابع یا پرداخت هنوز معلوم نیست، قابلیت تامین مالی و دوره بازگشت قابل نتیجه‌گیری نیست.');\n if(p.permit!=='reported')checks.push('مجوزهای پروژه هنوز احراز نشده‌اند، مرجع، فهرست مجوزها و وضعیت هرکدام تعیین شود.');\n if(p.license==='issued')checks.push('اصل مجوز فیپا، شرایط، مهلت‌ها، آورده مصوب و سرمایه واقعاً واردشده تطبیق داده شوند، خوداظهاری، تایید مجوز نیست.');else if(p.route!=='execution'||s.commitment!=='no')checks.push('امکان و ضرورت اخذ مجوز فیپا برای برخورداری از حمایت‌ها، جدا از مجوز تخصصی پروژه بررسی شود.');\n if(p.license==='not-investment'&&p.route!=='execution')barriers.push('وضعیت انتخابی «همکاری اجرایی بدون سرمایه‌گذاری» با مسیر مالی شما هماهنگ نیست، ماهیت قرارداد روشن شود.');\n if(p.route==='credit'&&!p.contributions.includes('credit'))conditions.push('نوع آورده انتخابی شامل اعتبار نیست، نقش تامین‌کننده و منشا اعتبار در مذاکره روشن شود.');\n if(p.sector==='landhousing'||p.sector==='land')checks.push('در آماده‌سازی یا توسعه زمین، حقوق زمین، هزینه شبکه‌ها، تحویل و جبران هزینه از فروش مجاز، پرداخت قراردادی یا منافع دیگر جدا تعیین شوند.');\n if(!p.country)checks.push('کشور مبدا منابع و مسیر قابل اجرا برای انتقال و بازگشت آن هنوز تعیین نشده است.');\n return{title,why,next,checks,barriers,conditions,verified:false,successProbability:null,irr:null};}",
+    "domain": "foreign-investment",
+    "task": "T21",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-047"
+  },
+  {
+    "name": "validate",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "ministry-additions-script",
+    "line": 1252,
+    "end_line": 1255,
+    "context": "validate",
+    "source_start": 665899,
+    "source_end": 666832,
+    "parameters": [
+      "tool",
+      "p"
+    ],
+    "conditions": [
+      "q.type==='heading'||q.when&&!q.when(p)",
+      "q.required&&(v===null||v===''||Array.isArray(v)&&v.length===0)",
+      "q.type==='number'&&v!==null",
+      "!Number.isFinite(v)||v<(q.min??0)||q.positive&&v===0||q.integer&&!Number.isInteger(v)",
+      "q.type==='select'&&!q.options.some(([key])=>key===v)",
+      "q.type==='multi'&&v.some(x=>!q.options.some(([key])=>key===x))",
+      "tool==='renewal'&&p.displacement==='yes'&&p.households===0",
+      "tool==='profile'&&p.certificateNo&&!p.issuer"
+    ],
+    "returns": [
+      "'لطفاً «'+q.label+'» را تکمیل کنید.'",
+      "'مقدار «'+q.label+'» معتبر نیست، واحد و مثبت یا صحیح بودن عدد را بررسی کنید.'",
+      "'گزینه «'+q.label+'» معتبر نیست.'",
+      "'گزینه‌های انتخابی معتبر نیستند.'",
+      "'برای اسکان موقت، تعداد خانوار باید بیشتر از صفر باشد، اگر مشخص نیست خالی بگذارید.'",
+      "'برای گواهینامه دارای شماره، مرجع صادرکننده را نیز مشخص کنید.'",
+      "''"
+    ],
+    "definition": "function validate(tool,p){for(const q of schemas[tool]){if(q.type==='heading'||q.when&&!q.when(p))continue;const v=p[q.id];if(q.required&&(v===null||v===''||Array.isArray(v)&&v.length===0))return 'لطفاً «'+q.label+'» را تکمیل کنید.';if(q.type==='number'&&v!==null){if(!Number.isFinite(v)||v<(q.min??0)||q.positive&&v===0||q.integer&&!Number.isInteger(v))return 'مقدار «'+q.label+'» معتبر نیست، واحد و مثبت یا صحیح بودن عدد را بررسی کنید.';}if(q.type==='select'&&!q.options.some(([key])=>key===v))return 'گزینه «'+q.label+'» معتبر نیست.';if(q.type==='multi'&&v.some(x=>!q.options.some(([key])=>key===x)))return 'گزینه‌های انتخابی معتبر نیستند.';}\n if(tool==='renewal'&&p.displacement==='yes'&&p.households===0)return 'برای اسکان موقت، تعداد خانوار باید بیشتر از صفر باشد، اگر مشخص نیست خالی بگذارید.';\n if(tool==='profile'&&p.certificateNo&&!p.issuer)return 'برای گواهینامه دارای شماره، مرجع صادرکننده را نیز مشخص کنید.';\n return '';}",
+    "domain": "supplementary-services-shared",
+    "task": "T18/T22/T23/T17",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-048"
+  },
+  {
+    "name": "temporaryHousing",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "ministry-additions-script",
+    "line": 1263,
+    "end_line": 1263,
+    "context": "temporaryHousing",
+    "source_start": 671178,
+    "source_end": 671440,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "p.displacement!=='yes'",
+      "p.households!==null&&p.deposit!==null",
+      "p.households!==null&&p.rent!==null&&p.months!==null"
+    ],
+    "returns": [
+      "{deposit:null,rent:null}",
+      "{deposit:p.households!==null&&p.deposit!==null?p.households*p.deposit:null,rent:p.households!==null&&p.rent!==null&&p.months!==null?p.households*p.rent*p.months:null}"
+    ],
+    "definition": "function temporaryHousing(p){if(p.displacement!=='yes')return {deposit:null,rent:null};return {deposit:p.households!==null&&p.deposit!==null?p.households*p.deposit:null,rent:p.households!==null&&p.rent!==null&&p.months!==null?p.households*p.rent*p.months:null};}",
+    "domain": "renewal",
+    "task": "T22",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-049"
+  },
+  {
+    "name": "renewalAdvice",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "ministry-additions-script",
+    "line": 1264,
+    "end_line": 1264,
+    "context": "renewalAdvice",
+    "source_start": 671441,
+    "source_end": 672681,
+    "parameters": [
+      "p"
+    ],
+    "conditions": [
+      "p.gis==='inside'&&(!p.authority||!p.evidenceDate)",
+      "p.gis==='outside'",
+      "p.incentive==='available'&&!p.incentiveRef",
+      "p.displacement==='yes'&&p.payer==='unknown'",
+      "p.displacement==='yes'"
+    ],
+    "returns": [
+      "{checks,temporary:g,next:p.displacement==='yes'?'ابتدا وضعیت ساکنان، توافق تخلیه و منبع نقدینگی اسکان موقت روشن شود، سپس مدل ساخت و بازپرداخت تکمیل شود.':'ابتدا محدوده و حقوق ملک و ضوابط مصوب احراز شود، سپس امکان‌سنجی و انتخاب شریک انجام شود.'}"
+    ],
+    "definition": "function renewalAdvice(p){const checks=['حقوق مالکان و مستاجران، رضایت‌ها، اختیار تجمیع و توافق تخلیه و بازگشت بررسی شوند.','وضعیت محدوده هدف با نقشه مصوب یا پاسخ مرجع ذی‌صلاح تطبیق داده شود، سامانه استعلام خودکار انجام نمی‌دهد.','مشوق، ضوابط ساخت و تسهیلات با مصوبه و شرایط روز همین ملک بررسی شوند.','برای شریک یا توسعه‌گر، گواهینامه و ظرفیت مرتبط با پروژه احراز شوند، داشتن عنوان سازنده کافی نیست.'],g=temporaryHousing(p);if(p.gis==='inside'&&(!p.authority||!p.evidenceDate))checks.unshift('داخل محدوده بودن صرفاً اعلام شماست، مرجع و تاریخ استعلام هنوز کامل نیست.');if(p.gis==='outside')checks.unshift('شمول برنامه ویژه بازآفرینی از پاسخ فعلی تایید نمی‌شود، مسیر نوسازی عادی می‌تواند مستقل بررسی شود.');if(p.incentive==='available'&&!p.incentiveRef)checks.push('برای مشوق اعلامی، مستند مشخص ثبت نشده است، میزان مشوق و تعلق آن به این ملک احراز نمی‌شود.');if(p.displacement==='yes'&&p.payer==='unknown')checks.push('مسئول تامین ودیعه و اجاره اسکان موقت باید پیش از تعهد ساخت مشخص شود.');return {checks,temporary:g,next:p.displacement==='yes'?'ابتدا وضعیت ساکنان، توافق تخلیه و منبع نقدینگی اسکان موقت روشن شود، سپس مدل ساخت و بازپرداخت تکمیل شود.':'ابتدا محدوده و حقوق ملک و ضوابط مصوب احراز شود، سپس امکان‌سنجی و انتخاب شریک انجام شود.'};}",
+    "domain": "renewal",
+    "task": "T22",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-050"
+  },
+  {
+    "name": "prepare",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "vivid-portal-script",
+    "line": 1363,
+    "end_line": 1363,
+    "context": "prepare",
+    "source_start": 754668,
+    "source_end": 755992,
+    "parameters": [
+      "ev"
+    ],
+    "conditions": [
+      "!form.reportValidity()",
+      "!$('idea-title').value.trim()||!$('idea-description').value.trim()"
+    ],
+    "returns": [
+      null,
+      null
+    ],
+    "definition": "async function prepare(ev){ev.preventDefault();error('');const form=$('vivid-idea-form');if(!form.reportValidity())return;if(!$('idea-title').value.trim()||!$('idea-description').value.trim()){error('عنوان و توضیح ایده را تکمیل کنید.');return;}const submit=form.querySelector('[type=submit]');submit.disabled=true;submit.textContent='در حال آماده‌سازی…';try{packageData={format:'algonet-idea-package',version:1,status:'local-draft-not-submitted',title:$('idea-title').value.trim(),sector:$('idea-sector').value,stage:$('idea-stage').value,province:$('idea-province').value,city:$('idea-city').value.trim(),description:$('idea-description').value.trim(),need:$('idea-need').value,capitalBillionToman:$('idea-capital').value.trim()||null,attachments:await Promise.all(files.map(fileData))};$('idea-summary').innerHTML='<p><strong>'+esc(packageData.title)+'</strong><br>'+esc(packageData.sector)+' · '+esc(packageData.stage)+'<br>نیاز به همکاری: '+esc(packageData.need)+'<br>'+fa(files.length)+' فایل پیوست · ارسال نشده</p>';$('idea-result').hidden=false;$('idea-result').querySelector('h3').focus();$('idea-result').scrollIntoView({block:'center',behavior:'smooth'});}catch(e){error(e.message||'آماده‌سازی فایل‌ها انجام نشد. دوباره تلاش کنید.');}finally{submit.disabled=false;submit.textContent='آماده‌سازی بسته پیشنهادی ←';}}",
+    "domain": "ideas",
+    "task": "T19",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-051"
+  },
+  {
+    "name": "invalidateIdea",
+    "source": "advisor/public/engine/advisor.html",
+    "script": "vivid-portal-script",
+    "line": 1364,
+    "end_line": 1364,
+    "context": "invalidateIdea",
+    "source_start": 755993,
+    "source_end": 756066,
+    "parameters": [],
+    "conditions": [],
+    "returns": [],
+    "definition": "function invalidateIdea(){$('idea-result').hidden=true;packageData=null;}",
+    "domain": "ideas",
+    "task": "T19",
+    "status": "rule-source-extracted-not-runtime-verified",
+    "id": "DR-052"
+  }
+]

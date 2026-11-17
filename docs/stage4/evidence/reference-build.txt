@@ -1,0 +1,80 @@
+
+> investment_advisor@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.29
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 12.4s
+   Linting and checking validity of types ...
+
+./src/components/assistant/assistant.tsx
+11:23  Warning: 'ArrowLeft' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/concepts/dossier.tsx
+31:7  Warning: 'RULE' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/concepts/girih.tsx
+184:36  Warning: 'i' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/concepts/metro.tsx
+12:29  Warning: 'byProvince' is defined but never used.  @typescript-eslint/no-unused-vars
+19:37  Warning: 'RouteId' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/home/hero-ideas.tsx
+11:104  Warning: 'TickCircle' is defined but never used.  @typescript-eslint/no-unused-vars
+11:116  Warning: 'UserSquare' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/search/type-picker.tsx
+28:50  Warning: 'counts' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/361) ...
+   Generating static pages (90/361) 
+   Generating static pages (180/361) 
+   Generating static pages (270/361) 
+ ✓ Generating static pages (361/361)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                    20.9 kB         432 kB
+├ ○ /_not-found                             1 kB         104 kB
+├ ○ /assistant                           2.61 kB         402 kB
+├ ○ /compare                             13.1 kB         433 kB
+├ ○ /concepts                            4.65 kB         382 kB
+├ ○ /concepts/dossier                      206 B         401 kB
+├ ○ /concepts/dossier/project              204 B         401 kB
+├ ○ /concepts/girih                        202 B         396 kB
+├ ○ /concepts/girih/project                203 B         396 kB
+├ ○ /concepts/metro                        202 B         395 kB
+├ ○ /concepts/metro/project                202 B         395 kB
+├ ● /guide/[id]                          9.11 kB         348 kB
+├   ├ /guide/DEMO-05
+├   ├ /guide/DEMO-11
+├   ├ /guide/DEMO-15
+├   └ [+55 more paths]
+├ ○ /lab                                 27.8 kB         410 kB
+├ ○ /opportunities                       17.3 kB         471 kB
+├ ● /opportunities/[id]                  17.6 kB         430 kB
+├   ├ /opportunities/DEMO-01
+├   ├ /opportunities/DEMO-02
+├   ├ /opportunities/DEMO-03
+├   └ [+270 more paths]
+├ ○ /saved                                8.1 kB         447 kB
+├ ○ /tools                                 208 B         394 kB
+└ ● /tools/[id]                            209 B         394 kB
+    ├ /tools/proposal
+    ├ /tools/ideas
+    ├ /tools/land-preparation
+    └ [+9 more paths]
++ First Load JS shared by all             103 kB
+  ├ chunks/1255-d8a1861c775d9bcc.js      46.3 kB
+  ├ chunks/4bd1b696-100b9d70ed4e49c1.js  54.2 kB
+  └ other shared chunks (total)          2.52 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+

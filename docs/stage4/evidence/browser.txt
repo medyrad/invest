@@ -1,0 +1,104 @@
+[WebServer] (node:1384006) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 59 tests using 4 workers
+
+(node:1384067) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1384068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1384069) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1384075) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [mobile-360] › ../../../../frontend/tests/browser/auth-fixes.spec.ts:189:1 › S03-IT-003: approved D26 copy wraps readably without changing reference typography (1.2s)
+  ✓   2 [mobile-360] › ../../../../frontend/tests/browser/auth.spec.ts:70:1 › invalid mobile is never truncated and focus stays in modal (1.4s)
+  ✓   4 [mobile-360] › ../../../../frontend/tests/browser/auth.spec.ts:88:1 › edit invalidates the previous challenge and enforces server spacing (1.6s)
+  ✓   6 [mobile-360] › ../../../../frontend/tests/browser/auth.spec.ts:118:1 › lost verify body recovers only from the received session cookie (955ms)
+  ✓   1 [mobile-360] › ../../../../frontend/tests/browser/auth.spec.ts:36:1 › real login, wrong code, reload, logout and HttpOnly session (2.4s)
+  ✓   9 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:61:1 › catalog failure, retry, empty response and recovery never fabricate fresh data (490ms)
+  ✓   8 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:44:1 › catalog parent changes clear invalid children and remove/clear controls work (665ms)
+  ✓   5 [mobile-360] › ../../../../frontend/tests/browser/auth.spec.ts:99:1 › six code cells support paste and expiry UI; server expiry is separately tested (2.0s)
+  ✓  11 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:85:1 › public preview-disabled response renders no synthetic cards or calculated score (302ms)
+(node:1385449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1385477) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:73:1 › navigation, mobile menu and help disclose future destinations (729ms)
+(node:1385672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [mobile-360] › ../../../../frontend/tests/browser/foundation.spec.ts:3:1 › Persian shell loads the local reference font at both widths (630ms)
+  ✓  13 [mobile-360] › ../../../../frontend/tests/browser/foundation.spec.ts:17:1 › same-origin preserves JSON, query, cookies and CSRF rejection (577ms)
+(node:1386123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1386131) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 [tablet-768] › ../../../../frontend/tests/browser/auth-fixes.spec.ts:189:1 › S03-IT-003: approved D26 copy wraps readably without changing reference typography (1.0s)
+  ✓  16 [tablet-768] › ../../../../frontend/tests/browser/auth.spec.ts:70:1 › invalid mobile is never truncated and focus stays in modal (1.2s)
+  ✓  17 [tablet-768] › ../../../../frontend/tests/browser/auth.spec.ts:88:1 › edit invalidates the previous challenge and enforces server spacing (1.2s)
+  ✓  15 [tablet-768] › ../../../../frontend/tests/browser/auth.spec.ts:36:1 › real login, wrong code, reload, logout and HttpOnly session (2.3s)
+  ✓  19 [tablet-768] › ../../../../frontend/tests/browser/auth.spec.ts:118:1 › lost verify body recovers only from the received session cookie (947ms)
+  ✓  18 [tablet-768] › ../../../../frontend/tests/browser/auth.spec.ts:99:1 › six code cells support paste and expiry UI; server expiry is separately tested (1.9s)
+  ✓  21 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:44:1 › catalog parent changes clear invalid children and remove/clear controls work (655ms)
+  ✓  22 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:61:1 › catalog failure, retry, empty response and recovery never fabricate fresh data (571ms)
+  ✓  23 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:73:1 › navigation, mobile menu and help disclose future destinations (775ms)
+  ✓  24 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:85:1 › public preview-disabled response renders no synthetic cards or calculated score (267ms)
+(node:1387267) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1387274) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  26 [tablet-768] › ../../../../frontend/tests/browser/foundation.spec.ts:17:1 › same-origin preserves JSON, query, cookies and CSRF rejection (567ms)
+  ✓  25 [tablet-768] › ../../../../frontend/tests/browser/foundation.spec.ts:3:1 › Persian shell loads the local reference font at both widths (638ms)
+(node:1387756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1387764) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  27 [mobile-390] › ../../../../frontend/tests/browser/auth-fixes.spec.ts:189:1 › S03-IT-003: approved D26 copy wraps readably without changing reference typography (903ms)
+  ✓  29 [mobile-390] › ../../../../frontend/tests/browser/auth.spec.ts:70:1 › invalid mobile is never truncated and focus stays in modal (1.1s)
+  ✓  28 [mobile-390] › ../../../../frontend/tests/browser/auth.spec.ts:36:1 › real login, wrong code, reload, logout and HttpOnly session (2.3s)
+  ✓  30 [mobile-390] › ../../../../frontend/tests/browser/auth.spec.ts:88:1 › edit invalidates the previous challenge and enforces server spacing (1.1s)
+  ✓  32 [mobile-390] › ../../../../frontend/tests/browser/auth.spec.ts:118:1 › lost verify body recovers only from the received session cookie (835ms)
+  ✓  31 [mobile-390] › ../../../../frontend/tests/browser/auth.spec.ts:99:1 › six code cells support paste and expiry UI; server expiry is separately tested (1.9s)
+  ✓  34 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:44:1 › catalog parent changes clear invalid children and remove/clear controls work (594ms)
+  ✓  35 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:61:1 › catalog failure, retry, empty response and recovery never fabricate fresh data (456ms)
+  ✓  36 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:73:1 › navigation, mobile menu and help disclose future destinations (577ms)
+  ✓  37 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:85:1 › public preview-disabled response renders no synthetic cards or calculated score (271ms)
+(node:1389015) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  38 [mobile-390] › ../../../../frontend/tests/browser/foundation.spec.ts:3:1 › Persian shell loads the local reference font at both widths (590ms)
+  ✓  39 [mobile-390] › ../../../../frontend/tests/browser/foundation.spec.ts:17:1 › same-origin preserves JSON, query, cookies and CSRF rejection (399ms)
+(node:1389348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [mobile-360] › ../../../../frontend/tests/browser/home.spec.ts:6:1 › home includes all active sections, real catalog and a truthful sample label (19.3s)
+(node:1389821) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  20 [tablet-768] › ../../../../frontend/tests/browser/home.spec.ts:6:1 › home includes all active sections, real catalog and a truthful sample label (14.4s)
+(node:1390027) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  42 [desktop-1440] › ../../../../frontend/tests/browser/auth-fixes.spec.ts:116:1 › @desktop S03-IT-002: a delayed old me response cannot restore identity after logout (1.8s)
+  ✓  41 [desktop-1440] › ../../../../frontend/tests/browser/auth-fixes.spec.ts:82:1 › @desktop S03-IT-002: logout clears the other tab without affecting an independent device (5.3s)
+  ✓  44 [desktop-1440] › ../../../../frontend/tests/browser/auth-fixes.spec.ts:176:1 › @desktop S03-IT-002: cross-tab signals cannot grant identity without server evidence (440ms)
+  ✓  45 [desktop-1440] › ../../../../frontend/tests/browser/auth-fixes.spec.ts:189:1 › S03-IT-003: approved D26 copy wraps readably without changing reference typography (863ms)
+  ✓  43 [desktop-1440] › ../../../../frontend/tests/browser/auth-fixes.spec.ts:155:1 › @desktop S03-IT-002: focus, visibility and page return recheck me without extending idle (4.3s)
+  ✓  47 [desktop-1440] › ../../../../frontend/tests/browser/auth.spec.ts:70:1 › invalid mobile is never truncated and focus stays in modal (1.1s)
+  ✓  46 [desktop-1440] › ../../../../frontend/tests/browser/auth.spec.ts:36:1 › real login, wrong code, reload, logout and HttpOnly session (2.1s)
+  ✓  48 [desktop-1440] › ../../../../frontend/tests/browser/auth.spec.ts:88:1 › edit invalidates the previous challenge and enforces server spacing (1.1s)
+  ✓  50 [desktop-1440] › ../../../../frontend/tests/browser/auth.spec.ts:118:1 › lost verify body recovers only from the received session cookie (912ms)
+  ✓  49 [desktop-1440] › ../../../../frontend/tests/browser/auth.spec.ts:99:1 › six code cells support paste and expiry UI; server expiry is separately tested (1.8s)
+  ✓  52 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:44:1 › catalog parent changes clear invalid children and remove/clear controls work (551ms)
+  ✓  53 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:61:1 › catalog failure, retry, empty response and recovery never fabricate fresh data (537ms)
+  ✓  33 [mobile-390] › ../../../../frontend/tests/browser/home.spec.ts:6:1 › home includes all active sections, real catalog and a truthful sample label (19.0s)
+(node:1391876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  54 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:73:1 › navigation, mobile menu and help disclose future destinations (593ms)
+  ✓  55 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:85:1 › public preview-disabled response renders no synthetic cards or calculated score (438ms)
+  ✓  56 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:92:1 › motion and reduced-motion remain distinct without hydration errors @desktop (714ms)
+(node:1392303) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  58 [desktop-1440] › ../../../../frontend/tests/browser/foundation.spec.ts:3:1 › Persian shell loads the local reference font at both widths (610ms)
+  ✓  59 [desktop-1440] › ../../../../frontend/tests/browser/foundation.spec.ts:17:1 › same-origin preserves JSON, query, cookies and CSRF rejection (396ms)
+  ✓  57 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:112:1 › touch menu and keyboard catalog controls retain focus and clear descendants @desktop (2.0s)
+  ✓  51 [desktop-1440] › ../../../../frontend/tests/browser/home.spec.ts:6:1 › home includes all active sections, real catalog and a truthful sample label (10.2s)
+  ✓  40 [desktop-1440] › ../../../../frontend/tests/browser/auth-fixes.spec.ts:40:1 › @desktop S03-IT-001: lost accepted resend recovers its key, challenge, TTL and quota (1.1m)
+
+  59 passed (1.4m)

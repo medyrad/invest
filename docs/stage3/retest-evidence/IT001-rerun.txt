@@ -1,0 +1,3 @@
+Waiting on real resend control (60-second boundary)
+IT001-recover-accepted-resend-payload-challenge-TTL-quota-and-login passed
+{"passed":1,"failed":0}

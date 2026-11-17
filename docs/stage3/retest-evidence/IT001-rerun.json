@@ -1,0 +1,33 @@
+{
+  "version": "S03-FIX-5f377655f1f5",
+  "cases": [
+    {
+      "name": "IT001-recover-accepted-resend-payload-challenge-TTL-quota-and-login",
+      "status": "passed"
+    }
+  ],
+  "observations": [
+    {
+      "case": "IT001",
+      "same_key": true,
+      "same_canonical_payload": true,
+      "same_flow": true,
+      "recovered_same_challenge": true,
+      "TTL_unchanged": true,
+      "issued_events_before": 1,
+      "issued_events_unknown": 2,
+      "issued_events_after_recovery": 2,
+      "issued_events_after_login": 2,
+      "challenge_count": 2,
+      "old_code_hidden": true,
+      "login_success": true,
+      "sessions_created": 1
+    }
+  ],
+  "human_design_approved": false,
+  "browser": "151.0.7922.137",
+  "summary": {
+    "passed": 1,
+    "failed": 0
+  }
+}

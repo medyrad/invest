@@ -1,0 +1,19 @@
+{
+  "source_files": {
+    "checked": 243,
+    "different": []
+  },
+  "specification": {
+    "checked": 5,
+    "different": []
+  },
+  "evidence": {
+    "checked": 51,
+    "different": []
+  },
+  "historical_docs": {
+    "checked": 281,
+    "different": []
+  },
+  "env_unchanged": true
+}

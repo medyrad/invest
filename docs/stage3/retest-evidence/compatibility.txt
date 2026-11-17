@@ -1,0 +1,4 @@
+two-tabs-logout-clears-displayed-private-identity passed
+Waiting for real 60-second resend boundary
+resend-lost-response-keeps-idempotency-key passed
+{"passed":2,"failed":0}

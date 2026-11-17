@@ -1,0 +1,150 @@
+{
+  "mission": "TEST-S03-03",
+  "version": "S03-FIX-5f377655f1f5",
+  "files": [
+    {
+      "path": "docs/stage3/retest-evidence/IT001-recovered.png",
+      "sha256": "e8834c5fe30cecf5bcfd98e4f42f6069460c19d99702258c7a210e4f300069f3"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT001-rerun.json",
+      "sha256": "bc3f5e4810aa49c59832e0cd2bf6c68133cad2ea0b67ef603784dc37ebf42696"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT001-rerun.txt",
+      "sha256": "c914d4619ae4c3ccd01b3c3fac4e9c605a150adaadd6bbf5ef509fbabfe18072"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT001-unknown-hides-old-code.png",
+      "sha256": "9d33fafe4a3b25360ba724fc6e640583ef4e023e836b217626fa6c6c1de52c94"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT002-cleared-tab.png",
+      "sha256": "3ad3d92eb5a28246b5a6daca8e4c830e46e8f36c08bfd2b8944e3d6aabc32d69"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT003-dialog-1440.png",
+      "sha256": "28a9aba06ad461d54b2c2f5942bc8f2d94c510d358e6be70c8d135cfde9f1402"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT003-note-1440.png",
+      "sha256": "416632a3c6943c49191aebf05a40995e83e15c4e8b7d3359e6fb1d4d1ebbcd8f"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT003-note-360.png",
+      "sha256": "86faf31a5c7e7e6038c430a6168528b1eaaf9a6734d665c2ce4a2e64be190136"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT003-note-390.png",
+      "sha256": "798b43bf34d6eeda0757f771226f0104da798b1f81230dba9b64f9dd02e612f9"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT003-note-768.png",
+      "sha256": "9da4a14a8fd791e86107aa984c581aeb39e8d4e25c5799a7c39240da81a9cb1a"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT003-privacy-1440.png",
+      "sha256": "f5726defcf744d735b68860ad9d94f88b702f61fc962bfa29554afbc58b84dde"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT003-privacy-360.png",
+      "sha256": "81bbbd14c09e5981727372092e239e3d24b828d220e89fb23ac8b21cdae59758"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT003-privacy-390.png",
+      "sha256": "93098e2dd04abd42907868a6f5c2a1b4cb26c3776f0def53ae930f39085a7dfc"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/IT003-privacy-768.png",
+      "sha256": "cfdc080d4cc7a802265715a75952d77efcb07559cc12ffa1be49a54c6211f6ed"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/attempts/fixture-collision.json",
+      "sha256": "43ee7e36c18c9f3c96e1e165f01f3f722c8c0cc3d4aa212dc1bc8ab46d6f8d0f"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/attempts/fixture-collision.txt",
+      "sha256": "fb7b6828eb8ecb192fd3f6b9a8d06d5517038c74fbf4a1253f5fea14d9daaa3d"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/browser-build-check.json",
+      "sha256": "212d907bc7c3c4aa594437826c4c6452f48c3ba3f3edceefa40e921c73ef902a"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/cleanup.txt",
+      "sha256": "002eabd7fd1abf76626459f46a7c22bbed2fffc5c3e2cd0983b09cf08be091b7"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/compatibility/independent-browser.json",
+      "sha256": "49b1d7b6824a1e91e1a00ca05d2127e6d6c55d11559895069b4dff7e6a864d2b"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/compatibility/lost-resend-retry.png",
+      "sha256": "c537828637f85c016c9f0398aa315024344e899863a12d517855b8b33b418f97"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/compatibility/two-tabs-stale-identity.png",
+      "sha256": "3ad3d92eb5a28246b5a6daca8e4c830e46e8f36c08bfd2b8944e3d6aabc32d69"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/compatibility.txt",
+      "sha256": "ced2b19832f16046e5701945c0d932e74c5b967c11abd64ebf07d538b04312d8"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/final-checks.json",
+      "sha256": "011d369dea114304cc3fe9b4ef5f4bddd75d33ad207898fd89a8bf85e0904607"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/preservation-check.json",
+      "sha256": "310db9bb33ff0f5550143e728b0bffcb29c84ab46d56876ff1af33df907c40c1"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/setup.txt",
+      "sha256": "77318f9ae5e49a741183b041ded32c2970d20a0997bba75a43e96aac533ec3d5"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/summary.json",
+      "sha256": "4230e26a6f5858175c349ed1222f71bfd326d55638afb5e3c8f8b56a91070054"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/targeted.json",
+      "sha256": "916145eac5367c63b5520dda4354f104b7158111f9f0c9c1ab2f3d77fb46314c"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/targeted.txt",
+      "sha256": "2535b44d88dc1665d987b011b3d3630a9f9202101ff08497d9819eea78554edc"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/tool-change.json",
+      "sha256": "a3b04a4f41ab40448bf00afae7becf10b680f612a948f10b69ecd5035b582eac"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/tool-diff.patch",
+      "sha256": "20f9381d1da8479380c7db52925e9bc9e01904feaa83b9261374011c9e58ebee"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/version-check.json",
+      "sha256": "7939da56011bcd45d6509b9d82c8a8a0fbb6b43b14ac2a54004cf9de265bdc03"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/visual-assets.json",
+      "sha256": "988ea8a35170957ecde1785719536e3a9c6dadb6a927bd277a1cf44c8d45367c"
+    },
+    {
+      "path": "docs/stage3/retest-evidence/visual-comparison.json",
+      "sha256": "5d4ef5189044a9241c87b563b08acf523b1573c1ceec1ffcfae8f1fbd8b29153"
+    },
+    {
+      "path": "docs/stage3/retest-report.md",
+      "sha256": "f889ca61d51e8679f7d4b326bc5f4324185b63b86f737942a3f56967a1df1c31"
+    },
+    {
+      "path": "docs/stage3/retest-tests/browser-independent.cjs",
+      "sha256": "8b753de689b228290970069571db989218e29fe5e5a33a62e6181572e7214428"
+    },
+    {
+      "path": "docs/stage3/retest-tests/targeted.cjs",
+      "sha256": "dc7cc35773f36f7481c2b31270137f8b016719635b6106dcdeed5d9f1385dd89"
+    }
+  ]
+}

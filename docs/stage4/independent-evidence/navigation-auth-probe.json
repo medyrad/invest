@@ -1,0 +1,131 @@
+{
+  "steps": [
+    {
+      "stage": "logged-in",
+      "server_authenticated": true,
+      "identity_visible": true,
+      "cookie_present": true,
+      "path": "/"
+    },
+    {
+      "stage": "future-route",
+      "server_authenticated": true,
+      "identity_visible": false,
+      "cookie_present": true,
+      "path": "/saved"
+    },
+    {
+      "stage": "returned-home",
+      "server_authenticated": true,
+      "identity_visible": true,
+      "cookie_present": true,
+      "path": "/"
+    },
+    {
+      "stage": "reloaded-home",
+      "server_authenticated": true,
+      "identity_visible": true,
+      "cookie_present": true,
+      "path": "/"
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/v1/auth/me",
+      "status": 200,
+      "authenticated": false
+    },
+    {
+      "path": "/api/v1/auth/csrf",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/auth/flows",
+      "status": 200
+    },
+    {
+      "path": "/icons/auth/ArchiveTick.svg",
+      "status": 200
+    },
+    {
+      "path": "/icons/auth/UserEdit.svg",
+      "status": 200
+    },
+    {
+      "path": "/icons/auth/Notification.svg",
+      "status": 200
+    },
+    {
+      "path": "/icons/auth/Add.svg",
+      "status": 200
+    },
+    {
+      "path": "/icons/auth/Mobile.svg",
+      "status": 200
+    },
+    {
+      "path": "/icons/auth/Lock1.svg",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/auth/csrf",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/auth/issue",
+      "status": 400,
+      "error": "invalid_mobile"
+    },
+    {
+      "path": "/api/v1/auth/csrf",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/auth/issue",
+      "status": 200
+    },
+    {
+      "path": "/icons/auth/ShieldTick.svg",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/auth/csrf",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/auth/verify",
+      "status": 400,
+      "error": "invalid_code"
+    },
+    {
+      "path": "/api/v1/auth/me",
+      "status": 200,
+      "authenticated": false
+    },
+    {
+      "path": "/api/v1/auth/csrf",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/auth/verify",
+      "status": 200,
+      "authenticated": true
+    },
+    {
+      "path": "/api/v1/auth/me",
+      "status": 200,
+      "authenticated": true
+    },
+    {
+      "path": "/api/v1/auth/me",
+      "status": 200,
+      "authenticated": true
+    },
+    {
+      "path": "/api/v1/auth/me",
+      "status": 200,
+      "authenticated": true
+    }
+  ],
+  "passed": true
+}

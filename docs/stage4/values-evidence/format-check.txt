@@ -1,0 +1,6 @@
+ Container invest-db-1 Running 
+ Container invest-db-1 Waiting 
+ Container invest-db-1 Healthy 
+ Container invest-test-run-c664e28c575d Creating 
+ Container invest-test-run-c664e28c575d Created 
+16 files already formatted

@@ -1,0 +1,84 @@
+{
+  "cases": [
+    {
+      "name": "live-3108-login-reload-logout-old-cookie",
+      "status": "passed",
+      "milliseconds": 1008
+    },
+    {
+      "name": "viewport-360-paste-focus-scroll-login",
+      "status": "passed",
+      "milliseconds": 1105
+    },
+    {
+      "name": "viewport-390-paste-focus-scroll-login",
+      "status": "passed",
+      "milliseconds": 1097
+    },
+    {
+      "name": "viewport-768-paste-focus-scroll-login",
+      "status": "passed",
+      "milliseconds": 1086
+    },
+    {
+      "name": "viewport-1440-paste-focus-scroll-login",
+      "status": "passed",
+      "milliseconds": 1066
+    },
+    {
+      "name": "invalid-input-not-truncated-newline-bidi-long",
+      "status": "passed",
+      "milliseconds": 718
+    },
+    {
+      "name": "lost-first-issue-response-same-key-no-extra-issuance",
+      "status": "passed",
+      "milliseconds": 638
+    },
+    {
+      "name": "lost-entire-verify-response-no-cookie-requires-new-flow",
+      "status": "passed",
+      "milliseconds": 1052
+    },
+    {
+      "name": "two-tabs-logout-clears-displayed-private-identity",
+      "status": "passed",
+      "milliseconds": 6525
+    },
+    {
+      "name": "natural-session-usage-request-inventory",
+      "status": "passed",
+      "milliseconds": 2023
+    },
+    {
+      "name": "slow-network-focus-and-no-double-submit",
+      "status": "passed",
+      "milliseconds": 2266
+    },
+    {
+      "name": "resend-lost-response-keeps-idempotency-key",
+      "status": "failed",
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'دریافت کد تازه', exact: true })\u001b[22m\n",
+      "milliseconds": 91702
+    }
+  ],
+  "observations": [
+    {
+      "name": "other-tab-after-logout",
+      "server_authenticated": false,
+      "private_identity_still_visible": false
+    },
+    {
+      "name": "activity",
+      "natural_paths": [
+        "/api/v1/auth/me"
+      ],
+      "explicit_button_calls_activity": true
+    }
+  ],
+  "browser": "151.0.7922.137",
+  "summary": {
+    "passed": 11,
+    "failed": 1
+  }
+}

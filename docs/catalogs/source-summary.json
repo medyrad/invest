@@ -1,0 +1,59 @@
+{
+  "analysis_date": "2026-11-17",
+  "method": "static extraction without executing archived scripts",
+  "archives": [
+    {
+      "id": "advisor",
+      "path": "/home/mehdirad/Documents/product-management/Investment_Advisor-main.zip",
+      "sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b"
+    },
+    {
+      "id": "ham",
+      "path": "/home/mehdirad/Projects/company/hammahalle/ham.zip",
+      "sha256": "d92884ceb950965733cfcd3b8cf21596fdffce52013b674aac3b2f2d244ed654"
+    }
+  ],
+  "inventory_entries": 1211,
+  "listing_counts": {
+    "opportunities": 89,
+    "generatedOpportunities": 165,
+    "funds": 9,
+    "saleItems": 10
+  },
+  "total_listings": 273,
+  "project_groups": 11,
+  "project_subtypes": 78,
+  "field_counts": {
+    "base": 4,
+    "advanced": 58,
+    "profile": 5
+  },
+  "advisory_configurations": 61,
+  "static_html_controls": 99,
+  "page_sources": [
+    "src/app/assistant/page.tsx",
+    "src/app/compare/page.tsx",
+    "src/app/concepts/dossier/page.tsx",
+    "src/app/concepts/dossier/project/page.tsx",
+    "src/app/concepts/girih/page.tsx",
+    "src/app/concepts/girih/project/page.tsx",
+    "src/app/concepts/metro/page.tsx",
+    "src/app/concepts/metro/project/page.tsx",
+    "src/app/concepts/page.tsx",
+    "src/app/guide/[id]/page.tsx",
+    "src/app/lab/page.tsx",
+    "src/app/opportunities/[id]/page.tsx",
+    "src/app/opportunities/page.tsx",
+    "src/app/page.tsx",
+    "src/app/saved/page.tsx",
+    "src/app/tools/[id]/page.tsx",
+    "src/app/tools/page.tsx"
+  ],
+  "speckit_paths_in_ham": [],
+  "limitations": [
+    "Metadata hashing does not mean every file was semantically reviewed.",
+    "Static HTML controls exclude controls generated dynamically by JavaScript.",
+    "Textual mention in match.ts is not proof that a field is implemented correctly.",
+    "No browser, application, migration or production verification performed."
+  ]
+}

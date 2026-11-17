@@ -1,0 +1,1175 @@
+{
+  "captured_at": "2026-11-17T09:24:06.342Z",
+  "target": "original reference only",
+  "browser": "151.0.7922.137",
+  "platform": "linux",
+  "node": "v24.18.0",
+  "origin": "http://127.0.0.1:3107",
+  "normalizations": [
+    "reduced motion",
+    "scroll to reveal sections before capture",
+    "hide Next development portal in screenshot only",
+    "block non-local requests",
+    "animations disabled for screenshot; motion not tested"
+  ],
+  "cases": [
+    {
+      "id": "home-1440",
+      "path": "/",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "سرمایه‌گزین | مشاور فرصت‌های سرمایه‌گذاری",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 5896,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "home-1440.png",
+      "sha256": "98c1b6e88a74631da648291a6291ffad25232fd3721c957b8328a49ce71aa767",
+      "page_errors": [
+        "Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\n\n- A server/client branch `if (typeof window !== 'undefined')`.\n- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.\n- Date formatting in a user's locale which doesn't match the server.\n- External changing data without sending a snapshot of it along with the HTML.\n- Invalid HTML tag nesting.\n\nIt can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n\nhttps://react.dev/link/hydration-mismatch\n\n  ...\n    <SegmentViewNode type=\"page\" pagePath=\"page.tsx\">\n      <SegmentTrieNode>\n      <Home>\n        <main className=\"relative i...\">\n          <svg>\n          <HeroCompass>\n            <Shell map={<div>}>\n              <section className=\"focus-blur...\">\n                <div>\n                <AlgoPattern>\n                <Header>\n                <div className=\"mx-auto gr...\">\n                  <motion.div initial={{opacity:0,y:28}} animate={{opacity:1,y:0}} transition={{duration:0.9, ...}}>\n                    <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>\n                      <Eyebrow>\n                      <h1>\n                      <p>\n                      <form onSubmit={function onSubmit} className=\"surface mt...\">\n                        <span className=\"relative m...\">\n                          <Input>\n                          <TypingHint hidden={false}>\n                            <span aria-hidden={true} className=\"pointer-ev...\">\n+                             مسکونی در تهران تا ۳۰ میلیارد\n-                             <span className=\"ms-0.5 inline-block h-5 w-px animate-pulse bg-primary\">\n                              ...\n                        ...\n                      ...\n                  ...\n          ...\n    ...\n"
+      ]
+    },
+    {
+      "id": "opportunities-start-1440",
+      "path": "/opportunities",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "پروژه‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 2251,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "opportunities-start-1440.png",
+      "sha256": "4326c3193b0ff9434e6ef2f47f5f48210d980bde632ed28a3cad2cbc7aadf427",
+      "page_errors": []
+    },
+    {
+      "id": "opportunities-results-1440",
+      "path": "/opportunities",
+      "state": "results",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": true,
+      "status": 200,
+      "title": "پروژه‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 2251,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "opportunities-results-1440.png",
+      "sha256": "4326c3193b0ff9434e6ef2f47f5f48210d980bde632ed28a3cad2cbc7aadf427",
+      "page_errors": []
+    },
+    {
+      "id": "project-1440",
+      "path": "/opportunities/DEMO-01",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "توسعه مجموعه مسکونی | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 5855,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "project-1440.png",
+      "sha256": "17be4ed3c67f32873aa4c431e5a0f56998bb481ad119ef22ea0a5e03f950a16d",
+      "page_errors": []
+    },
+    {
+      "id": "compare-empty-1440",
+      "path": "/compare",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "مقایسه پروژه‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1309,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "compare-empty-1440.png",
+      "sha256": "e4f989cb0dafaf1d3669da65588b015f943480db91c4448636b06a26a9a49d04",
+      "page_errors": []
+    },
+    {
+      "id": "compare-projects-1440",
+      "path": "/compare",
+      "state": "compare",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": true,
+      "status": 200,
+      "title": "مقایسه پروژه‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 3736,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "compare-projects-1440.png",
+      "sha256": "ed92fcc5a2f243d42f06d7290d5bf08dd4d5538a8e1b8db39ad500e6760ccbfe",
+      "page_errors": []
+    },
+    {
+      "id": "assistant-1440",
+      "path": "/assistant",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "دستیار | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1000,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "assistant-1440.png",
+      "sha256": "123913110b14a25642c48ea8c1a15d049d5f6d8426fe0f3fb6e0c16855525ea6",
+      "page_errors": []
+    },
+    {
+      "id": "saved-empty-1440",
+      "path": "/saved",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "ذخیره‌شده‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1000,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "saved-empty-1440.png",
+      "sha256": "57ce1e657cbcd298284a282325f1e37473247717698d3ccf73661cccfc97aa81",
+      "page_errors": []
+    },
+    {
+      "id": "saved-filled-1440",
+      "path": "/saved",
+      "state": "saved",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": true,
+      "status": 200,
+      "title": "ذخیره‌شده‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1018,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "saved-filled-1440.png",
+      "sha256": "a85c73fe5d74be6b85d05c6b6a4a7ab7b9932429f5907eed660429cb6e564785",
+      "page_errors": []
+    },
+    {
+      "id": "tools-1440",
+      "path": "/tools",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "خدمات | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 2777,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "tools-1440.png",
+      "sha256": "74421926e7302c41519833397327ea41cb3b2cf02c57daa36bad03658c6296df",
+      "page_errors": []
+    },
+    {
+      "id": "proposal-1440",
+      "path": "/tools/proposal",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "معرفی طرح و نیاز مالی | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1815,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "proposal-1440.png",
+      "sha256": "2a0b68eb9057358c44d341ee42cfc554b9836e530006a3e082a60060289d530d",
+      "page_errors": []
+    },
+    {
+      "id": "ideas-1440",
+      "path": "/tools/ideas",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "ایده‌های نو و طرح‌های پیشنهادی | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1996,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ideas-1440.png",
+      "sha256": "cd52d81bee196d2078f6c0369dd4d894d88721ad6252355649a3b76815c39fdc",
+      "page_errors": []
+    },
+    {
+      "id": "land-preparation-1440",
+      "path": "/tools/land-preparation",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "آماده‌سازی و توسعه زمین | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 2062,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "land-preparation-1440.png",
+      "sha256": "38cb5000297b6c8cd32f85f00a0c48bed8db51e0f9d819ea28cc1b6aaac8e532",
+      "page_errors": []
+    },
+    {
+      "id": "foreign-investment-1440",
+      "path": "/tools/foreign-investment",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "سرمایه‌گذاری بین‌المللی | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1569,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "foreign-investment-1440.png",
+      "sha256": "e196b0675723d00f980e1dcc9fbb99dc3324c2eb3f8c37598b6000d657b3679c",
+      "page_errors": []
+    },
+    {
+      "id": "ma-notice-1440",
+      "path": "/tools/ma-notice",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "پرونده فرصت | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1531,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-notice-1440.png",
+      "sha256": "e6a93aae1c3a4a9a994bb4e823afe85c3233734f3b731a28fb41ca4e15e55d93",
+      "page_errors": []
+    },
+    {
+      "id": "ma-renewal-1440",
+      "path": "/tools/ma-renewal",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "نوسازی و اسکان موقت | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 2254,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-renewal-1440.png",
+      "sha256": "b19a259212da7e8109f29e36e7658d42f94cbee3f7742c2918bcbdcc91d9b6e8",
+      "page_errors": []
+    },
+    {
+      "id": "ma-manager-1440",
+      "path": "/tools/ma-manager",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "اجاره‌داری حرفه‌ای | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 2254,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-manager-1440.png",
+      "sha256": "5fc032cb62608537f4f42441c730db28c4fd64b9d426bd237ac4a126feac3cd1",
+      "page_errors": []
+    },
+    {
+      "id": "ma-exchange-1440",
+      "path": "/tools/ma-exchange",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "معاوضه ملک | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 2366,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-exchange-1440.png",
+      "sha256": "079afe83979f17609d792dd3d40b72e1ee27a70f047e6cd4381632c3431cef83",
+      "page_errors": []
+    },
+    {
+      "id": "charity-1440",
+      "path": "/tools/charity",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "همراهی در کار خیر | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 2516,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "charity-1440.png",
+      "sha256": "9810d13d03931e911ed0270f4511ee4f385951f0c60bdd1e4eb9c9a8236238fc",
+      "page_errors": []
+    },
+    {
+      "id": "library-1440",
+      "path": "/tools/library",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "راهنما و مستندات | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1952,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "library-1440.png",
+      "sha256": "397f20254e6ac4066ea0415a771659210192eb8c8589b4a34f62fe16f702e0d6",
+      "page_errors": []
+    },
+    {
+      "id": "ma-profile-1440",
+      "path": "/tools/ma-profile",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "پروفایل حرفه‌ای من | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 2345,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-profile-1440.png",
+      "sha256": "a97426b092a23a73d0844a8f00125cc854f0d8a2df63b3216a1a8b70a9ce7756",
+      "page_errors": []
+    },
+    {
+      "id": "drafts-1440",
+      "path": "/tools/drafts",
+      "state": "default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "منتخب‌ها و پیش‌نویس‌های من | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 1321,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "drafts-1440.png",
+      "sha256": "732956cac0adae95db498018ad3073144db258215da79ad3a43bf292ebf65aad",
+      "page_errors": []
+    },
+    {
+      "id": "login-1440",
+      "path": "/",
+      "state": "login",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "سرمایه‌گزین | مشاور فرصت‌های سرمایه‌گذاری",
+      "layout": {
+        "scrollWidth": 1425,
+        "clientWidth": 1440,
+        "scrollHeight": 5896,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "login-1440.png",
+      "sha256": "422bffd4e1f60048bff578991c84c4257ae47058997890c7069a716c498ae76a",
+      "page_errors": [
+        "Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\n\n- A server/client branch `if (typeof window !== 'undefined')`.\n- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.\n- Date formatting in a user's locale which doesn't match the server.\n- External changing data without sending a snapshot of it along with the HTML.\n- Invalid HTML tag nesting.\n\nIt can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n\nhttps://react.dev/link/hydration-mismatch\n\n  ...\n    <SegmentViewNode type=\"page\" pagePath=\"page.tsx\">\n      <SegmentTrieNode>\n      <Home>\n        <main className=\"relative i...\">\n          <svg>\n          <HeroCompass>\n            <Shell map={<div>}>\n              <section className=\"focus-blur...\">\n                <div>\n                <AlgoPattern>\n                <Header>\n                <div className=\"mx-auto gr...\">\n                  <motion.div initial={{opacity:0,y:28}} animate={{opacity:1,y:0}} transition={{duration:0.9, ...}}>\n                    <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>\n                      <Eyebrow>\n                      <h1>\n                      <p>\n                      <form onSubmit={function onSubmit} className=\"surface mt...\">\n                        <span className=\"relative m...\">\n                          <Input>\n                          <TypingHint hidden={false}>\n                            <span aria-hidden={true} className=\"pointer-ev...\">\n+                             مسکونی در تهران تا ۳۰ میلیارد\n-                             <span className=\"ms-0.5 inline-block h-5 w-px animate-pulse bg-primary\">\n                              ...\n                        ...\n                      ...\n                  ...\n          ...\n    ...\n"
+      ]
+    },
+    {
+      "id": "home-390",
+      "path": "/",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "سرمایه‌گزین | مشاور فرصت‌های سرمایه‌گذاری",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 11026,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "home-390.png",
+      "sha256": "38073f66451d427b5b9f7fae2ef417cfb0709d15bf646e1ad8e88424e161557d",
+      "page_errors": [
+        "Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\n\n- A server/client branch `if (typeof window !== 'undefined')`.\n- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.\n- Date formatting in a user's locale which doesn't match the server.\n- External changing data without sending a snapshot of it along with the HTML.\n- Invalid HTML tag nesting.\n\nIt can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n\nhttps://react.dev/link/hydration-mismatch\n\n  ...\n    <SegmentViewNode type=\"page\" pagePath=\"page.tsx\">\n      <SegmentTrieNode>\n      <Home>\n        <main className=\"relative i...\">\n          <svg>\n          <HeroCompass>\n            <Shell map={<div>}>\n              <section className=\"focus-blur...\">\n                <div>\n                <AlgoPattern>\n                <Header>\n                <div className=\"mx-auto gr...\">\n                  <motion.div initial={{opacity:0,y:28}} animate={{opacity:1,y:0}} transition={{duration:0.9, ...}}>\n                    <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>\n                      <Eyebrow>\n                      <h1>\n                      <p>\n                      <form onSubmit={function onSubmit} className=\"surface mt...\">\n                        <span className=\"relative m...\">\n                          <Input>\n                          <TypingHint hidden={false}>\n                            <span aria-hidden={true} className=\"pointer-ev...\">\n+                             مسکونی در تهران تا ۳۰ میلیارد\n-                             <span className=\"ms-0.5 inline-block h-5 w-px animate-pulse bg-primary\">\n                              ...\n                        ...\n                      ...\n                  ...\n          ...\n    ...\n"
+      ]
+    },
+    {
+      "id": "opportunities-start-390",
+      "path": "/opportunities",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "پروژه‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 2695,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "opportunities-start-390.png",
+      "sha256": "2c91ed1fe291b572b41afacfcb634f3c5948ccc4b7373a5322d2e0a4ffb3844b",
+      "page_errors": []
+    },
+    {
+      "id": "opportunities-results-390",
+      "path": "/opportunities",
+      "state": "results",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": true,
+      "status": 200,
+      "title": "پروژه‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 2695,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "opportunities-results-390.png",
+      "sha256": "2c91ed1fe291b572b41afacfcb634f3c5948ccc4b7373a5322d2e0a4ffb3844b",
+      "page_errors": []
+    },
+    {
+      "id": "project-390",
+      "path": "/opportunities/DEMO-01",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "توسعه مجموعه مسکونی | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 11544,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "project-390.png",
+      "sha256": "2e89e2a5790d55967c0fca375c380542e9c98489c9c7845d5c8646778d9808bd",
+      "page_errors": []
+    },
+    {
+      "id": "compare-empty-390",
+      "path": "/compare",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "مقایسه پروژه‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 2415,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "compare-empty-390.png",
+      "sha256": "cd69dca4d5c0b1480579483eb152d9eab701ec42b5a06d0d5704b681cfd93db9",
+      "page_errors": []
+    },
+    {
+      "id": "compare-projects-390",
+      "path": "/compare",
+      "state": "compare",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": true,
+      "status": 200,
+      "title": "مقایسه پروژه‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 7081,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "compare-projects-390.png",
+      "sha256": "9100b6e7bb4e9881cb5e8a5b16d74f932f03ba75705c0d433f6e7c9d35cb93b8",
+      "page_errors": []
+    },
+    {
+      "id": "assistant-390",
+      "path": "/assistant",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "دستیار | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 1000,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "assistant-390.png",
+      "sha256": "7609c94d2699445069fa7c5662e79d8110d3ab64dcdc8778e0929c7a64250ec6",
+      "page_errors": []
+    },
+    {
+      "id": "saved-empty-390",
+      "path": "/saved",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "ذخیره‌شده‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 1097,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "saved-empty-390.png",
+      "sha256": "314b5364d0313898b6c84ffa2ce7a44aacd96927eab1fe8a64abd10f80e962ef",
+      "page_errors": []
+    },
+    {
+      "id": "saved-filled-390",
+      "path": "/saved",
+      "state": "saved",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": true,
+      "status": 200,
+      "title": "ذخیره‌شده‌ها | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 1756,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "saved-filled-390.png",
+      "sha256": "06df3d060ca904caf0f363095fb57d41495347b82d1285a2c29de0dc8c1b55b1",
+      "page_errors": []
+    },
+    {
+      "id": "tools-390",
+      "path": "/tools",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "خدمات | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 6713,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "tools-390.png",
+      "sha256": "85b369f699e4dc98c63363c6a99d7e4e8d6fdea4f068f51ec6c64e05425f55cf",
+      "page_errors": []
+    },
+    {
+      "id": "proposal-390",
+      "path": "/tools/proposal",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "معرفی طرح و نیاز مالی | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 3762,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "proposal-390.png",
+      "sha256": "501f8f09b2c3cbf4ddc8b4c3136ef1188b04db67e3d6609adb635b83c8ad106c",
+      "page_errors": []
+    },
+    {
+      "id": "ideas-390",
+      "path": "/tools/ideas",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "ایده‌های نو و طرح‌های پیشنهادی | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 6067,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ideas-390.png",
+      "sha256": "eaf7720a1f0ee0328353ef0bf230407bb2d56b10ace008f9307b459a66b6b1a4",
+      "page_errors": []
+    },
+    {
+      "id": "land-preparation-390",
+      "path": "/tools/land-preparation",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "آماده‌سازی و توسعه زمین | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 4749,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "land-preparation-390.png",
+      "sha256": "a59c994341b584782326d300e25757042d418ed90b360048a219b7bf2181ed36",
+      "page_errors": []
+    },
+    {
+      "id": "foreign-investment-390",
+      "path": "/tools/foreign-investment",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "سرمایه‌گذاری بین‌المللی | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 4493,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "foreign-investment-390.png",
+      "sha256": "23d018bf0b5b60a20509b73bec4ec2d2892dde38e7e07dc50f563eaf70aeab83",
+      "page_errors": []
+    },
+    {
+      "id": "ma-notice-390",
+      "path": "/tools/ma-notice",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "پرونده فرصت | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 4800,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-notice-390.png",
+      "sha256": "23582cb5b6060c4c63c5db8b5a3cb99042dc19f20085ed85ec6e673599e73d69",
+      "page_errors": []
+    },
+    {
+      "id": "ma-renewal-390",
+      "path": "/tools/ma-renewal",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "نوسازی و اسکان موقت | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 6289,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-renewal-390.png",
+      "sha256": "9cd57ce5a18e5c48f94fc169aca7fcca67eba86b01121f1f78d4e6cadf27772f",
+      "page_errors": []
+    },
+    {
+      "id": "ma-manager-390",
+      "path": "/tools/ma-manager",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "اجاره‌داری حرفه‌ای | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 5916,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-manager-390.png",
+      "sha256": "aff832bb43362bbeff56e4b2ec925ebdff9c98be541671a4ce536897f947f724",
+      "page_errors": []
+    },
+    {
+      "id": "ma-exchange-390",
+      "path": "/tools/ma-exchange",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "معاوضه ملک | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 6809,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-exchange-390.png",
+      "sha256": "e8ac866621a231438bb44bdc50dad7850bbadca68c9f0969cbc554a8834f3d27",
+      "page_errors": []
+    },
+    {
+      "id": "charity-390",
+      "path": "/tools/charity",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "همراهی در کار خیر | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 8421,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "charity-390.png",
+      "sha256": "37a6ed0bb97d71fc4014b9aa3114c51c90690ab1433131be5561b4eb48d7f3bc",
+      "page_errors": []
+    },
+    {
+      "id": "library-390",
+      "path": "/tools/library",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "راهنما و مستندات | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 3830,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "library-390.png",
+      "sha256": "c93d8b9980c30689440e800538de8cdca3473f736c90264d53d0bcde1b0442af",
+      "page_errors": []
+    },
+    {
+      "id": "ma-profile-390",
+      "path": "/tools/ma-profile",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "پروفایل حرفه‌ای من | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 6663,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "ma-profile-390.png",
+      "sha256": "3944295170c662606464628d23b85425c0bbc1d098edcaa9d5137954d23b91fe",
+      "page_errors": []
+    },
+    {
+      "id": "drafts-390",
+      "path": "/tools/drafts",
+      "state": "default",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "منتخب‌ها و پیش‌نویس‌های من | سرمایه‌گزین",
+      "layout": {
+        "scrollWidth": 375,
+        "clientWidth": 390,
+        "scrollHeight": 3792,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 2,
+      "file": "drafts-390.png",
+      "sha256": "dd0bd086e653961834133d89a2da0f2d20638cdb6a2e4f9013dadff01c930d66",
+      "page_errors": []
+    },
+    {
+      "id": "login-390",
+      "path": "/",
+      "state": "login",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "synthetic_local_state": false,
+      "status": 200,
+      "title": "سرمایه‌گزین | مشاور فرصت‌های سرمایه‌گذاری",
+      "layout": {
+        "scrollWidth": 512,
+        "clientWidth": 390,
+        "scrollHeight": 11026,
+        "dir": "rtl",
+        "fonts": "loaded",
+        "primary": "#00adab",
+        "fontFamily": "Vazirmatn, system-ui, sans-serif"
+      },
+      "frame_count": 1,
+      "file": "login-390.png",
+      "sha256": "0fc442d16e5020a9001e9d1e4688ee25f517b4016830f6ee2857680262307e2f",
+      "page_errors": [
+        "Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\n\n- A server/client branch `if (typeof window !== 'undefined')`.\n- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.\n- Date formatting in a user's locale which doesn't match the server.\n- External changing data without sending a snapshot of it along with the HTML.\n- Invalid HTML tag nesting.\n\nIt can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n\nhttps://react.dev/link/hydration-mismatch\n\n  ...\n    <SegmentViewNode type=\"page\" pagePath=\"page.tsx\">\n      <SegmentTrieNode>\n      <Home>\n        <main className=\"relative i...\">\n          <svg>\n          <HeroCompass>\n            <Shell map={<div>}>\n              <section className=\"focus-blur...\">\n                <div>\n                <AlgoPattern>\n                <Header>\n                <div className=\"mx-auto gr...\">\n                  <motion.div initial={{opacity:0,y:28}} animate={{opacity:1,y:0}} transition={{duration:0.9, ...}}>\n                    <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>\n                      <Eyebrow>\n                      <h1>\n                      <p>\n                      <form onSubmit={function onSubmit} className=\"surface mt...\">\n                        <span className=\"relative m...\">\n                          <Input>\n                          <TypingHint hidden={false}>\n                            <span aria-hidden={true} className=\"pointer-ev...\">\n+                             مسکونی در تهران تا ۳۰ میلیارد\n-                             <span className=\"ms-0.5 inline-block h-5 w-px animate-pulse bg-primary\">\n                              ...\n                        ...\n                      ...\n                  ...\n          ...\n    ...\n"
+      ]
+    }
+  ]
+}

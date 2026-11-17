@@ -1,0 +1,33 @@
+{
+  "url": "http://127.0.0.1:3108/favicon.ico",
+  "status": 200,
+  "content_type": "image/x-icon",
+  "length": 6014,
+  "sha256": "c68acbb86ccc80d111af92446a58c249700e68cbbf8f9d6cf8c188537981622b",
+  "ico_header": [
+    0,
+    0,
+    1,
+    0,
+    4,
+    0
+  ],
+  "sizes": [
+    [
+      16,
+      16
+    ],
+    [
+      32,
+      32
+    ],
+    [
+      48,
+      48
+    ],
+    [
+      64,
+      64
+    ]
+  ]
+}

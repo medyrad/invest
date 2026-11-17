@@ -1,0 +1,75 @@
+{
+  "version": "S03-FIX-5f377655f1f5",
+  "final_checks": [
+    {
+      "name": "two-tabs-logout-clears-displayed-private-identity",
+      "status": "passed",
+      "milliseconds": 6267
+    },
+    {
+      "name": "resend-lost-response-keeps-idempotency-key",
+      "status": "passed",
+      "milliseconds": 61920
+    },
+    {
+      "name": "IT002-cross-tab-clearing-device-independence-and-secret-free-signals",
+      "status": "passed"
+    },
+    {
+      "name": "IT002-late-authenticated-me-does-not-resurrect-identity",
+      "status": "passed"
+    },
+    {
+      "name": "IT002-focus-visibility-pageshow-history-and-idle",
+      "status": "passed"
+    },
+    {
+      "name": "IT002-spoofed-channel-message-cannot-grant-identity",
+      "status": "passed"
+    },
+    {
+      "name": "IT003-copy-layout-controls-360",
+      "status": "passed"
+    },
+    {
+      "name": "IT003-copy-layout-controls-390",
+      "status": "passed"
+    },
+    {
+      "name": "IT003-copy-layout-controls-768",
+      "status": "passed"
+    },
+    {
+      "name": "IT003-copy-layout-controls-1440",
+      "status": "passed"
+    },
+    {
+      "name": "affected-login-reload-logout-old-cookie-and-validation-errors",
+      "status": "passed"
+    },
+    {
+      "name": "IT001-recover-accepted-resend-payload-challenge-TTL-quota-and-login",
+      "status": "passed"
+    }
+  ],
+  "summary": {
+    "passed": 12,
+    "failed": 0
+  },
+  "non_final_attempts": [
+    {
+      "kind": "browser interruption before resend became available; cause not established",
+      "evidence": "targeted.json"
+    },
+    {
+      "kind": "test fixture reused after selective rerun; corrected using unused synthetic number, no assertion weakened",
+      "evidence": "attempts/fixture-collision.json"
+    }
+  ],
+  "bugs": {
+    "IT-001": "fixed",
+    "IT-002": "fixed",
+    "IT-003": "fixed"
+  },
+  "human_design_approved": false
+}

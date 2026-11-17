@@ -1,0 +1,19 @@
+{
+  "python": "3.14.10",
+  "postgres": "17.12",
+  "Django": "5.2.19",
+  "djangorestframework": "3.18.3",
+  "psycopg": "3.3.9",
+  "gunicorn": "27.0.1",
+  "node": "v24.22.3",
+  "npm": "11.19.1",
+  "chrome_local": "Google Chrome 151.0.7922.137",
+  "backend_uid": "10001",
+  "web_uid": "1000",
+  "images": {
+    "backend": "sha256:c4a5b1151235157302813088f8c3919d5774e5ad5adcb783603d8f7cb0384103",
+    "web": "sha256:14f39785364d0a0a43ce39c6aa8bc57869530b4011ffc11250076eec45d6fa44",
+    "test": "sha256:434c2acc06fcff0f6ac3c1c7cd95fb536ef4fbfecbcda9563f013c118af51db2",
+    "browser-api": "sha256:b5801f77578ea1fa180fd8954cab318d23049302d0c8083a71c0ce738d86fbde"
+  }
+}

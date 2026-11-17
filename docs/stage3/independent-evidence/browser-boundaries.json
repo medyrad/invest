@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "name": "privacy-copy-compatible-with-D26",
+      "status": "failed",
+      "error": "Unconditional only-login promise omits D26 contact-consent and exceptional access"
+    },
+    {
+      "name": "refresh-reopens-fresh-flow-without-storing-secrets",
+      "status": "passed"
+    },
+    {
+      "name": "five-wrong-codes-then-correct-code-refused-through-ui",
+      "status": "passed"
+    },
+    {
+      "name": "actual-120-second-server-expiry-and-mobile-controls",
+      "status": "passed"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1
+  }
+}

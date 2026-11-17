@@ -1,0 +1,66 @@
+name: Foundation
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  foundation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.22.3'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Isolated configuration and locked backend images
+        run: |
+          python3 scripts/dev_env.py
+          docker compose --env-file .env -f deploy/compose.yaml build backend test browser-api
+          docker compose --env-file .env -f deploy/compose.yaml up -d db
+      - name: Backend quality, fresh migration and PostgreSQL tests
+        run: |
+          docker compose --env-file .env -f deploy/compose.yaml run --rm test /app/.venv/bin/ruff check . --no-cache
+          docker compose --env-file .env -f deploy/compose.yaml run --rm test /app/.venv/bin/ruff format --check . --no-cache
+          docker compose --env-file .env -f deploy/compose.yaml run --rm backend /app/.venv/bin/python manage.py makemigrations --check --dry-run
+          docker compose --env-file .env -f deploy/compose.yaml run --rm backend /app/.venv/bin/python manage.py migrate --noinput
+          docker compose --env-file .env -f deploy/compose.yaml run --rm backend /app/.venv/bin/python manage.py import_reference
+          docker compose --env-file .env -f deploy/compose.yaml run --rm backend /app/.venv/bin/python manage.py check
+          docker compose --env-file .env -f deploy/compose.yaml run --rm test
+      - name: Locked frontend and production browser tests
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run lint
+          npm run typecheck
+          npm run build
+          npx playwright install --with-deps chromium
+          docker compose --env-file ../.env -f ../deploy/compose.yaml run --rm browser-api /app/.venv/bin/python -m tests.prepare_browser_db
+          docker compose --env-file ../.env -f ../deploy/compose.yaml run --rm browser-api /app/.venv/bin/python manage.py migrate --noinput
+          docker compose --env-file ../.env -f ../deploy/compose.yaml run --rm browser-api /app/.venv/bin/python manage.py import_reference
+          docker compose --env-file ../.env -f ../deploy/compose.yaml up -d backend browser-api
+          npm run test:e2e
+      - name: Actual delivery images and recovery smoke
+        run: |
+          python3 scripts/check_lock_drift.py
+          docker compose --env-file .env -f deploy/compose.yaml build web
+          docker compose --env-file .env -f deploy/compose.yaml up -d web
+          python3 scripts/foundation_smoke.py
+      - name: Browser and smoke evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: foundation-evidence
+          retention-days: 7
+          path: |
+            frontend/test-results/
+            docs/stage3/evidence/
+      - name: Stop only this project's containers
+        if: always()
+        run: docker compose --env-file .env -f deploy/compose.yaml --profile test stop

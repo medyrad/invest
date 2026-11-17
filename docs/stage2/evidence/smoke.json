@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "synthetic_account_ids": [
+    "bbc42b28-ad4c-455c-9fab-7583485b3bec",
+    "a6da4b3c-86a0-4673-8e1c-b33e96e286cd"
+  ],
+  "restart_preserved": 2,
+  "outage_live": [
+    200,
+    {
+      "status": "ok"
+    },
+    0.004
+  ],
+  "outage_ready": [
+    503,
+    {
+      "status": "unavailable"
+    },
+    0.009
+  ],
+  "recovered": [
+    200,
+    {
+      "status": "ok"
+    },
+    0.007
+  ],
+  "production_probe": 404,
+  "unrelated_containers_unchanged": true,
+  "public_deployment": false
+}

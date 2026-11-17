@@ -1,0 +1,38 @@
+--- docs/stage3/independent-tests/browser-independent.cjs
++++ docs/stage3/retest-tests/browser-independent.cjs
+@@ -4,13 +4,14 @@
+ const assert = require('node:assert/strict');
+ const root = path.resolve(__dirname, '../../..');
+ const { chromium } = require(path.join(root, 'frontend/node_modules/@playwright/test'));
+-const evidence = path.join(root, 'docs/stage3/independent-evidence');
++const evidence = path.join(root, 'docs/stage3/retest-evidence/compatibility');
+ const result = { cases: [], observations: [], browser: null };
+ let serial = 30;
+ const phone = () => '0917800' + String(serial++).padStart(4,'0');
+ const base = 'http://127.0.0.1:3109';
+ const pause = ms => new Promise(r => setTimeout(r,ms));
+ async function run(name, action) {
++  if (!['two-tabs-logout-clears-displayed-private-identity','resend-lost-response-keeps-idempotency-key'].includes(name)) return;
+   const start = Date.now();
+   try { await action(); result.cases.push({name, status:'passed', milliseconds:Date.now()-start}); }
+   catch(e) { result.cases.push({name, status:'failed', error:e.message.replace(/\b\d{6}\b/g,'[masked]'), milliseconds:Date.now()-start}); }
+@@ -133,7 +134,7 @@
+     await open(a);const code=await issue(a);await a.getByRole('textbox',{name:'کد تایید',exact:true}).fill(code);await a.getByRole('button',{name:'ورود',exact:true}).click();await a.getByRole('region',{name:'وضعیت ورود'}).waitFor();
+     await b.goto(base);await b.getByRole('region',{name:'وضعیت ورود'}).waitFor();
+     await a.getByRole('button',{name:'خروج',exact:true}).click();await a.getByRole('button',{name:'ورود به حساب',exact:true}).waitFor();
+-    await b.bringToFront();await pause(300);assert.equal(await authenticated(b),false);
++    await b.bringToFront();await b.getByRole('region',{name:'وضعیت ورود'}).waitFor({state:'hidden'});assert.equal(await authenticated(b),false);
+     const stale=await b.getByRole('region',{name:'وضعیت ورود'}).isVisible();result.observations.push({name:'other-tab-after-logout',server_authenticated:false,private_identity_still_visible:stale});
+     await shot(b,'two-tabs-stale-identity');assert.equal(stale,false,'Other tab still displays private account identity after logout');
+    } finally {await context.close();}
+@@ -174,7 +175,9 @@
+      else {retriedKey=body.key;const response=await route.fetch();result.observations.push({name:'resend-lost-response',same_key:retriedKey===lostKey,retry_status:response.status()});await route.fulfill({response});}
+     });
+     await page.getByRole('button',{name:'دریافت کد تازه',exact:true}).click();await page.locator('.auth-error').waitFor();
+-    await page.getByRole('button',{name:'دریافت کد تازه',exact:true}).click();await pause(300);
++    const recoveryResponse=page.waitForResponse(r=>r.url().endsWith('/api/v1/auth/issue'));
++    await page.getByRole('button',{name:'تلاش دوباره برای دریافت نتیجه',exact:true}).click();
++    assert.equal((await recoveryResponse).status(),200);await page.getByTestId('trial-code').waitFor({state:'visible'});
+     await shot(page,'lost-resend-retry');assert.equal(retriedKey,lostKey,'Retry after lost resend generated a new idempotency key');
+    } finally {await context.close();}
+   });

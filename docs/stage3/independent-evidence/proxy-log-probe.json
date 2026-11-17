@@ -1,0 +1,25 @@
+{
+  "origin": "http://127.0.0.1:3108",
+  "clients": [
+    {
+      "client": 1,
+      "issue_status": 200,
+      "verify_status": 200
+    },
+    {
+      "client": 2,
+      "issue_status": 200,
+      "verify_status": 200
+    }
+  ],
+  "ip": {
+    "events": 2,
+    "distinct_observed_ip": 1,
+    "spoofed_ip_accepted": false
+  },
+  "log_scan": {
+    "secret_values_checked": 8,
+    "leaks": 0,
+    "raw_logs_saved": false
+  }
+}

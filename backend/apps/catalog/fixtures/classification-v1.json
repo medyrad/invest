@@ -1,0 +1,3684 @@
+{
+  "version": "advisor-classification-v1",
+  "groups": [
+    {
+      "id": "building",
+      "name": "ساختمان",
+      "fullNames": [
+        "پروژه‌های ساختمانی"
+      ],
+      "icon": "Buildings",
+      "image": "/images/types/residential.webp",
+      "subtypes": [
+        {
+          "id": "residential",
+          "name": "مسکونی",
+          "examples": "آپارتمان، مجتمع مسکونی، شهرک و ویلا",
+          "sources": [
+            "residential"
+          ],
+          "includes": [
+            "مسکونی: آپارتمان، مجتمع مسکونی، شهرک و ویلا"
+          ],
+          "image": "/images/types/residential.webp"
+        },
+        {
+          "id": "office",
+          "name": "اداری",
+          "examples": "ساختمان اداری، مجتمع دولتی و دفتر کار",
+          "sources": [
+            "office"
+          ],
+          "includes": [
+            "اداری: ساختمان اداری، مجتمع دولتی و دفتر کار"
+          ],
+          "image": "/images/types/office.webp"
+        },
+        {
+          "id": "commercial",
+          "name": "تجاری",
+          "examples": "مرکز خرید، بازار، فروشگاه و مجتمع تجاری",
+          "sources": [
+            "commercial"
+          ],
+          "includes": [
+            "تجاری: مرکز خرید، بازار، فروشگاه و مجتمع تجاری"
+          ],
+          "image": "/images/types/commercial.webp"
+        },
+        {
+          "id": "hospitality",
+          "name": "اقامتی و گردشگری",
+          "examples": "هتل، اقامتگاه، مجتمع تفریحی و بوم‌گردی",
+          "sources": [
+            "hospitality"
+          ],
+          "includes": [
+            "اقامتی و گردشگری: هتل، اقامتگاه، مجتمع تفریحی و بوم‌گردی"
+          ],
+          "image": "/images/types/hospitality.webp"
+        },
+        {
+          "id": "education",
+          "name": "آموزشی",
+          "examples": "مدرسه، دانشگاه و مرکز آموزشی",
+          "sources": [
+            "education"
+          ],
+          "includes": [
+            "آموزشی: مدرسه، دانشگاه و مرکز آموزشی"
+          ],
+          "image": "/images/types/education.webp"
+        },
+        {
+          "id": "medical",
+          "name": "درمانی",
+          "examples": "بیمارستان، درمانگاه و مرکز بهداشت",
+          "sources": [
+            "medical"
+          ],
+          "includes": [
+            "درمانی: بیمارستان، درمانگاه و مرکز بهداشت"
+          ],
+          "image": "/images/types/medical.webp"
+        },
+        {
+          "id": "cultural",
+          "name": "فرهنگی و مذهبی",
+          "examples": "کتابخانه، موزه، فرهنگ‌سرا و مسجد",
+          "sources": [
+            "cultural"
+          ],
+          "includes": [
+            "فرهنگی و مذهبی: کتابخانه، موزه، فرهنگ‌سرا و مسجد"
+          ],
+          "image": "/images/types/cultural.webp"
+        },
+        {
+          "id": "sports",
+          "name": "ورزشی",
+          "examples": "ورزشگاه، سالن ورزشی و مجموعه تفریحی",
+          "sources": [
+            "sports"
+          ],
+          "includes": [
+            "ورزشی: ورزشگاه، سالن ورزشی و مجموعه تفریحی"
+          ],
+          "image": "/images/types/sports.webp"
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "حمل‌ونقل",
+      "fullNames": [
+        "پروژه‌های حمل‌ونقل"
+      ],
+      "icon": "Routing",
+      "image": "/images/types/metro.webp",
+      "subtypes": [
+        {
+          "id": "roads",
+          "name": "راه‌سازی و بزرگراه",
+          "examples": "",
+          "sources": [
+            "roads"
+          ],
+          "includes": [
+            "راه‌سازی و بزرگراه"
+          ],
+          "image": "/images/types/roads.webp"
+        },
+        {
+          "id": "bridge",
+          "name": "پل و تقاطع غیرهم‌سطح",
+          "examples": "",
+          "sources": [
+            "bridge"
+          ],
+          "includes": [
+            "پل و تقاطع غیرهم‌سطح"
+          ],
+          "image": "/images/types/bridge.webp"
+        },
+        {
+          "id": "tunnel",
+          "name": "تونل",
+          "examples": "",
+          "sources": [
+            "tunnel"
+          ],
+          "includes": [
+            "تونل"
+          ],
+          "image": "/images/types/tunnel.webp"
+        },
+        {
+          "id": "rail",
+          "name": "راه‌آهن",
+          "examples": "",
+          "sources": [
+            "rail"
+          ],
+          "includes": [
+            "راه‌آهن"
+          ],
+          "image": "/images/types/rail.webp"
+        },
+        {
+          "id": "metro",
+          "name": "مترو و قطار شهری",
+          "examples": "",
+          "sources": [
+            "metro"
+          ],
+          "includes": [
+            "مترو و قطار شهری"
+          ],
+          "image": "/images/types/metro.webp"
+        },
+        {
+          "id": "airport",
+          "name": "فرودگاه",
+          "examples": "",
+          "sources": [
+            "airport"
+          ],
+          "includes": [
+            "فرودگاه"
+          ],
+          "image": "/images/types/airport.webp"
+        },
+        {
+          "id": "port",
+          "name": "بندر و اسکله",
+          "examples": "",
+          "sources": [
+            "port"
+          ],
+          "includes": [
+            "بندر و اسکله"
+          ],
+          "image": "/images/types/port.webp"
+        },
+        {
+          "id": "terminal",
+          "name": "پایانه‌های مسافری و باری",
+          "examples": "",
+          "sources": [
+            "terminal"
+          ],
+          "includes": [
+            "پایانه‌های مسافری و باری"
+          ],
+          "image": "/images/types/terminal.webp"
+        },
+        {
+          "id": "parking",
+          "name": "پارکینگ عمومی",
+          "examples": "",
+          "sources": [
+            "parking"
+          ],
+          "includes": [
+            "پارکینگ عمومی"
+          ],
+          "image": "/images/types/parking.webp"
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "name": "آب و فاضلاب",
+      "fullNames": [
+        "پروژه‌های آب و فاضلاب"
+      ],
+      "icon": "Drop",
+      "image": "/images/types/dam.webp",
+      "subtypes": [
+        {
+          "id": "dam",
+          "name": "سد و مخزن ذخیره آب",
+          "examples": "",
+          "sources": [
+            "dam"
+          ],
+          "includes": [
+            "سد و مخزن ذخیره آب"
+          ],
+          "image": "/images/types/dam.webp"
+        },
+        {
+          "id": "waternetwork",
+          "name": "شبکه انتقال و توزیع آب",
+          "examples": "",
+          "sources": [
+            "waternetwork"
+          ],
+          "includes": [
+            "شبکه انتقال و توزیع آب"
+          ],
+          "image": "/images/types/waternetwork.webp"
+        },
+        {
+          "id": "watertreatment",
+          "name": "تصفیه‌خانه آب",
+          "examples": "",
+          "sources": [
+            "watertreatment"
+          ],
+          "includes": [
+            "تصفیه‌خانه آب"
+          ],
+          "image": "/images/types/watertreatment.webp"
+        },
+        {
+          "id": "sewernetwork",
+          "name": "شبکه جمع‌آوری فاضلاب",
+          "examples": "",
+          "sources": [
+            "sewernetwork"
+          ],
+          "includes": [
+            "شبکه جمع‌آوری فاضلاب"
+          ],
+          "image": "/images/types/sewernetwork.webp"
+        },
+        {
+          "id": "wastewater",
+          "name": "تصفیه‌خانه فاضلاب",
+          "examples": "",
+          "sources": [
+            "wastewater"
+          ],
+          "includes": [
+            "تصفیه‌خانه فاضلاب"
+          ],
+          "image": "/images/types/wastewater.webp"
+        },
+        {
+          "id": "irrigationcanal",
+          "name": "کانال‌های آبیاری و زهکشی",
+          "examples": "",
+          "sources": [
+            "irrigationcanal"
+          ],
+          "includes": [
+            "کانال‌های آبیاری و زهکشی"
+          ],
+          "image": "/images/types/irrigationcanal.webp"
+        },
+        {
+          "id": "flood",
+          "name": "سازه‌های کنترل سیلاب و آبخیزداری",
+          "examples": "",
+          "sources": [
+            "flood"
+          ],
+          "includes": [
+            "سازه‌های کنترل سیلاب و آبخیزداری"
+          ],
+          "image": "/images/types/flood.webp"
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "انرژی",
+      "fullNames": [
+        "پروژه‌های انرژی و تاسیسات"
+      ],
+      "icon": "Flash",
+      "image": "/images/types/powerplant.webp",
+      "subtypes": [
+        {
+          "id": "powerplant",
+          "name": "نیروگاه",
+          "examples": "",
+          "sources": [
+            "powerplant"
+          ],
+          "includes": [
+            "نیروگاه"
+          ],
+          "image": "/images/types/powerplant.webp"
+        },
+        {
+          "id": "powergrid",
+          "name": "خطوط انتقال و پست برق",
+          "examples": "",
+          "sources": [
+            "powergrid"
+          ],
+          "includes": [
+            "خطوط انتقال و پست برق"
+          ],
+          "image": "/images/types/powergrid.webp"
+        },
+        {
+          "id": "gas",
+          "name": "شبکه گازرسانی",
+          "examples": "",
+          "sources": [
+            "gas"
+          ],
+          "includes": [
+            "شبکه گازرسانی"
+          ],
+          "image": "/images/types/gas.webp"
+        },
+        {
+          "id": "pipeline",
+          "name": "خطوط انتقال نفت و گاز",
+          "examples": "",
+          "sources": [
+            "pipeline"
+          ],
+          "includes": [
+            "خطوط انتقال نفت و گاز"
+          ],
+          "image": "/images/types/pipeline.webp"
+        },
+        {
+          "id": "renewable",
+          "name": "تاسیسات انرژی خورشیدی و بادی",
+          "examples": "",
+          "sources": [
+            "renewable"
+          ],
+          "includes": [
+            "تاسیسات انرژی خورشیدی و بادی"
+          ],
+          "image": "/images/types/renewable.webp"
+        },
+        {
+          "id": "hvac",
+          "name": "شبکه‌های گرمایش و سرمایش مرکزی",
+          "examples": "",
+          "sources": [
+            "hvac"
+          ],
+          "includes": [
+            "شبکه‌های گرمایش و سرمایش مرکزی"
+          ],
+          "image": "/images/types/hvac.webp"
+        },
+        {
+          "id": "ev",
+          "name": "زیرساخت‌های شارژ خودروهای برقی",
+          "examples": "",
+          "sources": [
+            "ev"
+          ],
+          "includes": [
+            "زیرساخت‌های شارژ خودروهای برقی"
+          ],
+          "image": "/images/types/ev.webp"
+        }
+      ]
+    },
+    {
+      "id": "industry",
+      "name": "صنعت و لجستیک",
+      "fullNames": [
+        "پروژه‌های صنعتی"
+      ],
+      "icon": "Box",
+      "image": "/images/types/factory.webp",
+      "subtypes": [
+        {
+          "id": "factory",
+          "name": "کارخانه و واحد تولیدی",
+          "examples": "",
+          "sources": [
+            "factory"
+          ],
+          "includes": [
+            "کارخانه و واحد تولیدی"
+          ],
+          "image": "/images/types/factory.webp"
+        },
+        {
+          "id": "warehouse",
+          "name": "انبار و مرکز لجستیک",
+          "examples": "",
+          "sources": [
+            "warehouse"
+          ],
+          "includes": [
+            "انبار و مرکز لجستیک"
+          ],
+          "image": "/images/types/warehouse.webp"
+        },
+        {
+          "id": "refinery",
+          "name": "پالایشگاه و پتروشیمی",
+          "examples": "",
+          "sources": [
+            "refinery"
+          ],
+          "includes": [
+            "پالایشگاه و پتروشیمی"
+          ],
+          "image": "/images/types/refinery.webp"
+        },
+        {
+          "id": "industrialpark",
+          "name": "شهرک صنعتی",
+          "examples": "",
+          "sources": [
+            "industrialpark"
+          ],
+          "includes": [
+            "شهرک صنعتی"
+          ],
+          "image": "/images/types/industrialpark.webp"
+        },
+        {
+          "id": "coldstore",
+          "name": "سیلو و سردخانه",
+          "examples": "",
+          "sources": [
+            "coldstore"
+          ],
+          "includes": [
+            "سیلو و سردخانه"
+          ],
+          "image": "/images/types/coldstore.webp"
+        },
+        {
+          "id": "workshop",
+          "name": "کارگاه‌ها و مجموعه‌های تولیدی",
+          "examples": "",
+          "sources": [
+            "workshop"
+          ],
+          "includes": [
+            "کارگاه‌ها و مجموعه‌های تولیدی"
+          ],
+          "image": "/images/types/workshop.webp"
+        },
+        {
+          "id": "mineral",
+          "name": "تاسیسات فرآوری مواد معدنی",
+          "examples": "",
+          "sources": [
+            "mineral"
+          ],
+          "includes": [
+            "تاسیسات فرآوری مواد معدنی"
+          ],
+          "image": "/images/types/mineral.webp"
+        }
+      ]
+    },
+    {
+      "id": "urban",
+      "name": "شهری و خدمات عمومی",
+      "fullNames": [
+        "پروژه‌های شهری و خدمات عمومی"
+      ],
+      "icon": "Tree",
+      "image": "/images/types/parks.webp",
+      "subtypes": [
+        {
+          "id": "streets",
+          "name": "سامان‌دهی و بهسازی معابر",
+          "examples": "",
+          "sources": [
+            "streets"
+          ],
+          "includes": [
+            "سامان‌دهی و بهسازی معابر"
+          ],
+          "image": "/images/types/streets.webp"
+        },
+        {
+          "id": "parks",
+          "name": "فضای سبز و بوستان",
+          "examples": "",
+          "sources": [
+            "parks"
+          ],
+          "includes": [
+            "فضای سبز و بوستان"
+          ],
+          "image": "/images/types/parks.webp"
+        },
+        {
+          "id": "furniture",
+          "name": "مبلمان شهری",
+          "examples": "",
+          "sources": [
+            "furniture"
+          ],
+          "includes": [
+            "مبلمان شهری"
+          ],
+          "image": "/images/types/furniture.webp"
+        },
+        {
+          "id": "waste",
+          "name": "مدیریت و دفع پسماند",
+          "examples": "",
+          "sources": [
+            "waste"
+          ],
+          "includes": [
+            "مدیریت و دفع پسماند"
+          ],
+          "image": "/images/types/waste.webp"
+        },
+        {
+          "id": "cemetery",
+          "name": "آرامستان",
+          "examples": "",
+          "sources": [
+            "cemetery"
+          ],
+          "includes": [
+            "آرامستان"
+          ],
+          "image": "/images/types/cemetery.webp"
+        },
+        {
+          "id": "fire",
+          "name": "آتش‌نشانی و مراکز امدادی",
+          "examples": "",
+          "sources": [
+            "fire"
+          ],
+          "includes": [
+            "آتش‌نشانی و مراکز امدادی"
+          ],
+          "image": "/images/types/fire.webp"
+        },
+        {
+          "id": "lighting",
+          "name": "روشنایی شهری",
+          "examples": "",
+          "sources": [
+            "lighting"
+          ],
+          "includes": [
+            "روشنایی شهری"
+          ],
+          "image": "/images/types/lighting.webp"
+        },
+        {
+          "id": "regeneration",
+          "name": "بازآفرینی بافت فرسوده",
+          "examples": "",
+          "sources": [
+            "regeneration"
+          ],
+          "includes": [
+            "بازآفرینی بافت فرسوده"
+          ],
+          "image": "/images/types/regeneration.webp"
+        }
+      ]
+    },
+    {
+      "id": "digital",
+      "name": "ارتباطات و دیجیتال",
+      "fullNames": [
+        "پروژه‌های مخابراتی و زیرساخت دیجیتال"
+      ],
+      "icon": "Cpu",
+      "image": "/images/types/fiber.webp",
+      "subtypes": [
+        {
+          "id": "fiber",
+          "name": "شبکه فیبر نوری",
+          "examples": "",
+          "sources": [
+            "fiber"
+          ],
+          "includes": [
+            "شبکه فیبر نوری"
+          ],
+          "image": "/images/types/fiber.webp"
+        },
+        {
+          "id": "telecom",
+          "name": "دکل و سایت مخابراتی",
+          "examples": "",
+          "sources": [
+            "telecom"
+          ],
+          "includes": [
+            "دکل و سایت مخابراتی"
+          ],
+          "image": "/images/types/telecom.webp"
+        },
+        {
+          "id": "datacenter",
+          "name": "مرکز داده",
+          "examples": "",
+          "sources": [
+            "datacenter"
+          ],
+          "includes": [
+            "مرکز داده"
+          ],
+          "image": "/images/types/datacenter.webp"
+        },
+        {
+          "id": "smartcity",
+          "name": "زیرساخت شهر هوشمند",
+          "examples": "",
+          "sources": [
+            "smartcity"
+          ],
+          "includes": [
+            "زیرساخت شهر هوشمند"
+          ],
+          "image": "/images/types/smartcity.webp"
+        },
+        {
+          "id": "control",
+          "name": "شبکه‌های ارتباطی و کنترل هوشمند",
+          "examples": "",
+          "sources": [
+            "control"
+          ],
+          "includes": [
+            "شبکه‌های ارتباطی و کنترل هوشمند"
+          ],
+          "image": "/images/types/control.webp"
+        }
+      ]
+    },
+    {
+      "id": "agriculture",
+      "name": "کشاورزی و منابع طبیعی",
+      "fullNames": [
+        "پروژه‌های کشاورزی و منابع طبیعی"
+      ],
+      "icon": "Sun1",
+      "image": "/images/types/greenhouse.webp",
+      "subtypes": [
+        {
+          "id": "pressure",
+          "name": "شبکه آبیاری تحت فشار",
+          "examples": "",
+          "sources": [
+            "pressure"
+          ],
+          "includes": [
+            "شبکه آبیاری تحت فشار"
+          ],
+          "image": "/images/types/pressure.webp"
+        },
+        {
+          "id": "greenhouse",
+          "name": "گلخانه و مجتمع کشاورزی",
+          "examples": "",
+          "sources": [
+            "greenhouse"
+          ],
+          "includes": [
+            "گلخانه و مجتمع کشاورزی"
+          ],
+          "image": "/images/types/greenhouse.webp"
+        },
+        {
+          "id": "livestock",
+          "name": "دامداری و دامپروری",
+          "examples": "",
+          "sources": [
+            "livestock"
+          ],
+          "includes": [
+            "دامداری و دامپروری"
+          ],
+          "image": "/images/types/livestock.webp"
+        },
+        {
+          "id": "fish",
+          "name": "شیلات و آبزی‌پروری",
+          "examples": "",
+          "sources": [
+            "fish"
+          ],
+          "includes": [
+            "شیلات و آبزی‌پروری"
+          ],
+          "image": "/images/types/fish.webp"
+        },
+        {
+          "id": "ruralroad",
+          "name": "راه‌های روستایی و کشاورزی",
+          "examples": "",
+          "sources": [
+            "ruralroad"
+          ],
+          "includes": [
+            "راه‌های روستایی و کشاورزی"
+          ],
+          "image": "/images/types/ruralroad.webp"
+        },
+        {
+          "id": "natural",
+          "name": "تثبیت خاک، جنگل‌کاری و حفاظت منابع طبیعی",
+          "examples": "",
+          "sources": [
+            "natural"
+          ],
+          "includes": [
+            "تثبیت خاک، جنگل‌کاری و حفاظت منابع طبیعی"
+          ],
+          "image": "/images/types/natural.webp"
+        }
+      ]
+    },
+    {
+      "id": "heritage",
+      "name": "میراث فرهنگی",
+      "fullNames": [
+        "پروژه‌های مرمت و میراث فرهنگی"
+      ],
+      "icon": "Courthouse",
+      "image": "/images/types/restoration.webp",
+      "subtypes": [
+        {
+          "id": "restoration",
+          "name": "مرمت بناهای تاریخی",
+          "examples": "",
+          "sources": [
+            "restoration"
+          ],
+          "includes": [
+            "مرمت بناهای تاریخی"
+          ],
+          "image": "/images/types/restoration.webp"
+        },
+        {
+          "id": "historichouse",
+          "name": "احیای خانه‌های ارزشمند",
+          "examples": "",
+          "sources": [
+            "historichouse"
+          ],
+          "includes": [
+            "احیای خانه‌های ارزشمند"
+          ],
+          "image": "/images/types/historichouse.webp"
+        },
+        {
+          "id": "historicfabric",
+          "name": "بازآفرینی بافت تاریخی",
+          "examples": "",
+          "sources": [
+            "historicfabric"
+          ],
+          "includes": [
+            "بازآفرینی بافت تاریخی"
+          ],
+          "image": "/images/types/historicfabric.webp"
+        },
+        {
+          "id": "adaptive",
+          "name": "تغییر کاربری بناهای تاریخی",
+          "examples": "",
+          "sources": [
+            "adaptive"
+          ],
+          "includes": [
+            "تغییر کاربری بناهای تاریخی"
+          ],
+          "image": "/images/types/adaptive.webp"
+        },
+        {
+          "id": "protection",
+          "name": "مقاوم‌سازی و حفاظت اضطراری آثار",
+          "examples": "",
+          "sources": [
+            "protection"
+          ],
+          "includes": [
+            "مقاوم‌سازی و حفاظت اضطراری آثار"
+          ],
+          "image": "/images/types/protection.webp"
+        },
+        {
+          "id": "tourism",
+          "name": "توسعه زیرساخت‌های گردشگری پیرامون آثار تاریخی",
+          "examples": "",
+          "sources": [
+            "tourism"
+          ],
+          "includes": [
+            "توسعه زیرساخت‌های گردشگری پیرامون آثار تاریخی"
+          ],
+          "image": "/images/types/tourism.webp"
+        }
+      ]
+    },
+    {
+      "id": "land",
+      "name": "توسعه زمین و املاک",
+      "fullNames": [
+        "پروژه‌های توسعه زمین و املاک"
+      ],
+      "icon": "Map1",
+      "image": "/images/types/lhintegrated.webp",
+      "subtypes": [
+        {
+          "id": "subdivision",
+          "name": "آماده‌سازی و تفکیک زمین",
+          "examples": "",
+          "sources": [
+            "subdivision"
+          ],
+          "includes": [
+            "آماده‌سازی و تفکیک زمین"
+          ],
+          "image": "/images/types/lhplots.webp"
+        },
+        {
+          "id": "township",
+          "name": "شهرک‌سازی",
+          "examples": "",
+          "sources": [
+            "township"
+          ],
+          "includes": [
+            "شهرک‌سازی"
+          ],
+          "image": "/images/types/lhintegrated.webp"
+        },
+        {
+          "id": "newland",
+          "name": "توسعه اراضی جدید",
+          "examples": "",
+          "sources": [
+            "newland"
+          ],
+          "includes": [
+            "توسعه اراضی جدید"
+          ],
+          "image": "/images/types/lhintegrated.webp"
+        },
+        {
+          "id": "consolidation",
+          "name": "نوسازی و تجمیع املاک",
+          "examples": "",
+          "sources": [
+            "consolidation"
+          ],
+          "includes": [
+            "نوسازی و تجمیع املاک"
+          ],
+          "image": "/images/types/regeneration.webp"
+        },
+        {
+          "id": "redevelop",
+          "name": "تغییر کاربری و توسعه مجدد ملک",
+          "examples": "",
+          "sources": [
+            "redevelop"
+          ],
+          "includes": [
+            "تغییر کاربری و توسعه مجدد ملک"
+          ],
+          "image": "/images/types/regeneration.webp"
+        },
+        {
+          "id": "mixeduse",
+          "name": "مجتمع‌های چندمنظوره مسکونی، تجاری و اداری",
+          "examples": "",
+          "sources": [
+            "mixeduse"
+          ],
+          "includes": [
+            "مجتمع‌های چندمنظوره مسکونی، تجاری و اداری"
+          ],
+          "image": "/images/types/commercial.webp"
+        }
+      ]
+    },
+    {
+      "id": "landhousing",
+      "name": "آماده‌سازی زمین و مسکن",
+      "fullNames": [
+        "آماده‌سازی زمین و توسعه مسکن"
+      ],
+      "icon": "Home2",
+      "image": "/images/types/lhhousing.webp",
+      "subtypes": [
+        {
+          "id": "lhstudy",
+          "name": "مطالعات و طراحی آماده‌سازی اراضی",
+          "examples": "",
+          "sources": [
+            "lhstudy"
+          ],
+          "includes": [
+            "مطالعات و طراحی آماده‌سازی اراضی"
+          ],
+          "image": "/images/types/lhstudy.webp"
+        },
+        {
+          "id": "lhearth",
+          "name": "تسطیح و عملیات خاکی اراضی",
+          "examples": "",
+          "sources": [
+            "lhearth"
+          ],
+          "includes": [
+            "تسطیح و عملیات خاکی اراضی"
+          ],
+          "image": "/images/types/lhearth.webp"
+        },
+        {
+          "id": "lhroads",
+          "name": "معابر و دسترسی‌های داخلی",
+          "examples": "",
+          "sources": [
+            "lhroads"
+          ],
+          "includes": [
+            "معابر و دسترسی‌های داخلی"
+          ],
+          "image": "/images/types/lhroads.webp"
+        },
+        {
+          "id": "lhwater",
+          "name": "شبکه آب، فاضلاب و آب‌های سطحی",
+          "examples": "",
+          "sources": [
+            "lhwater"
+          ],
+          "includes": [
+            "شبکه آب، فاضلاب و آب‌های سطحی"
+          ],
+          "image": "/images/types/lhwater.webp"
+        },
+        {
+          "id": "lhenergy",
+          "name": "شبکه برق، گاز و روشنایی",
+          "examples": "",
+          "sources": [
+            "lhenergy"
+          ],
+          "includes": [
+            "شبکه برق، گاز و روشنایی"
+          ],
+          "image": "/images/types/lhenergy.webp"
+        },
+        {
+          "id": "lhplots",
+          "name": "قطعه‌بندی و تحویل زمین آماده ساخت",
+          "examples": "",
+          "sources": [
+            "lhplots"
+          ],
+          "includes": [
+            "قطعه‌بندی و تحویل زمین آماده ساخت"
+          ],
+          "image": "/images/types/lhplots.webp"
+        },
+        {
+          "id": "lhintegrated",
+          "name": "آماده‌سازی یکپارچه اراضی مسکونی",
+          "examples": "",
+          "sources": [
+            "lhintegrated"
+          ],
+          "includes": [
+            "آماده‌سازی یکپارچه اراضی مسکونی"
+          ],
+          "image": "/images/types/lhintegrated.webp"
+        },
+        {
+          "id": "lhhousing",
+          "name": "توسعه یکپارچه زمین و ساخت مسکن",
+          "examples": "",
+          "sources": [
+            "lhhousing"
+          ],
+          "includes": [
+            "توسعه یکپارچه زمین و ساخت مسکن"
+          ],
+          "image": "/images/types/lhhousing.webp"
+        },
+        {
+          "id": "lhcompletion",
+          "name": "تکمیل آماده‌سازی و رفع موانع تحویل مسکن",
+          "examples": "",
+          "sources": [
+            "lhcompletion"
+          ],
+          "includes": [
+            "تکمیل آماده‌سازی و رفع موانع تحویل مسکن"
+          ],
+          "image": "/images/types/lhcompletion.webp"
+        }
+      ]
+    }
+  ],
+  "provinces": [
+    {
+      "id": "province-00",
+      "name": "آذربایجان شرقی",
+      "counties": [
+        {
+          "id": "county-00-000",
+          "name": "آذرشهر",
+          "cities": []
+        },
+        {
+          "id": "county-00-001",
+          "name": "اسکو",
+          "cities": []
+        },
+        {
+          "id": "county-00-002",
+          "name": "اهر",
+          "cities": []
+        },
+        {
+          "id": "county-00-003",
+          "name": "بستان آباد",
+          "cities": []
+        },
+        {
+          "id": "county-00-004",
+          "name": "بناب",
+          "cities": []
+        },
+        {
+          "id": "county-00-005",
+          "name": "تبریز",
+          "cities": [
+            "تبریز"
+          ]
+        },
+        {
+          "id": "county-00-006",
+          "name": "جلفا",
+          "cities": []
+        },
+        {
+          "id": "county-00-007",
+          "name": "خداآفرین",
+          "cities": []
+        },
+        {
+          "id": "county-00-008",
+          "name": "سراب",
+          "cities": []
+        },
+        {
+          "id": "county-00-009",
+          "name": "شبستر",
+          "cities": []
+        },
+        {
+          "id": "county-00-010",
+          "name": "عجب شیر",
+          "cities": []
+        },
+        {
+          "id": "county-00-011",
+          "name": "کلیبر",
+          "cities": []
+        },
+        {
+          "id": "county-00-012",
+          "name": "ویژه مراغه",
+          "cities": []
+        },
+        {
+          "id": "county-00-013",
+          "name": "مرند",
+          "cities": []
+        },
+        {
+          "id": "county-00-014",
+          "name": "ملکان",
+          "cities": []
+        },
+        {
+          "id": "county-00-015",
+          "name": "میانه",
+          "cities": []
+        },
+        {
+          "id": "county-00-016",
+          "name": "هریس",
+          "cities": []
+        },
+        {
+          "id": "county-00-017",
+          "name": "هشترود",
+          "cities": []
+        },
+        {
+          "id": "county-00-018",
+          "name": "ورزقان",
+          "cities": []
+        },
+        {
+          "id": "county-00-019",
+          "name": "چاراویماق",
+          "cities": []
+        },
+        {
+          "id": "county-00-020",
+          "name": "هوراند",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-01",
+      "name": "آذربایجان غربی",
+      "counties": [
+        {
+          "id": "county-01-000",
+          "name": "چالدران",
+          "cities": []
+        },
+        {
+          "id": "county-01-001",
+          "name": "ارومیه",
+          "cities": []
+        },
+        {
+          "id": "county-01-002",
+          "name": "اشنویه",
+          "cities": []
+        },
+        {
+          "id": "county-01-003",
+          "name": "بوکان",
+          "cities": []
+        },
+        {
+          "id": "county-01-004",
+          "name": "تکاب",
+          "cities": []
+        },
+        {
+          "id": "county-01-005",
+          "name": "خوی",
+          "cities": []
+        },
+        {
+          "id": "county-01-006",
+          "name": "سردشت",
+          "cities": []
+        },
+        {
+          "id": "county-01-007",
+          "name": "سلماس",
+          "cities": []
+        },
+        {
+          "id": "county-01-008",
+          "name": "شاهین دژ",
+          "cities": []
+        },
+        {
+          "id": "county-01-009",
+          "name": "شوط",
+          "cities": []
+        },
+        {
+          "id": "county-01-010",
+          "name": "ماکو",
+          "cities": []
+        },
+        {
+          "id": "county-01-011",
+          "name": "مهاباد",
+          "cities": []
+        },
+        {
+          "id": "county-01-012",
+          "name": "میاندوآب",
+          "cities": []
+        },
+        {
+          "id": "county-01-013",
+          "name": "نقده",
+          "cities": []
+        },
+        {
+          "id": "county-01-014",
+          "name": "پلدشت",
+          "cities": []
+        },
+        {
+          "id": "county-01-015",
+          "name": "پیرانشهر",
+          "cities": []
+        },
+        {
+          "id": "county-01-016",
+          "name": "چایپاره",
+          "cities": []
+        },
+        {
+          "id": "county-01-017",
+          "name": "چهاربرج",
+          "cities": []
+        },
+        {
+          "id": "county-01-018",
+          "name": "باروق",
+          "cities": []
+        },
+        {
+          "id": "county-01-019",
+          "name": "میرآباد",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-02",
+      "name": "اردبیل",
+      "counties": [
+        {
+          "id": "county-02-000",
+          "name": "اردبیل",
+          "cities": []
+        },
+        {
+          "id": "county-02-001",
+          "name": "بیله سوار",
+          "cities": []
+        },
+        {
+          "id": "county-02-002",
+          "name": "خلخال",
+          "cities": []
+        },
+        {
+          "id": "county-02-003",
+          "name": "سرعین",
+          "cities": []
+        },
+        {
+          "id": "county-02-004",
+          "name": "کوثر",
+          "cities": []
+        },
+        {
+          "id": "county-02-005",
+          "name": "مشگین شهر",
+          "cities": []
+        },
+        {
+          "id": "county-02-006",
+          "name": "نمین",
+          "cities": []
+        },
+        {
+          "id": "county-02-007",
+          "name": "نیر",
+          "cities": []
+        },
+        {
+          "id": "county-02-008",
+          "name": "پارس آباد",
+          "cities": []
+        },
+        {
+          "id": "county-02-009",
+          "name": "گرمی",
+          "cities": []
+        },
+        {
+          "id": "county-02-010",
+          "name": "اصلاندوز",
+          "cities": []
+        },
+        {
+          "id": "county-02-011",
+          "name": "انگوت",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-03",
+      "name": "اصفهان",
+      "counties": [
+        {
+          "id": "county-03-000",
+          "name": "آران و بیدگل",
+          "cities": []
+        },
+        {
+          "id": "county-03-001",
+          "name": "اردستان",
+          "cities": []
+        },
+        {
+          "id": "county-03-002",
+          "name": "اصفهان",
+          "cities": [
+            "اصفهان"
+          ]
+        },
+        {
+          "id": "county-03-003",
+          "name": "برخوار",
+          "cities": []
+        },
+        {
+          "id": "county-03-004",
+          "name": "بوئین و میاندشت",
+          "cities": []
+        },
+        {
+          "id": "county-03-005",
+          "name": "تیران و کرون",
+          "cities": []
+        },
+        {
+          "id": "county-03-006",
+          "name": "خمینی شهر",
+          "cities": []
+        },
+        {
+          "id": "county-03-007",
+          "name": "خوانسار",
+          "cities": []
+        },
+        {
+          "id": "county-03-008",
+          "name": "خور و بیابانک",
+          "cities": []
+        },
+        {
+          "id": "county-03-009",
+          "name": "دهاقان",
+          "cities": []
+        },
+        {
+          "id": "county-03-010",
+          "name": "سمیرم",
+          "cities": []
+        },
+        {
+          "id": "county-03-011",
+          "name": "شاهین شهر و میمه",
+          "cities": []
+        },
+        {
+          "id": "county-03-012",
+          "name": "شهرضا",
+          "cities": []
+        },
+        {
+          "id": "county-03-013",
+          "name": "فریدن",
+          "cities": []
+        },
+        {
+          "id": "county-03-014",
+          "name": "فریدون شهر",
+          "cities": []
+        },
+        {
+          "id": "county-03-015",
+          "name": "فلاورجان",
+          "cities": []
+        },
+        {
+          "id": "county-03-016",
+          "name": "کاشان",
+          "cities": [
+            "کاشان"
+          ]
+        },
+        {
+          "id": "county-03-017",
+          "name": "لنجان",
+          "cities": []
+        },
+        {
+          "id": "county-03-018",
+          "name": "مبارکه",
+          "cities": []
+        },
+        {
+          "id": "county-03-019",
+          "name": "نائین",
+          "cities": []
+        },
+        {
+          "id": "county-03-020",
+          "name": "نجف آباد",
+          "cities": []
+        },
+        {
+          "id": "county-03-021",
+          "name": "نطنز",
+          "cities": []
+        },
+        {
+          "id": "county-03-022",
+          "name": "چادگان",
+          "cities": []
+        },
+        {
+          "id": "county-03-023",
+          "name": "گلپایگان",
+          "cities": []
+        },
+        {
+          "id": "county-03-024",
+          "name": "هرند",
+          "cities": []
+        },
+        {
+          "id": "county-03-025",
+          "name": "ورزنه",
+          "cities": []
+        },
+        {
+          "id": "county-03-026",
+          "name": "جرقویه",
+          "cities": []
+        },
+        {
+          "id": "county-03-027",
+          "name": "کوهپایه",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-04",
+      "name": "البرز",
+      "counties": [
+        {
+          "id": "county-04-000",
+          "name": "اشتهارد",
+          "cities": []
+        },
+        {
+          "id": "county-04-001",
+          "name": "ساوجبلاغ",
+          "cities": []
+        },
+        {
+          "id": "county-04-002",
+          "name": "طالقان",
+          "cities": []
+        },
+        {
+          "id": "county-04-003",
+          "name": "فردیس",
+          "cities": []
+        },
+        {
+          "id": "county-04-004",
+          "name": "کرج",
+          "cities": [
+            "کرج"
+          ]
+        },
+        {
+          "id": "county-04-005",
+          "name": "نظرآباد",
+          "cities": []
+        },
+        {
+          "id": "county-04-006",
+          "name": "چهارباغ",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-05",
+      "name": "ایلام",
+      "counties": [
+        {
+          "id": "county-05-000",
+          "name": "ایوان",
+          "cities": []
+        },
+        {
+          "id": "county-05-001",
+          "name": "آبدانان",
+          "cities": []
+        },
+        {
+          "id": "county-05-002",
+          "name": "دهلران",
+          "cities": []
+        },
+        {
+          "id": "county-05-003",
+          "name": "دره‌شهر",
+          "cities": []
+        },
+        {
+          "id": "county-05-004",
+          "name": "مهران",
+          "cities": []
+        },
+        {
+          "id": "county-05-005",
+          "name": "ایلام",
+          "cities": []
+        },
+        {
+          "id": "county-05-006",
+          "name": "بدره",
+          "cities": []
+        },
+        {
+          "id": "county-05-007",
+          "name": "سیروان",
+          "cities": []
+        },
+        {
+          "id": "county-05-008",
+          "name": "ملکشاهی",
+          "cities": []
+        },
+        {
+          "id": "county-05-009",
+          "name": "چرداول",
+          "cities": []
+        },
+        {
+          "id": "county-05-010",
+          "name": "هلیلان",
+          "cities": []
+        },
+        {
+          "id": "county-05-011",
+          "name": "چوار",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-06",
+      "name": "بوشهر",
+      "counties": [
+        {
+          "id": "county-06-000",
+          "name": "بوشهر",
+          "cities": [
+            "بوشهر"
+          ]
+        },
+        {
+          "id": "county-06-001",
+          "name": "تنگستان",
+          "cities": []
+        },
+        {
+          "id": "county-06-002",
+          "name": "جم",
+          "cities": []
+        },
+        {
+          "id": "county-06-003",
+          "name": "دشتستان",
+          "cities": []
+        },
+        {
+          "id": "county-06-004",
+          "name": "دشتی",
+          "cities": []
+        },
+        {
+          "id": "county-06-005",
+          "name": "دیلم",
+          "cities": []
+        },
+        {
+          "id": "county-06-006",
+          "name": "دیر",
+          "cities": []
+        },
+        {
+          "id": "county-06-007",
+          "name": "عسلویه",
+          "cities": [
+            "عسلویه"
+          ]
+        },
+        {
+          "id": "county-06-008",
+          "name": "کنگان",
+          "cities": []
+        },
+        {
+          "id": "county-06-009",
+          "name": "گناوه",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-07",
+      "name": "تهران",
+      "counties": [
+        {
+          "id": "county-07-000",
+          "name": "اسلامشهر",
+          "cities": []
+        },
+        {
+          "id": "county-07-001",
+          "name": "بهارستان",
+          "cities": []
+        },
+        {
+          "id": "county-07-002",
+          "name": "تهران",
+          "cities": [
+            "تهران"
+          ]
+        },
+        {
+          "id": "county-07-003",
+          "name": "دماوند",
+          "cities": []
+        },
+        {
+          "id": "county-07-004",
+          "name": "رباط کریم",
+          "cities": []
+        },
+        {
+          "id": "county-07-005",
+          "name": "ری",
+          "cities": [
+            "ری"
+          ]
+        },
+        {
+          "id": "county-07-006",
+          "name": "شمیرانات",
+          "cities": []
+        },
+        {
+          "id": "county-07-007",
+          "name": "شهریار",
+          "cities": []
+        },
+        {
+          "id": "county-07-008",
+          "name": "فیروزکوه",
+          "cities": []
+        },
+        {
+          "id": "county-07-009",
+          "name": "قدس",
+          "cities": []
+        },
+        {
+          "id": "county-07-010",
+          "name": "قرچک",
+          "cities": []
+        },
+        {
+          "id": "county-07-011",
+          "name": "ملارد",
+          "cities": []
+        },
+        {
+          "id": "county-07-012",
+          "name": "ورامین",
+          "cities": []
+        },
+        {
+          "id": "county-07-013",
+          "name": "پاکدشت",
+          "cities": []
+        },
+        {
+          "id": "county-07-014",
+          "name": "پردیس",
+          "cities": []
+        },
+        {
+          "id": "county-07-015",
+          "name": "پیشوا",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-08",
+      "name": "چهارمحال و بختیاری",
+      "counties": [
+        {
+          "id": "county-08-000",
+          "name": "اردل",
+          "cities": []
+        },
+        {
+          "id": "county-08-001",
+          "name": "بروجن",
+          "cities": []
+        },
+        {
+          "id": "county-08-002",
+          "name": "بن",
+          "cities": []
+        },
+        {
+          "id": "county-08-003",
+          "name": "سامان",
+          "cities": []
+        },
+        {
+          "id": "county-08-004",
+          "name": "شهرکرد",
+          "cities": []
+        },
+        {
+          "id": "county-08-005",
+          "name": "فارسان",
+          "cities": []
+        },
+        {
+          "id": "county-08-006",
+          "name": "کوهرنگ",
+          "cities": []
+        },
+        {
+          "id": "county-08-007",
+          "name": "کیار",
+          "cities": []
+        },
+        {
+          "id": "county-08-008",
+          "name": "لردگان",
+          "cities": []
+        },
+        {
+          "id": "county-08-009",
+          "name": "خانمیرزا",
+          "cities": []
+        },
+        {
+          "id": "county-08-010",
+          "name": "فلارد",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-09",
+      "name": "خراسان جنوبی",
+      "counties": [
+        {
+          "id": "county-09-000",
+          "name": "بشرویه",
+          "cities": []
+        },
+        {
+          "id": "county-09-001",
+          "name": "بیرجند",
+          "cities": [
+            "بیرجند"
+          ]
+        },
+        {
+          "id": "county-09-002",
+          "name": "خوسف",
+          "cities": []
+        },
+        {
+          "id": "county-09-003",
+          "name": "درمیان",
+          "cities": []
+        },
+        {
+          "id": "county-09-004",
+          "name": "زیرکوه",
+          "cities": []
+        },
+        {
+          "id": "county-09-005",
+          "name": "سرایان",
+          "cities": []
+        },
+        {
+          "id": "county-09-006",
+          "name": "سربیشه",
+          "cities": []
+        },
+        {
+          "id": "county-09-007",
+          "name": "طبس",
+          "cities": []
+        },
+        {
+          "id": "county-09-008",
+          "name": "فردوس",
+          "cities": []
+        },
+        {
+          "id": "county-09-009",
+          "name": "قائنات",
+          "cities": []
+        },
+        {
+          "id": "county-09-010",
+          "name": "نهبندان",
+          "cities": []
+        },
+        {
+          "id": "county-09-011",
+          "name": "عشق آباد",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-10",
+      "name": "خراسان رضوی",
+      "counties": [
+        {
+          "id": "county-10-000",
+          "name": "باخرز",
+          "cities": []
+        },
+        {
+          "id": "county-10-001",
+          "name": "بجستان",
+          "cities": []
+        },
+        {
+          "id": "county-10-002",
+          "name": "بردسکن",
+          "cities": []
+        },
+        {
+          "id": "county-10-003",
+          "name": "طرقبه شاندیز",
+          "cities": []
+        },
+        {
+          "id": "county-10-004",
+          "name": "تایباد",
+          "cities": []
+        },
+        {
+          "id": "county-10-005",
+          "name": "تربت جام",
+          "cities": []
+        },
+        {
+          "id": "county-10-006",
+          "name": "تربت حیدریه",
+          "cities": []
+        },
+        {
+          "id": "county-10-007",
+          "name": "جغتای",
+          "cities": []
+        },
+        {
+          "id": "county-10-008",
+          "name": "جوین",
+          "cities": []
+        },
+        {
+          "id": "county-10-009",
+          "name": "خلیل آباد",
+          "cities": []
+        },
+        {
+          "id": "county-10-010",
+          "name": "خواف",
+          "cities": []
+        },
+        {
+          "id": "county-10-011",
+          "name": "خوشاب",
+          "cities": []
+        },
+        {
+          "id": "county-10-012",
+          "name": "داورزن",
+          "cities": []
+        },
+        {
+          "id": "county-10-013",
+          "name": "درگز",
+          "cities": []
+        },
+        {
+          "id": "county-10-014",
+          "name": "رشتخوار",
+          "cities": []
+        },
+        {
+          "id": "county-10-015",
+          "name": "زاوه",
+          "cities": []
+        },
+        {
+          "id": "county-10-016",
+          "name": "سبزوار",
+          "cities": []
+        },
+        {
+          "id": "county-10-017",
+          "name": "سرخس",
+          "cities": []
+        },
+        {
+          "id": "county-10-018",
+          "name": "فریمان",
+          "cities": []
+        },
+        {
+          "id": "county-10-019",
+          "name": "فیروزه",
+          "cities": []
+        },
+        {
+          "id": "county-10-020",
+          "name": "قوچان",
+          "cities": []
+        },
+        {
+          "id": "county-10-021",
+          "name": "کاشمر",
+          "cities": []
+        },
+        {
+          "id": "county-10-022",
+          "name": "کلات",
+          "cities": []
+        },
+        {
+          "id": "county-10-023",
+          "name": "مشهد",
+          "cities": [
+            "مشهد"
+          ]
+        },
+        {
+          "id": "county-10-024",
+          "name": "مه ولات",
+          "cities": []
+        },
+        {
+          "id": "county-10-025",
+          "name": "نیشابور",
+          "cities": []
+        },
+        {
+          "id": "county-10-026",
+          "name": "چناران",
+          "cities": []
+        },
+        {
+          "id": "county-10-027",
+          "name": "گناباد",
+          "cities": []
+        },
+        {
+          "id": "county-10-028",
+          "name": "صالح آباد",
+          "cities": []
+        },
+        {
+          "id": "county-10-029",
+          "name": "میان‌جلگه",
+          "cities": []
+        },
+        {
+          "id": "county-10-030",
+          "name": "زبرخان",
+          "cities": []
+        },
+        {
+          "id": "county-10-031",
+          "name": "ششتمد",
+          "cities": []
+        },
+        {
+          "id": "county-10-032",
+          "name": "کوهسرخ",
+          "cities": []
+        },
+        {
+          "id": "county-10-033",
+          "name": "گلبهار",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-11",
+      "name": "خراسان شمالی",
+      "counties": [
+        {
+          "id": "county-11-000",
+          "name": "شیروان",
+          "cities": []
+        },
+        {
+          "id": "county-11-001",
+          "name": "اسفراین",
+          "cities": []
+        },
+        {
+          "id": "county-11-002",
+          "name": "بجنورد",
+          "cities": []
+        },
+        {
+          "id": "county-11-003",
+          "name": "جاجرم",
+          "cities": []
+        },
+        {
+          "id": "county-11-004",
+          "name": "راز و جرگلان",
+          "cities": []
+        },
+        {
+          "id": "county-11-005",
+          "name": "فاروج",
+          "cities": []
+        },
+        {
+          "id": "county-11-006",
+          "name": "مانه و سملقان",
+          "cities": []
+        },
+        {
+          "id": "county-11-007",
+          "name": "گرمه",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-12",
+      "name": "خوزستان",
+      "counties": [
+        {
+          "id": "county-12-000",
+          "name": "آبادان",
+          "cities": [
+            "آبادان"
+          ]
+        },
+        {
+          "id": "county-12-001",
+          "name": "آغاجاری",
+          "cities": []
+        },
+        {
+          "id": "county-12-002",
+          "name": "امیدیه",
+          "cities": []
+        },
+        {
+          "id": "county-12-003",
+          "name": "اندیکا",
+          "cities": []
+        },
+        {
+          "id": "county-12-004",
+          "name": "اندیمشک",
+          "cities": []
+        },
+        {
+          "id": "county-12-005",
+          "name": "اهواز",
+          "cities": [
+            "اهواز"
+          ]
+        },
+        {
+          "id": "county-12-006",
+          "name": "ایذه",
+          "cities": []
+        },
+        {
+          "id": "county-12-007",
+          "name": "باغ ملک",
+          "cities": []
+        },
+        {
+          "id": "county-12-008",
+          "name": "باوی",
+          "cities": []
+        },
+        {
+          "id": "county-12-009",
+          "name": "بندر ماهشهر",
+          "cities": []
+        },
+        {
+          "id": "county-12-010",
+          "name": "بهبهان",
+          "cities": []
+        },
+        {
+          "id": "county-12-011",
+          "name": "حمیدیه",
+          "cities": []
+        },
+        {
+          "id": "county-12-012",
+          "name": "خرمشهر",
+          "cities": []
+        },
+        {
+          "id": "county-12-013",
+          "name": "دزفول",
+          "cities": []
+        },
+        {
+          "id": "county-12-014",
+          "name": "دشت آزادگان",
+          "cities": []
+        },
+        {
+          "id": "county-12-015",
+          "name": "رامشیر",
+          "cities": []
+        },
+        {
+          "id": "county-12-016",
+          "name": "رامهرمز",
+          "cities": []
+        },
+        {
+          "id": "county-12-017",
+          "name": "شادگان",
+          "cities": []
+        },
+        {
+          "id": "county-12-018",
+          "name": "شوش",
+          "cities": []
+        },
+        {
+          "id": "county-12-019",
+          "name": "شوشتر",
+          "cities": []
+        },
+        {
+          "id": "county-12-020",
+          "name": "کارون",
+          "cities": []
+        },
+        {
+          "id": "county-12-021",
+          "name": "لالی",
+          "cities": []
+        },
+        {
+          "id": "county-12-022",
+          "name": "مسجدسلیمان",
+          "cities": []
+        },
+        {
+          "id": "county-12-023",
+          "name": "هفتکل",
+          "cities": []
+        },
+        {
+          "id": "county-12-024",
+          "name": "هندیجان",
+          "cities": []
+        },
+        {
+          "id": "county-12-025",
+          "name": "هویزه",
+          "cities": []
+        },
+        {
+          "id": "county-12-026",
+          "name": "گتوند",
+          "cities": []
+        },
+        {
+          "id": "county-12-027",
+          "name": "کرخه",
+          "cities": []
+        },
+        {
+          "id": "county-12-028",
+          "name": "دزپارت",
+          "cities": []
+        },
+        {
+          "id": "county-12-029",
+          "name": "صیدون",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-13",
+      "name": "زنجان",
+      "counties": [
+        {
+          "id": "county-13-000",
+          "name": "ابهر",
+          "cities": []
+        },
+        {
+          "id": "county-13-001",
+          "name": "ایجرود",
+          "cities": []
+        },
+        {
+          "id": "county-13-002",
+          "name": "خدابنده",
+          "cities": []
+        },
+        {
+          "id": "county-13-003",
+          "name": "خرمدره",
+          "cities": []
+        },
+        {
+          "id": "county-13-004",
+          "name": "زنجان",
+          "cities": []
+        },
+        {
+          "id": "county-13-005",
+          "name": "سلطانیه",
+          "cities": []
+        },
+        {
+          "id": "county-13-006",
+          "name": "طارم",
+          "cities": []
+        },
+        {
+          "id": "county-13-007",
+          "name": "ماه نشان",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-14",
+      "name": "سمنان",
+      "counties": [
+        {
+          "id": "county-14-000",
+          "name": "آرادان",
+          "cities": []
+        },
+        {
+          "id": "county-14-001",
+          "name": "دامغان",
+          "cities": []
+        },
+        {
+          "id": "county-14-002",
+          "name": "سرخه",
+          "cities": []
+        },
+        {
+          "id": "county-14-003",
+          "name": "سمنان",
+          "cities": []
+        },
+        {
+          "id": "county-14-004",
+          "name": "شاهرود",
+          "cities": []
+        },
+        {
+          "id": "county-14-005",
+          "name": "مهدی شهر",
+          "cities": []
+        },
+        {
+          "id": "county-14-006",
+          "name": "میامی",
+          "cities": []
+        },
+        {
+          "id": "county-14-007",
+          "name": "گرمسار",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-15",
+      "name": "سیستان و بلوچستان",
+      "counties": [
+        {
+          "id": "county-15-000",
+          "name": "ایرانشهر",
+          "cities": []
+        },
+        {
+          "id": "county-15-001",
+          "name": "خاش",
+          "cities": []
+        },
+        {
+          "id": "county-15-002",
+          "name": "دلگان",
+          "cities": []
+        },
+        {
+          "id": "county-15-003",
+          "name": "زابل",
+          "cities": []
+        },
+        {
+          "id": "county-15-004",
+          "name": "زاهدان",
+          "cities": []
+        },
+        {
+          "id": "county-15-005",
+          "name": "زهک",
+          "cities": []
+        },
+        {
+          "id": "county-15-006",
+          "name": "سراوان",
+          "cities": []
+        },
+        {
+          "id": "county-15-007",
+          "name": "سرباز",
+          "cities": []
+        },
+        {
+          "id": "county-15-008",
+          "name": "سیب و سوران",
+          "cities": []
+        },
+        {
+          "id": "county-15-009",
+          "name": "فنوج",
+          "cities": []
+        },
+        {
+          "id": "county-15-010",
+          "name": "قصرقند",
+          "cities": []
+        },
+        {
+          "id": "county-15-011",
+          "name": "کنارک",
+          "cities": []
+        },
+        {
+          "id": "county-15-012",
+          "name": "مهرستان",
+          "cities": []
+        },
+        {
+          "id": "county-15-013",
+          "name": "میرجاوه",
+          "cities": []
+        },
+        {
+          "id": "county-15-014",
+          "name": "نیک شهر",
+          "cities": []
+        },
+        {
+          "id": "county-15-015",
+          "name": "نیمروز",
+          "cities": []
+        },
+        {
+          "id": "county-15-016",
+          "name": "هامون",
+          "cities": []
+        },
+        {
+          "id": "county-15-017",
+          "name": "هیرمند",
+          "cities": []
+        },
+        {
+          "id": "county-15-018",
+          "name": "چابهار",
+          "cities": [
+            "چابهار"
+          ]
+        },
+        {
+          "id": "county-15-019",
+          "name": "گلشن",
+          "cities": []
+        },
+        {
+          "id": "county-15-020",
+          "name": "زرآباد",
+          "cities": []
+        },
+        {
+          "id": "county-15-021",
+          "name": "لاشار",
+          "cities": []
+        },
+        {
+          "id": "county-15-022",
+          "name": "تفتان",
+          "cities": []
+        },
+        {
+          "id": "county-15-023",
+          "name": "بمپور",
+          "cities": []
+        },
+        {
+          "id": "county-15-024",
+          "name": "راسک",
+          "cities": []
+        },
+        {
+          "id": "county-15-025",
+          "name": "دشتیاری",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-16",
+      "name": "فارس",
+      "counties": [
+        {
+          "id": "county-16-000",
+          "name": "آباده",
+          "cities": []
+        },
+        {
+          "id": "county-16-001",
+          "name": "ارسنجان",
+          "cities": []
+        },
+        {
+          "id": "county-16-002",
+          "name": "استهبان",
+          "cities": []
+        },
+        {
+          "id": "county-16-003",
+          "name": "اقلید",
+          "cities": []
+        },
+        {
+          "id": "county-16-004",
+          "name": "بوانات",
+          "cities": []
+        },
+        {
+          "id": "county-16-005",
+          "name": "جهرم",
+          "cities": []
+        },
+        {
+          "id": "county-16-006",
+          "name": "خرامه",
+          "cities": []
+        },
+        {
+          "id": "county-16-007",
+          "name": "خرم بید",
+          "cities": []
+        },
+        {
+          "id": "county-16-008",
+          "name": "خنج",
+          "cities": []
+        },
+        {
+          "id": "county-16-009",
+          "name": "داراب",
+          "cities": []
+        },
+        {
+          "id": "county-16-010",
+          "name": "رستم",
+          "cities": []
+        },
+        {
+          "id": "county-16-011",
+          "name": "زرین دشت",
+          "cities": []
+        },
+        {
+          "id": "county-16-012",
+          "name": "سروستان",
+          "cities": []
+        },
+        {
+          "id": "county-16-013",
+          "name": "سپیدان",
+          "cities": []
+        },
+        {
+          "id": "county-16-014",
+          "name": "شیراز",
+          "cities": [
+            "شیراز"
+          ]
+        },
+        {
+          "id": "county-16-015",
+          "name": "فراشبند",
+          "cities": []
+        },
+        {
+          "id": "county-16-016",
+          "name": "فسا",
+          "cities": []
+        },
+        {
+          "id": "county-16-017",
+          "name": "فیروزآباد",
+          "cities": []
+        },
+        {
+          "id": "county-16-018",
+          "name": "قیر و کارزین",
+          "cities": []
+        },
+        {
+          "id": "county-16-019",
+          "name": "کازرون",
+          "cities": []
+        },
+        {
+          "id": "county-16-020",
+          "name": "کوار",
+          "cities": []
+        },
+        {
+          "id": "county-16-021",
+          "name": "لارستان",
+          "cities": []
+        },
+        {
+          "id": "county-16-022",
+          "name": "لامرد",
+          "cities": []
+        },
+        {
+          "id": "county-16-023",
+          "name": "مرودشت",
+          "cities": []
+        },
+        {
+          "id": "county-16-024",
+          "name": "ممسنی",
+          "cities": []
+        },
+        {
+          "id": "county-16-025",
+          "name": "مهر",
+          "cities": []
+        },
+        {
+          "id": "county-16-026",
+          "name": "نی ریز",
+          "cities": []
+        },
+        {
+          "id": "county-16-027",
+          "name": "پاسارگاد",
+          "cities": []
+        },
+        {
+          "id": "county-16-028",
+          "name": "گراش",
+          "cities": []
+        },
+        {
+          "id": "county-16-029",
+          "name": "اوز",
+          "cities": []
+        },
+        {
+          "id": "county-16-030",
+          "name": "بیضا",
+          "cities": []
+        },
+        {
+          "id": "county-16-031",
+          "name": "خفر",
+          "cities": []
+        },
+        {
+          "id": "county-16-032",
+          "name": "زرقان",
+          "cities": []
+        },
+        {
+          "id": "county-16-033",
+          "name": "کوه‌چنار",
+          "cities": []
+        },
+        {
+          "id": "county-16-034",
+          "name": "سرچهان",
+          "cities": []
+        },
+        {
+          "id": "county-16-035",
+          "name": "بختگان",
+          "cities": []
+        },
+        {
+          "id": "county-16-036",
+          "name": "جویم",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-17",
+      "name": "قزوین",
+      "counties": [
+        {
+          "id": "county-17-000",
+          "name": "آبیک",
+          "cities": []
+        },
+        {
+          "id": "county-17-001",
+          "name": "آوج",
+          "cities": []
+        },
+        {
+          "id": "county-17-002",
+          "name": "البرز",
+          "cities": []
+        },
+        {
+          "id": "county-17-003",
+          "name": "بوئین زهرا",
+          "cities": []
+        },
+        {
+          "id": "county-17-004",
+          "name": "تاکستان",
+          "cities": []
+        },
+        {
+          "id": "county-17-005",
+          "name": "قزوین",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-18",
+      "name": "قم",
+      "counties": [
+        {
+          "id": "county-18-000",
+          "name": "قم",
+          "cities": [
+            "قم"
+          ]
+        },
+        {
+          "id": "county-18-001",
+          "name": "جعفرآباد",
+          "cities": []
+        },
+        {
+          "id": "county-18-002",
+          "name": "کهک",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-19",
+      "name": "کردستان",
+      "counties": [
+        {
+          "id": "county-19-000",
+          "name": "سقز",
+          "cities": []
+        },
+        {
+          "id": "county-19-001",
+          "name": "بانه",
+          "cities": []
+        },
+        {
+          "id": "county-19-002",
+          "name": "بیجار",
+          "cities": []
+        },
+        {
+          "id": "county-19-003",
+          "name": "دهگلان",
+          "cities": []
+        },
+        {
+          "id": "county-19-004",
+          "name": "دیواندره",
+          "cities": []
+        },
+        {
+          "id": "county-19-005",
+          "name": "سروآباد",
+          "cities": []
+        },
+        {
+          "id": "county-19-006",
+          "name": "سنندج",
+          "cities": []
+        },
+        {
+          "id": "county-19-007",
+          "name": "قروه",
+          "cities": []
+        },
+        {
+          "id": "county-19-008",
+          "name": "کامیاران",
+          "cities": []
+        },
+        {
+          "id": "county-19-009",
+          "name": "مریوان",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-20",
+      "name": "کرمان",
+      "counties": [
+        {
+          "id": "county-20-000",
+          "name": "ارزوئیه",
+          "cities": []
+        },
+        {
+          "id": "county-20-001",
+          "name": "انار",
+          "cities": []
+        },
+        {
+          "id": "county-20-002",
+          "name": "بافت",
+          "cities": []
+        },
+        {
+          "id": "county-20-003",
+          "name": "بردسیر",
+          "cities": []
+        },
+        {
+          "id": "county-20-004",
+          "name": "بم",
+          "cities": []
+        },
+        {
+          "id": "county-20-005",
+          "name": "جیرفت",
+          "cities": []
+        },
+        {
+          "id": "county-20-006",
+          "name": "رابر",
+          "cities": []
+        },
+        {
+          "id": "county-20-007",
+          "name": "راور",
+          "cities": []
+        },
+        {
+          "id": "county-20-008",
+          "name": "رفسنجان",
+          "cities": []
+        },
+        {
+          "id": "county-20-009",
+          "name": "رودبار جنوب",
+          "cities": []
+        },
+        {
+          "id": "county-20-010",
+          "name": "ریگان",
+          "cities": []
+        },
+        {
+          "id": "county-20-011",
+          "name": "زرند",
+          "cities": []
+        },
+        {
+          "id": "county-20-012",
+          "name": "سیرجان",
+          "cities": []
+        },
+        {
+          "id": "county-20-013",
+          "name": "شهربابک",
+          "cities": []
+        },
+        {
+          "id": "county-20-014",
+          "name": "عنبرآباد",
+          "cities": []
+        },
+        {
+          "id": "county-20-015",
+          "name": "فاریاب",
+          "cities": []
+        },
+        {
+          "id": "county-20-016",
+          "name": "فهرج",
+          "cities": []
+        },
+        {
+          "id": "county-20-017",
+          "name": "قلعه گنج",
+          "cities": []
+        },
+        {
+          "id": "county-20-018",
+          "name": "کرمان",
+          "cities": [
+            "کرمان"
+          ]
+        },
+        {
+          "id": "county-20-019",
+          "name": "کهنوج",
+          "cities": []
+        },
+        {
+          "id": "county-20-020",
+          "name": "کوهبنان",
+          "cities": []
+        },
+        {
+          "id": "county-20-021",
+          "name": "منوجان",
+          "cities": []
+        },
+        {
+          "id": "county-20-022",
+          "name": "نرماشیر",
+          "cities": []
+        },
+        {
+          "id": "county-20-023",
+          "name": "گنبکی",
+          "cities": []
+        },
+        {
+          "id": "county-20-024",
+          "name": "جازموریان",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-21",
+      "name": "کرمانشاه",
+      "counties": [
+        {
+          "id": "county-21-000",
+          "name": "اسلام آباد غرب",
+          "cities": []
+        },
+        {
+          "id": "county-21-001",
+          "name": "ثلاث باباجانی",
+          "cities": []
+        },
+        {
+          "id": "county-21-002",
+          "name": "جوانرود",
+          "cities": []
+        },
+        {
+          "id": "county-21-003",
+          "name": "دالاهو",
+          "cities": []
+        },
+        {
+          "id": "county-21-004",
+          "name": "روانسر",
+          "cities": []
+        },
+        {
+          "id": "county-21-005",
+          "name": "سرپل ذهاب",
+          "cities": []
+        },
+        {
+          "id": "county-21-006",
+          "name": "سنقر",
+          "cities": []
+        },
+        {
+          "id": "county-21-007",
+          "name": "صحنه",
+          "cities": []
+        },
+        {
+          "id": "county-21-008",
+          "name": "قصر شیرین",
+          "cities": []
+        },
+        {
+          "id": "county-21-009",
+          "name": "کرمانشاه",
+          "cities": []
+        },
+        {
+          "id": "county-21-010",
+          "name": "کنگاور",
+          "cities": []
+        },
+        {
+          "id": "county-21-011",
+          "name": "هرسین",
+          "cities": []
+        },
+        {
+          "id": "county-21-012",
+          "name": "پاوه",
+          "cities": []
+        },
+        {
+          "id": "county-21-013",
+          "name": "گیلانغرب",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-22",
+      "name": "کهگیلویه و بویراحمد",
+      "counties": [
+        {
+          "id": "county-22-000",
+          "name": "باشت",
+          "cities": []
+        },
+        {
+          "id": "county-22-001",
+          "name": "بهمئی",
+          "cities": []
+        },
+        {
+          "id": "county-22-002",
+          "name": "بویراحمد",
+          "cities": []
+        },
+        {
+          "id": "county-22-003",
+          "name": "دنا",
+          "cities": []
+        },
+        {
+          "id": "county-22-004",
+          "name": "کهگیلویه",
+          "cities": []
+        },
+        {
+          "id": "county-22-005",
+          "name": "لنده",
+          "cities": []
+        },
+        {
+          "id": "county-22-006",
+          "name": "چرام",
+          "cities": []
+        },
+        {
+          "id": "county-22-007",
+          "name": "گچساران",
+          "cities": []
+        },
+        {
+          "id": "county-22-008",
+          "name": "مارگون",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-23",
+      "name": "گلستان",
+      "counties": [
+        {
+          "id": "county-23-000",
+          "name": "آزادشهر",
+          "cities": []
+        },
+        {
+          "id": "county-23-001",
+          "name": "آق قلا",
+          "cities": []
+        },
+        {
+          "id": "county-23-002",
+          "name": "بندر گز",
+          "cities": []
+        },
+        {
+          "id": "county-23-003",
+          "name": "ترکمن",
+          "cities": []
+        },
+        {
+          "id": "county-23-004",
+          "name": "رامیان",
+          "cities": []
+        },
+        {
+          "id": "county-23-005",
+          "name": "علی آباد کتول",
+          "cities": []
+        },
+        {
+          "id": "county-23-006",
+          "name": "کردکوی",
+          "cities": []
+        },
+        {
+          "id": "county-23-007",
+          "name": "کلاله",
+          "cities": []
+        },
+        {
+          "id": "county-23-008",
+          "name": "مراوه تپه",
+          "cities": []
+        },
+        {
+          "id": "county-23-009",
+          "name": "مینودشت",
+          "cities": []
+        },
+        {
+          "id": "county-23-010",
+          "name": "گالیکش",
+          "cities": []
+        },
+        {
+          "id": "county-23-011",
+          "name": "گرگان",
+          "cities": []
+        },
+        {
+          "id": "county-23-012",
+          "name": "گمیشان",
+          "cities": []
+        },
+        {
+          "id": "county-23-013",
+          "name": "گنبد کاووس",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-24",
+      "name": "گیلان",
+      "counties": [
+        {
+          "id": "county-24-000",
+          "name": "آستارا",
+          "cities": []
+        },
+        {
+          "id": "county-24-001",
+          "name": "آستانه اشرفیه",
+          "cities": []
+        },
+        {
+          "id": "county-24-002",
+          "name": "املش",
+          "cities": []
+        },
+        {
+          "id": "county-24-003",
+          "name": "بندر انزلی",
+          "cities": []
+        },
+        {
+          "id": "county-24-004",
+          "name": "رشت",
+          "cities": [
+            "رشت"
+          ]
+        },
+        {
+          "id": "county-24-005",
+          "name": "رضوانشهر",
+          "cities": []
+        },
+        {
+          "id": "county-24-006",
+          "name": "رودبار",
+          "cities": []
+        },
+        {
+          "id": "county-24-007",
+          "name": "رودسر",
+          "cities": []
+        },
+        {
+          "id": "county-24-008",
+          "name": "سیاهکل",
+          "cities": []
+        },
+        {
+          "id": "county-24-009",
+          "name": "شفت",
+          "cities": []
+        },
+        {
+          "id": "county-24-010",
+          "name": "صومعه سرا",
+          "cities": []
+        },
+        {
+          "id": "county-24-011",
+          "name": "طوالش",
+          "cities": []
+        },
+        {
+          "id": "county-24-012",
+          "name": "فومن",
+          "cities": []
+        },
+        {
+          "id": "county-24-013",
+          "name": "لاهیجان",
+          "cities": []
+        },
+        {
+          "id": "county-24-014",
+          "name": "لنگرود",
+          "cities": []
+        },
+        {
+          "id": "county-24-015",
+          "name": "ماسال",
+          "cities": []
+        },
+        {
+          "id": "county-24-016",
+          "name": "خمام",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-25",
+      "name": "لرستان",
+      "counties": [
+        {
+          "id": "county-25-000",
+          "name": "ازنا",
+          "cities": []
+        },
+        {
+          "id": "county-25-001",
+          "name": "الیگودرز",
+          "cities": []
+        },
+        {
+          "id": "county-25-002",
+          "name": "بروجرد",
+          "cities": []
+        },
+        {
+          "id": "county-25-003",
+          "name": "خرم آباد",
+          "cities": [
+            "خرم‌آباد"
+          ]
+        },
+        {
+          "id": "county-25-004",
+          "name": "دلفان",
+          "cities": []
+        },
+        {
+          "id": "county-25-005",
+          "name": "چگنی",
+          "cities": []
+        },
+        {
+          "id": "county-25-006",
+          "name": "دورود",
+          "cities": []
+        },
+        {
+          "id": "county-25-007",
+          "name": "رومشکان",
+          "cities": []
+        },
+        {
+          "id": "county-25-008",
+          "name": "سلسله",
+          "cities": []
+        },
+        {
+          "id": "county-25-009",
+          "name": "کوهدشت",
+          "cities": []
+        },
+        {
+          "id": "county-25-010",
+          "name": "معمولان",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-26",
+      "name": "مازندران",
+      "counties": [
+        {
+          "id": "county-26-000",
+          "name": "آمل",
+          "cities": []
+        },
+        {
+          "id": "county-26-001",
+          "name": "بابل",
+          "cities": []
+        },
+        {
+          "id": "county-26-002",
+          "name": "بابلسر",
+          "cities": []
+        },
+        {
+          "id": "county-26-003",
+          "name": "بهشهر",
+          "cities": []
+        },
+        {
+          "id": "county-26-004",
+          "name": "تنکابن",
+          "cities": []
+        },
+        {
+          "id": "county-26-005",
+          "name": "جویبار",
+          "cities": []
+        },
+        {
+          "id": "county-26-006",
+          "name": "رامسر",
+          "cities": []
+        },
+        {
+          "id": "county-26-007",
+          "name": "ساری",
+          "cities": [
+            "ساری"
+          ]
+        },
+        {
+          "id": "county-26-008",
+          "name": "سوادکوه شمالی",
+          "cities": []
+        },
+        {
+          "id": "county-26-009",
+          "name": "سوادکوه",
+          "cities": []
+        },
+        {
+          "id": "county-26-010",
+          "name": "سیمرغ",
+          "cities": []
+        },
+        {
+          "id": "county-26-011",
+          "name": "عباس آباد",
+          "cities": []
+        },
+        {
+          "id": "county-26-012",
+          "name": "فریدونکنار",
+          "cities": []
+        },
+        {
+          "id": "county-26-013",
+          "name": "قائم شهر",
+          "cities": []
+        },
+        {
+          "id": "county-26-014",
+          "name": "کلاردشت",
+          "cities": []
+        },
+        {
+          "id": "county-26-015",
+          "name": "محمودآباد",
+          "cities": []
+        },
+        {
+          "id": "county-26-016",
+          "name": "میاندورود",
+          "cities": []
+        },
+        {
+          "id": "county-26-017",
+          "name": "نکا",
+          "cities": []
+        },
+        {
+          "id": "county-26-018",
+          "name": "نور",
+          "cities": []
+        },
+        {
+          "id": "county-26-019",
+          "name": "نوشهر",
+          "cities": []
+        },
+        {
+          "id": "county-26-020",
+          "name": "چالوس",
+          "cities": []
+        },
+        {
+          "id": "county-26-021",
+          "name": "گلوگاه",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-27",
+      "name": "مرکزی",
+      "counties": [
+        {
+          "id": "county-27-000",
+          "name": "آشتیان",
+          "cities": []
+        },
+        {
+          "id": "county-27-001",
+          "name": "اراک",
+          "cities": [
+            "اراک"
+          ]
+        },
+        {
+          "id": "county-27-002",
+          "name": "تفرش",
+          "cities": []
+        },
+        {
+          "id": "county-27-003",
+          "name": "خمین",
+          "cities": []
+        },
+        {
+          "id": "county-27-004",
+          "name": "خنداب",
+          "cities": []
+        },
+        {
+          "id": "county-27-005",
+          "name": "دلیجان",
+          "cities": []
+        },
+        {
+          "id": "county-27-006",
+          "name": "زرندیه",
+          "cities": []
+        },
+        {
+          "id": "county-27-007",
+          "name": "ساوه",
+          "cities": []
+        },
+        {
+          "id": "county-27-008",
+          "name": "شازند",
+          "cities": []
+        },
+        {
+          "id": "county-27-009",
+          "name": "فراهان",
+          "cities": []
+        },
+        {
+          "id": "county-27-010",
+          "name": "کمیجان",
+          "cities": []
+        },
+        {
+          "id": "county-27-011",
+          "name": "محلات",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-28",
+      "name": "هرمزگان",
+      "counties": [
+        {
+          "id": "county-28-000",
+          "name": "ابوموسی",
+          "cities": []
+        },
+        {
+          "id": "county-28-001",
+          "name": "بستک",
+          "cities": []
+        },
+        {
+          "id": "county-28-002",
+          "name": "بشاگرد",
+          "cities": []
+        },
+        {
+          "id": "county-28-003",
+          "name": "بندر لنگه",
+          "cities": []
+        },
+        {
+          "id": "county-28-004",
+          "name": "بندرعباس",
+          "cities": [
+            "بندرعباس"
+          ]
+        },
+        {
+          "id": "county-28-005",
+          "name": "جاسک",
+          "cities": []
+        },
+        {
+          "id": "county-28-006",
+          "name": "حاجی آباد",
+          "cities": []
+        },
+        {
+          "id": "county-28-007",
+          "name": "خمیر",
+          "cities": []
+        },
+        {
+          "id": "county-28-008",
+          "name": "رودان",
+          "cities": []
+        },
+        {
+          "id": "county-28-009",
+          "name": "سیریک",
+          "cities": []
+        },
+        {
+          "id": "county-28-010",
+          "name": "قشم",
+          "cities": []
+        },
+        {
+          "id": "county-28-011",
+          "name": "میناب",
+          "cities": []
+        },
+        {
+          "id": "county-28-012",
+          "name": "پارسیان",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-29",
+      "name": "همدان",
+      "counties": [
+        {
+          "id": "county-29-000",
+          "name": "اسدآباد",
+          "cities": []
+        },
+        {
+          "id": "county-29-001",
+          "name": "بهار",
+          "cities": []
+        },
+        {
+          "id": "county-29-002",
+          "name": "تویسرکان",
+          "cities": []
+        },
+        {
+          "id": "county-29-003",
+          "name": "رزن",
+          "cities": []
+        },
+        {
+          "id": "county-29-004",
+          "name": "فامنین",
+          "cities": []
+        },
+        {
+          "id": "county-29-005",
+          "name": "کبودرآهنگ",
+          "cities": []
+        },
+        {
+          "id": "county-29-006",
+          "name": "ملایر",
+          "cities": []
+        },
+        {
+          "id": "county-29-007",
+          "name": "نهاوند",
+          "cities": []
+        },
+        {
+          "id": "county-29-008",
+          "name": "همدان",
+          "cities": []
+        },
+        {
+          "id": "county-29-009",
+          "name": "درگزین",
+          "cities": []
+        }
+      ]
+    },
+    {
+      "id": "province-30",
+      "name": "یزد",
+      "counties": [
+        {
+          "id": "county-30-000",
+          "name": "ابرکوه",
+          "cities": []
+        },
+        {
+          "id": "county-30-001",
+          "name": "اردکان",
+          "cities": []
+        },
+        {
+          "id": "county-30-002",
+          "name": "اشکذر",
+          "cities": []
+        },
+        {
+          "id": "county-30-003",
+          "name": "بافق",
+          "cities": []
+        },
+        {
+          "id": "county-30-004",
+          "name": "بهاباد",
+          "cities": []
+        },
+        {
+          "id": "county-30-005",
+          "name": "تفت",
+          "cities": []
+        },
+        {
+          "id": "county-30-006",
+          "name": "خاتم",
+          "cities": []
+        },
+        {
+          "id": "county-30-007",
+          "name": "مهریز",
+          "cities": []
+        },
+        {
+          "id": "county-30-008",
+          "name": "میبد",
+          "cities": []
+        },
+        {
+          "id": "county-30-009",
+          "name": "یزد",
+          "cities": [
+            "یزد"
+          ]
+        },
+        {
+          "id": "county-30-010",
+          "name": "زارچ",
+          "cities": []
+        },
+        {
+          "id": "county-30-011",
+          "name": "مروست",
+          "cities": []
+        }
+      ]
+    }
+  ]
+}
