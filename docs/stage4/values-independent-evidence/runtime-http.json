@@ -1,0 +1,434 @@
+{
+  "definitions": {
+    "version": "invest-values-v1",
+    "units": [
+      {
+        "code": "BILLION_TOMAN",
+        "version": 1,
+        "kind": "money",
+        "base_code": "TOMAN",
+        "base_version": 1,
+        "currency": "TOMAN",
+        "factor": "1000000000"
+      },
+      {
+        "code": "DAY",
+        "version": 1,
+        "kind": "quantity",
+        "base_code": "DAY",
+        "base_version": 1,
+        "currency": null,
+        "factor": "1"
+      },
+      {
+        "code": "ITEM",
+        "version": 1,
+        "kind": "quantity",
+        "base_code": "ITEM",
+        "base_version": 1,
+        "currency": null,
+        "factor": "1"
+      },
+      {
+        "code": "KILOGRAM",
+        "version": 1,
+        "kind": "quantity",
+        "base_code": "KILOGRAM",
+        "base_version": 1,
+        "currency": null,
+        "factor": "1"
+      },
+      {
+        "code": "MILLION_TOMAN",
+        "version": 1,
+        "kind": "money",
+        "base_code": "TOMAN",
+        "base_version": 1,
+        "currency": "TOMAN",
+        "factor": "1000000"
+      },
+      {
+        "code": "MONTH",
+        "version": 1,
+        "kind": "quantity",
+        "base_code": "MONTH",
+        "base_version": 1,
+        "currency": null,
+        "factor": "1"
+      },
+      {
+        "code": "PERCENT",
+        "version": 1,
+        "kind": "return",
+        "base_code": "PERCENT",
+        "base_version": 1,
+        "currency": null,
+        "factor": "1"
+      },
+      {
+        "code": "SQUARE_METRE",
+        "version": 1,
+        "kind": "quantity",
+        "base_code": "SQUARE_METRE",
+        "base_version": 1,
+        "currency": null,
+        "factor": "1"
+      },
+      {
+        "code": "TOMAN",
+        "version": 1,
+        "kind": "money",
+        "base_code": "TOMAN",
+        "base_version": 1,
+        "currency": "TOMAN",
+        "factor": "1"
+      },
+      {
+        "code": "USD",
+        "version": 1,
+        "kind": "money",
+        "base_code": "USD",
+        "base_version": 1,
+        "currency": "USD",
+        "factor": "1"
+      },
+      {
+        "code": "YEAR",
+        "version": 1,
+        "kind": "quantity",
+        "base_code": "YEAR",
+        "base_version": 1,
+        "currency": null,
+        "factor": "1"
+      }
+    ],
+    "fields": [
+      {
+        "namespace": "invest.opportunity.fund",
+        "key": "minimum_investment",
+        "version": 1,
+        "label": "حداقل سرمایه ورود صندوق",
+        "kind": "money",
+        "unit": {
+          "code": "MILLION_TOMAN",
+          "version": 1
+        },
+        "allowed_units": [
+          {
+            "code": "TOMAN",
+            "version": 1
+          },
+          {
+            "code": "MILLION_TOMAN",
+            "version": 1
+          },
+          {
+            "code": "BILLION_TOMAN",
+            "version": 1
+          }
+        ],
+        "return_type": null,
+        "minimum": "0",
+        "maximum": "999999999999999999999999.999999999",
+        "decimal_places": 9,
+        "required": true,
+        "allow_unknown": true,
+        "allow_not_applicable": true,
+        "source_path": "src/types/index.ts",
+        "source_locator": "Fund.minimumMillion; types/index.ts:95-98; lib/listings.ts:55-57",
+        "meaning": "حداقل سرمایه ورود صندوق؛ معنای مستقل از ورود پروژه دارد.",
+        "visibility_rule": "future-form-owned",
+        "inactive_effect": "exclude"
+      },
+      {
+        "namespace": "invest.opportunity.project",
+        "key": "budget",
+        "version": 1,
+        "label": "نیاز مالی کل طرح",
+        "kind": "money",
+        "unit": {
+          "code": "BILLION_TOMAN",
+          "version": 1
+        },
+        "allowed_units": [
+          {
+            "code": "TOMAN",
+            "version": 1
+          },
+          {
+            "code": "MILLION_TOMAN",
+            "version": 1
+          },
+          {
+            "code": "BILLION_TOMAN",
+            "version": 1
+          }
+        ],
+        "return_type": null,
+        "minimum": "0",
+        "maximum": "999999999999999999999999.999999999",
+        "decimal_places": 9,
+        "required": false,
+        "allow_unknown": true,
+        "allow_not_applicable": true,
+        "source_path": "src/types/index.ts",
+        "source_locator": "Opportunity.budget; types/index.ts:43-44; lib/listings.ts:20-21",
+        "meaning": "نیاز مالی کل طرح؛ fallback نمایش به alias داده تبدیل نمی‌شود.",
+        "visibility_rule": "future-form-owned",
+        "inactive_effect": "exclude"
+      },
+      {
+        "namespace": "invest.opportunity.project",
+        "key": "execution_months",
+        "version": 1,
+        "label": "مدت اجرا به ماه",
+        "kind": "quantity",
+        "unit": {
+          "code": "MONTH",
+          "version": 1
+        },
+        "allowed_units": [
+          {
+            "code": "MONTH",
+            "version": 1
+          }
+        ],
+        "return_type": null,
+        "minimum": "0",
+        "maximum": "999999999999999999999999.999999999",
+        "decimal_places": 9,
+        "required": false,
+        "allow_unknown": true,
+        "allow_not_applicable": true,
+        "source_path": "src/types/index.ts",
+        "source_locator": "Opportunity.executionMonths; types/index.ts:45; lib/listings.ts:26-27",
+        "meaning": "مدت اجرا به ماه؛ مبنای شروع منبع مشخص نیست، حدس زده نمی‌شود.",
+        "visibility_rule": "future-form-owned",
+        "inactive_effect": "exclude"
+      },
+      {
+        "namespace": "invest.opportunity.project",
+        "key": "irr",
+        "version": 1,
+        "label": "IRR اعلام‌شده",
+        "kind": "return",
+        "unit": {
+          "code": "PERCENT",
+          "version": 1
+        },
+        "allowed_units": [
+          {
+            "code": "PERCENT",
+            "version": 1
+          }
+        ],
+        "return_type": "irr",
+        "minimum": "-999999999999999999999999.999999999",
+        "maximum": "999999999999999999999999.999999999",
+        "decimal_places": 9,
+        "required": false,
+        "allow_unknown": true,
+        "allow_not_applicable": true,
+        "source_path": "src/types/index.ts",
+        "source_locator": "ProjectTerms.irr; types/index.ts:86-87; data/fields.ts:24-26",
+        "meaning": "IRR اعلام‌شده؛ ثبت known نیازمند مبنای کامل است که منبع فعلی کامل ندارد.",
+        "visibility_rule": "future-form-owned",
+        "inactive_effect": "exclude"
+      },
+      {
+        "namespace": "invest.opportunity.project",
+        "key": "min_capital",
+        "version": 1,
+        "label": "حداقل سرمایه ورود پروژه",
+        "kind": "money",
+        "unit": {
+          "code": "BILLION_TOMAN",
+          "version": 1
+        },
+        "allowed_units": [
+          {
+            "code": "TOMAN",
+            "version": 1
+          },
+          {
+            "code": "MILLION_TOMAN",
+            "version": 1
+          },
+          {
+            "code": "BILLION_TOMAN",
+            "version": 1
+          }
+        ],
+        "return_type": null,
+        "minimum": "0",
+        "maximum": "999999999999999999999999.999999999",
+        "decimal_places": 9,
+        "required": true,
+        "allow_unknown": true,
+        "allow_not_applicable": true,
+        "source_path": "src/types/index.ts",
+        "source_locator": "Opportunity.minCapital; types/index.ts:41-42; lib/listings.ts:20-21",
+        "meaning": "حداقل سرمایه ورود پروژه؛ با نیاز مالی کل طرح یکی نیست.",
+        "visibility_rule": "future-form-owned",
+        "inactive_effect": "exclude"
+      },
+      {
+        "namespace": "invest.opportunity.project",
+        "key": "monthly_rent",
+        "version": 1,
+        "label": "اجاره ماهانه به میلیون تومان",
+        "kind": "money",
+        "unit": {
+          "code": "MILLION_TOMAN",
+          "version": 1
+        },
+        "allowed_units": [
+          {
+            "code": "TOMAN",
+            "version": 1
+          },
+          {
+            "code": "MILLION_TOMAN",
+            "version": 1
+          },
+          {
+            "code": "BILLION_TOMAN",
+            "version": 1
+          }
+        ],
+        "return_type": null,
+        "minimum": "0",
+        "maximum": "999999999999999999999999.999999999",
+        "decimal_places": 9,
+        "required": false,
+        "allow_unknown": true,
+        "allow_not_applicable": true,
+        "source_path": "src/types/index.ts",
+        "source_locator": "Opportunity.monthlyRent; types/index.ts:81-82",
+        "meaning": "اجاره ماهانه به میلیون تومان؛ با ودیعه یا قیمت کل جمع/معادل نمی‌شود.",
+        "visibility_rule": "future-form-owned",
+        "inactive_effect": "exclude"
+      },
+      {
+        "namespace": "invest.opportunity.project",
+        "key": "payback_years",
+        "version": 1,
+        "label": "دوره بازگشت به سال",
+        "kind": "quantity",
+        "unit": {
+          "code": "YEAR",
+          "version": 1
+        },
+        "allowed_units": [
+          {
+            "code": "YEAR",
+            "version": 1
+          }
+        ],
+        "return_type": null,
+        "minimum": "0",
+        "maximum": "999999999999999999999999.999999999",
+        "decimal_places": 9,
+        "required": true,
+        "allow_unknown": true,
+        "allow_not_applicable": true,
+        "source_path": "src/types/index.ts",
+        "source_locator": "Opportunity.paybackYears; types/index.ts:46; lib/listings.ts:24-25",
+        "meaning": "دوره بازگشت به سال؛ درصد سود یا IRR نیست.",
+        "visibility_rule": "future-form-owned",
+        "inactive_effect": "exclude"
+      },
+      {
+        "namespace": "invest.opportunity.sale",
+        "key": "area",
+        "version": 1,
+        "label": "مساحت مورد فروش به مترمربع",
+        "kind": "quantity",
+        "unit": {
+          "code": "SQUARE_METRE",
+          "version": 1
+        },
+        "allowed_units": [
+          {
+            "code": "SQUARE_METRE",
+            "version": 1
+          }
+        ],
+        "return_type": null,
+        "minimum": "0",
+        "maximum": "999999999999999999999999.999999999",
+        "decimal_places": 9,
+        "required": false,
+        "allow_unknown": true,
+        "allow_not_applicable": true,
+        "source_path": "src/types/index.ts",
+        "source_locator": "SaleItem.area; types/index.ts:103-104; lib/listings.ts:84",
+        "meaning": "مساحت مورد فروش به مترمربع؛ معادل خودکار مساحت عرصه فیلتر نیست.",
+        "visibility_rule": "future-form-owned",
+        "inactive_effect": "exclude"
+      }
+    ]
+  },
+  "normalize": [
+    {
+      "case": "valid",
+      "status": 200,
+      "response": {
+        "contract_version": 1,
+        "kind": "money",
+        "field": {
+          "namespace": "invest.opportunity.project",
+          "key": "min_capital",
+          "version": 1
+        },
+        "unit": {
+          "code": "BILLION_TOMAN",
+          "version": 1
+        },
+        "status": "known",
+        "source_value": "1.5",
+        "value": "1500000000",
+        "base_unit": "TOMAN",
+        "base_version": 1,
+        "conversion_factor": "1000000000",
+        "basis": null
+      }
+    },
+    {
+      "case": "nul-field-namespace",
+      "status": 500,
+      "response": {
+        "error": {
+          "code": "internal_error",
+          "message": "خطایی رخ داده است؛ دوباره تلاش کنید.",
+          "fields": {},
+          "request_id": "464270e6-4d49-4b7c-8dc7-e80f83b2df0f"
+        }
+      }
+    },
+    {
+      "case": "nul-field-key",
+      "status": 500,
+      "response": {
+        "error": {
+          "code": "internal_error",
+          "message": "خطایی رخ داده است؛ دوباره تلاش کنید.",
+          "fields": {},
+          "request_id": "fcbd92a4-fa44-406d-8450-c88cb1486f81"
+        }
+      }
+    },
+    {
+      "case": "nul-unit-code",
+      "status": 500,
+      "response": {
+        "error": {
+          "code": "internal_error",
+          "message": "خطایی رخ داده است؛ دوباره تلاش کنید.",
+          "fields": {},
+          "request_id": "d5978cd3-dd82-4994-b596-285f14829fe6"
+        }
+      }
+    }
+  ]
+}

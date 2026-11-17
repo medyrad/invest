@@ -1,0 +1,165 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-test-run-edd8730e0876 Creating
+ Container invest-test-run-edd8730e0876 Created
+....................FFF...............FFFFFFFFF......                    [100%]
+=================================== FAILURES ===================================
+_ test_embedded_nul_reference_is_validation_error_not_http_500[field-namespace] _
+/independent/test_values_independent.py:88: in test_embedded_nul_reference_is_validation_error_not_http_500
+    assert response.status_code==400, f'NUL {ref}.{key} returned {response.status_code}: {response.data}'
+E   AssertionError: NUL field.namespace returned 500: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': 'ba9e4137-c52f-4ab2-a219-8363156f2c5e'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=ba9e4137-c52f-4ab2-a219-8363156f2c5e type=DataError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=ba9e4137-c52f-4ab2-a219-8363156f2c5e type=DataError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/catalog/values/normalize
+___ test_embedded_nul_reference_is_validation_error_not_http_500[field-key] ____
+/independent/test_values_independent.py:88: in test_embedded_nul_reference_is_validation_error_not_http_500
+    assert response.status_code==400, f'NUL {ref}.{key} returned {response.status_code}: {response.data}'
+E   AssertionError: NUL field.key returned 500: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': 'd29cc454-e7df-46c5-aa15-3e2a08e553c0'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=d29cc454-e7df-46c5-aa15-3e2a08e553c0 type=DataError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=d29cc454-e7df-46c5-aa15-3e2a08e553c0 type=DataError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/catalog/values/normalize
+___ test_embedded_nul_reference_is_validation_error_not_http_500[unit-code] ____
+/independent/test_values_independent.py:88: in test_embedded_nul_reference_is_validation_error_not_http_500
+    assert response.status_code==400, f'NUL {ref}.{key} returned {response.status_code}: {response.data}'
+E   AssertionError: NUL unit.code returned 500: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': '508bb03f-cb19-488e-b955-b6e0efad1286'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=508bb03f-cb19-488e-b955-b6e0efad1286 type=DataError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=508bb03f-cb19-488e-b955-b6e0efad1286 type=DataError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/catalog/values/normalize
+______ test_queryset_cannot_persist_basis_rejected_by_application[money] _______
+/independent/test_values_independent.py:144: in test_queryset_cannot_persist_basis_rejected_by_application
+    assert rejected, f'{model.__name__}: SQL UPDATE accepted basis that full_clean rejects: {invalid!r}'
+E   AssertionError: MoneyValue: SQL UPDATE accepted basis that full_clean rejects: {'start_basis': 'unexpected'}
+E   assert False
+_____ test_queryset_cannot_persist_basis_rejected_by_application[duration] _____
+/independent/test_values_independent.py:144: in test_queryset_cannot_persist_basis_rejected_by_application
+    assert rejected, f'{model.__name__}: SQL UPDATE accepted basis that full_clean rejects: {invalid!r}'
+E   AssertionError: Quantity: SQL UPDATE accepted basis that full_clean rejects: None
+E   assert False
+______ test_queryset_cannot_persist_basis_rejected_by_application[return] ______
+/independent/test_values_independent.py:144: in test_queryset_cannot_persist_basis_rejected_by_application
+    assert rejected, f'{model.__name__}: SQL UPDATE accepted basis that full_clean rejects: {invalid!r}'
+E   AssertionError: ReturnMetric: SQL UPDATE accepted basis that full_clean rejects: {'metric_type': 'irr'}
+E   assert False
+____ test_published_definitions_are_immutable_even_when_unused[unit-update] ____
+/independent/test_values_independent.py:150: in test_published_definitions_are_immutable_even_when_unused
+    field=custom('unused',['ITEM'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+/independent/test_values_independent.py:53: in custom
+    return FieldDefinition.objects.create(namespace='independent.exact',key=key,version=version,
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:665: in create
+    obj.save(force_insert=True, using=self.db)
+apps/catalog/models.py:73: in save
+    self.full_clean()
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1679: in full_clean
+    raise ValidationError(errors)
+E   django.core.exceptions.ValidationError: {'label': ['این فیلد نمی تواند خالی باشد.']}
+____ test_published_definitions_are_immutable_even_when_unused[unit-delete] ____
+/independent/test_values_independent.py:150: in test_published_definitions_are_immutable_even_when_unused
+    field=custom('unused',['ITEM'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+/independent/test_values_independent.py:53: in custom
+    return FieldDefinition.objects.create(namespace='independent.exact',key=key,version=version,
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:665: in create
+    obj.save(force_insert=True, using=self.db)
+apps/catalog/models.py:73: in save
+    self.full_clean()
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1679: in full_clean
+    raise ValidationError(errors)
+E   django.core.exceptions.ValidationError: {'label': ['این فیلد نمی تواند خالی باشد.']}
+___ test_published_definitions_are_immutable_even_when_unused[field-update] ____
+/independent/test_values_independent.py:150: in test_published_definitions_are_immutable_even_when_unused
+    field=custom('unused',['ITEM'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+/independent/test_values_independent.py:53: in custom
+    return FieldDefinition.objects.create(namespace='independent.exact',key=key,version=version,
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:665: in create
+    obj.save(force_insert=True, using=self.db)
+apps/catalog/models.py:73: in save
+    self.full_clean()
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1679: in full_clean
+    raise ValidationError(errors)
+E   django.core.exceptions.ValidationError: {'label': ['این فیلد نمی تواند خالی باشد.']}
+___ test_published_definitions_are_immutable_even_when_unused[field-delete] ____
+/independent/test_values_independent.py:150: in test_published_definitions_are_immutable_even_when_unused
+    field=custom('unused',['ITEM'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+/independent/test_values_independent.py:53: in custom
+    return FieldDefinition.objects.create(namespace='independent.exact',key=key,version=version,
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:665: in create
+    obj.save(force_insert=True, using=self.db)
+apps/catalog/models.py:73: in save
+    self.full_clean()
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1679: in full_clean
+    raise ValidationError(errors)
+E   django.core.exceptions.ValidationError: {'label': ['این فیلد نمی تواند خالی باشد.']}
+_______ test_append_version_does_not_reinterpret_old_record_or_snapshot ________
+/independent/test_values_independent.py:159: in test_append_version_does_not_reinterpret_old_record_or_snapshot
+    field=custom('money',['TOMAN'],kind='money');new=custom('money',['TOMAN'],kind='money',version=2)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/independent/test_values_independent.py:53: in custom
+    return FieldDefinition.objects.create(namespace='independent.exact',key=key,version=version,
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:665: in create
+    obj.save(force_insert=True, using=self.db)
+apps/catalog/models.py:73: in save
+    self.full_clean()
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1679: in full_clean
+    raise ValidationError(errors)
+E   django.core.exceptions.ValidationError: {'label': ['این فیلد نمی تواند خالی باشد.']}
+______ test_currency_calendar_dimensions_count_and_meaning_stay_separate _______
+/independent/test_values_independent.py:169: in test_currency_calendar_dimensions_count_and_meaning_stay_separate
+    field=custom('money',['TOMAN','USD'],kind='money')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/independent/test_values_independent.py:53: in custom
+    return FieldDefinition.objects.create(namespace='independent.exact',key=key,version=version,
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:665: in create
+    obj.save(force_insert=True, using=self.db)
+apps/catalog/models.py:73: in save
+    self.full_clean()
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1679: in full_clean
+    raise ValidationError(errors)
+E   django.core.exceptions.ValidationError: {'label': ['این فیلد نمی تواند خالی باشد.']}
+=========================== short test summary info ============================
+FAILED ::test_embedded_nul_reference_is_validation_error_not_http_500[field-namespace]
+FAILED ::test_embedded_nul_reference_is_validation_error_not_http_500[field-key]
+FAILED ::test_embedded_nul_reference_is_validation_error_not_http_500[unit-code]
+FAILED ::test_queryset_cannot_persist_basis_rejected_by_application[money] - ...
+FAILED ::test_queryset_cannot_persist_basis_rejected_by_application[duration]
+FAILED ::test_queryset_cannot_persist_basis_rejected_by_application[return]
+FAILED ::test_published_definitions_are_immutable_even_when_unused[unit-update]
+FAILED ::test_published_definitions_are_immutable_even_when_unused[unit-delete]
+FAILED ::test_published_definitions_are_immutable_even_when_unused[field-update]
+FAILED ::test_published_definitions_are_immutable_even_when_unused[field-delete]
+FAILED ::test_append_version_does_not_reinterpret_old_record_or_snapshot - dj...
+FAILED ::test_currency_calendar_dimensions_count_and_meaning_stay_separate - ...
+12 failed, 41 passed in 7.63s

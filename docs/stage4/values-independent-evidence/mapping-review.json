@@ -1,0 +1,66 @@
+{
+  "method": "بررسی دستی محل واقعی سه فایل مرجع کاری و تطبیق هشت واحد با GET نسخه هدف؛ اجرای ZIP یا پذیرش فرم نیست",
+  "files_sha256": {
+    "src/types/index.ts": "02d330b2992f4926b15c0dc5b5feb02be72877216731dddba844111b9bd48676",
+    "src/lib/listings.ts": "311a66cc83bac5dc9602f42840d4584b16b6c862a6ee2e56d5aae1f1099b5775",
+    "src/data/fields.ts": "ede87ffb37bb275b6fa2ad65aa4f651188eac3de3272045c48811b07ecfbf06d"
+  },
+  "rows": [
+    {
+      "field": "project.min_capital",
+      "symbol": "Opportunity.minCapital",
+      "locator": "src/types/index.ts:41–42; src/lib/listings.ts:20–21",
+      "unit": "BILLION_TOMAN",
+      "conclusion": "حداقل ورود؛ مستقل از کل سرمایه"
+    },
+    {
+      "field": "project.budget",
+      "symbol": "Opportunity.budget",
+      "locator": "src/types/index.ts:43–44; src/lib/listings.ts:20–21",
+      "unit": "BILLION_TOMAN",
+      "conclusion": "نیاز کل؛ fallback نمایشی alias نیست"
+    },
+    {
+      "field": "project.monthly_rent",
+      "symbol": "Opportunity.monthlyRent",
+      "locator": "src/types/index.ts:81–82",
+      "unit": "MILLION_TOMAN",
+      "conclusion": "اجاره ماهانه؛ ودیعه نگاشت نشده؛ lumpRent/پرداخت یکجا جداست"
+    },
+    {
+      "field": "fund.minimum_investment",
+      "symbol": "Fund.minimumMillion",
+      "locator": "src/types/index.ts:95–98; src/lib/listings.ts:55–57",
+      "unit": "MILLION_TOMAN",
+      "conclusion": "حداقل صندوق؛ مستقل از forecast"
+    },
+    {
+      "field": "project.execution_months",
+      "symbol": "Opportunity.executionMonths",
+      "locator": "src/types/index.ts:45; src/lib/listings.ts:26–27",
+      "unit": "MONTH",
+      "conclusion": "ماه؛ شروع نامشخص قابل مقایسه نیست"
+    },
+    {
+      "field": "project.payback_years",
+      "symbol": "Opportunity.paybackYears",
+      "locator": "src/types/index.ts:46; src/lib/listings.ts:24–25",
+      "unit": "YEAR",
+      "conclusion": "دوره بازگشت؛ IRR نیست"
+    },
+    {
+      "field": "sale.area",
+      "symbol": "SaleItem.area",
+      "locator": "src/types/index.ts:103–104; src/lib/listings.ts:87",
+      "unit": "SQUARE_METRE",
+      "conclusion": "مساحت فروش؛ landArea جداست"
+    },
+    {
+      "field": "project.irr",
+      "symbol": "ProjectTerms.irr",
+      "locator": "src/types/index.ts:86–87; src/data/fields.ts:24–26",
+      "unit": "PERCENT",
+      "conclusion": "IRR اعلام‌شده؛ metadata ناقص منبع جعل نشود"
+    }
+  ]
+}

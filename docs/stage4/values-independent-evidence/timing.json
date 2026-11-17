@@ -1,0 +1,14 @@
+{
+  "unit": "seconds",
+  "preparation_from_version_stabilization": 212.31,
+  "execution_including_targeted_followups": 143.64,
+  "report_to_evidence_recording": 47.37,
+  "pytest_seconds": [
+    3.78,
+    7.63,
+    1.19,
+    0.83
+  ],
+  "build": 0,
+  "note": "Preparation includes overlapping delivered-suite execution; initial instruction reading precedes timing. Execution includes review/probes; final git review/commit follows report timing."
+}

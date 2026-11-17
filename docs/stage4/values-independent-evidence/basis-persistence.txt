@@ -1,0 +1,27 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-test-run-26b5348436a0 Creating
+ Container invest-test-run-26b5348436a0 Created
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+______ test_queryset_cannot_persist_basis_rejected_by_application[money] _______
+/independent/test_values_independent.py:147: in test_queryset_cannot_persist_basis_rejected_by_application
+    assert rejected, f'{model.__name__}: SQL UPDATE persisted basis that full_clean rejects: {row.basis!r}'
+E   AssertionError: MoneyValue: SQL UPDATE persisted basis that full_clean rejects: {'start_basis': 'unexpected'}
+E   assert False
+_____ test_queryset_cannot_persist_basis_rejected_by_application[duration] _____
+/independent/test_values_independent.py:147: in test_queryset_cannot_persist_basis_rejected_by_application
+    assert rejected, f'{model.__name__}: SQL UPDATE persisted basis that full_clean rejects: {row.basis!r}'
+E   AssertionError: Quantity: SQL UPDATE persisted basis that full_clean rejects: None
+E   assert False
+______ test_queryset_cannot_persist_basis_rejected_by_application[return] ______
+/independent/test_values_independent.py:147: in test_queryset_cannot_persist_basis_rejected_by_application
+    assert rejected, f'{model.__name__}: SQL UPDATE persisted basis that full_clean rejects: {row.basis!r}'
+E   AssertionError: ReturnMetric: SQL UPDATE persisted basis that full_clean rejects: {'metric_type': 'irr'}
+E   assert False
+=========================== short test summary info ============================
+FAILED ::test_queryset_cannot_persist_basis_rejected_by_application[money] - ...
+FAILED ::test_queryset_cannot_persist_basis_rejected_by_application[duration]
+FAILED ::test_queryset_cannot_persist_basis_rejected_by_application[return]
+3 failed, 50 deselected in 0.83s

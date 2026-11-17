@@ -1,0 +1,33 @@
+{
+  "target_version": "S04-VALUES-41a4dee62c26",
+  "delivery_commit": "6169d8509fa560e54d3a5a3843d0a532f9bd373a",
+  "checks": {
+    "source_files": {
+      "checked": 57,
+      "different": []
+    },
+    "artifacts": {
+      "checked": 29,
+      "different": []
+    }
+  },
+  "images": [
+    {
+      "service": "backend",
+      "image": "sha256:543b20fdab76f25c562266cfb9148cbdd88561b76638066d8f20b0abbe72a500",
+      "container": "1b2ca6cc8f1b69185a4ba5641fd61c48e74a8b8a70f7902b926bb1a1b8c3ec07"
+    },
+    {
+      "service": "web",
+      "image": "sha256:a92a2333384102eb916d1cb056145b81177a42b700e6de5094ae799acd85d8a5",
+      "container": "935618bfe99b041ad880a79901e48c057a17af01a13efd3bf9ca1512c20a73ae"
+    },
+    {
+      "service": "db",
+      "image": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+      "container": "868b4910c4d463c6083eba77dd98a1a1e53faccce7eaf782d99f7e8a6efff960"
+    }
+  ],
+  "test_image": "sha256:549ca8dbb00876fb8f92123ba9ceece5987cde0bf07affb57b83b0a0c25d300b",
+  "test_image_matches": true
+}
