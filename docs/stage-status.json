@@ -22,9 +22,13 @@
     "D26",
     "D27",
     "D28",
-    "D29"
+    "D29",
+    "D30"
   ],
-  "pending_questions": [],
+  "pending_questions": [
+    "PRODUCT-S05-01/P1",
+    "PRODUCT-S05-01/P2"
+  ],
   "feature_count": 44,
   "completed": [
     "Reference archive static inventory and hashes",
@@ -103,7 +107,7 @@
   },
   "next_step": {
     "id": "product-s05-a-decision-review",
-    "description": "بررسی بسته پیشنهادی PRODUCT-S05-01 و تصمیم‌های P1/P2/P3؛ بازبینی انسانی و پایان S04 همچنان باز؛ اجرای S05 و انتشار نیازمند دستور جدا",
+    "description": "پاسخ به P1 و P2؛ P3 در D30 تأیید شد. تأیید انسانی و پایان S04 باز است؛ اجرای S05 نیازمند دستور جداست.",
     "authorized": false,
     "scope_path": "docs/stage5/product-s05-a.md",
     "full_product_implementation_authorized": false
@@ -368,14 +372,21 @@
   },
   "product_preparation": {
     "mission": "PRODUCT-S05-01",
-    "status": "decision-package-prepared-awaiting-review",
+    "status": "partially-approved-awaiting-p1-p2",
     "report_path": "docs/stage5/product-s05-a.md",
     "scope": "S05-A proposal and synchronization of existing technical acceptances only",
     "pending_proposal_packages": [
       "P1",
-      "P2",
-      "P3"
+      "P2"
     ],
-    "s05_implementation_authorized": false
+    "s05_implementation_authorized": false,
+    "accepted_proposal_packages": {
+      "P3": {
+        "decision": "D30",
+        "answer": "P3 پیشنهادی را می‌پذیرم",
+        "source": "Coordinator P3 question and explicit user reply",
+        "decision_path": "docs/03-decisions.md"
+      }
+    }
   }
 }
