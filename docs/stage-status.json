@@ -1,7 +1,7 @@
 {
   "date": "2026-11-17",
   "current_stage": "S04",
-  "status": "ready-for-independent-retest",
+  "status": "technical-packages-accepted-human-and-stage-review-pending",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -48,10 +48,11 @@
     "S01-clarify-and-freeze complete: five accepted answers D25-D29, policies B01-B04 closed, artifacts reconciled, read-only consistency analysis and final arithmetic/structure checks recorded; documentation task T002 complete",
     "S02 foundation complete: scoped SpecKit cycle, Django/DRF/PostgreSQL custom account and API/CSRF, Next RTL shell and same-origin proxy, locked non-root images, 57 backend + 4 browser tests, database restart/outage recovery, lock drift rejection, CI definition and reproducible guide; baseline T003-T008 complete",
     "PROGRAMMER-S03-01 trial identity implemented and locally verified: 93 PostgreSQL tests, 28 browser checks at four widths, server OTP/session/revocation/quotas, reference dialog and synthetic audit; ready for independent testing, not final S03 acceptance",
-    "PROGRAMMER-S04-01 home/navigation/server catalog implemented with scoped SpecKit artifacts and local evidence; ready for independent testing, not human or full S04 acceptance"
+    "PROGRAMMER-S04-01 home/navigation/server catalog implemented with scoped SpecKit artifacts and local evidence; ready for independent testing, not human or full S04 acceptance",
+    "Independent technical acceptance recorded from TEST-S03-03, TEST-S04-02 and TEST-S04-04; human/final stage acceptance unchanged; PRODUCT-S05-01 decision package prepared without S05 implementation authorization"
   ],
   "remaining": [
-    "اصلاح دو ایراد TEST-S04-03 در PROGRAMMER-S04-04 آماده بازآزمایی مستقل است. پذیرش مستقل اصلاحات، تأیید انسانی طراحی و پایان کل S04 باز است؛ S05 و انتشار مجاز نیست.",
+    "S03 آزمایشی، خانه/کاتالوگ S04 و بسته مبلغ/واحد پذیرش فنی مستقل دارند؛ گزارش‌های TEST-S03-03، TEST-S04-02 و TEST-S04-04 مرجع‌اند. تأیید انسانی و پایان کل S04 باز؛ PRODUCT-S05-01 فقط آماده‌سازی بسته پیشنهادی است، اجرای S05 و انتشار مجاز نیست.",
     "Complete per-field/per-rule semantic mappings and schemas before each dependent feature; all by S10",
     "Stabilize visual state baselines and review mobile/new-panel designs before each UI acceptance",
     "Validate matching relevance against product-expert reviewed examples before S06 acceptance",
@@ -101,17 +102,17 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "S04-values-fix-independent-retest",
-    "description": "بازآزمایی مستقل دو اصلاح PROGRAMMER-S04-04؛ بدون مجوز مرحله بعد",
+    "id": "product-s05-a-decision-review",
+    "description": "بررسی بسته پیشنهادی PRODUCT-S05-01 و تصمیم‌های P1/P2/P3؛ بازبینی انسانی و پایان S04 همچنان باز؛ اجرای S05 و انتشار نیازمند دستور جدا",
     "authorized": false,
-    "scope_path": "docs/stage4/values-fix-report.md",
+    "scope_path": "docs/stage5/product-s05-a.md",
     "full_product_implementation_authorized": false
   },
   "active_step": {
     "id": "S04",
     "mission": "PROGRAMMER-S04-04",
     "authorization": "رفع دو ایراد TEST-S04-03؛ migration افزایشی و اعتبارسنجی basis در دیتابیس",
-    "status": "ready-for-independent-retest",
+    "status": "technical-pass-human-and-stage-review-pending",
     "implementation_authorized": true,
     "public_deployment_authorized": false,
     "feature": "007-exact-values",
@@ -119,7 +120,8 @@
     "final_acceptance": false,
     "report_path": "docs/stage4/values-fix-report.md",
     "verification_path": "docs/stage4/values-fix-evidence/manifest.json",
-    "full_stage_complete": false
+    "full_stage_complete": false,
+    "independent_retest_report_path": "docs/stage4/values-retest-report.md"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -227,10 +229,10 @@
     "remote_ci_executed": false,
     "public_deployed": false
   },
-  "application_implementation_scope": "S02 foundation, S03 trial identity and PROGRAMMER-S04-01 home/navigation/catalog only; full product incomplete",
+  "application_implementation_scope": "S02 foundation, S03 trial identity, S04 home/navigation/catalog and 007-exact-values only; full product incomplete; no S05 implementation authorization",
   "identity": {
     "mission": "PROGRAMMER-S03-01",
-    "status": "ready-for-independent-test",
+    "status": "technical-pass",
     "feature": "005-identity-session",
     "backend_tests_passed": 93,
     "browser_tests_passed": 28,
@@ -245,7 +247,7 @@
     "trial_parameters_source": "Explicit user mission PROGRAMMER-S03-01",
     "fixes": {
       "mission": "PROGRAMMER-S03-02",
-      "status": "ready-for-independent-retest",
+      "status": "technical-pass",
       "report_path": "docs/stage3/fix-report.md",
       "version_path": "docs/stage3/fix-evidence/version.json",
       "standard_browser_passed": 37,
@@ -262,12 +264,13 @@
         "human_visual_approved": false,
         "final_stage_acceptance": false
       }
-    }
+    },
+    "technical_acceptance_report_path": "docs/stage3/retest-report.md"
   },
   "home_catalog": {
     "mission": "PROGRAMMER-S04-01",
     "feature": "006-home-catalog",
-    "status": "آماده آزمون مستقل PROGRAMMER-S04-01",
+    "status": "technical-pass",
     "backend_tests_passed": 97,
     "browser_tests_passed": 59,
     "groups": 11,
@@ -306,12 +309,14 @@
         "human_visual_approved": false,
         "full_s04_complete": false
       }
-    }
+    },
+    "technical_acceptance_report_path": "docs/stage4/retest-report.md",
+    "initial_independent_test_report_path": "docs/stage4/independent-test-report.md"
   },
   "exact_values": {
     "mission": "PROGRAMMER-S04-03",
     "feature": "007-exact-values",
-    "status": "آماده آزمون مستقل",
+    "status": "technical-pass",
     "related_tests_passed": 106,
     "field_definitions": 8,
     "unit_definitions": 11,
@@ -329,11 +334,12 @@
       "mission": "TEST-S04-03",
       "status": "needs-fix",
       "report_path": "docs/stage4/values-independent-test-report.md",
-      "reference_commit": "54c5c81"
+      "reference_commit": "54c5c81",
+      "superseded_by_report_path": "docs/stage4/values-retest-report.md"
     },
     "fixes": {
       "mission": "PROGRAMMER-S04-04",
-      "status": "آماده بازآزمایی مستقل",
+      "status": "technical-pass",
       "issues": [
         "S04-VALUES-IT-001",
         "S04-VALUES-IT-002"
@@ -344,10 +350,32 @@
       "migration": "catalog.0004_basis_integrity",
       "report_path": "docs/stage4/values-fix-report.md",
       "manifest_path": "docs/stage4/values-fix-evidence/manifest.json",
-      "independent_acceptance": false,
+      "independent_acceptance": true,
       "human_visual_approved": false,
       "full_s04_complete": false,
-      "version": "S04-VALUES-FIX-82f03c66ac3b"
-    }
+      "version": "S04-VALUES-FIX-82f03c66ac3b",
+      "independent_retest": {
+        "mission": "TEST-S04-04",
+        "status": "technical-pass",
+        "report_path": "docs/stage4/values-retest-report.md",
+        "tested_commit": "c547a547f93b3d005d86efca59ed920ef2ef9b2a",
+        "evidence_commit": "fea31ba",
+        "pytest_unique_passed": 257,
+        "http_probes_passed": 16
+      }
+    },
+    "technical_acceptance_report_path": "docs/stage4/values-retest-report.md"
+  },
+  "product_preparation": {
+    "mission": "PRODUCT-S05-01",
+    "status": "decision-package-prepared-awaiting-review",
+    "report_path": "docs/stage5/product-s05-a.md",
+    "scope": "S05-A proposal and synchronization of existing technical acceptances only",
+    "pending_proposal_packages": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "s05_implementation_authorized": false
   }
 }
