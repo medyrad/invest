@@ -20,3 +20,10 @@
 
 ## شاهد تکمیل همین بسته
 T001/T002: mapping و values-pre-code-analysis؛ T003/T004: grammar/حدود/تبدیل و عدم alias خروجی؛ T005/T006: migration۰۰۰۲/۰۰۰۳، immutable و PG round-trip/SQL scale/backward-forward؛ T007: نوع/مبنای بازده و واحد/نسخه/ارز نامقایسه؛ T008: OpenAPI۱٫۳ و API واقعی؛ T009:۱۰۶ آزمون مرتبط و quality/check/drift؛ T010: values-report، manifest و stage-status. همه در docs/stage4/values-evidence. تأیید کل S04/انسانی یا کل T009/T011 پایه از این علامت‌ها نتیجه نمی‌شود.
+
+## فاز۶ — اصلاح PROGRAMMER-S04-04
+- [X] T011 رفع S04-VALUES-IT-001 در values.py و تست رد NUL بدون lookup/نوشتن؛ FR-009.
+- [X] T012 رفع S04-VALUES-IT-002 با migration۰۰۰۴، audit خواندنی، تست مثبت/منفی INSERT/UPDATE و rollback؛ FR-010.
+- [X] T013 اجرای نهایی۱۰۶+۵۳، بررسی کیفیت و runtime، حفظ تاریخچه، گزارش/نسخه/زمان و کامیت فقط diff مأموریت؛ SC-004.
+
+شاهد S04-04: reproduction شش شکست؛ related-final=۱۰۶، independent-final=۵۳ و new-tests-final=۲۲۹ موفق؛ audit قبل/بعد، migration۰۰۰۴ و runtime-http در docs/stage4/values-fix-evidence. این اجراهای برنامه‌نویس، پذیرش مستقل اصلاحات نیستند.

@@ -1,0 +1,25 @@
+import hashlib
+import json
+from django.core.exceptions import ValidationError
+from django.db import connection
+from apps.catalog.models import MoneyValue, Quantity, ReturnMetric
+
+audit = {}
+for model in [MoneyValue, Quantity, ReturnMetric]:
+    bad = []
+    for row in model.objects.select_related('definition', 'unit').iterator():
+        try:
+            row.full_clean()
+        except ValidationError:
+            bad.append(row.pk)
+    audit[model.__name__] = {'rows': model.objects.count(), 'incompatible_ids': bad}
+snapshot = {}
+with connection.cursor() as cursor:
+    names = sorted(n for n in connection.introspection.table_names() if n.startswith(('catalog_', 'identity_')))
+    for name in names:
+        cursor.execute('SELECT * FROM ' + connection.ops.quote_name(name) + ' ORDER BY id')
+        rows = cursor.fetchall()
+        snapshot[name] = {'rows': len(rows), 'sha256': hashlib.sha256(json.dumps(rows, default=str, sort_keys=True).encode()).hexdigest()}
+print(json.dumps({'audit': audit, 'table_snapshots': snapshot}))
+if any(v['incompatible_ids'] for v in audit.values()):
+    raise RuntimeError('Existing incompatible values; migration blocked; no data modified')

@@ -1,0 +1,63 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-test-run-dd5c3c680852 Creating
+ Container invest-test-run-dd5c3c680852 Created
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+_ test_embedded_nul_reference_is_validation_error_not_http_500[field-namespace] _
+/independent/test_values_independent.py:88: in test_embedded_nul_reference_is_validation_error_not_http_500
+    assert response.status_code==400, f'NUL {ref}.{key} returned {response.status_code}: {response.data}'
+E   AssertionError: NUL field.namespace returned 500: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': 'a713848d-ac77-46b2-919f-3e0c872b9a9c'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=a713848d-ac77-46b2-919f-3e0c872b9a9c type=DataError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=a713848d-ac77-46b2-919f-3e0c872b9a9c type=DataError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/catalog/values/normalize
+___ test_embedded_nul_reference_is_validation_error_not_http_500[field-key] ____
+/independent/test_values_independent.py:88: in test_embedded_nul_reference_is_validation_error_not_http_500
+    assert response.status_code==400, f'NUL {ref}.{key} returned {response.status_code}: {response.data}'
+E   AssertionError: NUL field.key returned 500: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': '0c2311fe-6581-4321-95f5-1f7374e4c94a'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=0c2311fe-6581-4321-95f5-1f7374e4c94a type=DataError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=0c2311fe-6581-4321-95f5-1f7374e4c94a type=DataError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/catalog/values/normalize
+___ test_embedded_nul_reference_is_validation_error_not_http_500[unit-code] ____
+/independent/test_values_independent.py:88: in test_embedded_nul_reference_is_validation_error_not_http_500
+    assert response.status_code==400, f'NUL {ref}.{key} returned {response.status_code}: {response.data}'
+E   AssertionError: NUL unit.code returned 500: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': '34a0c3ad-3874-45da-a636-1f4a023d441d'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=34a0c3ad-3874-45da-a636-1f4a023d441d type=DataError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=34a0c3ad-3874-45da-a636-1f4a023d441d type=DataError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/catalog/values/normalize
+______ test_queryset_cannot_persist_basis_rejected_by_application[money] _______
+/independent/test_values_independent.py:147: in test_queryset_cannot_persist_basis_rejected_by_application
+    assert rejected, f'{model.__name__}: SQL UPDATE persisted basis that full_clean rejects: {row.basis!r}'
+E   AssertionError: MoneyValue: SQL UPDATE persisted basis that full_clean rejects: {'start_basis': 'unexpected'}
+E   assert False
+_____ test_queryset_cannot_persist_basis_rejected_by_application[duration] _____
+/independent/test_values_independent.py:147: in test_queryset_cannot_persist_basis_rejected_by_application
+    assert rejected, f'{model.__name__}: SQL UPDATE persisted basis that full_clean rejects: {row.basis!r}'
+E   AssertionError: Quantity: SQL UPDATE persisted basis that full_clean rejects: None
+E   assert False
+______ test_queryset_cannot_persist_basis_rejected_by_application[return] ______
+/independent/test_values_independent.py:147: in test_queryset_cannot_persist_basis_rejected_by_application
+    assert rejected, f'{model.__name__}: SQL UPDATE persisted basis that full_clean rejects: {row.basis!r}'
+E   AssertionError: ReturnMetric: SQL UPDATE persisted basis that full_clean rejects: {'metric_type': 'irr'}
+E   assert False
+=========================== short test summary info ============================
+FAILED ::test_embedded_nul_reference_is_validation_error_not_http_500[field-namespace]
+FAILED ::test_embedded_nul_reference_is_validation_error_not_http_500[field-key]
+FAILED ::test_embedded_nul_reference_is_validation_error_not_http_500[unit-code]
+FAILED ::test_queryset_cannot_persist_basis_rejected_by_application[money] - ...
+FAILED ::test_queryset_cannot_persist_basis_rejected_by_application[duration]
+FAILED ::test_queryset_cannot_persist_basis_rejected_by_application[return]
+6 failed, 47 deselected in 1.26s

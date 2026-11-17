@@ -1,0 +1,9 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-backend-run-ad73e14b6bac Creating
+ Container invest-backend-run-ad73e14b6bac Created
+Operations to perform:
+  Apply all migrations: auth, catalog, contenttypes, identity, sessions
+Running migrations:
+  Applying catalog.0004_basis_integrity... OK

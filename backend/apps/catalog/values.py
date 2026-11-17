@@ -55,7 +55,38 @@ def exact_product(a, b):
         return a * b
 
 
+def reject_nul(value, field=""):
+    """Validate before psycopg lookup; never sanitize or hide database errors."""
+    if isinstance(value, str):
+        if "\x00" in value:
+            fail("nul_not_allowed", "نویسه تهی (NUL) در ورودی مجاز نیست.", field or "payload")
+        try:
+            value.encode("utf-8")
+        except UnicodeEncodeError:
+            fail("invalid_text", "متن شامل نویسه Unicode معتبر نیست.", field or "payload")
+    if isinstance(value, dict):
+        for key, member in value.items():
+            if isinstance(key, str) and "\x00" in key:
+                fail(
+                    "nul_not_allowed", "نویسه تهی (NUL) در نام فیلد مجاز نیست.", field or "payload"
+                )
+            if isinstance(key, str):
+                try:
+                    key.encode("utf-8")
+                except UnicodeEncodeError:
+                    fail(
+                        "invalid_text",
+                        "نام فیلد شامل نویسه Unicode معتبر نیست.",
+                        field or "payload",
+                    )
+            reject_nul(member, f"{field}.{key}" if field else str(key))
+    elif isinstance(value, list):
+        for index, member in enumerate(value):
+            reject_nul(member, f"{field}[{index}]")
+
+
 def check_ref(value, keys, field):
+    reject_nul(value, field)
     if not isinstance(value, dict) or set(value) != set(keys):
         fail("invalid_reference", "شناسه و نسخه تعریف را صریح وارد کنید.", field)
     version = value.get("version")
@@ -66,6 +97,7 @@ def check_ref(value, keys, field):
 
 
 def return_basis(basis):
+    reject_nul(basis, "basis")
     keys = {
         "version",
         "metric_type",
@@ -138,6 +170,7 @@ def normalize(payload):
         fail(
             "invalid_payload", "فیلد، واحد، نسخه، وضعیت، مقدار و مبنا را صریح وارد کنید.", "payload"
         )
+    reject_nul(payload)
     check_ref(payload["field"], ("namespace", "key", "version"), "field")
     check_ref(payload["unit"], ("code", "version"), "unit")
     try:

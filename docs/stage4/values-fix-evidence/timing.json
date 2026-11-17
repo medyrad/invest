@@ -1,0 +1,16 @@
+{
+  "start_utc": "2026-11-17T16:15:43Z",
+  "wall_clock_phases": {
+    "preparation_seconds": 563.42,
+    "build_seconds": 40.32,
+    "test_and_live_verification_seconds": 114.49,
+    "report_seconds": 280.43
+  },
+  "final_pytest_seconds": {
+    "related_106": 3.81,
+    "independent_53": 7.47,
+    "added_229": 2.03
+  },
+  "final_build_count": 1,
+  "note": "آماده‌سازی شامل خواندن، اصلاح SpecKit، بازتولید و آزمون هدفمند با source mount است؛ زمان خود pytest جدا از زمان دیواری ثبت شده است."
+}

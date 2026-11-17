@@ -1,0 +1,78 @@
+{
+  "origin": "http://127.0.0.1:3108",
+  "results": [
+    {
+      "field": null,
+      "status": 200,
+      "response": {
+        "contract_version": 1,
+        "kind": "money",
+        "field": {
+          "namespace": "invest.opportunity.project",
+          "key": "min_capital",
+          "version": 1
+        },
+        "unit": {
+          "code": "BILLION_TOMAN",
+          "version": 1
+        },
+        "status": "known",
+        "source_value": "1.5",
+        "value": "1500000000",
+        "base_unit": "TOMAN",
+        "base_version": 1,
+        "conversion_factor": "1000000000",
+        "basis": null
+      }
+    },
+    {
+      "field": "field.namespace",
+      "status": 400,
+      "response": {
+        "error": {
+          "code": "nul_not_allowed",
+          "message": "نویسه تهی (NUL) در ورودی مجاز نیست.",
+          "fields": {
+            "field.namespace": [
+              "نویسه تهی (NUL) در ورودی مجاز نیست."
+            ]
+          },
+          "request_id": "a9999a81-8b1c-456e-9b8a-fc000fdf0490"
+        }
+      }
+    },
+    {
+      "field": "field.key",
+      "status": 400,
+      "response": {
+        "error": {
+          "code": "nul_not_allowed",
+          "message": "نویسه تهی (NUL) در ورودی مجاز نیست.",
+          "fields": {
+            "field.key": [
+              "نویسه تهی (NUL) در ورودی مجاز نیست."
+            ]
+          },
+          "request_id": "fb731030-b5dd-4530-927a-d1565b8e2115"
+        }
+      }
+    },
+    {
+      "field": "unit.code",
+      "status": 400,
+      "response": {
+        "error": {
+          "code": "nul_not_allowed",
+          "message": "نویسه تهی (NUL) در ورودی مجاز نیست.",
+          "fields": {
+            "unit.code": [
+              "نویسه تهی (NUL) در ورودی مجاز نیست."
+            ]
+          },
+          "request_id": "9b28999d-2c4e-4cd9-bc33-58d58010a1a3"
+        }
+      }
+    }
+  ],
+  "credentials_saved": false
+}

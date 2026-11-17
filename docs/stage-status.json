@@ -1,7 +1,7 @@
 {
   "date": "2026-11-17",
   "current_stage": "S04",
-  "status": "ready-for-independent-test",
+  "status": "ready-for-independent-retest",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -51,7 +51,7 @@
     "PROGRAMMER-S04-01 home/navigation/server catalog implemented with scoped SpecKit artifacts and local evidence; ready for independent testing, not human or full S04 acceptance"
   ],
   "remaining": [
-    "دو اصلاح S04-FIX در TEST-S04-02 قبول فنی و بسته شدند. PROGRAMMER-S04-03 آماده آزمون مستقل است؛ تأیید انسانی S03/طراحی و پذیرش کل S04 باز است؛ S05 و انتشار مجاز نیست.",
+    "اصلاح دو ایراد TEST-S04-03 در PROGRAMMER-S04-04 آماده بازآزمایی مستقل است. پذیرش مستقل اصلاحات، تأیید انسانی طراحی و پایان کل S04 باز است؛ S05 و انتشار مجاز نیست.",
     "Complete per-field/per-rule semantic mappings and schemas before each dependent feature; all by S10",
     "Stabilize visual state baselines and review mobile/new-panel designs before each UI acceptance",
     "Validate matching relevance against product-expert reviewed examples before S06 acceptance",
@@ -101,24 +101,24 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "S04-values-independent-test",
-    "description": "آزمون مستقل PROGRAMMER-S04-03؛ مراحل بعد فقط با دستور صریح کاربر",
+    "id": "S04-values-fix-independent-retest",
+    "description": "بازآزمایی مستقل دو اصلاح PROGRAMMER-S04-04؛ بدون مجوز مرحله بعد",
     "authorized": false,
-    "scope_path": "docs/stage4/values-report.md",
+    "scope_path": "docs/stage4/values-fix-report.md",
     "full_product_implementation_authorized": false
   },
   "active_step": {
     "id": "S04",
-    "mission": "PROGRAMMER-S04-03",
-    "authorization": "مأموریت صریح: مقدار/واحد/تعریف فیلد طبق D29، فقط بخش مشترک؛ بدون S05",
-    "status": "ready-for-independent-test",
+    "mission": "PROGRAMMER-S04-04",
+    "authorization": "رفع دو ایراد TEST-S04-03؛ migration افزایشی و اعتبارسنجی basis در دیتابیس",
+    "status": "ready-for-independent-retest",
     "implementation_authorized": true,
     "public_deployment_authorized": false,
     "feature": "007-exact-values",
     "human_visual_approved": false,
     "final_acceptance": false,
-    "report_path": "docs/stage4/values-report.md",
-    "verification_path": "docs/stage4/values-evidence/manifest.json",
+    "report_path": "docs/stage4/values-fix-report.md",
+    "verification_path": "docs/stage4/values-fix-evidence/manifest.json",
     "full_stage_complete": false
   },
   "clarification_step": {
@@ -324,6 +324,30 @@
     "human_visual_approved": false,
     "full_s04_complete": false,
     "public_deployed": false,
-    "version": "S04-VALUES-41a4dee62c26"
+    "version": "S04-VALUES-41a4dee62c26",
+    "independent_test": {
+      "mission": "TEST-S04-03",
+      "status": "needs-fix",
+      "report_path": "docs/stage4/values-independent-test-report.md",
+      "reference_commit": "54c5c81"
+    },
+    "fixes": {
+      "mission": "PROGRAMMER-S04-04",
+      "status": "آماده بازآزمایی مستقل",
+      "issues": [
+        "S04-VALUES-IT-001",
+        "S04-VALUES-IT-002"
+      ],
+      "related_passed": 106,
+      "independent_suite_passed_by_programmer": 53,
+      "added_passed": 229,
+      "migration": "catalog.0004_basis_integrity",
+      "report_path": "docs/stage4/values-fix-report.md",
+      "manifest_path": "docs/stage4/values-fix-evidence/manifest.json",
+      "independent_acceptance": false,
+      "human_visual_approved": false,
+      "full_s04_complete": false,
+      "version": "S04-VALUES-FIX-82f03c66ac3b"
+    }
   }
 }

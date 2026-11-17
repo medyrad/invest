@@ -5,3 +5,5 @@ UnitDefinition: code+version unique، kind، base_code/base_version، currency �
 MoneyValue/Quantity/ReturnMetric: definition FK و unit FK با PROTECT، status، value/source_value nullable numeric، conversion_factor مثبت، base_code/base_version snapshot و basis nullable JSON. known دقیق و رابطه value=source×factor؛ غیرknown هر دو null. مقدار تا سقف۲۴+۹، شمارش scale0. Money بدون basis؛ Quantity مدت start_basis یا unspecified؛ Return basis version۱، metric_type/period/horizon/basis_date/price_basis/scope/observation/source، known فقط با کامل‌بودن. ثبت بازده، محاسبه IRR نیست.
 
 نوع بازده return_type در تعریف فیلد ثبت می‌شود؛ فیلد project.irr فقط irr می‌پذیرد، نه نرخ ساده. واحد horizon نیز ref صریح code/version است. SQL ارتباط نوع/واحد/حدود و return_type رکورد known را کنترل می‌کند؛ اجرای شرط نمایش فرم آینده در این بسته نیست.
+
+S04-04: SQL علاوه بر مقدار/عامل/واحد، تمام ساختار basis را نیز کنترل می‌کند؛ guard مستقل قبل از INSERT/UPDATE با نتیجه IS NOT TRUE رد می‌کند. Money و Quantity غیرمدت، SQL/JSON null را می‌پذیرند؛ مدت در همه وضعیت‌ها basis لازم دارد؛ Return غیرknown فقط null یا basis کامل معتبر. کلید اضافه، نوع نادرست و نسخه/واحد افق ناشناخته معتبر نیستند.

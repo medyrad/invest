@@ -1,0 +1,6 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-backend-run-91bb5f7335d3 Creating
+ Container invest-backend-run-91bb5f7335d3 Created
+No changes detected

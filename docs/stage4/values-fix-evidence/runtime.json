@@ -1,0 +1,19 @@
+{
+  "backend": {
+    "container_id": "4f39585b3276accd41d899de7ba5f957709d0781135be4267935fd47929ca1fe",
+    "image_id": "sha256:76a571c71a1e824a07148b445f8532e210cf0530bbfa759e90fd9d2a99523818"
+  },
+  "web": {
+    "container_id": "935618bfe99b041ad880a79901e48c057a17af01a13efd3bf9ca1512c20a73ae",
+    "image_id": "sha256:a92a2333384102eb916d1cb056145b81177a42b700e6de5094ae799acd85d8a5"
+  },
+  "db": {
+    "container_id": "868b4910c4d463c6083eba77dd98a1a1e53faccce7eaf782d99f7e8a6efff960",
+    "image_id": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2"
+  },
+  "test_image_id": "sha256:2da63c384a2616d368608fb34b911cb97ce6502ed8ca1ae442a7f586175416f1",
+  "executed_sources": {
+    "apps/catalog/values.py": "057d4ed189b568a535bafab7f5315a8f1e2b225833dd785453e508f91ca6af40",
+    "apps/catalog/migrations/0004_basis_integrity.py": "495670f1f49febe2eb94e6c792eb7175ccadb92a7d18e08e1c8ff0cb00302212"
+  }
+}

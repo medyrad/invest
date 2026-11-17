@@ -1,0 +1,29 @@
+import copy
+import hashlib
+import http.cookiejar
+import json
+import urllib.error
+import urllib.request
+from pathlib import Path
+
+base = 'http://127.0.0.1:3108'
+client = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+with client.open(base+'/api/v1/auth/csrf') as response:
+    csrf = json.load(response)['csrfToken']
+payload = {'field': {'namespace':'invest.opportunity.project','key':'min_capital','version':1},'unit':{'code':'BILLION_TOMAN','version':1},'status':'known','source_value':'۱٫۵','basis':None}
+results = []
+for path in [None, 'field.namespace', 'field.key', 'unit.code']:
+    data=copy.deepcopy(payload)
+    if path:
+        node,key=path.split('.');data[node][key]+='\x00'
+    request=urllib.request.Request(base+'/api/v1/catalog/values/normalize',data=json.dumps(data).encode(),headers={'Content-Type':'application/json','X-CSRFToken':csrf,'Origin':base})
+    try: response=client.open(request)
+    except urllib.error.HTTPError as error: response=error
+    with response: status=response.status;body=json.load(response)
+    if path:
+        assert status==400 and body['error']['code']=='nul_not_allowed'
+        assert path in body['error']['fields'] and any('\u0600'<=c<='\u06ff' for c in body['error']['message'])
+    else: assert status==200 and body['value']=='1500000000'
+    results.append({'field':path,'status':status,'response':body})
+Path('docs/stage4/values-fix-evidence/runtime-http.json').write_text(json.dumps({'origin':base,'results':results,'credentials_saved':False},ensure_ascii=False,indent=2)+'\n')
+print([(x['field'],x['status']) for x in results])

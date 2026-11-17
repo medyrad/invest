@@ -1,0 +1,95 @@
+{
+  "audit": {
+    "MoneyValue": {
+      "rows": 0,
+      "incompatible_ids": []
+    },
+    "Quantity": {
+      "rows": 0,
+      "incompatible_ids": []
+    },
+    "ReturnMetric": {
+      "rows": 0,
+      "incompatible_ids": []
+    }
+  },
+  "all_catalog_identity_rows_unchanged": true,
+  "table_snapshots": {
+    "catalog_city": {
+      "rows": 22,
+      "sha256": "499f2ade1f324ff81537397b38a7e85755dcd32fa9578e1ecf1a2b95b1ca1cd3"
+    },
+    "catalog_county": {
+      "rows": 478,
+      "sha256": "240f000cc50469effebea9a5e3f3421c13f63f6a410f226e4d2ac95259d9287e"
+    },
+    "catalog_fielddefinition": {
+      "rows": 8,
+      "sha256": "50fcf395335af55b3115d5fec3ab87013a1f97d5576fc7d8a7d5fcd73f83f23f"
+    },
+    "catalog_group": {
+      "rows": 11,
+      "sha256": "95db99f1ba16d4e3065926b59be32ea3383b85f50ac887ae60606669cdf1e05e"
+    },
+    "catalog_moneyvalue": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "catalog_province": {
+      "rows": 31,
+      "sha256": "28a5d14072a5ad00882f2b2b68a14f9a20b1004e745f99503d3cc11e66aebf5c"
+    },
+    "catalog_quantity": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "catalog_returnmetric": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "catalog_subtype": {
+      "rows": 78,
+      "sha256": "2c73b9fdcac783a703f967140828fddeea2c1d943e832224c6dd9dc79d03b102"
+    },
+    "catalog_unitdefinition": {
+      "rows": 11,
+      "sha256": "2e90878369b7df9814491079ab4f2c52106fb581c08f8ad629c38d182d1209e4"
+    },
+    "identity_auditevent": {
+      "rows": 45,
+      "sha256": "42344ab3fae3e16785f449caea0e1188ab0455ffa7db3865bf963dded3da8e0c"
+    },
+    "identity_authsession": {
+      "rows": 13,
+      "sha256": "92ff603a248d9b37cf8b07608234f4f949c9d982a633daed444e2cafbf2cd154"
+    },
+    "identity_checkevent": {
+      "rows": 15,
+      "sha256": "3405763b1390017f6fa94abc2d4d3ef18df54c5499538482f1f18d24317b18c7"
+    },
+    "identity_issueevent": {
+      "rows": 19,
+      "sha256": "c247afd1456625917c951a1e0d67c43d70f38c3087924617ba50f7f7b0c2448d"
+    },
+    "identity_loginflow": {
+      "rows": 43,
+      "sha256": "e4dceaae510587bf1352e120b279be6b3468ebbad4424362e59f78485c261bf6"
+    },
+    "identity_otpchallenge": {
+      "rows": 19,
+      "sha256": "617af1cb874d7c134908e83dd67700f8431fb3de903fa2a1e19a4059fc92389b"
+    },
+    "identity_user": {
+      "rows": 16,
+      "sha256": "cb02d9841905c32713491fae58b835f89bee90241a517a2165af921b76746810"
+    },
+    "identity_user_groups": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "identity_user_user_permissions": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  }
+}
