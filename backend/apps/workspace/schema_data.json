@@ -1,0 +1,878 @@
+{
+  "schema_version": 1,
+  "routes": {
+    "investor": "مشارکت",
+    "contractor": "پیمانکاری",
+    "buyer": "خرید",
+    "lessee": "اجاره",
+    "heritage": "میراث"
+  },
+  "fields": [
+    {
+      "key": "title",
+      "label": "عنوان پروژه",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.title"
+    },
+    {
+      "key": "description",
+      "label": "شرح پروژه",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.description"
+    },
+    {
+      "key": "stage",
+      "label": "مرحله اجرایی (اعلامی)",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.stage"
+    },
+    {
+      "key": "model",
+      "label": "مدل همکاری",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.model"
+    },
+    {
+      "key": "model_id",
+      "label": "شناسه مدل قرارداد",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.model_id"
+    },
+    {
+      "key": "finance",
+      "label": "روش تأمین مالی",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.finance"
+    },
+    {
+      "key": "repay",
+      "label": "بازگشت پول",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.repay"
+    },
+    {
+      "key": "ownership",
+      "label": "شرح حقوق",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.ownership"
+    },
+    {
+      "key": "caution",
+      "label": "هشدارها",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.caution"
+    },
+    {
+      "key": "phase",
+      "label": "وضعیت پیشرفت",
+      "kind": "enum",
+      "section": "general",
+      "when": "always",
+      "options": {
+        "new": "احداث جدید",
+        "unfinished": "نیمه‌تمام",
+        "existing": "موجود"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.phase"
+    },
+    {
+      "key": "sector",
+      "label": "صاحب پروژه (بخش)",
+      "kind": "enum",
+      "section": "general",
+      "when": "always",
+      "options": {
+        "public": "عمومی",
+        "private": "خصوصی"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.sector"
+    },
+    {
+      "key": "income",
+      "label": "نوع درآمد",
+      "kind": "enum",
+      "section": "general",
+      "when": "always",
+      "options": {
+        "periodic": "دوره‌ای",
+        "end": "پایان طرح",
+        "any": "بدون محدودیت"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.income"
+    },
+    {
+      "key": "risk",
+      "label": "ریسک اعلامی",
+      "kind": "enum",
+      "section": "general",
+      "when": "always",
+      "options": {
+        "low": "کم",
+        "medium": "متوسط",
+        "high": "زیاد"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.risk"
+    },
+    {
+      "key": "legal_status",
+      "label": "وضعیت حقوقی",
+      "kind": "enum",
+      "section": "general",
+      "when": "always",
+      "options": {
+        "review": "نیازمند بررسی حقوقی",
+        "sample": "مستندات احراز نشده"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.legal_status"
+    },
+    {
+      "key": "revenues",
+      "label": "منابع درآمد",
+      "kind": "multi",
+      "section": "general",
+      "when": "always",
+      "options": {
+        "sale": "فروش",
+        "rent": "اجاره",
+        "public": "پرداخت قراردادی دستگاه عمومی",
+        "mixed": "ترکیبی",
+        "service": "خدمات",
+        "product": "محصول",
+        "operate": "مدیریت بهره‌برداری"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.revenues"
+    },
+    {
+      "key": "checks",
+      "label": "بررسی‌های پروژه",
+      "kind": "lines",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.checks"
+    },
+    {
+      "key": "steps",
+      "label": "گام‌ها",
+      "kind": "lines",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.steps"
+    },
+    {
+      "key": "province",
+      "label": "استان",
+      "kind": "reference",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.province"
+    },
+    {
+      "key": "county",
+      "label": "شهرستان",
+      "kind": "reference",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.county"
+    },
+    {
+      "key": "city",
+      "label": "شهر",
+      "kind": "reference",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.city"
+    },
+    {
+      "key": "group",
+      "label": "حوزه",
+      "kind": "reference",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.group"
+    },
+    {
+      "key": "subtype",
+      "label": "زیردسته",
+      "kind": "reference",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.subtype"
+    },
+    {
+      "key": "usage",
+      "label": "کاربری",
+      "kind": "enum",
+      "section": "general",
+      "when": "always",
+      "options": {
+        "residential": "مسکونی",
+        "office": "اداری",
+        "commercial": "تجاری",
+        "tourism": "اقامتی و گردشگری",
+        "education": "آموزشی",
+        "medical": "درمانی",
+        "cultural": "فرهنگی و مذهبی",
+        "sports": "ورزشی",
+        "industrial": "صنعتی و لجستیک",
+        "agricultural": "کشاورزی",
+        "heritage": "میراث و بنای تاریخی",
+        "infrastructure": "زیرساختی",
+        "public": "خدمات عمومی",
+        "mixed": "چندمنظوره"
+      },
+      "unit": null,
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.usage"
+    },
+    {
+      "key": "metric_label",
+      "label": "عنوان ظرفیت",
+      "kind": "text",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": null,
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.metric_label"
+    },
+    {
+      "key": "metric_quantity",
+      "label": "مقدار ظرفیت",
+      "kind": "quantity",
+      "section": "general",
+      "when": "always",
+      "options": null,
+      "unit": "ITEM",
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.metric"
+    },
+    {
+      "key": "min_capital",
+      "label": "حداقل سرمایه ورود",
+      "kind": "money",
+      "section": "money",
+      "when": "participation",
+      "options": null,
+      "unit": "BILLION_TOMAN",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.min_capital"
+    },
+    {
+      "key": "budget",
+      "label": "نیاز مالی کل",
+      "kind": "money",
+      "section": "money",
+      "when": "always",
+      "options": null,
+      "unit": "BILLION_TOMAN",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.budget"
+    },
+    {
+      "key": "monthly_rent",
+      "label": "اجاره ماهانه",
+      "kind": "money",
+      "section": "money",
+      "when": "lessee",
+      "options": null,
+      "unit": "MILLION_TOMAN",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.monthly_rent"
+    },
+    {
+      "key": "working_capital_min",
+      "label": "نقدینگی اجرای پیمان",
+      "kind": "money",
+      "section": "money",
+      "when": "contractor",
+      "options": null,
+      "unit": "BILLION_TOMAN",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.working_capital_min"
+    },
+    {
+      "key": "purchase_price",
+      "label": "قیمت خرید",
+      "kind": "money",
+      "section": "money",
+      "when": "buyer",
+      "options": null,
+      "unit": "BILLION_TOMAN",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.purchase_price"
+    },
+    {
+      "key": "deposit",
+      "label": "ودیعه",
+      "kind": "money",
+      "section": "money",
+      "when": "lessee",
+      "options": null,
+      "unit": "BILLION_TOMAN",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.deposit"
+    },
+    {
+      "key": "lump_rent",
+      "label": "اجاره یکجای دوره",
+      "kind": "money",
+      "section": "money",
+      "when": "lessee",
+      "options": null,
+      "unit": "BILLION_TOMAN",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.lump_rent"
+    },
+    {
+      "key": "execution_months",
+      "label": "مدت اجرا",
+      "kind": "quantity",
+      "section": "money",
+      "when": "execution",
+      "options": null,
+      "unit": "MONTH",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.execution_months"
+    },
+    {
+      "key": "payback_years",
+      "label": "دوره بازگشت",
+      "kind": "quantity",
+      "section": "money",
+      "when": "participation",
+      "options": null,
+      "unit": "YEAR",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.payback_years"
+    },
+    {
+      "key": "payback_downside_years",
+      "label": "بازگشت بدبینانه",
+      "kind": "quantity",
+      "section": "money",
+      "when": "participation",
+      "options": null,
+      "unit": "YEAR",
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.payback_downside_years"
+    },
+    {
+      "key": "lockup_months",
+      "label": "قفل سرمایه",
+      "kind": "quantity",
+      "section": "money",
+      "when": "participation",
+      "options": null,
+      "unit": "MONTH",
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.lockup_months"
+    },
+    {
+      "key": "first_income_months",
+      "label": "اولین دریافت",
+      "kind": "quantity",
+      "section": "money",
+      "when": "participation",
+      "options": null,
+      "unit": "MONTH",
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.first_income_months"
+    },
+    {
+      "key": "duration_years",
+      "label": "مدت کل طرح / اجاره",
+      "kind": "quantity",
+      "section": "money",
+      "when": "duration",
+      "options": null,
+      "unit": "YEAR",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.duration_years"
+    },
+    {
+      "key": "heritage_years",
+      "label": "مدت بهره‌برداری میراث",
+      "kind": "quantity",
+      "section": "money",
+      "when": "heritage_years",
+      "options": null,
+      "unit": "YEAR",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.heritage_years"
+    },
+    {
+      "key": "partner_share",
+      "label": "سهم شریک",
+      "kind": "quantity",
+      "section": "terms",
+      "when": "participation",
+      "options": null,
+      "unit": "SHARE_PERCENT",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.partner_share"
+    },
+    {
+      "key": "government_share",
+      "label": "سهم دولت",
+      "kind": "quantity",
+      "section": "terms",
+      "when": "contractor",
+      "options": null,
+      "unit": "SHARE_PERCENT",
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.government_share"
+    },
+    {
+      "key": "irr",
+      "label": "IRR اعلامی",
+      "kind": "return",
+      "section": "terms",
+      "when": "participation",
+      "options": null,
+      "unit": "PERCENT",
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.irr"
+    },
+    {
+      "key": "interventions",
+      "label": "نوع مداخله دولت",
+      "kind": "multi",
+      "section": "terms",
+      "when": "participation",
+      "options": {
+        "land": "آورده زمین یا ساختمان",
+        "cash": "آورده نقدی دولت",
+        "mixed": "آورده نقدی و غیرنقدی دولت",
+        "concession": "اعطای حق بهره‌برداری مدت‌دار",
+        "purchase": "خرید خدمت یا تعهد پرداخت مجاز",
+        "infrastructure": "تامین زیرساخت و پشتیبانی قراردادی",
+        "private": "بدون آورده یا تعهد دولت"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:interventionLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "partnership_settlements",
+      "label": "نحوه تسویه سهم",
+      "kind": "multi",
+      "section": "terms",
+      "when": "participation",
+      "options": {
+        "cash": "نقدی",
+        "same": "درصدی از همین پروژه",
+        "other": "درصدی از پروژه دیگر",
+        "mixed": "ترکیبی"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:settlementLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "contractor_settlements",
+      "label": "تسویه صورت‌وضعیت",
+      "kind": "multi",
+      "section": "terms",
+      "when": "contractor",
+      "options": {
+        "cash": "نقدی",
+        "setoff": "تهاتری",
+        "swap": "معاوضه"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:contractorSettlementLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "accepted_guarantees",
+      "label": "تضمین قابل پذیرش",
+      "kind": "multi",
+      "section": "terms",
+      "when": "contractor",
+      "options": {
+        "bank": "ضمانت‌نامه بانکی / مؤسسه مجاز",
+        "cash": "سپرده نقدی",
+        "insurance": "ضمانت‌نامه بیمه‌گر واجد مجوز",
+        "fund": "ضمانت‌نامه صندوق واجد مجوز و پذیرش",
+        "receivable": "گواهی مطالبات قطعی واجد شرایط",
+        "note": "سفته / ابزار دیگر در حدود پذیرش قانونی"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:guaranteeLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "sale_payments",
+      "label": "شرایط پرداخت خرید",
+      "kind": "multi",
+      "section": "terms",
+      "when": "buyer",
+      "options": {
+        "cash": "نقد",
+        "cash_installment": "نقد + اقساط",
+        "installment": "اقساطی",
+        "setoff": "تهاتر مطالبات / دیون واجد شرایط",
+        "swap": "معاوضه مال یا حقوق قابل انتقال"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:salePaymentLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "transfer_rights",
+      "label": "حق قابل انتقال",
+      "kind": "multi",
+      "section": "terms",
+      "when": "buyer",
+      "options": {
+        "full": "مالکیت عین، عرصه و اعیان در حدود سند",
+        "land": "مالکیت عرصه",
+        "building": "مالکیت اعیان",
+        "sarqofli": "انتقال حق سرقفلی، بدون فرض مالکیت عین",
+        "business": "انتقال حق کسب یا پیشه یا تجارت، با احراز قابلیت انتقال",
+        "combined": "ترکیبی از عین و حقوق، با تفکیک در سند",
+        "lease": "منافع مدت‌دار، بدون انتقال مالکیت عین"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:transferRightLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "lease_types",
+      "label": "نوع اجاره",
+      "kind": "multi",
+      "section": "terms",
+      "when": "lessee",
+      "options": {
+        "one": "کوتاه‌مدت، حداکثر یک سال",
+        "medium": "بلندمدت، بیش از یک سال",
+        "rent_to_own": "اجاره به شرط تملیک"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:leaseTypeLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "lease_payments",
+      "label": "نحوه پرداخت اجاره",
+      "kind": "multi",
+      "section": "terms",
+      "when": "lessee",
+      "options": {
+        "monthly": "ماهانه",
+        "lump": "یکجا برای دوره مشخص",
+        "setoff": "تهاتر مطالبات / دیون واجد شرایط",
+        "swap": "معاوضه عوض / حقوق با بررسی قرارداد"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:leasePaymentLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "heritage_returns",
+      "label": "جبران هزینه مرمت",
+      "kind": "multi",
+      "section": "terms",
+      "when": "heritage",
+      "options": {
+        "lease": "مرمت و اجاره مدت‌دار بنا برای بهره‌برداری",
+        "offset": "مرمت و جبران هزینه تاییدشده از اجاره‌بها طبق قرارداد",
+        "fee": "دریافت مبلغ قرارداد مرمت و تحویل بنا به مالک / دولت",
+        "mixed": "ترکیبی از دریافت وجه و حق بهره‌برداری مدت‌دار"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:heritageReturnLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "heritage_uses",
+      "label": "کاربری پس از مرمت",
+      "kind": "multi",
+      "section": "terms",
+      "when": "heritage",
+      "options": {
+        "any": "پس از بررسی ظرفیت بنا تعیین شود",
+        "boutique": "بوتیک‌هتل / اقامتگاه",
+        "cafe": "کافه",
+        "restaurant": "رستوران / پذیرایی",
+        "culture": "فرهنگی، هنری یا صنایع‌دستی",
+        "office": "استفاده اداری مالک / دستگاه پس از تحویل"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:heritageUseLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "heritage_payments",
+      "label": "زمان دریافت قرارداد مرمت",
+      "kind": "multi",
+      "section": "terms",
+      "when": "heritage",
+      "options": {
+        "progress": "متناسب با پیشرفت تاییدشده",
+        "delivery": "پس از تحویل تاییدشده",
+        "staged": "ترکیبی از پیشرفت و تحویل"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/data/source-terms.ts:heritagePaymentLabel; src/types/index.ts:ProjectTerms/heritageTerms"
+    },
+    {
+      "key": "general_conditions",
+      "label": "شرایط عمومی",
+      "kind": "text",
+      "section": "terms",
+      "when": "execution",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.general_conditions"
+    },
+    {
+      "key": "special_conditions",
+      "label": "شرایط تخصصی",
+      "kind": "text",
+      "section": "terms",
+      "when": "execution",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.special_conditions"
+    },
+    {
+      "key": "rights_subject",
+      "label": "موضوع حق",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.subject"
+    },
+    {
+      "key": "rights_title_parties",
+      "label": "مالک عرصه / اعیان",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.title_parties"
+    },
+    {
+      "key": "rights_holder",
+      "label": "دارنده منافع / سرقفلی / حق کسب",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.holder"
+    },
+    {
+      "key": "rights_original_lease",
+      "label": "تاریخ رابطه اولیه و انتقال",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.original_lease"
+    },
+    {
+      "key": "rights_regime",
+      "label": "قانون حاکم و مستند",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.regime"
+    },
+    {
+      "key": "rights_assignment",
+      "label": "حق انتقال / رضایت",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.assignment"
+    },
+    {
+      "key": "rights_key_money",
+      "label": "شرح سرقفلی و دلیل پرداخت",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.key_money"
+    },
+    {
+      "key": "rights_valuation",
+      "label": "شرح ارزش مستقل حقوق",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.valuation"
+    },
+    {
+      "key": "rights_permitted_use",
+      "label": "کاربری و شغل مجاز",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.permitted_use"
+    },
+    {
+      "key": "rights_renewal",
+      "label": "شروط تمدید و تخلیه",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.renewal"
+    },
+    {
+      "key": "rights_claims",
+      "label": "دعاوی و حقوق ثالث",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.claims"
+    },
+    {
+      "key": "rights_registration",
+      "label": "نوع سند و ثبت",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.registration"
+    },
+    {
+      "key": "rights_costs",
+      "label": "هزینه انتقال و بدهی",
+      "kind": "text",
+      "section": "rights",
+      "when": "rights",
+      "options": null,
+      "unit": null,
+      "required": true,
+      "source": "src/lib/facts.ts:134-146; Opportunity.rights.costs"
+    },
+    {
+      "key": "rights_occupancy",
+      "label": "وضعیت تصرف",
+      "kind": "enum",
+      "section": "rights",
+      "when": "rights",
+      "options": {
+        "vacant": "تخلیه‌شده ادعایی",
+        "occupied": "دارای متصرف"
+      },
+      "unit": null,
+      "required": true,
+      "source": "src/types/index.ts:Opportunity.rights_occupancy"
+    }
+  ]
+}

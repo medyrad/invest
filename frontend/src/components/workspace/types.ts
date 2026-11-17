@@ -1,0 +1,12 @@
+export type Basis = { start_basis?: string; version?: number; metric_type?: string; period?: string; horizon?: { value: string; unit: { code: string; version: number } }; basis_date?: string; price_basis?: string; scope?: string; observation?: string; source?: string };
+export type Numeric = { field: { namespace: string; key: string; version: number }; unit: { code: string; version: number }; status: string; source_value: string | null; basis: Basis | null };
+export type Value = string | string[] | Numeric | null;
+export type Values = Record<string, Value>;
+export type Field = { key: string; label: string; kind: string; section: string; when: string; options: Record<string, string> | null; unit: string | null; required: boolean };
+export type FileRow = { id: string; name: string; kind: string; status: string; reason: string; received: boolean; attached: boolean; deleted: boolean; replaced: boolean; purged: boolean };
+export type Draft = { id: string; version: number; routes: string[]; heritage_enabled: boolean; raw: Values; effective: Values; missing: string[]; inactive: string[]; deleted: boolean; owner_label: string; files: FileRow[] };
+export type Application = { id: string; version: number; status: string; active: boolean; details: Record<string, string | boolean | null>; files: FileRow[] };
+export type Schema = { fields: Field[]; routes: Record<string, string> };
+export type RefOption = { id: string; name: string };
+export type Province = RefOption & { counties: (RefOption & { cities: RefOption[] })[] };
+export type Group = RefOption & { subtypes: RefOption[] };

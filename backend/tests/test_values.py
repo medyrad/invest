@@ -367,8 +367,8 @@ def test_value_api_contract_csrf_no_storage_and_persian_errors(client):
         ).validate(data)
 
     definitions = client.get("/api/v1/catalog/value-definitions")
-    assert definitions.status_code == 200 and len(definitions.json()["fields"]) == 8
-    assert len(definitions.json()["units"]) == 11
+    assert definitions.status_code == 200 and len(definitions.json()["fields"]) == 20
+    assert len(definitions.json()["units"]) == 12
     validate("ValueDefinitions", definitions.json())
     validate("ValueInput", payload(source="۱٫۵"))
     assert (
@@ -403,6 +403,7 @@ def test_catalog_migration_backward_forward_preserves_existing_taxonomy():
         id="values-migration-sentinel", name="داده قبلی", source_version="test"
     )
     executor = MigrationExecutor(connection)
+    final_targets = executor.loader.graph.leaf_nodes()
     try:
         executor.migrate([("catalog", "0001_initial")])
         assert Group.objects.filter(pk=marker.pk).exists()
@@ -416,7 +417,7 @@ def test_catalog_migration_backward_forward_preserves_existing_taxonomy():
         row.refresh_from_db()
         assert row.value == Decimal("1500000000")
     finally:
-        MigrationExecutor(connection).migrate([("catalog", "0003_value_definitions")])
+        MigrationExecutor(connection).migrate(final_targets)
 
 
 @pytest.mark.parametrize("kind,value", [("quantity", "12.123456789"), ("return", "-12.123456789")])

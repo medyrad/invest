@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "apps.identity",
     "apps.catalog",
+    "apps.workspace",
 ]
 MIDDLEWARE = [
     "config.middleware.RequestContextMiddleware",
@@ -70,3 +71,12 @@ LOGGING = {
         "django.security": {"handlers": ["null"], "propagate": False},
     },
 }
+
+# Engineering capacity limits for the synthetic A1 environment (D32).
+WORKSPACE_ACCOUNT_BYTES = int(os.environ.get("WORKSPACE_ACCOUNT_BYTES", 500 * 1048576))
+WORKSPACE_HOURLY_UPLOADS = int(os.environ.get("WORKSPACE_HOURLY_UPLOADS", 30))
+WORKSPACE_MAX_DRAFTS = int(os.environ.get("WORKSPACE_MAX_DRAFTS", 100))
+CLAMAV_HOST = os.environ.get("CLAMAV_HOST", "scanner")
+CLAMAV_PORT = int(os.environ.get("CLAMAV_PORT", 3310))
+
+WORKSPACE_HOURLY_RECEIVES = int(os.environ.get("WORKSPACE_HOURLY_RECEIVES", 60))

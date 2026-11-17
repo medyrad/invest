@@ -47,6 +47,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-52 rounded-2xl p-1.5">
                 <DropdownMenuItem asChild className="rounded-xl"><Link href="/saved"><Lovely size={17} variant="Bulk" />علاقه‌مندی‌ها</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild className="rounded-xl"><Link href="/drafts">پیش‌نویس‌های من</Link></DropdownMenuItem>
                 <DropdownMenuItem onSelect={() => void activity()} className="rounded-xl">بررسی و تمدید نشست</DropdownMenuItem><DropdownMenuSeparator />
                 <DropdownMenuItem onSelect={logout} variant="destructive" className="rounded-xl"><Logout size={17} />خروج</DropdownMenuItem>
               </DropdownMenuContent>

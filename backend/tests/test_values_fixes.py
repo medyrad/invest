@@ -258,6 +258,7 @@ def test_valid_basis_boundary_dates_horizon_and_source_lengths(date_text, horizo
 @pytest.mark.django_db(transaction=True)
 def test_incremental_migration_preflight_and_rollback_preserve_data():
     assert connection.settings_dict["NAME"].startswith("test_")
+    final_targets = MigrationExecutor(connection).loader.graph.leaf_nodes()
     MigrationExecutor(connection).migrate([LATEST])
     valid = MoneyValue.from_payload(payload())
     valid.save()
@@ -293,7 +294,7 @@ def test_incremental_migration_preflight_and_rollback_preserve_data():
         assert UnitDefinition.objects.count() == 11 and FieldDefinition.objects.count() == 8
     finally:
         MoneyValue.objects.filter(pk=valid.pk).update(basis=None)
-        MigrationExecutor(connection).migrate([LATEST])
+        MigrationExecutor(connection).migrate(final_targets)
 
 
 @pytest.mark.parametrize("kind,path", [("money", "unit.code"), ("return", "basis.source")])

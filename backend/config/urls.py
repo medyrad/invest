@@ -2,6 +2,7 @@ from django.urls import path
 
 from apps.catalog.api import Geography, NormalizeValue, Preview, Taxonomy, ValueDefinitions
 from apps.identity.api import AuthAPI
+from apps.workspace.api import WorkspaceAPI
 from config import views
 
 urlpatterns = [
@@ -44,3 +45,29 @@ urlpatterns += [
     path("api/v1/catalog/value-definitions", ValueDefinitions.as_view()),
     path("api/v1/catalog/values/normalize", NormalizeValue.as_view()),
 ]
+
+
+for suffix, action in [
+    ("schema", "schema"),
+    ("owners", "owners"),
+    ("drafts", "drafts"),
+    ("organizations", "organizations"),
+    ("files/reserve", "reserve"),
+]:
+    urlpatterns.append(
+        path("api/v1/workspace/" + suffix, WorkspaceAPI.as_view(), {"action": action})
+    )
+for suffix, action in [
+    ("drafts/<uuid:id>", "draft"),
+    ("drafts/<uuid:id>/delete", "delete"),
+    ("drafts/<uuid:id>/restore", "restore"),
+    ("organizations/<uuid:id>", "organizations"),
+    ("files/<uuid:id>/content", "content"),
+    ("files/<uuid:id>/download", "download"),
+    ("files/<uuid:id>/retry", "retry"),
+    ("files/<uuid:id>/delete", "file-delete"),
+    ("files/<uuid:id>/restore", "file-restore"),
+]:
+    urlpatterns.append(
+        path("api/v1/workspace/" + suffix, WorkspaceAPI.as_view(), {"action": action})
+    )
