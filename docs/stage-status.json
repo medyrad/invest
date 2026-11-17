@@ -23,12 +23,11 @@
     "D27",
     "D28",
     "D29",
-    "D30"
+    "D30",
+    "D31",
+    "D32"
   ],
-  "pending_questions": [
-    "PRODUCT-S05-01/P1",
-    "PRODUCT-S05-01/P2"
-  ],
+  "pending_questions": [],
   "feature_count": 44,
   "completed": [
     "Reference archive static inventory and hashes",
@@ -53,10 +52,11 @@
     "S02 foundation complete: scoped SpecKit cycle, Django/DRF/PostgreSQL custom account and API/CSRF, Next RTL shell and same-origin proxy, locked non-root images, 57 backend + 4 browser tests, database restart/outage recovery, lock drift rejection, CI definition and reproducible guide; baseline T003-T008 complete",
     "PROGRAMMER-S03-01 trial identity implemented and locally verified: 93 PostgreSQL tests, 28 browser checks at four widths, server OTP/session/revocation/quotas, reference dialog and synthetic audit; ready for independent testing, not final S03 acceptance",
     "PROGRAMMER-S04-01 home/navigation/server catalog implemented with scoped SpecKit artifacts and local evidence; ready for independent testing, not human or full S04 acceptance",
-    "Independent technical acceptance recorded from TEST-S03-03, TEST-S04-02 and TEST-S04-04; human/final stage acceptance unchanged; PRODUCT-S05-01 decision package prepared without S05 implementation authorization"
+    "Independent technical acceptance recorded from TEST-S03-03, TEST-S04-02 and TEST-S04-04; human/final stage acceptance unchanged; PRODUCT-S05-01 decision package prepared without S05 implementation authorization",
+    "User approved P3 as D30 and recommended P1/P2 as D31/D32; PROGRAMMER-S05-A1 handoff authorized and prepared; implementation and human visual acceptance not claimed."
   ],
   "remaining": [
-    "S03 آزمایشی، خانه/کاتالوگ S04 و بسته مبلغ/واحد پذیرش فنی مستقل دارند؛ گزارش‌های TEST-S03-03، TEST-S04-02 و TEST-S04-04 مرجع‌اند. تأیید انسانی و پایان کل S04 باز؛ PRODUCT-S05-01 فقط آماده‌سازی بسته پیشنهادی است، اجرای S05 و انتشار مجاز نیست.",
+    "S03 آزمایشی، خانه/کاتالوگ S04 و بسته مبلغ/واحد پذیرش فنی مستقل دارند. تأیید انسانی و پایان کل S04 باز است؛ با پذیرش D30–D32 ادامه فقط در دامنه PROGRAMMER-S05-A1 مجاز شد. A2/B/C و انتشار عمومی مجاز نیستند.",
     "Complete per-field/per-rule semantic mappings and schemas before each dependent feature; all by S10",
     "Stabilize visual state baselines and review mobile/new-panel designs before each UI acceptance",
     "Validate matching relevance against product-expert reviewed examples before S06 acceptance",
@@ -106,10 +106,10 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "product-s05-a-decision-review",
-    "description": "پاسخ به P1 و P2؛ P3 در D30 تأیید شد. تأیید انسانی و پایان S04 باز است؛ اجرای S05 نیازمند دستور جداست.",
-    "authorized": false,
-    "scope_path": "docs/stage5/product-s05-a.md",
+    "id": "PROGRAMMER-S05-A1",
+    "description": "اجرای پروژه، مالک فردی/سازمانی، پیش‌نویس قابل ادامه و فایل خصوصی طبق D30–D32؛ تأیید انسانی S04 باز است.",
+    "authorized": true,
+    "scope_path": "docs/stage5/programmer-s05-a1.md",
     "full_product_implementation_authorized": false
   },
   "active_step": {
@@ -372,21 +372,31 @@
   },
   "product_preparation": {
     "mission": "PRODUCT-S05-01",
-    "status": "partially-approved-awaiting-p1-p2",
+    "status": "p1-p2-p3-approved-s05-a1-authorized",
     "report_path": "docs/stage5/product-s05-a.md",
     "scope": "S05-A proposal and synchronization of existing technical acceptances only",
-    "pending_proposal_packages": [
-      "P1",
-      "P2"
-    ],
-    "s05_implementation_authorized": false,
+    "pending_proposal_packages": [],
+    "s05_implementation_authorized": true,
     "accepted_proposal_packages": {
       "P3": {
         "decision": "D30",
         "answer": "P3 پیشنهادی را می‌پذیرم",
         "source": "Coordinator P3 question and explicit user reply",
         "decision_path": "docs/03-decisions.md"
+      },
+      "P1": {
+        "decision": "D31",
+        "answer": "پیشنهاد خودت هرکدام است رو برو جلو",
+        "source": "Explicit acceptance of coordinator recommended options; P1 includes total/per-unit price amendment",
+        "decision_path": "docs/03-decisions.md"
+      },
+      "P2": {
+        "decision": "D32",
+        "answer": "پیشنهاد خودت هرکدام است رو برو جلو",
+        "source": "Explicit acceptance of coordinator recommended options; P1 includes total/per-unit price amendment",
+        "decision_path": "docs/03-decisions.md"
       }
-    }
+    },
+    "implementation_authorization_scope": "PROGRAMMER-S05-A1 only; no A2/B/C, public deployment or human visual acceptance"
   }
 }
