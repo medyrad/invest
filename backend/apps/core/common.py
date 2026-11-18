@@ -55,6 +55,8 @@ def notify(user, text, path):
 
 
 def owner(op):
+    if op is None:
+        return None
     if not op.draft.organization_id:
         return op.draft.creator
     from apps.workspace.models import Representation

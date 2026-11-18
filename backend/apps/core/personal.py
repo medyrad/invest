@@ -1,5 +1,7 @@
+from django.db.models import Q
 from django.utils import timezone
 
+from apps.services.service import permitted_report
 from apps.workspace.schema import Fault, check_keys
 
 from .common import identifier, run, text
@@ -36,8 +38,21 @@ def state(user):
             .values("id", "text", "path", "read", "created_at")[:100]
         ],
         "reports": [
-            {"id": str(r.pk), "created_at": r.created_at.isoformat()}
-            for r in Report.objects.filter(user=user).order_by("-created_at")[:50]
+            {
+                "id": str(r.pk),
+                "created_at": r.created_at.isoformat(),
+                "subject_type": r.snapshot.get("subject_type", "opportunity"),
+                "title": r.snapshot.get("title", "گزارش فرصت"),
+                "download": "/api/v1/services/reports/"
+                + str(r.pk)
+                + ("/package" if r.snapshot.get("files") else "/download")
+                if r.snapshot.get("subject_type") == "service"
+                else "/api/v1/core/reports/" + str(r.pk),
+            }
+            for r in Report.objects.filter(
+                Q(user=user) | Q(snapshot__subject_type="service")
+            ).order_by("-created_at")
+            if permitted_report(user, r)
         ],
     }
 
@@ -91,6 +106,11 @@ def mutate(user, data):
                 }
                 if not isinstance(professional, dict) or set(professional) - keys:
                     raise Fault("فیلد حرفه‌ای ناشناخته است.")
+                if professional.get("certificateNo") and not professional.get("issuer"):
+                    raise Fault(
+                        "برای گواهینامه دارای شماره، مرجع صادرکننده را نیز مشخص کنید.",
+                        field="professional.issuer",
+                    )
                 for k, item in professional.items():
                     if k == "roles":
                         if not isinstance(item, list) or any(

@@ -1,20 +1,20 @@
 "use client";
+import {useMemo} from "react";
 // فیلتر پیشرفته کنار نتایج. همه فیلدهای اختیاری از data/fields.ts خوانده می‌شوند.
 // بخش‌ها تک‌بازشو هستند تا فهرست کوتاه بماند و اسکرول کم شود. مبلغ و محدوده بالای صفحه‌اند.
-import { useMemo } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CloseCircle, Danger, InfoCircle, Refresh2, Save2, TickCircle } from "@/components/iconsax";
+import { CloseCircle, InfoCircle, Refresh2, Save2, TickCircle } from "@/components/iconsax";
 import { advancedFields, advancedSections, profileFields } from "@/data/fields";
 import { routes, routeSubcategories } from "@/data/routes";
 import { projectGroups } from "@/data/taxonomy";
-import { advisories } from "@/data/advisories";
+import { ServerAdvisoryQuestions } from "@/components/tools/advisory-questions";
 import { listings } from "@/lib/listings";
 import { useStore } from "@/lib/store";
 import type { FieldDef, FieldOption, FilterValue, RouteId } from "@/types";
 import { cn, faNumber } from "@/lib/utils";
-import { Dropdown, FieldControl } from "./controls";
+import { FieldControl } from "./controls";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { hasQuickFilters } from "./quick-filters";
 import { CityPicker } from "./province-picker";
@@ -65,32 +65,7 @@ function Section({ id, title, count, info, children }: { id: string; title: stri
 }
 
 /** پرسش‌های تخصصی نوع پروژه (از نسخه مرجع)، فقط برای نوع‌های انتخاب‌شده نمایش داده می‌شود */
-function AdvisoryQuestions({ subtypes }: { subtypes: string[] }) {
-  const { criteria, setFilter } = useStore();
-  const names = useMemo(() => Object.fromEntries(projectGroups.flatMap((g) => g.subtypes).map((s) => [s.id, s.name])), []);
-  const withAdvisory = subtypes.filter((s) => advisories[s]);
-  if (!subtypes.length) return <p className="text-[13px] leading-6 text-muted-foreground">از «ویژگی‌های پروژه»، نوع دقیق پروژه را انتخاب کنید تا پرسش‌های همان نوع این‌جا بیاید.</p>;
-  if (!withAdvisory.length) return <p className="text-[13px] leading-6 text-muted-foreground">برای نوع انتخاب‌شده پرسش تخصصی ثبت نشده است.</p>;
-  return (
-    <>
-      {withAdvisory.map((st) => { const a = advisories[st];
-        return (
-          <div key={st} className="space-y-4">
-            <p className="rounded-2xl bg-muted p-3 text-[13px] font-semibold leading-6 text-ink/80"><b className="text-primary-ink">{names[st]}: </b>{a.context}</p>
-            {a.questions.map((q) => { const key = `adv:${st}:${q.id}`; const v = criteria.filters[key] as string | undefined;
-              return (
-                <div key={q.id}>
-                  <p className="mb-2 text-[13px] font-bold leading-6 text-ink/80">{q.label}</p>
-                  <Dropdown options={q.options} value={v} onChange={(x) => setFilter(key, x)} />
-                  {v && q.block.includes(v) && <p className="mt-2 flex items-start gap-1.5 text-xs font-semibold leading-5 text-destructive"><Danger size={15} variant="Bold" className="mt-0.5 shrink-0" />{q.actions[v] ?? "با این پاسخ، ابتدا باید این مانع برطرف شود."}</p>}
-                  {v && !q.block.includes(v) && (q.review.includes(v) || q.actions[v]) && <p className="mt-2 flex items-start gap-1.5 text-xs font-semibold leading-5 text-ink/70"><InfoCircle size={15} variant="Bold" className="mt-0.5 shrink-0 text-primary-ink" />{q.actions[v] ?? "این مورد را کارشناس باید بررسی کند."}</p>}
-                </div>
-              ); })}
-          </div>
-        ); })}
-    </>
-  );
-}
+const AdvisoryQuestions = ServerAdvisoryQuestions;
 
 /** بج ذخیره جست‌وجو کنار «حذف همه» در سرِ فیلترها (جای نوار پیشنهاد ذخیره بالای نتایج) */
 /** ذخیره جست‌وجو فقط با آیکون، متن کامل در راهنمای شناور و برچسب دسترسی */

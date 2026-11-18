@@ -9,6 +9,7 @@ from rest_framework.response import Response
 
 from apps.identity.models import User
 from apps.identity.sessions import current_session, mint_session
+from apps.services.models import ServiceSubmission
 from apps.workspace.models import PrivateFile, RepresentationRequest
 from apps.workspace.schema import Fault, check_keys
 from apps.workspace.service import application_dto
@@ -141,11 +142,16 @@ class CoreAPI(PublicBase):
                     submissions = Submission.objects.filter(opportunity__in=ops).order_by(
                         "-created_at"
                     )
-                    cs = (
-                        Case.objects.all()
-                        if admin
-                        else Case.objects.filter(Q(expert=user) | Q(customer=user))
-                    )
+                    cs = [
+                        c
+                        for c in Case.objects.select_related(
+                            "service_draft__organization",
+                            "service_submission",
+                            "opportunity__draft",
+                            "submission",
+                        ).order_by("-created_at")
+                        if admin or c.expert_id == user.pk or cases.is_customer(user, c)
+                    ]
                     return Response(
                         {
                             "opportunities": [
@@ -178,7 +184,7 @@ class CoreAPI(PublicBase):
                             ]
                             if admin
                             else [],
-                            "cases": [cases.dto(c) for c in cs.order_by("-created_at")],
+                            "cases": [cases.dto(c) for c in cs],
                             "contact_grants": [
                                 {
                                     "case_id": str(g.case_id),
@@ -208,9 +214,15 @@ class CoreAPI(PublicBase):
                 if parts[0] == "contact" and len(parts) == 2:
                     return Response(cases.contact(session, parts[1]))
                 if parts[0] == "reports" and len(parts) == 2:
-                    r = Report.objects.filter(pk=identifier(parts[1]), user=user).first()
-                    if not r:
+                    r = Report.objects.filter(pk=identifier(parts[1])).first()
+                    from apps.services.service import permitted_report
+
+                    if not r or not permitted_report(user, r):
                         raise Fault("گزارش پیدا نشد.", 404)
+                    if r.snapshot.get("subject_type") == "service":
+                        from apps.services.service import get_report
+
+                        get_report(user, r.pk)
                     response = HttpResponse(
                         json.dumps(r.snapshot, ensure_ascii=False, indent=2),
                         content_type="application/json; charset=utf-8",
@@ -229,13 +241,17 @@ class CoreAPI(PublicBase):
                         role(session, "admin")
                         allowed = bool(
                             f.application_id
+                            or ServiceSubmission.objects.filter(
+                                files__contains=[str(f.pk)]
+                            ).exists()
                             or Submission.objects.filter(files__contains=[str(f.pk)]).exists()
                         )
                     if not allowed:
                         for c in Case.objects.filter(
-                            message__files__contains=[str(f.pk)]
+                            Q(message__files__contains=[str(f.pk)])
+                            | Q(service_submission__files__contains=[str(f.pk)])
                         ).distinct():
-                            if user.pk in [c.customer_id, c.expert_id]:
+                            if cases.is_customer(user, c) or user.pk == c.expert_id:
                                 cases.get_case(session, c.pk)
                                 allowed = True
                                 break

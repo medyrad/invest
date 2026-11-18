@@ -10,6 +10,7 @@ from django.utils import timezone
 
 from apps.catalog.models import MoneyValue, Quantity, ReturnMetric
 from apps.identity.models import User
+from apps.services import schemas as services
 
 from . import other_schema as schema
 from .models import (
@@ -87,8 +88,13 @@ def file_dto(f):
 
 
 def draft_dto(d):
-    result, missing = schema.effective(d.kind, d.raw, d.routes, d.heritage_enabled)
+    if d.kind in services.KINDS:
+        result, missing, validation_errors = services.readable_state(d.kind, d.raw)
+    else:
+        result, missing = schema.effective(d.kind, d.raw, d.routes, d.heritage_enabled)
+        validation_errors = {}
     return {
+        "validation_errors": validation_errors,
         "id": str(d.pk),
         "version": d.version,
         "kind": d.kind,
@@ -198,7 +204,7 @@ def operation(user, data, kind, run):
 def create_draft(user, data):
     check_keys(data, ["key", "kind", "schema_version", "owner"])
     if (
-        data["kind"] not in ["project", "fund", "sale"]
+        data["kind"] not in ["project", "fund", "sale", *services.KINDS]
         or type(data["schema_version"]) is not int
         or data["schema_version"] != 1
     ):
@@ -263,31 +269,36 @@ def save_draft(user, id, data):
             raise Fault("مسیر یا شرط میراث معتبر نیست.", field="routes")
         if not isinstance(vals, dict) or set(vals) - set(FIELDS):
             raise Fault("فیلد ناشناخته یا سیستمی قابل ثبت نیست.", field="values")
-        raw = dict(d.raw)
-        # Conditions depend on explicit route/heritage selection and returns; dormant input
-        # cannot overwrite previously saved dormant values.
-        if "heritage" in routes and data["heritage_enabled"] and "heritage_returns" in vals:
-            if vals["heritage_returns"] is None:
-                raw.pop("heritage_returns", None)
-            else:
-                validate_one("heritage_returns", vals["heritage_returns"])
-                raw["heritage_returns"] = vals["heritage_returns"]
-        for control in ["category", "bank_exists", "price_mode", "forecast_type"]:
-            if control in vals and control in FIELDS:
-                if vals[control] is None:
-                    raw.pop(control, None)
+        if d.kind in services.KINDS:
+            if routes or data["heritage_enabled"]:
+                raise Fault("پیش‌نویس خدمت مسیر فرصت یا شرط میراث ندارد.", field="routes")
+            raw = services.merge(d.kind, d.raw, vals)
+        else:
+            raw = dict(d.raw)
+            # Conditions depend on explicit route/heritage selection and returns; dormant input
+            # cannot overwrite previously saved dormant values.
+            if "heritage" in routes and data["heritage_enabled"] and "heritage_returns" in vals:
+                if vals["heritage_returns"] is None:
+                    raw.pop("heritage_returns", None)
                 else:
-                    schema.validate(d.kind, control, vals[control])
-                    raw[control] = vals[control]
-        active = schema.active(d.kind, routes, data["heritage_enabled"], raw)
-        for k, v in vals.items():
-            if k not in active:
-                continue
-            if v is None:
-                raw.pop(k, None)
-            else:
-                schema.validate(d.kind, k, v)
-                raw[k] = v
+                    validate_one("heritage_returns", vals["heritage_returns"])
+                    raw["heritage_returns"] = vals["heritage_returns"]
+            for control in ["category", "bank_exists", "price_mode", "forecast_type"]:
+                if control in vals and control in FIELDS:
+                    if vals[control] is None:
+                        raw.pop(control, None)
+                    else:
+                        schema.validate(d.kind, control, vals[control])
+                        raw[control] = vals[control]
+            active = schema.active(d.kind, routes, data["heritage_enabled"], raw)
+            for k, v in vals.items():
+                if k not in active:
+                    continue
+                if v is None:
+                    raw.pop(k, None)
+                else:
+                    schema.validate(d.kind, k, v)
+                    raw[k] = v
         result, _ = schema.effective(d.kind, raw, routes, data["heritage_enabled"])
         d.raw = raw
         d.routes = routes

@@ -32,7 +32,9 @@ class WorkspaceAPI(PublicBase):
                     from .other_schema import definition
 
                     kind = request.query_params.get("kind", "project")
-                    if kind not in ["project", "fund", "sale"]:
+                    from apps.services.schemas import KINDS
+
+                    if kind not in ["project", "fund", "sale", *KINDS]:
                         raise Fault("نوع فرصت معتبر نیست.")
                     result = definition(kind)
                 elif action == "owners":

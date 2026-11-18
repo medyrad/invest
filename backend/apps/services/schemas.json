@@ -1,0 +1,3471 @@
+{
+  "proposal": {
+    "kind": "proposal",
+    "schema_version": 1,
+    "rule_version": 1,
+    "routes": {},
+    "steps": [
+      "معرفی طرح، موقعیت، مرحله و نیاز",
+      "منابع و پیش‌نیازها",
+      "جمع‌بندی راهنمای اولیه"
+    ],
+    "fields": [
+      {
+        "key": "title",
+        "label": "عنوان طرح — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 741,
+          "id": "ext-p-title"
+        },
+        "full": true,
+        "placeholder": "عنوان کوتاه و بدون اطلاعات محرمانه",
+        "help": null
+      },
+      {
+        "key": "sector",
+        "label": "گروه اصلی پروژه",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 899,
+          "id": "ext-p-sector"
+        },
+        "full": false,
+        "reference": "sector",
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "type",
+        "label": "نوع دقیق پروژه",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 999,
+          "id": "ext-p-type"
+        },
+        "full": false,
+        "reference": "type",
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "province",
+        "label": "استان",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 1088,
+          "id": "ext-p-province"
+        },
+        "full": false,
+        "reference": "province",
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "city",
+        "label": "شهر / روستا",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 1187,
+          "id": "ext-p-city"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "neighborhood",
+        "label": "محله / محدوده — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 1311,
+          "id": "ext-p-neighborhood"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "stage",
+        "label": "مرحله فعلی طرح",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "idea": "ایده و بررسی اولیه",
+          "study": "مطالعات و اخذ مجوز",
+          "ready": "آماده اجرا",
+          "construction": "در حال ساخت یا مرمت",
+          "operation": "آماده یا در حال بهره‌برداری"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 1426,
+          "id": "ext-p-stage"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "need",
+        "label": "نیاز اصلی شما چیست؟",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "partner": "شریک برای سرمایه‌گذاری یا تکمیل طرح",
+          "loan": "بررسی مسیر تسهیلات و تامین مالی",
+          "purchase": "بررسی امکان تضمین خرید محصول یا خدمت",
+          "infrastructure": "تکمیل زیرساخت و رفع مانع بهره‌برداری",
+          "operator": "همراه برای بهره‌برداری و نگهداری",
+          "support": "منابع حمایتی و مشارکت خیرین"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 1829,
+          "id": "ext-p-need"
+        },
+        "full": true,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "gap",
+        "label": "کسری برآوردی منابع — میلیارد تومان",
+        "kind": "money",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": "BILLION_TOMAN",
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 2720,
+          "id": "ext-p-gap"
+        },
+        "full": false,
+        "integer": false,
+        "namespace": "invest.service.proposal",
+        "version": 1,
+        "placeholder": "اگر مشخص نیست، خالی بگذارید",
+        "help": "فقط منابع تامین‌نشده موردنیاز، مستقل از سرمایه‌هایی که در سایر بخش‌ها وارد کرده‌اید."
+      },
+      {
+        "key": "land",
+        "label": "وضعیت اختیار زمین یا دارایی",
+        "kind": "enum",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز روشن نیست",
+          "owned": "مالکیت اعلام‌شده، نیازمند احراز سند",
+          "authorized": "اختیار قراردادی یا اداری اعلام‌شده",
+          "none": "زمین یا دارایی هنوز در اختیار نیست",
+          "dispute": "اختلاف یا ابهام جدی درباره حقوق دارایی وجود دارد"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 2999,
+          "id": "ext-p-land"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "permit",
+        "label": "وضعیت مجوزهای اصلی",
+        "kind": "enum",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز روشن نیست",
+          "pending": "در حال بررسی یا اخذ مجوز",
+          "ready": "اخذ شده، مستندات باید بررسی شوند"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 3420,
+          "id": "ext-p-permit"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "revenue",
+        "label": "منبع موردنظر برای بازپرداخت یا پوشش هزینه",
+        "kind": "enum",
+        "section": 1,
+        "when": {
+          "field": "need",
+          "op": "ne",
+          "value": "support"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نشده",
+          "sale": "فروش محصول یا واحدهای پروژه",
+          "service": "درآمد ارائه خدمت به استفاده‌کننده",
+          "rent": "اجاره و درآمد بهره‌برداری",
+          "public": "پرداخت قراردادی دستگاه عمومی",
+          "donation": "کمک و حمایت، بدون انتظار بازده تجاری"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 3730,
+          "id": "ext-p-revenue"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "progress",
+        "label": "پیشرفت فیزیکی اعلامی — درصد",
+        "kind": "quantity",
+        "section": 1,
+        "when": {
+          "field": "stage",
+          "op": "eq",
+          "value": "construction"
+        },
+        "required": false,
+        "options": null,
+        "unit": "PERCENTAGE",
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 4223,
+          "id": "ext-p-progress"
+        },
+        "full": false,
+        "integer": false,
+        "namespace": "invest.service.proposal",
+        "version": 1,
+        "minimum": "0",
+        "maximum": "100",
+        "placeholder": "اختیاری، بین صفر و ۱۰۰",
+        "help": null
+      },
+      {
+        "key": "utilities",
+        "label": "آمادگی زیرساخت‌های ضروری",
+        "kind": "enum",
+        "section": 1,
+        "when": {
+          "any": [
+            {
+              "field": "stage",
+              "op": "in",
+              "values": [
+                "construction",
+                "operation"
+              ]
+            },
+            {
+              "field": "need",
+              "op": "eq",
+              "value": "infrastructure"
+            }
+          ]
+        },
+        "required": false,
+        "options": {
+          "unknown": "ارزیابی نشده",
+          "ready": "آماده اعلام شده، نیازمند مستند",
+          "pending": "یک یا چند زیرساخت آماده نیست"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 4433,
+          "id": "ext-p-utilities"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "operator",
+        "label": "بهره‌بردار و منابع هزینه جاری",
+        "kind": "enum",
+        "section": 1,
+        "when": {
+          "any": [
+            {
+              "field": "need",
+              "op": "in",
+              "values": [
+                "support",
+                "operator"
+              ]
+            },
+            {
+              "field": "type",
+              "op": "in",
+              "values": [
+                "medical",
+                "education",
+                "cultural",
+                "sports",
+                "watertreatment",
+                "wastewater",
+                "community",
+                "fire"
+              ]
+            }
+          ]
+        },
+        "required": false,
+        "options": {
+          "unknown": "تعیین نشده",
+          "planned": "در حال توافق",
+          "ready": "تعیین شده، مستندات باید بررسی شوند"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 4742,
+          "id": "ext-p-operator"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "description",
+        "label": "توضیح کوتاه درباره نیاز یا مانع اصلی — اختیاری",
+        "kind": "text",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 153,
+          "column": 5025,
+          "id": "ext-p-description"
+        },
+        "full": true,
+        "placeholder": "از درج اطلاعات شخصی یا اسناد محرمانه خودداری کنید.",
+        "help": null
+      },
+      {
+        "key": "existing_resources",
+        "label": "منابع موجود قابل تعهد",
+        "kind": "money",
+        "unit": "BILLION_TOMAN",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": null,
+        "source": "PROGRAMMER-S08-COMPLETE:proposal",
+        "namespace": "invest.service.proposal",
+        "version": 1
+      },
+      {
+        "key": "total_need",
+        "label": "کل نیاز مالی با همان دامنه",
+        "kind": "money",
+        "unit": "BILLION_TOMAN",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": null,
+        "source": "PROGRAMMER-S08-COMPLETE:proposal",
+        "namespace": "invest.service.proposal",
+        "version": 1
+      }
+    ],
+    "source": [
+      "HTML#ext-proposal:153",
+      "AlgonetEnhancements.readProposal/validateProposal/fundingAdvice/syncProposalDetails:966-995"
+    ],
+    "name": "معرفی طرح و نیاز مالی",
+    "presentation": {
+      "head": "برای توسعه و تامین مالی طرحم همراه می‌خواهم",
+      "eyebrow": "از معرفی طرح تا شناخت مسیر همکاری",
+      "intro": "ابتدا ماهیت طرح را مشخص کنید، سپس فقط اطلاعات مرتبط پرسیده می‌شود. نام، شماره تماس یا اطلاعات هویتی در این فرم لازم نیست؛ ذخیره خصوصی و ارسال برای کارشناس با اقدام صریح شما انجام می‌شود."
+    }
+  },
+  "ideas": {
+    "kind": "ideas",
+    "schema_version": 1,
+    "rule_version": 1,
+    "routes": {},
+    "steps": [
+      "معرفی ایده و پیوست",
+      "آماده‌سازی بسته و دریافت"
+    ],
+    "fields": [
+      {
+        "key": "title",
+        "label": "عنوان ایده یا طرح *",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 229,
+          "column": 58,
+          "id": "idea-title"
+        },
+        "full": true,
+        "placeholder": "مثلاً مجموعه تفریحی و شهربازی خانوادگی",
+        "help": null
+      },
+      {
+        "key": "sector",
+        "label": "حوزه ایده *",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "گردشگری، شهربازی و سرگرمی": "گردشگری، شهربازی و سرگرمی",
+          "ساختمان و فضاهای زندگی و کار": "ساختمان و فضاهای زندگی و کار",
+          "زیرساخت و حمل‌ونقل": "زیرساخت و حمل‌ونقل",
+          "آب، انرژی و محیط‌زیست": "آب، انرژی و محیط‌زیست",
+          "فناوری و شهر هوشمند": "فناوری و شهر هوشمند",
+          "آماده‌سازی و توسعه زمین": "آماده‌سازی و توسعه زمین",
+          "مرمت و احیای میراث": "مرمت و احیای میراث",
+          "خدمات اجتماعی و عام‌المنفعه": "خدمات اجتماعی و عام‌المنفعه",
+          "سایر ایده‌های نو": "سایر ایده‌های نو"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 230,
+          "column": 45,
+          "id": "idea-sector"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "stage",
+        "label": "مرحله فعلی *",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "ایده اولیه": "ایده اولیه",
+          "مطالعات اولیه": "مطالعات اولیه",
+          "طرح توجیهی آماده": "طرح توجیهی آماده",
+          "دارای زمین یا مجوز، آماده بررسی اجرا": "دارای زمین یا مجوز، آماده بررسی اجرا",
+          "در حال اجرا یا توسعه": "در حال اجرا یا توسعه"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 231,
+          "column": 46,
+          "id": "idea-stage"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "province",
+        "label": "استان — اختیاری",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 232,
+          "column": 49,
+          "id": "idea-province"
+        },
+        "full": false,
+        "reference": "province",
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "city",
+        "label": "شهر یا محدوده — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 232,
+          "column": 150,
+          "id": "idea-city"
+        },
+        "full": false,
+        "placeholder": "محل پیشنهادی یا بدون محدودیت",
+        "help": null
+      },
+      {
+        "key": "description",
+        "label": "ایده شما چه ارزشی ایجاد می‌کند؟ *",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 233,
+          "column": 72,
+          "id": "idea-description"
+        },
+        "full": true,
+        "placeholder": "چه چیزی می‌سازید، برای چه کسانی و چه نیازی را پاسخ می‌دهید؟",
+        "help": null
+      },
+      {
+        "key": "need",
+        "label": "چه همراهی نیاز دارید؟ *",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "سرمایه‌گذار یا شریک": "سرمایه‌گذار یا شریک",
+          "زمین یا ملک مناسب": "زمین یا ملک مناسب",
+          "پیمانکار یا مجری تخصصی": "پیمانکار یا مجری تخصصی",
+          "بهره‌بردار و شریک تجاری": "بهره‌بردار و شریک تجاری",
+          "بررسی و تکمیل امکان‌سنجی": "بررسی و تکمیل امکان‌سنجی",
+          "ترکیبی از موارد بالا": "ترکیبی از موارد بالا"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 234,
+          "column": 57,
+          "id": "idea-need"
+        },
+        "full": true,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "capital",
+        "label": "سرمایه موردنیاز — میلیارد تومان، اختیاری",
+        "kind": "money",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": "BILLION_TOMAN",
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 235,
+          "column": 74,
+          "id": "idea-capital"
+        },
+        "full": false,
+        "integer": false,
+        "namespace": "invest.service.ideas",
+        "version": 1,
+        "placeholder": "اگر هنوز برآورد نشده، خالی بگذارید",
+        "help": null
+      }
+    ],
+    "source": [
+      "HTML#vivid-ideas:226-239",
+      "VividPortal.prepare/fileData/download:1362-1375"
+    ],
+    "name": "ایده‌های نو و طرح‌های پیشنهادی",
+    "presentation": {
+      "head": null,
+      "eyebrow": "ایده شما، آغاز یک فرصت تازه",
+      "intro": null
+    }
+  },
+  "land-preparation": {
+    "kind": "land-preparation",
+    "schema_version": 1,
+    "rule_version": 1,
+    "routes": {},
+    "steps": [
+      "نقش، خدمات و موقعیت ملک",
+      "پرسش‌های هر خدمت و ظرفیت",
+      "جمع‌بندی بسته، ترتیب و خروجی"
+    ],
+    "fields": [
+      {
+        "key": "role",
+        "label": "چگونه مایل به ورود هستید؟",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "investor": "در خدمات آماده‌سازی زمین سرمایه‌گذاری یا مشارکت می‌کنم",
+          "contractor": "خدمات تخصصی یا عملیات اجرایی ارائه می‌کنم",
+          "owner": "زمین یا ملکی را برای دریافت این خدمات معرفی می‌کنم",
+          "explore": "ابتدا می‌خواهم روش‌های ورود را بشناسم"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 158,
+          "column": 137,
+          "id": "lp-role"
+        },
+        "full": true,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "types",
+        "label": "خدمت‌های موردنیاز به ترتیب انتخاب شما",
+        "kind": "ordered_multi",
+        "unit": null,
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "lhstudy": "مطالعات و طراحی آماده‌سازی اراضی",
+          "lhearth": "تسطیح و عملیات خاکی اراضی",
+          "lhroads": "معابر و دسترسی‌های داخلی",
+          "lhwater": "شبکه آب، فاضلاب و آب‌های سطحی",
+          "lhenergy": "شبکه برق، گاز و روشنایی",
+          "lhplots": "قطعه‌بندی و تحویل زمین آماده ساخت",
+          "lhintegrated": "آماده‌سازی یکپارچه اراضی مسکونی",
+          "lhhousing": "توسعه یکپارچه زمین و ساخت مسکن",
+          "lhcompletion": "تکمیل آماده‌سازی و رفع موانع تحویل مسکن",
+          "lp-endowment": "تبدیل به احسن کردن املاک اوقافی",
+          "lp-ownership": "تکمیل پرونده‌های مالکیتی و رفع مشکلات مربوط به آن",
+          "lp-legal": "رفع مشکلات حقوقی املاک",
+          "lp-deed": "اخذ سند تک‌برگ",
+          "lp-use": "تغییر کاربری ملک",
+          "lp-security": "حفاظت از املاک",
+          "lp-fence": "نصب نیوجرسی و حصار اطراف زمین",
+          "lp-maintenance": "حفاظت و نگهداری اراضی و املاک",
+          "lp-parcel": "آماده‌سازی و تفکیک زمین",
+          "lp-town": "شهرک‌سازی و توسعه اراضی جدید",
+          "lp-consolidation": "نوسازی و تجمیع املاک",
+          "lp-redevelopment": "توسعه مجدد و تغییر کاربری ملک",
+          "lp-mixed": "توسعه مجتمع‌های چندمنظوره"
+        },
+        "source": [
+          "HTML#land-preparation:156-161",
+          "land-preparation-script:1039-1119"
+        ],
+        "full": true
+      },
+      {
+        "key": "province",
+        "label": "استان",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 158,
+          "column": 1368,
+          "id": "lp-province"
+        },
+        "full": false,
+        "reference": "province",
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "city",
+        "label": "شهر / روستا — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 158,
+          "column": 1465,
+          "id": "lp-city"
+        },
+        "full": false,
+        "placeholder": "همه شهرها",
+        "help": null
+      },
+      {
+        "key": "neighborhood",
+        "label": "محله / محدوده — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 158,
+          "column": 1601,
+          "id": "lp-neighborhood"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "area",
+        "label": "مساحت تقریبی عرصه — مترمربع",
+        "kind": "quantity",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": "SQUARE_METRE",
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 158,
+          "column": 1726,
+          "id": "lp-area"
+        },
+        "full": false,
+        "integer": false,
+        "minimum": "0.000000001",
+        "namespace": "invest.service.land-preparation",
+        "version": 1,
+        "placeholder": "اگر نامشخص است، خالی بگذارید",
+        "help": null
+      },
+      {
+        "key": "keyword",
+        "label": "عنوان یا توضیح کوتاه — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 158,
+          "column": 1913,
+          "id": "lp-keyword"
+        },
+        "full": true,
+        "placeholder": "عنوان طرح یا ویژگی مهم زمین",
+        "help": null
+      },
+      {
+        "key": "budget",
+        "label": "سرمایه قابل تخصیص — میلیارد تومان",
+        "kind": "money",
+        "section": 1,
+        "when": {
+          "field": "role",
+          "op": "ne",
+          "value": "explore"
+        },
+        "required": false,
+        "options": null,
+        "unit": "BILLION_TOMAN",
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 159,
+          "column": 332,
+          "id": "lp-budget"
+        },
+        "full": false,
+        "integer": false,
+        "namespace": "invest.service.land-preparation",
+        "version": 1,
+        "placeholder": "اختیاری",
+        "help": "این مبلغ مستقل از بودجه فروش، اجاره و مشارکت عمومی است."
+      },
+      {
+        "key": "months",
+        "label": "حداکثر زمان اجرای موردنظر — ماه",
+        "kind": "quantity",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": "MONTH",
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 159,
+          "column": 566,
+          "id": "lp-months"
+        },
+        "full": false,
+        "integer": true,
+        "minimum": "0.000000001",
+        "namespace": "invest.service.land-preparation",
+        "version": 1,
+        "basis_hint": "مبدأ همین دوره را صریح وارد کنید.",
+        "placeholder": "اختیاری",
+        "help": "مدت اجرای عملیات، با بازگشت سرمایه یا مدت قرارداد یکسان نیست."
+      }
+    ],
+    "source": [
+      "HTML#land-preparation:156-161",
+      "land-preparation-script:1039-1119"
+    ],
+    "name": "آماده‌سازی و توسعه زمین",
+    "presentation": {
+      "head": "آماده‌سازی و توسعه زمین",
+      "eyebrow": "مسیر مستقل آماده‌سازی زمین",
+      "intro": "برای یک زمین یا ملک، یک یا چند خدمت اجرایی، مالکیتی، حقوقی یا حفاظتی انتخاب کنید. خدمات انتخابی در یک بسته جمع می‌شوند و ترتیب پیگیری آن‌ها قابل تغییر است."
+    }
+  },
+  "foreign-investment": {
+    "kind": "foreign-investment",
+    "schema_version": 1,
+    "rule_version": 1,
+    "routes": {},
+    "steps": [
+      "خانواده همکاری، مسیر، پروژه و کشور",
+      "آورده و مبلغ/ارز، شرایط مسیر و ابزار پشتیبان",
+      "راهنما، مراجع مطالعه، ریسک و قدم بعد"
+    ],
+    "fields": [
+      {
+        "key": "route",
+        "label": "مسیر همکاری بین‌المللی",
+        "kind": "enum",
+        "unit": null,
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "equity": "شراکت و سرمایه‌گذاری مستقیم",
+          "contract": "سرمایه‌گذاری قراردادی در توسعه پروژه",
+          "credit": "تامین اعتبار و تسهیلات خارجی",
+          "execution": "اجرای پروژه و همکاری تخصصی",
+          "support": "همکاری‌ها و حمایت‌های توسعه‌ای"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ],
+        "full": true
+      },
+      {
+        "key": "sector",
+        "label": "حوزه پروژه",
+        "kind": "enum",
+        "section": 1,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 175,
+          "column": 48,
+          "id": "fi-sector"
+        },
+        "full": false,
+        "reference": "sector",
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "type",
+        "label": "نوع دقیق پروژه",
+        "kind": "enum",
+        "section": 1,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 175,
+          "column": 136,
+          "id": "fi-type"
+        },
+        "full": false,
+        "reference": "type",
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "province",
+        "label": "استان",
+        "kind": "enum",
+        "section": 1,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 176,
+          "column": 43,
+          "id": "fi-province"
+        },
+        "full": false,
+        "reference": "province",
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "city",
+        "label": "شهر / محدوده — اختیاری",
+        "kind": "text",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 176,
+          "column": 141,
+          "id": "fi-city"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "project",
+        "label": "عنوان یا مشخصات کوتاه پروژه — اختیاری",
+        "kind": "text",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 177,
+          "column": 80,
+          "id": "fi-project"
+        },
+        "full": true,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "applicant",
+        "label": "وضعیت متقاضی",
+        "kind": "enum",
+        "section": 2,
+        "when": null,
+        "required": true,
+        "options": {
+          "company": "شرکت / شخص حقوقی خارجی",
+          "individual": "شخص حقیقی خارجی",
+          "iranian": "ایرانی با سرمایه دارای منشا خارجی",
+          "domestic": "متقاضی ایرانی، در جست‌وجوی شریک یا منابع خارجی",
+          "public": "دستگاه عمومی یا نهاد محلی ایرانی",
+          "ngo": "نهاد مردمی، خیریه یا مجری توسعه‌ای ایرانی"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 180,
+          "column": 50,
+          "id": "fi-applicant"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "country",
+        "label": "کشور مبدا سرمایه یا اعتبار",
+        "kind": "text",
+        "section": 2,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 181,
+          "column": 86,
+          "id": "fi-country"
+        },
+        "full": false,
+        "placeholder": "نام کشور، در صورت نامشخص بودن خالی بگذارید",
+        "help": null
+      },
+      {
+        "key": "amount",
+        "label": "مبلغ قابل تخصیص — اختیاری",
+        "kind": "foreign_amount",
+        "section": 2,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 182,
+          "column": 84,
+          "id": "fi-amount"
+        },
+        "full": false,
+        "placeholder": "مثلاً ۲۵۰۰۰۰۰",
+        "help": "مبلغ در ارز انتخابی ثبت می‌شود، تبدیل خودکار به تومان ندارد."
+      },
+      {
+        "key": "currency",
+        "label": "واحد پول",
+        "kind": "enum",
+        "section": 2,
+        "when": null,
+        "required": true,
+        "options": {
+          "USD": "دلار آمریکا — USD",
+          "EUR": "یورو — EUR",
+          "CNY": "یوان چین — CNY",
+          "AED": "درهم امارات — AED",
+          "OTHER": "سایر ارزها، در توضیحات مشخص کنید"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 183,
+          "column": 46,
+          "id": "fi-currency"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "currency_name",
+        "label": "نام دقیق ارز دیگر",
+        "kind": "text",
+        "section": 1,
+        "when": {
+          "field": "currency",
+          "op": "eq",
+          "value": "OTHER"
+        },
+        "required": true,
+        "unit": null,
+        "options": null,
+        "source": [
+          "D29: explicit source currency; mission S08"
+        ],
+        "full": false
+      },
+      {
+        "key": "contributions",
+        "label": "نوع آورده یا حمایت",
+        "kind": "multi",
+        "unit": null,
+        "section": 1,
+        "when": null,
+        "required": true,
+        "options": {
+          "cash": "سرمایه نقدی",
+          "equipment": "تجهیزات و ماشین‌آلات",
+          "technology": "دانش فنی و فناوری",
+          "services": "توان ساخت یا بهره‌برداری",
+          "credit": "اعتبار / تسهیلات"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ],
+        "full": true
+      },
+      {
+        "key": "source_kind",
+        "label": "نوع ارائه‌دهنده منابع یا حمایت",
+        "kind": "enum",
+        "section": 2,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "private": "شرکت یا سرمایه‌گذار خصوصی خارجی",
+          "bank": "بانک تجاری خارجی",
+          "developmentBank": "بانک توسعه‌ای بین‌المللی",
+          "government": "دولت یا نهاد دولتی خارجی",
+          "international": "نهاد بین‌المللی / برنامه سازمان ملل",
+          "foundation": "بنیاد، نهاد خیریه یا صندوق حمایتی",
+          "mixed": "ترکیبی از منابع"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 188,
+          "column": 64,
+          "id": "fi-source-kind"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "contract_form",
+        "label": "قالب قراردادی مدنظر — پیشنهاد اولیه",
+        "kind": "enum",
+        "section": 2,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز تعیین نشده",
+          "equity": "سهام‌داری / شرکت پروژه",
+          "civil": "مشارکت مدنی، مشروط به مجوز",
+          "bot": "ساخت، بهره‌برداری و انتقال (BOT)، قابل بررسی",
+          "buyback": "بیع متقابل، قابل بررسی",
+          "loan": "توافق وام یا فاینانس",
+          "buyer": "اعتبار خریدار",
+          "supplier": "اعتبار فروشنده",
+          "cooperation": "توافق همکاری توسعه‌ای",
+          "grant": "توافق کمک بلاعوض",
+          "technical": "توافق همکاری فنی",
+          "epc": "قرارداد طراحی، تامین و ساخت",
+          "om": "قرارداد بهره‌برداری و نگهداری"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 189,
+          "column": 69,
+          "id": "fi-contract-form"
+        },
+        "full": false,
+        "options_by_parent": {
+          "equity": [
+            [
+              "unknown",
+              "هنوز تعیین نشده"
+            ],
+            [
+              "equity",
+              "سهام‌داری / شرکت پروژه"
+            ],
+            [
+              "civil",
+              "مشارکت مدنی، مشروط به مجوز"
+            ]
+          ],
+          "contract": [
+            [
+              "unknown",
+              "هنوز تعیین نشده"
+            ],
+            [
+              "civil",
+              "مشارکت مدنی، مشروط به مجوز"
+            ],
+            [
+              "bot",
+              "ساخت، بهره‌برداری و انتقال (BOT)، قابل بررسی"
+            ],
+            [
+              "buyback",
+              "بیع متقابل، قابل بررسی"
+            ]
+          ],
+          "credit": [
+            [
+              "unknown",
+              "هنوز تعیین نشده"
+            ],
+            [
+              "loan",
+              "توافق وام یا فاینانس"
+            ],
+            [
+              "buyer",
+              "اعتبار خریدار"
+            ],
+            [
+              "supplier",
+              "اعتبار فروشنده"
+            ]
+          ],
+          "support": [
+            [
+              "unknown",
+              "هنوز تعیین نشده"
+            ],
+            [
+              "cooperation",
+              "توافق همکاری توسعه‌ای"
+            ],
+            [
+              "grant",
+              "توافق کمک بلاعوض"
+            ],
+            [
+              "technical",
+              "توافق همکاری فنی"
+            ]
+          ],
+          "execution": [
+            [
+              "unknown",
+              "هنوز تعیین نشده"
+            ],
+            [
+              "epc",
+              "قرارداد طراحی، تامین و ساخت"
+            ],
+            [
+              "om",
+              "قرارداد بهره‌برداری و نگهداری"
+            ]
+          ]
+        },
+        "parent": "route",
+        "placeholder": null,
+        "help": "انتخاب عنوان قرارداد، مجوز استفاده یا تایید تناسب آن نیست."
+      },
+      {
+        "key": "impact",
+        "label": "این طرح چه تغییری برای مردم یا محیط ایجاد می‌کند؟",
+        "kind": "text",
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "support"
+        },
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 190,
+          "column": 116,
+          "id": "fi-impact"
+        },
+        "full": true,
+        "placeholder": "مسئله فعلی، گروه بهره‌مند و نتیجه قابل سنجش را کوتاه بنویسید، اگر مطالعه نشده، مشخص کنید.",
+        "help": "عدد جمعیت یا اثر باید با داده معتبر و خط مبنا بررسی شود، سامانه به آمار محله متصل نیست."
+      },
+      {
+        "key": "insurance",
+        "label": "به بررسی بیمه یا تضمین نیاز دارید؟",
+        "kind": "enum",
+        "section": 2,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز بررسی نکرده‌ام",
+          "yes": "بله، مایل به شناخت پوشش مناسب هستم",
+          "no": "فعلاً درخواست بررسی ندارم"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 193,
+          "column": 68,
+          "id": "fi-insurance"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "risk_cover",
+        "label": "نگرانی اصلی شما چیست؟",
+        "kind": "enum",
+        "section": 2,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "transfer": "انتقال ارز و بازگشت منابع",
+          "political": "ریسک سیاسی، سلب مالکیت یا نقض قرارداد",
+          "payment": "عدم ایفای تعهد پرداخت طرف قرارداد",
+          "commercial": "فروش، سود، تقاضا یا تاخیر اجرای پروژه"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 194,
+          "column": 87,
+          "id": "fi-risk-cover"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "blended",
+        "label": "مایلم استفاده از حمایت توسعه‌ای در کنار منابع تجاری هم بررسی شود.",
+        "kind": "boolean",
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "ne",
+          "value": "support"
+        },
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 195,
+          "column": 48,
+          "id": "fi-blended"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "revenue",
+        "label": "منبع بازگشت منابع یا پرداخت",
+        "kind": "enum",
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "ne",
+          "value": "support"
+        },
+        "required": false,
+        "options": {
+          "sale": "فروش محصول، واحد یا داراییِ مجاز",
+          "rent": "اجاره و منافع بهره‌برداری",
+          "user": "تعرفه یا درآمد از استفاده‌کننده",
+          "public": "پرداخت دستگاه عمومی طبق قرارداد",
+          "mixed": "ترکیبی از منابع درآمد",
+          "unknown": "هنوز مشخص نیست"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 198,
+          "column": 65,
+          "id": "fi-revenue"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "rights",
+        "label": "وضعیت حقوق زمین و دارایی",
+        "kind": "enum",
+        "section": 2,
+        "when": null,
+        "required": false,
+        "options": {
+          "company": "مالکیت یا حق استفاده شرکت ایرانی، نیازمند بررسی اسناد",
+          "public": "دارایی عمومی / دولتی، نیازمند احراز اختیار واگذاری",
+          "private": "دارایی خصوصی، حقوق قراردادی نیازمند بررسی",
+          "direct": "هدف، تملک زمین به نام سرمایه‌گذار خارجی است",
+          "unknown": "اطلاع کافی ندارم"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 199,
+          "column": 62,
+          "id": "fi-rights"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "license",
+        "label": "وضعیت مجوز سرمایه‌گذاری خارجی (فیپا)",
+        "kind": "enum",
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "ne",
+          "value": "support"
+        },
+        "required": false,
+        "options": {
+          "unknown": "بررسی نشده / اطلاع ندارم",
+          "none": "هنوز درخواست نشده",
+          "pending": "در حال بررسی",
+          "issued": "مجوز صادر شده، مستندات باید بررسی شود",
+          "not-investment": "فعلاً همکاری اجرایی بدون تعهد سرمایه‌گذاری"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 200,
+          "column": 74,
+          "id": "fi-license"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "permit",
+        "label": "وضعیت مجوزها و اختیار اجرای پروژه",
+        "kind": "enum",
+        "section": 2,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز احراز نشده",
+          "study": "در مرحله بررسی و اخذ مجوز",
+          "reported": "طبق اعلام متقاضی موجود است، نیازمند تطبیق"
+        },
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 201,
+          "column": 71,
+          "id": "fi-permit"
+        },
+        "full": false,
+        "placeholder": null,
+        "help": null
+      },
+      {
+        "key": "notes",
+        "label": "توضیحات تکمیلی — اختیاری",
+        "kind": "text",
+        "section": 2,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": {
+          "path": "advisor/public/engine/advisor.html",
+          "line": 202,
+          "column": 67,
+          "id": "fi-notes"
+        },
+        "full": true,
+        "placeholder": "مثلاً نوع ارز دیگر، شریک ایرانی، منبع درآمد یا محدودیت مهم",
+        "help": null
+      },
+      {
+        "key": "specific_equity_partner",
+        "label": "وضعیت شریک یا شرکت ایرانی",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "equity"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "existing": "شرکت یا شریک ایرانی مشخص است",
+          "new": "شرکت پروژه جدید پیشنهاد می‌شود"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_equity_share",
+        "label": "سهم موردنظر از شرکت — درصد، اختیاری",
+        "kind": "quantity",
+        "unit": "SHARE_PERCENT",
+        "integer": false,
+        "minimum": "0",
+        "maximum": "100",
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "equity"
+        },
+        "required": false,
+        "options": null,
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ],
+        "namespace": "invest.service.foreign-investment",
+        "version": 1
+      },
+      {
+        "key": "specific_equity_horizon",
+        "label": "دوره موردنظر برای بازگشت سرمایه — سال، اختیاری",
+        "kind": "quantity",
+        "unit": "YEAR",
+        "integer": false,
+        "minimum": "0.000000001",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "equity"
+        },
+        "required": false,
+        "options": null,
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ],
+        "namespace": "invest.service.foreign-investment",
+        "version": 1,
+        "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+      },
+      {
+        "key": "specific_equity_risk",
+        "label": "ریسک‌پذیری شما",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "equity"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نکرده‌ام",
+          "low": "کم",
+          "medium": "متوسط",
+          "high": "زیاد"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_contract_scope",
+        "label": "دامنه مسئولیت موردنظر",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "contract"
+        },
+        "required": false,
+        "options": {
+          "unknown": "نیازمند مذاکره و مطالعه",
+          "build": "تامین سرمایه و ساخت",
+          "operate": "تامین سرمایه، ساخت و بهره‌برداری",
+          "rehab": "احیا یا تجهیز و بهره‌برداری"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_contract_term",
+        "label": "مدت پیشنهادی قرارداد — سال، اختیاری",
+        "kind": "quantity",
+        "unit": "YEAR",
+        "integer": false,
+        "minimum": "0.000000001",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "contract"
+        },
+        "required": false,
+        "options": null,
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ],
+        "namespace": "invest.service.foreign-investment",
+        "version": 1,
+        "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+      },
+      {
+        "key": "specific_contract_transfer",
+        "label": "تکلیف دارایی در پایان قرارداد",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "contract"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز تعیین نشده",
+          "return": "تحویل یا انتقال طبق قرارداد",
+          "retain": "ادامه مالکیت یا حق استفاده، مشروط به مجوز"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_credit_provider",
+        "label": "نوع تامین‌کننده اعتبار",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "credit"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "bank": "بانک یا مؤسسه مالی خارجی",
+          "state": "دولت / نهاد دولتی خارجی",
+          "supplier": "فروشنده یا تامین‌کننده تجهیزات"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_credit_rate",
+        "label": "نرخ سالانه پیشنهادی — درصد، اختیاری",
+        "kind": "quantity",
+        "unit": "PERCENTAGE",
+        "integer": false,
+        "minimum": "0",
+        "maximum": "100",
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "credit"
+        },
+        "required": false,
+        "options": null,
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_credit_tenor",
+        "label": "مدت بازپرداخت — سال، اختیاری",
+        "kind": "quantity",
+        "unit": "YEAR",
+        "integer": false,
+        "minimum": "0.000000001",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "credit"
+        },
+        "required": false,
+        "options": null,
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ],
+        "namespace": "invest.service.foreign-investment",
+        "version": 1,
+        "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+      },
+      {
+        "key": "specific_credit_grace",
+        "label": "دوره تنفس — ماه، اختیاری",
+        "kind": "quantity",
+        "unit": "MONTH",
+        "integer": false,
+        "minimum": "0.000000001",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "credit"
+        },
+        "required": false,
+        "options": null,
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ],
+        "namespace": "invest.service.foreign-investment",
+        "version": 1,
+        "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+      },
+      {
+        "key": "specific_credit_guarantee",
+        "label": "وضعیت تضمین یا وثیقه",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "credit"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز تعیین نشده",
+          "project": "دارایی یا جریان نقدی پروژه، نیازمند پذیرش",
+          "bank": "تضمین بانکی، صدور و پذیرش احراز نشده",
+          "state": "تضمین دولتی مورد درخواست، وجود مجوز احراز نشده"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_execution_service",
+        "label": "نوع خدمت",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "execution"
+        },
+        "required": false,
+        "options": {
+          "build": "طراحی و ساخت",
+          "equipment": "تامین تجهیزات",
+          "operate": "بهره‌برداری و نگهداری",
+          "technology": "فناوری و خدمات تخصصی"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_execution_commitment",
+        "label": "آیا تعهد تامین سرمایه هم دارید؟",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "execution"
+        },
+        "required": false,
+        "options": {
+          "no": "خیر، فقط اجرای کار یا ارائه خدمت",
+          "yes": "بله، سرمایه یا اعتبار هم تامین می‌کنم",
+          "unknown": "هنوز مشخص نیست"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_execution_settlement",
+        "label": "نحوه دریافت مطالبات",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "execution"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "progress": "پرداخت نقدی برحسب پیشرفت یا تحویل",
+          "deferred": "پرداخت مدت‌دار، شرایط مالی نیازمند بررسی",
+          "operation": "از منافع بهره‌برداری، ساختار قرارداد باید بررسی شود"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_support_position",
+        "label": "نقش شما در این همکاری",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "support"
+        },
+        "required": false,
+        "options": {
+          "requester": "متقاضی دریافت حمایت برای طرح هستم",
+          "provider": "مایل به ارائه حمایت یا همکاری هستم"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_support_supportType",
+        "label": "نوع حمایت موردنظر",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "support"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "grant": "کمک مالی بلاعوض",
+          "technical": "همکاری فنی و انتقال دانش",
+          "study": "مطالعات، طراحی و آموزش",
+          "equipment": "تجهیزات یا خدمات غیرنقدی",
+          "blended": "حمایت توسعه‌ای برای جذب سرمایه تجاری"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_support_focus",
+        "label": "مسئله اصلی طرح",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "support"
+        },
+        "required": false,
+        "options": {
+          "unknown": "انتخاب کنید",
+          "housing": "مسکن مناسب و سکونتگاه‌ها",
+          "urban": "بهسازی محله و توسعه شهری",
+          "disaster": "بازسازی و کاهش خطر بلایا",
+          "energy": "انرژی و محیط‌زیست ساختمان",
+          "basic": "آب، بهداشت و خدمات پایه محلی",
+          "heritage": "میراث تاریخی و احیای بنا"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_support_beneficiaries",
+        "label": "تعداد تقریبی بهره‌مندان — نفر، اختیاری",
+        "kind": "quantity",
+        "unit": "ITEM",
+        "integer": true,
+        "minimum": "0.000000001",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "support"
+        },
+        "required": false,
+        "options": null,
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ],
+        "namespace": "invest.service.foreign-investment",
+        "version": 1
+      },
+      {
+        "key": "specific_support_cofund",
+        "label": "وضعیت آورده داخلی / هم‌تامینی",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "support"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "yes": "آورده یا شریک داخلی معرفی شده، نیازمند بررسی",
+          "no": "فعلاً آورده یا شریک داخلی مشخص ندارم"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      },
+      {
+        "key": "specific_support_continuity",
+        "label": "برنامه نگهداری و ادامه خدمت",
+        "kind": "enum",
+        "unit": null,
+        "integer": false,
+        "minimum": "0",
+        "maximum": null,
+        "section": 2,
+        "when": {
+          "field": "route",
+          "op": "eq",
+          "value": "support"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز تدوین نشده",
+          "planned": "برنامه اولیه تهیه شده است",
+          "partner": "بهره‌بردار و منبع هزینه جاری معرفی شده‌اند"
+        },
+        "source": [
+          "HTML#fi-service:162-212",
+          "foreign-investment-script:1119-1217"
+        ]
+      }
+    ],
+    "source": [
+      "HTML#fi-service:162-212",
+      "foreign-investment-script:1119-1217"
+    ],
+    "name": "سرمایه‌گذاری بین‌المللی",
+    "presentation": {
+      "head": "سرمایه‌گذاری، تامین مالی و همکاری بین‌المللی",
+      "eyebrow": "همکاری بین‌المللی در توسعه ایران",
+      "intro": "نوع همراهی، ارائه‌دهنده منابع و قالب قرارداد، مسیر بررسی شما را مشخص می‌کند. این راهنما پذیرش سرمایه یا ثبت در سامانه رسمی نیست؛ درخواست بررسی داخلی با ارسال صریح شما ثبت می‌شود."
+    }
+  },
+  "ma-notice": {
+    "kind": "ma-notice",
+    "schema_version": 1,
+    "rule_version": 1,
+    "routes": {},
+    "steps": [
+      "فرم اختصاصی notice",
+      "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
+    ],
+    "fields": [
+      {
+        "key": "project",
+        "label": "فرصت مورد بررسی",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "template": "پرونده عمومی، هنوز فرصت مشخصی ندارم",
+          "REF-SIROS5": "نمونه آموزشی فراخوان سیروس ۵"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0355",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1240,
+            "end_line": 1240,
+            "source_start": 659706,
+            "source_end": 659998
+          }
+        ],
+        "full": true
+      },
+      {
+        "key": "ready",
+        "label": "کدام بررسی‌ها را خودتان انجام داده‌اید؟",
+        "kind": "multi",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": {
+          "documents": "اسناد و آخرین اصلاحیه‌ها را بررسی کرده‌ام",
+          "eligibility": "شرایط صلاحیت و ظرفیت خود را با اسناد تطبیق داده‌ام",
+          "finance": "آورده، منبع پرداخت و تعهد مالی را بررسی کرده‌ام",
+          "signature": "در صورت الزام، ثبت‌نام درگاه و امضای الکترونیکی آماده است",
+          "guarantee": "در صورت الزام، نوع، مبلغ و مدت تضمین را بررسی کرده‌ام",
+          "schedule": "مهلت دریافت، ارائه پیشنهاد و تحویل تضمین را کنترل کرده‌ام"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0356",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1240,
+            "end_line": 1240,
+            "source_start": 659999,
+            "source_end": 660159
+          }
+        ],
+        "full": true
+      },
+      {
+        "key": "notes",
+        "label": "ابهام‌ها و مدارک باقی‌مانده — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0357",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1240,
+            "end_line": 1240,
+            "source_start": 660160,
+            "source_end": 660213
+          }
+        ],
+        "full": true
+      }
+    ],
+    "source": [
+      "HTML#ma-tools:213-225",
+      "ministry-additions-script:1217-1289"
+    ],
+    "name": "پرونده فرصت",
+    "presentation": {
+      "head": "پرونده فرصت و خدمات تکمیلی",
+      "eyebrow": "از شناخت فرصت تا آمادگی ورود",
+      "intro": "شرایط فراخوان، نوسازی، مدیریت اجاره و مشخصات حرفه‌ای خود را جدا بررسی کنید. این ابزار به سامانه‌های رسمی متصل نیست و درخواست یا پیشنهاد رسمی ثبت نمی‌کند."
+    }
+  },
+  "ma-renewal": {
+    "kind": "ma-renewal",
+    "schema_version": 1,
+    "rule_version": 1,
+    "routes": {},
+    "steps": [
+      "فرم اختصاصی renewal",
+      "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
+    ],
+    "fields": [
+      {
+        "key": "province",
+        "label": "استان",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "all": "هنوز مشخص نیست / سراسر کشور"
+        },
+        "unit": null,
+        "source": [
+          "HTML#ma-tools:213-225",
+          "ministry-additions-script:1217-1289"
+        ],
+        "full": false,
+        "reference": "province"
+      },
+      {
+        "key": "city",
+        "label": "شهر / محدوده — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "HTML#ma-tools:213-225",
+          "ministry-additions-script:1217-1289"
+        ],
+        "full": false
+      },
+      {
+        "key": "neighborhood",
+        "label": "محله — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "HTML#ma-tools:213-225",
+          "ministry-additions-script:1217-1289"
+        ],
+        "full": false
+      },
+      {
+        "key": "gis",
+        "label": "آیا قرارگیری در محدوده هدف بازآفرینی احراز شده؟",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "unknown": "هنوز استعلام معتبر ندارم",
+          "inside": "طبق اعلام من، داخل محدوده مصوب است",
+          "outside": "طبق اعلام من، خارج محدوده مصوب است"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0359",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 660291,
+            "source_end": 660508
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "authority",
+        "label": "مرجع یا شماره سند بررسی محدوده — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0360",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 660509,
+            "source_end": 660569
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "evidenceDate",
+        "label": "تاریخ سند یا استعلام — طبق سند، اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0361",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 660570,
+            "source_end": 660632
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "parcels",
+        "label": "تعداد پلاک‌های مورد تجمیع — اختیاری",
+        "kind": "quantity",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": "ITEM",
+        "source": [
+          {
+            "id": "DF-0362",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 660633,
+            "source_end": 660706
+          }
+        ],
+        "full": false,
+        "integer": true,
+        "minimum": "1",
+        "namespace": "invest.service.ma-renewal",
+        "version": 1
+      },
+      {
+        "key": "incentive",
+        "label": "وضعیت مشوق مصوب همین ملک",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "بررسی نشده",
+          "available": "سند یا پاسخ اولیه دارم، نیازمند تطبیق",
+          "none": "فعلاً مشوقی احراز نشده است"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0363",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 660707,
+            "source_end": 660872
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "incentiveRef",
+        "label": "مرجع یا شماره مصوبه مشوق — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0364",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 660873,
+            "source_end": 660930
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "displacement",
+        "label": "آیا تخلیه و اسکان موقت لازم است؟",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "yes": "بله، طبق اعلام من",
+          "no": "خیر"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0366",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 660967,
+            "source_end": 661060
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "households",
+        "label": "تعداد خانوارهای نیازمند اسکان — اختیاری",
+        "kind": "quantity",
+        "section": 0,
+        "when": {
+          "field": "displacement",
+          "op": "ne",
+          "value": "no"
+        },
+        "required": false,
+        "options": null,
+        "unit": "ITEM",
+        "source": [
+          {
+            "id": "DF-0367",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 661061,
+            "source_end": 661171
+          }
+        ],
+        "full": false,
+        "integer": true,
+        "minimum": "0",
+        "namespace": "invest.service.ma-renewal",
+        "version": 1
+      },
+      {
+        "key": "months",
+        "label": "مدت اسکان موقت — ماه، اختیاری",
+        "kind": "quantity",
+        "section": 0,
+        "when": {
+          "field": "displacement",
+          "op": "eq",
+          "value": "yes"
+        },
+        "required": false,
+        "options": null,
+        "unit": "MONTH",
+        "source": [
+          {
+            "id": "DF-0368",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 661172,
+            "source_end": 661269
+          }
+        ],
+        "full": false,
+        "integer": true,
+        "minimum": "1",
+        "namespace": "invest.service.ma-renewal",
+        "version": 1,
+        "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+      },
+      {
+        "key": "deposit",
+        "label": "ودیعه قابل بازگشت برای هر خانوار — میلیون تومان، اختیاری",
+        "kind": "money",
+        "section": 0,
+        "when": {
+          "field": "displacement",
+          "op": "eq",
+          "value": "yes"
+        },
+        "required": false,
+        "options": null,
+        "unit": "MILLION_TOMAN",
+        "source": [
+          {
+            "id": "DF-0369",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 661270,
+            "source_end": 661382
+          }
+        ],
+        "full": false,
+        "integer": false,
+        "minimum": "0",
+        "namespace": "invest.service.ma-renewal",
+        "version": 1
+      },
+      {
+        "key": "rent",
+        "label": "اجاره ماهانه هر خانوار — میلیون تومان، اختیاری",
+        "kind": "money",
+        "section": 0,
+        "when": {
+          "field": "displacement",
+          "op": "eq",
+          "value": "yes"
+        },
+        "required": false,
+        "options": null,
+        "unit": "MILLION_TOMAN",
+        "source": [
+          {
+            "id": "DF-0370",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 661383,
+            "source_end": 661482
+          }
+        ],
+        "full": false,
+        "integer": false,
+        "minimum": "0",
+        "namespace": "invest.service.ma-renewal",
+        "version": 1
+      },
+      {
+        "key": "payer",
+        "label": "مسئول پیشنهادی تامین اسکان",
+        "kind": "enum",
+        "section": 0,
+        "when": {
+          "field": "displacement",
+          "op": "eq",
+          "value": "yes"
+        },
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "owner": "مالک یا مالکان",
+          "developer": "سازنده / توسعه‌گر",
+          "shared": "ترکیبی، سهم‌ها باید تعیین شود"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0371",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 661483,
+            "source_end": 661695
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "notes",
+        "label": "وضعیت مالکیت، ساکنان، مستاجران و محدودیت مهم — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0372",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1241,
+            "end_line": 1241,
+            "source_start": 661696,
+            "source_end": 661766
+          }
+        ],
+        "full": true
+      }
+    ],
+    "source": [
+      "HTML#ma-tools:213-225",
+      "ministry-additions-script:1217-1289"
+    ],
+    "name": "نوسازی و اسکان موقت",
+    "presentation": {
+      "head": "پرونده فرصت و خدمات تکمیلی",
+      "eyebrow": "از شناخت فرصت تا آمادگی ورود",
+      "intro": "شرایط فراخوان، نوسازی، مدیریت اجاره و مشخصات حرفه‌ای خود را جدا بررسی کنید. این ابزار به سامانه‌های رسمی متصل نیست و درخواست یا پیشنهاد رسمی ثبت نمی‌کند."
+    }
+  },
+  "ma-manager": {
+    "kind": "ma-manager",
+    "schema_version": 1,
+    "rule_version": 1,
+    "routes": {},
+    "steps": [
+      "فرم اختصاصی manager",
+      "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
+    ],
+    "fields": [
+      {
+        "key": "province",
+        "label": "استان",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "all": "هنوز مشخص نیست / سراسر کشور"
+        },
+        "unit": null,
+        "source": [
+          "HTML#ma-tools:213-225",
+          "ministry-additions-script:1217-1289"
+        ],
+        "full": false,
+        "reference": "province"
+      },
+      {
+        "key": "city",
+        "label": "شهر / محدوده — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "HTML#ma-tools:213-225",
+          "ministry-additions-script:1217-1289"
+        ],
+        "full": false
+      },
+      {
+        "key": "neighborhood",
+        "label": "محله — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "HTML#ma-tools:213-225",
+          "ministry-additions-script:1217-1289"
+        ],
+        "full": false
+      },
+      {
+        "key": "entity",
+        "label": "نوع متقاضی",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "company": "شخص حقوقی",
+          "individual": "شخص حقیقی"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0373",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1242,
+            "end_line": 1242,
+            "source_start": 661793,
+            "source_end": 661910
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "units",
+        "label": "ظرفیت مدیریت هم‌زمان — تعداد واحد",
+        "kind": "quantity",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": "ITEM",
+        "source": [
+          {
+            "id": "DF-0374",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1242,
+            "end_line": 1242,
+            "source_start": 661911,
+            "source_end": 661994
+          }
+        ],
+        "full": false,
+        "integer": true,
+        "minimum": "1",
+        "namespace": "invest.service.ma-manager",
+        "version": 1
+      },
+      {
+        "key": "usage",
+        "label": "نوع املاک مورد مدیریت",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": {
+          "residential": "مسکونی",
+          "commercial": "تجاری / اداری",
+          "mixed": "ترکیبی"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0375",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1242,
+            "end_line": 1242,
+            "source_start": 661995,
+            "source_end": 662111
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "services",
+        "label": "چه خدماتی ارائه می‌کنید؟",
+        "kind": "multi",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "tenant": "بازاریابی و انتخاب مستاجر",
+          "contract": "مدیریت قرارداد و تمدید",
+          "collection": "وصول و گزارش اجاره",
+          "maintenance": "نگهداری و تعمیرات",
+          "handover": "تحویل، تخلیه و تسویه",
+          "reporting": "گزارش عملکرد به مالک"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0376",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1242,
+            "end_line": 1242,
+            "source_start": 662112,
+            "source_end": 662181
+          }
+        ],
+        "full": true
+      },
+      {
+        "key": "experience",
+        "label": "سابقه فعالیت مرتبط — سال، اختیاری",
+        "kind": "quantity",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": "YEAR",
+        "source": [
+          {
+            "id": "DF-0377",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1242,
+            "end_line": 1242,
+            "source_start": 662182,
+            "source_end": 662243
+          }
+        ],
+        "full": false,
+        "integer": false,
+        "minimum": "0",
+        "namespace": "invest.service.ma-manager",
+        "version": 1,
+        "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+      },
+      {
+        "key": "fee",
+        "label": "شیوه پیشنهادی دریافت حق‌الزحمه",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز تعیین نشده",
+          "fixed": "مبلغ ثابت",
+          "perunit": "مبلغ به ازای هر واحد",
+          "percent": "درصدی از اجاره وصول‌شده",
+          "mixed": "ترکیبی"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0378",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1242,
+            "end_line": 1242,
+            "source_start": 662244,
+            "source_end": 662436
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "notes",
+        "label": "سوابق، تیم، سامانه گزارش‌دهی یا محدودیت مهم — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0379",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1242,
+            "end_line": 1242,
+            "source_start": 662437,
+            "source_end": 662506
+          }
+        ],
+        "full": true
+      }
+    ],
+    "source": [
+      "HTML#ma-tools:213-225",
+      "ministry-additions-script:1217-1289"
+    ],
+    "name": "اجاره‌داری حرفه‌ای",
+    "presentation": {
+      "head": "پرونده فرصت و خدمات تکمیلی",
+      "eyebrow": "از شناخت فرصت تا آمادگی ورود",
+      "intro": "شرایط فراخوان، نوسازی، مدیریت اجاره و مشخصات حرفه‌ای خود را جدا بررسی کنید. این ابزار به سامانه‌های رسمی متصل نیست و درخواست یا پیشنهاد رسمی ثبت نمی‌کند."
+    }
+  },
+  "ma-exchange": {
+    "kind": "ma-exchange",
+    "schema_version": 1,
+    "rule_version": 1,
+    "routes": {},
+    "steps": [
+      "فرم اختصاصی exchange",
+      "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
+    ],
+    "fields": [
+      {
+        "key": "province",
+        "label": "استان",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "all": "هنوز مشخص نیست / سراسر کشور"
+        },
+        "unit": null,
+        "source": [
+          "HTML#ma-tools:213-225",
+          "ministry-additions-script:1217-1289"
+        ],
+        "full": false,
+        "reference": "province"
+      },
+      {
+        "key": "city",
+        "label": "شهر / محدوده — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "HTML#ma-tools:213-225",
+          "ministry-additions-script:1217-1289"
+        ],
+        "full": false
+      },
+      {
+        "key": "neighborhood",
+        "label": "محله — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "HTML#ma-tools:213-225",
+          "ministry-additions-script:1217-1289"
+        ],
+        "full": false
+      },
+      {
+        "key": "kind",
+        "label": "نوع ملک پیشنهادی",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "apartment": "آپارتمان / واحد مسکونی",
+          "villa": "ملک ویلایی",
+          "complex": "ساختمان یا مجموعه واحدها",
+          "commercial": "تجاری / اداری",
+          "land": "زمین، تناسب با موضوع فراخوان باید احراز شود"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0380",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1243,
+            "end_line": 1243,
+            "source_start": 662534,
+            "source_end": 662791
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "area",
+        "label": "مساحت عرضه‌شده — مترمربع",
+        "kind": "quantity",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": "SQUARE_METRE",
+        "source": [
+          {
+            "id": "DF-0381",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1243,
+            "end_line": 1243,
+            "source_start": 662792,
+            "source_end": 662866
+          }
+        ],
+        "full": false,
+        "integer": false,
+        "minimum": "0",
+        "namespace": "invest.service.ma-exchange",
+        "version": 1
+      },
+      {
+        "key": "value",
+        "label": "ارزش برآوردی ملک — میلیارد تومان، اختیاری",
+        "kind": "money",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": "BILLION_TOMAN",
+        "source": [
+          {
+            "id": "DF-0382",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1243,
+            "end_line": 1243,
+            "source_start": 662867,
+            "source_end": 663008
+          }
+        ],
+        "full": false,
+        "integer": false,
+        "minimum": "0",
+        "namespace": "invest.service.ma-exchange",
+        "version": 1
+      },
+      {
+        "key": "rights",
+        "label": "وضعیت اختیار معرفی ملک",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز اسناد بررسی نشده‌اند",
+          "owner": "مالکیت یا نمایندگی اعلامی، نیازمند احراز",
+          "shared": "مشاع / چندمالک، رضایت‌ها باید بررسی شوند",
+          "other": "دارای محدودیت یا حقوق اشخاص ثالث"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0383",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1243,
+            "end_line": 1243,
+            "source_start": 663009,
+            "source_end": 663244
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "occupied",
+        "label": "آیا ملک دارای ساکن یا مستاجر است؟",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "هنوز مشخص نیست",
+          "yes": "بله، طبق اعلام من",
+          "no": "خیر"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0384",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1243,
+            "end_line": 1243,
+            "source_start": 663245,
+            "source_end": 663305
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "balance",
+        "label": "شرایط پیشنهادی مابه‌التفاوت",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": {
+          "unknown": "پس از کارشناسی و توافق مشخص شود",
+          "none": "بدون پرداخت نقدی مدنظر من است",
+          "pay": "امکان پرداخت مابه‌التفاوت دارم",
+          "receive": "دریافت مابه‌التفاوت مدنظر من است"
+        },
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0385",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1243,
+            "end_line": 1243,
+            "source_start": 663306,
+            "source_end": 663530
+          }
+        ],
+        "full": false
+      },
+      {
+        "key": "wanted",
+        "label": "موضوع یا ملک مورد انتظار در مقابل",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0386",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1243,
+            "end_line": 1243,
+            "source_start": 663531,
+            "source_end": 663700
+          }
+        ],
+        "full": true
+      },
+      {
+        "key": "notes",
+        "label": "رهن، بدهی، حقوق اشخاص ثالث و توضیح تکمیلی — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          {
+            "id": "DF-0387",
+            "source": "advisor/public/engine/advisor.html",
+            "script": "ministry-additions-script",
+            "line": 1243,
+            "end_line": 1243,
+            "source_start": 663701,
+            "source_end": 663768
+          }
+        ],
+        "full": true
+      }
+    ],
+    "source": [
+      "HTML#ma-tools:213-225",
+      "ministry-additions-script:1217-1289"
+    ],
+    "name": "معاوضه ملک",
+    "presentation": {
+      "head": "پرونده فرصت و خدمات تکمیلی",
+      "eyebrow": "از شناخت فرصت تا آمادگی ورود",
+      "intro": "شرایط فراخوان، نوسازی، مدیریت اجاره و مشخصات حرفه‌ای خود را جدا بررسی کنید. این ابزار به سامانه‌های رسمی متصل نیست و درخواست یا پیشنهاد رسمی ثبت نمی‌کند."
+    }
+  },
+  "charity": {
+    "kind": "charity",
+    "schema_version": 1,
+    "rule_version": 1,
+    "routes": {},
+    "steps": [
+      "حوزه و نوع کمک، موقعیت، ظرفیت/مبلغ و دوره",
+      "جمع‌بندی اثر با فرض‌ها و پیگیری"
+    ],
+    "fields": [
+      {
+        "key": "group",
+        "label": "دوست دارید در کدام حوزه اثرگذار باشید؟",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": {
+          "learning": "فرصت یادگیری و رشد بسازیم",
+          "health": "سلامت و امداد را دسترس‌پذیرتر کنیم",
+          "community": "پشتوانه‌ای برای زندگی در کنار هم بسازیم",
+          "water": "آب سالم را به زندگی محله نزدیک کنیم"
+        },
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false
+      },
+      {
+        "key": "cause",
+        "label": "نوع پروژه‌ای که مایلید در آن همراه شوید",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false,
+        "options_by_parent": {
+          "learning": [
+            [
+              "school",
+              "مدرسه، ساخت، تکمیل یا تجهیز"
+            ],
+            [
+              "skills",
+              "مرکز فنی‌وحرفه‌ای"
+            ],
+            [
+              "library",
+              "کتابخانه و فضای مطالعه"
+            ]
+          ],
+          "health": [
+            [
+              "emergency",
+              "پایگاه / مرکز اورژانس"
+            ],
+            [
+              "specialtyclinic",
+              "درمانگاه تخصصی"
+            ],
+            [
+              "specialtyhospital",
+              "بیمارستان تخصصی"
+            ],
+            [
+              "rehab",
+              "مرکز توان‌بخشی"
+            ]
+          ],
+          "community": [
+            [
+              "welfare",
+              "مرکز بهزیستی و خدمات حمایتی"
+            ],
+            [
+              "community",
+              "خانه محله"
+            ]
+          ],
+          "water": [
+            [
+              "water",
+              "تصفیه آب و تامین آب سالم محله"
+            ]
+          ]
+        },
+        "parent": "group"
+      },
+      {
+        "key": "specialty",
+        "label": "تخصص یا خدمت مدنظر — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": {
+          "field": "cause",
+          "op": "in",
+          "values": [
+            "specialtyclinic",
+            "specialtyhospital"
+          ]
+        },
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false
+      },
+      {
+        "key": "province",
+        "label": "کدام استان برای شما مهم است؟",
+        "kind": "enum",
+        "section": 0,
+        "when": null,
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false,
+        "reference": "province"
+      },
+      {
+        "key": "city",
+        "label": "شهر / روستای موردنظر — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false
+      },
+      {
+        "key": "neighborhood",
+        "label": "محله / محدوده خدمت — اختیاری",
+        "kind": "text",
+        "section": 0,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false
+      },
+      {
+        "key": "type",
+        "label": "چگونه مایلید همراه شوید؟",
+        "kind": "enum",
+        "section": 1,
+        "when": null,
+        "required": true,
+        "options": {
+          "cash": "کمک نقدی",
+          "materials": "تجهیزات و مصالح",
+          "land": "زمین یا ساختمان",
+          "expertise": "تخصص و زمان",
+          "delivery": "ساخت یا تکمیل پروژه"
+        },
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false
+      },
+      {
+        "key": "amount",
+        "label": "مبلغ هر نوبت همراهی — میلیون تومان",
+        "kind": "money",
+        "section": 1,
+        "when": {
+          "field": "type",
+          "op": "eq",
+          "value": "cash"
+        },
+        "required": true,
+        "options": null,
+        "unit": "MILLION_TOMAN",
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false,
+        "integer": false,
+        "minimum": "0.000000001",
+        "namespace": "invest.service.charity",
+        "version": 1
+      },
+      {
+        "key": "frequency",
+        "label": "شیوه همراهی مالی",
+        "kind": "enum",
+        "section": 1,
+        "when": {
+          "field": "type",
+          "op": "eq",
+          "value": "cash"
+        },
+        "required": true,
+        "options": {
+          "once": "یک‌بار",
+          "monthly": "هر ماه، به مدت یک سال"
+        },
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false
+      },
+      {
+        "key": "description",
+        "label": "چه چیزی و با چه ظرفیتی می‌توانید همراه بیاورید؟",
+        "kind": "text",
+        "section": 1,
+        "when": {
+          "field": "type",
+          "op": "in",
+          "values": [
+            "materials",
+            "land",
+            "expertise",
+            "delivery"
+          ]
+        },
+        "required": true,
+        "options": null,
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": true
+      },
+      {
+        "key": "years",
+        "label": "دورنمای اثر را در چه بازه‌ای ببینید؟",
+        "kind": "enum",
+        "section": 1,
+        "when": null,
+        "required": true,
+        "options": {
+          "1": "یک سال پس از آغاز خدمت",
+          "5": "پنج سال پس از آغاز خدمت",
+          "10": "ده سال پس از آغاز خدمت"
+        },
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false
+      },
+      {
+        "key": "followup",
+        "label": "دوست دارید روند کار را چگونه دنبال کنید؟",
+        "kind": "enum",
+        "section": 1,
+        "when": null,
+        "required": true,
+        "options": {
+          "quarterly": "گزارش فصلی پیشرفت و هزینه‌کرد",
+          "milestone": "گزارش در هر مرحله کلیدی",
+          "annual": "گزارش سالانه خدمت و نتایج"
+        },
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false
+      },
+      {
+        "key": "demo",
+        "label": "سناریوی آموزشی محله فرضی الف",
+        "kind": "boolean",
+        "section": 1,
+        "when": null,
+        "required": false,
+        "options": null,
+        "unit": null,
+        "source": [
+          "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+        ],
+        "full": false
+      },
+      {
+        "key": "noncash_capacity",
+        "label": "ظرفیت اعلامی کمک غیرنقدی",
+        "kind": "quantity",
+        "unit": "ITEM",
+        "unit_options": {
+          "ITEM": "عدد اقلام",
+          "PERSON": "نفر ظرفیت اعلامی",
+          "SQUARE_METRE": "مترمربع",
+          "TONNE": "تن",
+          "SERVICE_HOUR": "ساعت خدمت",
+          "SESSION": "نوبت / جلسه خدمت"
+        },
+        "section": 1,
+        "when": {
+          "field": "type",
+          "op": "in",
+          "values": [
+            "materials",
+            "land",
+            "expertise",
+            "delivery"
+          ]
+        },
+        "required": false,
+        "options": null,
+        "source": "PROGRAMMER-S08-COMPLETE:charity"
+      },
+      {
+        "key": "noncash_unit",
+        "label": "تعریف ظرفیت و واحد اعلامی",
+        "kind": "text",
+        "unit": null,
+        "unit_options": null,
+        "section": 1,
+        "when": {
+          "field": "type",
+          "op": "in",
+          "values": [
+            "materials",
+            "land",
+            "expertise",
+            "delivery"
+          ]
+        },
+        "required": false,
+        "options": null,
+        "source": "PROGRAMMER-S08-COMPLETE:charity"
+      },
+      {
+        "key": "noncash_period",
+        "label": "دوره ارائه ظرفیت",
+        "kind": "quantity",
+        "unit": "MONTH",
+        "unit_options": {
+          "DAY": "روز",
+          "MONTH": "ماه",
+          "YEAR": "سال"
+        },
+        "section": 1,
+        "when": {
+          "field": "type",
+          "op": "in",
+          "values": [
+            "materials",
+            "land",
+            "expertise",
+            "delivery"
+          ]
+        },
+        "required": false,
+        "options": null,
+        "source": "PROGRAMMER-S08-COMPLETE:charity",
+        "namespace": "invest.service.charity",
+        "version": 1,
+        "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+      }
+    ],
+    "source": [
+      "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+    ],
+    "name": "همراهی در کار خیر",
+    "presentation": {
+      "head": "شما همراه کدام آینده می‌شوید؟",
+      "eyebrow": "برای اثری که ادامه پیدا می‌کند",
+      "intro": "اندازه همراهی شما هرچه باشد، می‌توان برای آن مسیری روشن، قابل پیگیری و ماندگار ساخت."
+    }
+  }
+}

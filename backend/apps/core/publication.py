@@ -1,6 +1,7 @@
 from datetime import date, datetime, time
 
 from django.conf import settings
+from django.db.models import Q
 from django.utils import timezone
 
 from apps.workspace import other_schema
@@ -302,8 +303,8 @@ def organization_review(session, id, data):
             from .models import Consent
 
             Consent.objects.filter(
-                case__opportunity__draft__organization=a.organization,
-                kind="owner",
+                Q(case__opportunity__draft__organization=a.organization, kind="owner")
+                | Q(case__service_draft__organization=a.organization),
                 revoked_at__isnull=True,
             ).update(revoked_at=timezone.now())
             Representation.objects.filter(organization=a.organization, status="active").update(
@@ -333,8 +334,8 @@ def organization_review(session, id, data):
             from .models import Consent
 
             Consent.objects.filter(
-                case__opportunity__draft__organization=a.organization,
-                kind="owner",
+                Q(case__opportunity__draft__organization=a.organization, kind="owner")
+                | Q(case__service_draft__organization=a.organization),
                 revoked_at__isnull=True,
             ).update(revoked_at=timezone.now())
             Representation.objects.filter(organization=a.organization, status="active").update(

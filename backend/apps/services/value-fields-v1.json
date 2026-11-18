@@ -1,0 +1,658 @@
+[
+  {
+    "key": "gap",
+    "label": "کسری برآوردی منابع — میلیارد تومان",
+    "kind": "money",
+    "section": 1,
+    "when": null,
+    "required": false,
+    "options": null,
+    "unit": "BILLION_TOMAN",
+    "source": {
+      "path": "advisor/public/engine/advisor.html",
+      "line": 153,
+      "column": 2720,
+      "id": "ext-p-gap"
+    },
+    "full": false,
+    "integer": false,
+    "namespace": "invest.service.proposal",
+    "version": 1,
+    "placeholder": "اگر مشخص نیست، خالی بگذارید",
+    "help": "فقط منابع تامین‌نشده موردنیاز، مستقل از سرمایه‌هایی که در سایر بخش‌ها وارد کرده‌اید."
+  },
+  {
+    "key": "progress",
+    "label": "پیشرفت فیزیکی اعلامی — درصد",
+    "kind": "quantity",
+    "section": 1,
+    "when": {
+      "field": "stage",
+      "op": "eq",
+      "value": "construction"
+    },
+    "required": false,
+    "options": null,
+    "unit": "PERCENTAGE",
+    "source": {
+      "path": "advisor/public/engine/advisor.html",
+      "line": 153,
+      "column": 4223,
+      "id": "ext-p-progress"
+    },
+    "full": false,
+    "integer": false,
+    "namespace": "invest.service.proposal",
+    "version": 1,
+    "minimum": "0",
+    "maximum": "100",
+    "placeholder": "اختیاری، بین صفر و ۱۰۰",
+    "help": null
+  },
+  {
+    "key": "existing_resources",
+    "label": "منابع موجود قابل تعهد",
+    "kind": "money",
+    "unit": "BILLION_TOMAN",
+    "section": 1,
+    "when": null,
+    "required": false,
+    "options": null,
+    "source": "PROGRAMMER-S08-COMPLETE:proposal",
+    "namespace": "invest.service.proposal",
+    "version": 1
+  },
+  {
+    "key": "total_need",
+    "label": "کل نیاز مالی با همان دامنه",
+    "kind": "money",
+    "unit": "BILLION_TOMAN",
+    "section": 1,
+    "when": null,
+    "required": false,
+    "options": null,
+    "source": "PROGRAMMER-S08-COMPLETE:proposal",
+    "namespace": "invest.service.proposal",
+    "version": 1
+  },
+  {
+    "key": "capital",
+    "label": "سرمایه موردنیاز — میلیارد تومان، اختیاری",
+    "kind": "money",
+    "section": 0,
+    "when": null,
+    "required": false,
+    "options": null,
+    "unit": "BILLION_TOMAN",
+    "source": {
+      "path": "advisor/public/engine/advisor.html",
+      "line": 235,
+      "column": 74,
+      "id": "idea-capital"
+    },
+    "full": false,
+    "integer": false,
+    "namespace": "invest.service.ideas",
+    "version": 1,
+    "placeholder": "اگر هنوز برآورد نشده، خالی بگذارید",
+    "help": null
+  },
+  {
+    "key": "area",
+    "label": "مساحت تقریبی عرصه — مترمربع",
+    "kind": "quantity",
+    "section": 0,
+    "when": null,
+    "required": false,
+    "options": null,
+    "unit": "SQUARE_METRE",
+    "source": {
+      "path": "advisor/public/engine/advisor.html",
+      "line": 158,
+      "column": 1726,
+      "id": "lp-area"
+    },
+    "full": false,
+    "integer": false,
+    "minimum": "0.000000001",
+    "namespace": "invest.service.land_preparation",
+    "version": 1,
+    "placeholder": "اگر نامشخص است، خالی بگذارید",
+    "help": null
+  },
+  {
+    "key": "budget",
+    "label": "سرمایه قابل تخصیص — میلیارد تومان",
+    "kind": "money",
+    "section": 1,
+    "when": {
+      "field": "role",
+      "op": "ne",
+      "value": "explore"
+    },
+    "required": false,
+    "options": null,
+    "unit": "BILLION_TOMAN",
+    "source": {
+      "path": "advisor/public/engine/advisor.html",
+      "line": 159,
+      "column": 332,
+      "id": "lp-budget"
+    },
+    "full": false,
+    "integer": false,
+    "namespace": "invest.service.land_preparation",
+    "version": 1,
+    "placeholder": "اختیاری",
+    "help": "این مبلغ مستقل از بودجه فروش، اجاره و مشارکت عمومی است."
+  },
+  {
+    "key": "months",
+    "label": "حداکثر زمان اجرای موردنظر — ماه",
+    "kind": "quantity",
+    "section": 1,
+    "when": null,
+    "required": false,
+    "options": null,
+    "unit": "MONTH",
+    "source": {
+      "path": "advisor/public/engine/advisor.html",
+      "line": 159,
+      "column": 566,
+      "id": "lp-months"
+    },
+    "full": false,
+    "integer": true,
+    "minimum": "0.000000001",
+    "namespace": "invest.service.land_preparation",
+    "version": 1,
+    "basis_hint": "مبدأ همین دوره را صریح وارد کنید.",
+    "placeholder": "اختیاری",
+    "help": "مدت اجرای عملیات، با بازگشت سرمایه یا مدت قرارداد یکسان نیست."
+  },
+  {
+    "key": "specific_equity_share",
+    "label": "سهم موردنظر از شرکت — درصد، اختیاری",
+    "kind": "quantity",
+    "unit": "SHARE_PERCENT",
+    "integer": false,
+    "minimum": "0",
+    "maximum": "100",
+    "section": 2,
+    "when": {
+      "field": "route",
+      "op": "eq",
+      "value": "equity"
+    },
+    "required": false,
+    "options": null,
+    "source": [
+      "HTML#fi-service:162-212",
+      "foreign-investment-script:1119-1217"
+    ],
+    "namespace": "invest.service.foreign_investment",
+    "version": 1
+  },
+  {
+    "key": "specific_equity_horizon",
+    "label": "دوره موردنظر برای بازگشت سرمایه — سال، اختیاری",
+    "kind": "quantity",
+    "unit": "YEAR",
+    "integer": false,
+    "minimum": "0.000000001",
+    "maximum": null,
+    "section": 2,
+    "when": {
+      "field": "route",
+      "op": "eq",
+      "value": "equity"
+    },
+    "required": false,
+    "options": null,
+    "source": [
+      "HTML#fi-service:162-212",
+      "foreign-investment-script:1119-1217"
+    ],
+    "namespace": "invest.service.foreign_investment",
+    "version": 1,
+    "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+  },
+  {
+    "key": "specific_contract_term",
+    "label": "مدت پیشنهادی قرارداد — سال، اختیاری",
+    "kind": "quantity",
+    "unit": "YEAR",
+    "integer": false,
+    "minimum": "0.000000001",
+    "maximum": null,
+    "section": 2,
+    "when": {
+      "field": "route",
+      "op": "eq",
+      "value": "contract"
+    },
+    "required": false,
+    "options": null,
+    "source": [
+      "HTML#fi-service:162-212",
+      "foreign-investment-script:1119-1217"
+    ],
+    "namespace": "invest.service.foreign_investment",
+    "version": 1,
+    "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+  },
+  {
+    "key": "specific_credit_rate",
+    "label": "نرخ سالانه پیشنهادی — درصد، اختیاری",
+    "kind": "quantity",
+    "unit": "PERCENTAGE",
+    "integer": false,
+    "minimum": "0",
+    "maximum": "100",
+    "section": 2,
+    "when": {
+      "field": "route",
+      "op": "eq",
+      "value": "credit"
+    },
+    "required": false,
+    "options": null,
+    "source": [
+      "HTML#fi-service:162-212",
+      "foreign-investment-script:1119-1217"
+    ],
+    "namespace": "invest.service.foreign_investment"
+  },
+  {
+    "key": "specific_credit_tenor",
+    "label": "مدت بازپرداخت — سال، اختیاری",
+    "kind": "quantity",
+    "unit": "YEAR",
+    "integer": false,
+    "minimum": "0.000000001",
+    "maximum": null,
+    "section": 2,
+    "when": {
+      "field": "route",
+      "op": "eq",
+      "value": "credit"
+    },
+    "required": false,
+    "options": null,
+    "source": [
+      "HTML#fi-service:162-212",
+      "foreign-investment-script:1119-1217"
+    ],
+    "namespace": "invest.service.foreign_investment",
+    "version": 1,
+    "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+  },
+  {
+    "key": "specific_credit_grace",
+    "label": "دوره تنفس — ماه، اختیاری",
+    "kind": "quantity",
+    "unit": "MONTH",
+    "integer": false,
+    "minimum": "0.000000001",
+    "maximum": null,
+    "section": 2,
+    "when": {
+      "field": "route",
+      "op": "eq",
+      "value": "credit"
+    },
+    "required": false,
+    "options": null,
+    "source": [
+      "HTML#fi-service:162-212",
+      "foreign-investment-script:1119-1217"
+    ],
+    "namespace": "invest.service.foreign_investment",
+    "version": 1,
+    "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+  },
+  {
+    "key": "specific_support_beneficiaries",
+    "label": "تعداد تقریبی بهره‌مندان — نفر، اختیاری",
+    "kind": "quantity",
+    "unit": "ITEM",
+    "integer": true,
+    "minimum": "0.000000001",
+    "maximum": null,
+    "section": 2,
+    "when": {
+      "field": "route",
+      "op": "eq",
+      "value": "support"
+    },
+    "required": false,
+    "options": null,
+    "source": [
+      "HTML#fi-service:162-212",
+      "foreign-investment-script:1119-1217"
+    ],
+    "namespace": "invest.service.foreign_investment",
+    "version": 1
+  },
+  {
+    "key": "parcels",
+    "label": "تعداد پلاک‌های مورد تجمیع — اختیاری",
+    "kind": "quantity",
+    "section": 0,
+    "when": null,
+    "required": false,
+    "options": null,
+    "unit": "ITEM",
+    "source": [
+      {
+        "id": "DF-0362",
+        "source": "advisor/public/engine/advisor.html",
+        "script": "ministry-additions-script",
+        "line": 1241,
+        "end_line": 1241,
+        "source_start": 660633,
+        "source_end": 660706
+      }
+    ],
+    "full": false,
+    "integer": true,
+    "minimum": "1",
+    "namespace": "invest.service.ma_renewal",
+    "version": 1
+  },
+  {
+    "key": "households",
+    "label": "تعداد خانوارهای نیازمند اسکان — اختیاری",
+    "kind": "quantity",
+    "section": 0,
+    "when": {
+      "field": "displacement",
+      "op": "ne",
+      "value": "no"
+    },
+    "required": false,
+    "options": null,
+    "unit": "ITEM",
+    "source": [
+      {
+        "id": "DF-0367",
+        "source": "advisor/public/engine/advisor.html",
+        "script": "ministry-additions-script",
+        "line": 1241,
+        "end_line": 1241,
+        "source_start": 661061,
+        "source_end": 661171
+      }
+    ],
+    "full": false,
+    "integer": true,
+    "minimum": "0",
+    "namespace": "invest.service.ma_renewal",
+    "version": 1
+  },
+  {
+    "key": "months",
+    "label": "مدت اسکان موقت — ماه، اختیاری",
+    "kind": "quantity",
+    "section": 0,
+    "when": {
+      "field": "displacement",
+      "op": "eq",
+      "value": "yes"
+    },
+    "required": false,
+    "options": null,
+    "unit": "MONTH",
+    "source": [
+      {
+        "id": "DF-0368",
+        "source": "advisor/public/engine/advisor.html",
+        "script": "ministry-additions-script",
+        "line": 1241,
+        "end_line": 1241,
+        "source_start": 661172,
+        "source_end": 661269
+      }
+    ],
+    "full": false,
+    "integer": true,
+    "minimum": "1",
+    "namespace": "invest.service.ma_renewal",
+    "version": 1,
+    "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+  },
+  {
+    "key": "deposit",
+    "label": "ودیعه قابل بازگشت برای هر خانوار — میلیون تومان، اختیاری",
+    "kind": "money",
+    "section": 0,
+    "when": {
+      "field": "displacement",
+      "op": "eq",
+      "value": "yes"
+    },
+    "required": false,
+    "options": null,
+    "unit": "MILLION_TOMAN",
+    "source": [
+      {
+        "id": "DF-0369",
+        "source": "advisor/public/engine/advisor.html",
+        "script": "ministry-additions-script",
+        "line": 1241,
+        "end_line": 1241,
+        "source_start": 661270,
+        "source_end": 661382
+      }
+    ],
+    "full": false,
+    "integer": false,
+    "minimum": "0",
+    "namespace": "invest.service.ma_renewal",
+    "version": 1
+  },
+  {
+    "key": "rent",
+    "label": "اجاره ماهانه هر خانوار — میلیون تومان، اختیاری",
+    "kind": "money",
+    "section": 0,
+    "when": {
+      "field": "displacement",
+      "op": "eq",
+      "value": "yes"
+    },
+    "required": false,
+    "options": null,
+    "unit": "MILLION_TOMAN",
+    "source": [
+      {
+        "id": "DF-0370",
+        "source": "advisor/public/engine/advisor.html",
+        "script": "ministry-additions-script",
+        "line": 1241,
+        "end_line": 1241,
+        "source_start": 661383,
+        "source_end": 661482
+      }
+    ],
+    "full": false,
+    "integer": false,
+    "minimum": "0",
+    "namespace": "invest.service.ma_renewal",
+    "version": 1
+  },
+  {
+    "key": "units",
+    "label": "ظرفیت مدیریت هم‌زمان — تعداد واحد",
+    "kind": "quantity",
+    "section": 0,
+    "when": null,
+    "required": true,
+    "options": null,
+    "unit": "ITEM",
+    "source": [
+      {
+        "id": "DF-0374",
+        "source": "advisor/public/engine/advisor.html",
+        "script": "ministry-additions-script",
+        "line": 1242,
+        "end_line": 1242,
+        "source_start": 661911,
+        "source_end": 661994
+      }
+    ],
+    "full": false,
+    "integer": true,
+    "minimum": "1",
+    "namespace": "invest.service.ma_manager",
+    "version": 1
+  },
+  {
+    "key": "experience",
+    "label": "سابقه فعالیت مرتبط — سال، اختیاری",
+    "kind": "quantity",
+    "section": 0,
+    "when": null,
+    "required": false,
+    "options": null,
+    "unit": "YEAR",
+    "source": [
+      {
+        "id": "DF-0377",
+        "source": "advisor/public/engine/advisor.html",
+        "script": "ministry-additions-script",
+        "line": 1242,
+        "end_line": 1242,
+        "source_start": 662182,
+        "source_end": 662243
+      }
+    ],
+    "full": false,
+    "integer": false,
+    "minimum": "0",
+    "namespace": "invest.service.ma_manager",
+    "version": 1,
+    "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+  },
+  {
+    "key": "area",
+    "label": "مساحت عرضه‌شده — مترمربع",
+    "kind": "quantity",
+    "section": 0,
+    "when": null,
+    "required": true,
+    "options": null,
+    "unit": "SQUARE_METRE",
+    "source": [
+      {
+        "id": "DF-0381",
+        "source": "advisor/public/engine/advisor.html",
+        "script": "ministry-additions-script",
+        "line": 1243,
+        "end_line": 1243,
+        "source_start": 662792,
+        "source_end": 662866
+      }
+    ],
+    "full": false,
+    "integer": false,
+    "minimum": "0",
+    "namespace": "invest.service.ma_exchange",
+    "version": 1
+  },
+  {
+    "key": "value",
+    "label": "ارزش برآوردی ملک — میلیارد تومان، اختیاری",
+    "kind": "money",
+    "section": 0,
+    "when": null,
+    "required": false,
+    "options": null,
+    "unit": "BILLION_TOMAN",
+    "source": [
+      {
+        "id": "DF-0382",
+        "source": "advisor/public/engine/advisor.html",
+        "script": "ministry-additions-script",
+        "line": 1243,
+        "end_line": 1243,
+        "source_start": 662867,
+        "source_end": 663008
+      }
+    ],
+    "full": false,
+    "integer": false,
+    "minimum": "0",
+    "namespace": "invest.service.ma_exchange",
+    "version": 1
+  },
+  {
+    "key": "amount",
+    "label": "مبلغ هر نوبت همراهی — میلیون تومان",
+    "kind": "money",
+    "section": 1,
+    "when": {
+      "field": "type",
+      "op": "eq",
+      "value": "cash"
+    },
+    "required": true,
+    "options": null,
+    "unit": "MILLION_TOMAN",
+    "source": [
+      "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+    ],
+    "full": false,
+    "integer": false,
+    "minimum": "0.000000001",
+    "namespace": "invest.service.charity",
+    "version": 1
+  },
+  {
+    "key": "noncash_capacity",
+    "label": "ظرفیت اعلامی کمک غیرنقدی",
+    "kind": "quantity",
+    "unit": "ITEM",
+    "unit_options": {
+      "ITEM": "عدد اقلام",
+      "PERSON": "نفر ظرفیت اعلامی",
+      "SQUARE_METRE": "مترمربع",
+      "TONNE": "تن",
+      "SERVICE_HOUR": "ساعت خدمت",
+      "SESSION": "نوبت / جلسه خدمت"
+    },
+    "section": 1,
+    "when": {
+      "field": "type",
+      "op": "ne",
+      "value": "cash"
+    },
+    "required": false,
+    "options": null,
+    "source": "PROGRAMMER-S08-COMPLETE:charity",
+    "namespace": "invest.service.charity"
+  },
+  {
+    "key": "noncash_period",
+    "label": "دوره ارائه ظرفیت",
+    "kind": "quantity",
+    "unit": "MONTH",
+    "unit_options": {
+      "DAY": "روز",
+      "MONTH": "ماه",
+      "YEAR": "سال"
+    },
+    "section": 1,
+    "when": {
+      "field": "type",
+      "op": "ne",
+      "value": "cash"
+    },
+    "required": false,
+    "options": null,
+    "source": "PROGRAMMER-S08-COMPLETE:charity",
+    "namespace": "invest.service.charity",
+    "version": 1,
+    "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+  }
+]

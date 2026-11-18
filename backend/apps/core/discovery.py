@@ -143,6 +143,39 @@ def criteria(value):
             raise Fault(
                 "مقدار ترجیح باید متن، عدد یا فهرست ساده باشد.", field="criteria.preferences." + key
             )
+    # Advisory input is contextual evidence, never a D28 exclusion or invented score.
+    # Retain only the selected type's active answers in effective query/report contracts.
+    preferences = value.get("preferences", {})
+    advisory_inputs = {}
+    for key, answer in preferences.items():
+        if key.startswith("adv:"):
+            parts = key.split(":")
+            if len(parts) != 3:
+                raise Fault("شناسه پرسش تخصصی معتبر نیست.", field="preferences." + key)
+            advisory_inputs.setdefault(parts[1], {})[parts[2]] = answer
+    if advisory_inputs:
+        from apps.services.advisories import evaluate as advisory
+
+        effective_preferences = {k: v for k, v in preferences.items() if not k.startswith("adv:")}
+        selected = preferences.get("subtypes", value.get("subtype", []))
+        if selected is None:
+            selected = []
+        if not isinstance(selected, list) or any(not isinstance(x, str) for x in selected):
+            raise Fault(
+                "نوع‌های انتخابی پرسش تخصصی باید فهرست شناسه باشند.", field="preferences.subtypes"
+            )
+        route = value.get("route", "investor")
+        role = route if route in ["investor", "operator", "contractor"] else "context"
+        for subtype, answers in advisory_inputs.items():
+            evaluated = advisory(subtype, answers, role=role)
+            if subtype in selected:
+                effective_preferences.update(
+                    {
+                        "adv:" + subtype + ":" + k: v
+                        for k, v in evaluated["effective_answers"].items()
+                    }
+                )
+        value["preferences"] = effective_preferences
     for k, model in [
         ("province", catalog.Province),
         ("county", catalog.County),

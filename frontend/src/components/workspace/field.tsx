@@ -1,7 +1,7 @@
 'use client';
 import type { Basis, Field, Numeric, RefOption, Value } from './types';
 const states = [['known', 'معلوم'], ['unknown', 'نامعلوم'], ['not_applicable', 'نامربوط']];
-export const unitLabels: Record<string, string> = { TOMAN: 'تومان', MILLION_TOMAN: 'میلیون تومان', BILLION_TOMAN: 'میلیارد تومان', MONTH: 'ماه', YEAR: 'سال', DAY: 'روز', SHARE_PERCENT: 'درصد سهم', PERCENT: 'درصد IRR', ITEM: 'عدد', KILOGRAM: 'کیلوگرم', SQUARE_METRE: 'مترمربع' };
+export const unitLabels: Record<string, string> = { TOMAN: 'تومان', PERCENTAGE: 'درصد ساده', SERVICE_HOUR: 'ساعت خدمت', SESSION: 'نوبت / جلسه خدمت', MILLION_TOMAN: 'میلیون تومان', BILLION_TOMAN: 'میلیارد تومان', MONTH: 'ماه', YEAR: 'سال', DAY: 'روز', SHARE_PERCENT: 'درصد سهم', PERCENT: 'درصد IRR', ITEM: 'عدد', KILOGRAM: 'کیلوگرم', SQUARE_METRE: 'مترمربع' };
 export function active(f: Field, routes: string[], heritage: boolean, values: Record<string, Value>) {
   const participation = routes.includes('investor') || (routes.includes('heritage') && !heritage);
   const c: Record<string, boolean> = { always: true, participation, execution: participation || routes.includes('contractor'), duration: routes.some(r => ['investor', 'lessee', 'heritage'].includes(r)), rights: routes.some(r => ['buyer', 'lessee'].includes(r)), heritage: routes.includes('heritage') && heritage, heritage_years: routes.includes('heritage') && heritage && JSON.stringify(values.heritage_returns) !== '["fee"]' };

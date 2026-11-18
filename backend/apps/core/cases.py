@@ -7,7 +7,7 @@ from django.utils import timezone
 
 from apps.identity.models import User
 from apps.workspace import service as ws
-from apps.workspace.models import PrivateFile
+from apps.workspace.models import Organization, PrivateFile
 from apps.workspace.schema import Fault, check_keys
 
 from .common import event, identifier, notify, owner, role, run, text
@@ -38,11 +38,26 @@ def due(at):
 def get_case(session, id, lock=False):
     qs = Case.objects.select_for_update(of=("self",)) if lock else Case.objects
     try:
-        c = qs.select_related("customer", "expert", "opportunity__draft", "submission").get(
-            pk=identifier(id)
-        )
+        c = qs.select_related(
+            "customer",
+            "expert",
+            "opportunity__draft",
+            "submission",
+            "service_draft__organization",
+            "service_submission",
+        ).get(pk=identifier(id))
     except Case.DoesNotExist as e:
         raise Fault("پرونده پیدا نشد.", 404) from e
+    if c.service_draft_id:
+        if lock and c.service_draft.organization_id:
+            Organization.objects.select_for_update().get(pk=c.service_draft.organization_id)
+        if is_customer(session.user, c):
+            return c
+        if session.user.pk == c.expert_id:
+            role(session, "expert")
+            return c
+        role(session, "admin")
+        return c
     if session.user.pk not in [c.customer_id, c.expert_id]:
         role(session, "admin")
     elif session.user.pk == c.expert_id:
@@ -50,16 +65,47 @@ def get_case(session, id, lock=False):
     return c
 
 
+def current_customer(c):
+    if not c.service_draft_id:
+        return c.customer
+    d = c.service_draft
+    if not d.organization_id:
+        return d.creator
+    from apps.workspace.models import Representation
+
+    g = (
+        Representation.objects.filter(organization_id=d.organization_id, status="active")
+        .select_related("user")
+        .first()
+    )
+    return g.user if g and ws.grant(g.user, d.organization_id) else None
+
+
+def is_customer(user, c):
+    return current_customer(c) == user
+
+
 def dto(c):
+    service = bool(c.service_submission_id)
+    subject = c.service_submission if service else c.submission
+    op_owner = owner(c.opportunity) if not service else None
+    customer = current_customer(c)
     consents = c.consent_set.filter(revoked_at__isnull=True)
     return {
         "id": str(c.pk),
-        "customer_id": str(c.customer_id),
-        "opportunity_id": str(c.opportunity_id),
-        "title": c.submission.snapshot.get("title"),
-        "opportunity_snapshot": c.submission.snapshot,
-        "opportunity_kind": c.submission.kind,
-        "opportunity_revision": str(c.submission_id),
+        "customer_id": str(customer.pk) if customer else None,
+        "original_customer_id": str(c.customer_id),
+        "subject": {
+            "type": "service" if service else "opportunity",
+            "kind": subject.kind,
+            "draft_id": str(c.service_draft_id) if service else None,
+        },
+        "service_files": c.service_submission.files if service else [],
+        "opportunity_id": str(c.opportunity_id) if c.opportunity_id else None,
+        "title": subject.snapshot.get("title"),
+        "opportunity_snapshot": subject.snapshot,
+        "opportunity_kind": subject.kind,
+        "opportunity_revision": str(subject.pk),
         "status": c.status,
         "version": c.version,
         "expert": {
@@ -71,17 +117,19 @@ def dto(c):
         if c.expert_id
         else None,
         "owner": {
-            "id": str(owner(c.opportunity).pk),
-            "name": "صاحب فرصت " + str(owner(c.opportunity).pk)[:6],
+            "id": str(op_owner.pk),
+            "name": "صاحب فرصت " + str(op_owner.pk)[:6],
         }
-        if owner(c.opportunity)
+        if op_owner
         else None,
         "next_action": c.next_action,
         "next_followup_at": c.next_followup_at.isoformat() if c.next_followup_at else None,
-        "opportunity_availability": "expired"
+        "opportunity_availability": "service"
+        if service
+        else "expired"
         if c.opportunity.expires_at and c.opportunity.expires_at <= timezone.now()
         else c.opportunity.availability,
-        "opportunity_accepting_requests": active(c.opportunity),
+        "opportunity_accepting_requests": True if service else active(c.opportunity),
         "history": [
             {"action": e.action, "data": e.data, "at": e.created_at.isoformat()}
             for e in c_events(c.pk)
@@ -96,6 +144,7 @@ def dto(c):
             {
                 "id": m.pk,
                 "actor": str(m.actor_id),
+                "actor_kind": "expert" if m.actor.role == "expert" else "customer",
                 "text": m.text,
                 "files": m.files,
                 "final": m.final,
@@ -196,7 +245,7 @@ def action(session, id, data):
                 )
             except User.DoesNotExist as e:
                 raise Fault("کارشناس فعال انتخاب کنید.") from e
-            if expert.pk == c.customer_id:
+            if is_customer(expert, c):
                 raise Fault("کارشناس با مشتری پرونده یکسان نیست.")
             if c.expert_id != expert.pk:
                 c.consent_set.filter(kind="expert", revoked_at__isnull=True).update(revoked_at=at)
@@ -208,7 +257,7 @@ def action(session, id, data):
         elif act in ["message", "answer", "awaiting_user", "start_review"]:
             if c.status in TERMINAL:
                 raise Fault("پرونده بسته است؛ پیگیری مرتبط تازه بسازید.", 409)
-            customer = user.pk == c.customer_id
+            customer = is_customer(user, c)
             if not customer:
                 role(session, "expert")
                 if user.pk != c.expert_id:
@@ -278,11 +327,11 @@ def action(session, id, data):
             Message.objects.create(case=c, actor=user, text=body, files=data["files"], final=final)
             if not customer and not c.first_response_at:
                 c.first_response_at = at
-            recipient = c.expert if customer else c.customer
+            recipient = c.expert if customer else current_customer(c)
             if recipient:
                 notify(recipient, "پیام تازه در پرونده دارید.", "/requests/" + str(c.pk))
         elif act in ["grant", "revoke"]:
-            if user.pk != c.customer_id:
+            if not is_customer(user, c):
                 raise Fault("فقط مشتری رضایت را مدیریت می‌کند.", 403)
             recipient = identifier(data["recipient"])
             kind = data["kind"]
@@ -290,7 +339,7 @@ def action(session, id, data):
                 c.expert_id
                 if kind == "expert"
                 else owner(c.opportunity).pk
-                if kind == "owner" and owner(c.opportunity)
+                if kind == "owner" and c.opportunity_id and owner(c.opportunity)
                 else None
             )
             if kind not in ["owner", "expert"] or not expected or recipient != expected:
@@ -307,11 +356,11 @@ def action(session, id, data):
                     case=c, recipient_id=recipient, kind=kind, revoked_at__isnull=True
                 ).update(revoked_at=at)
         elif act == "confirm":
-            if user.pk != c.customer_id or c.status != "answered":
+            if not is_customer(user, c) or c.status != "answered":
                 raise Fault("تأیید فقط پس از پاسخ نهایی توسط مشتری است.", 403)
             c.status = "closed"
         elif act == "cancel":
-            if user.pk != c.customer_id or c.status in TERMINAL:
+            if not is_customer(user, c) or c.status in TERMINAL:
                 raise Fault("لغو مجاز نیست.", 403)
             c.status = "cancelled"
         elif act == "terminate":
@@ -339,20 +388,30 @@ def action(session, id, data):
     return run(user, data, "case_action", identifier(id), auth, work)
 
 
+@transaction.atomic
 def contact(session, id):
     # Owner is not a participant. A separate endpoint checks ONLY named consent and authority.
     try:
-        c = Case.objects.select_related("opportunity__draft").get(pk=identifier(id))
+        c = Case.objects.select_related("opportunity__draft", "service_draft").get(
+            pk=identifier(id)
+        )
     except Case.DoesNotExist as e:
         raise Fault("پرونده پیدا نشد.", 404) from e
+    if c.service_draft_id and c.service_draft.organization_id:
+        Organization.objects.select_for_update().get(pk=c.service_draft.organization_id)
     user = session.user
-    allowed = (c.expert_id == user.pk and user.role == "expert") or owner(c.opportunity) == user
+    allowed = (c.expert_id == user.pk and user.role == "expert") or (
+        bool(c.opportunity_id) and owner(c.opportunity) == user
+    )
     if c.expert_id == user.pk:
         role(session, "expert")
     if not allowed or not c.consent_set.filter(recipient=user, revoked_at__isnull=True).exists():
         raise Fault("رضایت معتبر برای شما وجود ندارد.", 403)
     event(user, c.pk, "contact_read")
-    return {"mobile": c.customer.mobile}
+    customer = current_customer(c)
+    if not customer:
+        raise Fault("نماینده جاری برقرار نیست.", 403)
+    return {"mobile": customer.mobile}
 
 
 def jobs(at=None):
@@ -366,9 +425,13 @@ def jobs(at=None):
                 c.version += 1
                 c.save()
                 event(None, c.pk, "case_closed_after_answer")
-                notify(
-                    c.customer, "پرونده هفت روز پس از پاسخ نهایی بسته شد.", "/requests/" + str(c.pk)
-                )
+                customer = current_customer(c)
+                if customer:
+                    notify(
+                        customer,
+                        "پرونده هفت روز پس از پاسخ نهایی بسته شد.",
+                        "/requests/" + str(c.pk),
+                    )
                 count += 1
             if (
                 c.status not in TERMINAL

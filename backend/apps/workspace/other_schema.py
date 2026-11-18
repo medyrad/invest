@@ -3,6 +3,7 @@ from pathlib import Path
 
 from apps.catalog import models as catalog
 from apps.catalog.values import ValueErrorDetail, normalize
+from apps.services import schemas as services
 
 from . import schema
 
@@ -10,14 +11,20 @@ SCHEMAS = json.loads(Path(__file__).with_name("other_schemas.json").read_text())
 
 
 def definition(kind):
+    if kind in services.KINDS:
+        return services.definition(kind)
     return schema.SCHEMA if kind == "project" else SCHEMAS[kind]
 
 
 def fields(kind):
+    if kind in services.KINDS:
+        return services.fields(kind)
     return {f["key"]: f for f in definition(kind)["fields"]}
 
 
 def active(kind, routes, heritage, raw):
+    if kind in services.KINDS:
+        return set(services.current_fields(kind, raw))
     if kind == "project":
         return schema.active_keys(routes, heritage, raw)
     flags = {
@@ -40,6 +47,8 @@ def active(kind, routes, heritage, raw):
 
 
 def validate(kind, key, value):
+    if kind in services.KINDS:
+        return services.validate_one(kind, key, value)
     if kind == "project":
         return schema.validate_one(key, value)
     f = fields(kind)[key]
@@ -77,6 +86,8 @@ def validate(kind, key, value):
 
 
 def effective(kind, raw, routes, heritage):
+    if kind in services.KINDS:
+        return services.effective(kind, raw)
     if kind == "project":
         return schema.effective(raw, routes, heritage)
     fs = fields(kind)

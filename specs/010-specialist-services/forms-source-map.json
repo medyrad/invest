@@ -1,0 +1,4894 @@
+{
+  "source_path": "advisor/public/engine/advisor.html",
+  "source_version": "provided Investment_Advisor-main extraction",
+  "services": {
+    "proposal": {
+      "source": [
+        "HTML#ext-proposal:153",
+        "AlgonetEnhancements.readProposal/validateProposal/fundingAdvice/syncProposalDetails:966-995"
+      ],
+      "steps": [
+        "معرفی طرح، موقعیت، مرحله و نیاز",
+        "منابع و پیش‌نیازها",
+        "جمع‌بندی راهنمای اولیه"
+      ],
+      "fields": [
+        {
+          "id": "ext-p-title",
+          "label": "عنوان طرح — اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "ext-p-title",
+            "type": "text",
+            "maxlength": "150",
+            "placeholder": "عنوان کوتاه و بدون اطلاعات محرمانه"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 741,
+            "id": "ext-p-title"
+          },
+          "ancestors": [
+            "ext-proposal-step1",
+            "ext-proposal-form",
+            "ext-proposal"
+          ]
+        },
+        {
+          "id": "ext-p-sector",
+          "label": "گروه اصلی پروژه",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-sector",
+            "required": null
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 899,
+            "id": "ext-p-sector"
+          },
+          "ancestors": [
+            "ext-proposal-step1",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": []
+        },
+        {
+          "id": "ext-p-type",
+          "label": "نوع دقیق پروژه",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-type",
+            "required": null
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 999,
+            "id": "ext-p-type"
+          },
+          "ancestors": [
+            "ext-proposal-step1",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": []
+        },
+        {
+          "id": "ext-p-province",
+          "label": "استان",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-province",
+            "required": null
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 1088,
+            "id": "ext-p-province"
+          },
+          "ancestors": [
+            "ext-proposal-step1",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": []
+        },
+        {
+          "id": "ext-p-city",
+          "label": "شهر / روستا",
+          "control": "text",
+          "attributes": {
+            "id": "ext-p-city",
+            "type": "text",
+            "maxlength": "80",
+            "required": null
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 1187,
+            "id": "ext-p-city"
+          },
+          "ancestors": [
+            "ext-proposal-step1",
+            "ext-proposal-form",
+            "ext-proposal"
+          ]
+        },
+        {
+          "id": "ext-p-neighborhood",
+          "label": "محله / محدوده — اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "ext-p-neighborhood",
+            "type": "text",
+            "maxlength": "100"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 1311,
+            "id": "ext-p-neighborhood"
+          },
+          "ancestors": [
+            "ext-proposal-step1",
+            "ext-proposal-form",
+            "ext-proposal"
+          ]
+        },
+        {
+          "id": "ext-p-stage",
+          "label": "مرحله فعلی طرح",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-stage",
+            "required": null
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 1426,
+            "id": "ext-p-stage"
+          },
+          "ancestors": [
+            "ext-proposal-step1",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": [
+            {
+              "value": "",
+              "label": "انتخاب کنید"
+            },
+            {
+              "value": "idea",
+              "label": "ایده و بررسی اولیه"
+            },
+            {
+              "value": "study",
+              "label": "مطالعات و اخذ مجوز"
+            },
+            {
+              "value": "ready",
+              "label": "آماده اجرا"
+            },
+            {
+              "value": "construction",
+              "label": "در حال ساخت یا مرمت"
+            },
+            {
+              "value": "operation",
+              "label": "آماده یا در حال بهره‌برداری"
+            }
+          ]
+        },
+        {
+          "id": "ext-p-need",
+          "label": "نیاز اصلی شما چیست؟",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-need",
+            "required": null
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 1829,
+            "id": "ext-p-need"
+          },
+          "ancestors": [
+            "ext-proposal-step1",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": [
+            {
+              "value": "",
+              "label": "انتخاب کنید"
+            },
+            {
+              "value": "partner",
+              "label": "شریک برای سرمایه‌گذاری یا تکمیل طرح"
+            },
+            {
+              "value": "loan",
+              "label": "بررسی مسیر تسهیلات و تامین مالی"
+            },
+            {
+              "value": "purchase",
+              "label": "بررسی امکان تضمین خرید محصول یا خدمت"
+            },
+            {
+              "value": "infrastructure",
+              "label": "تکمیل زیرساخت و رفع مانع بهره‌برداری"
+            },
+            {
+              "value": "operator",
+              "label": "همراه برای بهره‌برداری و نگهداری"
+            },
+            {
+              "value": "support",
+              "label": "منابع حمایتی و مشارکت خیرین"
+            }
+          ]
+        },
+        {
+          "id": "ext-p-gap",
+          "label": "کسری برآوردی منابع — میلیارد تومان",
+          "control": "text",
+          "attributes": {
+            "id": "ext-p-gap",
+            "type": "text",
+            "inputmode": "decimal",
+            "placeholder": "اگر مشخص نیست، خالی بگذارید",
+            "maxlength": "18"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 2720,
+            "id": "ext-p-gap"
+          },
+          "ancestors": [
+            "ext-proposal-step2",
+            "ext-proposal-form",
+            "ext-proposal"
+          ]
+        },
+        {
+          "id": "ext-p-land",
+          "label": "وضعیت اختیار زمین یا دارایی",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-land"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 2999,
+            "id": "ext-p-land"
+          },
+          "ancestors": [
+            "ext-proposal-step2",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": [
+            {
+              "value": "unknown",
+              "label": "هنوز روشن نیست"
+            },
+            {
+              "value": "owned",
+              "label": "مالکیت اعلام‌شده، نیازمند احراز سند"
+            },
+            {
+              "value": "authorized",
+              "label": "اختیار قراردادی یا اداری اعلام‌شده"
+            },
+            {
+              "value": "none",
+              "label": "زمین یا دارایی هنوز در اختیار نیست"
+            },
+            {
+              "value": "dispute",
+              "label": "اختلاف یا ابهام جدی درباره حقوق دارایی وجود دارد"
+            }
+          ]
+        },
+        {
+          "id": "ext-p-permit",
+          "label": "وضعیت مجوزهای اصلی",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-permit"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 3420,
+            "id": "ext-p-permit"
+          },
+          "ancestors": [
+            "ext-proposal-step2",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": [
+            {
+              "value": "unknown",
+              "label": "هنوز روشن نیست"
+            },
+            {
+              "value": "pending",
+              "label": "در حال بررسی یا اخذ مجوز"
+            },
+            {
+              "value": "ready",
+              "label": "اخذ شده، مستندات باید بررسی شوند"
+            }
+          ]
+        },
+        {
+          "id": "ext-p-revenue",
+          "label": "منبع موردنظر برای بازپرداخت یا پوشش هزینه",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-revenue"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 3730,
+            "id": "ext-p-revenue"
+          },
+          "ancestors": [
+            "ext-p-revenue-field",
+            "ext-proposal-step2",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": [
+            {
+              "value": "unknown",
+              "label": "هنوز مشخص نشده"
+            },
+            {
+              "value": "sale",
+              "label": "فروش محصول یا واحدهای پروژه"
+            },
+            {
+              "value": "service",
+              "label": "درآمد ارائه خدمت به استفاده‌کننده"
+            },
+            {
+              "value": "rent",
+              "label": "اجاره و درآمد بهره‌برداری"
+            },
+            {
+              "value": "public",
+              "label": "پرداخت قراردادی دستگاه عمومی"
+            },
+            {
+              "value": "donation",
+              "label": "کمک و حمایت، بدون انتظار بازده تجاری"
+            }
+          ]
+        },
+        {
+          "id": "ext-p-progress",
+          "label": "پیشرفت فیزیکی اعلامی — درصد",
+          "control": "text",
+          "attributes": {
+            "id": "ext-p-progress",
+            "type": "text",
+            "inputmode": "decimal",
+            "placeholder": "اختیاری، بین صفر و ۱۰۰",
+            "maxlength": "6"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 4223,
+            "id": "ext-p-progress"
+          },
+          "ancestors": [
+            "ext-p-progress-field",
+            "ext-proposal-step2",
+            "ext-proposal-form",
+            "ext-proposal"
+          ]
+        },
+        {
+          "id": "ext-p-utilities",
+          "label": "آمادگی زیرساخت‌های ضروری",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-utilities"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 4433,
+            "id": "ext-p-utilities"
+          },
+          "ancestors": [
+            "ext-p-utilities-field",
+            "ext-proposal-step2",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": [
+            {
+              "value": "unknown",
+              "label": "ارزیابی نشده"
+            },
+            {
+              "value": "ready",
+              "label": "آماده اعلام شده، نیازمند مستند"
+            },
+            {
+              "value": "pending",
+              "label": "یک یا چند زیرساخت آماده نیست"
+            }
+          ]
+        },
+        {
+          "id": "ext-p-operator",
+          "label": "بهره‌بردار و منابع هزینه جاری",
+          "control": "select",
+          "attributes": {
+            "id": "ext-p-operator"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 4742,
+            "id": "ext-p-operator"
+          },
+          "ancestors": [
+            "ext-p-operator-field",
+            "ext-proposal-step2",
+            "ext-proposal-form",
+            "ext-proposal"
+          ],
+          "options": [
+            {
+              "value": "unknown",
+              "label": "تعیین نشده"
+            },
+            {
+              "value": "planned",
+              "label": "در حال توافق"
+            },
+            {
+              "value": "ready",
+              "label": "تعیین شده، مستندات باید بررسی شوند"
+            }
+          ]
+        },
+        {
+          "id": "ext-p-description",
+          "label": "توضیح کوتاه درباره نیاز یا مانع اصلی — اختیاری",
+          "control": "textarea",
+          "attributes": {
+            "id": "ext-p-description",
+            "maxlength": "1000",
+            "placeholder": "از درج اطلاعات شخصی یا اسناد محرمانه خودداری کنید."
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 153,
+            "column": 5025,
+            "id": "ext-p-description"
+          },
+          "ancestors": [
+            "ext-proposal-step2",
+            "ext-proposal-form",
+            "ext-proposal"
+          ]
+        }
+      ],
+      "units": {
+        "gap": "BILLION_TOMAN",
+        "progress": "PERCENT"
+      },
+      "conditions": [
+        {
+          "field": "progress",
+          "when": {
+            "field": "stage",
+            "op": "eq",
+            "value": "construction"
+          }
+        },
+        {
+          "field": "utilities",
+          "when": {
+            "any": [
+              {
+                "field": "stage",
+                "op": "in",
+                "values": [
+                  "construction",
+                  "operation"
+                ]
+              },
+              {
+                "field": "need",
+                "op": "eq",
+                "value": "infrastructure"
+              }
+            ]
+          }
+        },
+        {
+          "field": "operator",
+          "when": {
+            "any": [
+              {
+                "field": "need",
+                "op": "in",
+                "values": [
+                  "support",
+                  "operator"
+                ]
+              },
+              {
+                "field": "type",
+                "op": "in",
+                "values": [
+                  "medical",
+                  "education",
+                  "cultural",
+                  "sports",
+                  "watertreatment",
+                  "wastewater",
+                  "community",
+                  "fire"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "field": "revenue",
+          "when": {
+            "field": "need",
+            "op": "ne",
+            "value": "support"
+          },
+          "effective_when_hidden": "donation in reference; mission D29 requires deliberate non-financial support meaning, not stale commercial value"
+        }
+      ],
+      "validation": [
+        "valid group/type; province and city; stage and need required for next",
+        "gap null or >=0; progress null or 0..100"
+      ],
+      "rules": [
+        {
+          "condition": "land=dispute or none",
+          "outcome": "asset rights/availability prerequisite; no final contractual commitment, not automatic refusal to ask expert"
+        },
+        {
+          "condition": "need=loan and repayment not commercial",
+          "outcome": "barrier to concluding repayable finance eligibility"
+        },
+        {
+          "condition": "need=operator",
+          "outcome": "O&M; fees/payer/maintenance distinct from large investment finance"
+        },
+        {
+          "condition": "need=support or revenue=donation",
+          "outcome": "support/charity, no commercial return"
+        },
+        {
+          "condition": "utilities=pending",
+          "outcome": "infrastructure prerequisite"
+        },
+        {
+          "condition": "stage in idea/study",
+          "outcome": "feasibility/information before final financing choice"
+        }
+      ],
+      "outputs": [
+        "paths with why/conditions",
+        "checks",
+        "barriers",
+        "source reading links",
+        "verified=false; officialApplication=false; probability=null; irr=null"
+      ],
+      "numbers_note": "unknown gap is not zero; source does not infer overall success or IRR",
+      "service_id": "proposal",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow",
+      "mission_extension_note": "Mission explicitly requests existing resources / needs / gap. This source form has only direct gap amount; existing resources and total need are not separately numeric in readProposal. Do not infer either from gap; trace any added distinct quantities to this mission, preserve unknown and common unit semantics."
+    },
+    "ideas": {
+      "source": [
+        "HTML#vivid-ideas:226-239",
+        "VividPortal.prepare/fileData/download:1362-1375"
+      ],
+      "steps": [
+        "معرفی ایده و پیوست",
+        "آماده‌سازی بسته و دریافت"
+      ],
+      "fields": [
+        {
+          "id": "idea-title",
+          "label": "عنوان ایده یا طرح *",
+          "control": "text",
+          "attributes": {
+            "id": "idea-title",
+            "required": null,
+            "maxlength": "160",
+            "placeholder": "مثلاً مجموعه تفریحی و شهربازی خانوادگی"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 229,
+            "column": 58,
+            "id": "idea-title"
+          },
+          "ancestors": [
+            "vivid-idea-form",
+            "vivid-ideas"
+          ]
+        },
+        {
+          "id": "idea-sector",
+          "label": "حوزه ایده *",
+          "control": "select",
+          "attributes": {
+            "id": "idea-sector",
+            "required": null
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 230,
+            "column": 45,
+            "id": "idea-sector"
+          },
+          "ancestors": [
+            "vivid-idea-form",
+            "vivid-ideas"
+          ],
+          "options": [
+            {
+              "value": "",
+              "label": "انتخاب کنید"
+            },
+            {
+              "value": "گردشگری، شهربازی و سرگرمی",
+              "label": "گردشگری، شهربازی و سرگرمی"
+            },
+            {
+              "value": "ساختمان و فضاهای زندگی و کار",
+              "label": "ساختمان و فضاهای زندگی و کار"
+            },
+            {
+              "value": "زیرساخت و حمل‌ونقل",
+              "label": "زیرساخت و حمل‌ونقل"
+            },
+            {
+              "value": "آب، انرژی و محیط‌زیست",
+              "label": "آب، انرژی و محیط‌زیست"
+            },
+            {
+              "value": "فناوری و شهر هوشمند",
+              "label": "فناوری و شهر هوشمند"
+            },
+            {
+              "value": "آماده‌سازی و توسعه زمین",
+              "label": "آماده‌سازی و توسعه زمین"
+            },
+            {
+              "value": "مرمت و احیای میراث",
+              "label": "مرمت و احیای میراث"
+            },
+            {
+              "value": "خدمات اجتماعی و عام‌المنفعه",
+              "label": "خدمات اجتماعی و عام‌المنفعه"
+            },
+            {
+              "value": "سایر ایده‌های نو",
+              "label": "سایر ایده‌های نو"
+            }
+          ]
+        },
+        {
+          "id": "idea-stage",
+          "label": "مرحله فعلی *",
+          "control": "select",
+          "attributes": {
+            "id": "idea-stage",
+            "required": null
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 231,
+            "column": 46,
+            "id": "idea-stage"
+          },
+          "ancestors": [
+            "vivid-idea-form",
+            "vivid-ideas"
+          ],
+          "options": [
+            {
+              "value": "",
+              "label": "انتخاب کنید"
+            },
+            {
+              "value": "ایده اولیه",
+              "label": "ایده اولیه"
+            },
+            {
+              "value": "مطالعات اولیه",
+              "label": "مطالعات اولیه"
+            },
+            {
+              "value": "طرح توجیهی آماده",
+              "label": "طرح توجیهی آماده"
+            },
+            {
+              "value": "دارای زمین یا مجوز، آماده بررسی اجرا",
+              "label": "دارای زمین یا مجوز، آماده بررسی اجرا"
+            },
+            {
+              "value": "در حال اجرا یا توسعه",
+              "label": "در حال اجرا یا توسعه"
+            }
+          ]
+        },
+        {
+          "id": "idea-province",
+          "label": "استان — اختیاری",
+          "control": "select",
+          "attributes": {
+            "id": "idea-province"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 232,
+            "column": 49,
+            "id": "idea-province"
+          },
+          "ancestors": [
+            "vivid-idea-form",
+            "vivid-ideas"
+          ],
+          "options": []
+        },
+        {
+          "id": "idea-city",
+          "label": "شهر یا محدوده — اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "idea-city",
+            "maxlength": "100",
+            "placeholder": "محل پیشنهادی یا بدون محدودیت"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 232,
+            "column": 150,
+            "id": "idea-city"
+          },
+          "ancestors": [
+            "vivid-idea-form",
+            "vivid-ideas"
+          ]
+        },
+        {
+          "id": "idea-description",
+          "label": "ایده شما چه ارزشی ایجاد می‌کند؟ *",
+          "control": "textarea",
+          "attributes": {
+            "id": "idea-description",
+            "required": null,
+            "rows": "4",
+            "maxlength": "3000",
+            "placeholder": "چه چیزی می‌سازید، برای چه کسانی و چه نیازی را پاسخ می‌دهید؟"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 233,
+            "column": 72,
+            "id": "idea-description"
+          },
+          "ancestors": [
+            "vivid-idea-form",
+            "vivid-ideas"
+          ]
+        },
+        {
+          "id": "idea-need",
+          "label": "چه همراهی نیاز دارید؟ *",
+          "control": "select",
+          "attributes": {
+            "id": "idea-need",
+            "required": null
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 234,
+            "column": 57,
+            "id": "idea-need"
+          },
+          "ancestors": [
+            "vivid-idea-form",
+            "vivid-ideas"
+          ],
+          "options": [
+            {
+              "value": "",
+              "label": "انتخاب کنید"
+            },
+            {
+              "value": "سرمایه‌گذار یا شریک",
+              "label": "سرمایه‌گذار یا شریک"
+            },
+            {
+              "value": "زمین یا ملک مناسب",
+              "label": "زمین یا ملک مناسب"
+            },
+            {
+              "value": "پیمانکار یا مجری تخصصی",
+              "label": "پیمانکار یا مجری تخصصی"
+            },
+            {
+              "value": "بهره‌بردار و شریک تجاری",
+              "label": "بهره‌بردار و شریک تجاری"
+            },
+            {
+              "value": "بررسی و تکمیل امکان‌سنجی",
+              "label": "بررسی و تکمیل امکان‌سنجی"
+            },
+            {
+              "value": "ترکیبی از موارد بالا",
+              "label": "ترکیبی از موارد بالا"
+            }
+          ]
+        },
+        {
+          "id": "idea-capital",
+          "label": "سرمایه موردنیاز — میلیارد تومان، اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "idea-capital",
+            "type": "text",
+            "inputmode": "decimal",
+            "maxlength": "22",
+            "placeholder": "اگر هنوز برآورد نشده، خالی بگذارید"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 235,
+            "column": 74,
+            "id": "idea-capital"
+          },
+          "ancestors": [
+            "vivid-idea-form",
+            "vivid-ideas"
+          ]
+        },
+        {
+          "id": "idea-files",
+          "label": "انتخاب فایل‌های پیوست ایده",
+          "control": "file",
+          "attributes": {
+            "id": "idea-files",
+            "type": "file",
+            "multiple": null,
+            "accept": ".pdf,.docx,.pptx,.xlsx,.png,.jpg,.jpeg,.webp,.zip",
+            "aria-label": "انتخاب فایل‌های پیوست ایده"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 236,
+            "column": 101,
+            "id": "idea-files"
+          },
+          "ancestors": [
+            "vivid-idea-form",
+            "vivid-ideas"
+          ]
+        }
+      ],
+      "units": {
+        "capital": "BILLION_TOMAN"
+      },
+      "required": [
+        "title",
+        "sector",
+        "stage",
+        "description",
+        "need"
+      ],
+      "attachment_reference": {
+        "extensions": [
+          "pdf",
+          "docx",
+          "pptx",
+          "xlsx",
+          "png",
+          "jpg",
+          "jpeg",
+          "webp",
+          "zip"
+        ],
+        "single_bytes": 10485760,
+        "total_bytes": 20971520,
+        "legacy_behavior": "FileReader base64 inside downloaded JSON, local-only; D32 may impose stricter permitted backend kinds"
+      },
+      "outputs": [
+        "version1 algonet-idea-package; local-draft-not-submitted",
+        "summary title/sector/stage/need/attachment count",
+        "download does not submit"
+      ],
+      "conditions": [],
+      "service_id": "ideas",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow"
+    },
+    "land-preparation": {
+      "source": [
+        "HTML#land-preparation:156-161",
+        "land-preparation-script:1039-1119"
+      ],
+      "steps": [
+        "نقش، خدمات و موقعیت ملک",
+        "پرسش‌های هر خدمت و ظرفیت",
+        "جمع‌بندی بسته، ترتیب و خروجی"
+      ],
+      "fields": [
+        {
+          "id": "lp-role",
+          "label": "چگونه مایل به ورود هستید؟",
+          "control": "select",
+          "attributes": {
+            "id": "lp-role"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 158,
+            "column": 137,
+            "id": "lp-role"
+          },
+          "ancestors": [
+            "lp-step-1",
+            "lp-form",
+            "land-preparation"
+          ],
+          "options": [
+            {
+              "value": "",
+              "label": "انتخاب کنید"
+            },
+            {
+              "value": "investor",
+              "label": "در خدمات آماده‌سازی زمین سرمایه‌گذاری یا مشارکت می‌کنم"
+            },
+            {
+              "value": "contractor",
+              "label": "خدمات تخصصی یا عملیات اجرایی ارائه می‌کنم"
+            },
+            {
+              "value": "owner",
+              "label": "زمین یا ملکی را برای دریافت این خدمات معرفی می‌کنم"
+            },
+            {
+              "value": "explore",
+              "label": "ابتدا می‌خواهم روش‌های ورود را بشناسم"
+            }
+          ]
+        },
+        {
+          "id": "lp-type",
+          "label": "",
+          "control": "hidden",
+          "attributes": {
+            "id": "lp-type",
+            "type": "hidden"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 158,
+            "column": 966,
+            "id": "lp-type"
+          },
+          "ancestors": [
+            "lp-step-1",
+            "lp-form",
+            "land-preparation"
+          ],
+          "ui_only": true,
+          "submit_effect": "legacy first selected service handle; full ordered types list is authoritative"
+        },
+        {
+          "id": "lp-province",
+          "label": "استان",
+          "control": "select",
+          "attributes": {
+            "id": "lp-province"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 158,
+            "column": 1368,
+            "id": "lp-province"
+          },
+          "ancestors": [
+            "lp-step-1",
+            "lp-form",
+            "land-preparation"
+          ],
+          "options": []
+        },
+        {
+          "id": "lp-city",
+          "label": "شهر / روستا — اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "lp-city",
+            "type": "text",
+            "maxlength": "80",
+            "placeholder": "همه شهرها"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 158,
+            "column": 1465,
+            "id": "lp-city"
+          },
+          "ancestors": [
+            "lp-step-1",
+            "lp-form",
+            "land-preparation"
+          ]
+        },
+        {
+          "id": "lp-neighborhood",
+          "label": "محله / محدوده — اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "lp-neighborhood",
+            "type": "text",
+            "maxlength": "100"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 158,
+            "column": 1601,
+            "id": "lp-neighborhood"
+          },
+          "ancestors": [
+            "lp-step-1",
+            "lp-form",
+            "land-preparation"
+          ]
+        },
+        {
+          "id": "lp-area",
+          "label": "مساحت تقریبی عرصه — مترمربع",
+          "control": "text",
+          "attributes": {
+            "id": "lp-area",
+            "type": "text",
+            "inputmode": "decimal",
+            "maxlength": "18",
+            "placeholder": "اگر نامشخص است، خالی بگذارید"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 158,
+            "column": 1726,
+            "id": "lp-area"
+          },
+          "ancestors": [
+            "lp-step-1",
+            "lp-form",
+            "land-preparation"
+          ]
+        },
+        {
+          "id": "lp-keyword",
+          "label": "عنوان یا توضیح کوتاه — اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "lp-keyword",
+            "type": "text",
+            "maxlength": "150",
+            "placeholder": "عنوان طرح یا ویژگی مهم زمین"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 158,
+            "column": 1913,
+            "id": "lp-keyword"
+          },
+          "ancestors": [
+            "lp-step-1",
+            "lp-form",
+            "land-preparation"
+          ]
+        },
+        {
+          "id": "lp-budget",
+          "label": "سرمایه قابل تخصیص — میلیارد تومان",
+          "control": "text",
+          "attributes": {
+            "id": "lp-budget",
+            "type": "text",
+            "inputmode": "decimal",
+            "maxlength": "18",
+            "placeholder": "اختیاری"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 159,
+            "column": 332,
+            "id": "lp-budget"
+          },
+          "ancestors": [
+            "lp-budget-field",
+            "lp-step-2",
+            "lp-form",
+            "land-preparation"
+          ]
+        },
+        {
+          "id": "lp-months",
+          "label": "حداکثر زمان اجرای موردنظر — ماه",
+          "control": "text",
+          "attributes": {
+            "id": "lp-months",
+            "type": "text",
+            "inputmode": "numeric",
+            "maxlength": "5",
+            "placeholder": "اختیاری"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 159,
+            "column": 566,
+            "id": "lp-months"
+          },
+          "ancestors": [
+            "lp-step-2",
+            "lp-form",
+            "land-preparation"
+          ]
+        }
+      ],
+      "service_types": [
+        {
+          "id": "lhstudy",
+          "name": "مطالعات و طراحی آماده‌سازی اراضی",
+          "examples": "",
+          "sources": [
+            "lhstudy"
+          ],
+          "includes": [
+            "مطالعات و طراحی آماده‌سازی اراضی"
+          ],
+          "image": "/images/types/lhstudy.webp"
+        },
+        {
+          "id": "lhearth",
+          "name": "تسطیح و عملیات خاکی اراضی",
+          "examples": "",
+          "sources": [
+            "lhearth"
+          ],
+          "includes": [
+            "تسطیح و عملیات خاکی اراضی"
+          ],
+          "image": "/images/types/lhearth.webp"
+        },
+        {
+          "id": "lhroads",
+          "name": "معابر و دسترسی‌های داخلی",
+          "examples": "",
+          "sources": [
+            "lhroads"
+          ],
+          "includes": [
+            "معابر و دسترسی‌های داخلی"
+          ],
+          "image": "/images/types/lhroads.webp"
+        },
+        {
+          "id": "lhwater",
+          "name": "شبکه آب، فاضلاب و آب‌های سطحی",
+          "examples": "",
+          "sources": [
+            "lhwater"
+          ],
+          "includes": [
+            "شبکه آب، فاضلاب و آب‌های سطحی"
+          ],
+          "image": "/images/types/lhwater.webp"
+        },
+        {
+          "id": "lhenergy",
+          "name": "شبکه برق، گاز و روشنایی",
+          "examples": "",
+          "sources": [
+            "lhenergy"
+          ],
+          "includes": [
+            "شبکه برق، گاز و روشنایی"
+          ],
+          "image": "/images/types/lhenergy.webp"
+        },
+        {
+          "id": "lhplots",
+          "name": "قطعه‌بندی و تحویل زمین آماده ساخت",
+          "examples": "",
+          "sources": [
+            "lhplots"
+          ],
+          "includes": [
+            "قطعه‌بندی و تحویل زمین آماده ساخت"
+          ],
+          "image": "/images/types/lhplots.webp"
+        },
+        {
+          "id": "lhintegrated",
+          "name": "آماده‌سازی یکپارچه اراضی مسکونی",
+          "examples": "",
+          "sources": [
+            "lhintegrated"
+          ],
+          "includes": [
+            "آماده‌سازی یکپارچه اراضی مسکونی"
+          ],
+          "image": "/images/types/lhintegrated.webp"
+        },
+        {
+          "id": "lhhousing",
+          "name": "توسعه یکپارچه زمین و ساخت مسکن",
+          "examples": "",
+          "sources": [
+            "lhhousing"
+          ],
+          "includes": [
+            "توسعه یکپارچه زمین و ساخت مسکن"
+          ],
+          "image": "/images/types/lhhousing.webp"
+        },
+        {
+          "id": "lhcompletion",
+          "name": "تکمیل آماده‌سازی و رفع موانع تحویل مسکن",
+          "examples": "",
+          "sources": [
+            "lhcompletion"
+          ],
+          "includes": [
+            "تکمیل آماده‌سازی و رفع موانع تحویل مسکن"
+          ],
+          "image": "/images/types/lhcompletion.webp"
+        },
+        {
+          "id": "lp-endowment",
+          "name": "تبدیل به احسن کردن املاک اوقافی",
+          "examples": "بررسی امکان، مسیر اخذ موافقت و تعیین تکلیف حقوق موقوفه",
+          "question": "وقف‌نامه، وضعیت تولیت و نظر مرجع ذی‌صلاح درباره اقدام پیشنهادی موجود است؟",
+          "output": "پرونده بررسی امکان اقدام، مستند موافقت‌های لازم و پیشنهاد مسیر قابل پیگیری",
+          "checks": [
+            "بررسی وقف‌نامه، حدود اختیار متولی، حقوق ذی‌نفعان و وضعیت عرصه و اعیان",
+            "بررسی امکان و شرایط اقدام پیشنهادی توسط مرجع ذی‌صلاح، انتخاب این گزینه مجوز فروش، معاوضه یا تبدیل ملک وقفی نیست"
+          ]
+        },
+        {
+          "id": "lp-ownership",
+          "name": "تکمیل پرونده‌های مالکیتی و رفع مشکلات مربوط به آن",
+          "examples": "جمع‌آوری سوابق، تطبیق مدارک و شناسایی نواقص پرونده",
+          "question": "اسناد مالکیت، نقشه و سوابق نقل‌وانتقال برای بررسی موجود است؟",
+          "output": "پرونده مالکیتی منظم، فهرست نواقص و برنامه پیگیری هر نقص",
+          "checks": [
+            "تطبیق اسناد، سوابق نقل‌وانتقال، حدود ملک و حقوق اشخاص مرتبط",
+            "تفکیک نقص مدارک از اختلاف مالکیت و تعیین مسئول تکمیل هر مورد"
+          ]
+        },
+        {
+          "id": "lp-legal",
+          "name": "رفع مشکلات حقوقی املاک",
+          "examples": "بررسی اختلافات، تعارض حقوق و مسیر پیگیری پرونده",
+          "question": "شرح اختلاف، مستندات و وضعیت رسیدگی پرونده مشخص است؟",
+          "output": "گزارش وضعیت حقوقی، مسیر اقدام و مسئول پیگیری پرونده",
+          "checks": [
+            "دریافت شرح اختلاف، اسناد، اخطارها و سوابق رسیدگی موجود",
+            "تعیین حدود خدمات مشاور یا نماینده مجاز، نقاط تصمیم و نحوه گزارش پیشرفت، حل اختلاف یا رای مطلوب تضمین نمی‌شود"
+          ]
+        },
+        {
+          "id": "lp-deed",
+          "name": "اخذ سند تک‌برگ",
+          "examples": "بررسی وضعیت ثبتی و پیگیری پرونده صدور یا تعویض سند",
+          "question": "نوع سند موجود، وضعیت ثبتی و نقشه موردنیاز مشخص است؟",
+          "output": "پرونده ثبتی تکمیل‌شده و گزارش پیگیری تا نتیجه مرجع صادرکننده",
+          "checks": [
+            "شناسایی وضعیت سند، مالک یا نماینده مجاز، نقشه و موانع ثبتی احتمالی",
+            "تفکیک تکمیل پرونده و پیگیری اداری از تصمیم مرجع صادرکننده، صدور سند از پیش قطعی نیست"
+          ]
+        },
+        {
+          "id": "lp-use",
+          "name": "تغییر کاربری ملک",
+          "examples": "بررسی کاربری فعلی و پیشنهادی و مسیر اخذ موافقت",
+          "question": "کاربری فعلی، کاربری پیشنهادی و مستند طرح مرتبط مشخص است؟",
+          "output": "گزارش امکان‌سنجی کاربری پیشنهادی و پرونده درخواست قابل پیگیری",
+          "checks": [
+            "ثبت کاربری فعلی و پیشنهادی، طرح مرتبط و مرجع تصمیم‌گیر همان ملک",
+            "بررسی محدودیت‌ها، هزینه‌ها و آثار طرح پیش از تعهد مالی، موافقت تغییر کاربری فرض نمی‌شود"
+          ]
+        },
+        {
+          "id": "lp-security",
+          "name": "حفاظت از املاک",
+          "examples": "حفاظت مقطعی، کنترل دسترسی و رسیدگی به نقاط آسیب‌پذیر",
+          "question": "وضعیت تصرف، دسترسی‌ها و نقاط آسیب‌پذیر ملک بررسی شده است؟",
+          "output": "برنامه حفاظت مقطعی، مسئولیت تحویل و گزارش کنترل دسترسی",
+          "checks": [
+            "صورت‌برداری وضع موجود و تعیین حدود ملک و اختیار اقدام",
+            "تعیین محدوده حفاظت، کنترل ورود، مسئول گزارش حادثه و شیوه تحویل، حفاظت جایگزین رسیدگی به اختلاف تصرف نیست"
+          ]
+        },
+        {
+          "id": "lp-fence",
+          "name": "نصب نیوجرسی و حصار اطراف زمین",
+          "examples": "بررسی محیط، جانمایی، تامین و اجرای موانع حفاظتی",
+          "question": "حدود زمین، طول محیط و جانمایی حصار یا نیوجرسی مشخص است؟",
+          "output": "برآورد مقادیر، نقشه جانمایی و صورت‌جلسه تحویل عملیات اجراشده",
+          "checks": [
+            "احراز حدود و اختیار نصب، بازدید محل و بررسی دسترسی و ایمنی",
+            "تعیین طول، نوع حصار یا نیوجرسی، مقادیر، مسئول اخذ موافقت و نحوه اندازه‌گیری و تحویل کار"
+          ]
+        },
+        {
+          "id": "lp-maintenance",
+          "name": "حفاظت و نگهداری اراضی و املاک",
+          "examples": "خدمات مستمر پایش، نگهبانی، بازدید و نگهداری دوره‌ای",
+          "question": "دامنه خدمات، مدت و برنامه بازدید و نگهداری مشخص است؟",
+          "output": "برنامه خدمات مستمر، سوابق بازدید و گزارش دوره‌ای عملکرد",
+          "checks": [
+            "تفکیک نگهبانی، پایش، نظافت، تعمیر و نگهداری و تعیین دوره و مسئول هر خدمت",
+            "تعیین شاخص کیفیت، زمان پاسخ، هزینه مستمر، گزارش حادثه و تکلیف خدمات خارج از قرارداد"
+          ]
+        },
+        {
+          "id": "lp-parcel",
+          "name": "آماده‌سازی و تفکیک زمین",
+          "examples": "مطالعات، نقشه تفکیکی و پیگیری تایید قطعات",
+          "question": "مطالعات اولیه، اختیار اقدام و مستندات آماده‌سازی و تفکیک زمین چه وضعیتی دارد؟",
+          "output": "بسته مطالعات و مدارک آماده‌سازی و تفکیک زمین با مراحل اجرا و مراجع تصمیم مشخص",
+          "checks": [
+            "احراز اختیار اقدام، حدود زمین و حقوق اشخاص مرتبط",
+            "بررسی طرح مصوب، الزامات زیرساخت، مجوزها و مدل مالی پیش از تعهد، امکان اجرا یا تغییر کاربری قطعی فرض نمی‌شود"
+          ]
+        },
+        {
+          "id": "lp-town",
+          "name": "شهرک‌سازی و توسعه اراضی جدید",
+          "examples": "برنامه توسعه، زیرساخت و تحویل مرحله‌ای اراضی",
+          "question": "مطالعات اولیه، اختیار اقدام و مستندات شهرک‌سازی و توسعه اراضی جدید چه وضعیتی دارد؟",
+          "output": "بسته مطالعات و مدارک شهرک‌سازی و توسعه اراضی جدید با مراحل اجرا و مراجع تصمیم مشخص",
+          "checks": [
+            "احراز اختیار اقدام، حدود زمین و حقوق اشخاص مرتبط",
+            "بررسی طرح مصوب، الزامات زیرساخت، مجوزها و مدل مالی پیش از تعهد، امکان اجرا یا تغییر کاربری قطعی فرض نمی‌شود"
+          ]
+        },
+        {
+          "id": "lp-consolidation",
+          "name": "نوسازی و تجمیع املاک",
+          "examples": "هماهنگی مالکان، تجمیع قطعات و بررسی حقوق طرفین",
+          "question": "مطالعات اولیه، اختیار اقدام و مستندات نوسازی و تجمیع املاک چه وضعیتی دارد؟",
+          "output": "بسته مطالعات و مدارک نوسازی و تجمیع املاک با مراحل اجرا و مراجع تصمیم مشخص",
+          "checks": [
+            "احراز اختیار اقدام، حدود زمین و حقوق اشخاص مرتبط",
+            "بررسی طرح مصوب، الزامات زیرساخت، مجوزها و مدل مالی پیش از تعهد، امکان اجرا یا تغییر کاربری قطعی فرض نمی‌شود"
+          ]
+        },
+        {
+          "id": "lp-redevelopment",
+          "name": "توسعه مجدد و تغییر کاربری ملک",
+          "examples": "بررسی امکان توسعه و اخذ مجوزهای موردنیاز",
+          "question": "مطالعات اولیه، اختیار اقدام و مستندات توسعه مجدد و تغییر کاربری ملک چه وضعیتی دارد؟",
+          "output": "بسته مطالعات و مدارک توسعه مجدد و تغییر کاربری ملک با مراحل اجرا و مراجع تصمیم مشخص",
+          "checks": [
+            "احراز اختیار اقدام، حدود زمین و حقوق اشخاص مرتبط",
+            "بررسی طرح مصوب، الزامات زیرساخت، مجوزها و مدل مالی پیش از تعهد، امکان اجرا یا تغییر کاربری قطعی فرض نمی‌شود"
+          ]
+        },
+        {
+          "id": "lp-mixed",
+          "name": "توسعه مجتمع‌های چندمنظوره",
+          "examples": "مطالعات ترکیب کاربری، ظرفیت توسعه و مدل همکاری",
+          "question": "مطالعات اولیه، اختیار اقدام و مستندات توسعه مجتمع‌های چندمنظوره چه وضعیتی دارد؟",
+          "output": "بسته مطالعات و مدارک توسعه مجتمع‌های چندمنظوره با مراحل اجرا و مراجع تصمیم مشخص",
+          "checks": [
+            "احراز اختیار اقدام، حدود زمین و حقوق اشخاص مرتبط",
+            "بررسی طرح مصوب، الزامات زیرساخت، مجوزها و مدل مالی پیش از تعهد، امکان اجرا یا تغییر کاربری قطعی فرض نمی‌شود"
+          ]
+        }
+      ],
+      "technical_advisory_types": [
+        "lhstudy",
+        "lhearth",
+        "lhroads",
+        "lhwater",
+        "lhenergy",
+        "lhplots",
+        "lhintegrated",
+        "lhhousing",
+        "lhcompletion"
+      ],
+      "added_service_ids": [
+        "lp-endowment",
+        "lp-ownership",
+        "lp-legal",
+        "lp-deed",
+        "lp-use",
+        "lp-security",
+        "lp-fence",
+        "lp-maintenance",
+        "lp-parcel",
+        "lp-town",
+        "lp-consolidation",
+        "lp-redevelopment",
+        "lp-mixed"
+      ],
+      "conditions": [
+        {
+          "field": "budget",
+          "when": {
+            "field": "role",
+            "op": "ne",
+            "value": "explore"
+          }
+        },
+        {
+          "field": "owner",
+          "when": {
+            "selected_any_added_service": true
+          }
+        },
+        {
+          "field": "lpServiceRight",
+          "when": {
+            "selected_any_added_service": true
+          }
+        },
+        {
+          "field": "revenue",
+          "when": {
+            "selected_any_added_service": true
+          },
+          "note": "shared/deduped with technical questions"
+        },
+        {
+          "field": "status-<service_id>",
+          "when": {
+            "service_selected": "<service_id>"
+          },
+          "options": [
+            [
+              "ready",
+              "مستندات اولیه برای بررسی موجود است"
+            ],
+            [
+              "pending",
+              "در حال بررسی یا تکمیل است"
+            ],
+            [
+              "unknown",
+              "هنوز مشخص نیست"
+            ]
+          ]
+        }
+      ],
+      "question_generator": {
+        "$function": "function serviceQuestions(ids,a){const all=[];if(ids.some(id=>technicalTypes.some(t=>t.id===id)))for(const id of ids.filter(id=>technicalTypes.some(t=>t.id===id)))all.push(...getQuestionsFor('landhousing',id,a).filter(q=>q.id!=='participation'));if(ids.some(serviceById)){\n const ownerQuestion=all.find(q=>q.id==='owner');if(ownerQuestion){const i=all.indexOf(ownerQuestion);all[i]={...ownerQuestion,options:[...ownerQuestion.options,['endowment','متولی یا مرجع مرتبط با موقوفه'],['unknown','هنوز مشخص نیست']]};}\n if(!ownerQuestion)all.push({id:'owner',label:'صاحب اختیار زمین یا ملک کدام است؟',options:[['public','دستگاه عمومی یا دولتی'],['private','مالک / شرکت خصوصی'],['endowment','متولی یا مرجع مرتبط با موقوفه'],['unknown','هنوز مشخص نیست'],['any','محدودیت ندارم']]});\n all.push({id:'lpServiceRight',label:'اختیار سفارش و پیگیری خدمات این ملک چه وضعیتی دارد؟',options:[['documented','مدارک مالک یا نماینده برای بررسی موجود است'],['pending','اختیار نیازمند بررسی است'],['disputed','اختلاف مالکیت، تصرف یا محدودیت اقدام وجود دارد']]});\n if(!all.some(q=>q.id==='revenue'))all.push({id:'revenue',label:'هزینه بسته خدمات چگونه پرداخت شود؟',options:[['public','حق‌الزحمه یا پرداخت نقدی طبق قرارداد'],['sale','تسویه غیرنقدی، پس از بررسی اختیار و امکان آن'],['mixed','ترکیب نقدی و غیرنقدی'],['support','منابع عمومی یا حمایتی مستند']]});\n for(const id of ids){const t=serviceById(id);if(t)all.push({id:'status-'+id,label:t.question,options:statusOptions});}\n }\n return all.filter((q,i,arr)=>arr.findIndex(v=>v.id===q.id)===i);\n}"
+      },
+      "validation": {
+        "$function": "function validateProfile(p,first=false){if(!roleNames[p.role])return 'نقش خود را در آماده‌سازی زمین انتخاب کنید.';if(!selectedIds(p).length||selectedIds(p).some(id=>!types.some(t=>t.id===id)))return 'حداقل یک خدمت برای زمین یا ملک انتخاب کنید.';if(new Set(selectedIds(p)).size!==selectedIds(p).length)return 'هر خدمت فقط یک بار در بسته انتخاب شود.';if(p.area!==null&&(!Number.isFinite(p.area)||p.area<=0))return 'مساحت باید عددی مثبت، به مترمربع باشد، اگر مشخص نیست خالی بگذارید.';if(first)return '';for(const q of serviceQuestions(selectedIds(p),p.answers))if(!q.options.some(x=>x[0]===p.answers[q.id]))return 'لطفاً «'+q.label+'» را مشخص کنید.';if(p.budget!==null&&(!Number.isFinite(p.budget)||p.budget<0))return 'مبلغ باید عدد صفر یا مثبت، به میلیارد تومان باشد، اگر مشخص نیست خالی بگذارید.';if(p.months!==null&&(!Number.isInteger(p.months)||p.months<=0))return 'زمان اجرا باید تعداد ماهِ صحیح و مثبت باشد.';return '';}"
+      },
+      "units": {
+        "area": "SQUARE_METRE",
+        "budget": "BILLION_TOMAN",
+        "months": "MONTH (positive integer)"
+      },
+      "ordering": "User ordered list, drag/drop and up/down; unique services; order retained in output. No automatic dependency sorting or manufactured prerequisite graph. Guidance says each service cost/duration/dependencies/responsibility separately assessed.",
+      "gate_scope": "technical guidance blocked can prevent operational commitment; extra legal/ownership-remediation service itself remains askable (newServiceGuidance blocked=false even disputed).",
+      "outputs": [
+        "one entry for every selected service, with model/finance/why/checks/next/output",
+        "aggregate unique checks/models/finance",
+        "blocked flag from technical entries",
+        "selected service order not final execution schedule"
+      ],
+      "service_id": "land-preparation",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow",
+      "base_validation_source": "function validateProfile(p,first=false){if(!roleNames[p.role])return 'نقش خود را در آماده‌سازی زمین انتخاب کنید.';if(!selectedIds(p).length||selectedIds(p).some(id=>!types.some(t=>t.id===id)))return 'حداقل یک خدمت برای زمین یا ملک انتخاب کنید.';if(new Set(selectedIds(p)).size!==selectedIds(p).length)return 'هر خدمت فقط یک بار در بسته انتخاب شود.';if(p.area!==null&&(!Number.isFinite(p.area)||p.area<=0))return 'مساحت باید عددی مثبت، به مترمربع باشد، اگر مشخص نیست خالی بگذارید.';if(first)return '';for(const q of serviceQuestions(selectedIds(p),p.answers))if(!q.options.some(x=>x[0]===p.answers[q.id]))return 'لطفاً «'+q.label+'» را مشخص کنید.';if(p.budget!==null&&(!Number.isFinite(p.budget)||p.budget<0))return 'مبلغ باید عدد صفر یا مثبت، به میلیارد تومان باشد، اگر مشخص نیست خالی بگذارید.';if(p.months!==null&&(!Number.isInteger(p.months)||p.months<=0))return 'زمان اجرا باید تعداد ماهِ صحیح و مثبت باشد.';return '';}"
+    },
+    "foreign-investment": {
+      "source": [
+        "HTML#fi-service:162-212",
+        "foreign-investment-script:1119-1217"
+      ],
+      "steps": [
+        "خانواده همکاری، مسیر، پروژه و کشور",
+        "آورده و مبلغ/ارز، شرایط مسیر و ابزار پشتیبان",
+        "راهنما، مراجع مطالعه، ریسک و قدم بعد"
+      ],
+      "fields": [
+        {
+          "id": "fi-sector",
+          "label": "حوزه پروژه",
+          "control": "select",
+          "attributes": {
+            "id": "fi-sector"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 175,
+            "column": 48,
+            "id": "fi-sector"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": []
+        },
+        {
+          "id": "fi-type",
+          "label": "نوع دقیق پروژه",
+          "control": "select",
+          "attributes": {
+            "id": "fi-type"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 175,
+            "column": 136,
+            "id": "fi-type"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": []
+        },
+        {
+          "id": "fi-province",
+          "label": "استان",
+          "control": "select",
+          "attributes": {
+            "id": "fi-province"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 176,
+            "column": 43,
+            "id": "fi-province"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": []
+        },
+        {
+          "id": "fi-city",
+          "label": "شهر / محدوده — اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "fi-city",
+            "type": "text",
+            "maxlength": "100"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 176,
+            "column": 141,
+            "id": "fi-city"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ]
+        },
+        {
+          "id": "fi-project",
+          "label": "عنوان یا مشخصات کوتاه پروژه — اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "fi-project",
+            "type": "text",
+            "maxlength": "200"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 177,
+            "column": 80,
+            "id": "fi-project"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ]
+        },
+        {
+          "id": "fi-applicant",
+          "label": "وضعیت متقاضی",
+          "control": "select",
+          "attributes": {
+            "id": "fi-applicant"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 180,
+            "column": 50,
+            "id": "fi-applicant"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": [
+            {
+              "value": "",
+              "label": "انتخاب کنید"
+            },
+            {
+              "value": "company",
+              "label": "شرکت / شخص حقوقی خارجی"
+            },
+            {
+              "value": "individual",
+              "label": "شخص حقیقی خارجی"
+            },
+            {
+              "value": "iranian",
+              "label": "ایرانی با سرمایه دارای منشا خارجی"
+            },
+            {
+              "value": "domestic",
+              "label": "متقاضی ایرانی، در جست‌وجوی شریک یا منابع خارجی"
+            },
+            {
+              "value": "public",
+              "label": "دستگاه عمومی یا نهاد محلی ایرانی"
+            },
+            {
+              "value": "ngo",
+              "label": "نهاد مردمی، خیریه یا مجری توسعه‌ای ایرانی"
+            }
+          ]
+        },
+        {
+          "id": "fi-country",
+          "label": "کشور مبدا سرمایه یا اعتبار",
+          "control": "text",
+          "attributes": {
+            "id": "fi-country",
+            "type": "text",
+            "maxlength": "80",
+            "placeholder": "نام کشور، در صورت نامشخص بودن خالی بگذارید"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 181,
+            "column": 86,
+            "id": "fi-country"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ]
+        },
+        {
+          "id": "fi-amount",
+          "label": "مبلغ قابل تخصیص — اختیاری",
+          "control": "text",
+          "attributes": {
+            "id": "fi-amount",
+            "class": "fi-number",
+            "type": "text",
+            "inputmode": "decimal",
+            "maxlength": "20",
+            "placeholder": "مثلاً ۲۵۰۰۰۰۰"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 182,
+            "column": 84,
+            "id": "fi-amount"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ]
+        },
+        {
+          "id": "fi-currency",
+          "label": "واحد پول",
+          "control": "select",
+          "attributes": {
+            "id": "fi-currency"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 183,
+            "column": 46,
+            "id": "fi-currency"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": [
+            {
+              "value": "USD",
+              "label": "دلار آمریکا — USD"
+            },
+            {
+              "value": "EUR",
+              "label": "یورو — EUR"
+            },
+            {
+              "value": "CNY",
+              "label": "یوان چین — CNY"
+            },
+            {
+              "value": "AED",
+              "label": "درهم امارات — AED"
+            },
+            {
+              "value": "OTHER",
+              "label": "سایر ارزها، در توضیحات مشخص کنید"
+            }
+          ]
+        },
+        {
+          "id": "fi-contribution",
+          "label": "سرمایه نقدی",
+          "control": "checkbox",
+          "attributes": {
+            "type": "checkbox",
+            "name": "fi-contribution",
+            "value": "cash"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 184,
+            "column": 143,
+            "id": null
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "storage_key": "contributions",
+          "option_value": "cash"
+        },
+        {
+          "id": "fi-contribution",
+          "label": "تجهیزات و ماشین‌آلات",
+          "control": "checkbox",
+          "attributes": {
+            "type": "checkbox",
+            "name": "fi-contribution",
+            "value": "equipment"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 184,
+            "column": 228,
+            "id": null
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "storage_key": "contributions",
+          "option_value": "equipment"
+        },
+        {
+          "id": "fi-contribution",
+          "label": "دانش فنی و فناوری",
+          "control": "checkbox",
+          "attributes": {
+            "type": "checkbox",
+            "name": "fi-contribution",
+            "value": "technology"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 184,
+            "column": 327,
+            "id": null
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "storage_key": "contributions",
+          "option_value": "technology"
+        },
+        {
+          "id": "fi-contribution",
+          "label": "توان ساخت یا بهره‌برداری",
+          "control": "checkbox",
+          "attributes": {
+            "type": "checkbox",
+            "name": "fi-contribution",
+            "value": "services"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 184,
+            "column": 424,
+            "id": null
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "storage_key": "contributions",
+          "option_value": "services"
+        },
+        {
+          "id": "fi-contribution",
+          "label": "اعتبار / تسهیلات",
+          "control": "checkbox",
+          "attributes": {
+            "type": "checkbox",
+            "name": "fi-contribution",
+            "value": "credit"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 184,
+            "column": 526,
+            "id": null
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "storage_key": "contributions",
+          "option_value": "credit"
+        },
+        {
+          "id": "fi-source-kind",
+          "label": "نوع ارائه‌دهنده منابع یا حمایت",
+          "control": "select",
+          "attributes": {
+            "id": "fi-source-kind"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 188,
+            "column": 64,
+            "id": "fi-source-kind"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": []
+        },
+        {
+          "id": "fi-contract-form",
+          "label": "قالب قراردادی مدنظر — پیشنهاد اولیه",
+          "control": "select",
+          "attributes": {
+            "id": "fi-contract-form"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 189,
+            "column": 69,
+            "id": "fi-contract-form"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": []
+        },
+        {
+          "id": "fi-impact",
+          "label": "این طرح چه تغییری برای مردم یا محیط ایجاد می‌کند؟",
+          "control": "textarea",
+          "attributes": {
+            "id": "fi-impact",
+            "maxlength": "1000",
+            "placeholder": "مسئله فعلی، گروه بهره‌مند و نتیجه قابل سنجش را کوتاه بنویسید، اگر مطالعه نشده، مشخص کنید."
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 190,
+            "column": 116,
+            "id": "fi-impact"
+          },
+          "ancestors": [
+            "fi-impact-field",
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ]
+        },
+        {
+          "id": "fi-insurance",
+          "label": "به بررسی بیمه یا تضمین نیاز دارید؟",
+          "control": "select",
+          "attributes": {
+            "id": "fi-insurance"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 193,
+            "column": 68,
+            "id": "fi-insurance"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": [
+            {
+              "value": "unknown",
+              "label": "هنوز بررسی نکرده‌ام"
+            },
+            {
+              "value": "yes",
+              "label": "بله، مایل به شناخت پوشش مناسب هستم"
+            },
+            {
+              "value": "no",
+              "label": "فعلاً درخواست بررسی ندارم"
+            }
+          ]
+        },
+        {
+          "id": "fi-risk-cover",
+          "label": "نگرانی اصلی شما چیست؟",
+          "control": "select",
+          "attributes": {
+            "id": "fi-risk-cover"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 194,
+            "column": 87,
+            "id": "fi-risk-cover"
+          },
+          "ancestors": [
+            "fi-risk-cover-field",
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": [
+            {
+              "value": "unknown",
+              "label": "هنوز مشخص نیست"
+            },
+            {
+              "value": "transfer",
+              "label": "انتقال ارز و بازگشت منابع"
+            },
+            {
+              "value": "political",
+              "label": "ریسک سیاسی، سلب مالکیت یا نقض قرارداد"
+            },
+            {
+              "value": "payment",
+              "label": "عدم ایفای تعهد پرداخت طرف قرارداد"
+            },
+            {
+              "value": "commercial",
+              "label": "فروش، سود، تقاضا یا تاخیر اجرای پروژه"
+            }
+          ]
+        },
+        {
+          "id": "fi-blended",
+          "label": "مایلم استفاده از حمایت توسعه‌ای در کنار منابع تجاری هم بررسی شود.",
+          "control": "checkbox",
+          "attributes": {
+            "type": "checkbox",
+            "id": "fi-blended"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 195,
+            "column": 48,
+            "id": "fi-blended"
+          },
+          "ancestors": [
+            "fi-blended-field",
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ]
+        },
+        {
+          "id": "fi-revenue",
+          "label": "منبع بازگشت منابع یا پرداخت",
+          "control": "select",
+          "attributes": {
+            "id": "fi-revenue"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 198,
+            "column": 65,
+            "id": "fi-revenue"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": [
+            {
+              "value": "",
+              "label": "انتخاب کنید"
+            },
+            {
+              "value": "sale",
+              "label": "فروش محصول، واحد یا داراییِ مجاز"
+            },
+            {
+              "value": "rent",
+              "label": "اجاره و منافع بهره‌برداری"
+            },
+            {
+              "value": "user",
+              "label": "تعرفه یا درآمد از استفاده‌کننده"
+            },
+            {
+              "value": "public",
+              "label": "پرداخت دستگاه عمومی طبق قرارداد"
+            },
+            {
+              "value": "mixed",
+              "label": "ترکیبی از منابع درآمد"
+            },
+            {
+              "value": "unknown",
+              "label": "هنوز مشخص نیست"
+            }
+          ]
+        },
+        {
+          "id": "fi-rights",
+          "label": "وضعیت حقوق زمین و دارایی",
+          "control": "select",
+          "attributes": {
+            "id": "fi-rights"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 199,
+            "column": 62,
+            "id": "fi-rights"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": [
+            {
+              "value": "",
+              "label": "انتخاب کنید"
+            },
+            {
+              "value": "company",
+              "label": "مالکیت یا حق استفاده شرکت ایرانی، نیازمند بررسی اسناد"
+            },
+            {
+              "value": "public",
+              "label": "دارایی عمومی / دولتی، نیازمند احراز اختیار واگذاری"
+            },
+            {
+              "value": "private",
+              "label": "دارایی خصوصی، حقوق قراردادی نیازمند بررسی"
+            },
+            {
+              "value": "direct",
+              "label": "هدف، تملک زمین به نام سرمایه‌گذار خارجی است"
+            },
+            {
+              "value": "unknown",
+              "label": "اطلاع کافی ندارم"
+            }
+          ]
+        },
+        {
+          "id": "fi-license",
+          "label": "وضعیت مجوز سرمایه‌گذاری خارجی (فیپا)",
+          "control": "select",
+          "attributes": {
+            "id": "fi-license"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 200,
+            "column": 74,
+            "id": "fi-license"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": [
+            {
+              "value": "unknown",
+              "label": "بررسی نشده / اطلاع ندارم"
+            },
+            {
+              "value": "none",
+              "label": "هنوز درخواست نشده"
+            },
+            {
+              "value": "pending",
+              "label": "در حال بررسی"
+            },
+            {
+              "value": "issued",
+              "label": "مجوز صادر شده، مستندات باید بررسی شود"
+            },
+            {
+              "value": "not-investment",
+              "label": "فعلاً همکاری اجرایی بدون تعهد سرمایه‌گذاری"
+            }
+          ]
+        },
+        {
+          "id": "fi-permit",
+          "label": "وضعیت مجوزها و اختیار اجرای پروژه",
+          "control": "select",
+          "attributes": {
+            "id": "fi-permit"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 201,
+            "column": 71,
+            "id": "fi-permit"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ],
+          "options": [
+            {
+              "value": "unknown",
+              "label": "هنوز احراز نشده"
+            },
+            {
+              "value": "study",
+              "label": "در مرحله بررسی و اخذ مجوز"
+            },
+            {
+              "value": "reported",
+              "label": "طبق اعلام متقاضی موجود است، نیازمند تطبیق"
+            }
+          ]
+        },
+        {
+          "id": "fi-notes",
+          "label": "توضیحات تکمیلی — اختیاری",
+          "control": "textarea",
+          "attributes": {
+            "id": "fi-notes",
+            "maxlength": "1200",
+            "placeholder": "مثلاً نوع ارز دیگر، شریک ایرانی، منبع درآمد یا محدودیت مهم"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 202,
+            "column": 67,
+            "id": "fi-notes"
+          },
+          "ancestors": [
+            "fi-step-2",
+            "fi-form",
+            "fi-service"
+          ]
+        },
+        {
+          "id": "fi-source-filter",
+          "label": "نمایش مراجع بر اساس نقش",
+          "control": "select",
+          "attributes": {
+            "id": "fi-source-filter"
+          },
+          "source": {
+            "path": "advisor/public/engine/advisor.html",
+            "line": 208,
+            "column": 386,
+            "id": "fi-source-filter"
+          },
+          "ancestors": [
+            "fi-source-library",
+            "fi-service"
+          ],
+          "options": [
+            {
+              "value": "all",
+              "label": "همه مراجع و ابزارها"
+            },
+            {
+              "value": "development",
+              "label": "همکاری‌ها و حمایت‌های توسعه‌ای"
+            },
+            {
+              "value": "finance",
+              "label": "تسهیلات و اعتبار"
+            },
+            {
+              "value": "risk",
+              "label": "بیمه و پوشش ریسک"
+            }
+          ],
+          "ui_only": true,
+          "submit_effect": "excluded; source library filter only"
+        }
+      ],
+      "routes": {
+        "equity": {
+          "title": "شراکت و سرمایه‌گذاری مستقیم",
+          "intro": "می‌خواهم با آورده خود در یک شرکت ایرانی یا شرکت پروژه سهیم باشم.",
+          "amount": "سرمایه قابل تخصیص به شراکت",
+          "fields": [
+            [
+              "partner",
+              "وضعیت شریک یا شرکت ایرانی",
+              [
+                [
+                  "unknown",
+                  "هنوز مشخص نیست"
+                ],
+                [
+                  "existing",
+                  "شرکت یا شریک ایرانی مشخص است"
+                ],
+                [
+                  "new",
+                  "شرکت پروژه جدید پیشنهاد می‌شود"
+                ]
+              ]
+            ],
+            [
+              "share",
+              "سهم موردنظر از شرکت — درصد، اختیاری",
+              "percent"
+            ],
+            [
+              "horizon",
+              "دوره موردنظر برای بازگشت سرمایه — سال، اختیاری",
+              "years"
+            ],
+            [
+              "risk",
+              "ریسک‌پذیری شما",
+              [
+                [
+                  "unknown",
+                  "هنوز مشخص نکرده‌ام"
+                ],
+                [
+                  "low",
+                  "کم"
+                ],
+                [
+                  "medium",
+                  "متوسط"
+                ],
+                [
+                  "high",
+                  "زیاد"
+                ]
+              ]
+            ]
+          ]
+        },
+        "contract": {
+          "title": "سرمایه‌گذاری قراردادی در توسعه پروژه",
+          "intro": "می‌خواهم منابع توسعه پروژه را فراهم کنم و از منافع آن سرمایه‌ام را بازیافت کنم.",
+          "amount": "سرمایه قابل تعهد به پروژه",
+          "fields": [
+            [
+              "scope",
+              "دامنه مسئولیت موردنظر",
+              [
+                [
+                  "unknown",
+                  "نیازمند مذاکره و مطالعه"
+                ],
+                [
+                  "build",
+                  "تامین سرمایه و ساخت"
+                ],
+                [
+                  "operate",
+                  "تامین سرمایه، ساخت و بهره‌برداری"
+                ],
+                [
+                  "rehab",
+                  "احیا یا تجهیز و بهره‌برداری"
+                ]
+              ]
+            ],
+            [
+              "term",
+              "مدت پیشنهادی قرارداد — سال، اختیاری",
+              "years"
+            ],
+            [
+              "transfer",
+              "تکلیف دارایی در پایان قرارداد",
+              [
+                [
+                  "unknown",
+                  "هنوز تعیین نشده"
+                ],
+                [
+                  "return",
+                  "تحویل یا انتقال طبق قرارداد"
+                ],
+                [
+                  "retain",
+                  "ادامه مالکیت یا حق استفاده، مشروط به مجوز"
+                ]
+              ]
+            ]
+          ]
+        },
+        "credit": {
+          "title": "تامین اعتبار و تسهیلات خارجی",
+          "intro": "امکان تامین اعتبار پروژه را دارم یا برای طرح خود در جست‌وجوی تامین‌کننده خارجی هستم.",
+          "amount": "مبلغ اعتبار یا تسهیلات پیشنهادی / موردنیاز",
+          "fields": [
+            [
+              "provider",
+              "نوع تامین‌کننده اعتبار",
+              [
+                [
+                  "unknown",
+                  "هنوز مشخص نیست"
+                ],
+                [
+                  "bank",
+                  "بانک یا مؤسسه مالی خارجی"
+                ],
+                [
+                  "state",
+                  "دولت / نهاد دولتی خارجی"
+                ],
+                [
+                  "supplier",
+                  "فروشنده یا تامین‌کننده تجهیزات"
+                ]
+              ]
+            ],
+            [
+              "rate",
+              "نرخ سالانه پیشنهادی — درصد، اختیاری",
+              "rate"
+            ],
+            [
+              "tenor",
+              "مدت بازپرداخت — سال، اختیاری",
+              "years"
+            ],
+            [
+              "grace",
+              "دوره تنفس — ماه، اختیاری",
+              "months"
+            ],
+            [
+              "guarantee",
+              "وضعیت تضمین یا وثیقه",
+              [
+                [
+                  "unknown",
+                  "هنوز تعیین نشده"
+                ],
+                [
+                  "project",
+                  "دارایی یا جریان نقدی پروژه، نیازمند پذیرش"
+                ],
+                [
+                  "bank",
+                  "تضمین بانکی، صدور و پذیرش احراز نشده"
+                ],
+                [
+                  "state",
+                  "تضمین دولتی مورد درخواست، وجود مجوز احراز نشده"
+                ]
+              ]
+            ]
+          ]
+        },
+        "execution": {
+          "title": "اجرای پروژه و همکاری تخصصی",
+          "intro": "توان ساخت، تامین تجهیزات یا بهره‌برداری ارائه می‌کنم، نقش مالی من جدا مشخص شود.",
+          "amount": "برآورد مبلغ خدمات / قرارداد",
+          "fields": [
+            [
+              "service",
+              "نوع خدمت",
+              [
+                [
+                  "build",
+                  "طراحی و ساخت"
+                ],
+                [
+                  "equipment",
+                  "تامین تجهیزات"
+                ],
+                [
+                  "operate",
+                  "بهره‌برداری و نگهداری"
+                ],
+                [
+                  "technology",
+                  "فناوری و خدمات تخصصی"
+                ]
+              ]
+            ],
+            [
+              "commitment",
+              "آیا تعهد تامین سرمایه هم دارید؟",
+              [
+                [
+                  "no",
+                  "خیر، فقط اجرای کار یا ارائه خدمت"
+                ],
+                [
+                  "yes",
+                  "بله، سرمایه یا اعتبار هم تامین می‌کنم"
+                ],
+                [
+                  "unknown",
+                  "هنوز مشخص نیست"
+                ]
+              ]
+            ],
+            [
+              "settlement",
+              "نحوه دریافت مطالبات",
+              [
+                [
+                  "unknown",
+                  "هنوز مشخص نیست"
+                ],
+                [
+                  "progress",
+                  "پرداخت نقدی برحسب پیشرفت یا تحویل"
+                ],
+                [
+                  "deferred",
+                  "پرداخت مدت‌دار، شرایط مالی نیازمند بررسی"
+                ],
+                [
+                  "operation",
+                  "از منافع بهره‌برداری، ساختار قرارداد باید بررسی شود"
+                ]
+              ]
+            ]
+          ]
+        },
+        "support": {
+          "title": "همکاری‌ها و حمایت‌های توسعه‌ای",
+          "intro": "می‌خواهم برای بهبود زندگی مردم، خدمات محلی یا تاب‌آوری، حمایت مالی یا تخصصی دریافت یا ارائه کنم.",
+          "amount": "بودجه حمایتی موردنیاز / قابل ارائه",
+          "fields": [
+            [
+              "position",
+              "نقش شما در این همکاری",
+              [
+                [
+                  "requester",
+                  "متقاضی دریافت حمایت برای طرح هستم"
+                ],
+                [
+                  "provider",
+                  "مایل به ارائه حمایت یا همکاری هستم"
+                ]
+              ]
+            ],
+            [
+              "supportType",
+              "نوع حمایت موردنظر",
+              [
+                [
+                  "unknown",
+                  "هنوز مشخص نیست"
+                ],
+                [
+                  "grant",
+                  "کمک مالی بلاعوض"
+                ],
+                [
+                  "technical",
+                  "همکاری فنی و انتقال دانش"
+                ],
+                [
+                  "study",
+                  "مطالعات، طراحی و آموزش"
+                ],
+                [
+                  "equipment",
+                  "تجهیزات یا خدمات غیرنقدی"
+                ],
+                [
+                  "blended",
+                  "حمایت توسعه‌ای برای جذب سرمایه تجاری"
+                ]
+              ]
+            ],
+            [
+              "focus",
+              "مسئله اصلی طرح",
+              [
+                [
+                  "unknown",
+                  "انتخاب کنید"
+                ],
+                [
+                  "housing",
+                  "مسکن مناسب و سکونتگاه‌ها"
+                ],
+                [
+                  "urban",
+                  "بهسازی محله و توسعه شهری"
+                ],
+                [
+                  "disaster",
+                  "بازسازی و کاهش خطر بلایا"
+                ],
+                [
+                  "energy",
+                  "انرژی و محیط‌زیست ساختمان"
+                ],
+                [
+                  "basic",
+                  "آب، بهداشت و خدمات پایه محلی"
+                ],
+                [
+                  "heritage",
+                  "میراث تاریخی و احیای بنا"
+                ]
+              ]
+            ],
+            [
+              "beneficiaries",
+              "تعداد تقریبی بهره‌مندان — نفر، اختیاری",
+              "count"
+            ],
+            [
+              "cofund",
+              "وضعیت آورده داخلی / هم‌تامینی",
+              [
+                [
+                  "unknown",
+                  "هنوز مشخص نیست"
+                ],
+                [
+                  "yes",
+                  "آورده یا شریک داخلی معرفی شده، نیازمند بررسی"
+                ],
+                [
+                  "no",
+                  "فعلاً آورده یا شریک داخلی مشخص ندارم"
+                ]
+              ]
+            ],
+            [
+              "continuity",
+              "برنامه نگهداری و ادامه خدمت",
+              [
+                [
+                  "unknown",
+                  "هنوز تدوین نشده"
+                ],
+                [
+                  "planned",
+                  "برنامه اولیه تهیه شده است"
+                ],
+                [
+                  "partner",
+                  "بهره‌بردار و منبع هزینه جاری معرفی شده‌اند"
+                ]
+              ]
+            ]
+          ]
+        }
+      },
+      "source_kind_options": {
+        "unknown": "هنوز مشخص نیست",
+        "private": "شرکت یا سرمایه‌گذار خصوصی خارجی",
+        "bank": "بانک تجاری خارجی",
+        "developmentBank": "بانک توسعه‌ای بین‌المللی",
+        "government": "دولت یا نهاد دولتی خارجی",
+        "international": "نهاد بین‌المللی / برنامه سازمان ملل",
+        "foundation": "بنیاد، نهاد خیریه یا صندوق حمایتی",
+        "mixed": "ترکیبی از منابع"
+      },
+      "contract_options": {
+        "unknown": "هنوز تعیین نشده",
+        "equity": "سهام‌داری / شرکت پروژه",
+        "civil": "مشارکت مدنی، مشروط به مجوز",
+        "bot": "ساخت، بهره‌برداری و انتقال (BOT)، قابل بررسی",
+        "buyback": "بیع متقابل، قابل بررسی",
+        "loan": "توافق وام یا فاینانس",
+        "buyer": "اعتبار خریدار",
+        "supplier": "اعتبار فروشنده",
+        "cooperation": "توافق همکاری توسعه‌ای",
+        "grant": "توافق کمک بلاعوض",
+        "technical": "توافق همکاری فنی",
+        "epc": "قرارداد طراحی، تامین و ساخت",
+        "om": "قرارداد بهره‌برداری و نگهداری"
+      },
+      "units": {
+        "amount": "decimal in explicitly selected currency; no conversion to TOMAN",
+        "specific.share": "PERCENT",
+        "specific.horizon": "YEAR (optional positive integer)",
+        "specific.term": "YEAR (optional positive integer)",
+        "specific.tenor": "YEAR (optional positive integer)",
+        "specific.grace": "MONTH (optional positive integer)",
+        "specific.rate": "PERCENT (not IRR)",
+        "specific.duration": "MONTH (positive integer if provided)",
+        "specific.beneficiaries": "ITEM (positive integer, self-reported)"
+      },
+      "conditions": [
+        {
+          "field": "specific.*",
+          "when": {
+            "route": "<route id>"
+          }
+        },
+        {
+          "field": "revenue",
+          "when": {
+            "field": "route",
+            "op": "ne",
+            "value": "support"
+          }
+        },
+        {
+          "field": "license",
+          "when": {
+            "field": "route",
+            "op": "ne",
+            "value": "support"
+          }
+        },
+        {
+          "field": "impact",
+          "when": {
+            "field": "route",
+            "op": "eq",
+            "value": "support"
+          }
+        },
+        {
+          "field": "blended",
+          "when": {
+            "field": "route",
+            "op": "ne",
+            "value": "support"
+          }
+        },
+        {
+          "field": "riskCover",
+          "when": {
+            "field": "insurance",
+            "op": "eq",
+            "value": "yes"
+          }
+        }
+      ],
+      "contract_options_by_route": {
+        "equity": [
+          "unknown",
+          "equity",
+          "civil"
+        ],
+        "contract": [
+          "unknown",
+          "civil",
+          "bot",
+          "buyback"
+        ],
+        "credit": [
+          "unknown",
+          "loan",
+          "buyer",
+          "supplier"
+        ],
+        "support": [
+          "unknown",
+          "cooperation",
+          "grant",
+          "technical"
+        ],
+        "execution": [
+          "unknown",
+          "epc",
+          "om"
+        ]
+      },
+      "families": {
+        "commercial": [
+          "equity",
+          "contract"
+        ],
+        "finance": [
+          "credit"
+        ],
+        "execution": [
+          "execution"
+        ],
+        "support": [
+          "support"
+        ]
+      },
+      "rules": [
+        {
+          "condition": "rights=direct",
+          "outcome": "source FIPPA ownership barrier; structure needs legal revision; not a new jurisdiction-wide prohibition invented by implementer"
+        },
+        {
+          "condition": "rights=unknown or revenue=unknown (non-support)",
+          "outcome": "cannot conclude final finance/return structure"
+        },
+        {
+          "condition": "credit.specific.guarantee=state",
+          "outcome": "requested state guarantee is not authorized/verified"
+        },
+        {
+          "condition": "insurance=yes",
+          "outcome": "insurance is not principal finance source; political vs commercial risk distinct"
+        },
+        {
+          "condition": "support",
+          "outcome": "non-commercial impact/budget/continuity; no IRR, no eligibility promise"
+        },
+        {
+          "condition": "license=not-investment and route financial",
+          "outcome": "contract nature inconsistency to review"
+        }
+      ],
+      "source_guidance": {
+        "$function": "function(p){let a;if(p.route==='support'){const s=p.specific;a={title:s.supportType==='blended'?'بررسی حمایت توسعه‌ای برای جذب سرمایه تجاری':'بررسی همکاری توسعه‌ای و حمایت متناسب با مسئله طرح',why:s.position==='provider'?'شما ارائه‌دهنده حمایت هستید. نیاز واقعی، مجری معتبر، مصرف منابع و نحوه گزارش نتیجه باید پیش از توافق روشن شوند.':'شما متقاضی حمایت هستید. موضوع طرح، خروجی قابل سنجش و انطباق با برنامه و شرایط حامی، مبنای بررسی‌اند، وجود بودجه یا پذیرش پروژه فرض نمی‌شود.',next:s.position==='provider'?'موضوع و دامنه حمایت را مشخص کنید، سپس نیازسنجی و اهلیت مجری و توافق مصرف و گزارش منابع بررسی شود.':'ابتدا یک معرفی کوتاه طرح شامل مسئله، جامعه هدف، خروجی، بودجه و شریک اجرایی آماده کنید، سپس برنامه مرتبط و امکان پذیرش از مسیر رسمی بررسی شود.',checks:['نیاز محلی، داده پایه، محدوده جغرافیایی و گروه بهره‌مند با منبع و تاریخ مشخص مستند شوند.','خروجی، شاخص اثر، روش اندازه‌گیری و مسئول گزارش‌دهی تعیین شوند.','نوع حمایت، بودجه ریزشده، هزینه مطالعات، اجرا و نگهداری و هر آورده داخلی جدا ثبت شوند.','هویت و اهلیت متقاضی، شریک ایرانی، اختیار اجرا و مجوزهای تخصصی و توافق دریافت یا ارائه حمایت بررسی شوند.','فراخوان یا برنامه معتبر، شرایط پذیرش، مصارف مجاز و تعهدات گزارش‌دهی از مرجع مربوط احراز شوند.','برای اجرای خدمت، مسئول بهره‌برداری و تامین هزینه‌های جاری پس از پایان حمایت مشخص شوند.'],barriers:[],conditions:[],verified:false,successProbability:null,irr:null};if(s.beneficiaries!==null)a.conditions.push('تعداد '+s.beneficiaries.toLocaleString('fa-IR')+' بهره‌مند، برآورد اعلامی شماست، اثر واقعی یا جمعیت تحت پوشش تایید نشده است.');if(s.continuity==='unknown')a.barriers.push('برنامه نگهداری و استمرار خدمت مشخص نیست، پیش از تعهد منابع تکمیل شود.');if(p.rights==='unknown')a.checks.push('اگر طرح به زمین، ساختمان یا تجهیزات وابسته است، حقوق دارایی و اختیار استفاده احراز شوند.');if(p.rights==='direct')a.barriers.push('هدف تملک زمین به نام طرف خارجی نیازمند بازنگری حقوقی است، کمک توسعه‌ای مجوز تملک زمین ایجاد نمی‌کند.');if(s.supportType==='unknown')a.barriers.push('نوع حمایت هنوز مشخص نیست، کمک بلاعوض، خدمت فنی و اعتبار بازپرداخت‌پذیر از هم تفکیک شوند.');}else a=baseGuidance(p);\nif(p.sourceKind==='unknown')a.checks.push('نوع و هویت تامین‌کننده یا حامی هنوز تعیین نشده است، معرفی یک نهاد در راهنما به معنی تعهد آن نیست.');if(p.insurance==='yes')a.checks.push('برای بیمه یا تضمین، ارائه‌دهنده، ذی‌نفع، ریسک مشمول، سقف، مدت، استثناها و هزینه پوشش بررسی شوند، صدور تضمین فرض نشود.');if(p.blended||p.specific.supportType==='blended')a.checks.push('در ساختار ترکیبی، سهم حمایت توسعه‌ای و سرمایه تجاری، شروط هر منبع، قراردادها و نحوه تخصیص ریسک جدا طراحی شوند.');if(p.route==='support'&&['bank','private'].includes(p.sourceKind)&&p.specific.supportType==='grant')a.conditions.push('کمک بلاعوض از طرف تجاری، نیازمند برنامه یا تعهد روشن است، عنوان بانک یا شرکت به‌تنهایی وجود کمک را اثبات نمی‌کند.');if(p.route==='credit'&&['grant','technical'].includes(p.contractForm))a.barriers.push('قالب انتخابی با مسیر بدهی هماهنگ نیست، ماهیت منبع و قرارداد روشن شود.');if(a.barriers.length&&p.rights==='direct')a.next='ابتدا هدف مالکیت و ساختار حقوقی با طرف ایرانی و مرجع ذی‌صلاح بازنگری شود، سپس درباره ادامه مسیر تصمیم بگیرید.';return a;}"
+      },
+      "source_validation": {
+        "$function": "function(p){if(p.route==='support'&&!p.contributions.length)return 'حداقل یک نوع حمایت مالی یا تخصصی موردنظر را مشخص کنید.';const err=baseValidate(p);if(err)return err;if(p.route==='support'){if(p.specific.focus==='unknown')return 'مسئله اصلی طرح را انتخاب کنید تا مراجع مرتبط معرفی شوند.';const n=p.specific.beneficiaries;if(n!==null&&(!Number.isInteger(n)||n<=0))return 'تعداد بهره‌مندان باید عدد صحیح مثبت باشد، اگر مشخص نیست، خالی بگذارید.';if(!p.impact)return 'نتیجه موردنظر برای مردم یا محیط را کوتاه توضیح دهید، اگر هنوز مطالعه نشده، همین موضوع را بنویسید.';}return '';}"
+      },
+      "outputs": [
+        "why/title/next/checks/barriers/conditions",
+        "topic-related reading references with status historical/restricted/need-review",
+        "verified false; success probability and IRR null"
+      ],
+      "service_id": "foreign-investment",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow",
+      "base_validation_source": "function validate(p){if(!routes[p.route])return 'مسیر ورود را انتخاب کنید.';if(!taxonomy.some(g=>g.id===p.sector&&g.subtypes.some(t=>t.id===p.type)))return 'حوزه و نوع دقیق پروژه را انتخاب کنید.';if(!p.province)return 'استان یا گزینه «هنوز محل مشخص نیست» را انتخاب کنید.';if(!p.applicant)return 'وضعیت متقاضی را مشخص کنید.';if(p.amount!==null&&(!Number.isFinite(p.amount)||p.amount<=0))return 'مبلغ باید عدد مثبت باشد، اگر مشخص نیست، خالی بگذارید.';if(!p.contributions.length)return 'حداقل یک نوع آورده یا خدمت را انتخاب کنید.';if(!p.revenue||!p.rights)return 'منبع پرداخت و وضعیت حقوق زمین یا دارایی را مشخص کنید، گزینه نامشخص نیز قابل انتخاب است.';for(const[id,label,kind]of routes[p.route].fields){if(Array.isArray(kind))continue;const n=p.specific[id];if(n===null)continue;if(!Number.isFinite(n)||n<0||(['years','percent'].includes(kind)&&n===0)||(kind==='percent'&&n>100)||(['years','months'].includes(kind)&&!Number.isInteger(n)))return 'مقدار «'+label+'» معتبر نیست، درصد باید در محدوده مجاز و زمان، عدد صحیح مثبت باشد.';}return '';}"
+    },
+    "ma-notice": {
+      "source": [
+        "HTML#ma-tools:213-225",
+        "ministry-additions-script:1217-1289"
+      ],
+      "steps": [
+        "فرم اختصاصی notice",
+        "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
+      ],
+      "fields": [
+        {
+          "id": "project",
+          "label": "فرصت مورد بررسی",
+          "type": "select",
+          "options": [
+            [
+              "",
+              "انتخاب کنید"
+            ],
+            [
+              "template",
+              "پرونده عمومی، هنوز فرصت مشخصی ندارم"
+            ],
+            [
+              "REF-SIROS5",
+              "نمونه آموزشی فراخوان سیروس ۵"
+            ]
+          ],
+          "required": true,
+          "full": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0355",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1240,
+              "end_line": 1240,
+              "source_start": 659706,
+              "source_end": 659998
+            }
+          ]
+        },
+        {
+          "id": "ready",
+          "label": "کدام بررسی‌ها را خودتان انجام داده‌اید؟",
+          "type": "multi",
+          "options": [
+            [
+              "documents",
+              "اسناد و آخرین اصلاحیه‌ها را بررسی کرده‌ام"
+            ],
+            [
+              "eligibility",
+              "شرایط صلاحیت و ظرفیت خود را با اسناد تطبیق داده‌ام"
+            ],
+            [
+              "finance",
+              "آورده، منبع پرداخت و تعهد مالی را بررسی کرده‌ام"
+            ],
+            [
+              "signature",
+              "در صورت الزام، ثبت‌نام درگاه و امضای الکترونیکی آماده است"
+            ],
+            [
+              "guarantee",
+              "در صورت الزام، نوع، مبلغ و مدت تضمین را بررسی کرده‌ام"
+            ],
+            [
+              "schedule",
+              "مهلت دریافت، ارائه پیشنهاد و تحویل تضمین را کنترل کرده‌ام"
+            ]
+          ],
+          "full": true,
+          "help": "علامت‌ها خوداظهاری‌اند، تعداد موارد تکمیل‌شده، امتیاز صلاحیت یا احتمال موفقیت نیست.",
+          "catalogue_source": [
+            {
+              "id": "DF-0356",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1240,
+              "end_line": 1240,
+              "source_start": 659999,
+              "source_end": 660159
+            }
+          ]
+        },
+        {
+          "id": "notes",
+          "label": "ابهام‌ها و مدارک باقی‌مانده — اختیاری",
+          "type": "area",
+          "catalogue_source": [
+            {
+              "id": "DF-0357",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1240,
+              "end_line": 1240,
+              "source_start": 660160,
+              "source_end": 660213
+            }
+          ]
+        }
+      ],
+      "source_validation": {
+        "$function": "function validate(tool,p){for(const q of schemas[tool]){if(q.type==='heading'||q.when&&!q.when(p))continue;const v=p[q.id];if(q.required&&(v===null||v===''||Array.isArray(v)&&v.length===0))return 'لطفاً «'+q.label+'» را تکمیل کنید.';if(q.type==='number'&&v!==null){if(!Number.isFinite(v)||v<(q.min??0)||q.positive&&v===0||q.integer&&!Number.isInteger(v))return 'مقدار «'+q.label+'» معتبر نیست، واحد و مثبت یا صحیح بودن عدد را بررسی کنید.';}if(q.type==='select'&&!q.options.some(([key])=>key===v))return 'گزینه «'+q.label+'» معتبر نیست.';if(q.type==='multi'&&v.some(x=>!q.options.some(([key])=>key===x)))return 'گزینه‌های انتخابی معتبر نیستند.';}\n if(tool==='renewal'&&p.displacement==='yes'&&p.households===0)return 'برای اسکان موقت، تعداد خانوار باید بیشتر از صفر باشد، اگر مشخص نیست خالی بگذارید.';\n if(tool==='profile'&&p.certificateNo&&!p.issuer)return 'برای گواهینامه دارای شماره، مرجع صادرکننده را نیز مشخص کنید.';\n return '';}"
+      },
+      "outputs": [
+        "self-reported not officially submitted",
+        "field-specific summary",
+        "prerequisites/checklist",
+        "independent qualification note and source-reading links",
+        "next action"
+      ],
+      "units": {},
+      "rules": [
+        "ready checklist count is self-marked count, not success/qualification percentage",
+        "opportunity passport/procurement milestones and partner scope kept distinct",
+        "template/educational example may be selected without published platform opportunity; must not fabricate an opportunity case",
+        "formal bid submission follows channel stated in actual notice; internal help case is not official bid"
+      ],
+      "service_id": "ma-notice",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow"
+    },
+    "ma-renewal": {
+      "source": [
+        "HTML#ma-tools:213-225",
+        "ministry-additions-script:1217-1289"
+      ],
+      "steps": [
+        "فرم اختصاصی renewal",
+        "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
+      ],
+      "fields": [
+        {
+          "id": "province",
+          "label": "استان",
+          "type": "select",
+          "options": [
+            [
+              "",
+              "انتخاب کنید"
+            ],
+            [
+              "all",
+              "هنوز مشخص نیست / سراسر کشور"
+            ]
+          ],
+          "required": true
+        },
+        {
+          "id": "city",
+          "label": "شهر / محدوده — اختیاری",
+          "type": "text"
+        },
+        {
+          "id": "neighborhood",
+          "label": "محله — اختیاری",
+          "type": "text"
+        },
+        {
+          "id": "r1",
+          "label": "محدوده، حقوق و مشوق‌های قابل بررسی",
+          "type": "heading",
+          "catalogue_source": [
+            {
+              "id": "DF-0358",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 660240,
+              "source_end": 660290
+            }
+          ]
+        },
+        {
+          "id": "gis",
+          "label": "آیا قرارگیری در محدوده هدف بازآفرینی احراز شده؟",
+          "type": "select",
+          "options": [
+            [
+              "unknown",
+              "هنوز استعلام معتبر ندارم"
+            ],
+            [
+              "inside",
+              "طبق اعلام من، داخل محدوده مصوب است"
+            ],
+            [
+              "outside",
+              "طبق اعلام من، خارج محدوده مصوب است"
+            ]
+          ],
+          "required": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0359",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 660291,
+              "source_end": 660508
+            }
+          ]
+        },
+        {
+          "id": "authority",
+          "label": "مرجع یا شماره سند بررسی محدوده — اختیاری",
+          "type": "text",
+          "catalogue_source": [
+            {
+              "id": "DF-0360",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 660509,
+              "source_end": 660569
+            }
+          ]
+        },
+        {
+          "id": "evidenceDate",
+          "label": "تاریخ سند یا استعلام — طبق سند، اختیاری",
+          "type": "text",
+          "catalogue_source": [
+            {
+              "id": "DF-0361",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 660570,
+              "source_end": 660632
+            }
+          ]
+        },
+        {
+          "id": "parcels",
+          "label": "تعداد پلاک‌های مورد تجمیع — اختیاری",
+          "type": "number",
+          "integer": true,
+          "min": 1,
+          "catalogue_source": [
+            {
+              "id": "DF-0362",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 660633,
+              "source_end": 660706
+            }
+          ]
+        },
+        {
+          "id": "incentive",
+          "label": "وضعیت مشوق مصوب همین ملک",
+          "type": "select",
+          "options": [
+            [
+              "unknown",
+              "بررسی نشده"
+            ],
+            [
+              "available",
+              "سند یا پاسخ اولیه دارم، نیازمند تطبیق"
+            ],
+            [
+              "none",
+              "فعلاً مشوقی احراز نشده است"
+            ]
+          ],
+          "catalogue_source": [
+            {
+              "id": "DF-0363",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 660707,
+              "source_end": 660872
+            }
+          ]
+        },
+        {
+          "id": "incentiveRef",
+          "label": "مرجع یا شماره مصوبه مشوق — اختیاری",
+          "type": "text",
+          "catalogue_source": [
+            {
+              "id": "DF-0364",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 660873,
+              "source_end": 660930
+            }
+          ]
+        },
+        {
+          "id": "r2",
+          "label": "ساکنان و اسکان موقت",
+          "type": "heading",
+          "catalogue_source": [
+            {
+              "id": "DF-0365",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 660931,
+              "source_end": 660966
+            }
+          ]
+        },
+        {
+          "id": "displacement",
+          "label": "آیا تخلیه و اسکان موقت لازم است؟",
+          "type": "select",
+          "options": [
+            [
+              "unknown",
+              "هنوز مشخص نیست"
+            ],
+            [
+              "yes",
+              "بله، طبق اعلام من"
+            ],
+            [
+              "no",
+              "خیر"
+            ]
+          ],
+          "required": true,
+          "rerender": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0366",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 660967,
+              "source_end": 661060
+            }
+          ]
+        },
+        {
+          "id": "households",
+          "label": "تعداد خانوارهای نیازمند اسکان — اختیاری",
+          "type": "number",
+          "integer": true,
+          "min": 0,
+          "when": {
+            "$function": "a=>a.displacement!=='no'"
+          },
+          "active_when": {
+            "field": "displacement",
+            "op": "ne",
+            "value": "no"
+          },
+          "catalogue_source": [
+            {
+              "id": "DF-0367",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 661061,
+              "source_end": 661171
+            }
+          ]
+        },
+        {
+          "id": "months",
+          "label": "مدت اسکان موقت — ماه، اختیاری",
+          "type": "number",
+          "integer": true,
+          "min": 1,
+          "when": {
+            "$function": "a=>a.displacement==='yes'"
+          },
+          "active_when": {
+            "field": "displacement",
+            "op": "eq",
+            "value": "yes"
+          },
+          "catalogue_source": [
+            {
+              "id": "DF-0368",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 661172,
+              "source_end": 661269
+            }
+          ]
+        },
+        {
+          "id": "deposit",
+          "label": "ودیعه قابل بازگشت برای هر خانوار — میلیون تومان، اختیاری",
+          "type": "number",
+          "min": 0,
+          "when": {
+            "$function": "a=>a.displacement==='yes'"
+          },
+          "active_when": {
+            "field": "displacement",
+            "op": "eq",
+            "value": "yes"
+          },
+          "catalogue_source": [
+            {
+              "id": "DF-0369",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 661270,
+              "source_end": 661382
+            }
+          ]
+        },
+        {
+          "id": "rent",
+          "label": "اجاره ماهانه هر خانوار — میلیون تومان، اختیاری",
+          "type": "number",
+          "min": 0,
+          "when": {
+            "$function": "a=>a.displacement==='yes'"
+          },
+          "active_when": {
+            "field": "displacement",
+            "op": "eq",
+            "value": "yes"
+          },
+          "catalogue_source": [
+            {
+              "id": "DF-0370",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 661383,
+              "source_end": 661482
+            }
+          ]
+        },
+        {
+          "id": "payer",
+          "label": "مسئول پیشنهادی تامین اسکان",
+          "type": "select",
+          "options": [
+            [
+              "unknown",
+              "هنوز مشخص نیست"
+            ],
+            [
+              "owner",
+              "مالک یا مالکان"
+            ],
+            [
+              "developer",
+              "سازنده / توسعه‌گر"
+            ],
+            [
+              "shared",
+              "ترکیبی، سهم‌ها باید تعیین شود"
+            ]
+          ],
+          "when": {
+            "$function": "a=>a.displacement==='yes'"
+          },
+          "active_when": {
+            "field": "displacement",
+            "op": "eq",
+            "value": "yes"
+          },
+          "catalogue_source": [
+            {
+              "id": "DF-0371",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 661483,
+              "source_end": 661695
+            }
+          ]
+        },
+        {
+          "id": "notes",
+          "label": "وضعیت مالکیت، ساکنان، مستاجران و محدودیت مهم — اختیاری",
+          "type": "area",
+          "catalogue_source": [
+            {
+              "id": "DF-0372",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1241,
+              "end_line": 1241,
+              "source_start": 661696,
+              "source_end": 661766
+            }
+          ]
+        }
+      ],
+      "source_validation": {
+        "$function": "function validate(tool,p){for(const q of schemas[tool]){if(q.type==='heading'||q.when&&!q.when(p))continue;const v=p[q.id];if(q.required&&(v===null||v===''||Array.isArray(v)&&v.length===0))return 'لطفاً «'+q.label+'» را تکمیل کنید.';if(q.type==='number'&&v!==null){if(!Number.isFinite(v)||v<(q.min??0)||q.positive&&v===0||q.integer&&!Number.isInteger(v))return 'مقدار «'+q.label+'» معتبر نیست، واحد و مثبت یا صحیح بودن عدد را بررسی کنید.';}if(q.type==='select'&&!q.options.some(([key])=>key===v))return 'گزینه «'+q.label+'» معتبر نیست.';if(q.type==='multi'&&v.some(x=>!q.options.some(([key])=>key===x)))return 'گزینه‌های انتخابی معتبر نیستند.';}\n if(tool==='renewal'&&p.displacement==='yes'&&p.households===0)return 'برای اسکان موقت، تعداد خانوار باید بیشتر از صفر باشد، اگر مشخص نیست خالی بگذارید.';\n if(tool==='profile'&&p.certificateNo&&!p.issuer)return 'برای گواهینامه دارای شماره، مرجع صادرکننده را نیز مشخص کنید.';\n return '';}"
+      },
+      "outputs": [
+        "self-reported not officially submitted",
+        "field-specific summary",
+        "prerequisites/checklist",
+        "independent qualification note and source-reading links",
+        "next action"
+      ],
+      "units": {
+        "parcels": "ITEM (parcel count)",
+        "households": "ITEM (household count)",
+        "months": "MONTH",
+        "deposit": "MILLION_TOMAN per household refundable deposit",
+        "rent": "MILLION_TOMAN per household per calendar month"
+      },
+      "rules": [
+        {
+          "condition": "displacement=yes",
+          "calculation": "deposit_total=households*deposit_per_household; rent_total=households*monthly_rent*months",
+          "null_propagation": true,
+          "acceptance_example": {
+            "households": "10",
+            "deposit_each_million": "200",
+            "rent_each_million": "5",
+            "months": "6",
+            "deposit_total_toman": "2000000000",
+            "rent_total_toman": "300000000"
+          },
+          "not_calculated": [
+            "net cost",
+            "moving/loss/other costs",
+            "aid or loan deduction"
+          ]
+        },
+        {
+          "condition": "gis=inside and authority/evidenceDate incomplete",
+          "outcome": "self-report, verification incomplete"
+        },
+        {
+          "condition": "gis=outside",
+          "outcome": "special regeneration eligibility not confirmed; ordinary renovation may still be reviewed"
+        },
+        {
+          "condition": "incentive=available without incentiveRef",
+          "outcome": "incentive size/applicability not verified"
+        },
+        {
+          "condition": "displacement=yes and payer=unknown",
+          "outcome": "payer must be clarified before construction commitment"
+        }
+      ],
+      "service_id": "ma-renewal",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow"
+    },
+    "ma-manager": {
+      "source": [
+        "HTML#ma-tools:213-225",
+        "ministry-additions-script:1217-1289"
+      ],
+      "steps": [
+        "فرم اختصاصی manager",
+        "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
+      ],
+      "fields": [
+        {
+          "id": "province",
+          "label": "استان",
+          "type": "select",
+          "options": [
+            [
+              "",
+              "انتخاب کنید"
+            ],
+            [
+              "all",
+              "هنوز مشخص نیست / سراسر کشور"
+            ]
+          ],
+          "required": true
+        },
+        {
+          "id": "city",
+          "label": "شهر / محدوده — اختیاری",
+          "type": "text"
+        },
+        {
+          "id": "neighborhood",
+          "label": "محله — اختیاری",
+          "type": "text"
+        },
+        {
+          "id": "entity",
+          "label": "نوع متقاضی",
+          "type": "select",
+          "options": [
+            [
+              "",
+              "انتخاب کنید"
+            ],
+            [
+              "company",
+              "شخص حقوقی"
+            ],
+            [
+              "individual",
+              "شخص حقیقی"
+            ]
+          ],
+          "required": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0373",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1242,
+              "end_line": 1242,
+              "source_start": 661793,
+              "source_end": 661910
+            }
+          ]
+        },
+        {
+          "id": "units",
+          "label": "ظرفیت مدیریت هم‌زمان — تعداد واحد",
+          "type": "number",
+          "integer": true,
+          "min": 1,
+          "required": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0374",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1242,
+              "end_line": 1242,
+              "source_start": 661911,
+              "source_end": 661994
+            }
+          ]
+        },
+        {
+          "id": "usage",
+          "label": "نوع املاک مورد مدیریت",
+          "type": "select",
+          "options": [
+            [
+              "residential",
+              "مسکونی"
+            ],
+            [
+              "commercial",
+              "تجاری / اداری"
+            ],
+            [
+              "mixed",
+              "ترکیبی"
+            ]
+          ],
+          "catalogue_source": [
+            {
+              "id": "DF-0375",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1242,
+              "end_line": 1242,
+              "source_start": 661995,
+              "source_end": 662111
+            }
+          ]
+        },
+        {
+          "id": "services",
+          "label": "چه خدماتی ارائه می‌کنید؟",
+          "type": "multi",
+          "options": [
+            [
+              "tenant",
+              "بازاریابی و انتخاب مستاجر"
+            ],
+            [
+              "contract",
+              "مدیریت قرارداد و تمدید"
+            ],
+            [
+              "collection",
+              "وصول و گزارش اجاره"
+            ],
+            [
+              "maintenance",
+              "نگهداری و تعمیرات"
+            ],
+            [
+              "handover",
+              "تحویل، تخلیه و تسویه"
+            ],
+            [
+              "reporting",
+              "گزارش عملکرد به مالک"
+            ]
+          ],
+          "full": true,
+          "required": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0376",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1242,
+              "end_line": 1242,
+              "source_start": 662112,
+              "source_end": 662181
+            }
+          ]
+        },
+        {
+          "id": "experience",
+          "label": "سابقه فعالیت مرتبط — سال، اختیاری",
+          "type": "number",
+          "min": 0,
+          "catalogue_source": [
+            {
+              "id": "DF-0377",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1242,
+              "end_line": 1242,
+              "source_start": 662182,
+              "source_end": 662243
+            }
+          ]
+        },
+        {
+          "id": "fee",
+          "label": "شیوه پیشنهادی دریافت حق‌الزحمه",
+          "type": "select",
+          "options": [
+            [
+              "unknown",
+              "هنوز تعیین نشده"
+            ],
+            [
+              "fixed",
+              "مبلغ ثابت"
+            ],
+            [
+              "perunit",
+              "مبلغ به ازای هر واحد"
+            ],
+            [
+              "percent",
+              "درصدی از اجاره وصول‌شده"
+            ],
+            [
+              "mixed",
+              "ترکیبی"
+            ]
+          ],
+          "catalogue_source": [
+            {
+              "id": "DF-0378",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1242,
+              "end_line": 1242,
+              "source_start": 662244,
+              "source_end": 662436
+            }
+          ]
+        },
+        {
+          "id": "notes",
+          "label": "سوابق، تیم، سامانه گزارش‌دهی یا محدودیت مهم — اختیاری",
+          "type": "area",
+          "catalogue_source": [
+            {
+              "id": "DF-0379",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1242,
+              "end_line": 1242,
+              "source_start": 662437,
+              "source_end": 662506
+            }
+          ]
+        }
+      ],
+      "source_validation": {
+        "$function": "function validate(tool,p){for(const q of schemas[tool]){if(q.type==='heading'||q.when&&!q.when(p))continue;const v=p[q.id];if(q.required&&(v===null||v===''||Array.isArray(v)&&v.length===0))return 'لطفاً «'+q.label+'» را تکمیل کنید.';if(q.type==='number'&&v!==null){if(!Number.isFinite(v)||v<(q.min??0)||q.positive&&v===0||q.integer&&!Number.isInteger(v))return 'مقدار «'+q.label+'» معتبر نیست، واحد و مثبت یا صحیح بودن عدد را بررسی کنید.';}if(q.type==='select'&&!q.options.some(([key])=>key===v))return 'گزینه «'+q.label+'» معتبر نیست.';if(q.type==='multi'&&v.some(x=>!q.options.some(([key])=>key===x)))return 'گزینه‌های انتخابی معتبر نیستند.';}\n if(tool==='renewal'&&p.displacement==='yes'&&p.households===0)return 'برای اسکان موقت، تعداد خانوار باید بیشتر از صفر باشد، اگر مشخص نیست خالی بگذارید.';\n if(tool==='profile'&&p.certificateNo&&!p.issuer)return 'برای گواهینامه دارای شماره، مرجع صادرکننده را نیز مشخص کنید.';\n return '';}"
+      },
+      "outputs": [
+        "self-reported not officially submitted",
+        "field-specific summary",
+        "prerequisites/checklist",
+        "independent qualification note and source-reading links",
+        "next action"
+      ],
+      "units": {
+        "units": "ITEM rental units",
+        "experience": "YEAR"
+      },
+      "rules": [
+        "ownership/authority limits to choose tenant, sign, receive funds and pursue claims distinct",
+        "occupancy/repairs/ongoing resources; fee basis/services/excluded expenses/settlement",
+        "collection/vacancy/maintenance response reporting metrics",
+        "team competence, tenant information access, confidentiality; not merely searching for a rental"
+      ],
+      "service_id": "ma-manager",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow"
+    },
+    "ma-exchange": {
+      "source": [
+        "HTML#ma-tools:213-225",
+        "ministry-additions-script:1217-1289"
+      ],
+      "steps": [
+        "فرم اختصاصی exchange",
+        "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
+      ],
+      "fields": [
+        {
+          "id": "province",
+          "label": "استان",
+          "type": "select",
+          "options": [
+            [
+              "",
+              "انتخاب کنید"
+            ],
+            [
+              "all",
+              "هنوز مشخص نیست / سراسر کشور"
+            ]
+          ],
+          "required": true
+        },
+        {
+          "id": "city",
+          "label": "شهر / محدوده — اختیاری",
+          "type": "text"
+        },
+        {
+          "id": "neighborhood",
+          "label": "محله — اختیاری",
+          "type": "text"
+        },
+        {
+          "id": "kind",
+          "label": "نوع ملک پیشنهادی",
+          "type": "select",
+          "options": [
+            [
+              "",
+              "انتخاب کنید"
+            ],
+            [
+              "apartment",
+              "آپارتمان / واحد مسکونی"
+            ],
+            [
+              "villa",
+              "ملک ویلایی"
+            ],
+            [
+              "complex",
+              "ساختمان یا مجموعه واحدها"
+            ],
+            [
+              "commercial",
+              "تجاری / اداری"
+            ],
+            [
+              "land",
+              "زمین، تناسب با موضوع فراخوان باید احراز شود"
+            ]
+          ],
+          "required": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0380",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1243,
+              "end_line": 1243,
+              "source_start": 662534,
+              "source_end": 662791
+            }
+          ]
+        },
+        {
+          "id": "area",
+          "label": "مساحت عرضه‌شده — مترمربع",
+          "type": "number",
+          "min": 0,
+          "positive": true,
+          "required": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0381",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1243,
+              "end_line": 1243,
+              "source_start": 662792,
+              "source_end": 662866
+            }
+          ]
+        },
+        {
+          "id": "value",
+          "label": "ارزش برآوردی ملک — میلیارد تومان، اختیاری",
+          "type": "number",
+          "min": 0,
+          "positive": true,
+          "help": "این عدد قیمت کارشناسی تاییدشده یا سرمایه نقدی شما نیست.",
+          "catalogue_source": [
+            {
+              "id": "DF-0382",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1243,
+              "end_line": 1243,
+              "source_start": 662867,
+              "source_end": 663008
+            }
+          ]
+        },
+        {
+          "id": "rights",
+          "label": "وضعیت اختیار معرفی ملک",
+          "type": "select",
+          "options": [
+            [
+              "unknown",
+              "هنوز اسناد بررسی نشده‌اند"
+            ],
+            [
+              "owner",
+              "مالکیت یا نمایندگی اعلامی، نیازمند احراز"
+            ],
+            [
+              "shared",
+              "مشاع / چندمالک، رضایت‌ها باید بررسی شوند"
+            ],
+            [
+              "other",
+              "دارای محدودیت یا حقوق اشخاص ثالث"
+            ]
+          ],
+          "catalogue_source": [
+            {
+              "id": "DF-0383",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1243,
+              "end_line": 1243,
+              "source_start": 663009,
+              "source_end": 663244
+            }
+          ]
+        },
+        {
+          "id": "occupied",
+          "label": "آیا ملک دارای ساکن یا مستاجر است؟",
+          "type": "select",
+          "options": [
+            [
+              "unknown",
+              "هنوز مشخص نیست"
+            ],
+            [
+              "yes",
+              "بله، طبق اعلام من"
+            ],
+            [
+              "no",
+              "خیر"
+            ]
+          ],
+          "catalogue_source": [
+            {
+              "id": "DF-0384",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1243,
+              "end_line": 1243,
+              "source_start": 663245,
+              "source_end": 663305
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "label": "شرایط پیشنهادی مابه‌التفاوت",
+          "type": "select",
+          "options": [
+            [
+              "unknown",
+              "پس از کارشناسی و توافق مشخص شود"
+            ],
+            [
+              "none",
+              "بدون پرداخت نقدی مدنظر من است"
+            ],
+            [
+              "pay",
+              "امکان پرداخت مابه‌التفاوت دارم"
+            ],
+            [
+              "receive",
+              "دریافت مابه‌التفاوت مدنظر من است"
+            ]
+          ],
+          "catalogue_source": [
+            {
+              "id": "DF-0385",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1243,
+              "end_line": 1243,
+              "source_start": 663306,
+              "source_end": 663530
+            }
+          ]
+        },
+        {
+          "id": "wanted",
+          "label": "موضوع یا ملک مورد انتظار در مقابل",
+          "type": "area",
+          "required": true,
+          "help": "موضوع قابل معاوضه را باید فراخوان و اختیار دستگاه تعیین کند، اینجا صرفاً خواسته شما ثبت می‌شود.",
+          "catalogue_source": [
+            {
+              "id": "DF-0386",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1243,
+              "end_line": 1243,
+              "source_start": 663531,
+              "source_end": 663700
+            }
+          ]
+        },
+        {
+          "id": "notes",
+          "label": "رهن، بدهی، حقوق اشخاص ثالث و توضیح تکمیلی — اختیاری",
+          "type": "area",
+          "catalogue_source": [
+            {
+              "id": "DF-0387",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1243,
+              "end_line": 1243,
+              "source_start": 663701,
+              "source_end": 663768
+            }
+          ]
+        }
+      ],
+      "source_validation": {
+        "$function": "function validate(tool,p){for(const q of schemas[tool]){if(q.type==='heading'||q.when&&!q.when(p))continue;const v=p[q.id];if(q.required&&(v===null||v===''||Array.isArray(v)&&v.length===0))return 'لطفاً «'+q.label+'» را تکمیل کنید.';if(q.type==='number'&&v!==null){if(!Number.isFinite(v)||v<(q.min??0)||q.positive&&v===0||q.integer&&!Number.isInteger(v))return 'مقدار «'+q.label+'» معتبر نیست، واحد و مثبت یا صحیح بودن عدد را بررسی کنید.';}if(q.type==='select'&&!q.options.some(([key])=>key===v))return 'گزینه «'+q.label+'» معتبر نیست.';if(q.type==='multi'&&v.some(x=>!q.options.some(([key])=>key===x)))return 'گزینه‌های انتخابی معتبر نیستند.';}\n if(tool==='renewal'&&p.displacement==='yes'&&p.households===0)return 'برای اسکان موقت، تعداد خانوار باید بیشتر از صفر باشد، اگر مشخص نیست خالی بگذارید.';\n if(tool==='profile'&&p.certificateNo&&!p.issuer)return 'برای گواهینامه دارای شماره، مرجع صادرکننده را نیز مشخص کنید.';\n return '';}"
+      },
+      "outputs": [
+        "self-reported not officially submitted",
+        "field-specific summary",
+        "prerequisites/checklist",
+        "independent qualification note and source-reading links",
+        "next action"
+      ],
+      "units": {
+        "area": "SQUARE_METRE",
+        "value": "BILLION_TOMAN (unverified self-estimate)"
+      },
+      "rules": [
+        "offered asset rights/tenancy/mortgage/debt and third-party rights reviewed",
+        "wanted is text; balance is proposal enum; no target asset valuation, therefore no fabricated numeric value difference",
+        "independent valuation of both assets and transfer costs before agreement"
+      ],
+      "service_id": "ma-exchange",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow"
+    },
+    "ma-profile": {
+      "source": [
+        "HTML#ma-tools:213-225",
+        "ministry-additions-script:1217-1289"
+      ],
+      "steps": [
+        "فرم اختصاصی profile",
+        "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
+      ],
+      "fields": [
+        {
+          "id": "name",
+          "label": "عنوان دلخواه پروفایل — اختیاری",
+          "type": "text",
+          "help": "برای استفاده از راهنما نیازی به کد ملی، اطلاعات حساب بانکی یا بارگذاری مدارک نیست.",
+          "catalogue_source": [
+            {
+              "id": "DF-0388",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 663781,
+              "source_end": 663918
+            }
+          ]
+        },
+        {
+          "id": "entity",
+          "label": "نوع فعالیت",
+          "type": "select",
+          "options": [
+            [
+              "",
+              "انتخاب کنید"
+            ],
+            [
+              "company",
+              "شخص حقوقی"
+            ],
+            [
+              "individual",
+              "شخص حقیقی"
+            ]
+          ],
+          "required": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0389",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 663919,
+              "source_end": 664036
+            }
+          ]
+        },
+        {
+          "id": "roles",
+          "label": "نقش‌های حرفه‌ای شما",
+          "type": "multi",
+          "options": [
+            [
+              "investor",
+              "سرمایه‌گذار"
+            ],
+            [
+              "builder",
+              "سازنده / توسعه‌گر"
+            ],
+            [
+              "contractor",
+              "پیمانکار"
+            ],
+            [
+              "manager",
+              "مدیر املاک استیجاری"
+            ],
+            [
+              "consultant",
+              "مشاور / تسهیل‌گر"
+            ]
+          ],
+          "full": true,
+          "required": true,
+          "catalogue_source": [
+            {
+              "id": "DF-0390",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664037,
+              "source_end": 664107
+            }
+          ]
+        },
+        {
+          "id": "province",
+          "label": "استان",
+          "type": "select",
+          "options": [
+            [
+              "",
+              "انتخاب کنید"
+            ],
+            [
+              "all",
+              "هنوز مشخص نیست / سراسر کشور"
+            ]
+          ],
+          "required": true
+        },
+        {
+          "id": "specialty",
+          "label": "حوزه تخصص و نوع پروژه — اختیاری",
+          "type": "text",
+          "catalogue_source": [
+            {
+              "id": "DF-0391",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664119,
+              "source_end": 664170
+            }
+          ]
+        },
+        {
+          "id": "capacity",
+          "label": "ظرفیت و توان اجرایی قابل تخصیص — اختیاری",
+          "type": "text",
+          "catalogue_source": [
+            {
+              "id": "DF-0392",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664171,
+              "source_end": 664230
+            }
+          ]
+        },
+        {
+          "id": "capital",
+          "label": "سرمایه قابل تخصیص این پروفایل — میلیارد تومان، اختیاری",
+          "type": "number",
+          "min": 0,
+          "help": "در سایر مسیرها خودکار جایگزین سرمایه یا بودجه پروژه نمی‌شود.",
+          "catalogue_source": [
+            {
+              "id": "DF-0393",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664231,
+              "source_end": 664378
+            }
+          ]
+        },
+        {
+          "id": "p1",
+          "label": "گواهینامه یا صلاحیت مرتبط، اختیاری",
+          "type": "heading",
+          "catalogue_source": [
+            {
+              "id": "DF-0394",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664379,
+              "source_end": 664429
+            }
+          ]
+        },
+        {
+          "id": "certificate",
+          "label": "نوع گواهینامه یا مجوز",
+          "type": "text",
+          "catalogue_source": [
+            {
+              "id": "DF-0395",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664430,
+              "source_end": 664473
+            }
+          ]
+        },
+        {
+          "id": "certificateNo",
+          "label": "شماره گواهینامه — اختیاری",
+          "type": "text",
+          "catalogue_source": [
+            {
+              "id": "DF-0396",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664474,
+              "source_end": 664523
+            }
+          ]
+        },
+        {
+          "id": "issuer",
+          "label": "مرجع صادرکننده",
+          "type": "text",
+          "catalogue_source": [
+            {
+              "id": "DF-0397",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664524,
+              "source_end": 664555
+            }
+          ]
+        },
+        {
+          "id": "expiry",
+          "label": "تاریخ اعتبار / انقضا — عین سند، اختیاری",
+          "type": "text",
+          "catalogue_source": [
+            {
+              "id": "DF-0398",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664556,
+              "source_end": 664612
+            }
+          ]
+        },
+        {
+          "id": "validity",
+          "label": "وضعیت اعتبار طبق اعلام شما",
+          "type": "select",
+          "options": [
+            [
+              "unknown",
+              "بررسی نشده"
+            ],
+            [
+              "reported",
+              "معتبر طبق اعلام من، استعلام نشده"
+            ],
+            [
+              "expired",
+              "منقضی یا نیازمند تمدید"
+            ],
+            [
+              "none",
+              "فعلاً گواهینامه مرتبط ندارم"
+            ]
+          ],
+          "catalogue_source": [
+            {
+              "id": "DF-0399",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664613,
+              "source_end": 664811
+            }
+          ]
+        },
+        {
+          "id": "references",
+          "label": "سوابق شاخص و تجربه مرتبط — اختیاری",
+          "type": "area",
+          "catalogue_source": [
+            {
+              "id": "DF-0400",
+              "source": "advisor/public/engine/advisor.html",
+              "script": "ministry-additions-script",
+              "line": 1244,
+              "end_line": 1244,
+              "source_start": 664812,
+              "source_end": 664867
+            }
+          ]
+        }
+      ],
+      "source_validation": {
+        "$function": "function validate(tool,p){for(const q of schemas[tool]){if(q.type==='heading'||q.when&&!q.when(p))continue;const v=p[q.id];if(q.required&&(v===null||v===''||Array.isArray(v)&&v.length===0))return 'لطفاً «'+q.label+'» را تکمیل کنید.';if(q.type==='number'&&v!==null){if(!Number.isFinite(v)||v<(q.min??0)||q.positive&&v===0||q.integer&&!Number.isInteger(v))return 'مقدار «'+q.label+'» معتبر نیست، واحد و مثبت یا صحیح بودن عدد را بررسی کنید.';}if(q.type==='select'&&!q.options.some(([key])=>key===v))return 'گزینه «'+q.label+'» معتبر نیست.';if(q.type==='multi'&&v.some(x=>!q.options.some(([key])=>key===x)))return 'گزینه‌های انتخابی معتبر نیستند.';}\n if(tool==='renewal'&&p.displacement==='yes'&&p.households===0)return 'برای اسکان موقت، تعداد خانوار باید بیشتر از صفر باشد، اگر مشخص نیست خالی بگذارید.';\n if(tool==='profile'&&p.certificateNo&&!p.issuer)return 'برای گواهینامه دارای شماره، مرجع صادرکننده را نیز مشخص کنید.';\n return '';}"
+      },
+      "outputs": [
+        "self-reported not officially submitted",
+        "field-specific summary",
+        "prerequisites/checklist",
+        "independent qualification note and source-reading links",
+        "next action"
+      ],
+      "units": {
+        "capital": "BILLION_TOMAN (optional private profile; not copied into other answers)"
+      },
+      "service_id": "ma-profile",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow"
+    },
+    "charity": {
+      "source": [
+        "main-script renderCharityForm:684-696; renderCharityPreview and charity guidance nearby"
+      ],
+      "steps": [
+        "حوزه و نوع کمک، موقعیت، ظرفیت/مبلغ و دوره",
+        "جمع‌بندی اثر با فرض‌ها و پیگیری"
+      ],
+      "fields": [
+        {
+          "id": "group",
+          "label": "دوست دارید در کدام حوزه اثرگذار باشید؟",
+          "type": "radio",
+          "options": [
+            [
+              "learning",
+              "فرصت یادگیری و رشد بسازیم"
+            ],
+            [
+              "health",
+              "سلامت و امداد را دسترس‌پذیرتر کنیم"
+            ],
+            [
+              "community",
+              "پشتوانه‌ای برای زندگی در کنار هم بسازیم"
+            ],
+            [
+              "water",
+              "آب سالم را به زندگی محله نزدیک کنیم"
+            ]
+          ]
+        },
+        {
+          "id": "cause",
+          "label": "نوع پروژه‌ای که مایلید در آن همراه شوید",
+          "type": "select",
+          "options_by_parent": {
+            "learning": [
+              [
+                "school",
+                "مدرسه، ساخت، تکمیل یا تجهیز"
+              ],
+              [
+                "skills",
+                "مرکز فنی‌وحرفه‌ای"
+              ],
+              [
+                "library",
+                "کتابخانه و فضای مطالعه"
+              ]
+            ],
+            "health": [
+              [
+                "emergency",
+                "پایگاه / مرکز اورژانس"
+              ],
+              [
+                "specialtyclinic",
+                "درمانگاه تخصصی"
+              ],
+              [
+                "specialtyhospital",
+                "بیمارستان تخصصی"
+              ],
+              [
+                "rehab",
+                "مرکز توان‌بخشی"
+              ]
+            ],
+            "community": [
+              [
+                "welfare",
+                "مرکز بهزیستی و خدمات حمایتی"
+              ],
+              [
+                "community",
+                "خانه محله"
+              ]
+            ],
+            "water": [
+              [
+                "water",
+                "تصفیه آب و تامین آب سالم محله"
+              ]
+            ]
+          },
+          "active_parent": "group"
+        },
+        {
+          "id": "specialty",
+          "label": "تخصص یا خدمت مدنظر — اختیاری",
+          "type": "text",
+          "active_when": {
+            "field": "cause",
+            "op": "in",
+            "values": [
+              "specialtyclinic",
+              "specialtyhospital"
+            ]
+          }
+        },
+        {
+          "id": "province",
+          "label": "کدام استان برای شما مهم است؟",
+          "type": "select"
+        },
+        {
+          "id": "city",
+          "label": "شهر / روستای موردنظر — اختیاری",
+          "type": "text"
+        },
+        {
+          "id": "neighborhood",
+          "label": "محله / محدوده خدمت — اختیاری",
+          "type": "text"
+        },
+        {
+          "id": "type",
+          "label": "چگونه مایلید همراه شوید؟",
+          "type": "select",
+          "options": [
+            [
+              "cash",
+              "کمک نقدی"
+            ],
+            [
+              "materials",
+              "تجهیزات و مصالح"
+            ],
+            [
+              "land",
+              "زمین یا ساختمان"
+            ],
+            [
+              "expertise",
+              "تخصص و زمان"
+            ],
+            [
+              "delivery",
+              "ساخت یا تکمیل پروژه"
+            ]
+          ]
+        },
+        {
+          "id": "amount",
+          "label": "مبلغ هر نوبت همراهی — میلیون تومان",
+          "type": "money",
+          "active_when": {
+            "field": "type",
+            "op": "eq",
+            "value": "cash"
+          }
+        },
+        {
+          "id": "frequency",
+          "label": "شیوه همراهی مالی",
+          "type": "select",
+          "options": [
+            [
+              "once",
+              "یک‌بار"
+            ],
+            [
+              "monthly",
+              "هر ماه، به مدت یک سال"
+            ]
+          ],
+          "active_when": {
+            "field": "type",
+            "op": "eq",
+            "value": "cash"
+          }
+        },
+        {
+          "id": "description",
+          "label": "چه چیزی و با چه ظرفیتی می‌توانید همراه بیاورید؟",
+          "type": "area",
+          "active_when": {
+            "field": "type",
+            "op": "ne",
+            "value": "cash"
+          }
+        },
+        {
+          "id": "years",
+          "label": "دورنمای اثر را در چه بازه‌ای ببینید؟",
+          "type": "select",
+          "options": [
+            [
+              "1",
+              "یک سال پس از آغاز خدمت"
+            ],
+            [
+              "5",
+              "پنج سال پس از آغاز خدمت"
+            ],
+            [
+              "10",
+              "ده سال پس از آغاز خدمت"
+            ]
+          ]
+        },
+        {
+          "id": "followup",
+          "label": "دوست دارید روند کار را چگونه دنبال کنید؟",
+          "type": "select",
+          "options": [
+            [
+              "quarterly",
+              "گزارش فصلی پیشرفت و هزینه‌کرد"
+            ],
+            [
+              "milestone",
+              "گزارش در هر مرحله کلیدی"
+            ],
+            [
+              "annual",
+              "گزارش سالانه خدمت و نتایج"
+            ]
+          ]
+        },
+        {
+          "id": "demo",
+          "label": "سناریوی آموزشی محله فرضی الف",
+          "type": "boolean"
+        }
+      ],
+      "units": {
+        "amount": "MILLION_TOMAN",
+        "years": "YEAR from service operation start; not construction duration",
+        "noncash": "explicit capacity/unit/period needed by mission; source stores text description without valuation"
+      },
+      "rules": [
+        "validate compatible group/cause",
+        "cash amount >0 or noncash description required",
+        "realLocalImpact=null and dataStatus=unavailable in source",
+        "demo coefficients are hypothetical educational examples, not applicable to chosen actual location",
+        "sessions/visits/capacity are not unique beneficiaries or guaranteed social outcome",
+        "mission D29: absent documented coefficient => needs expert estimate, no money-to-impact fabricated result"
+      ],
+      "outputs": [
+        "cause-specific outcome, conditions, sources and limits",
+        "separate financial/nonfinancial contribution",
+        "no investment return/IRR; no payment occurs"
+      ],
+      "service_id": "charity",
+      "research_only": true,
+      "existing_legacy_save_and_export": "reference localStorage/download only; mission requires authenticated server draft/report, explicit request and reuse case workflow",
+      "groups": {
+        "learning": {
+          "icon": "✎",
+          "title": "فرصت یادگیری و رشد بسازیم",
+          "short": "آموزش و مهارت",
+          "types": [
+            [
+              "school",
+              "مدرسه، ساخت، تکمیل یا تجهیز"
+            ],
+            [
+              "skills",
+              "مرکز فنی‌وحرفه‌ای"
+            ],
+            [
+              "library",
+              "کتابخانه و فضای مطالعه"
+            ]
+          ]
+        },
+        "health": {
+          "icon": "♡",
+          "title": "سلامت و امداد را دسترس‌پذیرتر کنیم",
+          "short": "درمان و اورژانس",
+          "types": [
+            [
+              "emergency",
+              "پایگاه / مرکز اورژانس"
+            ],
+            [
+              "specialtyclinic",
+              "درمانگاه تخصصی"
+            ],
+            [
+              "specialtyhospital",
+              "بیمارستان تخصصی"
+            ],
+            [
+              "rehab",
+              "مرکز توان‌بخشی"
+            ]
+          ]
+        },
+        "community": {
+          "icon": "❋",
+          "title": "پشتوانه‌ای برای زندگی در کنار هم بسازیم",
+          "short": "خدمات اجتماعی و محله",
+          "types": [
+            [
+              "welfare",
+              "مرکز بهزیستی و خدمات حمایتی"
+            ],
+            [
+              "community",
+              "خانه محله"
+            ]
+          ]
+        },
+        "water": {
+          "icon": "≈",
+          "title": "آب سالم را به زندگی محله نزدیک کنیم",
+          "short": "آب و محیط زندگی",
+          "types": [
+            [
+              "water",
+              "تصفیه آب و تامین آب سالم محله"
+            ]
+          ]
+        }
+      },
+      "causes": {
+        "school": {
+          "icon": "✎",
+          "title": "درهای یادگیری را به روی آینده باز کنیم",
+          "short": "آموزش و مدرسه",
+          "line": "شاید همراهی شما، آغاز روزهایی باشد که کودکی با خیال آسوده راهی کلاس می‌شود.",
+          "unit": "جای تحصیل در هر سال",
+          "cumulative": "دانش‌آموزـسال",
+          "need": "کودکان واجد شرایطِ فاقد دسترسی مناسب در محدوده خدمت",
+          "base": 150,
+          "needCount": 180,
+          "cost": 30000,
+          "funded": 12000,
+          "formula": "۶ کلاس × ۲۵ نفر × یک نوبت = ۱۵۰ جای تحصیل در سال، سقف نیاز فرضی: ۱۸۰ نفر.",
+          "outcome": "بهبود حضور و تداوم تحصیل، با ثبت‌نام، حضور و پیگیری ترک تحصیل سنجیده می‌شود.",
+          "condition": "زمین مناسب، تایید آموزش‌وپرورش، تامین معلم، ایمنی، تجهیزات و بودجه نگهداری.",
+          "sources": [
+            "مرکز آمار ایران، جمعیت گروه سنی با سال و محدوده مشخص",
+            "آموزش‌وپرورش و نوسازی مدارس، ظرفیت فعال، فاصله دسترسی و نیاز تاییدشده",
+            "نهضت سوادآموزی، داده تجمیعی برای طرح بزرگسالان، در صورت انتخاب آن"
+          ],
+          "indicators": [
+            "جمعیت واجد شرایط و تعداد فاقد دسترسی مناسب",
+            "ظرفیت فعال مدارس و زمان دسترسی",
+            "ظرفیت جدید قابل بهره‌برداری و تامین معلم"
+          ],
+          "limit": "ساخت مدرسه به‌تنهایی، تعداد افراد باسوادشده را تعیین نمی‌کند. نیاز کودکان با آمار بی‌سوادی بزرگسالان یکی نیست."
+        },
+        "health": {
+          "icon": "♡",
+          "title": "راه رسیدن به درمان را نزدیک‌تر کنیم",
+          "short": "سلامت و درمان",
+          "line": "کمک شما می‌تواند قدمی باشد برای آن‌که پیگیری درمان، به فاصله و رفت‌وآمد طولانی گره نخورد.",
+          "unit": "نوبت خدمت در سال",
+          "cumulative": "نوبت خدمت در دوره",
+          "need": "نیاز پاسخ‌داده‌نشده به همین خدمت در محدوده ارجاع",
+          "base": 3080,
+          "needCount": 3800,
+          "cost": 50000,
+          "funded": 15000,
+          "formula": "۲۰ نوبت در روز × ۲۲۰ روز × ۷۰٪ استفاده از ظرفیت = ۳۰۸۰ نوبت در سال، نیاز فرضی: ۳۸۰۰ نوبت.",
+          "outcome": "بهبود دسترسی و پیگیری درمان، با زمان انتظار، تکمیل ارجاع و استمرار مراجعه سنجیده می‌شود.",
+          "condition": "مجوز خدمت، نیروی متخصص، تجهیزات، زنجیره ارجاع و تامین هزینه جاری.",
+          "sources": [
+            "دانشگاه علوم پزشکی و معاونت درمان، نیاز خدمت، ظرفیت فعال و ارجاع",
+            "مرجع مجوزهای مؤسسات پزشکی، وجود مجوز و نوع خدمت",
+            "مرکز آمار و آمارنامه محلی، جمعیت و ترکیب سنیِ هم‌محدوده"
+          ],
+          "indicators": [
+            "تقاضای پاسخ‌داده‌نشده برای خدمت مشخص",
+            "مراکز دارای همان خدمت، ظرفیت فعال و زمان دسترسی",
+            "تجهیزات، نیروی انسانی و بودجه بهره‌برداری"
+          ],
+          "limit": "نوبت خدمت با تعداد بیماران یکتا فرق دارد. از تعداد ویزیت، تعداد جان نجات‌یافته یا درمان قطعی نتیجه‌گیری نمی‌شود."
+        },
+        "water": {
+          "icon": "≈",
+          "title": "آب سالم را به زندگی روزمره نزدیک کنیم",
+          "short": "آب و خدمات ضروری",
+          "line": "همراهی شما می‌تواند بخشی از راه رسیدن یک محله به خدمتی پایدار و قابل اتکا باشد.",
+          "unit": "خانوار قابل پوشش",
+          "cumulative": "خانوارـسال پوشش",
+          "need": "خانوارهای فاقد دسترسی پایدار به خدمت مشخص",
+          "base": 200,
+          "needCount": 240,
+          "cost": 12000,
+          "funded": 4000,
+          "formula": "ظرفیت طراحی فرضی ۲۰۰ انشعاب قابل خدمت، محدود به نیاز ۲۴۰ خانوار و تایید توان شبکه.",
+          "outcome": "دسترسی پایدار به آب با کیفیت تاییدشده، با تداوم خدمت و نتایج کنترل کیفیت سنجیده می‌شود.",
+          "condition": "مجوز آبفا، منبع پایدار، کیفیت آب، اتصال شبکه و بودجه تعمیر و نگهداری.",
+          "sources": [
+            "شرکت آب و فاضلاب استان، پوشش، تداوم خدمت و ظرفیت منبع",
+            "مرکز بهداشت، کیفیت و ایمنی آب در محدوده خدمت",
+            "مرکز آمار و مرجع محلی، تعداد خانوار با محدوده مشخص"
+          ],
+          "indicators": [
+            "خانوارهای فاقد دسترسی پایدار",
+            "توان واقعی منبع و شبکه",
+            "پایداری و کیفیت خدمت"
+          ],
+          "limit": "ظرفیت شبکه وعده تامین دائمی آب نیست. خانوارـسال، تعداد خانوارهای یکتا در همه سال‌ها نیست."
+        },
+        "skills": {
+          "icon": "↗",
+          "title": "برای توانمندی و استقلال، فرصت بسازیم",
+          "short": "مهارت و توانمندسازی",
+          "line": "یک فضای یادگیری می‌تواند جایی باشد که استعدادها فرصت تمرین و رشد پیدا می‌کنند.",
+          "unit": "ظرفیت ثبت‌نام سالانه",
+          "cumulative": "نوبت ثبت‌نام در دوره",
+          "need": "متقاضیان واجد شرایط فاقد دسترسی به آموزش موردنیاز",
+          "base": 120,
+          "needCount": 160,
+          "cost": 8000,
+          "funded": 2000,
+          "formula": "۲۰ ظرفیت × ۶ دوره در سال = ۱۲۰ نوبت ثبت‌نام، سقف نیاز فرضی: ۱۶۰ نوبت.",
+          "outcome": "کسب مهارت قابل ارزیابی، با اتمام دوره، ارزیابی مهارت و پیگیری وضعیت بعد از آموزش سنجیده می‌شود.",
+          "condition": "نیازسنجی مهارت، مربی، تجهیزات، دسترس‌پذیری و بودجه تداوم دوره‌ها.",
+          "sources": [
+            "اداره فنی‌وحرفه‌ای، تقاضای آموزش، ظرفیت فعال و تکمیل دوره",
+            "مرجع محلی، نیازسنجی و تایید دسترس‌پذیری",
+            "مرکز آمار، زمینه جمعیتی و اشتغال در سطح منتشرشده"
+          ],
+          "indicators": [
+            "نیاز و تقاضای آموزش مشخص",
+            "ظرفیت فعال و دسترسی به دوره مشابه",
+            "تامین مربی، تجهیزات و هزینه اجرای دوره"
+          ],
+          "limit": "شرکت در دوره با اشتغال ایجادشده برابر نیست، اشتغال فقط با پیگیری و داده قابل اتکا گزارش می‌شود."
+        },
+        "emergency": {
+          "icon": "♡",
+          "title": "وقتی کمک لازم است، راه رسیدن را کوتاه‌تر کنیم",
+          "short": "پایگاه / مرکز اورژانس",
+          "line": "همراهی شما می‌تواند بخشی از آمادگی یک محله برای روزهای نیاز به امداد باشد.",
+          "unit": "ظرفیت ماموریت سالانه",
+          "cumulative": "نوبت ماموریت در دوره",
+          "need": "نیاز پاسخ‌داده‌نشده به همین خدمت در محدوده ارجاع",
+          "base": 840,
+          "needCount": 1000,
+          "cost": 18000,
+          "funded": 6000,
+          "formula": "۴ ماموریت فرضی در روز × ۳۰۰ روز × ۷۰٪ ظرفیت قابل استفاده = ۸۴۰ نوبت در سال، این اعداد استاندارد عملیاتی نیستند.",
+          "outcome": "بهبود دسترسی و زمان رسیدن خدمت، با زمان پاسخ و تکمیل ماموریت در محدوده خدمت سنجیده می‌شود.",
+          "condition": "تایید مرجع اورژانس، محدوده پوشش، نیروی آموزش‌دیده، آمبولانس و تجهیزات، مسیر دسترسی و بودجه آماده‌باش.",
+          "sources": [
+            "اورژانس پیش‌بیمارستانی و دانشگاه علوم پزشکی، آمار تجمیعی ماموریت، زمان پاسخ و پوشش پایگاه‌ها",
+            "مرجع محلی و شبکه راه، محدوده خدمت و زمان سفر"
+          ],
+          "indicators": [
+            "ماموریت‌های همان محدوده و زمان پاسخ فعلی",
+            "پوشش و آمادگی عملیاتی پایگاه‌های موجود",
+            "امکان استقرار نیروی شیفت، وسیله و تجهیزات"
+          ],
+          "limit": "ماموریت با بیمار یکتا یا جان نجات‌یافته برابر نیست. کاهش زمان پاسخ باید اندازه‌گیری شود و از ساخت پایگاه به‌تنهایی نتیجه نمی‌شود."
+        },
+        "specialtyclinic": {
+          "icon": "♡",
+          "title": "پیگیری درمان تخصصی را به مردم نزدیک‌تر کنیم",
+          "short": "درمانگاه تخصصی",
+          "line": "کمک شما می‌تواند در دسترس‌تر شدن یک خدمت تخصصی سهیم باشد، با تخصصی که نیاز منطقه آن را روشن می‌کند.",
+          "unit": "نوبت خدمت در سال",
+          "cumulative": "نوبت خدمت در دوره",
+          "need": "نیاز پاسخ‌داده‌نشده به همین خدمت در محدوده ارجاع",
+          "base": 2560,
+          "needCount": 3200,
+          "cost": 35000,
+          "funded": 10000,
+          "formula": "۱۶ نوبت فرضی در روز × ۲۰۰ روز × ۸۰٪ استفاده از ظرفیت = ۲۵۶۰ نوبت سالانه، فقط نمونه محاسبه، مستقل از تخصص انتخابی.",
+          "outcome": "بهبود دسترسی و پیگیری درمان، با زمان انتظار، تکمیل ارجاع و استمرار مراجعه سنجیده می‌شود.",
+          "condition": "مجوز خدمت، نیروی متخصص، تجهیزات، زنجیره ارجاع و تامین هزینه جاری.",
+          "sources": [
+            "دانشگاه علوم پزشکی و معاونت درمان، نیاز خدمت، ظرفیت فعال و ارجاع",
+            "مرجع مجوزهای مؤسسات پزشکی، وجود مجوز و نوع خدمت",
+            "مرکز آمار و آمارنامه محلی، جمعیت و ترکیب سنیِ هم‌محدوده"
+          ],
+          "indicators": [
+            "تقاضای پاسخ‌داده‌نشده برای خدمت مشخص",
+            "مراکز دارای همان خدمت، ظرفیت فعال و زمان دسترسی",
+            "تجهیزات، نیروی انسانی و بودجه بهره‌برداری"
+          ],
+          "limit": "نوبت خدمت با تعداد بیماران یکتا فرق دارد. از تعداد ویزیت، تعداد جان نجات‌یافته یا درمان قطعی نتیجه‌گیری نمی‌شود."
+        },
+        "specialtyhospital": {
+          "icon": "♡",
+          "title": "برای دسترسی به مراقبت تخصصی، ظرفیت بسازیم",
+          "short": "بیمارستان تخصصی",
+          "line": "همراهی شما می‌تواند بخشی از راه‌اندازی خدمتی باشد که بیماران برای دریافت آن ناچار به سفر می‌شوند.",
+          "unit": "ظرفیت روزـتخت سالانه",
+          "cumulative": "روزـتخت در دوره",
+          "need": "نیاز پاسخ‌داده‌نشده به همین خدمت در محدوده ارجاع",
+          "base": 8760,
+          "needCount": 11000,
+          "cost": 300000,
+          "funded": 100000,
+          "formula": "۳۰ تخت فرضی × ۳۶۵ روز × ۸۰٪ استفاده = ۸۷۶۰ روزـتخت در سال، این اعداد توصیه طراحی یا استاندارد نیستند.",
+          "outcome": "بهبود دسترسی به خدمت بستریِ تخصصی موردنیاز، با انتظار، ارجاع و شاخص‌های کیفیت همان خدمت سنجیده می‌شود.",
+          "condition": "نیازسنجی تخصص، مجوز بیمارستان و خدمت، تیم تخصصی، تخت قابل بهره‌برداری، تجهیزات و برنامه پایدار هزینه جاری.",
+          "sources": [
+            "دانشگاه علوم پزشکی و معاونت درمان، نیاز خدمت، ظرفیت فعال و ارجاع",
+            "مرجع مجوزهای مؤسسات پزشکی، وجود مجوز و نوع خدمت",
+            "مرکز آمار و آمارنامه محلی، جمعیت و ترکیب سنیِ هم‌محدوده"
+          ],
+          "indicators": [
+            "نیاز بستری برای تخصص مشخص و مسیر ارجاع",
+            "تخت فعال، نیروی متخصص و زمان انتظار",
+            "مجوز، امکانات پشتیبان و بودجه بهره‌برداری"
+          ],
+          "limit": "روزـتخت با بیمار یکتا، درمان کامل یا جان نجات‌یافته برابر نیست. برآورد بیمار به طول اقامت و داده تخصصی جداگانه نیاز دارد."
+        },
+        "rehab": {
+          "icon": "♡",
+          "title": "برای توانمندی بیشتر در زندگی روزمره همراه شویم",
+          "short": "مرکز توان‌بخشی",
+          "line": "فضایی در دسترس و خدمت پیوسته می‌تواند در مسیر توان‌بخشی و مشارکت اجتماعی نقش داشته باشد.",
+          "unit": "ظرفیت جلسه سالانه",
+          "cumulative": "نوبت جلسه در دوره",
+          "need": "نیاز پاسخ‌داده‌نشده به همین خدمت در محدوده ارجاع",
+          "base": 1800,
+          "needCount": 2200,
+          "cost": 20000,
+          "funded": 5000,
+          "formula": "۱۰ جلسه فرضی در روز × ۲۲۵ روز × ۸۰٪ استفاده = ۱۸۰۰ جلسه سالانه.",
+          "outcome": "بهبود توان انجام فعالیت‌های روزمره طبق ارزیابی تخصصی، حضور در جلسه به‌تنهایی نتیجه درمان محسوب نمی‌شود.",
+          "condition": "مجوز متناسب با خدمت، تیم تخصصی، دسترس‌پذیری، تجهیزات و استمرار برنامه.",
+          "sources": [
+            "دانشگاه علوم پزشکی و معاونت درمان، نیاز خدمت، ظرفیت فعال و ارجاع",
+            "مرجع مجوزهای مؤسسات پزشکی، وجود مجوز و نوع خدمت",
+            "مرکز آمار و آمارنامه محلی، جمعیت و ترکیب سنیِ هم‌محدوده"
+          ],
+          "indicators": [
+            "تقاضای پاسخ‌داده‌نشده برای خدمت مشخص",
+            "مراکز دارای همان خدمت، ظرفیت فعال و زمان دسترسی",
+            "تجهیزات، نیروی انسانی و بودجه بهره‌برداری"
+          ],
+          "limit": "جلسه توان‌بخشی با تعداد افراد متفاوت یا بهبود قطعی برابر نیست، نتایج فقط با ارزیابی تخصصی گزارش می‌شوند."
+        },
+        "welfare": {
+          "icon": "↗",
+          "title": "برای دسترسی به حمایت و فرصت، پشتوانه بسازیم",
+          "short": "مرکز بهزیستی و خدمات حمایتی",
+          "line": "همراهی شما می‌تواند به شکل‌گیری خدمتی کمک کند که با حفظ کرامت افراد، مسیر حمایت را در دسترس‌تر می‌کند.",
+          "unit": "ظرفیت نوبت خدمت سالانه",
+          "cumulative": "نوبت خدمت در دوره",
+          "need": "متقاضیان واجد شرایط فاقد دسترسی به آموزش موردنیاز",
+          "base": 1200,
+          "needCount": 1500,
+          "cost": 22000,
+          "funded": 7000,
+          "formula": "۸ نوبت فرضی خدمت در روز × ۲۰۰ روز × ۷۵٪ استفاده = ۱۲۰۰ نوبت سالانه.",
+          "outcome": "دسترسی و استمرار دریافت حمایت متناسب با گروه هدف، با تکمیل خدمت، پیگیری ارجاع و رضایت دریافت‌کنندگان سنجیده می‌شود.",
+          "condition": "تعیین نوع مرکز و گروه هدف با بهزیستی، مجوز متناسب، تیم تخصصی، دسترس‌پذیری و منابع پایدار.",
+          "sources": [
+            "اداره بهزیستی، نوع خدمت، نیاز تجمیعی و ظرفیت مراکز فعال",
+            "مرجع محلی، محدوده خدمت و دسترس‌پذیری"
+          ],
+          "indicators": [
+            "گروه هدف و نوع دقیق خدمت موردنیاز",
+            "ظرفیت و پوشش مراکز فعال",
+            "تامین تیم، دسترس‌پذیری و هزینه جاری"
+          ],
+          "limit": "مراجعه با افراد یکتا و کاهش آسیب اجتماعی برابر نیست. نام و پرونده افراد دریافت‌کننده حمایت در این راهنما ثبت نمی‌شود."
+        },
+        "community": {
+          "icon": "↗",
+          "title": "جایی برای یادگرفتن، همراه‌شدن و ساختن محله",
+          "short": "خانه محله",
+          "line": "یک خانه محله می‌تواند فضایی باشد برای همسایه‌هایی که می‌خواهند کنار هم یاد بگیرند و مسائل محله را پیگیری کنند.",
+          "unit": "ظرفیت نوبت حضور سالانه",
+          "cumulative": "نوبت حضور در دوره",
+          "need": "متقاضیان واجد شرایط فاقد دسترسی به آموزش موردنیاز",
+          "base": 1920,
+          "needCount": 2500,
+          "cost": 14000,
+          "funded": 4000,
+          "formula": "۲۰ ظرفیت فرضی × ۱۲ برنامه در ماه × ۱۲ ماه × دو سوم استفاده از ظرفیت = ۱۹۲۰ نوبت حضور در سال.",
+          "outcome": "استمرار مشارکت و دسترسی به برنامه‌های موردنیاز محله، با حضور تکرارشونده، رضایت و نتیجه برنامه‌ها سنجیده می‌شود.",
+          "condition": "نیازسنجی مشارکتی محله، بهره‌بردار مشخص، برنامه خدمات، دسترس‌پذیری و هزینه نگهداری.",
+          "sources": [
+            "شهرداری و مدیریت محله، برنامه خدمات و ظرفیت فعال فضاها",
+            "مطالعه نیاز محلی و آمارنامه دارای محدوده و تاریخ مشخص"
+          ],
+          "indicators": [
+            "نوع برنامه موردنیاز ساکنان",
+            "ظرفیت مراکز و برنامه‌های مشابه",
+            "آمادگی بهره‌بردار و برنامه استفاده پایدار"
+          ],
+          "limit": "نوبت حضور، تعداد ساکنان متفاوت یا تغییر اجتماعی ایجادشده نیست، نتیجه هر برنامه باید جدا سنجیده شود."
+        },
+        "library": {
+          "icon": "✎",
+          "title": "برای خواندن و کشف‌کردن، جا باز کنیم",
+          "short": "کتابخانه و فضای مطالعه",
+          "line": "همراهی شما می‌تواند در ایجاد فضایی آرام برای مطالعه و دسترسی به کتاب سهم داشته باشد.",
+          "unit": "ظرفیت نوبت استفاده سالانه",
+          "cumulative": "نوبت استفاده در دوره",
+          "need": "کودکان واجد شرایطِ فاقد دسترسی مناسب در محدوده خدمت",
+          "base": 2400,
+          "needCount": 3000,
+          "cost": 10000,
+          "funded": 3000,
+          "formula": "۱۰ جای مطالعه فرضی × یک نوبت در روز × ۲۴۰ روز = ۲۴۰۰ نوبت سالانه.",
+          "outcome": "دسترسی و استفاده مستمر از مطالعه و کتاب، با عضویت فعال، امانت و استفاده از فضا سنجیده می‌شود.",
+          "condition": "نیاز محله، بهره‌بردار، فضای دسترس‌پذیر، منابع کتاب و بودجه اداره.",
+          "sources": [
+            "نهاد کتابخانه‌ها و مرجع محلی، پوشش، ظرفیت و استفاده واقعی",
+            "مرکز آمار، جمعیت گروه هدف در سطح منتشرشده"
+          ],
+          "indicators": [
+            "تقاضای استفاده در محدوده خدمت",
+            "ظرفیت کتابخانه‌های موجود و فاصله دسترسی",
+            "تامین کتاب، نیروی اداره و بودجه"
+          ],
+          "limit": "نوبت استفاده یا عضویت کتابخانه، تعداد افراد باسوادشده نیست."
+        }
+      }
+    }
+  },
+  "preserve_scope": [
+    "all 22 land subservices; user order; no automatic dependency invention",
+    "nine principal service journeys; ma-profile integrates existing private profile",
+    "no legal grant or funding commitment inferred from form/result"
+  ],
+  "ambiguities": [
+    {
+      "topic": "foreign currency unit",
+      "finding": "source keeps amount in explicit currency; TOMAN conversion not defined or authorized",
+      "implementation_constraint": "keep currency+amount separate without exchange conversion"
+    },
+    {
+      "topic": "noncash charity quantities",
+      "finding": "source text only; mission requests explicit unit/capacity/period",
+      "implementation_constraint": "introduce narrowly scoped explicit self-reported quantity, never monetary value/impact coefficient guess"
+    },
+    {
+      "topic": "source legal/assessment barriers",
+      "finding": "barrier text often blocks final structure/commitment, not sending a request for expert assistance",
+      "implementation_constraint": "do not equate source blocked flag with blanket case request refusal"
+    }
+  ],
+  "approved_differences": [
+    {
+      "decision": "D32",
+      "service": "ideas",
+      "source_accepts": [
+        "pdf",
+        "docx",
+        "pptx",
+        "xlsx",
+        "png",
+        "jpg",
+        "jpeg",
+        "webp",
+        "zip"
+      ],
+      "approved_private_formats": [
+        "PDF",
+        "JPEG",
+        "PNG"
+      ],
+      "approved_single_mib": 20,
+      "approved_count": 20,
+      "approved_total_mib": 100,
+      "rejected": [
+        "ZIP",
+        "Office",
+        "executables",
+        "password-protected/active PDF"
+      ],
+      "note": "Use existing D32 backend policy and display it truthfully; do not invent new attachment rules."
+    }
+  ]
+}

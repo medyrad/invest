@@ -53,7 +53,25 @@ class Representation(models.Model):
 
 class Draft(models.Model):
     kind = models.CharField(
-        max_length=12, default="project", choices=[(x, x) for x in ["project", "fund", "sale"]]
+        max_length=32,
+        default="project",
+        choices=[
+            (x, x)
+            for x in [
+                "project",
+                "fund",
+                "sale",
+                "proposal",
+                "ideas",
+                "land-preparation",
+                "foreign-investment",
+                "ma-notice",
+                "ma-renewal",
+                "ma-manager",
+                "ma-exchange",
+                "charity",
+            ]
+        ],
     )
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)

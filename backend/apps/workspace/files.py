@@ -335,7 +335,8 @@ def purge(at=None):
             if not f:
                 continue
             # Submitted/review evidence is retained until a real-data policy is approved.
-            from apps.core.models import Event, Message, Submission
+            from apps.core.models import Event, Message, Report, Submission
+            from apps.services.models import ServiceSubmission
 
             if (
                 (
@@ -354,6 +355,11 @@ def purge(at=None):
                     )
                 )
                 or Message.objects.filter(files__contains=[str(candidate.pk)]).exists()
+                or (
+                    candidate.draft_id
+                    and ServiceSubmission.objects.filter(draft_id=candidate.draft_id).exists()
+                )
+                or Report.objects.filter(snapshot__files__contains=[str(candidate.pk)]).exists()
             ):
                 continue
             t = Draft.objects.select_for_update().get(pk=f.draft_id) if f.draft_id else None

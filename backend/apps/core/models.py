@@ -86,8 +86,12 @@ class Receipt(models.Model):
 class Case(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     customer = models.ForeignKey(U, on_delete=models.PROTECT, related_name="customer_cases")
-    opportunity = models.ForeignKey(Opportunity, on_delete=models.PROTECT)
-    submission = models.ForeignKey(Submission, on_delete=models.PROTECT)
+    opportunity = models.ForeignKey(Opportunity, null=True, on_delete=models.PROTECT)
+    submission = models.ForeignKey(Submission, null=True, on_delete=models.PROTECT)
+    service_submission = models.ForeignKey(
+        "services.ServiceSubmission", null=True, on_delete=models.PROTECT
+    )
+    service_draft = models.ForeignKey("workspace.Draft", null=True, on_delete=models.PROTECT)
     expert = models.ForeignKey(U, null=True, on_delete=models.PROTECT, related_name="expert_cases")
     previous = models.ForeignKey("self", null=True, on_delete=models.PROTECT)
     status = models.CharField(max_length=20, default="submitted")
@@ -104,6 +108,29 @@ class Case(models.Model):
 
     class Meta:
         constraints = [
+            models.CheckConstraint(
+                condition=(
+                    Q(
+                        opportunity__isnull=False,
+                        submission__isnull=False,
+                        service_submission__isnull=True,
+                        service_draft__isnull=True,
+                    )
+                    | Q(
+                        opportunity__isnull=True,
+                        submission__isnull=True,
+                        service_submission__isnull=False,
+                        service_draft__isnull=False,
+                    )
+                ),
+                name="core_case_subject",
+            ),
+            models.UniqueConstraint(
+                fields=["service_draft"],
+                condition=Q(service_draft__isnull=False)
+                & ~Q(status__in=["closed", "cancelled", "terminated"]),
+                name="core_one_live_service_case",
+            ),
             models.CheckConstraint(
                 condition=Q(
                     status__in=[
