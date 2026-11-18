@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     "apps.identity",
     "apps.catalog",
     "apps.workspace",
+    "apps.core",
 ]
 MIDDLEWARE = [
     "config.middleware.RequestContextMiddleware",

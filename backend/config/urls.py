@@ -1,6 +1,7 @@
 from django.urls import path
 
 from apps.catalog.api import Geography, NormalizeValue, Preview, Taxonomy, ValueDefinitions
+from apps.core.api import CoreAPI
 from apps.identity.api import AuthAPI
 from apps.workspace.api import WorkspaceAPI
 from config import views
@@ -71,3 +72,6 @@ for suffix, action in [
     urlpatterns.append(
         path("api/v1/workspace/" + suffix, WorkspaceAPI.as_view(), {"action": action})
     )
+
+
+urlpatterns.append(path("api/v1/core/<path:path>", CoreAPI.as_view()))

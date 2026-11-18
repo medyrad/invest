@@ -17,6 +17,9 @@ class Command(BaseCommand):
             checked = check_one()
             if options["once"] or time.monotonic() - last_purge >= 60:
                 n = purge()
+                from apps.core.cases import jobs
+
+                jobs()
                 last_purge = time.monotonic()
                 self.stdout.write(f"workspace_jobs checked={int(checked)} purged={n}")
             if options["once"]:

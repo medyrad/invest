@@ -1,0 +1,5 @@
+# شاهد برش بک‌اند
+
+تا این برش، ۲۶ آزمون مرتبط core/workspace/migration روی PostgreSQL گذشت (لاگ اجرایی .tools/core-complete/test-core-slice-final.log؛ شاهد عمومی نهایی در report ثبت می‌شود). شامل سه نوع، snapshot immutable، حفظ revision عمومی، consent/assignment/clock، سازمان و منع self-approval، cursor، مجوز API، رقابت انتشار و حفظ draft/blob قدیمی هنگام migration. این اجرای داخلی پذیرش مستقل یا پایان بسته نیست؛ تسک‌های UI و جمع‌بندی بازند.
+
+بررسی چهار عرض نتایج و جزئیات روی نسخه توسعه گذشت؛ سفر چندنقشی هنوز در حال تثبیت است. build نخست برای نمایش محلی موفق شده است. نتیجه نهایی باید پس از آخرین تغییر کد و image دوباره به همان نسخه متصل شود.

@@ -5,7 +5,8 @@
     "contractor": "پیمانکاری",
     "buyer": "خرید",
     "lessee": "اجاره",
-    "heritage": "میراث"
+    "heritage": "میراث",
+    "operator": "بهره‌برداری"
   },
   "fields": [
     {

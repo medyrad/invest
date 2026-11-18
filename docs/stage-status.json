@@ -56,7 +56,7 @@
     "User approved P3 as D30 and recommended P1/P2 as D31/D32; PROGRAMMER-S05-A1 handoff authorized and prepared; implementation and human visual acceptance not claimed."
   ],
   "remaining": [
-    "S03 آزمایشی، خانه/کاتالوگ S04 و بسته مبلغ/واحد پذیرش فنی مستقل دارند. تأیید انسانی و پایان کل S04 باز است؛ با پذیرش D30–D32 ادامه فقط در دامنه PROGRAMMER-S05-A1 مجاز شد. A2/B/C و انتشار عمومی مجاز نیستند.",
+    "پذیرش فنی A1 طبق TEST-S05-A1-03 برقرار است؛ مأموریت جامع باقی S05/S06/S07 را مجاز کرده است. تأیید انسانی و عرضه عمومی باز هستند.",
     "Complete per-field/per-rule semantic mappings and schemas before each dependent feature; all by S10",
     "Stabilize visual state baselines and review mobile/new-panel designs before each UI acceptance",
     "Validate matching relevance against product-expert reviewed examples before S06 acceptance",
@@ -95,9 +95,9 @@
     "version": "1.4.1",
     "integration": "codex-skills",
     "constitution_version": "1.0.1",
-    "feature": "007-exact-values",
+    "feature": "009-core-journeys",
     "final_plan_gate_passed": true,
-    "gate_scope": "PROGRAMMER-S04-03 exact values and limited field mappings; no S05 or human/full S04 acceptance"
+    "gate_scope": "مأموریت جامع هسته؛ پذیرش طراحی و S08–S11 جدا"
   },
   "reference_audit": {
     "screenshots": 46,
@@ -113,17 +113,17 @@
     "full_product_implementation_authorized": false
   },
   "active_step": {
-    "id": "S04",
-    "mission": "PROGRAMMER-S04-04",
-    "authorization": "رفع دو ایراد TEST-S04-03؛ migration افزایشی و اعتبارسنجی basis در دیتابیس",
-    "status": "technical-pass-human-and-stage-review-pending",
+    "id": "CORE",
+    "mission": "PROGRAMMER-CORE-COMPLETE",
+    "authorization": "docs/programmer-core-complete.md at e59a11c",
+    "status": "in-progress",
     "implementation_authorized": true,
     "public_deployment_authorized": false,
-    "feature": "007-exact-values",
+    "feature": "009-core-journeys",
     "human_visual_approved": false,
     "final_acceptance": false,
-    "report_path": "docs/stage4/values-fix-report.md",
-    "verification_path": "docs/stage4/values-fix-evidence/manifest.json",
+    "report_path": "docs/core-delivery/report.md",
+    "verification_path": "docs/core-delivery/evidence/manifest.json",
     "full_stage_complete": false,
     "independent_retest_report_path": "docs/stage4/values-retest-report.md"
   },
@@ -233,7 +233,7 @@
     "remote_ci_executed": false,
     "public_deployed": false
   },
-  "application_implementation_scope": "S02 foundation, S03 trial identity, S04 home/navigation/catalog and 007-exact-values only; full product incomplete; no S05 implementation authorization",
+  "application_implementation_scope": "بسته جامع هسته S05/S06/S07 طبق PROGRAMMER-CORE-COMPLETE؛ S08–S11 مقصدهای بعدی، عرضه عمومی مجاز نیست",
   "identity": {
     "mission": "PROGRAMMER-S03-01",
     "status": "technical-pass",
@@ -484,5 +484,17 @@
     "authorization": "User requested broader prompts and repeatedly instructed continuation",
     "remaining_scope": "All reference capabilities retained through S08-S11",
     "human_visual_approval_pending": true
+  },
+  "core_delivery": {
+    "mission": "PROGRAMMER-CORE-COMPLETE",
+    "status": "in-progress",
+    "feature": "009-core-journeys",
+    "scope_path": "docs/programmer-core-complete.md",
+    "coordinator_commit": "e59a11c",
+    "implementation_authorized": true,
+    "public_deployment_authorized": false,
+    "human_visual_approved": false,
+    "independent_acceptance": false,
+    "full_product_complete": false
   }
 }

@@ -1,0 +1,3 @@
+# پژوهش
+
+قواعد از D25–D32 و production-decisions بازیابی شدند؛ code نمونه authority نیست. source match.ts unknown=.5، no preference=100 و suitable>=50 با D28 ناسازگار است و جایگزین می‌شود. store مرجع localStorage/private mobile و login جعلی دارد؛ adapter سروری لازم است. compare مرجع project-only است؛ صندوق/فروش با همان هویت و شاخص‌های خود تکمیل شوند. doc-template واژه فرضی را حذف می‌کند؛ در توسعه این برچسب حفظ شود. sourceهای UI: search/results، listing/detail، compare/compare، saved/saved، guide/library و guide/guide-view. زیرساخت و dependencies فعلی بازیافت می‌شوند؛ build و نصب تکراری بدون اثر انجام نمی‌شود.

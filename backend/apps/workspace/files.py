@@ -323,6 +323,18 @@ def purge(at=None):
     count = 0
     with transaction.atomic():
         for candidate in PrivateFile.objects.filter(purged_at__isnull=True):
+            # Submitted/review evidence is retained until a real-data policy is approved.
+            from apps.core.models import Message, Submission
+
+            if (
+                (
+                    candidate.draft_id
+                    and Submission.objects.filter(opportunity__draft_id=candidate.draft_id).exists()
+                )
+                or (candidate.application_id and candidate.application.status == "approved")
+                or Message.objects.filter(files__contains=[str(candidate.pk)]).exists()
+            ):
+                continue
             if candidate.draft_id:
                 Draft.objects.select_for_update().get(pk=candidate.draft_id)
             else:

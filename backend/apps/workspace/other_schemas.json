@@ -1,0 +1,633 @@
+{
+  "fund": {
+    "schema_version": 1,
+    "kind": "fund",
+    "routes": {
+      "fund": "سرمایه‌گذاری صندوق"
+    },
+    "fields": [
+      {
+        "key": "title",
+        "label": "عنوان فرصت",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.title"
+      },
+      {
+        "key": "description",
+        "label": "شرح فرصت",
+        "kind": "text",
+        "unit": null,
+        "required": false,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.description"
+      },
+      {
+        "key": "stage",
+        "label": "مرحله اجرایی (اعلامی)",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.stage"
+      },
+      {
+        "key": "model",
+        "label": "مدل همکاری",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.model"
+      },
+      {
+        "key": "finance",
+        "label": "روش تأمین مالی",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.finance"
+      },
+      {
+        "key": "repay",
+        "label": "بازگشت پول",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.repay"
+      },
+      {
+        "key": "ownership",
+        "label": "شرح حقوق",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.ownership"
+      },
+      {
+        "key": "caution",
+        "label": "هشدارها",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.caution"
+      },
+      {
+        "key": "steps",
+        "label": "گام‌ها",
+        "kind": "lines",
+        "unit": null,
+        "required": false,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.steps"
+      },
+      {
+        "key": "fund_kind",
+        "label": "ساختار ابزار",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": {
+          "fund": "صندوق",
+          "crowd": "طرح جمعی"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.fund_kind"
+      },
+      {
+        "key": "fund_type",
+        "label": "نوع صندوق یا طرح",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": {
+          "fixed": "درآمد ثابت",
+          "equity": "سهامی",
+          "mixed": "مختلط",
+          "gold": "طلا",
+          "realestate": "املاک و مستغلات",
+          "landbuilding": "زمین و ساختمان",
+          "project": "پروژه",
+          "crowd": "تأمین مالی جمعی"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.fund_type"
+      },
+      {
+        "key": "asset_sector",
+        "label": "حوزه دارایی",
+        "kind": "text",
+        "unit": null,
+        "required": false,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.asset_sector"
+      },
+      {
+        "key": "minimum_investment",
+        "label": "حداقل ورود",
+        "kind": "money",
+        "unit": "MILLION_TOMAN",
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.minimum_investment"
+      },
+      {
+        "key": "forecast",
+        "label": "بازده ادعایی",
+        "kind": "return",
+        "unit": "PERCENT",
+        "required": false,
+        "when": "always",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.forecast"
+      },
+      {
+        "key": "payout",
+        "label": "تناوب پرداخت",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": {
+          "1": "ماهانه",
+          "3": "سه‌ماهه",
+          "6": "شش‌ماهه",
+          "12": "سالانه",
+          "maturity": "سررسید",
+          "none": "رشد ارزش"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.payout"
+      },
+      {
+        "key": "duration_months",
+        "label": "مدت طرح",
+        "kind": "quantity",
+        "unit": "MONTH",
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.duration_months"
+      },
+      {
+        "key": "exit",
+        "label": "شرایط خروج",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.exit"
+      },
+      {
+        "key": "risk",
+        "label": "ریسک اعلامی",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": {
+          "low": "کم",
+          "medium": "متوسط",
+          "high": "زیاد"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.risk"
+      },
+      {
+        "key": "bank_exists",
+        "label": "ادعای تضمین بانکی",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": {
+          "yes": "بله",
+          "no": "خیر"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.bank_exists"
+      },
+      {
+        "key": "bank_principal",
+        "label": "دامنه تضمین اصل",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "bank",
+        "options": {
+          "yes": "بله",
+          "no": "خیر"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.bank_principal"
+      },
+      {
+        "key": "bank_profit",
+        "label": "دامنه تضمین سود",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "bank",
+        "options": {
+          "yes": "بله",
+          "no": "خیر"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.bank_profit"
+      },
+      {
+        "key": "bank_description",
+        "label": "شرح و مرجع سند تضمین",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "bank",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.bank_description"
+      }
+    ]
+  },
+  "sale": {
+    "schema_version": 1,
+    "kind": "sale",
+    "routes": {
+      "buyer": "خرید"
+    },
+    "fields": [
+      {
+        "key": "title",
+        "label": "عنوان فرصت",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.title"
+      },
+      {
+        "key": "description",
+        "label": "شرح فرصت",
+        "kind": "text",
+        "unit": null,
+        "required": false,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.description"
+      },
+      {
+        "key": "stage",
+        "label": "مرحله اجرایی (اعلامی)",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.stage"
+      },
+      {
+        "key": "model",
+        "label": "مدل همکاری",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.model"
+      },
+      {
+        "key": "finance",
+        "label": "روش تأمین مالی",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.finance"
+      },
+      {
+        "key": "repay",
+        "label": "بازگشت پول",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.repay"
+      },
+      {
+        "key": "ownership",
+        "label": "شرح حقوق",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.ownership"
+      },
+      {
+        "key": "caution",
+        "label": "هشدارها",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.caution"
+      },
+      {
+        "key": "steps",
+        "label": "گام‌ها",
+        "kind": "lines",
+        "unit": null,
+        "required": false,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.steps"
+      },
+      {
+        "key": "category",
+        "label": "دسته فروش",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": {
+          "property": "ملک",
+          "land": "زمین",
+          "scrap": "کالای اسقاطی"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.category"
+      },
+      {
+        "key": "building_type",
+        "label": "نوع بنا",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "property",
+        "options": {
+          "villa": "ویلایی",
+          "apartment": "آپارتمان",
+          "tower": "برج",
+          "complex": "مجتمع"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.building_type"
+      },
+      {
+        "key": "scrap_type",
+        "label": "نوع کالای اسقاطی",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "scrap",
+        "options": {
+          "metal": "فلزات",
+          "equipment": "تجهیزات و ماشین‌آلات",
+          "electronics": "الکترونیکی",
+          "mixed": "ترکیبی"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.scrap_type"
+      },
+      {
+        "key": "subject",
+        "label": "موضوع فروش",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.subject"
+      },
+      {
+        "key": "usage",
+        "label": "کاربری",
+        "kind": "text",
+        "unit": null,
+        "required": true,
+        "when": "area",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.usage"
+      },
+      {
+        "key": "price",
+        "label": "قیمت عرضه",
+        "kind": "money",
+        "unit": "BILLION_TOMAN",
+        "required": true,
+        "when": "always",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.price"
+      },
+      {
+        "key": "price_mode",
+        "label": "قیمت برای",
+        "kind": "enum",
+        "unit": null,
+        "required": true,
+        "when": "always",
+        "options": {
+          "total": "کل موضوع",
+          "per_unit": "هر واحد مشخص"
+        },
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.price_mode"
+      },
+      {
+        "key": "price_quantity",
+        "label": "مقدار مبنای قیمت واحد",
+        "kind": "quantity",
+        "unit": "ITEM",
+        "required": true,
+        "when": "per_unit",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.price_quantity"
+      },
+      {
+        "key": "area",
+        "label": "مساحت موضوع",
+        "kind": "quantity",
+        "unit": "SQUARE_METRE",
+        "required": true,
+        "when": "area",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.area"
+      },
+      {
+        "key": "land_area",
+        "label": "مساحت عرصه",
+        "kind": "quantity",
+        "unit": "SQUARE_METRE",
+        "required": false,
+        "when": "property",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.land_area"
+      },
+      {
+        "key": "quantity",
+        "label": "مقدار کالای عرضه",
+        "kind": "quantity",
+        "unit": "ITEM",
+        "required": true,
+        "when": "scrap",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.quantity"
+      },
+      {
+        "key": "quantity_source",
+        "label": "متن مقدار منبع",
+        "kind": "text",
+        "unit": null,
+        "required": false,
+        "when": "scrap",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.quantity_source"
+      },
+      {
+        "key": "neighborhood",
+        "label": "محله",
+        "kind": "text",
+        "unit": null,
+        "required": false,
+        "when": "always",
+        "options": null,
+        "section": "general",
+        "namespace": "invest.opportunity.sale",
+        "source": "src/types/index.ts:SaleItem.neighborhood"
+      },
+      {
+        "key": "province",
+        "label": "استان",
+        "kind": "reference",
+        "section": "general",
+        "when": "always",
+        "options": null,
+        "unit": null,
+        "required": true,
+        "source": "src/types/index.ts:Opportunity.province",
+        "namespace": "invest.opportunity.sale"
+      },
+      {
+        "key": "county",
+        "label": "شهرستان",
+        "kind": "reference",
+        "section": "general",
+        "when": "always",
+        "options": null,
+        "unit": null,
+        "required": true,
+        "source": "src/types/index.ts:Opportunity.county",
+        "namespace": "invest.opportunity.sale"
+      },
+      {
+        "key": "city",
+        "label": "شهر",
+        "kind": "reference",
+        "section": "general",
+        "when": "always",
+        "options": null,
+        "unit": null,
+        "required": true,
+        "source": "src/types/index.ts:Opportunity.city",
+        "namespace": "invest.opportunity.sale"
+      }
+    ]
+  }
+}

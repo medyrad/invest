@@ -11,6 +11,7 @@ from django.utils import timezone
 from apps.catalog.models import MoneyValue, Quantity, ReturnMetric
 from apps.identity.models import User
 
+from . import other_schema as schema
 from .models import (
     Draft,
     DraftRevision,
@@ -20,7 +21,7 @@ from .models import (
     Representation,
     RepresentationRequest,
 )
-from .schema import FIELDS, SCHEMA, Fault, active_keys, check_keys, effective, validate_one
+from .schema import Fault, check_keys, validate_one
 
 
 def grant(user, organization_id):
@@ -84,17 +85,17 @@ def file_dto(f):
 
 
 def draft_dto(d):
-    result, missing = effective(d.raw, d.routes, d.heritage_enabled)
+    result, missing = schema.effective(d.kind, d.raw, d.routes, d.heritage_enabled)
     return {
         "id": str(d.pk),
         "version": d.version,
-        "kind": "project",
+        "kind": d.kind,
         "schema_version": d.schema_version,
         "routes": d.routes,
         "heritage_enabled": d.heritage_enabled,
         "raw": d.raw,
         "effective": result,
-        "inactive": sorted(set(d.raw) - active_keys(d.routes, d.heritage_enabled, d.raw)),
+        "inactive": sorted(set(d.raw) - schema.active(d.kind, d.routes, d.heritage_enabled, d.raw)),
         "missing": missing,
         "deleted": bool(d.deleted_at),
         "owner_label": (
@@ -195,11 +196,11 @@ def operation(user, data, kind, run):
 def create_draft(user, data):
     check_keys(data, ["key", "kind", "schema_version", "owner"])
     if (
-        data["kind"] != "project"
+        data["kind"] not in ["project", "fund", "sale"]
         or type(data["schema_version"]) is not int
         or data["schema_version"] != 1
     ):
-        raise Fault("در این مرحله فقط پروژه با نسخه۱ قابل ثبت است.")
+        raise Fault("نوع فرصت و نسخه قرارداد معتبر نیست.")
     owner = data["owner"]
 
     def run():
@@ -228,7 +229,7 @@ def create_draft(user, data):
             org = app.organization
         else:
             raise Fault("مالک را از گزینه‌های مجاز انتخاب کنید.", field="owner")
-        d = Draft.objects.create(creator=user, organization=org, application=app)
+        d = Draft.objects.create(creator=user, organization=org, application=app, kind=data["kind"])
         DraftRevision.objects.create(draft=d, version=1, raw={}, effective={})
         return draft_dto(d), "draft", d.pk
 
@@ -247,6 +248,8 @@ def save_draft(user, id, data):
                 "version",
                 draft_dto(d),
             )
+        FIELDS = schema.fields(d.kind)
+        SCHEMA = schema.definition(d.kind)
         routes = data["routes"]
         vals = data["values"]
         if (
@@ -267,16 +270,23 @@ def save_draft(user, id, data):
             else:
                 validate_one("heritage_returns", vals["heritage_returns"])
                 raw["heritage_returns"] = vals["heritage_returns"]
-        active = active_keys(routes, data["heritage_enabled"], raw)
+        for control in ["category", "bank_exists", "price_mode"]:
+            if control in vals and control in FIELDS:
+                if vals[control] is None:
+                    raw.pop(control, None)
+                else:
+                    schema.validate(d.kind, control, vals[control])
+                    raw[control] = vals[control]
+        active = schema.active(d.kind, routes, data["heritage_enabled"], raw)
         for k, v in vals.items():
             if k not in active:
                 continue
             if v is None:
                 raw.pop(k, None)
             else:
-                validate_one(k, v)
+                schema.validate(d.kind, k, v)
                 raw[k] = v
-        result, _ = effective(raw, routes, data["heritage_enabled"])
+        result, _ = schema.effective(d.kind, raw, routes, data["heritage_enabled"])
         d.raw = raw
         d.routes = routes
         d.heritage_enabled = data["heritage_enabled"]

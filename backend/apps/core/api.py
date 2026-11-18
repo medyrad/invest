@@ -1,0 +1,265 @@
+import json
+
+from django.conf import settings
+from django.db.models import F as models_F
+from django.db.models import Q
+from django.http import HttpResponse
+from django.utils import timezone
+from rest_framework.response import Response
+
+from apps.identity.models import User
+from apps.identity.sessions import current_session, mint_session
+from apps.workspace.models import PrivateFile, RepresentationRequest
+from apps.workspace.schema import Fault, check_keys
+from apps.workspace.service import application_dto
+from config.views import PublicBase
+
+from . import cases, discovery, personal
+from . import publication as pub
+from .common import identifier, owner, role
+from .models import Case, Event, Opportunity, Personal, Report, Submission
+
+
+class CoreAPI(PublicBase):
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        response["Cache-Control"] = "no-store, private"
+        response["X-Content-Type-Options"] = "nosniff"
+        return response
+
+    def handle(self, request, path):
+        try:
+            path = path.strip("/")
+            parts = path.split("/")
+            at = timezone.now()
+            if request.method == "POST":
+                if not isinstance(request.data, dict):
+                    raise Fault("بدنه درخواست باید شیء باشد.")
+                check_keys(request.data, list(request.data))
+            session = current_session(request.COOKIES.get("invest_session"), at)
+            if request.method == "GET" and path == "opportunities":
+                try:
+                    c = json.loads(request.query_params.get("criteria", "{}"))
+                except ValueError as e:
+                    raise Fault("معیار معتبر نیست.") from e
+                return Response(discovery.listing(c, request.query_params.get("cursor")))
+            if request.method == "GET" and len(parts) == 2 and parts[0] == "opportunities":
+                return Response(discovery.public_dto(pub.get_op(parts[1])))
+            if request.method == "GET" and parts[0] == "public-image" and len(parts) == 2:
+                fid = str(identifier(parts[1]))
+                s = Submission.objects.filter(
+                    review__decision="approved",
+                    review__public_files__contains=[fid],
+                    opportunity__public_revision_id=models_F("pk"),
+                ).first()
+                if not s:
+                    raise Fault("تصویر عمومی پیدا نشد.", 404)
+                try:
+                    f = PrivateFile.objects.get(
+                        pk=fid, status="clean", derivative__isnull=False, purged_at__isnull=True
+                    )
+                except PrivateFile.DoesNotExist as e:
+                    raise Fault("تصویر پیدا نشد.", 404) from e
+                return HttpResponse(bytes(f.derivative), content_type=f.media_type)
+            if request.method == "POST" and path == "compare":
+                check_keys(request.data, ["ids"])
+                return Response(discovery.compare(request.data["ids"]))
+            if path == "local-roles":
+                if settings.INVEST_ENV not in ["development", "test"]:
+                    raise Fault("مسیر پیدا نشد.", 404)
+                profiles = Personal.objects.filter(profile__has_key="local_role").select_related(
+                    "user"
+                )
+                if request.method == "GET":
+                    return Response(
+                        {
+                            "synthetic": True,
+                            "roles": [
+                                {
+                                    "id": str(p.user_id),
+                                    "name": p.profile.get("name"),
+                                    "role": p.user.role,
+                                }
+                                for p in profiles
+                            ],
+                        }
+                    )
+                check_keys(request.data, ["id"])
+                p = profiles.filter(user_id=identifier(request.data["id"])).first()
+                if not p:
+                    raise Fault("فقط حساب مصنوعی آماده‌شده مجاز است.", 403)
+                if session:
+                    session.revoked = True
+                    session.save(update_fields=["revoked"])
+                _, token = mint_session(p.user, at, sensitive=p.user.role in ["admin", "expert"])
+                response = Response(
+                    {
+                        "synthetic": True,
+                        "path": "/admin"
+                        if p.user.role == "admin"
+                        else "/expert"
+                        if p.user.role == "expert"
+                        else "/workspace"
+                        if p.user.role == "owner"
+                        else "/opportunities",
+                    }
+                )
+                response.set_cookie(
+                    "invest_session",
+                    token,
+                    httponly=True,
+                    samesite="Lax",
+                    secure=settings.SESSION_COOKIE_SECURE,
+                )
+                return response
+            if not session:
+                raise Fault("برای این بخش وارد شوید.", 403)
+            user = session.user
+            if request.method == "GET":
+                if path == "personal":
+                    return Response(personal.state(user))
+                if path == "dashboard":
+                    admin = user.role == "admin"
+                    if admin:
+                        role(session, "admin")
+                    if user.role == "expert":
+                        role(session, "expert")
+                    ops = [
+                        o
+                        for o in Opportunity.objects.select_related("draft", "public_revision")
+                        if admin or owner(o) == user
+                    ]
+                    submissions = Submission.objects.filter(opportunity__in=ops).order_by(
+                        "-created_at"
+                    )
+                    cs = (
+                        Case.objects.all()
+                        if admin
+                        else Case.objects.filter(Q(expert=user) | Q(customer=user))
+                    )
+                    return Response(
+                        {
+                            "opportunities": [
+                                {
+                                    "id": str(o.pk),
+                                    "draft_id": str(o.draft_id),
+                                    "title": o.draft.raw.get("title"),
+                                    "availability": o.availability,
+                                    "version": o.version,
+                                    "public_revision": str(o.public_revision_id)
+                                    if o.public_revision_id
+                                    else None,
+                                }
+                                for o in ops
+                            ],
+                            "submissions": [pub.submission_dto(s) for s in submissions],
+                            "applications": [
+                                application_dto(a) for a in RepresentationRequest.objects.all()
+                            ]
+                            if admin
+                            else [],
+                            "experts": [
+                                {
+                                    "id": str(u.pk),
+                                    "name": u.core_personal.profile.get("name", "کارشناس")
+                                    if hasattr(u, "core_personal")
+                                    else "کارشناس " + str(u.pk)[:6],
+                                }
+                                for u in User.objects.filter(role="expert", is_active=True)
+                            ]
+                            if admin
+                            else [],
+                            "cases": [cases.dto(c) for c in cs.order_by("-created_at")],
+                            "events": [
+                                {
+                                    "target": str(e.target),
+                                    "action": e.action,
+                                    "data": e.data,
+                                    "at": e.created_at.isoformat(),
+                                }
+                                for e in Event.objects.filter(
+                                    target__in=[o.pk for o in ops]
+                                ).order_by("id")
+                            ],
+                        }
+                    )
+                if parts[0] == "cases" and len(parts) == 2:
+                    return Response(cases.dto(cases.get_case(session, parts[1])))
+                if parts[0] == "contact" and len(parts) == 2:
+                    return Response(cases.contact(session, parts[1]))
+                if parts[0] == "reports" and len(parts) == 2:
+                    r = Report.objects.filter(pk=identifier(parts[1]), user=user).first()
+                    if not r:
+                        raise Fault("گزارش پیدا نشد.", 404)
+                    response = HttpResponse(
+                        json.dumps(r.snapshot, ensure_ascii=False, indent=2),
+                        content_type="application/json; charset=utf-8",
+                    )
+                    response["Content-Disposition"] = 'attachment; filename="invest-report.json"'
+                    return response
+                if parts[0] == "private-file" and len(parts) == 2:
+                    try:
+                        f = PrivateFile.objects.get(
+                            pk=identifier(parts[1]), status="clean", purged_at__isnull=True
+                        )
+                    except PrivateFile.DoesNotExist as e:
+                        raise Fault("فایل پیدا نشد.", 404) from e
+                    allowed = False
+                    if user.role == "admin":
+                        role(session, "admin")
+                        allowed = bool(
+                            f.application_id
+                            or Submission.objects.filter(files__contains=[str(f.pk)]).exists()
+                        )
+                    if not allowed:
+                        for c in Case.objects.filter(
+                            message__files__contains=[str(f.pk)]
+                        ).distinct():
+                            if user.pk in [c.customer_id, c.expert_id]:
+                                cases.get_case(session, c.pk)
+                                allowed = True
+                                break
+                    if not allowed:
+                        raise Fault("دسترسی به مدرک مجاز نیست.", 403)
+                    response = HttpResponse(
+                        bytes(f.derivative if f.derivative is not None else f.content),
+                        content_type=f.media_type,
+                    )
+                    response["Content-Disposition"] = 'attachment; filename="invest-private-file"'
+                    return response
+            elif request.method == "POST":
+                data = request.data
+                if path == "personal":
+                    return Response(personal.mutate(user, data))
+                if path == "cases":
+                    return Response(cases.create(session, data))
+                if len(parts) == 2:
+                    action, id = parts
+                    handler = {
+                        "submit": pub.submit,
+                        "review": pub.review,
+                        "organization": pub.organization_review,
+                        "availability": pub.availability,
+                        "cases": cases.action,
+                    }.get(action)
+                    if handler:
+                        return Response(handler(session, id, data))
+            raise Fault("مسیر یا روش درخواست پیدا نشد.", 404)
+        except Fault as e:
+            return Response(
+                {
+                    "error": {
+                        "code": "conflict" if e.status == 409 else "core_error",
+                        "message": e.message,
+                        "fields": {e.field: e.message},
+                        "request_id": request.request_id,
+                    }
+                },
+                status=e.status,
+            )
+
+    def get(self, request, path):
+        return self.handle(request, path)
+
+    def post(self, request, path):
+        return self.handle(request, path)

@@ -6,7 +6,7 @@ from apps.identity.sessions import current_session
 from config.views import PublicBase
 
 from . import service
-from .schema import SCHEMA, Fault
+from .schema import Fault
 
 
 class WorkspaceAPI(PublicBase):
@@ -29,7 +29,12 @@ class WorkspaceAPI(PublicBase):
             user = session.user
             if verb == "GET":
                 if action == "schema":
-                    result = SCHEMA
+                    from .other_schema import definition
+
+                    kind = request.query_params.get("kind", "project")
+                    if kind not in ["project", "fund", "sale"]:
+                        raise Fault("نوع فرصت معتبر نیست.")
+                    result = definition(kind)
                 elif action == "owners":
                     result = service.owners(user)
                 elif action == "drafts":
