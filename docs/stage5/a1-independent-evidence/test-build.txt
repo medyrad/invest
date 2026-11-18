@@ -1,0 +1,109 @@
+ Image invest-test Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 557B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from backend.Dockerfile
+#2 transferring dockerfile: 970B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for public.ecr.aws/docker/library/python:3.14.10-slim-bookworm@sha256:1faf2343e747208b2a36e5f2b5ff908ec3b2d0078a6a7bfe73b535698fe83909
+#3 DONE 1.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 231B done
+#4 DONE 0.0s
+
+#5 [builder 1/5] FROM public.ecr.aws/docker/library/python:3.14.10-slim-bookworm@sha256:1faf2343e747208b2a36e5f2b5ff908ec3b2d0078a6a7bfe73b535698fe83909
+#5 resolve public.ecr.aws/docker/library/python:3.14.10-slim-bookworm@sha256:1faf2343e747208b2a36e5f2b5ff908ec3b2d0078a6a7bfe73b535698fe83909 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 5.16kB done
+#6 DONE 0.0s
+
+#7 [builder 3/5] WORKDIR /app
+#7 CACHED
+
+#8 [runtime 2/6] WORKDIR /app
+#8 CACHED
+
+#9 [builder 4/5] COPY backend/pyproject.toml backend/uv.lock ./
+#9 CACHED
+
+#10 [runtime 4/6] COPY --from=builder /app/.venv /app/.venv
+#10 CACHED
+
+#11 [builder 2/5] RUN pip install --no-cache-dir uv==0.11.32
+#11 CACHED
+
+#12 [runtime 5/6] COPY backend/ ./
+#12 CACHED
+
+#13 [runtime 3/6] RUN useradd --uid 10001 --create-home invest
+#13 CACHED
+
+#14 [runtime 6/6] COPY contracts/ /contracts/
+#14 CACHED
+
+#15 [builder 5/5] RUN uv sync --locked --no-dev
+#15 CACHED
+
+#16 [test-deps 1/1] RUN uv sync --locked
+#16 0.462 Resolved 39 packages in 4ms
+#16 0.899 Downloading pygments (1.2MiB)
+#16 0.900 Downloading pydantic-core (2.2MiB)
+#16 0.904 Downloading ruff (10.1MiB)
+#16 1.642  Downloaded pygments
+#16 1.889  Downloaded pydantic-core
+#16 3.456  Downloaded ruff
+#16 3.457 Prepared 27 packages in 2.98s
+#16 3.463 Installed 27 packages in 6ms
+#16 3.464  + annotated-types==0.8.0
+#16 3.464  + attrs==26.1.0
+#16 3.464  + iniconfig==2.3.1
+#16 3.464  + jsonschema==4.26.0
+#16 3.464  + jsonschema-path==0.5.0
+#16 3.464  + jsonschema-specifications==2025.9.1
+#16 3.464  + lazy-object-proxy==1.13.0
+#16 3.464  + openapi-schema-validator==0.9.0
+#16 3.464  + openapi-spec-validator==0.9.0
+#16 3.464  + packaging==26.3
+#16 3.464  + pathable==0.6.0
+#16 3.464  + pluggy==1.7.0
+#16 3.464  + pydantic==2.14.3
+#16 3.464  + pydantic-core==2.50.4
+#16 3.464  + pydantic-settings==2.16.3
+#16 3.464  + pygments==2.21.0
+#16 3.464  + pytest==9.2.0
+#16 3.464  + pytest-django==4.14.0
+#16 3.464  + python-dotenv==1.2.4
+#16 3.464  + pyyaml==6.0.3
+#16 3.464  + referencing==0.37.0
+#16 3.464  + rfc3339-validator==0.1.4
+#16 3.464  + rpds-py==2026.9.1
+#16 3.464  + ruff==0.17.5
+#16 3.464  + six==1.17.0
+#16 3.464  + typing-extensions==4.16.0
+#16 3.464  + typing-inspection==0.4.5
+#16 DONE 3.5s
+
+#17 [test 1/1] COPY --from=test-deps /app/.venv /app/.venv
+#17 DONE 0.5s
+
+#18 exporting to image
+#18 exporting layers
+#18 exporting layers 1.3s done
+#18 exporting manifest sha256:2a2ebd715b329376f01cad58010cfc6bdbfd05d7b271386cd695c775c718a04d 0.0s done
+#18 exporting config sha256:4f5bbee7273499002fb194774fdcc6113c96b708781120a6ad7d1c1a629c4339 0.0s done
+#18 exporting attestation manifest sha256:62ace1e69733a0a0d1a6138d46f81deeb7cc18c35afd68b08d5149a6576a2931 0.0s done
+#18 exporting manifest list sha256:25dc2faa111ecaaee384d7bcad3d1d7f36739eb8a86da50653cef86d798251c5 0.0s done
+#18 naming to docker.io/library/invest-test:latest
+#18 naming to docker.io/library/invest-test:latest done
+#18 unpacking to docker.io/library/invest-test:latest
+#18 unpacking to docker.io/library/invest-test:latest 0.2s done
+#18 DONE 1.7s
+
+#19 resolving provenance for metadata file
+#19 DONE 0.0s
+ Image invest-test Built

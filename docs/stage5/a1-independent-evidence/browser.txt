@@ -1,0 +1,12 @@
+
+Running 5 tests using 1 worker
+
+(node:16187) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/workspace.spec.ts:39:1 › A1 journey: lost create, exact conditional form, file, resume on second device, trash (9.6s)
+  ✓  2 tests/browser/workspace.spec.ts:75:1 › A1 layout, keyboard, organization and heritage conditions at four widths (3.0s)
+  ✓  3 tests/browser/workspace.spec.ts:97:1 › A1 conflict, expired-session input preservation, logout, account isolation and restart (5.3s)
+  ✓  4 tests/browser/workspace.spec.ts:126:1 › A1 HTTP receives the full 20 MiB document boundary through the built frontend (1.4s)
+  ✓  5 tests/browser/workspace.spec.ts:141:1 › A1 home and navigation smoke preserve existing identity (2.5s)
+
+  5 passed (22.5s)

@@ -1,0 +1,10 @@
+{
+  "measured_seconds_since_version_setup": 165.17,
+  "initial_reading_unmeasured": true,
+  "backend_seconds": 13.75,
+  "browser_seconds": [
+    22.5,
+    10.2
+  ],
+  "report_and_preparation_not_separately_measured": true
+}

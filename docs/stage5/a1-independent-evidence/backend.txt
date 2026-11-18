@@ -1,0 +1,8 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-test-run-6e667272d6ae Creating
+ Container invest-test-run-6e667272d6ae Created
+
+no tests ran in 0.00s
+ERROR: file or directory not found: tests/test_workspace.py
