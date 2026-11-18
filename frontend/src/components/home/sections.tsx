@@ -49,7 +49,7 @@ export function HelpCenter() {
   return (
     <section data-section="help" className={sectionCls}>
       <SectionHead kicker="راهنما" title="پیش از تصمیم، این پرسش‌ها را روشن کنید" text="پاسخ کوتاه پرسش‌های رایج درباره قرارداد، تضمین و حقوق ملک."
-        aside={<Link href="/tools/library" className="group inline-flex h-12 items-center gap-2 rounded-full border border-pine/15 bg-white/60 px-5 text-sm font-extrabold text-ink transition-colors hover:border-ink/25 hover:text-ink">همه راهنماها و منابع<ArrowLeft size={17} className="transition-transform group-hover:-translate-x-1" /></Link>} />
+        aside={<Link href="/library" className="group inline-flex h-12 items-center gap-2 rounded-full border border-pine/15 bg-white/60 px-5 text-sm font-extrabold text-ink transition-colors hover:border-ink/25 hover:text-ink">همه راهنماها و منابع<ArrowLeft size={17} className="transition-transform group-hover:-translate-x-1" /></Link>} />
       <HelpAccordion topics={topics} active={active} setActive={setActive} />
     </section>
   );

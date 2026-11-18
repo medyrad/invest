@@ -350,3 +350,6 @@ main.auth-legacy {min-height:80svh;display:grid;place-content:center;gap:12px;te
  .home-page [data-map-feed] { position:relative; inset:auto!important; margin-top:10px; }
  .home-page [data-map-feed] > a.surface { position:relative; inset:auto!important; width:100%; translate:none; transform:none; }
 }
+
+/* Keep the reference popovers usable within every mobile viewport. */
+[data-slot="popover-content"] { max-width:calc(100vw - 2rem); max-height:calc(100dvh - 3rem); overflow-y:auto; }

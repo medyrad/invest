@@ -28,6 +28,14 @@ def active(kind, routes, heritage, raw):
         "area": raw.get("category") in ["property", "land"],
         "per_unit": raw.get("price_mode") == "per_unit",
     }
+    if kind == "fund":
+        flags.update(
+            {
+                "forecast_" + t: raw.get("forecast_type") == t
+                for t in ["irr", "simple_rate", "effective_rate"]
+            }
+        )
+        flags["legacy_forecast"] = "forecast" in raw and raw.get("forecast_type") is None
     return {k for k, f in fields(kind).items() if flags.get(f["when"], False)}
 
 
@@ -37,11 +45,15 @@ def validate(kind, key, value):
     f = fields(kind)[key]
     if f["unit"]:
         try:
-            if not isinstance(value, dict) or value.get("field") != {
+            expected = {
                 "namespace": "invest.opportunity." + kind,
                 "key": key,
-                "version": 1,
-            }:
+                "version": f.get("version", 1),
+            }
+            refs = [expected]
+            if kind == "fund" and key.startswith("forecast_") and f.get("version") == 2:
+                refs.append({**expected, "version": 1})
+            if not isinstance(value, dict) or value.get("field") not in refs:
                 raise schema.Fault("تعریف فیلد با این کنترل سازگار نیست.", field=key)
             return normalize(value)
         except ValueErrorDetail as e:

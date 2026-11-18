@@ -17,7 +17,7 @@ from config.views import PublicBase
 from . import cases, discovery, personal
 from . import publication as pub
 from .common import identifier, owner, role
-from .models import Case, Event, Opportunity, Personal, Report, Submission
+from .models import Case, Consent, Event, Opportunity, Personal, Report, Submission
 
 
 class CoreAPI(PublicBase):
@@ -30,6 +30,8 @@ class CoreAPI(PublicBase):
     def handle(self, request, path):
         try:
             path = path.strip("/")
+            if request.method == "GET" and path == "version":
+                return Response({"version": settings.CORE_VERSION})
             parts = path.split("/")
             at = timezone.now()
             if request.method == "POST":
@@ -52,7 +54,11 @@ class CoreAPI(PublicBase):
                     review__public_files__contains=[fid],
                     opportunity__public_revision_id=models_F("pk"),
                 ).first()
-                if not s:
+                if (
+                    not s
+                    or s.opportunity.availability == "admin_suspended"
+                    or (settings.INVEST_ENV == "public" and pub.is_synthetic(s.opportunity))
+                ):
                     raise Fault("تصویر عمومی پیدا نشد.", 404)
                 try:
                     f = PrivateFile.objects.get(
@@ -67,9 +73,9 @@ class CoreAPI(PublicBase):
             if path == "local-roles":
                 if settings.INVEST_ENV not in ["development", "test"]:
                     raise Fault("مسیر پیدا نشد.", 404)
-                profiles = Personal.objects.filter(profile__has_key="local_role").select_related(
-                    "user"
-                )
+                profiles = Personal.objects.filter(
+                    profile__local_role=True, user__is_active=True
+                ).select_related("user")
                 if request.method == "GET":
                     return Response(
                         {
@@ -91,6 +97,9 @@ class CoreAPI(PublicBase):
                 if session:
                     session.revoked = True
                     session.save(update_fields=["revoked"])
+                Event.objects.create(
+                    actor=p.user, target=p.user_id, action="synthetic_local_role_entry"
+                )
                 _, token = mint_session(p.user, at, sensitive=p.user.role in ["admin", "expert"])
                 response = Response(
                     {
@@ -170,6 +179,17 @@ class CoreAPI(PublicBase):
                             if admin
                             else [],
                             "cases": [cases.dto(c) for c in cs.order_by("-created_at")],
+                            "contact_grants": [
+                                {
+                                    "case_id": str(g.case_id),
+                                    "title": g.case.submission.snapshot.get("title"),
+                                    "kind": g.kind,
+                                }
+                                for g in Consent.objects.filter(
+                                    recipient=user, kind="owner", revoked_at__isnull=True
+                                ).select_related("case__opportunity__draft", "case__submission")
+                                if owner(g.case.opportunity) == user
+                            ],
                             "events": [
                                 {
                                     "target": str(e.target),

@@ -323,18 +323,6 @@ def purge(at=None):
     count = 0
     with transaction.atomic():
         for candidate in PrivateFile.objects.filter(purged_at__isnull=True):
-            # Submitted/review evidence is retained until a real-data policy is approved.
-            from apps.core.models import Message, Submission
-
-            if (
-                (
-                    candidate.draft_id
-                    and Submission.objects.filter(opportunity__draft_id=candidate.draft_id).exists()
-                )
-                or (candidate.application_id and candidate.application.status == "approved")
-                or Message.objects.filter(files__contains=[str(candidate.pk)]).exists()
-            ):
-                continue
             if candidate.draft_id:
                 Draft.objects.select_for_update().get(pk=candidate.draft_id)
             else:
@@ -345,6 +333,28 @@ def purge(at=None):
                 .first()
             )
             if not f:
+                continue
+            # Submitted/review evidence is retained until a real-data policy is approved.
+            from apps.core.models import Event, Message, Submission
+
+            if (
+                (
+                    candidate.draft_id
+                    and Submission.objects.filter(opportunity__draft_id=candidate.draft_id).exists()
+                )
+                or (
+                    candidate.application_id
+                    and (
+                        candidate.application.status == "approved"
+                        or Event.objects.filter(
+                            target=candidate.application.organization_id,
+                            action="independent_review",
+                            data__application=str(candidate.application_id),
+                        ).exists()
+                    )
+                )
+                or Message.objects.filter(files__contains=[str(candidate.pk)]).exists()
+            ):
                 continue
             t = Draft.objects.select_for_update().get(pk=f.draft_id) if f.draft_id else None
             held = bool(

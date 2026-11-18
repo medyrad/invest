@@ -1,5 +1,6 @@
 from datetime import date, datetime, time
 
+from django.conf import settings
 from django.utils import timezone
 
 from apps.workspace import other_schema
@@ -13,13 +14,16 @@ from apps.workspace.models import (
 from apps.workspace.schema import Fault, check_keys
 
 from .common import event, identifier, notify, owned, owner, role, run, text
-from .models import Opportunity, Review, Submission
+from .models import Opportunity, Review, ReviewEvidence, Submission
 
 
 def get_op(id, lock=False):
     qs = Opportunity.objects.select_for_update(of=("self",)) if lock else Opportunity.objects
     try:
-        return qs.select_related("draft", "public_revision").get(pk=identifier(id))
+        op = qs.select_related("draft", "public_revision").get(pk=identifier(id))
+        if lock and op.draft.organization_id:
+            Organization.objects.select_for_update().get(pk=op.draft.organization_id)
+        return op
     except Opportunity.DoesNotExist as e:
         raise Fault("فرصت پیدا نشد.", 404) from e
 
@@ -29,9 +33,15 @@ def status(s):
     return last.decision if last else "submitted"
 
 
+def is_synthetic(op):
+    profile = getattr(op.draft.creator, "core_personal", None)
+    return bool(op.synthetic or (profile and profile.profile.get("local_role") is True))
+
+
 def active(op, at=None):
     return bool(
-        op.public_revision_id
+        not (settings.INVEST_ENV == "public" and is_synthetic(op))
+        and op.public_revision_id
         and op.availability == "active"
         and (not op.expires_at or op.expires_at > (at or timezone.now()))
         and owner(op)
@@ -81,7 +91,9 @@ def submit(session, id, data):
                 "اطلاعات لازم را تکمیل کنید: " + "، ".join(missing or ["عنوان و مسیر"]),
                 field="missing",
             )
-        op, _ = Opportunity.objects.get_or_create(draft=d)
+        op, _ = Opportunity.objects.get_or_create(
+            draft=d, defaults={"synthetic": settings.INVEST_ENV in ["development", "test"]}
+        )
         op = get_op(op.pk, True)
         if Submission.objects.filter(opportunity=op, draft_version=d.version).exists():
             raise Fault("این نسخه قبلاً ارسال شده است.", 409)
@@ -114,7 +126,11 @@ def submit(session, id, data):
 
 
 def review(session, id, data):
-    check_keys(data, ["key", "decision", "reason", "public_files"])
+    check_keys(
+        data,
+        ["key", "decision", "reason", "public_files"]
+        + (["verification"] if "verification" in data else []),
+    )
     role(session, "admin")
     user = session.user
 
@@ -159,13 +175,32 @@ def review(session, id, data):
             op.public_revision = s
             op.version += 1
             op.save()
-        Review.objects.create(
+        reviewed = Review.objects.create(
             submission=s,
             actor=user,
             decision=decision,
             reason=reason,
             public_files=data["public_files"],
         )
+        verification = data.get("verification")
+        if verification is not None:
+            if decision != "approved" or s.kind != "fund" or s.snapshot.get("bank_exists") != "yes":
+                raise Fault("احراز تضمین تنها برای ادعای فعال صندوق هنگام تأیید است.")
+            check_keys(verification, ["source", "result", "files"])
+            source = text(verification["source"], "verification.source")
+            result = text(verification["result"], "verification.result")
+            refs = verification["files"]
+            if not isinstance(refs, list) or not refs or len(refs) > 10:
+                raise Fault("مدرک ادعای تضمین را مشخص کنید.")
+            for fid in refs:
+                if (
+                    fid not in s.files
+                    or not PrivateFile.objects.filter(
+                        pk=identifier(fid), kind="document", status="clean", purged_at__isnull=True
+                    ).exists()
+                ):
+                    raise Fault("مدرک تضمین باید از مدارک پاک همین نسخه باشد.")
+            ReviewEvidence.objects.create(review=reviewed, source=source, result=result, files=refs)
         event(user, op.pk, decision, reason=reason, submission=str(s.pk))
         recipient = owner(op)
         if recipient:
@@ -319,3 +354,13 @@ def organization_review(session, id, data):
         return ws.application_dto(a)
 
     return run(user, data, "organization_review", identifier(id), auth, work)
+
+
+def bank_verified(s):
+    return bool(
+        s.kind == "fund"
+        and getattr(s, "pk", None)
+        and ReviewEvidence.objects.filter(
+            review__submission=s, review__decision="approved"
+        ).exists()
+    )

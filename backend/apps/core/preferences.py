@@ -2,7 +2,9 @@
 User cash-flow/basis-free wishes have no fabricated publisher counterpart.
 """
 
+import json
 from decimal import Decimal
+from pathlib import Path
 
 from apps.catalog.values import ValueErrorDetail, parse_number
 from apps.workspace.schema import Fault
@@ -10,7 +12,7 @@ from apps.workspace.schema import Fault
 RULES = {
     "subtypes": ("subtype", "category", "eq", None),
     "phase": ("phase", "category", "eq", None),
-    "owner": ("owner_sector", "category", "eq", None),
+    "owner": ("sector", "category", "eq", None),
     "horizon": ("payback_years", "returns", "max", "YEAR"),
     "lockup": ("lockup_months", "returns", "max", "MONTH"),
     "firstIncome": ("first_income_months", "returns", "max", "MONTH"),
@@ -18,6 +20,9 @@ RULES = {
     "fundType": ("fund_type", "category", "eq", None),
     "saleCategory": ("category", "category", "eq", None),
     "usage": ("usage", "category", "eq", None),
+    "workingCapital": ("working_capital_min", "conditions", "max", "BILLION_TOMAN"),
+    "guarantees": ("accepted_guarantees", "conditions", "eq", None),
+    "lumpBudget": ("lump_rent", "amount", "max", "BILLION_TOMAN"),
     "payout": ("payout", "returns", "eq", None),
     "intervention": ("interventions", "conditions", "eq", None),
     "shareMin": ("partner_share", "conditions", "min", "SHARE_PERCENT"),
@@ -37,8 +42,6 @@ RULES = {
     "cities": ("city", "location", "eq", None),
     "neighborhood": ("neighborhood", "location", "eq", None),
     "risk": ("risk", "risk", "eq", None),
-    "general": ("general_conditions", "conditions", "eq", None),
-    "special": ("special_conditions", "conditions", "eq", None),
     "occupied": ("rights_occupancy", "conditions", "eq", None),
     "renewal": ("rights_renewal", "conditions", "eq", None),
     "thirdPartyRights": ("rights_claims", "conditions", "eq", None),
@@ -58,10 +61,46 @@ BUDGET_INFO = {
 }
 
 
-def evaluate(s, route, preferences):
+SEARCH_FIELDS = {
+    f["id"]: f for f in json.loads(Path(__file__).with_name("search_fields.json").read_text())
+}
+
+
+def active_preferences(route, preferences):
+    def enabled(key):
+        f = SEARCH_FIELDS.get(key)
+        if not f:
+            return False
+        if f.get("routes") and route and route not in f["routes"]:
+            return False
+        if not f.get("routes") and f.get("section") == "location" and route == "fund":
+            return False
+        if key in ["usage", "area"] and route not in ["buyer", "lessee"]:
+            return False
+        when = f.get("showWhen")
+        if when:
+            parent = when["field"]
+            v = preferences.get(parent)
+            if not enabled(parent):
+                return False
+            if when.get("filled"):
+                return v is not None and v != 0
+            if "in" in when:
+                return any(x in when["in"] for x in v) if isinstance(v, list) else v in when["in"]
+        return True
+
+    return {k: v for k, v in preferences.items() if enabled(k)}
+
+
+def evaluate(s, route, preferences, groups=None):
     f = s.snapshot
-    for key, wanted in preferences.items():
-        if wanted in [None, "", "any", False] or wanted == []:
+    for key, wanted in active_preferences(route, preferences).items():
+        if (
+            wanted is None
+            or wanted is False
+            or wanted == []
+            or (isinstance(wanted, str) and wanted in ["", "any"])
+        ):
             continue
         if not isinstance(wanted, (str, int, float, bool, list)) or (
             isinstance(wanted, list) and any(not isinstance(x, (str, int)) for x in wanted)
@@ -79,18 +118,61 @@ def evaluate(s, route, preferences):
                 yield "returns", "unknown", "حد بازده بدون مبنای کامل قابل تطبیق نیست."
             continue
         if key == "bankGuarantee":
-            if wanted not in ["no", "undecided"]:
-                yield "risk", "unknown", "تضمین بانکی تا بررسی سند و دامنه احراز نمی‌شود."
+            if wanted in ["no", "undecided"]:
+                continue
+            from .publication import bank_verified
+
+            if not bank_verified(s):
+                yield "risk", "unknown", "تضمین بانکی تا بررسی مستقل سند و دامنه احراز نمی‌شود."
+            else:
+                parts = [f.get("bank_principal")] + (
+                    [f.get("bank_profit")] if wanted == "both" else []
+                )
+                yield (
+                    "risk",
+                    "unknown"
+                    if any(x not in ["yes", "no"] for x in parts)
+                    else "met"
+                    if all(x == "yes" for x in parts)
+                    else "unmet",
+                    "سند و دامنه تضمین بررسی شده؛ تضمین بازده سرمایه‌گذاری نیست.",
+                )
             continue
-        if key not in RULES:
-            # Subjective applicant descriptions or source-only services cannot be inferred.
+        if key == "area":
+            if s.kind != "sale":
+                yield "category", "unknown", "مساحت عرصه برای این نوع داده قابل مقایسه ندارد."
+                continue
+            field = (
+                "land_area"
+                if f.get("category") == "property"
+                else "area"
+                if f.get("category") == "land"
+                else None
+            )
+            v = f.get(field) if field else None
+            if not isinstance(wanted, list) or len(wanted) != 2:
+                raise Fault("بازه مساحت معتبر نیست.")
+            if not isinstance(v, dict) or v.get("status") != "known":
+                yield "category", "unknown", "مساحت عرصه اعلام نشده است."
+                continue
+            try:
+                lo, hi = (parse_number(str(x)) for x in wanted)
+            except ValueErrorDetail as exc:
+                raise Fault(exc.message, field=key) from exc
             yield (
-                ("amount" if key in BUDGET_INFO else "conditions"),
-                "unknown",
-                "برای ترجیح «" + key + "» داده هم‌معنای بررسی‌شده وجود ندارد.",
+                "category",
+                "met" if lo <= Decimal(v["value"]) <= hi else "unmet",
+                "مساحت عرصه؛ مساحت اعیان جایگزین عرصه نیست.",
             )
             continue
+        if key not in RULES:
+            # Applicant descriptions and future-service answers remain context, not evidence.
+            continue
         field, axis, op, unit = RULES[key]
+        if key == "settlement" and route == "contractor":
+            field = "contractor_settlements"
+        if key == "lumpBudget" and preferences.get("leasePayment") != "lump":
+            continue
         v = f.get(field)
         if field == "subtype" and isinstance(v, str):
             v = v.split(".")[-1]
@@ -101,10 +183,14 @@ def evaluate(s, route, preferences):
             if (
                 not isinstance(v, dict)
                 or v.get("status") != "known"
-                or v["unit"]["code"] != unit
+                or (v["unit"]["code"] != unit and v.get("base_unit") != "TOMAN")
                 or (
-                    unit in ["YEAR", "MONTH"]
-                    and v.get("basis", {}).get("start_basis") in [None, "", "unspecified"]
+                    unit in ["YEAR", "MONTH", "DAY"]
+                    and (
+                        v.get("basis", {}).get("start_basis") in [None, "", "unspecified"]
+                        or not isinstance(preferences.get("basis:" + key), str)
+                        or preferences.get("basis:" + key) != v.get("basis", {}).get("start_basis")
+                    )
                 )
             ):
                 yield axis, "unknown", "واحد یا مبنای «" + field + "» قابل مقایسه نیست."
@@ -115,10 +201,27 @@ def evaluate(s, route, preferences):
                 raise Fault(e.message, field=key) from e
             # Compare source units only; no guessed month/day or FX conversion.
             have = Decimal(v["source_value"])
+            if v.get("base_unit") == "TOMAN":
+                from apps.catalog.values import exact_product
+
+                have = Decimal(v["value"])
+                n = exact_product(
+                    n, Decimal("1000000000") if unit == "BILLION_TOMAN" else Decimal("1000000")
+                )
             ok = have >= n if op == "min" else have <= n
         else:
             choices = wanted if isinstance(wanted, list) else [str(wanted)]
             ok = any(x in choices for x in v) if isinstance(v, list) else v in choices
+            if key == "subtypes" and groups:
+                ok = ok and f.get("group") in groups
+            if key == "neighborhood" and isinstance(v, str):
+                ok = any(str(x).casefold() in v.casefold() for x in choices)
+            if key == "risk":
+                ranks = {"low": 1, "medium": 2, "high": 3}
+                if v not in ranks or any(x not in ranks for x in choices):
+                    yield axis, "unknown", "مبنای ریسک اعلام نشده است."
+                    continue
+                ok = any(ranks[v] <= ranks[x] for x in choices)
         yield (
             axis,
             "met" if ok else "unmet",

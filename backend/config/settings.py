@@ -1,3 +1,4 @@
+import json
 import os
 from pathlib import Path
 
@@ -81,3 +82,6 @@ CLAMAV_HOST = os.environ.get("CLAMAV_HOST", "scanner")
 CLAMAV_PORT = int(os.environ.get("CLAMAV_PORT", 3310))
 
 WORKSPACE_HOURLY_RECEIVES = int(os.environ.get("WORKSPACE_HOURLY_RECEIVES", 60))
+
+# Delivery fingerprint; generated from source, not from environment or credentials.
+CORE_VERSION = json.loads((BASE_DIR / "config/core_version.json").read_text())["version"]

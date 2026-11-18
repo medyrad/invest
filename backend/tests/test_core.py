@@ -20,6 +20,31 @@ from apps.workspace.schema import Fault
 pytestmark = pytest.mark.django_db
 
 
+@pytest.fixture(autouse=True)
+def current_core_definitions(db):
+    # Transaction tests flush migration data; restore only missing frozen seed packages.
+    import importlib
+
+    from django.apps import apps
+
+    from apps.catalog.models import FieldDefinition, UnitDefinition
+
+    if not UnitDefinition.objects.exists():
+        importlib.import_module("apps.catalog.migrations.0003_value_definitions").seed(apps, None)
+    packages = [
+        ("0005_project_fields", "invest.opportunity.project", "working_capital_min", 1),
+        ("0006_project_capacity_units", "invest.opportunity.project", "metric_quantity", 2),
+        ("0007_fund_sale_fields", "invest.opportunity.fund", "duration_months", 1),
+        ("0008_explicit_fund_return_types", "invest.opportunity.fund", "forecast_irr", 1),
+        ("0009_signed_fund_returns", "invest.opportunity.fund", "forecast_irr", 2),
+    ]
+    for module, namespace, key, version in packages:
+        if not FieldDefinition.objects.filter(
+            namespace=namespace, key=key, version=version
+        ).exists():
+            importlib.import_module("apps.catalog.migrations." + module).seed(apps, None)
+
+
 def key():
     return str(uuid.uuid4())
 
@@ -551,3 +576,459 @@ def test_publication_concurrent_decisions_serialized(team):
         results = list(pool.map(decide, [a, a2]))
     assert sorted(results) == ["approved", "conflict"]
     assert Opportunity.objects.get(pk=s["opportunity_id"]).public_revision_id == uuid.UUID(s["id"])
+
+
+@pytest.mark.parametrize("metric", ["irr", "simple_rate", "effective_rate"])
+def test_explicit_signed_fund_return_basis_and_hidden_effect(team, metric):
+    s = team[0]
+    d = draft(s, "fund")
+    basis = {
+        "version": 1,
+        "metric_type": metric,
+        "period": "annual",
+        "horizon": {"value": "2", "unit": {"code": "YEAR", "version": 1}},
+        "basis_date": "2026-11-18",
+        "price_basis": "nominal",
+        "scope": "investor",
+        "observation": "claimed",
+        "source": "ادعای مصنوعی با نوع نرخ صریح",
+    }
+    field = "forecast_" + metric
+    v = number("fund", field, "-2.125", "PERCENT", basis=basis)
+    v["field"]["version"] = 2
+    d = ws.save_draft(
+        s.user,
+        d["id"],
+        {
+            "key": key(),
+            "version": d["version"],
+            "routes": ["fund"],
+            "heritage_enabled": False,
+            "values": {"forecast_type": metric, field: v},
+        },
+    )
+    assert d["effective"][field]["value"] == "-2.125"
+    with pytest.raises(Fault):
+        bad = {
+            **v,
+            "basis": {**basis, "metric_type": "simple_rate" if metric != "simple_rate" else "irr"},
+        }
+        ws.save_draft(
+            s.user,
+            d["id"],
+            {
+                "key": key(),
+                "version": d["version"],
+                "routes": ["fund"],
+                "heritage_enabled": False,
+                "values": {field: bad},
+            },
+        )
+    d = ws.save_draft(
+        s.user,
+        d["id"],
+        {
+            "key": key(),
+            "version": d["version"],
+            "routes": ["fund"],
+            "heritage_enabled": False,
+            "values": {"forecast_type": "unknown", field: v},
+        },
+    )
+    assert field not in d["effective"] and d["raw"][field]["source_value"] == "-2.125"
+
+
+def test_suspension_content_and_public_launch_gate(team, settings):
+    _, op = publish(team)
+    o, a, c, *_ = team
+    pub.availability(
+        a,
+        op.pk,
+        {
+            "key": key(),
+            "version": op.version,
+            "action": "admin_suspended",
+            "reason": "محتوای مورد اعتراض",
+            "expires_at": None,
+        },
+    )
+    op.refresh_from_db()
+    assert discovery.public_dto(op)["fields"] == {"title": "این فرصت تعلیق شده است"}
+    with pytest.raises(Fault):
+        pub.availability(
+            o,
+            op.pk,
+            {
+                "key": key(),
+                "version": op.version,
+                "action": "owner_paused",
+                "reason": "دورزدن",
+                "expires_at": None,
+            },
+        )
+    pub.availability(
+        a,
+        op.pk,
+        {
+            "key": key(),
+            "version": op.version,
+            "action": "active",
+            "reason": "رفع علت",
+            "expires_at": None,
+        },
+    )
+    settings.INVEST_ENV = "public"
+    with pytest.raises(Fault) as exc:
+        cases.create(
+            c, {"key": key(), "opportunity": str(op.pk), "text": "نباید عرضه شود", "previous": None}
+        )
+    assert exc.value.status == 503
+
+
+def test_matching_independent_expected_fractions_and_important_unknown():
+    from fractions import Fraction
+
+    fixtures = [
+        ("25000000000", "tehran", Fraction(100), Fraction(100)),
+        ("40000000000", "tehran", Fraction(100, 3), Fraction(100)),
+        ("25000000000", "isfahan", Fraction(200, 3), Fraction(100)),
+        (None, "tehran", Fraction(100, 3), Fraction(100, 3)),
+        (None, None, Fraction(0), Fraction(0)),
+    ]
+    for value, location, score, coverage in fixtures:
+        s = SimpleNamespace(
+            kind="project",
+            snapshot={
+                "min_capital": {"status": "known", "value": value}
+                if value is not None
+                else {"status": "unknown"},
+                "province": location,
+            },
+        )
+        r = discovery.score(
+            s,
+            {
+                "budget_max": "30000000000",
+                "province": ["tehran"],
+                "route": "investor",
+                "important": ["amount", "location"],
+            },
+        )
+        assert abs(Fraction(r["score"]) - score) < Fraction(1, 10**55)
+        assert abs(Fraction(r["coverage"]) - coverage) < Fraction(1, 10**55)
+        if value is None:
+            assert r["warnings"]
+    assert r["status"] == "insufficient_data"
+
+
+def test_conditional_time_basis_and_version_prevent_comparison(team):
+    _, a = publish(
+        team,
+        values={
+            "payback_years": number(
+                "project", "payback_years", "3", "YEAR", basis={"start_basis": "تحویل"}
+            )
+        },
+    )
+    _, b = publish(
+        team,
+        values={
+            "payback_years": number(
+                "project", "payback_years", "3", "YEAR", basis={"start_basis": "ورود سرمایه"}
+            )
+        },
+    )
+    r = discovery.compare([str(a.pk), str(b.pk)])
+    row = next(x for x in r["rows"] if x["key"] == "payback_years")
+    assert not row["comparable"]
+    assert (
+        discovery.score(a.public_revision, {"preferences": {"horizon": 3}, "route": "investor"})[
+            "coverage"
+        ]
+        == "0"
+    )
+    assert (
+        discovery.score(
+            a.public_revision,
+            {
+                "preferences": {"horizon": 3, "basis:horizon": "تحویل"},
+                "route": "investor",
+            },
+        )["score"]
+        == "100"
+    )
+    assert (
+        discovery.score(
+            a.public_revision,
+            {
+                "preferences": {"horizon": 3, "basis:horizon": "ورود سرمایه"},
+                "route": "investor",
+            },
+        )["coverage"]
+        == "0"
+    )
+    unknown = SimpleNamespace(
+        kind="project",
+        snapshot={
+            "payback_years": {
+                "status": "known",
+                "unit": {"code": "YEAR"},
+                "source_value": "3",
+                "basis": {"start_basis": "unspecified"},
+            }
+        },
+    )
+    assert discovery.score(unknown, {"preferences": {"horizon": 3}})["coverage"] == "0"
+
+
+def test_hidden_search_preferences_not_scored_and_hierarchy_fixed():
+    s = SimpleNamespace(kind="project", snapshot={"phase": "new", "sector": "public"})
+    r = discovery.score(
+        s,
+        {
+            "route": "investor",
+            "preferences": {"phase": ["new"], "rehab": "yes", "notes": "متن شخصی خارج امتیاز"},
+        },
+    )
+    assert r["score"] == "100" and len(r["checks"]) == 1
+    s = SimpleNamespace(
+        kind="project", snapshot={"province": "p", "city": "unknown", "county": "c"}
+    )
+    r = discovery.score(s, {"route": "investor", "province": ["p"], "county": ["c"], "city": ["x"]})
+    assert r["score"] == "0" and r["coverage"] == "0" and len(r["checks"]) == 1
+
+
+def test_owner_contact_not_case_membership_and_revocation(team):
+    _, op = publish(team)
+    o, a, c, e, _ = team
+    case = cases.create(
+        c, {"key": key(), "opportunity": str(op.pk), "text": "آزمون رضایت جدا", "previous": None}
+    )["case"]
+    case = case_action(case, c, "grant", recipient=str(o.user_id), kind="owner")
+    assert cases.contact(o, case["id"])["mobile"] == c.user.mobile
+    with pytest.raises(Fault):
+        cases.get_case(o, case["id"])
+    case_action(case, c, "revoke", recipient=str(o.user_id), kind="owner")
+    with pytest.raises(Fault):
+        cases.contact(o, case["id"])
+
+
+def test_referenced_organization_evidence_retained_after_hold(team):
+    # Retention follows recorded review, not the mutable latest request status.
+    from apps.core.models import Event
+    from apps.workspace.files import purge
+    from apps.workspace.models import Organization
+
+    o = team[0]
+    org = Organization.objects.create(name="مصنوعی", country="IR", registration="retention-case")
+    req = RepresentationRequest.objects.create(
+        applicant=o.user, organization=org, details={}, status="needs_info"
+    )
+    f = PrivateFile.objects.create(
+        uploader=o.user,
+        application=req,
+        kind="document",
+        name="retained.pdf",
+        size=3,
+        sha256="a" * 64,
+        status="clean",
+        attached=True,
+        content=b"abc",
+        deleted_at=timezone.now() - timedelta(days=40),
+    )
+    Event.objects.create(
+        target=org.pk, action="independent_review", data={"application": str(req.pk)}
+    )
+    assert purge() == 0
+    f.refresh_from_db()
+    assert bytes(f.content) == b"abc"
+
+
+def test_per_unit_price_is_not_comparable_to_total_and_no_budget_total_inferred(team):
+    _, a = publish(
+        team,
+        "sale",
+        values={"price": number("sale", "price", "2", "BILLION_TOMAN"), "price_mode": "total"},
+    )
+    _, b = publish(
+        team,
+        "sale",
+        values={
+            "price": number("sale", "price", "2", "BILLION_TOMAN"),
+            "price_mode": "per_unit",
+            "price_quantity": number("sale", "price_quantity", "1", "KILOGRAM"),
+        },
+    )
+    row = next(r for r in discovery.compare([str(a.pk), str(b.pk)])["rows"] if r["key"] == "price")
+    assert not row["comparable"] and discovery.amount(b.public_revision, "buyer") is None
+
+
+def test_unspecified_same_time_basis_not_comparable(team):
+    _, a = publish(
+        team,
+        values={
+            "payback_years": number(
+                "project", "payback_years", "3", "YEAR", basis={"start_basis": "unspecified"}
+            )
+        },
+    )
+    _, b = publish(
+        team,
+        values={
+            "payback_years": number(
+                "project", "payback_years", "3", "YEAR", basis={"start_basis": "unspecified"}
+            )
+        },
+    )
+    assert not next(
+        r for r in discovery.compare([str(a.pk), str(b.pk)])["rows"] if r["key"] == "payback_years"
+    )["comparable"]
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        {"budget_min": "5", "budget_max": "2"},
+        {"return": {"minimum": "NaN", "basis": {}}},
+        {"route": "unapproved-route"},
+    ],
+)
+def test_invalid_search_contract_rejected(value):
+    with pytest.raises(Fault):
+        discovery.criteria(value)
+
+
+def test_bank_claim_needs_independent_document_review(team):
+    o, a, *_ = team
+    d = draft(
+        o,
+        "fund",
+        {
+            "bank_exists": "yes",
+            "bank_principal": "yes",
+            "bank_profit": "yes",
+            "bank_description": "ادعای مصنوعی بانک؛ بررسی مستقل الزامی",
+        },
+    )
+    f = PrivateFile.objects.create(
+        uploader=o.user,
+        draft_id=d["id"],
+        kind="document",
+        name="bank-synthetic.pdf",
+        size=3,
+        sha256="a" * 64,
+        status="clean",
+        attached=True,
+        content=b"abc",
+    )
+    sub = pub.submit(o, d["id"], {"key": key(), "version": d["version"]})
+    s = Submission.objects.get(pk=sub["id"])
+    assert (
+        discovery.score(s, {"route": "fund", "preferences": {"bankGuarantee": "both"}})["coverage"]
+        == "0"
+    )
+    with pytest.raises(Fault):
+        pub.review(
+            a,
+            s.pk,
+            {
+                "key": key(),
+                "decision": "approved",
+                "reason": "بدون مدرک",
+                "public_files": [],
+                "verification": {"source": "منبع مستقل", "result": "بررسی دامنه", "files": []},
+            },
+        )
+    assert pub.status(s) == "submitted"
+    pub.review(
+        a,
+        s.pk,
+        {
+            "key": key(),
+            "decision": "approved",
+            "reason": "بررسی مصنوعی",
+            "public_files": [],
+            "verification": {
+                "source": "منبع مستقل مصنوعی",
+                "result": "اصل و سود طبق سند مصنوعی مقابله شد؛ تضمین سود واقعی نیست",
+                "files": [str(f.pk)],
+            },
+        },
+    )
+    assert (
+        discovery.score(s, {"route": "fund", "preferences": {"bankGuarantee": "both"}})["score"]
+        == "100"
+    )
+    op = Opportunity.objects.get(pk=sub["opportunity_id"])
+    assert discovery.public_dto(op)["verified"]["bank"]
+    with pytest.raises(DatabaseError), transaction.atomic():
+        s.review_set.first().reviewevidence.delete()
+
+
+def test_public_contract_schema_and_private_snapshot_after_suspension(team, client):
+    from jsonschema import Draft202012Validator
+    from openapi_spec_validator import validate as validate_spec
+
+    _, op = publish(team)
+    c = team[2]
+    case = cases.create(
+        c, {"key": key(), "opportunity": str(op.pk), "text": "سند ثابت", "previous": None}
+    )["case"]
+    schema = client.get("/api/v1/schema").json()
+    validate_spec(schema)
+    data = client.get("/api/v1/core/opportunities").json()
+    Draft202012Validator(
+        {"$ref": "#/components/schemas/CoreFeed", "components": schema["components"]}
+    ).validate(data)
+    pub.availability(
+        team[1],
+        op.pk,
+        {
+            "key": key(),
+            "version": op.version,
+            "action": "admin_suspended",
+            "reason": "حفظ snapshot خصوصی",
+            "expires_at": None,
+        },
+    )
+    snapshot = cases.dto(cases.get_case(c, case["id"]))
+    assert snapshot["opportunity_snapshot"]["title"] == "فرصت مصنوعی"
+    assert (
+        "mobile" not in str(snapshot) and snapshot["opportunity_availability"] == "admin_suspended"
+    )
+
+
+def test_new_definition_reverse_protects_consumer_and_restores_guards():
+    import importlib
+
+    from django.apps import apps
+    from django.db import connection
+    from django.db.models.deletion import ProtectedError
+
+    from apps.catalog.models import ReturnMetric
+
+    basis = {
+        "version": 1,
+        "metric_type": "simple_rate",
+        "period": "annual",
+        "horizon": {"value": "1", "unit": {"code": "YEAR", "version": 1}},
+        "basis_date": "2026-11-18",
+        "price_basis": "nominal",
+        "scope": "investor",
+        "observation": "claimed",
+        "source": "آزمون مصنوعی",
+    }
+    value = number("fund", "forecast_simple_rate", "-1", "PERCENT", basis=basis)
+    value["field"]["version"] = 2
+    row = ReturnMetric.from_payload(value)
+    row.save()
+    original = row.as_dict()
+    with pytest.raises(ProtectedError), transaction.atomic():
+        importlib.import_module("apps.catalog.migrations.0009_signed_fund_returns").unseed(
+            apps, SimpleNamespace(connection=connection)
+        )
+    row.refresh_from_db()
+    assert row.as_dict() == original
+    with connection.cursor() as cur:
+        cur.execute("SELECT tgenabled FROM pg_trigger WHERE tgname='immutable_field'")
+        assert cur.fetchone()[0] == "O"

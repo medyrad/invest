@@ -26,11 +26,11 @@ export function FilesPanel({ targetType, targetId, files, reload }: { targetType
       const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', await file.arrayBuffer()))].map(x => x.toString(16).padStart(2, '0')).join('');
       pending.current = { file, body: { key: crypto.randomUUID(), target_type: targetType, target_id: targetId, kind, name: file.name, size: file.size, sha256: hash, replaces: replace || null } }; await upload();
     }} /></label>
-    {pending.current && <button disabled={busy} onClick={() => void upload()}>تلاش دوباره همان دریافت</button>}{error && <p role="alert" className="workspace-error">{error}</p>}
+    {pending.current && <button type="button" disabled={busy} onClick={() => void upload()}>تلاش دوباره همان دریافت</button>}{error && <p role="alert" className="workspace-error">{error}</p>}
     <ul>{files.map(f => <li key={f.id}><strong>{f.name}</strong> — {{ pending_check: 'در انتظار بررسی', clean: 'بررسی موفق', rejected: 'ردشده', quarantined: 'قرنطینه' }[f.status] || f.status}{f.deleted ? ' — حذف‌شده' : ''}{f.replaced ? ' — جایگزین‌شده' : ''}<p>{f.reason}</p>
       {f.status === 'clean' && f.attached && !f.deleted && <a href={`/api/v1/workspace/files/${f.id}/download`}>دریافت خصوصی</a>}
-      {f.status === 'pending_check' && f.received && !f.deleted && <button disabled={busy} onClick={async () => { try { await api(`files/${f.id}/retry`, {}); await reload(); } catch (e) { setError(message(e)); } }}>بررسی دوباره</button>}
-      {!f.replaced && <button disabled={busy} onClick={async () => { setBusy(true); try { await api(`files/${f.id}/${f.deleted ? 'restore' : 'delete'}`, {}); await reload(); } catch (e) { setError(message(e)); } finally { setBusy(false); } }}>{f.deleted ? 'بازیابی فایل' : 'حذف فایل'}</button>}
+      {f.status === 'pending_check' && f.received && !f.deleted && <button type="button" disabled={busy} onClick={async () => { try { await api(`files/${f.id}/retry`, {}); await reload(); } catch (e) { setError(message(e)); } }}>بررسی دوباره</button>}
+      {!f.replaced && <button type="button" disabled={busy} onClick={async () => { setBusy(true); try { await api(`files/${f.id}/${f.deleted ? 'restore' : 'delete'}`, {}); await reload(); } catch (e) { setError(message(e)); } finally { setBusy(false); } }}>{f.deleted ? 'بازیابی فایل' : 'حذف فایل'}</button>}
     </li>)}</ul>
   </section>;
 }

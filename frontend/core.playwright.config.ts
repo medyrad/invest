@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'./tests/browser',testMatch:/core\.spec\.ts/,fullyParallel:false,workers:1,timeout:120000,retries:0,reporter:[['list'],['json',{outputFile:'test-results/core-results.json'}]],use:{baseURL:process.env.CORE_URL||'http://127.0.0.1:3109',actionTimeout:15000,trace:'retain-on-failure',launchOptions:{executablePath:'/usr/bin/google-chrome'},viewport:{width:1440,height:1000}},projects:[{name:'core-desktop'}]});

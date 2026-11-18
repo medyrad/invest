@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "invest API — زیرساخت و ورود آزمایشی",
-    "version": "1.3.0",
-    "description": "زیرساخت و ورود آزمایشی S03 و کاتالوگ پایه PROGRAMMER-S04-01؛ تأیید کل محصول نیست."
+    "version": "1.4.0",
+    "description": "زیرساخت، هویت، کاتالوگ دقیق و هسته گردش فرصت/پرونده؛ محیط مصنوعی، پذیرش مستقل و انسانی جداست."
   },
   "servers": [
     {
@@ -1917,6 +1917,432 @@
           }
         }
       }
+    },
+    "/core/opportunities": {
+      "get": {
+        "summary": "فرصت‌های نسخه عمومی؛ فقط server-owned snapshot",
+        "operationId": "coreList",
+        "responses": {
+          "200": {
+            "description": "داده عمومی، بدون شماره و مدرک خصوصی",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreFeed"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "معیار نامعتبر"
+          },
+          "404": {
+            "description": "نسخه عمومی در دسترس نیست"
+          }
+        },
+        "parameters": [
+          {
+            "name": "criteria",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON معیار؛ Decimal تومان رشته‌ای و policy نسخه۱؛ بودجه/مکان حذف نمی‌کنند"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "رسید امضاشده همان معیار/نسخه/زمان"
+          }
+        ]
+      }
+    },
+    "/core/opportunities/{id}": {
+      "get": {
+        "summary": "فرصت‌های نسخه عمومی؛ فقط server-owned snapshot",
+        "operationId": "coreDetail",
+        "responses": {
+          "200": {
+            "description": "داده عمومی، بدون شماره و مدرک خصوصی",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreOpportunity"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "معیار نامعتبر"
+          },
+          "404": {
+            "description": "نسخه عمومی در دسترس نیست"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/core/dashboard": {
+      "get": {
+        "operationId": "coreReadDashboard",
+        "summary": "خصوصی؛ نشست و مجوز جاری سرور؛ no-store",
+        "responses": {
+          "200": {
+            "description": "رسید یا داده خصوصی طبق specs/009-core-journeys/contracts/api.md"
+          },
+          "403": {
+            "description": "بدون اختیار جاری"
+          },
+          "404": {
+            "description": "مورد پیدا نشد"
+          }
+        }
+      }
+    },
+    "/core/personal": {
+      "get": {
+        "operationId": "coreReadPersonal",
+        "summary": "خصوصی؛ نشست و مجوز جاری سرور؛ no-store",
+        "responses": {
+          "200": {
+            "description": "رسید یا داده خصوصی طبق specs/009-core-journeys/contracts/api.md"
+          },
+          "403": {
+            "description": "بدون اختیار جاری"
+          },
+          "404": {
+            "description": "مورد پیدا نشد"
+          }
+        }
+      },
+      "post": {
+        "operationId": "coreWritePersonal",
+        "summary": "اقدام صریح، CSRF و اختیار جاری؛ کلید ثابت برای retry نامعلوم",
+        "responses": {
+          "200": {
+            "description": "رسید سرور؛ retry همان payload همان اثر"
+          },
+          "400": {
+            "description": "ورودی نامعتبر با envelope فارسی"
+          },
+          "403": {
+            "description": "نشست/مجوز/CSRF نامعتبر"
+          },
+          "409": {
+            "description": "تعارض نسخه یا کلید/وضعیت"
+          }
+        }
+      }
+    },
+    "/core/cases/{id}": {
+      "get": {
+        "operationId": "coreReadCases",
+        "summary": "خصوصی؛ نشست و مجوز جاری سرور؛ no-store",
+        "responses": {
+          "200": {
+            "description": "رسید یا داده خصوصی طبق specs/009-core-journeys/contracts/api.md"
+          },
+          "403": {
+            "description": "بدون اختیار جاری"
+          },
+          "404": {
+            "description": "مورد پیدا نشد"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "coreWriteCasesById",
+        "summary": "اقدام صریح، CSRF و اختیار جاری؛ کلید ثابت برای retry نامعلوم",
+        "responses": {
+          "200": {
+            "description": "رسید سرور؛ retry همان payload همان اثر"
+          },
+          "400": {
+            "description": "ورودی نامعتبر با envelope فارسی"
+          },
+          "403": {
+            "description": "نشست/مجوز/CSRF نامعتبر"
+          },
+          "409": {
+            "description": "تعارض نسخه یا کلید/وضعیت"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CoreCaseAction"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/core/contact/{id}": {
+      "get": {
+        "operationId": "coreReadContact",
+        "summary": "خصوصی؛ نشست و مجوز جاری سرور؛ no-store",
+        "responses": {
+          "200": {
+            "description": "رسید یا داده خصوصی طبق specs/009-core-journeys/contracts/api.md"
+          },
+          "403": {
+            "description": "بدون اختیار جاری"
+          },
+          "404": {
+            "description": "مورد پیدا نشد"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/core/reports/{id}": {
+      "get": {
+        "operationId": "coreReadReports",
+        "summary": "خصوصی؛ نشست و مجوز جاری سرور؛ no-store",
+        "responses": {
+          "200": {
+            "description": "رسید یا داده خصوصی طبق specs/009-core-journeys/contracts/api.md"
+          },
+          "403": {
+            "description": "بدون اختیار جاری"
+          },
+          "404": {
+            "description": "مورد پیدا نشد"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/core/submit/{id}": {
+      "post": {
+        "operationId": "coreWriteSubmitById",
+        "summary": "اقدام صریح، CSRF و اختیار جاری؛ کلید ثابت برای retry نامعلوم",
+        "responses": {
+          "200": {
+            "description": "رسید سرور؛ retry همان payload همان اثر"
+          },
+          "400": {
+            "description": "ورودی نامعتبر با envelope فارسی"
+          },
+          "403": {
+            "description": "نشست/مجوز/CSRF نامعتبر"
+          },
+          "409": {
+            "description": "تعارض نسخه یا کلید/وضعیت"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/core/review/{id}": {
+      "post": {
+        "operationId": "coreWriteReviewById",
+        "summary": "اقدام صریح، CSRF و اختیار جاری؛ کلید ثابت برای retry نامعلوم",
+        "responses": {
+          "200": {
+            "description": "رسید سرور؛ retry همان payload همان اثر"
+          },
+          "400": {
+            "description": "ورودی نامعتبر با envelope فارسی"
+          },
+          "403": {
+            "description": "نشست/مجوز/CSRF نامعتبر"
+          },
+          "409": {
+            "description": "تعارض نسخه یا کلید/وضعیت"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/core/organization/{id}": {
+      "post": {
+        "operationId": "coreWriteOrganizationById",
+        "summary": "اقدام صریح، CSRF و اختیار جاری؛ کلید ثابت برای retry نامعلوم",
+        "responses": {
+          "200": {
+            "description": "رسید سرور؛ retry همان payload همان اثر"
+          },
+          "400": {
+            "description": "ورودی نامعتبر با envelope فارسی"
+          },
+          "403": {
+            "description": "نشست/مجوز/CSRF نامعتبر"
+          },
+          "409": {
+            "description": "تعارض نسخه یا کلید/وضعیت"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/core/availability/{id}": {
+      "post": {
+        "operationId": "coreWriteAvailabilityById",
+        "summary": "اقدام صریح، CSRF و اختیار جاری؛ کلید ثابت برای retry نامعلوم",
+        "responses": {
+          "200": {
+            "description": "رسید سرور؛ retry همان payload همان اثر"
+          },
+          "400": {
+            "description": "ورودی نامعتبر با envelope فارسی"
+          },
+          "403": {
+            "description": "نشست/مجوز/CSRF نامعتبر"
+          },
+          "409": {
+            "description": "تعارض نسخه یا کلید/وضعیت"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/core/cases": {
+      "post": {
+        "operationId": "coreWriteCases",
+        "summary": "اقدام صریح، CSRF و اختیار جاری؛ کلید ثابت برای retry نامعلوم",
+        "responses": {
+          "200": {
+            "description": "رسید سرور؛ retry همان payload همان اثر"
+          },
+          "400": {
+            "description": "ورودی نامعتبر با envelope فارسی"
+          },
+          "403": {
+            "description": "نشست/مجوز/CSRF نامعتبر"
+          },
+          "409": {
+            "description": "تعارض نسخه یا کلید/وضعیت"
+          }
+        }
+      }
+    },
+    "/core/compare": {
+      "post": {
+        "operationId": "coreWriteCompare",
+        "summary": "اقدام صریح، CSRF و اختیار جاری؛ کلید ثابت برای retry نامعلوم",
+        "responses": {
+          "200": {
+            "description": "رسید سرور؛ retry همان payload همان اثر"
+          },
+          "400": {
+            "description": "ورودی نامعتبر با envelope فارسی"
+          },
+          "403": {
+            "description": "نشست/مجوز/CSRF نامعتبر"
+          },
+          "409": {
+            "description": "تعارض نسخه یا کلید/وضعیت"
+          }
+        }
+      }
+    },
+    "/core/version": {
+      "get": {
+        "operationId": "coreVersion",
+        "responses": {
+          "200": {
+            "description": "شناسه کد همان image اجرا"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -2095,7 +2521,7 @@
           },
           "mobile": {
             "type": "string",
-            "pattern": "^\\+989[0-9]{9}$"
+            "pattern": "^\\+[1-9][0-9]{6,14}$"
           },
           "role": {
             "enum": [
@@ -2993,6 +3419,315 @@
             "items": {
               "$ref": "#/components/schemas/ValueFieldDefinition"
             }
+          }
+        }
+      },
+      "CoreOpportunity": {
+        "type": "object",
+        "required": [
+          "id",
+          "revision",
+          "kind",
+          "routes",
+          "fields",
+          "availability",
+          "accepting_requests",
+          "published_at",
+          "synthetic",
+          "verified",
+          "images"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "revision": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "kind": {
+            "enum": [
+              "project",
+              "fund",
+              "sale"
+            ]
+          },
+          "routes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fields": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "$ref": "#/components/schemas/ExactValue"
+                }
+              ]
+            }
+          },
+          "availability": {
+            "enum": [
+              "active",
+              "owner_paused",
+              "admin_suspended",
+              "expired",
+              "archived"
+            ]
+          },
+          "accepting_requests": {
+            "type": "boolean"
+          },
+          "published_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "synthetic": {
+            "type": "boolean"
+          },
+          "verified": {
+            "type": "object",
+            "properties": {
+              "bank": {
+                "type": "boolean"
+              }
+            }
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expires_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "no_expiry": {
+            "type": "boolean"
+          },
+          "last_reviewed_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        }
+      },
+      "CoreRanking": {
+        "type": "object",
+        "required": [
+          "score",
+          "coverage",
+          "status",
+          "policy_version",
+          "checks",
+          "warnings"
+        ],
+        "properties": {
+          "score": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "coverage": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "no_preferences",
+              "insufficient_data",
+              "ranked"
+            ]
+          },
+          "policy_version": {
+            "const": 1
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "axis": {
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "met",
+                    "unmet",
+                    "unknown"
+                  ]
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CoreFeed": {
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "next",
+          "policy_version",
+          "as_of",
+          "criteria"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CoreOpportunity"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "matching": {
+                      "$ref": "#/components/schemas/CoreRanking"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "next": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "policy_version": {
+            "const": 1
+          },
+          "as_of": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "criteria": {
+            "type": "object"
+          }
+        }
+      },
+      "CoreCaseAction": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "version",
+          "action",
+          "text",
+          "next_action",
+          "next_followup_at",
+          "expert",
+          "recipient",
+          "kind",
+          "files"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "action": {
+            "enum": [
+              "assign",
+              "message",
+              "answer",
+              "awaiting_user",
+              "start_review",
+              "grant",
+              "revoke",
+              "confirm",
+              "cancel",
+              "terminate"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "next_action": {
+            "type": "string"
+          },
+          "next_followup_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "expert": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
+          },
+          "recipient": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
+          },
+          "kind": {
+            "enum": [
+              "expert",
+              "owner",
+              null
+            ]
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "maxItems": 10
           }
         }
       }

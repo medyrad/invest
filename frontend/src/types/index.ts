@@ -94,7 +94,7 @@ interface SourceText { stage?: string; model?: string; finance?: string; repay?:
 
 export interface Fund extends SourceText {
   id: string; title: string; kind: string; type: string;
-  minimumMillion: number; forecast: number | null; payout: string; risk: string;
+  minimumMillion: number | null; forecast: number | null; payout: string; risk: string;
   bank: { exists: boolean | null; verified: boolean; principal: boolean | null; profit: boolean | null; [key: string]: unknown };
   durationMonths: number | null; exit: string; assetSector?: string; rateBasis?: string;
 }

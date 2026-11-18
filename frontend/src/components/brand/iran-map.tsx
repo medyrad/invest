@@ -1,6 +1,7 @@
 "use client";
+import {useCounties} from "@/lib/use-counties";
 import { memo } from "react";
-import { iranPath, project } from "@/data/iran-map";
+import { iranPath, project, provinceBox, provincePaths } from "@/data/iran-map";
 import { cityCoords } from "@/data/city-coordinates";
 import { cn, faNumber } from "@/lib/utils";
 
@@ -48,3 +49,25 @@ export const IranMap = memo(function IranMap({
   );
 });
 
+
+export function LocationMap({ city, province, className }: { city: string; province: string; className?: string }) {
+  const b = provinceBox[province]; const { counties: all, outline } = useCounties(province); const shape = outline || provincePaths[province];
+  if (!b) return null;
+  const county = all.find((c) => c.cities.includes(city)); const cc = county ? { x: county.c[0], y: county.c[1] } : cityXY(city);
+  const pad = Math.max(b[2] - b[0], b[3] - b[1]) * 0.05, bw = b[2] - b[0] + pad * 2, bh = b[3] - b[1] + pad * 2;
+  const w = Math.max(bw, bh * 2), h = w / 2; const mx = (b[0] + b[2]) / 2, my = (b[1] + b[3]) / 2; const u = w / 176;
+  return (
+    <svg viewBox={`${mx - w / 2} ${my - h / 2} ${w} ${h}`} preserveAspectRatio="xMidYMid meet" className={cn("block w-full bg-muted/40", !all.length && "animate-pulse", className)} role="img" aria-label={`محل پروژه: ${city}، استان ${province}`}>
+      <clipPath id={`loc-${b.join("-")}`}><path d={shape} /></clipPath>
+      <path d={shape} className="fill-white" />
+      <g clipPath={`url(#loc-${b.join("-")})`}>
+        {all.map((c) => <path key={c.name} d={c.d} strokeWidth={0.45 * u} strokeLinejoin="round" className={c === county ? "fill-primary/25 stroke-primary" : "fill-white stroke-pine/30 transition-colors hover:fill-primary/[0.08]"}><title>{`شهرستان ${c.name}`}</title></path>)}
+      </g>
+      {/* نام چند شهرستان بزرگ دیگر، کم‌رنگ، برای خواندن تفکیک شهرها */}
+      {[...all].filter((c) => c !== county).sort((a, b) => b.a - a.a).slice(0, 5).map((c) => <text key={c.name} x={c.c[0]} y={c.c[1] + 1 * u} textAnchor="middle" style={{ fontSize: 3.4 * u }} strokeWidth={1.2 * u} strokeLinejoin="round" className="pointer-events-none fill-muted-foreground font-semibold [paint-order:stroke] stroke-white">{c.name}</text>)}
+      <path d={shape} fill="none" strokeWidth={0.9 * u} strokeLinejoin="round" className="stroke-primary" />
+      {county && <path d={county.d} fill="none" strokeWidth={0.9 * u} strokeLinejoin="round" clipPath={`url(#loc-${b.join("-")})`} className="stroke-primary" />}
+      {cc && all.length > 0 && <text x={cc.x} y={cc.y + 1.8 * u} textAnchor="middle" style={{ fontSize: 5 * u }} strokeWidth={1.6 * u} strokeLinejoin="round" className="fill-ink font-extrabold [paint-order:stroke] stroke-white">{city}</text>}
+    </svg>
+  );
+}

@@ -5,11 +5,13 @@ import { Convertshape2, Element3, Lovely, Login, Logout, MagicStar, ProfileCircl
 import { Logo } from "@/components/brand/algo-pattern";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {useStore} from "@/lib/store";
 import { useAuth } from "@/components/auth/login-dialog";
 import { cn, faDigits, faNumber } from "@/lib/utils";
 
 const links = [
-  { href: "/opportunities", label: "پروژه‌ها" },
+  { href: "/opportunities", label: "فرصت‌ها" },
+  { href: "/drafts", label: "ثبت فرصت" },
   { href: "/tools", label: "جذب سرمایه", icon: Element3 },
   { href: "/assistant", label: "دستیار", icon: MagicStar },
   { href: "/compare", label: "مقایسه", icon: Convertshape2 },
@@ -20,7 +22,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
   const path = usePathname();
   const { account: user, start: openLogin, logout, busy, ready, triggerRef, notice, activity } = useAuth();
   const hydrated = ready;
-  const saved: string[] = [], compare: string[] = [];
+  const saved=useStore(s=>s.saved), compare=useStore(s=>s.compare);
   return (
     <header className={cn("z-40 w-full", overlay ? "absolute inset-x-0 top-0" : "sticky top-0")}>
       <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6">
@@ -48,7 +50,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
               <DropdownMenuContent align="end" className="w-52 rounded-2xl p-1.5">
                 <DropdownMenuItem asChild className="rounded-xl"><Link href="/saved"><Lovely size={17} variant="Bulk" />علاقه‌مندی‌ها</Link></DropdownMenuItem>
                 <DropdownMenuItem asChild className="rounded-xl"><Link href="/drafts">پیش‌نویس‌های من</Link></DropdownMenuItem>
-                <DropdownMenuItem onSelect={() => void activity()} className="rounded-xl">بررسی و تمدید نشست</DropdownMenuItem><DropdownMenuSeparator />
+                <DropdownMenuItem asChild><Link href="/requests">درخواست‌ها و پیگیری</Link></DropdownMenuItem><DropdownMenuItem asChild><Link href="/workspace">بررسی انتشار فرصت‌های من</Link></DropdownMenuItem><DropdownMenuItem asChild><Link href="/profile">پروفایل و اعلان‌ها</Link></DropdownMenuItem>{user.role === 'admin' && <DropdownMenuItem asChild><Link href="/admin">پنل ادمین</Link></DropdownMenuItem>}{user.role === 'expert' && <DropdownMenuItem asChild><Link href="/expert">کارتابل کارشناس</Link></DropdownMenuItem>}<DropdownMenuItem onSelect={() => void activity()} className="rounded-xl">بررسی و تمدید نشست</DropdownMenuItem><DropdownMenuSeparator />
                 <DropdownMenuItem onSelect={logout} variant="destructive" className="rounded-xl"><Logout size={17} />خروج</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu></span>
@@ -69,7 +71,7 @@ export function Footer() {
       <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground lg:flex-row">
         <Logo />
         <p>اطلاعات پروژه‌ها برای تصمیم‌گیری اولیه است و تعهد پرداخت یا تضمین سود نیست.</p>
-        <nav className="flex gap-5 lg:hidden">{links.map((l) => <Link key={l.href} href={l.href} className="font-semibold text-ink/70">{l.label}</Link>)}</nav>
+        <nav className="flex flex-wrap justify-center gap-x-5 gap-y-3 lg:hidden">{links.map((l) => <Link key={l.href} href={l.href} className="font-semibold text-ink/70">{l.label}</Link>)}</nav>
       </div>
     </footer>
   );

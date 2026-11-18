@@ -1,6 +1,8 @@
 'use client';
 import { createContext, useContext, useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { MotionConfig } from 'motion/react';
+import {useStore} from "@/lib/store";
+import {toListing,configureGeography} from '@/lib/public-values';
 import type { Listing, ProjectGroup, SearchCriteria } from '@/types';
 
 type City = { id: string; name: string };
@@ -27,14 +29,15 @@ export function CatalogProvider({ children }: { children: ReactNode }) {
   const reload = useCallback(async () => {
     const id = ++revision.current; setStatus('loading');
     try {
-      const [tax, geo, preview] = await Promise.all(['taxonomy', 'geography', 'preview'].map(async name => {
-        const response = await fetch('/api/v1/catalog/' + name, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
+      const [tax, geo, preview] = await Promise.all(['taxonomy', 'geography', 'published'].map(async name => {
+        const response = await fetch(name === 'published' ? '/api/v1/core/opportunities' : '/api/v1/catalog/' + name, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
         if (!response.ok) throw new Error('catalog unavailable');
         return response.json();
       }));
       if (id !== revision.current) return;
-      if (!Array.isArray(tax.groups) || !Array.isArray(geo.provinces) || !Array.isArray(preview.listings)) throw new Error('invalid catalog');
-      setData({ groups: tax.groups, provinces: geo.provinces, listings: preview.enabled ? preview.listings : [], previewEnabled: preview.enabled === true });
+      if (!Array.isArray(tax.groups) || !Array.isArray(geo.provinces) || !Array.isArray(preview.items)) throw new Error('invalid catalog');
+      configureGeography(geo);
+      setData({ groups: tax.groups, provinces: geo.provinces, listings: preview.items.map(toListing), previewEnabled: preview.items.some((x:{synthetic:boolean})=>x.synthetic) });
       setStatus(tax.groups.length && geo.provinces.length ? 'ready' : 'empty');
     } catch { if (id === revision.current) { setData(empty); setStatus('error'); } }
   }, []);
@@ -44,7 +47,7 @@ export function CatalogProvider({ children }: { children: ReactNode }) {
   const chooseCounty = (v: string) => { setCounty(data.provinces.find(p => p.id === province)?.counties.some(c => c.id === v) ? v : ''); setCity(''); };
   const chooseSubtype = (v: string) => setSubtype(data.groups.find(g => g.id === group)?.subtypes.some(s => s.id === v) ? v : '');
   const chooseCity = (v: string) => setCity(data.provinces.find(p => p.id === province)?.counties.find(c => c.id === county)?.cities.some(c => c.id === v) ? v : '');
-  return <Context.Provider value={{ ...data, status, reload, criteria, begin: value => setCriteria(c => ({ ...c, ...value })), group, subtype, province, county, city, chooseGroup, chooseSubtype, chooseProvince, chooseCounty, chooseCity, chooseSubtypeInGroup: (g, s) => { if (data.groups.find(x => x.id === g)?.subtypes.some(x => x.id === s)) { setGroup(g); setSubtype(s); } }, clear: () => { setGroup(''); setSubtype(''); setProvince(''); setCounty(''); setCity(''); } }}><MotionConfig reducedMotion="user">{children}</MotionConfig></Context.Provider>;
+  return <Context.Provider value={{ ...data, status, reload, criteria, begin: value => {setCriteria(c => ({ ...c, ...value }));useStore.getState().begin(value)}, group, subtype, province, county, city, chooseGroup, chooseSubtype, chooseProvince, chooseCounty, chooseCity, chooseSubtypeInGroup: (g, s) => { if (data.groups.find(x => x.id === g)?.subtypes.some(x => x.id === s)) { setGroup(g); setSubtype(s); } }, clear: () => { setGroup(''); setSubtype(''); setProvince(''); setCounty(''); setCity(''); } }}><MotionConfig reducedMotion="user">{children}</MotionConfig></Context.Provider>;
 }
 export function useCatalog() { const value = useContext(Context); if (!value) throw new Error('CatalogProvider required'); return value; }
 export const useHomeSelection = useCatalog;

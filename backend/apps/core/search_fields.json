@@ -1,0 +1,639 @@
+[
+  {
+    "id": "horizon",
+    "label": "حداکثر افق بازگشت سرمایه",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "amount",
+    "unit": "سال"
+  },
+  {
+    "id": "irrMin",
+    "label": "حداقل بازده سالانه مورد انتظار (IRR)",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "amount",
+    "unit": "درصد"
+  },
+  {
+    "id": "irrBasis",
+    "label": "مبنای IRR",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "showWhen": {
+      "field": "irrMin",
+      "filled": true
+    },
+    "section": "amount"
+  },
+  {
+    "id": "irrPrice",
+    "label": "مبنای قیمت",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "showWhen": {
+      "field": "irrMin",
+      "filled": true
+    },
+    "section": "amount"
+  },
+  {
+    "id": "lockup",
+    "label": "حداکثر قفل سرمایه",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "amount",
+    "unit": "ماه"
+  },
+  {
+    "id": "income",
+    "label": "نوع دریافت درآمد",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "amount"
+  },
+  {
+    "id": "firstIncome",
+    "label": "حداکثر زمان تا اولین دریافت",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "amount",
+    "unit": "ماه"
+  },
+  {
+    "id": "funding",
+    "label": "آمادگی منابع نقدی",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "amount"
+  },
+  {
+    "id": "fundReturnMin",
+    "label": "حداقل بازده سالانه مورد انتظار",
+    "routes": [
+      "fund"
+    ],
+    "section": "amount",
+    "unit": "درصد"
+  },
+  {
+    "id": "payout",
+    "label": "دوره دریافت سود",
+    "routes": [
+      "fund"
+    ],
+    "section": "amount"
+  },
+  {
+    "id": "leaseRent",
+    "label": "حداکثر اجاره ماهانه",
+    "routes": [
+      "lessee"
+    ],
+    "section": "amount",
+    "unit": "میلیون تومان"
+  },
+  {
+    "id": "leaseYears",
+    "label": "حداقل مدت اجاره",
+    "routes": [
+      "lessee"
+    ],
+    "section": "amount",
+    "unit": "سال"
+  },
+  {
+    "id": "payment",
+    "label": "شرایط پرداخت خرید",
+    "routes": [
+      "buyer"
+    ],
+    "section": "amount"
+  },
+  {
+    "id": "leasePayment",
+    "label": "شرایط پرداخت اجاره",
+    "routes": [
+      "lessee"
+    ],
+    "section": "amount"
+  },
+  {
+    "id": "downPayment",
+    "label": "پیش‌پرداخت قابل پرداخت",
+    "routes": [
+      "buyer"
+    ],
+    "showWhen": {
+      "field": "payment",
+      "in": [
+        "cash_installment",
+        "installment"
+      ]
+    },
+    "section": "amount",
+    "unit": "میلیارد تومان"
+  },
+  {
+    "id": "installmentMonths",
+    "label": "دوره اقساط",
+    "routes": [
+      "buyer"
+    ],
+    "showWhen": {
+      "field": "payment",
+      "in": [
+        "cash_installment",
+        "installment"
+      ]
+    },
+    "section": "amount",
+    "unit": "ماه"
+  },
+  {
+    "id": "installmentBudget",
+    "label": "حداکثر بودجه هر قسط ماهانه",
+    "routes": [
+      "buyer"
+    ],
+    "showWhen": {
+      "field": "payment",
+      "in": [
+        "cash_installment",
+        "installment"
+      ]
+    },
+    "section": "amount",
+    "unit": "میلیون تومان"
+  },
+  {
+    "id": "lumpBudget",
+    "label": "حداکثر پرداخت یکجای اجاره",
+    "routes": [
+      "lessee"
+    ],
+    "showWhen": {
+      "field": "leasePayment",
+      "in": [
+        "lump"
+      ]
+    },
+    "section": "amount",
+    "unit": "میلیارد تومان"
+  },
+  {
+    "id": "offsetValue",
+    "label": "ارزش عوض یا مطالبه قابل ارائه",
+    "routes": [
+      "lessee"
+    ],
+    "showWhen": {
+      "field": "leasePayment",
+      "in": [
+        "setoff",
+        "swap"
+      ]
+    },
+    "section": "amount",
+    "unit": "میلیارد تومان"
+  },
+  {
+    "id": "offsetDescription",
+    "label": "شرح عوض یا مطالبه",
+    "routes": [
+      "lessee"
+    ],
+    "showWhen": {
+      "field": "leasePayment",
+      "in": [
+        "setoff",
+        "swap"
+      ]
+    },
+    "section": "amount"
+  },
+  {
+    "id": "saleOffsetValue",
+    "label": "ارزش مال، حق یا مطالبه قابل ارائه",
+    "routes": [
+      "buyer"
+    ],
+    "showWhen": {
+      "field": "payment",
+      "in": [
+        "setoff",
+        "swap"
+      ]
+    },
+    "section": "amount",
+    "unit": "میلیارد تومان"
+  },
+  {
+    "id": "saleOffsetDescription",
+    "label": "شرح مال، حق یا مطالبه",
+    "routes": [
+      "buyer"
+    ],
+    "showWhen": {
+      "field": "payment",
+      "in": [
+        "setoff",
+        "swap"
+      ]
+    },
+    "section": "amount"
+  },
+  {
+    "id": "risk",
+    "label": "ریسک‌پذیری",
+    "routes": [
+      "investor",
+      "heritage",
+      "fund"
+    ],
+    "section": "risk"
+  },
+  {
+    "id": "bankGuarantee",
+    "label": "تضمین بانکی",
+    "routes": [
+      "fund"
+    ],
+    "section": "risk"
+  },
+  {
+    "id": "subtypes",
+    "label": "نوع دقیق پروژه",
+    "routes": [
+      "investor",
+      "heritage",
+      "contractor",
+      "operator"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "phase",
+    "label": "مرحله پروژه",
+    "routes": [
+      "investor",
+      "heritage",
+      "contractor",
+      "operator"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "owner",
+    "label": "صاحب پروژه",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "participation",
+    "label": "نقش شما در مشارکت",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "rehab",
+    "label": "نیاز به بازسازی عمده",
+    "routes": [
+      "investor"
+    ],
+    "showWhen": {
+      "field": "phase",
+      "in": [
+        "existing"
+      ]
+    },
+    "section": "project"
+  },
+  {
+    "id": "usage",
+    "label": "کاربری",
+    "section": "project"
+  },
+  {
+    "id": "area",
+    "label": "مساحت عرصه",
+    "section": "project",
+    "unit": "مترمربع"
+  },
+  {
+    "id": "fundType",
+    "label": "نوع صندوق",
+    "routes": [
+      "fund"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "saleCategory",
+    "label": "دسته و نوع",
+    "routes": [
+      "buyer"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "right",
+    "label": "نوع حق مورد انتقال",
+    "routes": [
+      "buyer",
+      "lessee"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "occupied",
+    "label": "ملک دارای متصرف یا مستاجر",
+    "routes": [
+      "buyer",
+      "lessee"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "thirdPartyRights",
+    "label": "وجود سرقفلی یا حق کسب شخص ثالث",
+    "routes": [
+      "buyer",
+      "lessee"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "leaseType",
+    "label": "نوع اجاره",
+    "routes": [
+      "lessee"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "renewal",
+    "label": "شرط تمدید",
+    "routes": [
+      "lessee"
+    ],
+    "showWhen": {
+      "field": "leaseType",
+      "in": [
+        "one"
+      ]
+    },
+    "section": "project"
+  },
+  {
+    "id": "heritageReturn",
+    "label": "مدل بازگشت هزینه مرمت",
+    "routes": [
+      "heritage"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "heritageUse",
+    "label": "کاربری پس از مرمت",
+    "routes": [
+      "heritage"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "heritageYears",
+    "label": "حداقل مدت اجاره / بهره‌برداری",
+    "routes": [
+      "heritage"
+    ],
+    "showWhen": {
+      "field": "heritageReturn",
+      "in": [
+        "lease",
+        "offset",
+        "mixed"
+      ]
+    },
+    "section": "project",
+    "unit": "سال"
+  },
+  {
+    "id": "heritagePayment",
+    "label": "زمان دریافت مبلغ قرارداد مرمت",
+    "routes": [
+      "heritage"
+    ],
+    "showWhen": {
+      "field": "heritageReturn",
+      "in": [
+        "fee",
+        "mixed"
+      ]
+    },
+    "section": "project"
+  },
+  {
+    "id": "charityType",
+    "label": "نوع پروژه",
+    "routes": [
+      "charity"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "contribution",
+    "label": "نوع همراهی",
+    "routes": [
+      "charity"
+    ],
+    "section": "project"
+  },
+  {
+    "id": "cities",
+    "label": "شهر",
+    "section": "location"
+  },
+  {
+    "id": "neighborhood",
+    "label": "محله یا محدوده",
+    "section": "location"
+  },
+  {
+    "id": "keyword",
+    "label": "عنوان یا مشخصات طرح",
+    "section": "location"
+  },
+  {
+    "id": "strictLocation",
+    "label": "فقط در همین محل",
+    "section": "location"
+  },
+  {
+    "id": "intervention",
+    "label": "نوع آورده دولت",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "contract"
+  },
+  {
+    "id": "shareMin",
+    "label": "حداقل سهم شما از مشارکت",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "section": "contract",
+    "unit": "درصد"
+  },
+  {
+    "id": "governmentMin",
+    "label": "حداقل سهم دولت در تامین منابع",
+    "routes": [
+      "contractor"
+    ],
+    "section": "contract",
+    "unit": "درصد"
+  },
+  {
+    "id": "workingCapital",
+    "label": "نقدینگی قابل تخصیص به اجرای پیمان",
+    "routes": [
+      "contractor"
+    ],
+    "section": "contract",
+    "unit": "میلیارد تومان"
+  },
+  {
+    "id": "executionMin",
+    "label": "حداقل مدت اجرا",
+    "routes": [
+      "investor",
+      "heritage",
+      "contractor"
+    ],
+    "section": "contract",
+    "unit": "ماه"
+  },
+  {
+    "id": "settlement",
+    "label": "نحوه تسویه",
+    "routes": [
+      "investor",
+      "heritage",
+      "contractor"
+    ],
+    "section": "contract"
+  },
+  {
+    "id": "settlePercent",
+    "label": "درصد مورد انتظار از پروژه بابت تسویه",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "showWhen": {
+      "field": "settlement",
+      "in": [
+        "same",
+        "other",
+        "mixed"
+      ]
+    },
+    "section": "contract",
+    "unit": "درصد"
+  },
+  {
+    "id": "otherProject",
+    "label": "مشخصات پروژه دیگر برای تسویه",
+    "routes": [
+      "investor",
+      "heritage"
+    ],
+    "showWhen": {
+      "field": "settlement",
+      "in": [
+        "other",
+        "mixed"
+      ]
+    },
+    "section": "contract"
+  },
+  {
+    "id": "guaranteePurpose",
+    "label": "کارکرد تضمین",
+    "routes": [
+      "contractor"
+    ],
+    "section": "contract"
+  },
+  {
+    "id": "guarantees",
+    "label": "انواع تضمین قابل ارائه",
+    "routes": [
+      "contractor"
+    ],
+    "section": "contract"
+  },
+  {
+    "id": "general",
+    "label": "آمادگی مدارک عمومی",
+    "routes": [
+      "investor",
+      "heritage",
+      "contractor"
+    ]
+  },
+  {
+    "id": "special",
+    "label": "آمادگی مدارک تخصصی",
+    "routes": [
+      "investor",
+      "heritage",
+      "contractor"
+    ]
+  },
+  {
+    "id": "experience",
+    "label": "سابقه کار مشابه",
+    "routes": [
+      "contractor",
+      "operator"
+    ]
+  },
+  {
+    "id": "discipline",
+    "label": "رشته، رتبه و ظرفیت آزاد",
+    "routes": [
+      "contractor"
+    ]
+  },
+  {
+    "id": "notes",
+    "label": "ملاحظات تکمیلی"
+  }
+]

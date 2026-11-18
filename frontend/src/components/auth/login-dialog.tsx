@@ -1,5 +1,6 @@
 'use client';
 
+import {bindAccount,clearPrivateAccount} from '@/lib/store';
 import { createContext, useContext, useCallback, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import Image from 'next/image';
 
@@ -39,6 +40,7 @@ function Visual() {
 type AuthValue = { account: Account | null; busy: boolean; ready: boolean; notice: string; start: () => Promise<void>; logout: () => Promise<void>; activity: () => Promise<void>; triggerRef: RefObject<HTMLButtonElement | null> };
 const AuthContext = createContext<AuthValue | null>(null);
 export function useAuth() { const value = useContext(AuthContext); if (!value) throw new Error('Auth provider required'); return value; }
+function AccountBridge(){const {account,start,logout}=useAuth();const actions=useRef({start,logout});actions.current={start,logout};useEffect(()=>{bindAccount(account,()=>void actions.current.start(),()=>void actions.current.logout());return()=>bindAccount(null,()=>{},()=>{})},[account?.id]);return null;}
 export default function LoginShell({ children }: { children?: ReactNode }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement>(null);
@@ -86,11 +88,12 @@ export default function LoginShell({ children }: { children?: ReactNode }) {
     if (!response.ok) throw new Error('وضعیت ورود دریافت نشد.');
     const result = await response.json();
     if (version !== meVersion.current) return null;
+    if(!result.authenticated)clearPrivateAccount();
     setAccount(result.authenticated ? result.user : null);
     return result.authenticated ? result.user as Account : null;
   }, []);
   useEffect(() => { refresh().catch(() => setNotice('ارتباط با سرور برقرار نشد؛ دوباره تلاش کنید.')).finally(() => setReady(true)); }, [refresh]);
-  const clearIdentity = useCallback(() => { ++meVersion.current; setAccount(null); }, []);
+  const clearIdentity = useCallback(() => { ++meVersion.current; clearPrivateAccount(); setAccount(null); }, []);
   useEffect(() => {
     const recheck = () => { void refresh().catch(clearIdentity); };
     const visible = () => { if (document.visibilityState === 'visible') recheck(); };
@@ -187,6 +190,7 @@ export default function LoginShell({ children }: { children?: ReactNode }) {
   const resend = receipt ? Math.max(0, Math.ceil((Math.max(Date.parse(receipt.resend_at), waitUntil) - clock) / 1000)) : 0;
   const limited = waitUntil > clock;
   return <AuthContext.Provider value={{ account, busy, ready, notice, start, logout, triggerRef: opener, activity: async () => { try { await post('activity', {}, false); setNotice('نشست فعال است.'); } catch { await refresh(); setNotice('نشست پایان یافته است؛ دوباره وارد شوید.'); } } }}>
+    <AccountBridge />
     {children ?? <>
     <header className="shell-header"><Logo /><button ref={opener} disabled={!ready || busy} className="primary-button shell-login" onClick={account ? logout : start}>{account ? 'خروج' : 'ورود به حساب'}</button></header>
     <main className="auth-legacy"><h1>سرمایه‌گزین</h1><p>فرصت‌های سرمایه‌گذاری ایران</p><p className="trial-caption">محیط آزمایشی ورود؛ پیامک واقعی ارسال نمی‌شود.</p>

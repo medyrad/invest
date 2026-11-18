@@ -57,6 +57,9 @@ def dto(c):
         "customer_id": str(c.customer_id),
         "opportunity_id": str(c.opportunity_id),
         "title": c.submission.snapshot.get("title"),
+        "opportunity_snapshot": c.submission.snapshot,
+        "opportunity_kind": c.submission.kind,
+        "opportunity_revision": str(c.submission_id),
         "status": c.status,
         "version": c.version,
         "expert": {
@@ -75,7 +78,10 @@ def dto(c):
         else None,
         "next_action": c.next_action,
         "next_followup_at": c.next_followup_at.isoformat() if c.next_followup_at else None,
-        "opportunity_availability": c.opportunity.availability,
+        "opportunity_availability": "expired"
+        if c.opportunity.expires_at and c.opportunity.expires_at <= timezone.now()
+        else c.opportunity.availability,
+        "opportunity_accepting_requests": active(c.opportunity),
         "history": [
             {"action": e.action, "data": e.data, "at": e.created_at.isoformat()}
             for e in c_events(c.pk)
@@ -230,9 +236,22 @@ def action(session, id, data):
                 except PrivateFile.DoesNotExist as e:
                     raise Fault("پیوست پاک و مجاز خود را انتخاب کنید.", 403) from e
                 if f.draft_id:
-                    ws.target(user, "draft", f.draft_id)
+                    ws.target(user, "draft", f.draft_id, lock=True)
                 else:
-                    ws.target(user, "request", f.application_id)
+                    ws.target(user, "request", f.application_id, lock=True)
+                if (
+                    not PrivateFile.objects.select_for_update()
+                    .filter(
+                        pk=f.pk,
+                        status="clean",
+                        attached=True,
+                        deleted_at__isnull=True,
+                        replaced_at__isnull=True,
+                        purged_at__isnull=True,
+                    )
+                    .exists()
+                ):
+                    raise Fault("وضعیت پیوست تغییر کرده است.", 409)
             if act in ["answer", "awaiting_user"]:
                 try:
                     followup = datetime.fromisoformat(data["next_followup_at"])

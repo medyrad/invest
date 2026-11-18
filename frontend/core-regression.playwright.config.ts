@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'./tests/browser',testMatch:/auth-fixes\.spec\.ts/,grep:/delayed old me|cross-tab signals/,outputDir:'test-results/core-auth',workers:1,timeout:60000,retries:0,reporter:[['list'],['json',{outputFile:'test-results/core-auth-results.json'}]],use:{baseURL:process.env.CORE_URL||'http://127.0.0.1:3108',trace:'off',launchOptions:{executablePath:'/usr/bin/google-chrome'},viewport:{width:1440,height:1000}},projects:[{name:'core-auth-regression'}]});

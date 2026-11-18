@@ -25,7 +25,7 @@ const missing = (page: Page) => page.locator('section').filter({ has: page.getBy
 async function create(page: Page) {
   page.on('dialog', d => void d.accept()); await page.goto('/drafts');
   const pending = page.waitForResponse(r => r.url().endsWith('/workspace/drafts') && r.request().method() === 'POST');
-  await page.getByRole('button', { name: 'ایجاد پیش‌نویس پروژه', exact: true }).click();
+  await page.getByRole('button', { name: 'ایجاد پیش‌نویس', exact: true }).click();
   const response = await pending; expect(response.status()).toBe(200); return response.json();
 }
 async function save(page: Page, status = 200) {

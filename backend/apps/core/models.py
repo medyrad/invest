@@ -184,3 +184,11 @@ class Report(models.Model):
     user = models.ForeignKey(U, on_delete=models.PROTECT)
     snapshot = models.JSONField()
     created_at = models.DateTimeField(default=timezone.now)
+
+
+class ReviewEvidence(models.Model):
+    review = models.OneToOneField(Review, on_delete=models.PROTECT)
+    source = models.TextField()
+    result = models.TextField()
+    files = models.JSONField()
+    created_at = models.DateTimeField(default=timezone.now)

@@ -1,6 +1,6 @@
 # مدل داده هسته
 
-Draft.kind افزایشی و پروژه‌های قبلی با project ادامه می‌یابند. FieldDefinitionهای صندوق/فروش append-only هستند؛ rollback این seed عمداً برگشت‌ناپذیر است تا تعریف مصرف‌شده حذف نشود. migrationهای پذیرفته‌شده پیشین دست‌نخورده‌اند.
+Draft.kind افزایشی و پروژه‌های قبلی با project ادامه می‌یابند. FieldDefinitionهای صندوق/فروش append-only هستند؛ reverse تعریف‌ها فقط وقتی مصرف‌کننده‌ای ندارند مجاز است؛ همان الگوی قفل، SET CONSTRAINTS، guard اتمیک و PROTECT مهاجرت‌های پذیرفته‌شده حفظ شده است. migrationهای پذیرفته‌شده پیشین دست‌نخورده‌اند.
 
 Opportunity یک Draft و یک public_revision دارد؛ Submission داده مؤثر، نوع، مسیرها و ارجاع فایل را ثابت نگه می‌دارد. Review/Event/Message/Report نیز با trigger در PostgreSQL immutable هستند. Decision و availability جدا هستند. Receipt با user/key یکتا و fingerprint، اثر دوباره و replay با ورودی متفاوت را رد می‌کند؛ replay اختیار جاری را بررسی می‌کند.
 

@@ -17,7 +17,7 @@ async function login(page: Page, phone: string) {
   const code = page.getByTestId('trial-code'); await expect(code).toBeVisible();
   await page.getByRole('textbox', { name: 'کد تایید', exact: true }).fill((await code.textContent())!);
   await page.getByRole('button', { name: 'ورود', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'پروژه تازه', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'فرصت تازه', exact: true })).toBeVisible();
 }
 async function save(page: Page) {
   const response = page.waitForResponse(r => /\/workspace\/drafts\/[a-f0-9-]+$/.test(r.url()) && r.request().method() === 'POST');
@@ -26,7 +26,7 @@ async function save(page: Page) {
 }
 async function draft(page: Page) {
   const response = page.waitForResponse(r => r.url().endsWith('/workspace/drafts') && r.request().method() === 'POST');
-  await page.getByRole('button', { name: 'ایجاد پیش‌نویس پروژه', exact: true }).click();
+  await page.getByRole('button', { name: 'ایجاد پیش‌نویس', exact: true }).click();
   expect((await response).status()).toBe(200); await expect(page.getByLabel('عنوان پروژه', { exact: true })).toBeVisible();
 }
 async function capture(page: Page, name: string) {
@@ -44,7 +44,7 @@ test('A1 journey: lost create, exact conditional form, file, resume on second de
     keys.push(route.request().postDataJSON().key); const response = await route.fetch();
     if (lost) { lost = false; await route.abort('failed'); } else await route.fulfill({ response });
   });
-  await page.getByRole('button', { name: 'ایجاد پیش‌نویس پروژه', exact: true }).click();
+  await page.getByRole('button', { name: 'ایجاد پیش‌نویس', exact: true }).click();
   await expect(page.getByRole('button', { name: 'دریافت نتیجه همان عملیات', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'دریافت نتیجه همان عملیات', exact: true }).click();
   await expect(page.getByLabel('عنوان پروژه', { exact: true })).toBeVisible(); expect(keys.length).toBe(2); expect(keys[0]).toBe(keys[1]);
@@ -119,7 +119,7 @@ test('A1 conflict, expired-session input preservation, logout, account isolation
   await tab.getByRole('button', { name: 'حساب کاربری', exact: true }).click(); await tab.getByRole('menuitem', { name: 'خروج', exact: true }).click(); await expect(tab.getByLabel('عنوان پروژه', { exact: true })).not.toBeVisible();
   await tab.getByRole('button', { name: 'ورود به حساب', exact: true }).click(); await tab.getByRole('textbox', { name: 'شماره موبایل', exact: true }).fill(phone()); await tab.getByRole('button', { name: 'دریافت کد', exact: true }).click();
   await expect(tab.getByTestId('trial-code')).toBeVisible(); await tab.getByRole('textbox', { name: 'کد تایید', exact: true }).fill((await tab.getByTestId('trial-code').textContent())!); await tab.getByRole('button', { name: 'ورود', exact: true }).click();
-  await expect(tab.getByRole('heading', { name: 'پروژه تازه', exact: true })).toBeVisible(); await expect(tab.getByText('ورودی ذخیره‌نشده پیش از انقضا', { exact: true })).not.toBeVisible();
+  await expect(tab.getByRole('heading', { name: 'فرصت تازه', exact: true })).toBeVisible(); await expect(tab.getByText('ورودی ذخیره‌نشده پیش از انقضا', { exact: true })).not.toBeVisible();
   expect((await (await tab.request.get(`/api/v1/workspace/drafts/${initial.id}`)).json()).error).toBeTruthy(); await tab.close();
 });
 

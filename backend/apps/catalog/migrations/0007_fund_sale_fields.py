@@ -130,6 +130,21 @@ def seed(apps, schema_editor):
         )
 
 
+def unseed(apps, schema_editor):
+    Field = apps.get_model("catalog", "FieldDefinition")
+    from django.db.models import Q
+
+    predicate = Q(pk__in=[])
+    for kind, f in DEFINITIONS:
+        predicate |= Q(namespace="invest.opportunity." + kind, key=f["key"], version=1)
+    targets = Field.objects.filter(predicate)
+    with schema_editor.connection.cursor() as cursor:
+        cursor.execute("SET CONSTRAINTS ALL IMMEDIATE")
+        cursor.execute("ALTER TABLE catalog_fielddefinition DISABLE TRIGGER immutable_field")
+        targets.delete()
+        cursor.execute("ALTER TABLE catalog_fielddefinition ENABLE TRIGGER immutable_field")
+
+
 class Migration(migrations.Migration):
     dependencies = [("catalog", "0006_project_capacity_units")]
-    operations = [migrations.RunPython(seed)]
+    operations = [migrations.RunPython(seed, unseed)]

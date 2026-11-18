@@ -60,6 +60,8 @@ def target(user, kind, id, trash=False, lock=False):
         item = qs.get(pk=id)
     except (ValueError, model.DoesNotExist) as e:
         raise Fault("مورد پیدا نشد.", 404) from e
+    if lock and item.organization_id:
+        Organization.objects.select_for_update().get(pk=item.organization_id)
     if not permitted(user, item):
         raise Fault("دسترسی جاری به این مورد ندارید.", 403)
     if isinstance(item, Draft) and item.deleted_at and not trash:
@@ -270,7 +272,7 @@ def save_draft(user, id, data):
             else:
                 validate_one("heritage_returns", vals["heritage_returns"])
                 raw["heritage_returns"] = vals["heritage_returns"]
-        for control in ["category", "bank_exists", "price_mode"]:
+        for control in ["category", "bank_exists", "price_mode", "forecast_type"]:
             if control in vals and control in FIELDS:
                 if vals[control] is None:
                     raw.pop(control, None)

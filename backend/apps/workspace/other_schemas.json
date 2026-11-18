@@ -175,16 +175,32 @@
         "source": "src/types/index.ts:Fund.minimum_investment"
       },
       {
+        "key": "forecast_type",
+        "label": "نوع نرخ بازده ادعایی",
+        "kind": "enum",
+        "section": "money",
+        "when": "always",
+        "options": {
+          "irr": "بازده داخلی IRR",
+          "simple_rate": "نرخ ساده",
+          "effective_rate": "نرخ مؤثر"
+        },
+        "unit": null,
+        "required": false,
+        "source": "src/types/index.ts:Fund.forecast; D31 explicit type, never inferred"
+      },
+      {
         "key": "forecast",
         "label": "بازده ادعایی",
         "kind": "return",
         "unit": "PERCENT",
         "required": false,
-        "when": "always",
+        "when": "legacy_forecast",
         "options": null,
         "section": "money",
         "namespace": "invest.opportunity.fund",
-        "source": "src/types/index.ts:Fund.forecast"
+        "source": "src/types/index.ts:Fund.forecast",
+        "return_type": "simple_rate"
       },
       {
         "key": "payout",
@@ -301,6 +317,48 @@
         "section": "general",
         "namespace": "invest.opportunity.fund",
         "source": "src/types/index.ts:Fund.bank_description"
+      },
+      {
+        "key": "forecast_irr",
+        "label": "بازده داخلی ادعایی صندوق",
+        "kind": "return",
+        "unit": "PERCENT",
+        "required": false,
+        "when": "forecast_irr",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.forecast; D31 explicit irr",
+        "return_type": "irr",
+        "version": 2
+      },
+      {
+        "key": "forecast_simple_rate",
+        "label": "نرخ ساده ادعایی صندوق",
+        "kind": "return",
+        "unit": "PERCENT",
+        "required": false,
+        "when": "forecast_simple_rate",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.forecast; D31 explicit simple_rate",
+        "return_type": "simple_rate",
+        "version": 2
+      },
+      {
+        "key": "forecast_effective_rate",
+        "label": "نرخ مؤثر ادعایی صندوق",
+        "kind": "return",
+        "unit": "PERCENT",
+        "required": false,
+        "when": "forecast_effective_rate",
+        "options": null,
+        "section": "money",
+        "namespace": "invest.opportunity.fund",
+        "source": "src/types/index.ts:Fund.forecast; D31 explicit effective_rate",
+        "return_type": "effective_rate",
+        "version": 2
       }
     ]
   },
@@ -530,7 +588,12 @@
         "options": null,
         "section": "money",
         "namespace": "invest.opportunity.sale",
-        "source": "src/types/index.ts:SaleItem.price_quantity"
+        "source": "src/types/index.ts:SaleItem.price_quantity",
+        "unit_options": {
+          "ITEM": "عدد",
+          "KILOGRAM": "کیلوگرم",
+          "SQUARE_METRE": "مترمربع"
+        }
       },
       {
         "key": "area",
@@ -566,7 +629,12 @@
         "options": null,
         "section": "money",
         "namespace": "invest.opportunity.sale",
-        "source": "src/types/index.ts:SaleItem.quantity"
+        "source": "src/types/index.ts:SaleItem.quantity",
+        "unit_options": {
+          "ITEM": "عدد",
+          "KILOGRAM": "کیلوگرم",
+          "SQUARE_METRE": "مترمربع"
+        }
       },
       {
         "key": "quantity_source",

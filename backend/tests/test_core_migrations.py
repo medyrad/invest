@@ -8,7 +8,7 @@ def test_old_draft_and_blob_preserved_across_forward_migration():
     executor = MigrationExecutor(connection)
     before = [("core", None), ("workspace", "0002_receiveattempt")]
     after = [
-        ("core", "0003_case_followup_notified_case_next_followup_at"),
+        ("core", "0004_reviewevidence"),
         ("workspace", "0003_draft_kind"),
     ]
     executor.migrate(before)

@@ -367,7 +367,22 @@ def test_value_api_contract_csrf_no_storage_and_persian_errors(client):
         ).validate(data)
 
     definitions = client.get("/api/v1/catalog/value-definitions")
-    assert definitions.status_code == 200 and len(definitions.json()["fields"]) == 21
+    assert definitions.status_code == 200 and len(definitions.json()["fields"]) == 33
+    expected_new = {
+        ("invest.opportunity.fund", "forecast", 1),
+        ("invest.opportunity.fund", "duration_months", 1),
+        ("invest.opportunity.sale", "price", 1),
+        ("invest.opportunity.sale", "price_quantity", 1),
+        ("invest.opportunity.sale", "land_area", 1),
+        ("invest.opportunity.sale", "quantity", 1),
+    } | {
+        ("invest.opportunity.fund", "forecast_" + metric, version)
+        for metric in ["irr", "simple_rate", "effective_rate"]
+        for version in [1, 2]
+    }
+    assert expected_new <= {
+        (f["namespace"], f["key"], f["version"]) for f in definitions.json()["fields"]
+    }
     assert len(definitions.json()["units"]) == 33
     validate("ValueDefinitions", definitions.json())
     validate("ValueInput", payload(source="۱٫۵"))

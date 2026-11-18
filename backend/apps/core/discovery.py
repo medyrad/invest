@@ -10,7 +10,7 @@ from apps.catalog import models as catalog
 from apps.workspace.schema import Fault
 
 from .models import Opportunity
-from .publication import active, get_op
+from .publication import active, bank_verified, get_op, is_synthetic
 
 POLICY = 1
 WEIGHTS = {
@@ -80,15 +80,40 @@ def criteria(value):
         raise Fault("ترجیحات معتبر نیست.")
     if value.get("kind", "project") not in ["project", "fund", "sale"]:
         raise Fault("نوع معتبر نیست.")
+    if value.get("route") and value["route"] not in [
+        "investor",
+        "fund",
+        "contractor",
+        "buyer",
+        "lessee",
+        "heritage",
+        "operator",
+        "charity",
+    ]:
+        raise Fault("مسیر جست‌وجو معتبر نیست.")
     for k in ["route", "q"]:
         if k in value and (
             not isinstance(value[k], str) or len(value[k]) > 200 or "\0" in value[k]
         ):
             raise Fault("متن جست‌وجو معتبر نیست.")
+    if (
+        "budget_min" in value
+        and "budget_max" in value
+        and Decimal(value["budget_min"]) > Decimal(value["budget_max"])
+    ):
+        raise Fault("کف بودجه از سقف آن بزرگ‌تر است.", field="budget_min")
     if "return" in value and (
         not isinstance(value["return"], dict) or set(value["return"]) != {"minimum", "basis"}
     ):
         raise Fault("مبنای بازده لازم است.")
+    if "return" in value:
+        from apps.catalog.values import ValueErrorDetail, parse_number, return_basis
+
+        try:
+            value["return"]["minimum"] = str(parse_number(value["return"]["minimum"], signed=True))
+            value["return"]["basis"] = return_basis(value["return"]["basis"])
+        except ValueErrorDetail as exc:
+            raise Fault(exc.message, field="return." + exc.field) from exc
     if "conditions" in value and (
         not isinstance(value["conditions"], dict)
         or len(value["conditions"]) > 30
@@ -169,14 +194,14 @@ def score(s, c):
             "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
         )
     cat = "subtype" if c.get("subtype") else "group" if c.get("group") else None
-    if cat:
+    if cat and not c.get("preferences", {}).get("subtypes"):
         add(
             "category",
             "unknown" if f.get(cat) in UNKNOWN else "met" if f.get(cat) in c[cat] else "unmet",
             "دسته انتخاب‌شده",
         )
     loc = next((k for k in ["city", "county", "province"] if c.get(k)), None)
-    if loc:
+    if loc and not c.get("preferences", {}).get("neighborhood"):
         add(
             "location",
             "unknown" if f.get(loc) in UNKNOWN else "met" if f.get(loc) in c[loc] else "unmet",
@@ -193,12 +218,18 @@ def score(s, c):
             "ریسک اعلامی؛ تأیید مستقل نیست.",
         )
     if c.get("return"):
-        v = f.get("irr" if s.kind == "project" else "forecast")
+        v = f.get(
+            "irr"
+            if s.kind == "project"
+            else "forecast_" + f["forecast_type"]
+            if f.get("forecast_type") in ["irr", "simple_rate", "effective_rate"]
+            else "forecast"
+        )
         n = numeric(v)
         comparable = n is not None and v.get("basis") == c["return"]["basis"]
         try:
             minimum = Decimal(c["return"]["minimum"])
-        except Exception as e:
+        except (ValueError, TypeError, ArithmeticError) as e:
             raise Fault("حد بازده معتبر نیست.") from e
         add(
             "returns",
@@ -232,7 +263,8 @@ def score(s, c):
     preferences = c.get("preferences", {})
     from .preferences import evaluate
 
-    for axis, state, reason in evaluate(s, c.get("route"), preferences):
+    preferences = {k: v for k, v in preferences.items() if not (k == "risk" and c.get("risk"))}
+    for axis, state, reason in evaluate(s, c.get("route"), preferences, groups=c.get("group", [])):
         add(axis, state, reason)
     # Independent criteria share their axis weight; the denominator is query-defined.
     counts = {axis: sum(1 for item in checks if item["axis"] == axis) for axis in WEIGHTS}
@@ -261,7 +293,7 @@ def score(s, c):
 
 def public_dto(op):
     s = op.public_revision
-    if settings.INVEST_ENV == "public" and op.synthetic:
+    if settings.INVEST_ENV == "public" and is_synthetic(op):
         raise Fault("فرصت پیدا نشد.", 404)
     if not s:
         raise Fault("نسخه عمومی وجود ندارد.", 404)
@@ -279,7 +311,8 @@ def public_dto(op):
         else "expired",
         "accepting_requests": active(op),
         "published_at": review.created_at.isoformat() if review else None,
-        "synthetic": op.synthetic,
+        "synthetic": is_synthetic(op),
+        "verified": {"bank": bank_verified(s) if op.availability != "admin_suspended" else False},
         "expires_at": op.expires_at.isoformat() if op.expires_at else None,
         "no_expiry": op.expires_at is None,
         "last_reviewed_at": review.created_at.isoformat() if review else None,
@@ -307,7 +340,7 @@ def listing(c, cursor=None):
         for op in Opportunity.objects.filter(public_revision__isnull=False).select_related(
             "public_revision", "draft"
         ):
-            if (settings.INVEST_ENV == "public" and op.synthetic) or not active(op):
+            if (settings.INVEST_ENV == "public" and is_synthetic(op)) or not active(op):
                 continue
             s = op.public_revision
             if c.get("kind") and c["kind"] != s.kind:
@@ -374,6 +407,7 @@ def listing(c, cursor=None):
         "next": next_cursor,
         "policy_version": POLICY,
         "as_of": at,
+        "criteria": c,
     }
 
 
@@ -390,11 +424,22 @@ def compare(ids):
     for key in sorted(keys):
         values = [o.public_revision.snapshot.get(key) for o in ops]
         typed = all(isinstance(v, dict) and v.get("status") == "known" for v in values)
-        compatible = typed and all(
-            (v["field"], v.get("base_unit"), v.get("basis"))
-            == (values[0]["field"], values[0].get("base_unit"), values[0].get("basis"))
-            for v in values
-        )
+        from apps.catalog.values import compare as compare_value
+
+        compatible = typed and all(compare_value(values[0], v)["comparable"] for v in values)
+        if key == "price":
+            modes = [o.public_revision.snapshot.get("price_mode") for o in ops]
+            compatible = compatible and len(set(modes)) == 1 and modes[0] in ["total", "per_unit"]
+            if compatible and modes[0] == "per_unit":
+                quantities = [o.public_revision.snapshot.get("price_quantity") for o in ops]
+                compatible = all(
+                    isinstance(q, dict)
+                    and q.get("status") == "known"
+                    and q.get("value") == quantities[0].get("value")
+                    and q.get("base_unit") == quantities[0].get("base_unit")
+                    and q.get("base_version") == quantities[0].get("base_version")
+                    for q in quantities
+                )
         rows.append(
             {
                 "key": key,

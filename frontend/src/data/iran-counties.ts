@@ -1,0 +1,37 @@
+// مرز و نام فارسی همه شهرستان‌ها، هر استان فایل جدا دارد و فقط هنگام نیاز بارگذاری می‌شود.
+// cities: شهرهای دارای پروژه که در این شهرستان‌اند.
+export interface County { name: string; d: string; c: [number, number]; a: number; cities: string[] }
+export interface ProvinceCounties { counties: County[]; outline: string }
+export const countyLoaders: Record<string, () => Promise<ProvinceCounties>> = {
+  "آذربایجان شرقی": () => import("./counties/c00"),
+  "آذربایجان غربی": () => import("./counties/c01"),
+  "اردبیل": () => import("./counties/c02"),
+  "اصفهان": () => import("./counties/c03"),
+  "البرز": () => import("./counties/c04"),
+  "ایلام": () => import("./counties/c05"),
+  "بوشهر": () => import("./counties/c06"),
+  "تهران": () => import("./counties/c07"),
+  "چهارمحال و بختیاری": () => import("./counties/c08"),
+  "خراسان جنوبی": () => import("./counties/c09"),
+  "خراسان رضوی": () => import("./counties/c10"),
+  "خراسان شمالی": () => import("./counties/c11"),
+  "خوزستان": () => import("./counties/c12"),
+  "زنجان": () => import("./counties/c13"),
+  "سمنان": () => import("./counties/c14"),
+  "سیستان و بلوچستان": () => import("./counties/c15"),
+  "فارس": () => import("./counties/c16"),
+  "قزوین": () => import("./counties/c17"),
+  "قم": () => import("./counties/c18"),
+  "کردستان": () => import("./counties/c19"),
+  "کرمان": () => import("./counties/c20"),
+  "کرمانشاه": () => import("./counties/c21"),
+  "کهگیلویه و بویراحمد": () => import("./counties/c22"),
+  "گلستان": () => import("./counties/c23"),
+  "گیلان": () => import("./counties/c24"),
+  "لرستان": () => import("./counties/c25"),
+  "مازندران": () => import("./counties/c26"),
+  "مرکزی": () => import("./counties/c27"),
+  "هرمزگان": () => import("./counties/c28"),
+  "همدان": () => import("./counties/c29"),
+  "یزد": () => import("./counties/c30"),
+};
