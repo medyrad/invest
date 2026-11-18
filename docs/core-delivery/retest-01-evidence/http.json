@@ -1,0 +1,170 @@
+[
+  {
+    "criteria": {
+      "important": [
+        {}
+      ]
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "محور شرط مهم معتبر نیست.",
+      "fields": {
+        "criteria.important.0": "محور شرط مهم معتبر نیست."
+      },
+      "request_id": "22278976-ce83-40a8-bcbe-9f1b76958b8d"
+    },
+    "items": 0
+  },
+  {
+    "criteria": {
+      "important": [
+        []
+      ]
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "محور شرط مهم معتبر نیست.",
+      "fields": {
+        "criteria.important.0": "محور شرط مهم معتبر نیست."
+      },
+      "request_id": "8ab78346-df64-4a71-97a8-df03119e4e70"
+    },
+    "items": 0
+  },
+  {
+    "criteria": {
+      "important": [
+        true
+      ]
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "محور شرط مهم معتبر نیست.",
+      "fields": {
+        "criteria.important.0": "محور شرط مهم معتبر نیست."
+      },
+      "request_id": "fd4087e7-6c8e-44b4-ac73-0dada22cc2ee"
+    },
+    "items": 0
+  },
+  {
+    "criteria": {
+      "important": [
+        "not-an-axis"
+      ]
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "محور شرط مهم معتبر نیست.",
+      "fields": {
+        "criteria.important.0": "محور شرط مهم معتبر نیست."
+      },
+      "request_id": "49173493-9b46-4a24-b34a-05873b893b45"
+    },
+    "items": 0
+  },
+  {
+    "criteria": {
+      "preferences": {
+        "risk": {}
+      }
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "مقدار ترجیح باید متن، عدد یا فهرست ساده باشد.",
+      "fields": {
+        "criteria.preferences.risk": "مقدار ترجیح باید متن، عدد یا فهرست ساده باشد."
+      },
+      "request_id": "bacecfb2-bf06-4614-886d-56c44cccd2a9"
+    },
+    "items": 0
+  },
+  {
+    "criteria": {
+      "preferences": {
+        "phase": [
+          []
+        ]
+      }
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "مقدار ترجیح باید متن، عدد یا فهرست ساده باشد.",
+      "fields": {
+        "criteria.preferences.phase": "مقدار ترجیح باید متن، عدد یا فهرست ساده باشد."
+      },
+      "request_id": "000c43ca-6dfc-4759-909c-81215201ddc9"
+    },
+    "items": 0
+  },
+  {
+    "criteria": {
+      "important": []
+    },
+    "status": 200,
+    "error": null,
+    "items": 12
+  },
+  {
+    "criteria": {
+      "important": [
+        "risk",
+        "amount"
+      ]
+    },
+    "status": 200,
+    "error": null,
+    "items": 12
+  },
+  {
+    "ids": [
+      {},
+      {}
+    ],
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "۲ تا ۴ فرصت متمایز انتخاب کنید.",
+      "fields": {
+        "payload": "۲ تا ۴ فرصت متمایز انتخاب کنید."
+      },
+      "request_id": "adb1e3dd-f63e-4db1-94ae-2939733d90c5"
+    }
+  },
+  {
+    "ids": [
+      [],
+      []
+    ],
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "۲ تا ۴ فرصت متمایز انتخاب کنید.",
+      "fields": {
+        "payload": "۲ تا ۴ فرصت متمایز انتخاب کنید."
+      },
+      "request_id": "a0b7fbbd-bf33-4f0c-8966-10d8dddf58e8"
+    }
+  },
+  {
+    "ids": [
+      1,
+      2
+    ],
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "۲ تا ۴ فرصت متمایز انتخاب کنید.",
+      "fields": {
+        "payload": "۲ تا ۴ فرصت متمایز انتخاب کنید."
+      },
+      "request_id": "0c0e4c82-d8ed-4916-b8fd-5438a7593e74"
+    }
+  }
+]

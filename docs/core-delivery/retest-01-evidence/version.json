@@ -1,0 +1,8 @@
+{
+  "version": "CORE-443ca1cbf0c7",
+  "images": {
+    "invest-backend": "sha256:ffe2286c5618bd01e69dd635caa6c21c37eb0500b37d42ff1f618fa6e1e08b2d",
+    "invest-web": "sha256:60a033b6edff7403739a728eb490679811fb7c70206f2fdb7acd6b81a039def6",
+    "invest-test": "sha256:72c01834d0eadb3681c42139d9bbad2cec33f1d6364d09b1df3b2fad5ff014f1"
+  }
+}

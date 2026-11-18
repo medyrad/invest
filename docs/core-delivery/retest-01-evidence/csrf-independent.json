@@ -1,0 +1,8 @@
+{
+  "concurrentBootstrap": 1,
+  "concurrentPosts": 2,
+  "freshAfterLogin": true,
+  "freshAfterLogout": true,
+  "withoutToken": 403,
+  "source": "actual core-api.ts transpiled with existing TypeScript; native browser fetch and real HTTP responses; event gate"
+}

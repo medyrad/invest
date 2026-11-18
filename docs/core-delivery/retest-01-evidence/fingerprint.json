@@ -1,0 +1,16 @@
+{
+  "code_sha256": "443ca1cbf0c7b15b80c1f7fbcd3fdd5cd1533057fdae89de4105603ac838c3a8",
+  "source_files": 239,
+  "artifacts_checked": 32,
+  "artifact_differences": [],
+  "programmer_migration_hashes_equal_reviewed": true,
+  "migration_hashes_independently_measured_before_after": false,
+  "versions": {
+    "/api/v1/core/version": {
+      "version": "CORE-443ca1cbf0c7"
+    },
+    "/core-version.json": {
+      "version": "CORE-443ca1cbf0c7"
+    }
+  }
+}

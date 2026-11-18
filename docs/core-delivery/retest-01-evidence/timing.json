@@ -1,0 +1,19 @@
+{
+  "unit": "seconds",
+  "preparation": 25.5,
+  "execution_and_independent_tool_authoring": 218.98,
+  "report_to_evidence_recording": 68.07,
+  "build": 0,
+  "runner_seconds": {
+    "related": 15.1,
+    "migration_independent": 1.39,
+    "fix_browser": 31.2,
+    "personal": 5.8
+  },
+  "unique_pytest": 307,
+  "unique_existing_browser": 5,
+  "independent_browser_probes": 2,
+  "http_probes": 11,
+  "initial_study_included": true,
+  "note": "Runners overlapped independent authoring; times are not additive. Final diff/commit/push follows."
+}
