@@ -1,7 +1,7 @@
 {
   "date": "2026-11-18",
   "current_stage": "S05",
-  "status": "core-complete-ready-for-independent-test",
+  "status": "core-needs-consolidated-fix",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -106,10 +106,10 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "TEST-CORE-COMPLETE",
-    "description": "آزمون مستقل تجمیعی هسته و بازبینی انسانی طراحی با هماهنگ‌کننده؛ اجرا توسط برنامه‌نویس مجاز نشده است.",
-    "authorized": false,
-    "full_product_implementation_authorized": false
+    "id": "PROGRAMMER-CORE-FIX-01",
+    "description": "اصلاح جامع سه ایراد و push کامیت‌ها طبق دستور کاربر",
+    "scope_path": "docs/core-delivery/fix-mission-01.md",
+    "authorized": true
   },
   "active_step": {
     "id": "CORE",
@@ -507,5 +507,21 @@
     "browser_auth_regression_passed": 2,
     "pushed": false,
     "delivery_label": "آماده آزمون مستقل هسته کامل"
+  },
+  "core_independent_review": {
+    "status": "needs-fix",
+    "report_path": "docs/core-delivery/independent-test-report.md",
+    "commit": "c9d8ef86dcee3185f7c9d9a3d88014b0327d0c03",
+    "issues": [
+      "CORE-IT-003",
+      "CORE-IT-001",
+      "CORE-IT-002"
+    ]
+  },
+  "git_delivery": {
+    "push_authorized": true,
+    "remote": "origin",
+    "branch": "main",
+    "force_push_authorized": false
   }
 }

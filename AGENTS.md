@@ -19,3 +19,5 @@ Delivery requirements confirmed by the user:
 - Select tests by change impact. Reuse healthy tools and matching build images; rerun passing checks only for new changes, failures or unresolved risks. Expand coverage when warranted, and report preparation/build/test/report time separately.
 
 The user now requires larger delivery missions covering complete user journeys across related stages. Use docs/programmer-core-complete.md for the current authorized scope. Internal tasks and bug fixes proceed within that mission without per-task handoffs. Keep all reference capabilities mapped to delivery packages, and perform one consolidated independent review per complete delivery. The manual Product/Programmer/Tester handoff workflow remains in use.
+
+Latest user authorization: push completed mission commits to the configured origin on the current branch using a normal non-force push. Include the remote result in the handoff. This supersedes earlier per-mission instructions to avoid push. Public deployment remains a separate action.
