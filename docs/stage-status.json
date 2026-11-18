@@ -106,10 +106,10 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "PROGRAMMER-S05-A1",
-    "description": "اجرای پروژه، مالک فردی/سازمانی، پیش‌نویس قابل ادامه و فایل خصوصی طبق D30–D32؛ تأیید انسانی S04 باز است.",
+    "id": "PROGRAMMER-CORE-COMPLETE",
+    "description": "تحویل جامع باقی S05 و S06/S07 طبق درخواست افزایش دامنه پرامپت",
     "authorized": true,
-    "scope_path": "docs/stage5/programmer-s05-a1.md",
+    "scope_path": "docs/programmer-core-complete.md",
     "full_product_implementation_authorized": false
   },
   "active_step": {
@@ -401,7 +401,7 @@
   },
   "project_drafts": {
     "mission": "PROGRAMMER-S05-A1",
-    "status": "fix-02-ready-for-independent-retest",
+    "status": "technical-pass",
     "delivery_label": "آماده آزمون مستقل PROGRAMMER-S05-A1",
     "version": "S05-A1-da7e008e04ec",
     "feature_directory": "specs/008-project-drafts",
@@ -422,7 +422,7 @@
       "workspace.0001_initial",
       "workspace.0002_receiveattempt"
     ],
-    "independent_acceptance": false,
+    "independent_acceptance": true,
     "human_visual_approved": false,
     "full_s04_complete": false,
     "full_s05_complete": false,
@@ -462,19 +462,27 @@
     "fix_02": {
       "mission": "PROGRAMMER-S05-A1-FIX-02",
       "issue": "S05-A1-IT-002",
-      "status": "ready-for-independent-retest",
+      "status": "technical-pass",
       "delivery_label": "آماده بازآزمایی مستقل",
       "version": "S05-A1-FIX-02-a8a919a8e751",
       "report_path": "docs/stage5/a1-fix-02-report.md",
       "manifest_path": "docs/stage5/a1-fix-02-evidence/manifest.json",
       "backend_passed": 56,
       "browser_targeted_passed": 2,
-      "independent_acceptance": false,
+      "independent_acceptance": true,
       "human_acceptance": false,
       "new_migration": false,
       "schema_version": 1,
       "full_s05_complete": false,
       "pushed": false
-    }
+    },
+    "technical_acceptance_report_path": "docs/stage5/a1-retest-03-report.md",
+    "technical_acceptance_commit": "919a5469700abe970f53238ebf782cccb5644fbd"
+  },
+  "delivery_policy": {
+    "batching": "Complete user journeys across related stages; one consolidated independent review per delivery",
+    "authorization": "User requested broader prompts and repeatedly instructed continuation",
+    "remaining_scope": "All reference capabilities retained through S08-S11",
+    "human_visual_approval_pending": true
   }
 }
