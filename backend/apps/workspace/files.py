@@ -13,6 +13,7 @@ from django.db.models import Sum
 from django.utils import timezone
 
 from . import service
+from .downloads import download_transaction
 from .models import Draft, PrivateFile, ReceiveAttempt, RepresentationRequest
 from .schema import Fault, check_keys
 
@@ -286,6 +287,7 @@ def check_one(at=None):
     return True
 
 
+@download_transaction
 def download(user, id):
     with transaction.atomic():
         f = get_file(user, id)

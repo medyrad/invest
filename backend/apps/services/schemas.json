@@ -2053,7 +2053,7 @@
     "rule_version": 1,
     "routes": {},
     "steps": [
-      "فرم اختصاصی notice",
+      "فرم اختصاصی پرونده فرصت",
       "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
     ],
     "fields": [
@@ -2151,7 +2151,7 @@
     "rule_version": 1,
     "routes": {},
     "steps": [
-      "فرم اختصاصی renewal",
+      "فرم اختصاصی نوسازی و اسکان موقت",
       "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
     ],
     "fields": [
@@ -2227,7 +2227,8 @@
             "source_end": 660508
           }
         ],
-        "full": false
+        "full": false,
+        "group": "محدوده، حقوق و مشوق‌های قابل بررسی"
       },
       {
         "key": "authority",
@@ -2249,7 +2250,8 @@
             "source_end": 660569
           }
         ],
-        "full": false
+        "full": false,
+        "group": "محدوده، حقوق و مشوق‌های قابل بررسی"
       },
       {
         "key": "evidenceDate",
@@ -2271,7 +2273,8 @@
             "source_end": 660632
           }
         ],
-        "full": false
+        "full": false,
+        "group": "محدوده، حقوق و مشوق‌های قابل بررسی"
       },
       {
         "key": "parcels",
@@ -2297,7 +2300,8 @@
         "integer": true,
         "minimum": "1",
         "namespace": "invest.service.ma-renewal",
-        "version": 1
+        "version": 1,
+        "group": "محدوده، حقوق و مشوق‌های قابل بررسی"
       },
       {
         "key": "incentive",
@@ -2323,7 +2327,8 @@
             "source_end": 660872
           }
         ],
-        "full": false
+        "full": false,
+        "group": "محدوده، حقوق و مشوق‌های قابل بررسی"
       },
       {
         "key": "incentiveRef",
@@ -2345,7 +2350,8 @@
             "source_end": 660930
           }
         ],
-        "full": false
+        "full": false,
+        "group": "محدوده، حقوق و مشوق‌های قابل بررسی"
       },
       {
         "key": "displacement",
@@ -2371,7 +2377,8 @@
             "source_end": 661060
           }
         ],
-        "full": false
+        "full": false,
+        "group": "ساکنان و اسکان موقت"
       },
       {
         "key": "households",
@@ -2401,7 +2408,8 @@
         "integer": true,
         "minimum": "0",
         "namespace": "invest.service.ma-renewal",
-        "version": 1
+        "version": 1,
+        "group": "ساکنان و اسکان موقت"
       },
       {
         "key": "months",
@@ -2432,7 +2440,8 @@
         "minimum": "1",
         "namespace": "invest.service.ma-renewal",
         "version": 1,
-        "basis_hint": "مبدأ همین دوره را صریح وارد کنید."
+        "basis_hint": "مبدأ همین دوره را صریح وارد کنید.",
+        "group": "ساکنان و اسکان موقت"
       },
       {
         "key": "deposit",
@@ -2462,7 +2471,8 @@
         "integer": false,
         "minimum": "0",
         "namespace": "invest.service.ma-renewal",
-        "version": 1
+        "version": 1,
+        "group": "ساکنان و اسکان موقت"
       },
       {
         "key": "rent",
@@ -2492,7 +2502,8 @@
         "integer": false,
         "minimum": "0",
         "namespace": "invest.service.ma-renewal",
-        "version": 1
+        "version": 1,
+        "group": "ساکنان و اسکان موقت"
       },
       {
         "key": "payer",
@@ -2523,7 +2534,8 @@
             "source_end": 661695
           }
         ],
-        "full": false
+        "full": false,
+        "group": "ساکنان و اسکان موقت"
       },
       {
         "key": "notes",
@@ -2545,7 +2557,8 @@
             "source_end": 661766
           }
         ],
-        "full": true
+        "full": true,
+        "group": "ساکنان و اسکان موقت"
       }
     ],
     "source": [
@@ -2565,7 +2578,7 @@
     "rule_version": 1,
     "routes": {},
     "steps": [
-      "فرم اختصاصی manager",
+      "فرم اختصاصی اجاره‌داری حرفه‌ای",
       "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
     ],
     "fields": [
@@ -2818,7 +2831,7 @@
     "rule_version": 1,
     "routes": {},
     "steps": [
-      "فرم اختصاصی exchange",
+      "فرم اختصاصی معاوضه ملک",
       "جمع‌بندی، بررسی لازم، دریافت و ذخیره"
     ],
     "fields": [

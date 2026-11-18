@@ -10,7 +10,8 @@ from rest_framework.response import Response
 from apps.identity.models import User
 from apps.identity.sessions import current_session, mint_session
 from apps.services.models import ServiceSubmission
-from apps.workspace.models import PrivateFile, RepresentationRequest
+from apps.workspace.downloads import download_transaction
+from apps.workspace.models import Draft, Organization, PrivateFile, RepresentationRequest
 from apps.workspace.schema import Fault, check_keys
 from apps.workspace.service import application_dto
 from config.views import PublicBase
@@ -220,49 +221,19 @@ class CoreAPI(PublicBase):
                     if not r or not permitted_report(user, r):
                         raise Fault("گزارش پیدا نشد.", 404)
                     if r.snapshot.get("subject_type") == "service":
-                        from apps.services.service import get_report
+                        from apps.services.service import render_report
 
-                        get_report(user, r.pk)
+                        body = render_report(user, r.pk, as_json=True)
+                    else:
+                        body = json.dumps(r.snapshot, ensure_ascii=False, indent=2)
                     response = HttpResponse(
-                        json.dumps(r.snapshot, ensure_ascii=False, indent=2),
+                        body,
                         content_type="application/json; charset=utf-8",
                     )
                     response["Content-Disposition"] = 'attachment; filename="invest-report.json"'
                     return response
                 if parts[0] == "private-file" and len(parts) == 2:
-                    try:
-                        f = PrivateFile.objects.get(
-                            pk=identifier(parts[1]), status="clean", purged_at__isnull=True
-                        )
-                    except PrivateFile.DoesNotExist as e:
-                        raise Fault("فایل پیدا نشد.", 404) from e
-                    allowed = False
-                    if user.role == "admin":
-                        role(session, "admin")
-                        allowed = bool(
-                            f.application_id
-                            or ServiceSubmission.objects.filter(
-                                files__contains=[str(f.pk)]
-                            ).exists()
-                            or Submission.objects.filter(files__contains=[str(f.pk)]).exists()
-                        )
-                    if not allowed:
-                        for c in Case.objects.filter(
-                            Q(message__files__contains=[str(f.pk)])
-                            | Q(service_submission__files__contains=[str(f.pk)])
-                        ).distinct():
-                            if cases.is_customer(user, c) or user.pk == c.expert_id:
-                                cases.get_case(session, c.pk)
-                                allowed = True
-                                break
-                    if not allowed:
-                        raise Fault("دسترسی به مدرک مجاز نیست.", 403)
-                    response = HttpResponse(
-                        bytes(f.derivative if f.derivative is not None else f.content),
-                        content_type=f.media_type,
-                    )
-                    response["Content-Disposition"] = 'attachment; filename="invest-private-file"'
-                    return response
+                    return self.private_file(session, parts[1])
             elif request.method == "POST":
                 data = request.data
                 if path == "personal":
@@ -299,3 +270,45 @@ class CoreAPI(PublicBase):
 
     def post(self, request, path):
         return self.handle(request, path)
+
+    @download_transaction
+    def private_file(self, session, id):
+        user = session.user
+        try:
+            f = PrivateFile.objects.get(pk=identifier(id), status="clean", purged_at__isnull=True)
+        except PrivateFile.DoesNotExist as e:
+            raise Fault("فایل پیدا نشد.", 404) from e
+        parent = Draft if f.draft_id else RepresentationRequest
+        organization_id = parent.objects.values_list("organization_id", flat=True).get(
+            pk=f.draft_id or f.application_id
+        )
+        if organization_id:
+            Organization.objects.select_for_update().get(pk=organization_id)
+        f = PrivateFile.objects.select_for_update().get(pk=f.pk)
+        if f.status != "clean" or f.purged_at:
+            raise Fault("فایل اکنون قابل دریافت نیست.", 409, "files")
+        allowed = False
+        if user.role == "admin":
+            role(session, "admin")
+            allowed = bool(
+                f.application_id
+                or ServiceSubmission.objects.filter(files__contains=[str(f.pk)]).exists()
+                or Submission.objects.filter(files__contains=[str(f.pk)]).exists()
+            )
+        if not allowed:
+            for c in Case.objects.filter(
+                Q(message__files__contains=[str(f.pk)])
+                | Q(service_submission__files__contains=[str(f.pk)])
+            ).distinct():
+                if cases.is_customer(user, c) or user.pk == c.expert_id:
+                    cases.get_case(session, c.pk)
+                    allowed = True
+                    break
+        if not allowed:
+            raise Fault("دسترسی به مدرک مجاز نیست.", 403)
+        response = HttpResponse(
+            bytes(f.derivative if f.derivative is not None else f.content),
+            content_type=f.media_type,
+        )
+        response["Content-Disposition"] = 'attachment; filename="invest-private-file"'
+        return response

@@ -41,3 +41,14 @@
 - [x] T026 [US1,US3] والد نامشخص/ناهمخوان، فرزند مؤثر تولید نکند؛ نام گزینه از والد همان snapshot و واحدها با برچسب خوانای فارسی نمایش داده شوند؛ raw خصوصی حفظ و آزمون منبع/گزارش اجرا شود.
 
 شاهد T002–T017 و T019–T026: docs/stage8/report.md، evidence/backend-final.txt (۱۸۷۵)، evidence/browser-final.txt (۱۶)، scope-map.json و تصاویر reference/product. T018 با commit پیاده‌سازی be66369 و push موفق main تکمیل شد؛ commit شواهد در تحویل نهایی آمده است؛ این علامت‌ها پذیرش مستقل/انسانی نیستند.
+
+## Phase 7: Convergence — PROGRAMMER-S08-FIX-01
+- [x] T027 CRITICAL [US2,US3] S08-IT-001 هماهنگی تراکنشی اختیار جاری و تولید HTML/ZIP با جانشینی؛ مرز بایت و مسیرهای دریافت هم‌خانواده؛ تست رقابتی واقعی هر دو ترتیب (FR-003/006؛ contradicts).
+- [x] T028 CRITICAL [US2,US3] S08-IT-002 قفل وضعیت فایل تا ساخت کامل ZIP، ترتیب قفل سازگار و رفتار409؛ تست محتویات واقعی و pending/حذف/قرنطینه (FR-006/008؛ contradicts).
+- [x] T029 [US1] S08-IT-003 پیشرفت خوانای۳۶۰/۳۹۰ بدون تداخل و حفظ focus/keyboard در فرم مشترک (FR-002؛ partial).
+- [x] T030 [US1] S08-IT-004 گروه واقعی محدوده/حقوق و ساکنان/اسکان با ترتیب و شروط منبع (FR-001/002؛ partial).
+- [x] T031 [US1] S08-IT-005 فیلتر risk و طبقه‌بندی منابع بین‌المللی مطابق منبع، حفظ سه فیلتر دیگر (FR-001/002؛ partial).
+- [x] T032 [US1,US3] S08-IT-006 عنوان فارسی۹مرحله و boolean معنادار در فرم/جمع‌بندی/HTML بدون تغییر داده و حفظfalse/صفر (FR-002/005؛ partial).
+- [ ] T033 آزمون‌های مستقل تاریخی و مکمل/مرورگر هدفمند، کیفیت/build، منشأ image فعال و manifest تازه، گزارش زمان/محدودیت، commit/push (FR-009/SC-005؛ partial).
+
+شاهد FIX-01 T027–T032: docs/stage8/fix-01-evidence/backend-final.txt، races-final.txt و browser-final.txt؛ سه آزمون مستقل تاریخی دست‌نخورده‌اند. T033 پس از ثبت نسخه/image/گزارش و push تکمیل می‌شود.

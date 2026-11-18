@@ -11,7 +11,8 @@ from apps.core.common import event, identifier, notify, run, text
 from apps.core.models import Case, Message, Report
 from apps.identity.models import User
 from apps.workspace import service as ws
-from apps.workspace.models import PrivateFile
+from apps.workspace.downloads import download_transaction
+from apps.workspace.models import Draft, Organization, PrivateFile
 from apps.workspace.schema import Fault, check_keys
 
 from .evaluation import evaluate
@@ -190,6 +191,28 @@ def get_report(user, id):
     # Current organization authority, rather than historical report creator, is authoritative.
     ws.target(user, "draft", r.snapshot["draft_id"], trash=True)
     return r
+
+
+@download_transaction
+def render_report(user, id, package=False, as_json=False):
+    """Serialize authority changes until the bounded, non-streaming body is complete.
+
+    No Draft lock: writers take parent -> organization -> file. Readers only take
+    organization -> ordered files, never the parent afterwards, avoiding a cycle.
+    Report is immutable; byte delivery after this transaction cannot be revoked.
+    """
+    r = Report.objects.filter(pk=identifier(id), snapshot__subject_type="service").first()
+    if not r:
+        raise Fault("گزارش پیدا نشد.", 404)
+    organization_id = Draft.objects.values_list("organization_id", flat=True).get(
+        pk=r.snapshot["draft_id"]
+    )
+    if organization_id:
+        Organization.objects.select_for_update().get(pk=organization_id)
+    r = get_report(user, id)
+    if as_json:
+        return json.dumps(r.snapshot, ensure_ascii=False, indent=2)
+    return report_package(r) if package else report_html(r)
 
 
 def report_html(report):
@@ -408,6 +431,7 @@ def permitted_report(user, report):
         return False
 
 
+@download_transaction
 def report_package(report):
     """An authorized, bounded package of this frozen report and its clean private references."""
     import hashlib
@@ -418,11 +442,13 @@ def report_package(report):
     ids = snapshot["files"]
     rows = {
         str(f.pk): f
-        for f in PrivateFile.objects.filter(
-            pk__in=ids, draft_id=snapshot["draft_id"], status="clean", purged_at__isnull=True
-        )
+        for f in PrivateFile.objects.select_for_update()
+        .filter(pk__in=ids, draft_id=snapshot["draft_id"])
+        .order_by("pk")
     }
-    if set(rows) != set(ids):
+    if set(rows) != set(ids) or any(
+        f.status != "clean" or f.purged_at or f.deleted_at or f.replaced_at for f in rows.values()
+    ):
         raise Fault(
             ("پیوست ثبت\u200cشده اکنون پاک و قابل دریافت نیست؛ وضعیت بررسی را پیگیری کنید."),
             409,

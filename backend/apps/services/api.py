@@ -66,13 +66,13 @@ class ServicesAPI(PublicBase):
             ):
                 if parts[2] == "package":
                     response = HttpResponse(
-                        service.report_package(service.get_report(session.user, parts[1])),
+                        service.render_report(session.user, parts[1], package=True),
                         content_type="application/zip",
                     )
                     response["Content-Disposition"] = 'attachment; filename="invest-service.zip"'
                     return response
                 response = HttpResponse(
-                    service.report_html(service.get_report(session.user, parts[1])),
+                    service.render_report(session.user, parts[1]),
                     content_type="text/html; charset=utf-8",
                 )
                 response["Content-Disposition"] = 'attachment; filename="invest-service.html"'
