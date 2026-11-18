@@ -1,0 +1,51 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-test-run-1b6ae93be966 Creating
+ Container invest-test-run-1b6ae93be966 Created
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_incremental_catalog_migrations_preserve_v1_definitions __________
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:103: in _execute
+    return self.cursor.execute(sql)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.ObjectInUse: cannot ALTER TABLE "catalog_fielddefinition" because it has pending trigger events
+
+The above exception was the direct cause of the following exception:
+/independent/test_gaps.py:56: in test_incremental_catalog_migrations_preserve_v1_definitions
+    executor.migrate([('catalog','0004_basis_integrity')])
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:141: in migrate
+    state = self._migrate_all_backwards(plan, full_plan, fake=fake)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:219: in _migrate_all_backwards
+    self.unapply_migration(states[migration], migration, fake=fake)
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:282: in unapply_migration
+    state = migration.unapply(state, schema_editor)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/migrations/migration.py:193: in unapply
+    operation.database_backwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/operations/special.py:204: in database_backwards
+    self.reverse_code(from_state.apps, schema_editor)
+apps/catalog/migrations/0006_project_capacity_units.py:75: in unseed
+    cursor.execute("ALTER TABLE catalog_fielddefinition ENABLE TRIGGER immutable_field")
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:79: in execute
+    return self._execute_with_wrappers(
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:92: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:100: in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:103: in _execute
+    return self.cursor.execute(sql)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   django.db.utils.OperationalError: cannot ALTER TABLE "catalog_fielddefinition" because it has pending trigger events
+=========================== short test summary info ============================
+FAILED ::test_incremental_catalog_migrations_preserve_v1_definitions - django...
+1 failed in 0.99s

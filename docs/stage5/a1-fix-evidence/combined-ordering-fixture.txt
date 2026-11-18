@@ -1,0 +1,62 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-test-run-8dd5089a445c Creating
+ Container invest-test-run-8dd5089a445c Created
+........................................................................ [ 21%]
+........................................................................ [ 43%]
+........................................................................ [ 65%]
+........................................................................ [ 86%]
+...........................................F                             [100%]
+=================================== FAILURES ===================================
+_________ test_incremental_catalog_migrations_preserve_v1_definitions __________
+/independent/test_gaps.py:59: in test_incremental_catalog_migrations_preserve_v1_definitions
+    MigrationExecutor(connection).migrate(target)
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:135: in migrate
+    state = self._migrate_all_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:167: in _migrate_all_forwards
+    state = self.apply_migration(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:255: in apply_migration
+    state = migration.apply(state, schema_editor)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/migrations/migration.py:132: in apply
+    operation.database_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/operations/special.py:196: in database_forwards
+    self.code(from_state.apps, schema_editor)
+apps/catalog/migrations/0005_project_fields.py:155: in seed
+    unit = Unit.objects.get(code=f["unit"], version=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:635: in get
+    raise self.model.DoesNotExist(
+E   __fake__.UnitDefinition.DoesNotExist: UnitDefinition matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+/independent/test_gaps.py:62: in test_incremental_catalog_migrations_preserve_v1_definitions
+    finally:MigrationExecutor(connection).migrate(target)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:135: in migrate
+    state = self._migrate_all_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:167: in _migrate_all_forwards
+    state = self.apply_migration(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:255: in apply_migration
+    state = migration.apply(state, schema_editor)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/migrations/migration.py:132: in apply
+    operation.database_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/operations/special.py:196: in database_forwards
+    self.code(from_state.apps, schema_editor)
+apps/catalog/migrations/0005_project_fields.py:155: in seed
+    unit = Unit.objects.get(code=f["unit"], version=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:635: in get
+    raise self.model.DoesNotExist(
+E   __fake__.UnitDefinition.DoesNotExist: UnitDefinition matching query does not exist.
+=========================== short test summary info ============================
+FAILED ::test_incremental_catalog_migrations_preserve_v1_definitions - __fake...
+1 failed, 331 passed in 15.80s

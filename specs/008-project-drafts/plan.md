@@ -30,3 +30,6 @@ blob داخلDB انتخاب آگاهانه برای یکپارچگی A1؛ مه�
 تکمیل ظرفیت: catalog0006 تعریف metric_quantity@2 و۲۱واحد افزایشی ایجاد می‌کند؛ base هر واحد مستقل و factor=1، بدون تبدیل حدسی. widget از واحدهای صریح schema می‌خواند؛ API مقدار قدیمی@1 را با allowlist همان تعریف حفظ می‌کند. شمار تعاریف نهایی۲۱فیلد/۳۳واحد است. build دوم صرفاً به علت این شکاف یافته‌شده در تطبیق نهایی مرجع لازم شد.
 
 انتقال Next.js روی۲۱MiB محدود است تا مدرک۲۰MiB کامل عبور کند؛ نوع/حجم/سهمیه نهایی سمت سرور مستقل اعمال می‌شود. شکست واقعی مرز۲۰MiB دلیل build سوم فقط فرانت است.
+
+## اصلاح rollback — A1-FIX-01
+علت بررسی‌شده: constraint triggerهای FK ابتدا معوق‌اند؛ DELETE می‌تواند قبل از ALTER ENABLE رویداد معوق باقی بگذارد. reverseها در تراکنش اتمیک همان migration، پیش از ALTER، SET CONSTRAINTS ALL IMMEDIATE اجرا می‌کنند؛ خطای constraint پنهان نمی‌شود و mode با پایان تراکنش به پیش‌فرض برمی‌گردد. guardهای immutable فقط داخل همان تراکنش و فقط برای حذف تعریف همین نسخه موقتاً غیرفعال می‌شوند؛ شکست rollback داده/DDL همان migration را برمی‌گرداند. وابستگی FK/PROTECT و ارجاع allowed_units تعریف‌های باقی‌مانده مانع حذف واحدند. backward migration فقط روی test_ PostgreSQL، بدون fake/cascade یا دست‌زدن به DB اصلی. آزمون هدفمند catalog/value/reverse و build backend/test؛ فرانت/scanner/مرورگر بی‌تغییر.

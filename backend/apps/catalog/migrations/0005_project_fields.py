@@ -1,6 +1,7 @@
 from decimal import Decimal
 
 from django.db import migrations
+from django.db.models.deletion import ProtectedError
 
 FIELDS = [
     {
@@ -188,11 +189,21 @@ def unseed(apps, schema_editor):
     Field = apps.get_model("catalog", "FieldDefinition")
     Unit = apps.get_model("catalog", "UnitDefinition")
     with schema_editor.connection.cursor() as cursor:
+        # Flush outstanding FK events and check subsequent deletes immediately before
+        # changing triggers. This mode is local to this atomic migration transaction.
+        cursor.execute("SET CONSTRAINTS ALL IMMEDIATE")
         cursor.execute("ALTER TABLE catalog_fielddefinition DISABLE TRIGGER immutable_field")
         cursor.execute("ALTER TABLE catalog_unitdefinition DISABLE TRIGGER immutable_unit")
-        Field.objects.filter(
+        removed_fields = Field.objects.filter(
             namespace="invest.opportunity.project", version=1, key__in=[f["key"] for f in FIELDS]
-        ).delete()
+        )
+        retained = Field.objects.exclude(pk__in=removed_fields.values("pk"))
+        consumers = retained.filter(
+            allowed_units__contains=[{"code": "SHARE_PERCENT", "version": 1}]
+        )
+        if consumers.exists():
+            raise ProtectedError("Rollback unit is referenced by retained definitions", consumers)
+        removed_fields.delete()
         Unit.objects.filter(code="SHARE_PERCENT", version=1).delete()
         cursor.execute("ALTER TABLE catalog_fielddefinition ENABLE TRIGGER immutable_field")
         cursor.execute("ALTER TABLE catalog_unitdefinition ENABLE TRIGGER immutable_unit")

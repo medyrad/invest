@@ -1,0 +1,50 @@
+{
+  "mission": "PROGRAMMER-S05-A1-FIX-01",
+  "version": "S05-A1-FIX-01-e7cd7767f27f",
+  "baseline": "deceb34f0ccb2f2a6ea66814fd2ac2f9675ec379",
+  "issue": "S05-A1-IT-001",
+  "images": {
+    "backend": "sha256:7a65067546515afb593db3853d902621d0cfdf4cb7ef73170128670b6af80742",
+    "test": "sha256:447b1fcda38f418fa9a9d0b550d663879764f8508a25ff334ee90964bc5e27c5"
+  },
+  "runtime_and_test_source_matches": true,
+  "forward_unchanged": true,
+  "source_sha256": {
+    "backend/apps/catalog/migrations/0005_project_fields.py": "d10dd0d7ff6e7309051fd1d597c3ca6dce049583682e6b6b7e3024836ba5c2b6",
+    "backend/apps/catalog/migrations/0006_project_capacity_units.py": "ad59c6cc84f00e8f751d97dec73d7eb9a2e94c332a46cf9efefe792c9a155b99",
+    "backend/tests/test_catalog_reverse.py": "cdbbbe45c9e82d8cb6883d5dabd1adb09183ad525f489aa521e039e995e9e10a"
+  },
+  "historical_evidence_files_unchanged": 62,
+  "web_scanner_jobs_images_unchanged": true,
+  "database_rollback_only_on_test": true,
+  "new_migration": false,
+  "independent_acceptance": false,
+  "human_acceptance": false,
+  "status": "ready-for-independent-retest",
+  "timing": {
+    "marker_utc": "2026-11-18T10:58:37.115395+00:00",
+    "initial_read_precedes_marker": true,
+    "baseline": "deceb34f0ccb2f2a6ea66814fd2ac2f9675ec379",
+    "implementation_stable_utc": "2026-11-18T11:03:07.970901+00:00",
+    "reported_at_utc": "2026-11-18T11:06:05.676706+00:00"
+  },
+  "tests": {
+    "related_passed": 331,
+    "independent_passed": 1,
+    "unique_passed": 332,
+    "regression_cases_added": 16
+  },
+  "artifacts_sha256": {
+    "docs/stage5/a1-fix-evidence/build.txt": "ca1360ce7315d224e25663f295503a05fc1586c691d9565de67b7b3b20b84b58",
+    "docs/stage5/a1-fix-evidence/combined-ordering-fixture.txt": "3d7624bc9fc3274de7b5d6e831e09bd3d4a752309cbf5053022cea51d445062d",
+    "docs/stage5/a1-fix-evidence/forward-preservation.json": "90821f5d44b942e88e366a68dbea2df96431bb62838448a96aed01d820d6961f",
+    "docs/stage5/a1-fix-evidence/health.json": "a29ee2b15c494311c52521766e44af56a3ad2248e7a8ab465e5206463c13d288",
+    "docs/stage5/a1-fix-evidence/independent-retest.txt": "e54b871fcf31bf79fddfc55a454d99355b8558a9305b2e90f4f500fdee828769",
+    "docs/stage5/a1-fix-evidence/preservation.json": "df378ffded10cbd74c1ea87f399985d4b39b42dc646932fb7eabd2e2b01d649d",
+    "docs/stage5/a1-fix-evidence/quality.txt": "af516fbcdfe614f73769a0fa611772a09d35263595f0da532f65e46481809e0d",
+    "docs/stage5/a1-fix-evidence/related-tests.txt": "51590ea2eaa068d69d490bda5256d9d5588e06912e6bd71bbba3dffb48726d6d",
+    "docs/stage5/a1-fix-evidence/reproduction-0005.txt": "aeb7f0234473b60184d7d4320801a3ae06b15221ea3a5780a4d6112ce3bf1263",
+    "docs/stage5/a1-fix-evidence/reproduction-both.txt": "671305936c64f79faa9a861df695919981822bf8d83df47f3bda7088437c7ec0",
+    "docs/stage5/a1-fix-evidence/reproduction.txt": "a270033826b2371cbcee55ef86cff60d91247c85cf406ec229413fbf5ca404c7"
+  }
+}

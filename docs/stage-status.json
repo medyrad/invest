@@ -1,7 +1,7 @@
 {
   "date": "2026-11-18",
   "current_stage": "S05",
-  "status": "s05-a1-ready-for-independent-test-human-and-full-stage-gates-open",
+  "status": "s05-a1-fix-01-ready-for-independent-retest",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -401,7 +401,7 @@
   },
   "project_drafts": {
     "mission": "PROGRAMMER-S05-A1",
-    "status": "ready-for-independent-test",
+    "status": "fix-ready-for-independent-retest",
     "delivery_label": "آماده آزمون مستقل PROGRAMMER-S05-A1",
     "version": "S05-A1-da7e008e04ec",
     "feature_directory": "specs/008-project-drafts",
@@ -429,6 +429,28 @@
     "baseline_tasks_fully_completed": false,
     "a2_b_c_started": false,
     "public_deployed": false,
-    "pushed": false
+    "pushed": false,
+    "independent_test": {
+      "mission": "TEST-S05-A1-01",
+      "status": "needs-fix",
+      "report_path": "docs/stage5/a1-independent-test-report.md",
+      "report_commit": "429ece8751c5987ba8606628757bea73664583d4",
+      "issue": "S05-A1-IT-001"
+    },
+    "fix_01": {
+      "mission": "PROGRAMMER-S05-A1-FIX-01",
+      "status": "ready-for-independent-retest",
+      "delivery_label": "آماده بازآزمایی مستقل",
+      "version": "S05-A1-FIX-01-e7cd7767f27f",
+      "report_path": "docs/stage5/a1-fix-report.md",
+      "manifest_path": "docs/stage5/a1-fix-evidence/manifest.json",
+      "related_tests_passed": 331,
+      "independent_test_passed_by_programmer": 1,
+      "independent_acceptance": false,
+      "human_acceptance": false,
+      "new_migration": false,
+      "active_db_migrated": false,
+      "pushed": false
+    }
   }
 }

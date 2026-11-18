@@ -1,0 +1,8 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-test-run-48024c33a743 Creating
+ Container invest-test-run-48024c33a743 Created
+reverse0005: reproduced pending trigger events (SQLSTATE 55006); transaction rolled back
+.
+1 passed in 0.62s

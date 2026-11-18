@@ -28,3 +28,11 @@ Input: spec/plan/product و D30–32. تست‌ها صریحاً جزو مأمو
 وابستگی: T001→T002→T003→T004، T006 سپسT005/7؛ T008→T009→T010→T011؛ تمام مسیرها→T012→T013→T014. هیچ کار پایه چندمرحله‌ای با این تسک‌ها کامل اعلام نمی‌شود.
 
 شاهد تکمیل همین دامنه: docs/stage5/a1-report.md و a1-evidence/manifest.json؛ T002/008 پیش از سرویس‌ها نوشته و سپس اجرا شدند. تست نهایی۴۴۶مورد، مرورگر۵+۱ و migration واقعی ثبت است. تکمیل T014 در کامیت تحویل همین گزارش محقق می‌شود؛ این marker تأیید مستقل/انسانی نیست.
+
+## Phase 6: PROGRAMMER-S05-A1-FIX-01
+- [x] T015 بازتولید مستقل IT-001 و reverse۰۰۰۵ روی PostgreSQL آزمون؛ docs/stage5/a1-fix-evidence/؛ FR010.
+- [x] T016 اصلاح صرفاً reverseهای۰۰۰۵/۰۰۰۶، حفظ forward/تعاریف/وابستگی/guard و mode تراکنش؛ backend/apps/catalog/migrations/؛ FR010.
+- [x] T017 آزمون مستقل دست‌نخورده و تست‌های واقعی موفقیت/شکست/زنجیره/مصرف‌کننده در backend/tests/test_catalog_reverse.py؛ آزمون مرتبط catalog/value و کیفیت؛ FR010.
+- [x] T018 build backend/test، تطبیق کد image، حفظ محیط/داده، گزارش/نسخه/کامیت محلی و آماده بازآزمایی مستقل؛ docs/stage5/a1-fix-report.md.
+
+شاهد T015–018: docs/stage5/a1-fix-report.md و a1-fix-evidence/manifest.json؛ تکمیل کامیت تحویل، پایان T018 است. این marker پذیرش مستقل نیست.
