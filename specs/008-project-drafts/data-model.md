@@ -1,6 +1,6 @@
 # مدل داده A1
 - Organization: UUID، نام/کشور/نوع/شناسه ثبت؛ یکتایی کشور+ثبت.
-- RepresentationRequest: سازمان، متقاضی، snapshot مشخصات و اختیار امضا/نام/حدود/تاریخ/پایان صریح؛ وضعیت pending/needs_info/rejected/approved. فقط درخواست خود یا اختیار فعال. هیچ endpoint تصویب وجود ندارد.
+- RepresentationRequest: سازمان، متقاضی، snapshot مشخصات و اختیار امضا/نام/حدود/تاریخ/پایان صریح؛ وضعیت pending/needs_info/rejected/approved. درخواست تأییدنشدهٔ خود یا اختیار فعال؛ approved در فهرست/دانلود به اختیار جاری وابسته است. هیچ endpoint تصویب وجود ندارد.
 - Representation: سازمان/کاربر، وضعیت active/revoked/hold، پایان اختیاری؛ partial unique حداکثر یک active. اختیار هر درخواست مجدداً محاسبه می‌شود.
 - Draft: UUID، creator، سازمان/درخواست اختیاری، schema1، version، routes و raw؛ deleted_at. مالک ثابت، state فقط draft. خام/inactive خصوصی و خروجی مؤثر مشتق سرور.
 - DraftRevision: نسخه یکتا، raw و effective؛ DraftValue با یکی از FKهای MoneyValue/Quantity/ReturnMetric پذیرفته‌شده007، به تفکیک کلید.

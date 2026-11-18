@@ -22,3 +22,6 @@
 ## گزینه‌های بررسی‌شده
 
 ClamAV official Docker image با pin digest مطلوب بود ولی pull/inspect403؛ نصب apt نسخه متغیر و وابستگی اضافه می‌آورد؛ بسته رسمی hash/GPGشده راه قابل اجرا شد. Poppler26.01.0 میزبان موجود است ولی وابسته‌کردن runtime container به ابزار میزبان بازتولیدپذیر نیست. Pillow/pypdf قبلاً در image پروژه نصب نبودند؛ این دو وابستگی جدید برای قابلیت خواسته‌شده لازم‌اند و باید در lock افزوده شوند. پاسخ ثابت clean، regex تنها برای PDF و scanner فقط با custom EICAR signature رد شدند.
+
+## مرز انتقال فرانت
+آزمون واقعی۲۰MiB روی image، قطع بدنه در سقف پیش‌فرض۱۰MiB Next.js را آشکار کرد. گزینه experimental.proxyClientMaxBodySize در types/config-schema نسخه نصب‌شده16.4.6 تأیید و روی۲۱MiB قفل شد؛ بک‌اند همچنان۲۰MiB مدرک/۱۰MiB تصویر و رزرو اتمیک را اعمال می‌کند. [قرارداد رسمی گزینه](https://nextjs.org/docs/app/api-reference/config/next-config-js/proxyClientMaxBodySize)؛ صفحه رسمی هنگام بازخوانی در این محیط404 بود، وجود گزینه در package قفل‌شده نیز مستقیم بررسی شد. build سوم فقط فرانت و بازاجرای هدفمند ناشی از این شکست تازه است.

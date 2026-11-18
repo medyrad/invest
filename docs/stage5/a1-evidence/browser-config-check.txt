@@ -1,0 +1,7 @@
+Listing tests:
+  workspace.spec.ts:39:1 › A1 journey: lost create, exact conditional form, file, resume on second device, trash
+  workspace.spec.ts:75:1 › A1 layout, keyboard, organization and heritage conditions at four widths
+  workspace.spec.ts:97:1 › A1 conflict, expired-session input preservation, logout, account isolation and restart
+  workspace.spec.ts:126:1 › A1 HTTP receives the full 20 MiB document boundary through the built frontend
+  workspace.spec.ts:141:1 › A1 home and navigation smoke preserve existing identity
+Total: 5 tests in 1 file

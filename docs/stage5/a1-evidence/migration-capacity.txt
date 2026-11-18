@@ -1,0 +1,9 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-backend-run-3385df8a895d Creating
+ Container invest-backend-run-3385df8a895d Created
+Operations to perform:
+  Apply all migrations: auth, catalog, contenttypes, identity, sessions, workspace
+Running migrations:
+  Applying catalog.0006_project_capacity_units... OK

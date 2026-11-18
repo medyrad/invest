@@ -257,3 +257,68 @@ def test_reservation_retry_different_input_and_quota(accounts, settings):
     with pytest.raises(service.Fault) as exc:
         reserve(a, d, blob)
     assert exc.value.status == 429
+
+
+@pytest.mark.parametrize("unit", list(FIELDS["metric_quantity"]["unit_options"]))
+def test_all_reference_capacity_units_explicit_v2(accounts, unit):
+    payload = number("metric_quantity", "3", unit)
+    payload["field"]["version"] = 2
+    d = save(
+        accounts[0],
+        create(accounts[0]),
+        {"metric_label": "ظرفیت مصنوعی", "metric_quantity": payload},
+    )
+    assert d["effective"]["metric_quantity"]["base_unit"] == unit
+    assert d["effective"]["metric_quantity"]["value"] == "3"
+
+
+def test_capacity_units_are_not_guessed_equivalent(accounts):
+    from apps.catalog.values import compare
+
+    a = accounts[0]
+
+    def capacity(unit):
+        p = number("metric_quantity", "3", unit)
+        p["field"]["version"] = 2
+        return save(a, create(a), {"metric_label": "ظرفیت مصنوعی", "metric_quantity": p})[
+            "effective"
+        ]["metric_quantity"]
+
+    assert compare(capacity("MEGAWATT"), capacity("MEGAVOLT_AMPERE"))["comparable"] is False
+    assert compare(capacity("ROOM"), capacity("BED"))["relation"] is None
+
+
+def test_revoked_representative_cannot_read_approved_request_files(accounts, monkeypatch):
+    a = accounts[0]
+    org = Organization.objects.create(
+        name="سازمان مصنوعی", country="IR", registration="TEST-REVOKE-DOC"
+    )
+    app = RepresentationRequest.objects.create(
+        organization=org, applicant=a, details={"name": org.name}, status="approved"
+    )
+    grant = Representation.objects.create(organization=org, user=a, status="active")
+    blob = image_bytes()
+    f = files.reserve(
+        a,
+        {
+            "key": str(uuid.uuid4()),
+            "target_type": "request",
+            "target_id": str(app.pk),
+            "kind": "document",
+            "name": "synthetic.png",
+            "size": len(blob),
+            "sha256": hashlib.sha256(blob).hexdigest(),
+            "replaces": None,
+        },
+    )
+    files.receive(a, f["id"], io.BytesIO(blob))
+    monkeypatch.setattr(files, "scan", lambda _: "clean")
+    files.check_one()
+    assert files.download(a, f["id"])[0]
+    grant.status = "revoked"
+    grant.save()
+    assert service.owners(a)["applications"] == []
+    with pytest.raises(service.Fault):
+        files.download(a, f["id"])
+    with pytest.raises(service.Fault):
+        service.target(a, "request", str(app.pk))

@@ -1,0 +1,6 @@
+آزمون HTTP روی image پیش از اصلاح proxy:
+۴ سفر/بررسی مرورگر موفق؛ دریافت بدنه۲۰MiB ناموفق.
+شاهد log: Request body exceeded 10MB ... Only the first 10MB will be available unless configured.
+علت: experimental.proxyClientMaxBodySize پیش‌فرض Next.js.
+اصلاح:۲۱MiB برای انتقال؛ محدودیت‌های۲۰MiB مدرک و۱۰MiB تصویر در سرور تغییر نکردند.
+گزارش خام خطا فقط زیر .tools نگه داشته شد؛ cookie/token وارد شواهد تحویل نشده است.

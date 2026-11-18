@@ -33,7 +33,9 @@ def grant(user, organization_id):
 
 def permitted(user, target):
     if isinstance(target, RepresentationRequest):
-        return target.applicant_id == user.pk or grant(user, target.organization_id)
+        return grant(user, target.organization_id) or (
+            target.applicant_id == user.pk and target.status != "approved"
+        )
     if target.organization_id is None:
         return target.creator_id == user.pk
     if grant(user, target.organization_id):
@@ -135,7 +137,11 @@ def application_dto(a):
 
 
 def owners(user):
-    apps = [application_dto(a) for a in RepresentationRequest.objects.filter(applicant=user)]
+    apps = [
+        application_dto(a)
+        for a in RepresentationRequest.objects.filter(applicant=user)
+        if permitted(user, a)
+    ]
     for g in Representation.objects.filter(user=user, status="active").select_related(
         "organization"
     ):

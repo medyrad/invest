@@ -1,0 +1,4 @@
+# Use the delivered runtime image against the isolated synthetic browser database.
+services:
+  browser-api:
+    image: invest-backend

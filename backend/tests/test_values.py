@@ -367,8 +367,8 @@ def test_value_api_contract_csrf_no_storage_and_persian_errors(client):
         ).validate(data)
 
     definitions = client.get("/api/v1/catalog/value-definitions")
-    assert definitions.status_code == 200 and len(definitions.json()["fields"]) == 20
-    assert len(definitions.json()["units"]) == 12
+    assert definitions.status_code == 200 and len(definitions.json()["fields"]) == 21
+    assert len(definitions.json()["units"]) == 33
     validate("ValueDefinitions", definitions.json())
     validate("ValueInput", payload(source="۱٫۵"))
     assert (

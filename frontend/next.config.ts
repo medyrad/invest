@@ -8,6 +8,7 @@ if (!['http:', 'https:'].includes(upstream.protocol) || upstream.username || ups
 
 const config: NextConfig = {
   output: 'standalone',
+  experimental: { proxyClientMaxBodySize: 21 * 1048576 },
   images: { loader: 'custom', loaderFile: './src/lib/image-loader.ts' },
   poweredByHeader: false,
   skipTrailingSlashRedirect: true,

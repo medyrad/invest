@@ -1,0 +1,2 @@
+ESLint فایل‌های متأثر، next.config.ts و config/تست مرورگر: exit 0، بدون warning.
+TypeScript داخل build نهایی فرانت موفق است؛ شواهد build-proxy.txt.

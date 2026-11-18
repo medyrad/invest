@@ -7,19 +7,19 @@ export function active(f: Field, routes: string[], heritage: boolean, values: Re
   const c: Record<string, boolean> = { always: true, participation, execution: participation || routes.includes('contractor'), duration: routes.some(r => ['investor', 'lessee', 'heritage'].includes(r)), rights: routes.some(r => ['buyer', 'lessee'].includes(r)), heritage: routes.includes('heritage') && heritage, heritage_years: routes.includes('heritage') && heritage && JSON.stringify(values.heritage_returns) !== '["fee"]' };
   return c[f.when] ?? routes.includes(f.when);
 }
-export function initialNumber(f: Field): Numeric { return { field: { namespace: 'invest.opportunity.project', key: f.key, version: 1 }, unit: { code: f.unit!, version: 1 }, status: 'known', source_value: '', basis: ['MONTH', 'YEAR', 'DAY'].includes(f.unit!) ? { start_basis: '' } : null }; }
+export function initialNumber(f: Field): Numeric { return { field: { namespace: 'invest.opportunity.project', key: f.key, version: f.version || 1 }, unit: { code: f.unit!, version: 1 }, status: 'known', source_value: '', basis: ['MONTH', 'YEAR', 'DAY'].includes(f.unit!) ? { start_basis: '' } : null }; }
 export function FieldControl({ field: f, value, change, options, error }: { field: Field; value: Value | undefined; change: (v: Value) => void; options?: RefOption[]; error?: string }) {
   const id = `field-${f.key}`;
   const title = <span className="workspace-label">{f.label}{f.required && <small> · برای تکمیل اطلاعات</small>}</span>;
   if (f.unit) {
     const n = value && typeof value === 'object' && !Array.isArray(value) ? value : initialNumber(f);
-    const set = (patch: Partial<Numeric>) => change({ ...n, ...patch });
+    const set = (patch: Partial<Numeric>) => change({ ...n, field: initialNumber(f).field, ...patch });
     const basis = n.basis || {};
     const setBasis = (patch: Partial<Basis>) => set({ basis: { ...basis, ...patch } });
-    const units = f.kind === 'money' ? ['TOMAN', 'MILLION_TOMAN', 'BILLION_TOMAN'] : f.key === 'metric_quantity' ? ['ITEM', 'KILOGRAM', 'SQUARE_METRE'] : [f.unit];
+    const units = f.unit_options ? Object.keys(f.unit_options) : f.kind === 'money' ? ['TOMAN', 'MILLION_TOMAN', 'BILLION_TOMAN'] : f.key === 'metric_quantity' ? ['ITEM', 'KILOGRAM', 'SQUARE_METRE'] : [f.unit];
     return <fieldset className="workspace-field"><legend>{title}</legend><div className="workspace-inline">
       <select aria-label={`${f.label} — وضعیت`} value={value ? n.status : ''} onChange={e => e.target.value ? set({ status: e.target.value, source_value: e.target.value === 'known' ? '' : null, basis: f.kind === 'return' ? null : n.basis }) : change(null)}><option value="">هنوز وارد نشده</option>{states.map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select>
-      <select aria-label={`${f.label} — واحد`} value={n.unit.code} onChange={e => set({ unit: { code: e.target.value, version: 1 } })}>{units.map(u => <option key={u} value={u}>{unitLabels[u]}</option>)}</select>
+      <select aria-label={`${f.label} — واحد`} value={n.unit.code} onChange={e => set({ unit: { code: e.target.value, version: 1 } })}>{units.map(u => <option key={u} value={u}>{f.unit_options?.[u] || unitLabels[u]}</option>)}</select>
       {n.status === 'known' && <input id={id} aria-label={f.label} inputMode="decimal" dir="ltr" value={n.source_value || ''} onChange={e => set({ source_value: e.target.value })} placeholder="مثلاً ۱٫۵" />}
     </div>
       {['MONTH', 'YEAR', 'DAY'].includes(f.unit) && <label>مبنای شروع مدت<input aria-label={`${f.label} — مبنای شروع`} value={basis.start_basis || ''} onChange={e => setBasis({ start_basis: e.target.value })} placeholder="مثلاً تحویل؛ اگر نامعلوم است unspecified" /></label>}
@@ -27,7 +27,7 @@ export function FieldControl({ field: f, value, change, options, error }: { fiel
         <label>نوع نرخ<select value={basis.metric_type || ''} onChange={e => setBasis({ version: 1, metric_type: e.target.value })}><option value="">انتخاب کنید</option><option value="irr">IRR</option></select></label>
         {([['period', 'دوره', { annual: 'سالانه', monthly: 'ماهانه', total: 'کل' }], ['price_basis', 'مبنای قیمت', { nominal: 'اسمی', real: 'واقعی' }], ['scope', 'سطح', { project: 'پروژه', investor: 'سرمایه‌گذار' }], ['observation', 'ماهیت', { forecast: 'پیش‌بینی', observed: 'عملکرد', claimed: 'ادعایی' }]] as [keyof Basis, string, Record<string, string>][]).map(([key, label, opts]) => <label key={key}>{label}<select value={String(basis[key] || '')} onChange={e => setBasis({ [key]: e.target.value })}><option value="">انتخاب کنید</option>{Object.entries(opts).map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select></label>)}
         <label>افق زمانی<input inputMode="decimal" value={basis.horizon?.value || ''} onChange={e => setBasis({ horizon: { value: e.target.value, unit: basis.horizon?.unit || { code: 'YEAR', version: 1 } } })} /></label>
-        <label>واحد افق<select value={basis.horizon?.unit.code || 'YEAR'} onChange={e => setBasis({ horizon: { value: basis.horizon?.value || '', unit: { code: e.target.value, version: 1 } } })}>{['DAY', 'MONTH', 'YEAR'].map(u => <option key={u} value={u}>{unitLabels[u]}</option>)}</select></label>
+        <label>واحد افق<select value={basis.horizon?.unit.code || 'YEAR'} onChange={e => setBasis({ horizon: { value: basis.horizon?.value || '', unit: { code: e.target.value, version: 1 } } })}>{['DAY', 'MONTH', 'YEAR'].map(u => <option key={u} value={u}>{f.unit_options?.[u] || unitLabels[u]}</option>)}</select></label>
         <label>تاریخ مبنا (میلادی)<input type="date" value={basis.basis_date || ''} onChange={e => setBasis({ basis_date: e.target.value })} /></label>
         <label>منبع ادعا<textarea value={basis.source || ''} onChange={e => setBasis({ source: e.target.value })} /></label>
       </div>}{error && <p className="workspace-error" role="alert">{error}</p>}</fieldset>;

@@ -1,78 +1,78 @@
 # نگاشت تمام فیلدهای پروژه A1
 
-مبنا جدول بخش۳ PRODUCT-S05-01، D29/D31؛ schema ثابت نسخه۱. همه widgetها در فرم واقعی /drafts ساخته می‌شوند؛ هر مقدار دقیق field namespace=invest.opportunity.project@1 و کلید زیر دارد. متن خام/enum طبقschema؛ آمادگی نقص است نه ارسال.
+مبنا بخش۳ PRODUCT-S05-01 و D29/D31؛ schema ثابت۱. مسیر پیش‌فرض منبع src/types/index.ts:Opportunity است، جز موارد صریح facts/تصمیم. کلید API snake_case با کلید منبع یکی فرض نشده است.
 
 | منبع | معنا / واحد | schema/API key | widget / شرط | پذیرش |
 | --- | --- | --- | --- | --- |
-| src/types/index.ts:Opportunity.title | عنوان پروژه / متن یا شناسه | `title` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.description | شرح پروژه / متن یا شناسه | `description` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.stage | مرحله اجرایی (اعلامی) / متن یا شناسه | `stage` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.model | مدل همکاری / متن یا شناسه | `model` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.model_id | شناسه مدل قرارداد / متن یا شناسه | `model_id` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.finance | روش تأمین مالی / متن یا شناسه | `finance` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.repay | بازگشت پول / متن یا شناسه | `repay` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.ownership | شرح حقوق / متن یا شناسه | `ownership` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.caution | هشدارها / متن یا شناسه | `caution` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.phase | وضعیت پیشرفت / متن یا شناسه | `phase` | enum / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.sector | صاحب پروژه (بخش) / متن یا شناسه | `sector` | enum / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.income | نوع درآمد / متن یا شناسه | `income` | enum / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.risk | ریسک اعلامی / متن یا شناسه | `risk` | enum / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.legal_status | وضعیت حقوقی / متن یا شناسه | `legal_status` | enum / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.revenues | منابع درآمد / متن یا شناسه | `revenues` | lines / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.checks | بررسی‌های پروژه / متن یا شناسه | `checks` | lines / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.steps | گام‌ها / متن یا شناسه | `steps` | lines / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.province | استان / متن یا شناسه | `province` | reference / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.county | شهرستان / متن یا شناسه | `county` | reference / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.city | شهر / متن یا شناسه | `city` | reference / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.group | حوزه / متن یا شناسه | `group` | reference / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.subtype | زیردسته / متن یا شناسه | `subtype` | reference / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.usage | کاربری / متن یا شناسه | `usage` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.metric_label | عنوان ظرفیت / متن یا شناسه | `metric_label` | text / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.metric | مقدار ظرفیت / ITEM | `metric_quantity` | quantity / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.min_capital | حداقل سرمایه ورود / BILLION_TOMAN | `min_capital` | money / participation | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.budget | نیاز مالی کل / BILLION_TOMAN | `budget` | money / always | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.monthly_rent | اجاره ماهانه / MILLION_TOMAN | `monthly_rent` | money / lessee | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.working_capital_min | نقدینگی اجرای پیمان / BILLION_TOMAN | `working_capital_min` | money / contractor | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.purchase_price | قیمت خرید / BILLION_TOMAN | `purchase_price` | money / buyer | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.deposit | ودیعه / BILLION_TOMAN | `deposit` | money / lessee | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.lump_rent | اجاره یکجای دوره / BILLION_TOMAN | `lump_rent` | money / lessee | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.execution_months | مدت اجرا / MONTH | `execution_months` | quantity / execution | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.payback_years | دوره بازگشت / YEAR | `payback_years` | quantity / participation | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.payback_downside_years | بازگشت بدبینانه / YEAR | `payback_downside_years` | quantity / participation | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.lockup_months | قفل سرمایه / MONTH | `lockup_months` | quantity / participation | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.first_income_months | اولین دریافت / MONTH | `first_income_months` | quantity / participation | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.duration_years | مدت کل طرح / اجاره / YEAR | `duration_years` | quantity / duration | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.heritage_years | مدت بهره‌برداری میراث / YEAR | `heritage_years` | quantity / heritage_years | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.partner_share | سهم شریک / SHARE_PERCENT | `partner_share` | quantity / participation | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.government_share | سهم دولت / SHARE_PERCENT | `government_share` | quantity / contractor | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.irr | IRR اعلامی / PERCENT | `irr` | return / participation | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:interventionLabel; src/types/index.ts:ProjectTerms/heritageTerms | نوع مداخله دولت / متن یا شناسه | `interventions` | multi / participation | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:settlementLabel; src/types/index.ts:ProjectTerms/heritageTerms | نحوه تسویه سهم / متن یا شناسه | `partnership_settlements` | multi / participation | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:contractorSettlementLabel; src/types/index.ts:ProjectTerms/heritageTerms | تسویه صورت‌وضعیت / متن یا شناسه | `contractor_settlements` | multi / contractor | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:guaranteeLabel; src/types/index.ts:ProjectTerms/heritageTerms | تضمین قابل پذیرش / متن یا شناسه | `accepted_guarantees` | multi / contractor | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:salePaymentLabel; src/types/index.ts:ProjectTerms/heritageTerms | شرایط پرداخت خرید / متن یا شناسه | `sale_payments` | multi / buyer | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:transferRightLabel; src/types/index.ts:ProjectTerms/heritageTerms | حق قابل انتقال / متن یا شناسه | `transfer_rights` | multi / buyer | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:leaseTypeLabel; src/types/index.ts:ProjectTerms/heritageTerms | نوع اجاره / متن یا شناسه | `lease_types` | multi / lessee | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:leasePaymentLabel; src/types/index.ts:ProjectTerms/heritageTerms | نحوه پرداخت اجاره / متن یا شناسه | `lease_payments` | multi / lessee | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:heritageReturnLabel; src/types/index.ts:ProjectTerms/heritageTerms | جبران هزینه مرمت / متن یا شناسه | `heritage_returns` | multi / heritage | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:heritageUseLabel; src/types/index.ts:ProjectTerms/heritageTerms | کاربری پس از مرمت / متن یا شناسه | `heritage_uses` | multi / heritage | US3، اعتبارسنجی/active-set و round-trip |
-| src/data/source-terms.ts:heritagePaymentLabel; src/types/index.ts:ProjectTerms/heritageTerms | زمان دریافت قرارداد مرمت / متن یا شناسه | `heritage_payments` | multi / heritage | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.general_conditions | شرایط عمومی / متن یا شناسه | `general_conditions` | text / execution | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.special_conditions | شرایط تخصصی / متن یا شناسه | `special_conditions` | text / execution | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.subject | موضوع حق / متن یا شناسه | `rights_subject` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.title_parties | مالک عرصه / اعیان / متن یا شناسه | `rights_title_parties` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.holder | دارنده منافع / سرقفلی / حق کسب / متن یا شناسه | `rights_holder` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.original_lease | تاریخ رابطه اولیه و انتقال / متن یا شناسه | `rights_original_lease` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.regime | قانون حاکم و مستند / متن یا شناسه | `rights_regime` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.assignment | حق انتقال / رضایت / متن یا شناسه | `rights_assignment` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.key_money | شرح سرقفلی و دلیل پرداخت / متن یا شناسه | `rights_key_money` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.valuation | شرح ارزش مستقل حقوق / متن یا شناسه | `rights_valuation` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.permitted_use | کاربری و شغل مجاز / متن یا شناسه | `rights_permitted_use` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.renewal | شروط تمدید و تخلیه / متن یا شناسه | `rights_renewal` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.claims | دعاوی و حقوق ثالث / متن یا شناسه | `rights_claims` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.registration | نوع سند و ثبت / متن یا شناسه | `rights_registration` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/lib/facts.ts:134-146; Opportunity.rights.costs | هزینه انتقال و بدهی / متن یا شناسه | `rights_costs` | text / rights | US3، اعتبارسنجی/active-set و round-trip |
-| src/types/index.ts:Opportunity.rights_occupancy | وضعیت تصرف / متن یا شناسه | `rights_occupancy` | enum / rights | US3، اعتبارسنجی/active-set و round-trip |
+| title | عنوان پروژه / متن/شناسه | `title@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| description | شرح پروژه / متن/شناسه | `description@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| stage | مرحله اجرایی (اعلامی) / متن/شناسه | `stage@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| model | مدل همکاری / متن/شناسه | `model@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| modelId | شناسه مدل قرارداد / متن/شناسه | `model_id@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| finance | روش تأمین مالی / متن/شناسه | `finance@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| repay | بازگشت پول / متن/شناسه | `repay@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| ownership | شرح حقوق / متن/شناسه | `ownership@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| caution | هشدارها / متن/شناسه | `caution@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| phase | وضعیت پیشرفت / متن/شناسه | `phase@1` | enum / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| owner | صاحب پروژه (بخش) / متن/شناسه | `sector@1` | enum / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| income | نوع درآمد / متن/شناسه | `income@1` | enum / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| risk | ریسک اعلامی / متن/شناسه | `risk@1` | enum / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| legalStatus | وضعیت حقوقی / متن/شناسه | `legal_status@1` | enum / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| revenues | منابع درآمد / متن/شناسه | `revenues@1` | multi / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| checks | بررسی‌های پروژه / متن/شناسه | `checks@1` | lines / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| steps | گام‌ها / متن/شناسه | `steps@1` | lines / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| province | استان / متن/شناسه | `province@1` | reference / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| کاتالوگ پذیرفته‌شده006 و D31؛ نوع افزوده نسبت به province/city منبع | شهرستان / متن/شناسه | `county@1` | reference / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| city | شهر / متن/شناسه | `city@1` | reference / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| group | حوزه / متن/شناسه | `group@1` | reference / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| subtype | زیردسته / متن/شناسه | `subtype@1` | reference / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| usage | کاربری / متن/شناسه | `usage@1` | enum / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| metric.label | عنوان ظرفیت / متن/شناسه | `metric_label@1` | text / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| metric.value/unit | مقدار ظرفیت / ITEM | `metric_quantity@2` | quantity / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| minCapital | حداقل سرمایه ورود / BILLION_TOMAN | `min_capital@1` | money / participation | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| budget | نیاز مالی کل / BILLION_TOMAN | `budget@1` | money / always | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| monthlyRent | اجاره ماهانه / MILLION_TOMAN | `monthly_rent@1` | money / lessee | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.workingCapitalMin | نقدینگی اجرای پیمان / BILLION_TOMAN | `working_capital_min@1` | money / contractor | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| lib/facts.ts:109 عنوان قیمت عرضه + تفکیک D31 | قیمت خرید / BILLION_TOMAN | `purchase_price@1` | money / buyer | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| lib/facts.ts:113 عنوان ودیعه + تفکیک D31 | ودیعه / BILLION_TOMAN | `deposit@1` | money / lessee | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.lumpRent | اجاره یکجای دوره / BILLION_TOMAN | `lump_rent@1` | money / lessee | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| executionMonths / terms.executionMonths | مدت اجرا / MONTH | `execution_months@1` | quantity / execution | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| paybackYears | دوره بازگشت / YEAR | `payback_years@1` | quantity / participation | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| paybackDownsideYears | بازگشت بدبینانه / YEAR | `payback_downside_years@1` | quantity / participation | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| lockupMonths | قفل سرمایه / MONTH | `lockup_months@1` | quantity / participation | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| firstIncomeMonths | اولین دریافت / MONTH | `first_income_months@1` | quantity / participation | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| durationYears | مدت کل طرح / اجاره / YEAR | `duration_years@1` | quantity / duration | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| heritageTerms.years | مدت بهره‌برداری میراث / YEAR | `heritage_years@1` | quantity / heritage_years | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.partnerShare | سهم شریک / SHARE_PERCENT | `partner_share@1` | quantity / participation | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.governmentShare | سهم دولت / SHARE_PERCENT | `government_share@1` | quantity / contractor | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.irr / irrBasis / irrPrice | IRR اعلامی / PERCENT | `irr@1` | return / participation | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.interventions | نوع مداخله دولت / متن/شناسه | `interventions@1` | multi / participation | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.partnershipSettlements | نحوه تسویه سهم / متن/شناسه | `partnership_settlements@1` | multi / participation | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.contractorSettlements | تسویه صورت‌وضعیت / متن/شناسه | `contractor_settlements@1` | multi / contractor | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.acceptedGuarantees | تضمین قابل پذیرش / متن/شناسه | `accepted_guarantees@1` | multi / contractor | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.salePayments | شرایط پرداخت خرید / متن/شناسه | `sale_payments@1` | multi / buyer | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.transferRights | حق قابل انتقال / متن/شناسه | `transfer_rights@1` | multi / buyer | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.leaseTypes | نوع اجاره / متن/شناسه | `lease_types@1` | multi / lessee | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.leasePayments | نحوه پرداخت اجاره / متن/شناسه | `lease_payments@1` | multi / lessee | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| heritageTerms.returns | جبران هزینه مرمت / متن/شناسه | `heritage_returns@1` | multi / heritage | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| heritageTerms.uses | کاربری پس از مرمت / متن/شناسه | `heritage_uses@1` | multi / heritage | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| heritageTerms.payments | زمان دریافت قرارداد مرمت / متن/شناسه | `heritage_payments@1` | multi / heritage | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.generalConditions | شرایط عمومی / متن/شناسه | `general_conditions@1` | text / execution | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| terms.specialConditions | شرایط تخصصی / متن/شناسه | `special_conditions@1` | text / execution | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.subject | موضوع حق / متن/شناسه | `rights_subject@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.titleParties | مالک عرصه / اعیان / متن/شناسه | `rights_title_parties@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.holder | دارنده منافع / سرقفلی / حق کسب / متن/شناسه | `rights_holder@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.originalLease | تاریخ رابطه اولیه و انتقال / متن/شناسه | `rights_original_lease@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.regime | قانون حاکم و مستند / متن/شناسه | `rights_regime@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.assignment | حق انتقال / رضایت / متن/شناسه | `rights_assignment@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.keyMoney | شرح سرقفلی و دلیل پرداخت / متن/شناسه | `rights_key_money@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.valuation | شرح ارزش مستقل حقوق / متن/شناسه | `rights_valuation@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.permittedUse | کاربری و شغل مجاز / متن/شناسه | `rights_permitted_use@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.renewal | شروط تمدید و تخلیه / متن/شناسه | `rights_renewal@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.claims | دعاوی و حقوق ثالث / متن/شناسه | `rights_claims@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.registration | نوع سند و ثبت / متن/شناسه | `rights_registration@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.costs | هزینه انتقال و بدهی / متن/شناسه | `rights_costs@1` | text / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
+| rights.occupancy | وضعیت تصرف / متن/شناسه | `rights_occupancy@1` | enum / rights | test_every_project_widget_contract_roundtrip؛ شروط در test_hidden_restore و heritage |
 
 ## اختلاف‌های مصوب و readonly
 - owner منبع = بخش public/private، درAPI `sector`؛ مالک حساب/سازمان از نشست و انتخاب مجاز، با آن مخلوط نیست.
@@ -84,3 +84,31 @@
 - province/county/city روابط کاتالوگ؛ unknown مستقل؛ نبود شهر با شهرستان جایگزین نمی‌شود.
 - phase/revenues/usage و سایر enumها عین واژه‌نامه مرجع از criteria/utils/provinces تثبیت می‌شوند؛ required از فرم ترجیحات متقاضی استخراج نشده است.
 - صندوق/فروش A2؛ هیچ ردیف آن‌ها در این تحویل ادعای تکمیل ندارد. حقوق keyMoney/valuation صرفاً شرح مستند است و مبلغ محاسباتی نیست.
+
+## ظرفیت نسخه۲
+واحدهای metric.unit عین برچسب منبع نگاشت شدند؛ هر کد نسخه۱ و ضریب۱ با base مستقل است. تبدیل مگاوات/مگاولت‌آمپر، مسافر/نفر، اتاق/تخت یا طول/مساحت حدس زده نمی‌شود. تعریف نسخه۱ قبلی بدون تغییر حفظ و قابل خواندن است؛ widget جدید نسخه۲ را صریح می‌فرستد.
+
+| منبع unit | کد نسخه۱ |
+| --- | --- |
+| اتاق | ROOM |
+| ایستگاه | STATION |
+| بشکه | BARREL |
+| تخت | BED |
+| تن | TONNE |
+| جایگاه | STALL |
+| خودرو | VEHICLE |
+| راس | ANIMAL_HEAD |
+| سایت | SITE |
+| صندلی | SEAT |
+| متر | METRE |
+| مترمربع | SQUARE_METRE |
+| مترمکعب | CUBIC_METRE |
+| مسافر | PASSENGER |
+| مگاوات | MEGAWATT |
+| مگاولت‌آمپر | MEGAVOLT_AMPERE |
+| میلیون مترمکعب | MILLION_CUBIC_METRE |
+| نفر | PERSON |
+| نقطه | POINT |
+| هکتار | HECTARE |
+| پایه | POLE |
+| کیلومتر | KILOMETRE |

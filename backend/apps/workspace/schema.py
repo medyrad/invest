@@ -46,11 +46,17 @@ def validate_one(key, value):
     f = FIELDS[key]
     if f["unit"]:
         try:
-            if not isinstance(value, dict) or value.get("field") != {
+            expected = {
                 "namespace": "invest.opportunity.project",
                 "key": key,
-                "version": 1,
-            }:
+                "version": f.get("version", 1),
+            }
+            # Existing capacity@1 values remain readable; their original unit allowlist
+            # is still enforced by 007. New controls explicitly write capacity@2.
+            refs = [expected]
+            if key == "metric_quantity":
+                refs.append({**expected, "version": 1})
+            if not isinstance(value, dict) or value.get("field") not in refs:
                 raise Fault("تعریف فیلد باید با معنای کنترل یکسان باشد.", field=key)
             return normalize(value)
         except ValueErrorDetail as e:

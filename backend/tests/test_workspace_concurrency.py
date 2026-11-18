@@ -28,6 +28,10 @@ def definitions(db):
         importlib.import_module("apps.catalog.migrations.0003_value_definitions").seed(apps, None)
     if not FieldDefinition.objects.filter(key="deposit").exists():
         importlib.import_module("apps.catalog.migrations.0005_project_fields").seed(apps, None)
+    if not FieldDefinition.objects.filter(key="metric_quantity", version=2).exists():
+        importlib.import_module("apps.catalog.migrations.0006_project_capacity_units").seed(
+            apps, None
+        )
 
 
 def concurrent_pair(user_id, operation):

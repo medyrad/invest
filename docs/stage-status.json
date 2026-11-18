@@ -1,7 +1,7 @@
 {
-  "date": "2026-11-17",
-  "current_stage": "S04",
-  "status": "technical-packages-accepted-human-and-stage-review-pending",
+  "date": "2026-11-18",
+  "current_stage": "S05",
+  "status": "s05-a1-ready-for-independent-test-human-and-full-stage-gates-open",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -398,5 +398,37 @@
       }
     },
     "implementation_authorization_scope": "PROGRAMMER-S05-A1 only; no A2/B/C, public deployment or human visual acceptance"
+  },
+  "project_drafts": {
+    "mission": "PROGRAMMER-S05-A1",
+    "status": "ready-for-independent-test",
+    "delivery_label": "آماده آزمون مستقل PROGRAMMER-S05-A1",
+    "version": "S05-A1-da7e008e04ec",
+    "feature_directory": "specs/008-project-drafts",
+    "report_path": "docs/stage5/a1-report.md",
+    "manifest_path": "docs/stage5/a1-evidence/manifest.json",
+    "backend_tests_passed": 446,
+    "browser_desktop_tests_passed": 5,
+    "browser_mobile_journey_passed": 1,
+    "viewports": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "migration": [
+      "catalog.0005_project_fields",
+      "catalog.0006_project_capacity_units",
+      "workspace.0001_initial",
+      "workspace.0002_receiveattempt"
+    ],
+    "independent_acceptance": false,
+    "human_visual_approved": false,
+    "full_s04_complete": false,
+    "full_s05_complete": false,
+    "baseline_tasks_fully_completed": false,
+    "a2_b_c_started": false,
+    "public_deployed": false,
+    "pushed": false
   }
 }

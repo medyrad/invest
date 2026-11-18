@@ -1,0 +1,31 @@
+{
+  "original_tables": 21,
+  "unchanged_tables": 17,
+  "changed_only_by_additive_seed_and_django_permissions": [
+    "auth_permission",
+    "catalog_fielddefinition",
+    "catalog_unitdefinition",
+    "django_content_type"
+  ],
+  "definitions_before": {
+    "fields": 8,
+    "units": 11
+  },
+  "definitions_after": {
+    "fields": 21,
+    "units": 33
+  },
+  "new_workspace_tables": [
+    "workspace_draft",
+    "workspace_draftrevision",
+    "workspace_draftvalue",
+    "workspace_operation",
+    "workspace_organization",
+    "workspace_privatefile",
+    "workspace_receiveattempt",
+    "workspace_representation",
+    "workspace_representationrequest"
+  ],
+  "private_rows_exported": false,
+  "original_rows_verified_unchanged_in_all_tables": true
+}
