@@ -93,6 +93,10 @@ def validate_one(key, value):
     return value
 
 
+def required_for_routes(field, routes):
+    return field["required"] or any(r in routes for r in field.get("required_routes", []))
+
+
 def effective(raw, routes, heritage_enabled):
     active = active_keys(routes, heritage_enabled, raw)
     result = {k: validate_one(k, v) for k, v in raw.items() if k in active}
@@ -114,4 +118,6 @@ def effective(raw, routes, heritage_enabled):
         and not result.get("metric_label")
     ):
         raise Fault("عنوان ظرفیت را مشخص کنید.", field="metric_label")
-    return result, sorted(k for k in active if FIELDS[k]["required"] and k not in result)
+    return result, sorted(
+        k for k in active if required_for_routes(FIELDS[k], routes) and k not in result
+    )

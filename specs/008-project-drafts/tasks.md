@@ -36,3 +36,11 @@ Input: spec/plan/product و D30–32. تست‌ها صریحاً جزو مأمو
 - [x] T018 build backend/test، تطبیق کد image، حفظ محیط/داده، گزارش/نسخه/کامیت محلی و آماده بازآزمایی مستقل؛ docs/stage5/a1-fix-report.md.
 
 شاهد T015–018: docs/stage5/a1-fix-report.md و a1-fix-evidence/manifest.json؛ تکمیل کامیت تحویل، پایان T018 است. این marker پذیرش مستقل نیست.
+
+## Phase 7: PROGRAMMER-S05-A1-FIX-02
+- [x] T019 بازتولید مستقل IT-002 دست‌نخورده و ردیابی modelId/durationYears در D31 و بسته محصول؛ FR011.
+- [x] T020 هماهنگی schema، missing و widget با required_routes کوچک، حفظ visibility/داده/نسخه007؛ FR011.
+- [x] T021 تست هدفمند نبود/وضعیت/مقدار/نامعتبر/ترکیب مسیر/بازگشت/inactive و مرورگر همین فیلدها؛ backend/tests/test_workspace_required.py و frontend/tests/browser/workspace-required.spec.ts.
+- [x] T022 build یک‌باره imageهای متأثر پس از تثبیت، تطبیق نسخه/حفظ محیط، گزارش و کامیت محلی؛ docs/stage5/a1-fix-02-report.md؛ بدون push یا گسترش دامنه.
+
+شاهد T019–022: docs/stage5/a1-fix-02-report.md و manifest؛ پایان T022 با کامیت تحویل ثبت می‌شود، نه پذیرش مستقل.

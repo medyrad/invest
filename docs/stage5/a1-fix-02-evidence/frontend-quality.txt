@@ -1,0 +1,2 @@
+ESLint فایل‌های متأثر محصول، تست و config هدفمند مرورگر: exit 0، بدون warning.
+TypeScript در build نهایی web موفق؛ شاهد build.txt.

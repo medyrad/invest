@@ -112,3 +112,11 @@
 | هکتار | HECTARE |
 | پایه | POLE |
 | کیلومتر | KILOMETRE |
+
+## الزام‌های FIX-02
+| منبع مصوب | کلید | نمایش | حضور برای نقص‌های تکمیل |
+| --- | --- | --- | --- |
+| بخش۳ محصول: stage/phase/model/modelId/owner/revenues، D31 | model_id | همیشه | required=true؛ S+U، unknown/not_applicable یا متن معتبر |
+| durationYears عمومی O؛ ردیف شرطی lessee، روشن‌سازی مأموریت FIX-02 | duration_years | همان when=duration قبلی: investor/heritage/lessee | required=false، required_routes=[lessee]؛ در ترکیب دارای lessee نیز S+U |
+
+این الزام، حضور برای راهنمای تکمیل است؛ مانع ایجاد/ذخیره draft ناقص نیست. heritage_years فقط fee و execution_months قواعد مستقل قبلی را دارند. نسخه و معنای Quantity@1 تغییر نمی‌کند.

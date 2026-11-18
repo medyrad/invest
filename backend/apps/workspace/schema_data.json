@@ -60,7 +60,7 @@
       "when": "always",
       "options": null,
       "unit": null,
-      "required": false,
+      "required": true,
       "source": "src/types/index.ts:Opportunity.model_id"
     },
     {
@@ -491,8 +491,11 @@
       "when": "duration",
       "options": null,
       "unit": "YEAR",
-      "required": true,
-      "source": "src/types/index.ts:Opportunity.duration_years"
+      "required": false,
+      "source": "src/types/index.ts:Opportunity.duration_years",
+      "required_routes": [
+        "lessee"
+      ]
     },
     {
       "key": "heritage_years",

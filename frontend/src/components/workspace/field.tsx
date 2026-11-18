@@ -7,10 +7,11 @@ export function active(f: Field, routes: string[], heritage: boolean, values: Re
   const c: Record<string, boolean> = { always: true, participation, execution: participation || routes.includes('contractor'), duration: routes.some(r => ['investor', 'lessee', 'heritage'].includes(r)), rights: routes.some(r => ['buyer', 'lessee'].includes(r)), heritage: routes.includes('heritage') && heritage, heritage_years: routes.includes('heritage') && heritage && JSON.stringify(values.heritage_returns) !== '["fee"]' };
   return c[f.when] ?? routes.includes(f.when);
 }
+export function requiredForRoutes(f: Field, routes: string[]) { return f.required || (f.required_routes?.some(r => routes.includes(r)) ?? false); }
 export function initialNumber(f: Field): Numeric { return { field: { namespace: 'invest.opportunity.project', key: f.key, version: f.version || 1 }, unit: { code: f.unit!, version: 1 }, status: 'known', source_value: '', basis: ['MONTH', 'YEAR', 'DAY'].includes(f.unit!) ? { start_basis: '' } : null }; }
-export function FieldControl({ field: f, value, change, options, error }: { field: Field; value: Value | undefined; change: (v: Value) => void; options?: RefOption[]; error?: string }) {
+export function FieldControl({ field: f, value, change, options, error, completionRequired = f.required }: { field: Field; value: Value | undefined; change: (v: Value) => void; options?: RefOption[]; error?: string; completionRequired?: boolean }) {
   const id = `field-${f.key}`;
-  const title = <span className="workspace-label">{f.label}{f.required && <small> · برای تکمیل اطلاعات</small>}</span>;
+  const title = <span className="workspace-label">{f.label}{completionRequired && <small> · برای تکمیل اطلاعات</small>}</span>;
   if (f.unit) {
     const n = value && typeof value === 'object' && !Array.isArray(value) ? value : initialNumber(f);
     const set = (patch: Partial<Numeric>) => change({ ...n, field: initialNumber(f).field, ...patch });

@@ -1,0 +1,59 @@
+{
+  "mission": "PROGRAMMER-S05-A1-FIX-02",
+  "version": "S05-A1-FIX-02-a8a919a8e751",
+  "baseline": "02a234eb2a54f9f3bc412feeb71877221e3fd4c2",
+  "source_sha256": {
+    "backend/apps/workspace/schema.py": "3a9611e7f85faaa2574454b93e29fa09f6772d1256be237caa0e0c9e920d0fb4",
+    "backend/apps/workspace/schema_data.json": "b078279d931bb1c63629e207f446a394bdb4d9e9f8c45540002b7b38d3200a77",
+    "frontend/src/components/workspace/field.tsx": "fcd177bb6c426ab7c43a5abd50b61dd05774418a64f9da80b727adf6610956cf",
+    "frontend/src/components/workspace/types.ts": "ba6ae5bb54194c7a7e49bb68e7bdfa9b24a40bd841301412d4c9ae7b8726a0f4",
+    "frontend/src/components/workspace/workspace.tsx": "d9713ee73a1cbb0ec714326face655d0be2d4ee4181c333c2f5f23eee738551c"
+  },
+  "images": {
+    "invest-backend-1": "sha256:72578c07538c98eca05e2840e25dbaf7eff06079367d1e82a363867736c4ce40",
+    "invest-web-1": "sha256:ef95ce1c0b2d5e075ad36cd400efd06d0386baab1ce21437738756fad20e4147",
+    "invest-a1-browser-api": "sha256:72578c07538c98eca05e2840e25dbaf7eff06079367d1e82a363867736c4ce40",
+    "invest-a1-review-web": "sha256:ef95ce1c0b2d5e075ad36cd400efd06d0386baab1ce21437738756fad20e4147",
+    "invest-scanner-1": "sha256:68129909fda9c06fec38140239dfb7aaa6daa239218453b9361e9708888d6662",
+    "invest-workspace-jobs-1": "sha256:d42057283dfff7dd71883da06ffb72bf0727f3455c81e9f8fae8dede6c21096c",
+    "invest-test": "sha256:3d4b30728d5f479ab9bca04fd5d88106a865a6fc3d9e4ce9292683c73ad1f831"
+  },
+  "runtime_and_test_source_matches": true,
+  "runtime_and_browser_images_match": true,
+  "frontend_build_id": "ersQFsQIEERfTFeaxytNO",
+  "only_two_schema_rules_changed": true,
+  "schema_version": 1,
+  "value_contract_version_unchanged": true,
+  "historical_evidence_and_migration_files_preserved": 69,
+  "new_migration": false,
+  "independent_acceptance": false,
+  "human_acceptance": false,
+  "status": "ready-for-independent-retest",
+  "tests": {
+    "backend_passed": 56,
+    "browser_passed": 2
+  },
+  "timing": {
+    "marker_utc": "2026-11-18T11:17:47.099259+00:00",
+    "initial_read_precedes_marker": true,
+    "baseline": "02a234eb2a54f9f3bc412feeb71877221e3fd4c2",
+    "implementation_stable_utc": "2026-11-18T11:22:16.540026+00:00",
+    "report_started_utc": "2026-11-18T11:24:23.675313+00:00",
+    "reported_at_utc": "2026-11-18T11:25:20.894790+00:00"
+  },
+  "artifacts_sha256": {
+    "docs/stage5/a1-fix-02-evidence/backend-quality.txt": "ce3a520124b7e7b6c107d8b3cf9b8d57c771f0a00c0e4f9b4b8ebf6dac89f658",
+    "docs/stage5/a1-fix-02-evidence/backend-tests.txt": "ddfabf10bf8a847c64b7e5318cb966b20a92ee5fa9a75002949d3eb60b0b3a71",
+    "docs/stage5/a1-fix-02-evidence/browser-tests.json": "7d6d5dfb9f6b7cea863acde35c75f796bea873ecb1e26ed1ee5beb0d09c82d24",
+    "docs/stage5/a1-fix-02-evidence/build.txt": "3d1b253b45f29f98a3b7cc4079a43dbba5a142b3613a9c95bf63ded6b1a7e960",
+    "docs/stage5/a1-fix-02-evidence/frontend-quality.txt": "aff5d8b85980594d202d23468ebe9bc3f444a7d38dce4ca58d81151c643094e2",
+    "docs/stage5/a1-fix-02-evidence/health.json": "a29ee2b15c494311c52521766e44af56a3ad2248e7a8ab465e5206463c13d288",
+    "docs/stage5/a1-fix-02-evidence/preservation.json": "df378ffded10cbd74c1ea87f399985d4b39b42dc646932fb7eabd2e2b01d649d",
+    "docs/stage5/a1-fix-02-evidence/reproduction.txt": "f697db0db7e6ca8e9aeb6255d7ca39f68b2f22372f98c4323be24ee058203a00",
+    "docs/stage5/a1-fix-02-evidence/screenshots/duration-optional-investor.png": "8db4d7dfb52d41d61e2cd6b6d1cbbd831d01f16e3d5501944d12fe9ca52e5d94",
+    "docs/stage5/a1-fix-02-evidence/screenshots/duration-required-lessee.png": "23f548344b0270209ad6f28ab3aeb595c452cb863b5958d7c436a8919ad0ae6d",
+    "docs/stage5/a1-fix-02-evidence/screenshots/model-id-missing.png": "f168e7837a74e9c8a48839b870af00be0eb8b30fd3e4f70e847fcec701754a70",
+    "docs/stage5/a1-fix-02-evidence/screenshots/model-id-not_applicable.png": "02db73d24da82991623fc1facf2ddf8dbf51b999038da5ebd4586ee8a4c69bbe",
+    "docs/stage5/a1-fix-02-evidence/screenshots/model-id-unknown.png": "193579e4604986fa85ba391562161a4d418d9a53baf1a645b73a53ca5c1337c5"
+  }
+}

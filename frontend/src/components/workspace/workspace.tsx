@@ -5,7 +5,7 @@ import LoginShell, { useAuth } from '@/components/auth/login-dialog';
 import { Header } from '@/components/site/header';
 import { AlgoField } from '@/components/brand/algo-field';
 import { api, Failure, message } from './api';
-import { active, FieldControl } from './field';
+import { active, FieldControl, requiredForRoutes } from './field';
 import { FilesPanel } from './files-panel';
 import type { Application, Draft, Group, Province, Schema, Values } from './types';
 import './workspace.css';
@@ -70,7 +70,7 @@ function PrivateWorkspace() {
         <fieldset disabled={disabled} className="workspace-form">{Object.entries({ general: 'مشخصات عمومی و موقعیت', money: 'مبلغ و زمان', terms: 'شرایط همکاری', rights: 'حقوق و اسناد' }).map(([section, label]) => <section className="workspace-section" key={section}><h2>{label}</h2><div className="workspace-grid">{schema.fields.filter(f => f.section === section && active(f, routes, heritage, values)).map(f => {
           const province = provinces.find(p => p.id === values.province); const county = province?.counties.find(c => c.id === values.county); const group = groups.find(g => g.id === values.group);
           const options = f.key === 'province' ? provinces : f.key === 'county' ? province?.counties || [] : f.key === 'city' ? county?.cities || [] : f.key === 'group' ? groups : f.key === 'subtype' ? (group?.subtypes || []).map(s => ({ ...s, id: `${group?.id}.${s.id}` })) : undefined;
-          return <FieldControl key={f.key} field={f} value={values[f.key]} options={options} error={Object.entries(errors).find(([k]) => k === f.key || k.startsWith(f.key + '.'))?.[1]} change={v => setValues(old => ({ ...old, [f.key]: v, ...(f.key === 'province' ? { county: null, city: null } : f.key === 'county' ? { city: null } : f.key === 'group' ? { subtype: null } : {}) }))} />;
+          return <FieldControl key={f.key} field={f} completionRequired={requiredForRoutes(f, routes)} value={values[f.key]} options={options} error={Object.entries(errors).find(([k]) => k === f.key || k.startsWith(f.key + '.'))?.[1]} change={v => setValues(old => ({ ...old, [f.key]: v, ...(f.key === 'province' ? { county: null, city: null } : f.key === 'county' ? { city: null } : f.key === 'group' ? { subtype: null } : {}) }))} />;
         })}</div></section>)}</fieldset><div className="workspace-save"><button type="submit" disabled={disabled}>ذخیره پیش‌نویس</button><span>ذخیره صریح با رسید سرور؛ انتشار انجام نمی‌شود.</span></div>
       </form><section className="workspace-section"><h2>نقص‌های اطلاعات ذخیره‌شده</h2><p>این فهرست فقط راهنمای تکمیل است؛ آمادگی ارسال رسمی را تأیید نمی‌کند.</p><p>{selected.missing.map(k => schema.fields.find(f => f.key === k)?.label || k).join('، ') || 'فیلد اجباری خالی در مجموعه جاری نیست.'}</p><p>فیلدهای خصوصی غیرفعال: {selected.inactive.map(k => schema.fields.find(f => f.key === k)?.label).join('، ') || 'ندارد'}</p></section><FilesPanel key={selected.id} targetType="draft" targetId={selected.id} files={selected.files} reload={refreshFiles} /></>}
     </>}
