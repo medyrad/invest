@@ -1,0 +1,172 @@
+ Container invest-test-run-6f3c16bed935 Creating
+ Container invest-test-run-6f3c16bed935 Created
+EEEE                                                                     [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_malformed_important_never_returns_internal_error[important0] _
+.venv/lib/python3.14/site-packages/pytest_django/plugin.py:593: in _django_db_marker
+    request.getfixturevalue("_django_db_helper")
+.venv/lib/python3.14/site-packages/pytest_django/fixtures.py:186: in django_db_setup
+    db_cfg = setup_databases(
+.venv/lib/python3.14/site-packages/django/test/utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv/lib/python3.14/site-packages/django/db/backends/base/creation.py:78: in create_test_db
+    call_command(
+.venv/lib/python3.14/site-packages/django/core/management/__init__.py:194: in call_command
+    return command.execute(*args, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/base.py:464: in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/base.py:111: in wrapper
+    res = handle_func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/commands/migrate.py:353: in handle
+    post_migrate_state = executor.migrate(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:135: in migrate
+    state = self._migrate_all_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:167: in _migrate_all_forwards
+    state = self.apply_migration(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:255: in apply_migration
+    state = migration.apply(state, schema_editor)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/migrations/migration.py:132: in apply
+    operation.database_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/operations/special.py:196: in database_forwards
+    self.code(from_state.apps, schema_editor)
+apps/catalog/migrations/0006_project_capacity_units.py:53: in seed
+    unit=Unit.objects.get(code="ITEM", version=1),
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:635: in get
+    raise self.model.DoesNotExist(
+E   __fake__.UnitDefinition.DoesNotExist: UnitDefinition matching query does not exist.
+---------------------------- Captured stderr setup -----------------------------
+Got an error creating the test database: database "test_invest" already exists
+_ ERROR at setup of test_malformed_important_never_returns_internal_error[important1] _
+.venv/lib/python3.14/site-packages/pytest_django/plugin.py:593: in _django_db_marker
+    request.getfixturevalue("_django_db_helper")
+.venv/lib/python3.14/site-packages/pytest_django/fixtures.py:186: in django_db_setup
+    db_cfg = setup_databases(
+.venv/lib/python3.14/site-packages/django/test/utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv/lib/python3.14/site-packages/django/db/backends/base/creation.py:78: in create_test_db
+    call_command(
+.venv/lib/python3.14/site-packages/django/core/management/__init__.py:194: in call_command
+    return command.execute(*args, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/base.py:464: in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/base.py:111: in wrapper
+    res = handle_func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/commands/migrate.py:353: in handle
+    post_migrate_state = executor.migrate(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:135: in migrate
+    state = self._migrate_all_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:167: in _migrate_all_forwards
+    state = self.apply_migration(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:255: in apply_migration
+    state = migration.apply(state, schema_editor)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/migrations/migration.py:132: in apply
+    operation.database_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/operations/special.py:196: in database_forwards
+    self.code(from_state.apps, schema_editor)
+apps/catalog/migrations/0006_project_capacity_units.py:53: in seed
+    unit=Unit.objects.get(code="ITEM", version=1),
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:635: in get
+    raise self.model.DoesNotExist(
+E   __fake__.UnitDefinition.DoesNotExist: UnitDefinition matching query does not exist.
+_ ERROR at setup of test_malformed_important_never_returns_internal_error[important2] _
+.venv/lib/python3.14/site-packages/pytest_django/plugin.py:593: in _django_db_marker
+    request.getfixturevalue("_django_db_helper")
+.venv/lib/python3.14/site-packages/pytest_django/fixtures.py:186: in django_db_setup
+    db_cfg = setup_databases(
+.venv/lib/python3.14/site-packages/django/test/utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv/lib/python3.14/site-packages/django/db/backends/base/creation.py:78: in create_test_db
+    call_command(
+.venv/lib/python3.14/site-packages/django/core/management/__init__.py:194: in call_command
+    return command.execute(*args, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/base.py:464: in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/base.py:111: in wrapper
+    res = handle_func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/commands/migrate.py:353: in handle
+    post_migrate_state = executor.migrate(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:135: in migrate
+    state = self._migrate_all_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:167: in _migrate_all_forwards
+    state = self.apply_migration(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:255: in apply_migration
+    state = migration.apply(state, schema_editor)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/migrations/migration.py:132: in apply
+    operation.database_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/operations/special.py:196: in database_forwards
+    self.code(from_state.apps, schema_editor)
+apps/catalog/migrations/0006_project_capacity_units.py:53: in seed
+    unit=Unit.objects.get(code="ITEM", version=1),
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:635: in get
+    raise self.model.DoesNotExist(
+E   __fake__.UnitDefinition.DoesNotExist: UnitDefinition matching query does not exist.
+_ ERROR at setup of test_malformed_important_never_returns_internal_error[important3] _
+.venv/lib/python3.14/site-packages/pytest_django/plugin.py:593: in _django_db_marker
+    request.getfixturevalue("_django_db_helper")
+.venv/lib/python3.14/site-packages/pytest_django/fixtures.py:186: in django_db_setup
+    db_cfg = setup_databases(
+.venv/lib/python3.14/site-packages/django/test/utils.py:204: in setup_databases
+    connection.creation.create_test_db(
+.venv/lib/python3.14/site-packages/django/db/backends/base/creation.py:78: in create_test_db
+    call_command(
+.venv/lib/python3.14/site-packages/django/core/management/__init__.py:194: in call_command
+    return command.execute(*args, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/base.py:464: in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/base.py:111: in wrapper
+    res = handle_func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/core/management/commands/migrate.py:353: in handle
+    post_migrate_state = executor.migrate(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:135: in migrate
+    state = self._migrate_all_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:167: in _migrate_all_forwards
+    state = self.apply_migration(
+.venv/lib/python3.14/site-packages/django/db/migrations/executor.py:255: in apply_migration
+    state = migration.apply(state, schema_editor)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/migrations/migration.py:132: in apply
+    operation.database_forwards(
+.venv/lib/python3.14/site-packages/django/db/migrations/operations/special.py:196: in database_forwards
+    self.code(from_state.apps, schema_editor)
+apps/catalog/migrations/0006_project_capacity_units.py:53: in seed
+    unit=Unit.objects.get(code="ITEM", version=1),
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:635: in get
+    raise self.model.DoesNotExist(
+E   __fake__.UnitDefinition.DoesNotExist: UnitDefinition matching query does not exist.
+=========================== short test summary info ============================
+ERROR ::test_malformed_important_never_returns_internal_error[important0] - _...
+ERROR ::test_malformed_important_never_returns_internal_error[important1] - _...
+ERROR ::test_malformed_important_never_returns_internal_error[important2] - _...
+ERROR ::test_malformed_important_never_returns_internal_error[important3] - _...
+4 errors in 2.51s

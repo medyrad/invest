@@ -1,0 +1,619 @@
+ Container invest-test-run-a4cd53212146 Creating
+ Container invest-test-run-a4cd53212146 Created
+........................................................................ [ 11%]
+........................................................................ [ 22%]
+........................................................................ [ 34%]
+........................................................................ [ 45%]
+........................................................................ [ 57%]
+........................................................................ [ 68%]
+........................................................................ [ 80%]
+........................................................................ [ 91%]
+....EEEE............................................                     [100%]
+==================================== ERRORS ====================================
+_________________ ERROR at setup of test_atomic_account_budget _________________
+
+self = <DatabaseWrapper vendor='postgresql' alias='default'>
+
+    @async_unsafe
+    def ensure_connection(self):
+        """Guarantee that a connection to the database is established."""
+        if self.connection is None:
+            if self.in_atomic_block and self.closed_in_transaction:
+                raise ProgrammingError(
+                    "Cannot open a new connection in an atomic block."
+                )
+            with self.wrap_database_errors:
+>               self.connect()
+
+.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:279:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv/lib/python3.14/site-packages/django/utils/asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:256: in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/utils/asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py:332: in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'psycopg.Connection'>
+conninfo = "dbname=test_invest connect_timeout=3 options='-c statement_timeout=3000' client_encoding=UTF8 user=invest password=[REDACTED] host=db port=5432 hostaddr=172.21.0.4"
+autocommit = False, prepare_threshold = None
+context = <psycopg.adapt.AdaptersMap object at 0x71545919b390>
+row_factory = None
+cursor_factory = <class 'django.db.backends.postgresql.base.Cursor'>
+kwargs = {'dbname': 'test_invest', 'connect_timeout': 3, 'options': '-c statement_timeout=3000', 'client_encoding': 'UTF8', ...}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -> Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+>               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "172.21.0.4", port 5432 failed: FATAL:  database "test_invest" does not exist
+E               DETAIL:  It seems to have just been dropped or renamed.
+
+.venv/lib/python3.14/site-packages/psycopg/connection.py:126: OperationalError
+
+The above exception was the direct cause of the following exception:
+
+db = None
+
+    @pytest.fixture(autouse=True)
+    def definitions(db):
+        import importlib
+
+        from django.apps import apps
+
+        from apps.catalog.models import FieldDefinition, UnitDefinition
+
+>       if not UnitDefinition.objects.exists():
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_workspace_concurrency.py:27:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:1298: in exists
+    return self.query.has_results(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/sql/query.py:676: in has_results
+    return compiler.has_results()
+           ^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py:1591: in has_results
+    return bool(self.execute_sql(SINGLE))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py:1621: in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/utils/asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:320: in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:296: in _cursor
+    self.ensure_connection()
+.venv/lib/python3.14/site-packages/django/test/testcases.py:311: in patched_ensure_connection
+    real_ensure_connection(self, *args, **kwargs)
+.venv/lib/python3.14/site-packages/django/utils/asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:278: in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:279: in ensure_connection
+    self.connect()
+.venv/lib/python3.14/site-packages/django/utils/asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:256: in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/utils/asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py:332: in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+cls = <class 'psycopg.Connection'>
+conninfo = "dbname=test_invest connect_timeout=3 options='-c statement_timeout=3000' client_encoding=UTF8 user=invest password=[REDACTED] host=db port=5432 hostaddr=172.21.0.4"
+autocommit = False, prepare_threshold = None
+context = <psycopg.adapt.AdaptersMap object at 0x71545919b390>
+row_factory = None
+cursor_factory = <class 'django.db.backends.postgresql.base.Cursor'>
+kwargs = {'dbname': 'test_invest', 'connect_timeout': 3, 'options': '-c statement_timeout=3000', 'client_encoding': 'UTF8', ...}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -> Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+>               raise last_ex.with_traceback(None)
+E               django.db.utils.OperationalError: connection failed: connection to server at "172.21.0.4", port 5432 failed: FATAL:  database "test_invest" does not exist
+E               DETAIL:  It seems to have just been dropped or renamed.
+
+.venv/lib/python3.14/site-packages/psycopg/connection.py:126: OperationalError
+__________________ ERROR at setup of test_atomic_entity_count __________________
+
+self = <django.db.backends.utils.CursorWrapper object at 0x715457a46270>
+sql = 'SELECT %s AS "a" FROM "catalog_unitdefinition" LIMIT 1'
+params = (Int4(1),)
+ignored_wrapper_args = (False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.utils.CursorWrapper object at 0x715457a46270>})
+
+    def _execute(self, sql, params, *ignored_wrapper_args):
+        # Raise a warning during app initialization (stored_app_configs is only
+        # ever set during testing).
+        if not apps.ready and not apps.stored_app_configs:
+            warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+        self.db.validate_no_broken_transaction()
+        with self.db.wrap_database_errors:
+            if params is None:
+                # params default might be backend specific.
+                return self.cursor.execute(sql)
+            else:
+>               return self.cursor.execute(sql, params)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:105:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=db user=invest database=test_invest) at 0x715458529b70>
+query = 'SELECT %s AS "a" FROM "catalog_unitdefinition" LIMIT 1'
+params = (Int4(1),), prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -> Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+>           raise ex.with_traceback(None)
+E           psycopg.errors.UndefinedTable: relation "catalog_unitdefinition" does not exist
+E           LINE 1: SELECT 1 AS "a" FROM "catalog_unitdefinition" LIMIT 1
+E                                        ^
+
+.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: UndefinedTable
+
+The above exception was the direct cause of the following exception:
+
+db = None
+
+    @pytest.fixture(autouse=True)
+    def definitions(db):
+        import importlib
+
+        from django.apps import apps
+
+        from apps.catalog.models import FieldDefinition, UnitDefinition
+
+>       if not UnitDefinition.objects.exists():
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_workspace_concurrency.py:27:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:1298: in exists
+    return self.query.has_results(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/sql/query.py:676: in has_results
+    return compiler.has_results()
+           ^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py:1591: in has_results
+    return bool(self.execute_sql(SINGLE))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py:1623: in execute_sql
+    cursor.execute(sql, params)
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:79: in execute
+    return self._execute_with_wrappers(
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:92: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:100: in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:105: in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=db user=invest database=test_invest) at 0x715458529b70>
+query = 'SELECT %s AS "a" FROM "catalog_unitdefinition" LIMIT 1'
+params = (Int4(1),), prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -> Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+>           raise ex.with_traceback(None)
+E           django.db.utils.ProgrammingError: relation "catalog_unitdefinition" does not exist
+E           LINE 1: SELECT 1 AS "a" FROM "catalog_unitdefinition" LIMIT 1
+E                                        ^
+
+.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: ProgrammingError
+_________ ERROR at setup of test_same_operation_and_concurrent_version _________
+
+self = <django.db.backends.utils.CursorWrapper object at 0x7154565031d0>
+sql = 'INSERT INTO "identity_user" ("password", "last_login", "is_superuser", "id", "mobile", "mobile_verified_at", "is_acti... "is_staff", "created_at", "updated_at", "role", "auth_epoch") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+params = ('!cRtdhCJJja4K2PLcIcngpiSXNgAPyPr4PajY0htl', None, False, UUID('a06deb5c-c25a-499b-aae0-283e697e28db'), '+12025550101', None, ...)
+ignored_wrapper_args = (False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.utils.CursorWrapper object at 0x7154565031d0>})
+
+    def _execute(self, sql, params, *ignored_wrapper_args):
+        # Raise a warning during app initialization (stored_app_configs is only
+        # ever set during testing).
+        if not apps.ready and not apps.stored_app_configs:
+            warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+        self.db.validate_no_broken_transaction()
+        with self.db.wrap_database_errors:
+            if params is None:
+                # params default might be backend specific.
+                return self.cursor.execute(sql)
+            else:
+>               return self.cursor.execute(sql, params)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:105:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=db user=invest database=test_invest) at 0x715458528210>
+query = 'INSERT INTO "identity_user" ("password", "last_login", "is_superuser", "id", "mobile", "mobile_verified_at", "is_acti... "is_staff", "created_at", "updated_at", "role", "auth_epoch") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+params = ('!cRtdhCJJja4K2PLcIcngpiSXNgAPyPr4PajY0htl', None, False, UUID('a06deb5c-c25a-499b-aae0-283e697e28db'), '+12025550101', None, ...)
+prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -> Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+>           raise ex.with_traceback(None)
+E           psycopg.errors.UndefinedTable: relation "identity_user" does not exist
+E           LINE 1: INSERT INTO "identity_user" ("password", "last_login", "is_s...
+E                               ^
+
+.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: UndefinedTable
+
+The above exception was the direct cause of the following exception:
+
+db = None
+
+    @pytest.fixture
+    def accounts(db):
+        return [
+>           get_user_model().objects.create_user(mobile=mobile)
+            for mobile in ("+12025550101", "+12025550102")
+        ]
+
+tests/conftest.py:14:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+apps/identity/models.py:19: in create_user
+    user.save(using=self._db)
+apps/identity/models.py:61: in save
+    super().save(*args, **kwargs)
+.venv/lib/python3.14/site-packages/django/contrib/auth/base_user.py:65: in save
+    super().save(*args, **kwargs)
+.venv/lib/python3.14/site-packages/django/db/models/base.py:902: in save
+    self.save_base(
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1008: in save_base
+    updated = self._save_table(
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1169: in _save_table
+    results = self._do_insert(
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1210: in _do_insert
+    return manager._insert(
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:1873: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py:1882: in execute_sql
+    cursor.execute(sql, params)
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:79: in execute
+    return self._execute_with_wrappers(
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:92: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:100: in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:105: in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=db user=invest database=test_invest) at 0x715458528210>
+query = 'INSERT INTO "identity_user" ("password", "last_login", "is_superuser", "id", "mobile", "mobile_verified_at", "is_acti... "is_staff", "created_at", "updated_at", "role", "auth_epoch") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+params = ('!cRtdhCJJja4K2PLcIcngpiSXNgAPyPr4PajY0htl', None, False, UUID('a06deb5c-c25a-499b-aae0-283e697e28db'), '+12025550101', None, ...)
+prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -> Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+>           raise ex.with_traceback(None)
+E           django.db.utils.ProgrammingError: relation "identity_user" does not exist
+E           LINE 1: INSERT INTO "identity_user" ("password", "last_login", "is_s...
+E                               ^
+
+.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: ProgrammingError
+________ ERROR at setup of test_scan_does_not_lock_text_and_purge_wins _________
+
+self = <django.db.backends.utils.CursorWrapper object at 0x7154586d9430>
+sql = 'INSERT INTO "identity_user" ("password", "last_login", "is_superuser", "id", "mobile", "mobile_verified_at", "is_acti... "is_staff", "created_at", "updated_at", "role", "auth_epoch") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+params = ('!TP57QIorNuI8XHPiCQFOmk59ACUlHrd8htW7P4q4', None, False, UUID('f547deb2-39a8-47f2-928c-83782dc1d8c2'), '+12025550101', None, ...)
+ignored_wrapper_args = (False, {'connection': <DatabaseWrapper vendor='postgresql' alias='default'>, 'cursor': <django.db.backends.utils.CursorWrapper object at 0x7154586d9430>})
+
+    def _execute(self, sql, params, *ignored_wrapper_args):
+        # Raise a warning during app initialization (stored_app_configs is only
+        # ever set during testing).
+        if not apps.ready and not apps.stored_app_configs:
+            warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+        self.db.validate_no_broken_transaction()
+        with self.db.wrap_database_errors:
+            if params is None:
+                # params default might be backend specific.
+                return self.cursor.execute(sql)
+            else:
+>               return self.cursor.execute(sql, params)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:105:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=db user=invest database=test_invest) at 0x71545852a6d0>
+query = 'INSERT INTO "identity_user" ("password", "last_login", "is_superuser", "id", "mobile", "mobile_verified_at", "is_acti... "is_staff", "created_at", "updated_at", "role", "auth_epoch") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+params = ('!TP57QIorNuI8XHPiCQFOmk59ACUlHrd8htW7P4q4', None, False, UUID('f547deb2-39a8-47f2-928c-83782dc1d8c2'), '+12025550101', None, ...)
+prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -> Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+>           raise ex.with_traceback(None)
+E           psycopg.errors.UndefinedTable: relation "identity_user" does not exist
+E           LINE 1: INSERT INTO "identity_user" ("password", "last_login", "is_s...
+E                               ^
+
+.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: UndefinedTable
+
+The above exception was the direct cause of the following exception:
+
+db = None
+
+    @pytest.fixture
+    def accounts(db):
+        return [
+>           get_user_model().objects.create_user(mobile=mobile)
+            for mobile in ("+12025550101", "+12025550102")
+        ]
+
+tests/conftest.py:14:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+apps/identity/models.py:19: in create_user
+    user.save(using=self._db)
+apps/identity/models.py:61: in save
+    super().save(*args, **kwargs)
+.venv/lib/python3.14/site-packages/django/contrib/auth/base_user.py:65: in save
+    super().save(*args, **kwargs)
+.venv/lib/python3.14/site-packages/django/db/models/base.py:902: in save
+    self.save_base(
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1008: in save_base
+    updated = self._save_table(
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1169: in _save_table
+    results = self._do_insert(
+.venv/lib/python3.14/site-packages/django/db/models/base.py:1210: in _do_insert
+    return manager._insert(
+.venv/lib/python3.14/site-packages/django/db/models/manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/query.py:1873: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py:1882: in execute_sql
+    cursor.execute(sql, params)
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:79: in execute
+    return self._execute_with_wrappers(
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:92: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:100: in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.14/site-packages/django/db/utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+.venv/lib/python3.14/site-packages/django/db/backends/utils.py:105: in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <django.db.backends.postgresql.base.Cursor [closed] [IDLE] (host=db user=invest database=test_invest) at 0x71545852a6d0>
+query = 'INSERT INTO "identity_user" ("password", "last_login", "is_superuser", "id", "mobile", "mobile_verified_at", "is_acti... "is_staff", "created_at", "updated_at", "role", "auth_epoch") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+params = ('!TP57QIorNuI8XHPiCQFOmk59ACUlHrd8htW7P4q4', None, False, UUID('f547deb2-39a8-47f2-928c-83782dc1d8c2'), '+12025550101', None, ...)
+prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -> Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+>           raise ex.with_traceback(None)
+E           django.db.utils.ProgrammingError: relation "identity_user" does not exist
+E           LINE 1: INSERT INTO "identity_user" ("password", "last_login", "is_s...
+E                               ^
+
+.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: ProgrammingError
+=========================== short test summary info ============================
+ERROR tests/test_workspace_concurrency.py::test_atomic_account_budget - djang...
+ERROR tests/test_workspace_concurrency.py::test_atomic_entity_count - django....
+ERROR tests/test_workspace_concurrency.py::test_same_operation_and_concurrent_version
+ERROR tests/test_workspace_concurrency.py::test_scan_does_not_lock_text_and_purge_wins
+624 passed, 4 errors in 49.21s

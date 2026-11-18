@@ -1,0 +1,4 @@
+ Container invest-test-run-4e4be8277a5b Creating
+ Container invest-test-run-4e4be8277a5b Created
+...                                                                      [100%]
+3 passed, 4 deselected in 1.02s

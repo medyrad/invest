@@ -1,0 +1,30 @@
+ Container invest-test-run-8cc45826bb70 Creating
+ Container invest-test-run-8cc45826bb70 Created
+FF......                                                                 [100%]
+=================================== FAILURES ===================================
+______ test_malformed_important_never_returns_internal_error[important0] _______
+/independent/test_gaps.py:11: in test_malformed_important_never_returns_internal_error
+    assert response.status_code==400,response.data
+E   AssertionError: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': 'efd99921-9dd4-41d3-aa13-68c822d850c4'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=efd99921-9dd4-41d3-aa13-68c822d850c4 type=TypeError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=efd99921-9dd4-41d3-aa13-68c822d850c4 type=TypeError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/core/opportunities
+______ test_malformed_important_never_returns_internal_error[important1] _______
+/independent/test_gaps.py:11: in test_malformed_important_never_returns_internal_error
+    assert response.status_code==400,response.data
+E   AssertionError: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': 'f3e3efc2-4adc-4a8f-8917-7587c7d2eb2e'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=f3e3efc2-4adc-4a8f-8917-7587c7d2eb2e type=TypeError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=f3e3efc2-4adc-4a8f-8917-7587c7d2eb2e type=TypeError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/core/opportunities
+=========================== short test summary info ============================
+FAILED ::test_malformed_important_never_returns_internal_error[important0] - ...
+FAILED ::test_malformed_important_never_returns_internal_error[important1] - ...
+2 failed, 6 passed in 2.47s

@@ -1,0 +1,9 @@
+
+Running 2 tests using 1 worker
+
+(node:28680) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 .tools/test-core/browser/auth-fixes.spec.ts:116:1 › @desktop S03-IT-002: a delayed old me response cannot restore identity after logout (1.6s)
+  ✓  2 .tools/test-core/browser/auth-fixes.spec.ts:176:1 › @desktop S03-IT-002: cross-tab signals cannot grant identity without server evidence (269ms)
+
+  2 passed (2.3s)

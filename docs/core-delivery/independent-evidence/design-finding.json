@@ -1,0 +1,12 @@
+{
+  "id": "CORE-IT-002",
+  "reference": ".tools/reference/advisor/src/lib/compare.ts groups: money/time/risk/project",
+  "actual": "frontend/src/components/core/compare.tsx flat full data table",
+  "evidence": "screenshots/compare-1440.png",
+  "approved_changes_preserved": [
+    "D26 private phone",
+    "D28 score/coverage",
+    "D29 no hypothetical return curve"
+  ],
+  "unapproved_difference": "حذف گروه‌بندی پول/زمان/ریسک و حقوق/پروژه و محل؛ جایگزینی با جدول تخت تمام فیلدها"
+}

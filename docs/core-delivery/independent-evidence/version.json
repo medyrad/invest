@@ -1,0 +1,5 @@
+{
+  "invest-backend": "sha256:e7a663efcae0d57cd10114cb89bef8f28b80319f13705c9bc59bd6bada6963a1",
+  "invest-web": "sha256:d52a78c22ed1f8202500682bfa689274fc86ba911fc2c0ee7de3b8638fe2da0c",
+  "invest-test": "sha256:d82929d702a6a2eb6e362188f50c1b307e348adb2cde1156a2ceb6a51b02487b"
+}

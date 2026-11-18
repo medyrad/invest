@@ -1,0 +1,12 @@
+ Container invest-test-run-bd2edbe8a6d6 Creating
+ Container invest-test-run-bd2edbe8a6d6 Created
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_operator_has_active_work_period_contract _________________
+/independent/test_gaps.py:28: in test_operator_has_active_work_period_contract
+    assert periods, 'F09 requires a work period; operator has no active time quantity'
+E   AssertionError: F09 requires a work period; operator has no active time quantity
+E   assert []
+=========================== short test summary info ============================
+FAILED ::test_operator_has_active_work_period_contract - AssertionError: F09 ...
+1 failed, 7 deselected in 1.03s

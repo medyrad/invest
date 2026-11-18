@@ -1,0 +1,8 @@
+
+Running 1 test using 1 worker
+
+(node:30321) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 .tools/test-core/browser/core.spec.ts:24:1 › core private attachment and named consent survive recipient changes (11.5s)
+
+  1 passed (12.0s)

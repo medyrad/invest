@@ -1,0 +1,30 @@
+[
+  {
+    "important": [
+      {}
+    ],
+    "status": 500,
+    "response": {
+      "error": {
+        "code": "internal_error",
+        "message": "خطایی رخ داده است؛ دوباره تلاش کنید.",
+        "fields": {},
+        "request_id": "119a490c-7c2a-44a1-a5a2-df4250838249"
+      }
+    }
+  },
+  {
+    "important": [
+      []
+    ],
+    "status": 500,
+    "response": {
+      "error": {
+        "code": "internal_error",
+        "message": "خطایی رخ داده است؛ دوباره تلاش کنید.",
+        "fields": {},
+        "request_id": "c0e8de69-c3be-4c8e-9348-9acdbb2bba8d"
+      }
+    }
+  }
+]

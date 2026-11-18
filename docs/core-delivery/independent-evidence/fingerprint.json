@@ -1,0 +1,12 @@
+{
+  "code_sha256": "8663fe177c97673fcf89143edd2cce9a59c33a7bc61507e9d7980824c9949922",
+  "files": 238,
+  "runtime": {
+    "backend": {
+      "version": "CORE-8663fe177c97"
+    },
+    "web": {
+      "version": "CORE-8663fe177c97"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "unit": "seconds",
+  "preparation": 32.39,
+  "execution_and_independent_authoring": 230.26,
+  "report_and_final_gap_verification": 133.9,
+  "build": 0,
+  "runner_seconds": {
+    "existing": 49.21,
+    "recovery_plus_parser": 2.47,
+    "score": 1.02,
+    "operator": 1.03,
+    "core_browser_approx": 66,
+    "regression": 2.3,
+    "attachment_recheck": 12
+  },
+  "note": "Operator gap verification overlapped report phase; authorship is included in execution, runner time is separate. Final diff/commit follows."
+}
