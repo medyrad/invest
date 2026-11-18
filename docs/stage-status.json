@@ -1,7 +1,7 @@
 {
   "date": "2026-11-18",
   "current_stage": "S05",
-  "status": "core-fix-01-ready-for-independent-retest",
+  "status": "core-technically-accepted-s08-mission-prepared",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -106,8 +106,8 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "TEST-CORE-FIX-01",
-    "description": "بازآزمایی مستقل بسته اصلاح سه ایراد با هماهنگ‌کننده؛ پذیرش انسانی جداست.",
+    "id": "PROGRAMMER-S08-COMPLETE",
+    "description": "اجرای جامع خدمات تخصصی طبق docs/programmer-s08-complete.md پس از ارجاع مأموریت توسط کاربر؛ پذیرش انسانی طراحی و ارزیابی کیفی D28 باز هستند.",
     "authorized": false
   },
   "active_step": {
@@ -488,14 +488,14 @@
   },
   "core_delivery": {
     "mission": "PROGRAMMER-CORE-COMPLETE",
-    "status": "ready-for-independent-test",
+    "status": "technical-pass",
     "feature": "009-core-journeys",
     "scope_path": "docs/programmer-core-complete.md",
     "coordinator_commit": "e59a11c",
     "implementation_authorized": true,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
-    "independent_acceptance": false,
+    "independent_acceptance": true,
     "full_product_complete": false,
     "version": "CORE-8663fe177c97",
     "report_path": "docs/core-delivery/report.md",
@@ -505,17 +505,21 @@
     "browser_core_passed": 7,
     "browser_auth_regression_passed": 2,
     "pushed": false,
-    "delivery_label": "آماده آزمون مستقل هسته کامل"
+    "delivery_label": "آماده آزمون مستقل هسته کامل",
+    "technical_acceptance_report_path": "docs/core-delivery/retest-01-report.md",
+    "technical_acceptance_commit": "8bfc7276efc18f7e31301a83394939d830def50f"
   },
   "core_independent_review": {
-    "status": "needs-fix",
+    "status": "technical-pass-after-retest",
     "report_path": "docs/core-delivery/independent-test-report.md",
     "commit": "c9d8ef86dcee3185f7c9d9a3d88014b0327d0c03",
     "issues": [
       "CORE-IT-003",
       "CORE-IT-001",
       "CORE-IT-002"
-    ]
+    ],
+    "retest_report_path": "docs/core-delivery/retest-01-report.md",
+    "retest_commit": "8bfc7276efc18f7e31301a83394939d830def50f"
   },
   "git_delivery": {
     "push_authorized": true,
@@ -525,7 +529,7 @@
   },
   "core_fix_01": {
     "mission": "PROGRAMMER-CORE-FIX-01",
-    "status": "ready-for-independent-retest",
+    "status": "technical-pass",
     "version": "CORE-443ca1cbf0c7",
     "implementation_commit": "178e5550fb72697973534a826d0f40da15072d8b",
     "report_path": "docs/core-delivery/fix-01-report.md",
@@ -535,7 +539,7 @@
       "CORE-IT-001",
       "CORE-IT-002"
     ],
-    "independent_acceptance": false,
+    "independent_acceptance": true,
     "human_visual_approved": false,
     "public_deployed": false,
     "push_authorized": true,
@@ -546,5 +550,14 @@
       "8b9dbc2e8f0ed177d2c293b6423937ab79c904c3",
       "178e5550fb72697973534a826d0f40da15072d8b"
     ]
+  },
+  "s08_delivery": {
+    "mission": "PROGRAMMER-S08-COMPLETE",
+    "scope_path": "docs/programmer-s08-complete.md",
+    "status": "mission-prepared-awaiting-user-handoff",
+    "implementation_authorized": false,
+    "independent_acceptance": false,
+    "human_visual_approved": false,
+    "public_deployment_authorized": false
   }
 }
