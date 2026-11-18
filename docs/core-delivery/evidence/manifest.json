@@ -1,0 +1,254 @@
+{
+  "mission": "PROGRAMMER-CORE-COMPLETE",
+  "status": "آماده آزمون مستقل هسته کامل",
+  "version": "CORE-8663fe177c97",
+  "code_sha256": "8663fe177c97673fcf89143edd2cce9a59c33a7bc61507e9d7980824c9949922",
+  "recorded_at_utc": "2026-11-18T13:08:12.200850+00:00",
+  "coordinator_commit": "e59a11c",
+  "implementation_commits": [
+    "2725de9",
+    "190d734"
+  ],
+  "runtime_url": "http://127.0.0.1:3108",
+  "images": {
+    "invest-backend": "sha256:e7a663efcae0d57cd10114cb89bef8f28b80319f13705c9bc59bd6bada6963a1",
+    "invest-web": "sha256:d52a78c22ed1f8202500682bfa689274fc86ba911fc2c0ee7de3b8638fe2da0c",
+    "invest-test": "sha256:d82929d702a6a2eb6e362188f50c1b307e348adb2cde1156a2ceb6a51b02487b"
+  },
+  "backend": {
+    "passed": 628,
+    "seconds": 50.11,
+    "isolated_postgresql": true,
+    "log": "backend-release.log"
+  },
+  "browser": {
+    "core_passed": 7,
+    "wall_time_approx_seconds": 78,
+    "auth_regression_passed": 2,
+    "auth_seconds": 2.2,
+    "visual_recapture_passed": 1,
+    "visual_recapture_seconds": 26.2,
+    "browser": "/usr/bin/google-chrome",
+    "viewport_widths": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "core_log": "browser-release.log",
+    "auth_log": "auth-release.log",
+    "recapture_log": "visual-stable-release.log"
+  },
+  "quality": {
+    "ruff": true,
+    "eslint": true,
+    "typescript": true,
+    "diff_review": true,
+    "diff_check": "source-and-documents-excluding-raw-execution-logs",
+    "raw_logs_note": "خروجی اصلی ابزار با whitespace کنسول حفظ شده است."
+  },
+  "data": {
+    "additive_migrations_applied": true,
+    "migration_drift": false,
+    "rollback_only_isolated_test_database": true,
+    "existing_env_unchanged": true,
+    "other_project_services_modified": false,
+    "base_opportunities": 6,
+    "synthetic_roles": 5,
+    "history_purge_enabled": false,
+    "before_after_db_hash_proven": false
+  },
+  "timing": {
+    "recording_started_utc": "2026-11-18T11:43:40.434366+00:00",
+    "preparation_and_implementation_to_first_build_seconds": 1096.237,
+    "first_build_and_ready_seconds": 108.749,
+    "final_cached_build_approx_seconds": 9,
+    "earlier_unmeasured_work": "پژوهش آغازین و همه برش‌های داخلی جدا اندازه‌گیری نشده‌اند؛ مجموع حدس زده نشد.",
+    "test_seconds": {
+      "backend": 50.11,
+      "core_browser_approx": 78,
+      "auth": 2.2,
+      "stable_recapture": 26.2
+    },
+    "report_started_utc": "2026-11-18T13:04:24.854033+00:00",
+    "report_snapshot_utc": "2026-11-18T13:09:03.049662+00:00",
+    "phases_overlap": true,
+    "report_elapsed_seconds_at_snapshot": 278.195629
+  },
+  "acceptance": {
+    "independent": false,
+    "human_visual": false,
+    "full_product": false,
+    "public_deployment": false,
+    "pushed": false
+  },
+  "coverage": {
+    "reference_capabilities": 44,
+    "core_delivery": 27,
+    "later_packages_or_review": 17,
+    "registry": "docs/catalogs/feature-coverage.csv"
+  },
+  "artifacts": [
+    {
+      "path": "api-version-release.json",
+      "bytes": 31,
+      "sha256": "fa134342a923ee43161642828d46fad6ae82ab83d01fd742fb3a15dda43c4d3d"
+    },
+    {
+      "path": "auth-release.log",
+      "bytes": 559,
+      "sha256": "628ea90ce108bcfec5a281ee25618e33884eed3a26cfb8ab3a0ffab2c3601eeb"
+    },
+    {
+      "path": "backend-quality-final.log",
+      "bytes": 118,
+      "sha256": "f3aaef903de02808ded4e839209994a3bf25b20fd080117ce652b7b84f2fa386"
+    },
+    {
+      "path": "backend-release.log",
+      "bytes": 840,
+      "sha256": "443d23b2a4071f6bb1283508b952b0cf980cb33e6cfefacb1ecc4c5fa8d1dc9d"
+    },
+    {
+      "path": "browser-release.log",
+      "bytes": 1285,
+      "sha256": "7048d774d770122a0bc6bbfd64fb8bcab79a532ab48decdfc691ab7de620a7de"
+    },
+    {
+      "path": "browser-test-quality.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-release.log",
+      "bytes": 6991,
+      "sha256": "e344cdcb6d1664d0141a4832753fec7642ac14535a87f616dcf4e0841a5b7bcc"
+    },
+    {
+      "path": "compare-1440.png",
+      "bytes": 546969,
+      "sha256": "6fe078bd3bbbeb5462d035d2bb0b33f1d1a824e053ad83b07c2b8723761fa6c8"
+    },
+    {
+      "path": "customer-answer-1440.png",
+      "bytes": 178970,
+      "sha256": "58419ec7da347e9f6b903030838a3c9dac76ee7a44450f65f5b15c8c041e83ab"
+    },
+    {
+      "path": "customer-answer-390.png",
+      "bytes": 160228,
+      "sha256": "38dab1d30c666351c1a7e08357fc40c2db8975097971ee535084b1ddd192875c"
+    },
+    {
+      "path": "detail-1440.png",
+      "bytes": 695673,
+      "sha256": "1b657d71bd8da951abf180456819efd239e477779d30b4f471114582f4e39c67"
+    },
+    {
+      "path": "detail-360.png",
+      "bytes": 227904,
+      "sha256": "ac1db7b882a7a1c625395b2cfd5dec7c40b44d9ca7107d5efa697e9ae2bc304d"
+    },
+    {
+      "path": "detail-390.png",
+      "bytes": 235682,
+      "sha256": "85ba44b024f251fc5fe01675288bcd6920f319ee701d016051ab502c0391c1f9"
+    },
+    {
+      "path": "detail-768.png",
+      "bytes": 440550,
+      "sha256": "a334dd6af8fc3c1633fba90d6e8e10fbe320f35dd85c8f3f6237ccedf5f1720d"
+    },
+    {
+      "path": "frontend-quality-mobile.log",
+      "bytes": 59,
+      "sha256": "4264d69bad004c047ecbd0d03a0e456d1344d6d50a9c71684e2c40b10ea24274"
+    },
+    {
+      "path": "geography-1440.png",
+      "bytes": 493631,
+      "sha256": "504b28f1d0f7d25a7a12a5b15d876ca916056690fad7c1a917e0e9e159040484"
+    },
+    {
+      "path": "geography-360.png",
+      "bytes": 57999,
+      "sha256": "a2122830f370f4019fbed22a4010c9888f997e80d53dbda730b919a1cbcd0160"
+    },
+    {
+      "path": "geography-390.png",
+      "bytes": 58680,
+      "sha256": "ab4266f3a6e034d2fa7f5f084b429a0df3a5d8fdb072e4503d353b2d1952165b"
+    },
+    {
+      "path": "geography-768.png",
+      "bytes": 69892,
+      "sha256": "b5a6072b5d5100320f877324c9a90f6362dd3105024afa324ade5cab7d12dd22"
+    },
+    {
+      "path": "home-1440.png",
+      "bytes": 121248,
+      "sha256": "88bbce02a332c682ef45e281de75c43f750704442be1f68b016c66951849a190"
+    },
+    {
+      "path": "image-ids-release.txt",
+      "bytes": 389,
+      "sha256": "101ba43151faee80ca6ecd7d6b7dd40f5595a0bea374bc6755dd96e49d462bc9"
+    },
+    {
+      "path": "migration-drift-release.log",
+      "bytes": 20,
+      "sha256": "a2bfa7b376c38062f77ce2b1e703876aaa04662f96355cdf5dc9d0d075302b05"
+    },
+    {
+      "path": "migrations-release.log",
+      "bytes": 460,
+      "sha256": "cf50836630a61c678120c79bc16c9ef7c1fc3bbc35f72a0dd1250f7b45da163c"
+    },
+    {
+      "path": "results-1440.png",
+      "bytes": 727520,
+      "sha256": "4e07078e04555f68e9846a31fd4e740a877020d768db049f40037fac2651db1e"
+    },
+    {
+      "path": "results-360.png",
+      "bytes": 1329293,
+      "sha256": "35b48373fe17b0f80dc5bf43699f92611db14d1b2e1d35dfb9abd142a726d6fc"
+    },
+    {
+      "path": "results-390.png",
+      "bytes": 1436862,
+      "sha256": "94c89ab41eabeb52bab0eb35a15756942e87dbd60d3890f3a4e0ca84d099af37"
+    },
+    {
+      "path": "results-768.png",
+      "bytes": 1438104,
+      "sha256": "78b185612024e63f192889c8ba44ae942cd36aebe680d89f5dfe5ccef717318a"
+    },
+    {
+      "path": "seed-counts-release.log",
+      "bytes": 212,
+      "sha256": "526fdff403af6b281fed47c3122b13cb75a851803ee4bc43f4654268c892e1f2"
+    },
+    {
+      "path": "seed-release.log",
+      "bytes": 113,
+      "sha256": "ccfd8627c384023504704656f46596a4eefe339b45564fe3ea00b8db2b442f01"
+    },
+    {
+      "path": "services-release.log",
+      "bytes": 300,
+      "sha256": "e4c93ebac340a57d11e8d6f510900e384a9db58254a83509294cc58e74906a34"
+    },
+    {
+      "path": "visual-stable-release.log",
+      "bytes": 351,
+      "sha256": "9cdda43d64ea051931fbeb6bb8b40fd409cf1d81ede42f3d4a2e8bb620c33012"
+    },
+    {
+      "path": "web-version-release.json",
+      "bytes": 33,
+      "sha256": "ac74a4c8c2bfeff12fec4810e43c9f0b4ea4e9733d185fcb3bdc044763824310"
+    }
+  ],
+  "runtime_ready": true
+}

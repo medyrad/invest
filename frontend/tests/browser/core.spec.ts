@@ -45,14 +45,14 @@ test('core geography parent preservation and stable visual evidence',async({brow
   await p.goto('/opportunities?criteria='+encodeURIComponent(JSON.stringify({kind:'project',route:'investor',province:[province.id],county:[county.id]})));
   await expect(p.locator('article').first()).toBeVisible();
   const location=p.getByRole('button',{name:/محدوده/});const control=await location.boundingBox();expect(control!.width).toBeGreaterThan(100);
-  await location.click();
+  await location.click();await expect(p.locator('[data-slot="popover-content"]').last()).toHaveCSS('opacity','1');
   await expect(p.getByRole('combobox',{name:'شهرستان',exact:true})).toContainText(county.name);
   await expect(p.getByText('فهرست شهرهای این شهرستان فعلاً در دسترس نیست؛ انتخاب شهرستان شما حفظ شده است.',{exact:true})).toBeVisible();
   const box=await p.getByRole('combobox',{name:'شهر',exact:true}).boundingBox();expect(box!.x).toBeGreaterThanOrEqual(0);expect(box!.x+box!.width).toBeLessThanOrEqual(width+1);
-  await p.screenshot({path:evidence+`/geography-${width}.png`,fullPage:false});
+  await p.screenshot({path:evidence+`/geography-${width}.png`,fullPage:false,animations:'disabled'});
   await p.keyboard.press('Escape');
  }
- await p.setViewportSize({width:1440,height:1000});await p.goto('/');await expect(p.getByRole('link',{name:'فرصت‌ها',exact:true}).first()).toBeVisible();await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(700);await p.screenshot({path:evidence+'/home-1440.png',fullPage:false});
+ await p.setViewportSize({width:1440,height:1000});await p.goto('/');await expect(p.getByRole('link',{name:'فرصت‌ها',exact:true}).first()).toBeVisible();await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(700);await p.screenshot({path:evidence+'/home-1440.png',fullPage:false,animations:'disabled'});
  for(const width of [360,390,768,1440]){await p.setViewportSize({width,height:1000});await p.goto('/opportunities');await expect(p.locator('article').first()).toBeVisible();for(const card of await p.locator('article').all()){await card.scrollIntoViewIfNeeded();await expect(card).toHaveCSS('opacity','1')}await p.evaluate(()=>window.scrollTo(0,0));await p.screenshot({path:evidence+`/results-${width}.png`,fullPage:true,animations:'disabled'});}
  await context.close();
 });

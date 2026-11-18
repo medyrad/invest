@@ -1,0 +1,3 @@
+43 objects imported automatically (use -v 2 for details).
+
+{'local_roles': 5, 'base_published': [{'draft__kind': 'fund', 'count': 2}, {'draft__kind': 'sale', 'count': 2}, {'draft__kind': 'project', 'count': 2}]}

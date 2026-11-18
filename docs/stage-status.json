@@ -1,7 +1,7 @@
 {
   "date": "2026-11-18",
   "current_stage": "S05",
-  "status": "s05-a1-fix-02-ready-for-independent-retest",
+  "status": "core-complete-ready-for-independent-test",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -106,17 +106,16 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "PROGRAMMER-CORE-COMPLETE",
-    "description": "تحویل جامع باقی S05 و S06/S07 طبق درخواست افزایش دامنه پرامپت",
-    "authorized": true,
-    "scope_path": "docs/programmer-core-complete.md",
+    "id": "TEST-CORE-COMPLETE",
+    "description": "آزمون مستقل تجمیعی هسته و بازبینی انسانی طراحی با هماهنگ‌کننده؛ اجرا توسط برنامه‌نویس مجاز نشده است.",
+    "authorized": false,
     "full_product_implementation_authorized": false
   },
   "active_step": {
     "id": "CORE",
     "mission": "PROGRAMMER-CORE-COMPLETE",
     "authorization": "docs/programmer-core-complete.md at e59a11c",
-    "status": "in-progress",
+    "status": "ready-for-independent-test",
     "implementation_authorized": true,
     "public_deployment_authorized": false,
     "feature": "009-core-journeys",
@@ -125,7 +124,10 @@
     "report_path": "docs/core-delivery/report.md",
     "verification_path": "docs/core-delivery/evidence/manifest.json",
     "full_stage_complete": false,
-    "independent_retest_report_path": "docs/stage4/values-retest-report.md"
+    "version": "CORE-8663fe177c97",
+    "runtime_url": "http://127.0.0.1:3108",
+    "independent_acceptance": false,
+    "delivery_label": "آماده آزمون مستقل هسته کامل"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -487,7 +489,7 @@
   },
   "core_delivery": {
     "mission": "PROGRAMMER-CORE-COMPLETE",
-    "status": "in-progress",
+    "status": "ready-for-independent-test",
     "feature": "009-core-journeys",
     "scope_path": "docs/programmer-core-complete.md",
     "coordinator_commit": "e59a11c",
@@ -495,6 +497,15 @@
     "public_deployment_authorized": false,
     "human_visual_approved": false,
     "independent_acceptance": false,
-    "full_product_complete": false
+    "full_product_complete": false,
+    "version": "CORE-8663fe177c97",
+    "report_path": "docs/core-delivery/report.md",
+    "manifest_path": "docs/core-delivery/evidence/manifest.json",
+    "runtime_url": "http://127.0.0.1:3108",
+    "backend_passed": 628,
+    "browser_core_passed": 7,
+    "browser_auth_regression_passed": 2,
+    "pushed": false,
+    "delivery_label": "آماده آزمون مستقل هسته کامل"
   }
 }
