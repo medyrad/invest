@@ -1,0 +1,9 @@
+
+Running 2 tests using 1 worker
+
+(node:120169) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/workspace-required.spec.ts:39:1 › FIX-02 model_id: incomplete, explicit statuses, valid text and invalid input match server missing (2.0s)
+  ✓  2 tests/browser/workspace-required.spec.ts:55:1 › FIX-02 duration: optional visibility, lessee requirement, mixed routes, inactive return and fee independence (3.0s)
+
+  2 passed (5.4s)

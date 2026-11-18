@@ -1,0 +1,15 @@
+{
+  "unit": "seconds",
+  "preparation_from_version_marker": 7.44,
+  "execution_and_evidence_review": 41.46,
+  "report_to_evidence_recording": 45.44,
+  "pytest_runner": 1.92,
+  "browser_runner": 5.4,
+  "build": 0,
+  "new_test_authoring": 0,
+  "pytest_unique": 56,
+  "browser_unique": 2,
+  "reruns": 0,
+  "initial_reading_duration": "not measured; precedes version marker",
+  "final_diff_and_commit": "follow report marker"
+}

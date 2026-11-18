@@ -1,0 +1,57 @@
+{
+  "changed_product_test_files": [
+    "backend/apps/workspace/schema.py",
+    "backend/apps/workspace/schema_data.json",
+    "backend/tests/test_workspace_required.py",
+    "frontend/playwright.workspace-required.config.ts",
+    "frontend/src/components/workspace/field.tsx",
+    "frontend/src/components/workspace/types.ts",
+    "frontend/src/components/workspace/workspace.tsx",
+    "frontend/tests/browser/workspace-required.spec.ts"
+  ],
+  "schema_diff": [
+    {
+      "field": "model_id",
+      "changes": {
+        "required": [
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "field": "duration_years",
+      "changes": {
+        "required": [
+          true,
+          false
+        ],
+        "required_routes": [
+          null,
+          [
+            "lessee"
+          ]
+        ]
+      }
+    }
+  ],
+  "historical_critical_files_unchanged": [
+    "backend/apps/workspace/service.py",
+    "backend/apps/workspace/files.py",
+    "backend/apps/workspace/models.py",
+    "backend/apps/catalog/values.py",
+    "frontend/src/components/workspace/api.ts",
+    "frontend/src/components/workspace/files-panel.tsx"
+  ],
+  "independent_assertions_unchanged_from": "ce565ac",
+  "runtime_source": {
+    "invest-backend-1": {
+      "apps/workspace/schema.py": "3a9611e7f85faaa2574454b93e29fa09f6772d1256be237caa0e0c9e920d0fb4",
+      "apps/workspace/schema_data.json": "b078279d931bb1c63629e207f446a394bdb4d9e9f8c45540002b7b38d3200a77"
+    },
+    "invest-a1-browser-api": {
+      "apps/workspace/schema.py": "3a9611e7f85faaa2574454b93e29fa09f6772d1256be237caa0e0c9e920d0fb4",
+      "apps/workspace/schema_data.json": "b078279d931bb1c63629e207f446a394bdb4d9e9f8c45540002b7b38d3200a77"
+    }
+  }
+}
