@@ -1,0 +1,104 @@
+[
+  {
+    "field": "interventions",
+    "source": "interventionLabel",
+    "equal_keys_and_labels": true,
+    "options": 7
+  },
+  {
+    "field": "partnership_settlements",
+    "source": "settlementLabel",
+    "equal_keys_and_labels": true,
+    "options": 4
+  },
+  {
+    "field": "contractor_settlements",
+    "source": "contractorSettlementLabel",
+    "equal_keys_and_labels": true,
+    "options": 3
+  },
+  {
+    "field": "accepted_guarantees",
+    "source": "guaranteeLabel",
+    "equal_keys_and_labels": true,
+    "options": 6
+  },
+  {
+    "field": "sale_payments",
+    "source": "salePaymentLabel",
+    "equal_keys_and_labels": true,
+    "options": 5
+  },
+  {
+    "field": "transfer_rights",
+    "source": "transferRightLabel",
+    "equal_keys_and_labels": true,
+    "options": 7
+  },
+  {
+    "field": "lease_types",
+    "source": "leaseTypeLabel",
+    "equal_keys_and_labels": true,
+    "options": 3
+  },
+  {
+    "field": "lease_payments",
+    "source": "leasePaymentLabel",
+    "equal_keys_and_labels": true,
+    "options": 4
+  },
+  {
+    "field": "heritage_returns",
+    "source": "heritageReturnLabel",
+    "equal_keys_and_labels": true,
+    "options": 4
+  },
+  {
+    "field": "heritage_uses",
+    "source": "heritageUseLabel",
+    "equal_keys_and_labels": true,
+    "options": 6
+  },
+  {
+    "field": "heritage_payments",
+    "source": "heritagePaymentLabel",
+    "equal_keys_and_labels": true,
+    "options": 3
+  },
+  {
+    "field": "phase",
+    "source": "lib/criteria.ts:phaseLabel",
+    "equal_option_codes": true,
+    "unknown": "explicit status, not duplicated option"
+  },
+  {
+    "field": "sector",
+    "source": "lib/criteria.ts:ownerLabel",
+    "equal_option_codes": true,
+    "unknown": "explicit status, not duplicated option"
+  },
+  {
+    "field": "revenues",
+    "source": "lib/criteria.ts:revenueLabel",
+    "equal_option_codes": true,
+    "unknown": "explicit status, not duplicated option"
+  },
+  {
+    "field": "income",
+    "source": "lib/utils.ts:incomeLabel",
+    "equal_option_codes": true,
+    "unknown": "explicit status, not duplicated option"
+  },
+  {
+    "field": "risk",
+    "source": "lib/utils.ts:riskLabel",
+    "equal_option_codes": true,
+    "unknown": "explicit status, not duplicated option"
+  },
+  {
+    "field": "legal_status",
+    "source": "lib/utils.ts:legalLabel",
+    "equal_option_codes": true,
+    "unknown": "explicit status, not duplicated option"
+  }
+]

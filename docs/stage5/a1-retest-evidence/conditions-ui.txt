@@ -1,0 +1,35 @@
+
+Running 1 test using 1 worker
+
+(node:72078) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 docs/stage5/a1-retest-tests/late.spec.ts:68:1 › approved representative and distinct route widgets (7.0s)
+
+
+  1) docs/stage5/a1-retest-tests/late.spec.ts:68:1 › approved representative and distinct route widgets
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByLabel('حداقل نقدینگی پیمان — وضعیت', { exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByLabel('حداقل نقدینگی پیمان — وضعیت', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('حداقل نقدینگی پیمان — وضعیت', { exact: true })
+
+
+      73 |  const choices=page.getByRole('group',{name:'مسیرهای پروژه',exact:true});
+      74 |  for(const [route,label] of [['مشارکت','حداقل سرمایه ورود'],['پیمانکاری','حداقل نقدینگی پیمان'],['خرید','قیمت عرضه'],['اجاره','ودیعه'],['میراث','حداقل سرمایه ورود']]){
+    > 75 |   await choices.getByRole('checkbox',{name:route,exact:true}).check();await expect(page.getByLabel(label+' — وضعیت',{exact:true})).toBeVisible();
+         |                                                                                                                                    ^
+      76 |   await page.getByLabel(label+' — وضعیت',{exact:true}).selectOption('unknown');await save(page);
+      77 |   await choices.getByRole('checkbox',{name:route,exact:true}).uncheck();await expect(page.getByLabel(label+' — وضعیت',{exact:true})).not.toBeVisible();
+      78 |   await choices.getByRole('checkbox',{name:route,exact:true}).check();await expect(page.getByLabel(label+' — وضعیت',{exact:true})).toHaveValue('unknown');await choices.getByRole('checkbox',{name:route,exact:true}).uncheck();
+        at /home/mehdirad/Projects/company/invest/docs/stage5/a1-retest-tests/late.spec.ts:75:132
+
+    Error Context: test-results/late-approved-representative-and-distinct-route-widgets/error-context.md
+
+  1 failed
+    docs/stage5/a1-retest-tests/late.spec.ts:68:1 › approved representative and distinct route widgets

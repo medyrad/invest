@@ -1,0 +1,8 @@
+
+Running 1 test using 1 worker
+
+(node:72778) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 docs/stage5/a1-retest-tests/late.spec.ts:68:1 › approved representative and distinct route widgets (3.4s)
+
+  1 passed (3.9s)

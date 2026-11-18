@@ -1,0 +1,38 @@
+{
+  "0005_project_fields.py": true,
+  "0006_project_capacity_units.py": true,
+  "active_backend_image": "sha256:7a65067546515afb593db3853d902621d0cfdf4cb7ef73170128670b6af80742",
+  "browser_api_image": "sha256:7a65067546515afb593db3853d902621d0cfdf4cb7ef73170128670b6af80742",
+  "active_db_readonly": {
+    "catalog_migrations": [
+      [
+        "0001_initial"
+      ],
+      [
+        "0002_exact_values"
+      ],
+      [
+        "0003_value_definitions"
+      ],
+      [
+        "0004_basis_integrity"
+      ],
+      [
+        "0005_project_fields"
+      ],
+      [
+        "0006_project_capacity_units"
+      ]
+    ],
+    "guards": [
+      [
+        "immutable_field",
+        "O"
+      ],
+      [
+        "immutable_unit",
+        "O"
+      ]
+    ]
+  }
+}

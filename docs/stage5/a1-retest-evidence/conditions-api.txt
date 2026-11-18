@@ -1,0 +1,15 @@
+ Container invest-db-1 Running
+ Container invest-db-1 Waiting
+ Container invest-db-1 Healthy
+ Container invest-test-run-d2a7c119b3bc Creating
+ Container invest-test-run-d2a7c119b3bc Created
+.....F                                                                   [100%]
+=================================== FAILURES ===================================
+________________ test_model_id_readiness_matches_product_table _________________
+/independent/test_conditions.py:25: in test_model_id_readiness_matches_product_table
+    d=create(accounts[0]);assert 'model_id' in d['missing']
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: assert 'model_id' in ['budget', 'caution', 'city', 'county', 'finance', 'group', ...]
+=========================== short test summary info ============================
+FAILED ::test_model_id_readiness_matches_product_table - AssertionError: asse...
+1 failed, 5 passed in 0.87s

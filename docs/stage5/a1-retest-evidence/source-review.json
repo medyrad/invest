@@ -1,0 +1,23 @@
+{
+  "files": {
+    "src/types/index.ts": "02d330b2992f4926b15c0dc5b5feb02be72877216731dddba844111b9bd48676",
+    "src/lib/facts.ts": "bfe831d8c3a51f496f231ed77d002de2e6a51f9ff4e1e5f33cdce3599a5c04a8",
+    "src/data/source-terms.ts": "04ed5e8143a53113a7c9e11b9b19bb2c7b42dc3710467f3b2529bed0ececc0ec",
+    "src/lib/utils.ts": "ba3ef596899533882b68609194a36863a3c1ff4b2662fb135916ac212359cd18",
+    "src/lib/criteria.ts": "2c1ec921e35ad732d48868ab2a7a6d545c4ff55941871008ff755163420972ce",
+    "src/data/provinces.ts": "51b44148ae56514700af0f04ca9213bd5db4edad8aac9d1382ec0ede1b12f569"
+  },
+  "rows": 69,
+  "excluded_system": [
+    "id",
+    "publishedAt",
+    "expert",
+    "irrCashflowsVerified"
+  ],
+  "derived_or_separate": [
+    "routes: selector",
+    "image/guideFileUrl: private files D32",
+    "usageLabel: dictionary"
+  ],
+  "method": "خواندن منبع واقعی کپی مرجع و مقابله با product/schema/renderer؛ شاهد تطبیق ZIP در PRODUCT-S05-01 تاریخی است؛ محل‌های CSV مستقل از نام جعلی source در schema تعیین شدند"
+}

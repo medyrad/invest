@@ -1,0 +1,18 @@
+Error: Cannot find module '@playwright/test'
+Require stack:
+- /home/mehdirad/Projects/company/invest/docs/stage5/a1-retest-tests/late.spec.ts
+- /home/mehdirad/Projects/company/invest/frontend/node_modules/playwright/lib/common/index.js
+- /home/mehdirad/Projects/company/invest/frontend/node_modules/playwright/lib/program.js
+- /home/mehdirad/Projects/company/invest/frontend/node_modules/@playwright/test/cli.js
+
+   at late.spec.ts:4
+
+  2 | import { execFileSync } from 'node:child_process';
+  3 | import path from 'node:path';
+> 4 | import { expect, test, type Page } from '@playwright/test';
+    | ^
+  5 |
+  6 | const root = path.resolve(__dirname, '../../..');
+  7 | const evidence = path.join(root, process.env.A1_EVIDENCE || '.tools/s05-a1/browser-iteration');
+    at Object.<anonymous> (/home/mehdirad/Projects/company/invest/docs/stage5/a1-retest-tests/late.spec.ts:4:1)
+Error: No tests found

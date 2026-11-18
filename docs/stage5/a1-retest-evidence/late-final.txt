@@ -1,0 +1,102 @@
+
+Running 6 tests using 1 worker
+
+(node:68549) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late list: logout only (1.4s)
+(node:68821) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late list: switch B (2.4s)
+  ✘  3 docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late detail: logout only (1.3s)
+(node:69303) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late detail: switch B (2.4s)
+  ✘  5 docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late save: logout only (1.3s)
+(node:69805) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late save: switch B (2.3s)
+
+
+  1) docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late list: logout only ────────────────────────
+
+    Error: expect(locator).not.toBeVisible() failed
+
+    Locator: getByText('PRIVATE_A_LATE', { exact: true })
+    Expected: not visible
+    Error: strict mode violation: getByText('PRIVATE_A_LATE', { exact: true }) resolved to 2 elements:
+        1) <h2>PRIVATE_A_LATE</h2> aka locator('h2').filter({ hasText: 'PRIVATE_A_LATE' })
+        2) <textarea rows="2" id="field-title" maxlength="4000" aria-label="عنوان پروژه">PRIVATE_A_LATE</textarea> aka getByLabel('عنوان پروژه')
+
+    Call log:
+      - Expect "not toBeVisible" getByText('PRIVATE_A_LATE', { exact: true }) with timeout 5000ms
+      - waiting for getByText('PRIVATE_A_LATE', { exact: true })
+
+
+      62 |   if(switchAccount){await expect(page.getByLabel('عنوان پروژه',{exact:true})).toHaveValue('PRIVATE_B_CURRENT');expect(JSON.stringify(await(await page.request.get('/api/v1/workspace/drafts')).json())).not.toContain(initial.id);}
+      63 |   else await expect(page.getByLabel('عنوان پروژه',{exact:true})).not.toBeVisible();
+    > 64 |   await expect(page.getByText('PRIVATE_A_LATE',{exact:true})).not.toBeVisible();
+         |                                                                   ^
+      65 |   await page.reload();if(switchAccount){await page.getByRole('button',{name:'ادامه ویرایش',exact:true}).click();await expect(page.getByLabel('عنوان پروژه',{exact:true})).toHaveValue('PRIVATE_B_CURRENT');}else await expect(page.getByRole('button',{name:'ورود به حساب',exact:true})).toBeVisible();
+      66 |  });
+      67 | }
+        at /home/mehdirad/Projects/company/invest/docs/stage5/a1-retest-tests/late.spec.ts:64:67
+
+    Error Context: test-results/late-late-list-logout-only/error-context.md
+
+  2) docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late detail: logout only ──────────────────────
+
+    Error: expect(locator).not.toBeVisible() failed
+
+    Locator: getByText('PRIVATE_A_LATE', { exact: true })
+    Expected: not visible
+    Error: strict mode violation: getByText('PRIVATE_A_LATE', { exact: true }) resolved to 2 elements:
+        1) <h2>PRIVATE_A_LATE</h2> aka locator('h2').filter({ hasText: 'PRIVATE_A_LATE' })
+        2) <textarea rows="2" id="field-title" maxlength="4000" aria-label="عنوان پروژه">PRIVATE_A_LATE</textarea> aka getByLabel('عنوان پروژه')
+
+    Call log:
+      - Expect "not toBeVisible" getByText('PRIVATE_A_LATE', { exact: true }) with timeout 5000ms
+      - waiting for getByText('PRIVATE_A_LATE', { exact: true })
+
+
+      62 |   if(switchAccount){await expect(page.getByLabel('عنوان پروژه',{exact:true})).toHaveValue('PRIVATE_B_CURRENT');expect(JSON.stringify(await(await page.request.get('/api/v1/workspace/drafts')).json())).not.toContain(initial.id);}
+      63 |   else await expect(page.getByLabel('عنوان پروژه',{exact:true})).not.toBeVisible();
+    > 64 |   await expect(page.getByText('PRIVATE_A_LATE',{exact:true})).not.toBeVisible();
+         |                                                                   ^
+      65 |   await page.reload();if(switchAccount){await page.getByRole('button',{name:'ادامه ویرایش',exact:true}).click();await expect(page.getByLabel('عنوان پروژه',{exact:true})).toHaveValue('PRIVATE_B_CURRENT');}else await expect(page.getByRole('button',{name:'ورود به حساب',exact:true})).toBeVisible();
+      66 |  });
+      67 | }
+        at /home/mehdirad/Projects/company/invest/docs/stage5/a1-retest-tests/late.spec.ts:64:67
+
+    Error Context: test-results/late-late-detail-logout-only/error-context.md
+
+  3) docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late save: logout only ────────────────────────
+
+    Error: expect(locator).not.toBeVisible() failed
+
+    Locator: getByText('PRIVATE_A_LATE', { exact: true })
+    Expected: not visible
+    Error: strict mode violation: getByText('PRIVATE_A_LATE', { exact: true }) resolved to 2 elements:
+        1) <h2>PRIVATE_A_LATE</h2> aka locator('h2').filter({ hasText: 'PRIVATE_A_LATE' })
+        2) <textarea rows="2" id="field-title" maxlength="4000" aria-label="عنوان پروژه">PRIVATE_A_LATE</textarea> aka getByLabel('عنوان پروژه')
+
+    Call log:
+      - Expect "not toBeVisible" getByText('PRIVATE_A_LATE', { exact: true }) with timeout 5000ms
+      - waiting for getByText('PRIVATE_A_LATE', { exact: true })
+
+
+      62 |   if(switchAccount){await expect(page.getByLabel('عنوان پروژه',{exact:true})).toHaveValue('PRIVATE_B_CURRENT');expect(JSON.stringify(await(await page.request.get('/api/v1/workspace/drafts')).json())).not.toContain(initial.id);}
+      63 |   else await expect(page.getByLabel('عنوان پروژه',{exact:true})).not.toBeVisible();
+    > 64 |   await expect(page.getByText('PRIVATE_A_LATE',{exact:true})).not.toBeVisible();
+         |                                                                   ^
+      65 |   await page.reload();if(switchAccount){await page.getByRole('button',{name:'ادامه ویرایش',exact:true}).click();await expect(page.getByLabel('عنوان پروژه',{exact:true})).toHaveValue('PRIVATE_B_CURRENT');}else await expect(page.getByRole('button',{name:'ورود به حساب',exact:true})).toBeVisible();
+      66 |  });
+      67 | }
+        at /home/mehdirad/Projects/company/invest/docs/stage5/a1-retest-tests/late.spec.ts:64:67
+
+    Error Context: test-results/late-late-save-logout-only/error-context.md
+
+  3 failed
+    docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late list: logout only ─────────────────────────
+    docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late detail: logout only ───────────────────────
+    docs/stage5/a1-retest-tests/late.spec.ts:40:2 › late save: logout only ─────────────────────────
+  3 passed (12.5s)

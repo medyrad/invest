@@ -1,0 +1,14 @@
+{
+  "measured_preparation_test_authoring_and_execution_seconds": 279.3,
+  "report_seconds": 56.4,
+  "runner_seconds": {
+    "original": 0.98,
+    "reverse": 9.68,
+    "conditions_api": 0.87,
+    "late_final": 11.2,
+    "representative": 3.9,
+    "widgets": 1.7
+  },
+  "build": 0,
+  "limitation": "Initial mission reading preceded marker; preparation/test-authoring and runners overlapped and were not separately timed. Runner times are not full task time."
+}
