@@ -44,7 +44,7 @@ def test_every_project_widget_contract_roundtrip(accounts, key):
     a = accounts[0]
     d = create(a)
     values = {}
-    routes = ["investor", "contractor", "buyer", "lessee", "heritage"]
+    routes = ["investor", "contractor", "buyer", "lessee", "heritage", "operator"]
     if f["unit"]:
         value = number(
             key,

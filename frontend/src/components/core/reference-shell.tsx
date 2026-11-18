@@ -18,7 +18,7 @@ function Data({children,id}:{children:React.ReactNode;id?:string}){
  useEffect(()=>{let active=true;setError('');
  async function feed(criteria:Record<string,unknown>){let next:string|null=null;const all:PublicOpportunity[]=[];do{const q=new URLSearchParams({criteria:JSON.stringify(criteria),...(next?{cursor:next}:{})});const r:Feed=await core<Feed>('opportunities?'+q.toString());all.push(...r.items);next=r.next;}while(next&&active);return all;}
  async function load(){
- const geography=await fetch('/api/v1/catalog/geography',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('دریافت موقعیت‌ها انجام نشد.');return r.json()});configureGeography(geography);
+ const geography=await fetch('/api/v1/catalog/geography',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('دریافت موقعیت‌ها انجام نشد.');return r.json()});configureGeography(geography);if(!active)return;
  if(!initialURL.current){const params=new URLSearchParams(window.location.search);if(path==='/opportunities'&&params.has('criteria')){let raw;try{raw=JSON.parse(params.get('criteria')!)}catch{throw Error('پیوند جست‌وجو معتبر نیست.')}const checked=await core<Feed>('opportunities?criteria='+encodeURIComponent(JSON.stringify(raw)));if(active){initialURL.current=true;useStore.getState().setCriteria(fromCriteria(checked.criteria));}return;}if(path==='/compare'&&params.has('ids')){const ids=params.get('ids')!.split(',');await core('compare',{ids});if(!active)return;initialURL.current=true;useStore.getState().setCompare(ids)}else initialURL.current=true;}
  const base=await feed({});if(id&&!base.some(p=>p.id===id)){const one=await core<PublicOpportunity>('opportunities/'+id);base.push(one)}
  const ranked=await feed(toCriteria(c));if(!active)return;

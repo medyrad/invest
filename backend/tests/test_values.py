@@ -367,8 +367,9 @@ def test_value_api_contract_csrf_no_storage_and_persian_errors(client):
         ).validate(data)
 
     definitions = client.get("/api/v1/catalog/value-definitions")
-    assert definitions.status_code == 200 and len(definitions.json()["fields"]) == 33
+    assert definitions.status_code == 200 and len(definitions.json()["fields"]) == 34
     expected_new = {
+        ("invest.opportunity.project", "operator_work_period", 1),
         ("invest.opportunity.fund", "forecast", 1),
         ("invest.opportunity.fund", "duration_months", 1),
         ("invest.opportunity.sale", "price", 1),

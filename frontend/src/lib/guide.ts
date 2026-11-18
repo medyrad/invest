@@ -1,3 +1,4 @@
+import {documents,exactText,basisText,type Typed} from './public-values';
 // فایل راهنمای اقدام: یک HTML مستقل که هم در صفحه راهنما پیش‌نمایش می‌شود و هم دانلود می‌شود.
 // برای پروژه‌هایی است که کارشناس اختصاصی ندارند (مطابق نسخه مرجع که خروجی راهنما را HTML می‌دهد).
 import { advisories } from "@/data/advisories";
@@ -57,6 +58,8 @@ export function guideHtml(l: Listing, ctx: GuideContext = {}): string {
 
   const rowsHtml = (rows: [string, string][], label = "ثبت نشده") => { const { known, pending } = splitPending(rows);
     return known.map(([k, v]) => `<div class="row"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("") + (pending.length ? `<p class="pending"><b>${label}:</b> ${pending.map(esc).join("، ")}</p>` : ""); };
+  const period = documents.get(l.id)?.fields.operator_work_period;
+  if (period) parts.push(sec("شرح خدمت و دوره کار بهره‌برداری", `<p>${esc(String(documents.get(l.id)?.fields.description || ''))}</p><p>${esc(exactText(period))}</p><p>${esc(basisText((period as Typed).basis))}</p>`));
   parts.push(sec("پروژه در یک نگاه", `<div class="grid">${groups.map((g) => `<div class="card"><h3>${g.title}</h3>${rowsHtml(g.items)}</div>`).join("")}</div>`));
 
   const kind = followUpKinds.find((k) => k.value === ctx.kind)?.label;

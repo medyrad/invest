@@ -37,6 +37,7 @@ def current_core_definitions(db):
         ("0007_fund_sale_fields", "invest.opportunity.fund", "duration_months", 1),
         ("0008_explicit_fund_return_types", "invest.opportunity.fund", "forecast_irr", 1),
         ("0009_signed_fund_returns", "invest.opportunity.fund", "forecast_irr", 2),
+        ("0010_operator_work_period", "invest.opportunity.project", "operator_work_period", 1),
     ]
     for module, namespace, key, version in packages:
         if not FieldDefinition.objects.filter(
@@ -1025,6 +1026,220 @@ def test_new_definition_reverse_protects_consumer_and_restores_guards():
     original = row.as_dict()
     with pytest.raises(ProtectedError), transaction.atomic():
         importlib.import_module("apps.catalog.migrations.0009_signed_fund_returns").unseed(
+            apps, SimpleNamespace(connection=connection)
+        )
+    row.refresh_from_db()
+    assert row.as_dict() == original
+    with connection.cursor() as cur:
+        cur.execute("SELECT tgenabled FROM pg_trigger WHERE tgname='immutable_field'")
+        assert cur.fetchone()[0] == "O"
+
+
+@pytest.mark.parametrize("unit", ["DAY", "MONTH", "YEAR"])
+def test_operator_work_period_roundtrip_hidden_restore_public_and_report(team, unit):
+    from apps.workspace.models import DraftValue
+
+    owner, admin, customer, *_ = team
+    d = draft(owner)
+    d = ws.save_draft(
+        owner.user,
+        d["id"],
+        {
+            "key": key(),
+            "version": d["version"],
+            "routes": ["operator"],
+            "heritage_enabled": False,
+            "values": {"description": "شرح خدمت نگهداری مصنوعی"},
+        },
+    )
+    assert "operator_work_period" in d["missing"]
+    assert not {"min_capital", "execution_months", "payback_years"} & set(d["effective"])
+    with pytest.raises(Fault) as missing:
+        pub.submit(owner, d["id"], {"key": key(), "version": d["version"]})
+    assert missing.value.status == 400
+    period = number(
+        "project", "operator_work_period", "۱۸٫۵", unit, basis={"start_basis": "تحویل تاسیسات"}
+    )
+    d = ws.save_draft(
+        owner.user,
+        d["id"],
+        {
+            "key": key(),
+            "version": d["version"],
+            "routes": ["operator"],
+            "heritage_enabled": False,
+            "values": {"operator_work_period": period},
+        },
+    )
+    assert ws.get_draft(owner.user, d["id"])["effective"]["operator_work_period"]["value"] == "18.5"
+    stored = DraftValue.objects.filter(key="operator_work_period").latest("id").quantity
+    assert stored.value == Decimal("18.5") and stored.unit.code == unit
+    assert stored.basis == {"start_basis": "تحویل تاسیسات"}
+    d = ws.save_draft(
+        owner.user,
+        d["id"],
+        {
+            "key": key(),
+            "version": d["version"],
+            "routes": ["contractor"],
+            "heritage_enabled": False,
+            "values": {},
+        },
+    )
+    assert "operator_work_period" in d["raw"] and "operator_work_period" not in d["effective"]
+    d = ws.save_draft(
+        owner.user,
+        d["id"],
+        {
+            "key": key(),
+            "version": d["version"],
+            "routes": ["operator"],
+            "heritage_enabled": False,
+            "values": {},
+        },
+    )
+    assert not d["missing"]
+    submission = pub.submit(owner, d["id"], {"key": key(), "version": d["version"]})
+    pub.review(
+        admin,
+        submission["id"],
+        {
+            "key": key(),
+            "decision": "approved",
+            "reason": "بررسی دوره خدمت مصنوعی",
+            "public_files": [],
+        },
+    )
+    op = Opportunity.objects.get(pk=submission["opportunity_id"])
+    public = discovery.public_dto(op)
+    assert public["fields"]["operator_work_period"] == d["effective"]["operator_work_period"]
+    receipt = personal.mutate(
+        customer.user,
+        {
+            "key": key(),
+            "action": "report",
+            "id": str(op.pk),
+            "value": {"criteria": {}, "guide_context": {}},
+        },
+    )
+    assert (
+        Report.objects.get(pk=receipt["report_id"]).snapshot["opportunity"]["fields"][
+            "operator_work_period"
+        ]
+        == public["fields"]["operator_work_period"]
+    )
+
+
+@pytest.mark.parametrize("status", ["unknown", "not_applicable"])
+def test_operator_explicit_statuses_without_investor_budget(team, status):
+    d = draft(team[0])
+    d = ws.save_draft(
+        team[0].user,
+        d["id"],
+        {
+            "key": key(),
+            "version": d["version"],
+            "routes": ["operator"],
+            "heritage_enabled": False,
+            "values": {
+                "operator_work_period": number(
+                    "project",
+                    "operator_work_period",
+                    None,
+                    "DAY",
+                    status,
+                    {"start_basis": "unspecified"},
+                )
+            },
+        },
+    )
+    assert not d["missing"]
+    assert d["effective"]["operator_work_period"]["status"] == status
+
+
+@pytest.mark.parametrize(
+    "patch",
+    [
+        {"unit": {"code": "", "version": 1}},
+        {"unit": {"code": "ITEM", "version": 1}},
+        {"basis": None},
+        {"basis": {"start_basis": ""}},
+        {"source_value": "1.0000000001"},
+    ],
+)
+def test_operator_invalid_period_has_field_error(team, patch):
+    from apps.workspace.schema import validate_one
+
+    with pytest.raises(Fault) as error:
+        validate_one(
+            "operator_work_period",
+            {
+                **number(
+                    "project", "operator_work_period", "1", "MONTH", basis={"start_basis": "تحویل"}
+                ),
+                **patch,
+            },
+        )
+    assert error.value.field.startswith("operator_work_period.")
+
+
+@pytest.mark.parametrize(
+    "criteria_value,path",
+    [
+        ({"important": [{}]}, "criteria.important.0"),
+        ({"important": [[]]}, "criteria.important.0"),
+        ({"important": [1]}, "criteria.important.0"),
+        ({"important": [True]}, "criteria.important.0"),
+        ({"important": ["bad"]}, "criteria.important.0"),
+        ({"important": {}}, "criteria.important"),
+        ({"preferences": {"risk": {}}}, "criteria.preferences.risk"),
+        ({"preferences": {"phase": [[]]}}, "criteria.preferences.phase"),
+    ],
+)
+def test_search_malformed_members_400_envelope(client, criteria_value, path):
+    import json
+
+    r = client.get("/api/v1/core/opportunities", {"criteria": json.dumps(criteria_value)})
+    assert r.status_code == 400
+    assert path in r.json()["error"]["fields"]
+    assert any("\u0600" <= c <= "\u06ff" for c in r.json()["error"]["message"])
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        {"important": []},
+        {"important": ["risk", "amount"]},
+        {"preferences": {"unknown_preference": "unknown", "risk": None}},
+    ],
+)
+def test_search_valid_empty_and_unknown_preserved(value):
+    assert discovery.criteria(value) == value
+
+
+@pytest.mark.parametrize("ids", [[{}, {}], [[], []], [1, 2]])
+def test_compare_malformed_ids_controlled(ids):
+    with pytest.raises(Fault) as error:
+        discovery.compare(ids)
+    assert error.value.status == 400
+
+
+def test_operator_definition_reverse_protects_saved_quantity_and_guard(team):
+    import importlib
+
+    from django.apps import apps
+    from django.db import connection
+    from django.db.models.deletion import ProtectedError
+
+    from apps.catalog.models import Quantity
+
+    row = Quantity.from_payload(
+        number("project", "operator_work_period", "3", "DAY", basis={"start_basis": "تحویل"})
+    )
+    row.save()
+    original = row.as_dict()
+    with pytest.raises(ProtectedError), transaction.atomic():
+        importlib.import_module("apps.catalog.migrations.0010_operator_work_period").unseed(
             apps, SimpleNamespace(connection=connection)
         )
     row.refresh_from_db()

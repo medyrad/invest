@@ -444,7 +444,7 @@ export function Detail({ id }: { id: string }) {
 
             {/* ساختار یکسان همه صفحه‌ها، به همین ترتیب: شناسنامه، پول، مقایسه بازگشت، ریسک، پرسش‌ها، پرونده، اطلاعات تکمیلی، گام‌ها، موارد مشابه.
                 بخشی که برای یک نوع (پروژه، صندوق، ملک) داده ندارد حذف می‌شود و بقیه جایشان را حفظ می‌کنند. */}
-            {o && <Chapter title="سرمایه شما در طول زمان"><DeclaredTimes id={l.id}/></Chapter>}
+            {o && <Chapter title={o.routes.length === 1 && o.routes[0] === "operator" ? "دوره کار بهره‌برداری" : "سرمایه شما در طول زمان"}><DeclaredTimes id={l.id}/></Chapter>}
             {hasFlow && !o && <Chapter title="مسیر پول"><div className="surface rounded-[1.75rem] px-6 py-2"><MoneyFlow o={text} /></div></Chapter>}
             {fund && (
               <Chapter title="دریافت سود و خروج">

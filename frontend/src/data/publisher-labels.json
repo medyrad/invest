@@ -68,7 +68,8 @@
     "rights_claims": "دعاوی و حقوق ثالث",
     "rights_registration": "نوع سند و ثبت",
     "rights_costs": "هزینه انتقال و بدهی",
-    "rights_occupancy": "وضعیت تصرف"
+    "rights_occupancy": "وضعیت تصرف",
+    "operator_work_period": "دوره کار بهره‌برداری"
   },
   "fund": {
     "title": "عنوان فرصت",

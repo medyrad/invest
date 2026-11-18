@@ -125,11 +125,24 @@ def criteria(value):
         )
     ):
         raise Fault("شرایط معتبر نیست.")
-    if "important" in value and (
-        not isinstance(value["important"], list)
-        or any(x not in WEIGHTS for x in value["important"])
-    ):
-        raise Fault("شرط مهم معتبر نیست.")
+    if "important" in value:
+        items = value["important"]
+        if not isinstance(items, list) or len(items) > 500:
+            raise Fault(
+                "شرط‌های مهم را به‌صورت فهرست محورهای معتبر وارد کنید.", field="criteria.important"
+            )
+        for i, item in enumerate(items):
+            if not isinstance(item, str) or item not in WEIGHTS:
+                raise Fault("محور شرط مهم معتبر نیست.", field=f"criteria.important.{i}")
+    # Validate shallow preference values before conditional evaluation or any lookup.
+    for key, item in value.get("preferences", {}).items():
+        valid = item is None or isinstance(item, (str, int, float, bool))
+        if isinstance(item, list):
+            valid = len(item) <= 500 and all(isinstance(x, (str, int)) for x in item)
+        if not valid:
+            raise Fault(
+                "مقدار ترجیح باید متن، عدد یا فهرست ساده باشد.", field="criteria.preferences." + key
+            )
     for k, model in [
         ("province", catalog.Province),
         ("county", catalog.County),
@@ -412,7 +425,12 @@ def listing(c, cursor=None):
 
 
 def compare(ids):
-    if not isinstance(ids, list) or not 2 <= len(ids) <= 4 or len(set(ids)) != len(ids):
+    if (
+        not isinstance(ids, list)
+        or not 2 <= len(ids) <= 4
+        or any(not isinstance(i, str) for i in ids)
+        or len(set(ids)) != len(ids)
+    ):
         raise Fault("۲ تا ۴ فرصت متمایز انتخاب کنید.")
     ops = [get_op(i) for i in ids]
     if any(not o.public_revision_id for o in ops):

@@ -904,6 +904,23 @@
       "unit": null,
       "required": true,
       "source": "src/types/index.ts:Opportunity.rights_occupancy"
+    },
+    {
+      "key": "operator_work_period",
+      "label": "دوره کار بهره‌برداری",
+      "kind": "quantity",
+      "section": "money",
+      "when": "operator",
+      "options": null,
+      "unit": "MONTH",
+      "unit_options": {
+        "DAY": "روز",
+        "MONTH": "ماه",
+        "YEAR": "سال"
+      },
+      "explicit_unit": true,
+      "required": true,
+      "source": "src/data/routes.ts:operator; routeSteps.operator; F09; PROGRAMMER-CORE-FIX-01"
     }
   ]
 }

@@ -9,7 +9,7 @@ export function active(f: Field, routes: string[], heritage: boolean, values: Re
   return (f.when.startsWith('forecast_') ? values.forecast_type === f.when.slice(9) : f.when === 'legacy_forecast' ? !!values.forecast && values.forecast_type === undefined : undefined) ?? typed[f.when] ?? c[f.when] ?? routes.includes(f.when);
 }
 export function requiredForRoutes(f: Field, routes: string[]) { return f.required || (f.required_routes?.some(r => routes.includes(r)) ?? false); }
-export function initialNumber(f: Field): Numeric { return { field: { namespace: f.namespace || 'invest.opportunity.project', key: f.key, version: f.version || 1 }, unit: { code: f.unit!, version: 1 }, status: 'known', source_value: '', basis: ['MONTH', 'YEAR', 'DAY'].includes(f.unit!) ? { start_basis: '' } : null }; }
+export function initialNumber(f: Field): Numeric { return { field: { namespace: f.namespace || 'invest.opportunity.project', key: f.key, version: f.version || 1 }, unit: { code: f.explicit_unit ? '' : f.unit!, version: 1 }, status: 'known', source_value: '', basis: ['MONTH', 'YEAR', 'DAY'].includes(f.unit!) ? { start_basis: '' } : null }; }
 export function FieldControl({ field: f, value, change, options, error, completionRequired = f.required }: { field: Field; value: Value | undefined; change: (v: Value) => void; options?: RefOption[]; error?: string; completionRequired?: boolean }) {
   const id = `field-${f.key}`;
   const title = <span className="workspace-label">{f.label}{completionRequired && <small> · برای تکمیل اطلاعات</small>}</span>;
@@ -21,7 +21,7 @@ export function FieldControl({ field: f, value, change, options, error, completi
     const units = f.unit_options ? Object.keys(f.unit_options) : f.kind === 'money' ? ['TOMAN', 'MILLION_TOMAN', 'BILLION_TOMAN'] : f.key === 'metric_quantity' ? ['ITEM', 'KILOGRAM', 'SQUARE_METRE'] : [f.unit];
     return <fieldset className="workspace-field"><legend>{title}</legend><div className="workspace-inline">
       <select aria-label={`${f.label} — وضعیت`} value={value ? n.status : ''} onChange={e => e.target.value ? set({ status: e.target.value, source_value: e.target.value === 'known' ? '' : null, basis: f.kind === 'return' ? null : n.basis }) : change(null)}><option value="">هنوز وارد نشده</option>{states.map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select>
-      <select aria-label={`${f.label} — واحد`} value={n.unit.code} onChange={e => set({ unit: { code: e.target.value, version: 1 } })}>{units.map(u => <option key={u} value={u}>{f.unit_options?.[u] || unitLabels[u]}</option>)}</select>
+      <select aria-label={`${f.label} — واحد`} value={n.unit.code} onChange={e => set({ unit: { code: e.target.value, version: 1 } })}>{f.explicit_unit && <option value="">واحد دوره را انتخاب کنید</option>}{units.map(u => <option key={u} value={u}>{f.unit_options?.[u] || unitLabels[u]}</option>)}</select>
       {n.status === 'known' && <input id={id} aria-label={f.label} inputMode="decimal" dir="ltr" value={n.source_value || ''} onChange={e => set({ source_value: e.target.value })} placeholder="مثلاً ۱٫۵" />}
     </div>
       {['MONTH', 'YEAR', 'DAY'].includes(f.unit) && <label>مبنای شروع مدت<input aria-label={`${f.label} — مبنای شروع`} value={basis.start_basis || ''} onChange={e => setBasis({ start_basis: e.target.value })} placeholder="مثلاً تحویل؛ اگر نامعلوم است unspecified" /></label>}
