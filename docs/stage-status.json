@@ -1,7 +1,7 @@
 {
   "date": "2026-11-18",
   "current_stage": "S08",
-  "status": "s08-ready-for-comprehensive-independent-test",
+  "status": "s08-needs-consolidated-fix",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -106,8 +106,8 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "TEST-S08-COMPLETE",
-    "description": "آزمون مستقل تجمیعی S08 پس از تحویل Programmer؛ پذیرش انسانی و کیفیت خبره D28 باز",
+    "id": "PROGRAMMER-S08-FIX-01",
+    "description": "اصلاح تجمیعی شش یافته طبق docs/stage8/fix-mission-01.md با ارجاع کاربر",
     "authorized": false
   },
   "active_step": {
@@ -558,7 +558,7 @@
   "s08_delivery": {
     "mission": "PROGRAMMER-S08-COMPLETE",
     "scope_path": "docs/programmer-s08-complete.md",
-    "status": "ready-for-comprehensive-independent-test",
+    "status": "needs-fix",
     "implementation_authorized": true,
     "independent_acceptance": false,
     "human_visual_approved": false,
@@ -573,5 +573,18 @@
     "browser_s08_passed": 16,
     "pushed": true,
     "public_deployed": false
+  },
+  "s08_independent_review": {
+    "status": "needs-fix",
+    "report_path": "docs/stage8/independent-test-report.md",
+    "commit": "051782084461ad1913db1eb4c35e7ac4aba4c0b8",
+    "issues": [
+      "S08-IT-001",
+      "S08-IT-002",
+      "S08-IT-003",
+      "S08-IT-004",
+      "S08-IT-005",
+      "S08-IT-006"
+    ]
   }
 }
