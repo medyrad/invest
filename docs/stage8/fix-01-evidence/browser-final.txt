@@ -1,0 +1,11 @@
+
+Running 4 tests using 1 worker
+
+(node:45449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 frontend/tests/browser/s08-fix-01.spec.ts:6:1 › S08 FIX progress readable at 360/390 with working focus and keyboard (818ms)
+  ✓  2 frontend/tests/browser/s08-fix-01.spec.ts:16:1 › S08 FIX renewal source groups contain their fields in source order desktop/mobile (894ms)
+  ✓  3 frontend/tests/browser/s08-fix-01.spec.ts:28:1 › S08 FIX risk filter uses source classification and preserves all development finance (663ms)
+  ✓  4 frontend/tests/browser/s08-fix-01.spec.ts:37:1 › S08 FIX Persian step labels across nine services and true false remain meaningful (2.4s)
+
+  4 passed (5.2s)

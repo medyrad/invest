@@ -1,0 +1,4 @@
+ Container invest-test-run-3c40e6bad754 Creating
+ Container invest-test-run-3c40e6bad754 Created
+...                                                                      [100%]
+3 passed in 4.67s

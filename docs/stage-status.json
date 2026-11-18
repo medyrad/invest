@@ -1,7 +1,7 @@
 {
   "date": "2026-11-18",
   "current_stage": "S08",
-  "status": "s08-needs-consolidated-fix",
+  "status": "s08-fix-ready-for-independent-retest",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -106,30 +106,27 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "PROGRAMMER-S08-FIX-01",
-    "description": "اصلاح تجمیعی شش یافته طبق docs/stage8/fix-mission-01.md با ارجاع کاربر",
+    "id": "TEST-S08-FIX-01",
+    "description": "بازآزمایی مستقل محدود هر شش اصلاح همین نسخه؛ پذیرش انسانی طراحی باز",
     "authorized": false
   },
   "active_step": {
-    "id": "S08",
-    "mission": "PROGRAMMER-S08-COMPLETE",
-    "authorization": "Latest explicit user handoff; docs/programmer-s08-complete.md",
-    "status": "ready-for-comprehensive-independent-test",
+    "id": "S08-FIX-01",
+    "mission": "PROGRAMMER-S08-FIX-01",
+    "authorization": "Latest explicit user handoff; docs/stage8/fix-mission-01.md",
+    "status": "ready-for-independent-retest",
     "implementation_authorized": true,
     "public_deployment_authorized": false,
-    "feature": "010-specialist-services",
     "human_visual_approved": false,
-    "final_acceptance": false,
-    "report_path": "docs/stage8/report.md",
-    "verification_path": "docs/stage8/manifest.json",
-    "runtime_url": "http://127.0.0.1:3108",
     "independent_acceptance": false,
-    "version": "S08-5f7f8dc28c28",
-    "delivery_label": "آماده آزمون مستقل جامع S08",
-    "implementation_commit": "be663690824d1d10669e0ee5c6ca92f2d205b7e8",
-    "backend_passed": 1875,
-    "browser_s08_passed": 16,
-    "pushed": true,
+    "final_acceptance": false,
+    "report_path": "docs/stage8/fix-01-report.md",
+    "verification_path": "docs/stage8/fix-01-evidence/manifest.json",
+    "runtime_url": "http://127.0.0.1:3108",
+    "version": "S08-FIX-01-e47b3701a586",
+    "implementation_commit": "7c2632c7b7e487a8ad5406155cdf4c2027a1b518",
+    "backend_unique_passed": 87,
+    "browser_targeted_passed": 4,
     "public_deployed": false
   },
   "clarification_step": {
@@ -238,7 +235,7 @@
     "remote_ci_executed": false,
     "public_deployed": false
   },
-  "application_implementation_scope": "هسته قبول فنی دارد؛ خدمات تخصصی S08 در اعتبارسنجی نهایی مأموریت مصوب هستند؛ S09/F40 و عرضه شروع نشده‌اند",
+  "application_implementation_scope": "هسته قبول فنی دارد؛ بسته اصلاح شش یافته S08 آماده بازآزمایی مستقل است؛ پذیرش S08 و طراحی انسانی بازند؛ S09/F40 و عرضه شروع نشده‌اند",
   "identity": {
     "mission": "PROGRAMMER-S03-01",
     "status": "technical-pass",
@@ -572,7 +569,24 @@
     "backend_passed": 1875,
     "browser_s08_passed": 16,
     "pushed": true,
-    "public_deployed": false
+    "public_deployed": false,
+    "fix_01": {
+      "mission": "PROGRAMMER-S08-FIX-01",
+      "status": "ready-for-independent-retest",
+      "implementation_authorized": true,
+      "public_deployment_authorized": false,
+      "human_visual_approved": false,
+      "independent_acceptance": false,
+      "final_acceptance": false,
+      "report_path": "docs/stage8/fix-01-report.md",
+      "verification_path": "docs/stage8/fix-01-evidence/manifest.json",
+      "runtime_url": "http://127.0.0.1:3108",
+      "version": "S08-FIX-01-e47b3701a586",
+      "implementation_commit": "7c2632c7b7e487a8ad5406155cdf4c2027a1b518",
+      "backend_unique_passed": 87,
+      "browser_targeted_passed": 4,
+      "public_deployed": false
+    }
   },
   "s08_independent_review": {
     "status": "needs-fix",

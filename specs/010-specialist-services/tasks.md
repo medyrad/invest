@@ -49,6 +49,6 @@
 - [x] T030 [US1] S08-IT-004 گروه واقعی محدوده/حقوق و ساکنان/اسکان با ترتیب و شروط منبع (FR-001/002؛ partial).
 - [x] T031 [US1] S08-IT-005 فیلتر risk و طبقه‌بندی منابع بین‌المللی مطابق منبع، حفظ سه فیلتر دیگر (FR-001/002؛ partial).
 - [x] T032 [US1,US3] S08-IT-006 عنوان فارسی۹مرحله و boolean معنادار در فرم/جمع‌بندی/HTML بدون تغییر داده و حفظfalse/صفر (FR-002/005؛ partial).
-- [ ] T033 آزمون‌های مستقل تاریخی و مکمل/مرورگر هدفمند، کیفیت/build، منشأ image فعال و manifest تازه، گزارش زمان/محدودیت، commit/push (FR-009/SC-005؛ partial).
+- [x] T033 آزمون‌های مستقل تاریخی و مکمل/مرورگر هدفمند، کیفیت/build، منشأ image فعال و manifest تازه، گزارش زمان/محدودیت، commit/push (FR-009/SC-005؛ partial).
 
-شاهد FIX-01 T027–T032: docs/stage8/fix-01-evidence/backend-final.txt، races-final.txt و browser-final.txt؛ سه آزمون مستقل تاریخی دست‌نخورده‌اند. T033 پس از ثبت نسخه/image/گزارش و push تکمیل می‌شود.
+شاهد FIX-01 T027–T032: docs/stage8/fix-01-evidence/backend-final.txt، races-final.txt و browser-final.txt؛ سه آزمون مستقل تاریخی دست‌نخورده‌اند. T033 با manifest تازه، گزارش و push موفق commit 7c2632c تکمیل شد؛ commit شواهد در پیام تحویل است.

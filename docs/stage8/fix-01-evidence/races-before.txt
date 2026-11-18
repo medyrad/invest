@@ -1,0 +1,31 @@
+ Container invest-test-run-a75011fb8e45 Creating
+ Container invest-test-run-a75011fb8e45 Created
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+______ test_authority_change_before_report_bytes_are_generated[download] _______
+/independent/test_download_race.py:51: in test_authority_change_before_report_bytes_are_generated
+    assert not committed_before_bytes or status in [403,409],f'{output}: replacement committed before rendering but response was {status}'
+E   AssertionError: download: replacement committed before rendering but response was 200
+E   assert (not True or 200 in [403, 409])
+_______ test_authority_change_before_report_bytes_are_generated[package] _______
+/independent/test_download_race.py:51: in test_authority_change_before_report_bytes_are_generated
+    assert not committed_before_bytes or status in [403,409],f'{output}: replacement committed before rendering but response was {status}'
+E   AssertionError: package: replacement committed before rendering but response was 200
+E   assert (not True or 200 in [403, 409])
+________ test_package_does_not_emit_file_quarantined_during_generation _________
+/independent/test_download_race.py:86: in test_package_does_not_emit_file_quarantined_during_generation
+    assert not committed or not archived_files,f'ZIP emitted quarantined attachment paths: {archived_files}'
+E   AssertionError: ZIP emitted quarantined attachment paths: ['attachments/1-ad4295fb-05eb-4060-86c4-835f7cb7b31c.pdf']
+E   assert (not True or not ['attachments/1-ad4295fb-05eb-4060-86c4-835f7cb7b31c.pdf'])
+=============================== warnings summary ===============================
+../app/.venv/lib/python3.14/site-packages/_pytest/config/__init__.py:1636
+  /app/.venv/lib/python3.14/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: cache_dir
+
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ::test_authority_change_before_report_bytes_are_generated[download] - ...
+FAILED ::test_authority_change_before_report_bytes_are_generated[package] - A...
+FAILED ::test_package_does_not_emit_file_quarantined_during_generation - Asse...
+3 failed, 1 warning in 1.76s

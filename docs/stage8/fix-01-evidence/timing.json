@@ -1,0 +1,51 @@
+{
+  "started": "2026-11-18T16:55:37.248722+00:00",
+  "documentation_evidence_window_start_utc": "2026-11-18T17:04:00.627997+00:00",
+  "documentation_recorded_utc": "2026-11-18T17:06:32.039187+00:00",
+  "report_active_seconds": null,
+  "note": "بازه نگارش/جمع‌آوری با بازبینی و ثبت commit هم‌پوشان است؛ زمان فعال کامل جدا اندازه‌گیری نشده. اجراهای اولیه و آماده‌سازی در این بازه‌ها هستند؛ شمار یکتا از تعداد اجراها جداست.",
+  "measured_commands": [
+    {
+      "label": "backend-final",
+      "end_utc": "2026-11-18T17:01:33.605341+00:00",
+      "seconds": 9.603,
+      "exit": 0
+    },
+    {
+      "label": "build-final",
+      "end_utc": "2026-11-18T17:01:36.481605+00:00",
+      "seconds": 10.301,
+      "exit": 0
+    },
+    {
+      "label": "activate-final",
+      "end_utc": "2026-11-18T17:02:02.280390+00:00",
+      "seconds": 16.965,
+      "exit": 0
+    },
+    {
+      "label": "historical-races-final",
+      "end_utc": "2026-11-18T17:02:08.529256+00:00",
+      "seconds": 6.231,
+      "exit": 0
+    },
+    {
+      "label": "browser-final",
+      "end_utc": "2026-11-18T17:02:22.455194+00:00",
+      "seconds": 5.556,
+      "exit": 0
+    },
+    {
+      "label": "probe-progress",
+      "end_utc": "2026-11-18T17:02:28.864197+00:00",
+      "seconds": 2.438,
+      "exit": 0
+    },
+    {
+      "label": "probe-controls",
+      "end_utc": "2026-11-18T17:02:30.104699+00:00",
+      "seconds": 1.224,
+      "exit": 0
+    }
+  ]
+}

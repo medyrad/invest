@@ -1,0 +1,337 @@
+{
+  "mission": "PROGRAMMER-S08-FIX-01",
+  "status": "آماده بازآزمایی مستقل بسته اصلاح S08",
+  "version": {
+    "version": "S08-FIX-01-e47b3701a586",
+    "utc": "2026-11-18T17:01:25.187400+00:00",
+    "code_sha256": "e47b3701a5862edc6e797ea9f76bc01f4486b541ebaa9fa10d6859203de8a212",
+    "source_head": "322580f00958bb01c8acae79f89715a818d0a42b"
+  },
+  "implementation_commit": "7c2632c7b7e487a8ad5406155cdf4c2027a1b518",
+  "baseline_commit": "322580f00958bb01c8acae79f89715a818d0a42b",
+  "runtime_url": "http://127.0.0.1:3108",
+  "runtime_api": {
+    "version": "S08-FIX-01-e47b3701a586"
+  },
+  "runtime_web": {
+    "version": "S08-FIX-01-e47b3701a586"
+  },
+  "images": {
+    "backend": {
+      "image": "sha256:f4708e01f31f4dc552348628934ae8c69b37a933ff3c97a75d120a3b2fbf75bb",
+      "container_created_utc": "2026-11-18T17:01:45.373214713Z"
+    },
+    "web": {
+      "image": "sha256:ccf26e1979f1315a894049da075d8d720edbb7d086d52be5bd63b3dd30d14fae",
+      "container_created_utc": "2026-11-18T17:01:45.810487913Z"
+    },
+    "scanner": {
+      "image": "sha256:68129909fda9c06fec38140239dfb7aaa6daa239218453b9361e9708888d6662",
+      "container_created_utc": "2026-11-17T17:32:01.724495074Z"
+    },
+    "workspace-jobs": {
+      "image": "sha256:f4708e01f31f4dc552348628934ae8c69b37a933ff3c97a75d120a3b2fbf75bb",
+      "container_created_utc": "2026-11-18T17:01:45.811086894Z"
+    }
+  },
+  "web_bundle": {
+    "BUILD_ID": "9IRfHIVUeUH3B18zDozVi",
+    "files": 415,
+    "bundle_sha256": "3426b3215056739d803aa6ffa829fff226f96cd9f4f1c54a56f59803b19ac874"
+  },
+  "build_provenance": {
+    "command": "docker compose --env-file .env -f deploy/compose.yaml build backend web",
+    "log": "build-final.txt",
+    "built_tag_matches_running_container": true,
+    "scanner_rebuilt": false,
+    "backend_running_source_files": 108,
+    "backend_running_source_differences": [],
+    "source_hash_algorithm": "SHA256(sorted(path + NUL + bytes + NUL)); paths in source-inputs.json; core_version.json excluded",
+    "build_inputs_sha256": {
+      "deploy/backend.Dockerfile": "03b4e3575de925e7291681f5d041dcd70c8b4faa579d7849e41d393c5c671113",
+      "deploy/frontend.Dockerfile": "c6c4b9483333b6ea08a5efa6fed70c632386a581b4a236431604eef2b98567cf",
+      "deploy/compose.yaml": "244c2ea6eab226ee5066a76dfe67301bde10c096afb8f31d07efcfabc500b8e7",
+      "backend/uv.lock": "0a3b03db4e45abde439cf9556d00df69f41932d1dea977ce1ede99bc4d1f2bcd",
+      "frontend/package-lock.json": "d7142668fa90f3503bc682539d8fad8be6f1dc6d6f4d9a1668a48854b663d3f1"
+    },
+    "historical_image_discrepancy": "اختلاف واقعی است؛ علت تاریخی با شواهد موجود اثبات نشد. برابری fingerprint/endpoint ادعای برابری باینری نیست."
+  },
+  "validation": {
+    "related_pytest_passed": 84,
+    "historical_independent_races_passed": 3,
+    "unique_pytest_passed": 87,
+    "browser_targeted_passed": 4,
+    "independent_probe_scripts_passed": 2,
+    "quality": [
+      "ruff",
+      "eslint",
+      "typescript"
+    ],
+    "migration_required": false,
+    "preservation": "preservation.json",
+    "independent_acceptance": false,
+    "human_visual_approved": false,
+    "public_deployed": false,
+    "s09_started": false
+  },
+  "historical_test_hashes": {
+    "docs/stage8/independent-tests/audit-forms.py": "c48be672bb9cea38ead1122be1c62a5edebab20e8e114eb25580b6d717386290",
+    "docs/stage8/independent-tests/browser-navigation.cjs": "3c16952ba374efe61bc27a9f155d970e2b01d730707125503c274b17af6d18ec",
+    "docs/stage8/independent-tests/browser-partial-resume.cjs": "851a8d789555a762ebaf541d403091c004aadfa47b0c9e166ba60bf7eed39cba",
+    "docs/stage8/independent-tests/browser-probes.cjs": "e7f503ace367d2a3dd7fd66116ea09619026410ce578d3ba5dff751df17f038f",
+    "docs/stage8/independent-tests/browser-source-controls.cjs": "fb35859a32edccfc7eda9154b7b9543471822e742c41ecbed4cf78afcf956d80",
+    "docs/stage8/independent-tests/extract-source.cjs": "9f827e74edfc83ae9cc084db86d4e3105b42a59b29f5b635c773c20ea6d559d3",
+    "docs/stage8/independent-tests/prepare-browser.cjs": "c2304c30f8df46b928d0d137144d985a9b6d9a0e14bcba63248276f8a0c75609",
+    "docs/stage8/independent-tests/test_download_race.py": "67d78e80d78ae26ef416d8e4cdb80c7f01ed61fd8b8b02dd2a4e26210237521b",
+    "docs/stage8/independent-tests/test_migrations.py": "0271884a6fa0fd659f2b78e52e7a27fd94e3a664dd67b09dab80c15dddd08a3e",
+    "docs/stage8/independent-tests/test_scanner_failure.py": "7e02b14856ad12c015e8206f264f57dd1f3bf7f767444da1d7cf4f9435478cd0",
+    "docs/stage8/independent-tests/test_scoring.py": "8fb13b244586cca77ac966d47a0fa9734b44e660713f68774d881090eaf3eaec",
+    "docs/stage8/independent-tests/test_source.py": "fc7adeb027ca1211d4fa09ac060d8bc69dffb7f4871bb81d7bbd9b47a1d8e8ac"
+  },
+  "implementation_files": [
+    "backend/apps/core/api.py",
+    "backend/apps/services/api.py",
+    "backend/apps/services/schemas.json",
+    "backend/apps/services/service.py",
+    "backend/apps/workspace/downloads.py",
+    "backend/apps/workspace/files.py",
+    "backend/config/core_version.json",
+    "backend/tests/test_service_downloads.py",
+    "frontend/playwright.s08.config.ts",
+    "frontend/public/core-version.json",
+    "frontend/src/components/tools/reference-library.tsx",
+    "frontend/src/components/tools/service-editor.tsx",
+    "frontend/src/components/tools/services.css",
+    "frontend/src/components/tools/snapshot.tsx",
+    "frontend/tests/browser/s08-fix-01.spec.ts",
+    "specs/010-specialist-services/analysis.md",
+    "specs/010-specialist-services/contracts/api.md",
+    "specs/010-specialist-services/plan.md",
+    "specs/010-specialist-services/spec.md",
+    "specs/010-specialist-services/tasks.md"
+  ],
+  "push": {
+    "remote": "origin",
+    "branch": "main",
+    "force": false,
+    "implementation_exit": 0,
+    "receipt": "push-code.txt",
+    "documentation_commit": "در پیام تحویل؛ hash خودارجاع ذخیره نمی‌شود"
+  },
+  "artifacts": [
+    {
+      "path": "activate-final.txt",
+      "sha256": "ff4e63ff7f6b13a48537b7a4238f85bcb47bb64539615710c2606c39a8db1aa9",
+      "bytes": 801
+    },
+    {
+      "path": "after/browser-probes.json",
+      "sha256": "fec706b7b4906358fb182608402612413a933b006471193c43ddb8a28b181f81",
+      "bytes": 503
+    },
+    {
+      "path": "after/browser-source-controls.json",
+      "sha256": "37d15b71bc71ec946368f1f219a96314aab38f7062281d6b99ee58722bfb2929",
+      "bytes": 553
+    },
+    {
+      "path": "after/charity-false-summary-1440.png",
+      "sha256": "cf4471ba0391e5893923a574c10a5a4b69e94b885c5fe55731ed91869c6ee953",
+      "bytes": 731144
+    },
+    {
+      "path": "after/ideas-report-360.png",
+      "sha256": "04bce2745db716924406d447e6f05e4d198991d06999fa8031113583dbfbf5a6",
+      "bytes": 111215
+    },
+    {
+      "path": "after/international-filter-1440.png",
+      "sha256": "00aa21fffbdc7ed3173fbe60b77e38112b35f83c1ca2b9ca3d6072dfc75e1d58",
+      "bytes": 1112078
+    },
+    {
+      "path": "after/international-risk-1440.png",
+      "sha256": "fde561a83d07c2a0fd084ba88f6a5371d973e91e0f8577c653bc1712c0183927",
+      "bytes": 775051
+    },
+    {
+      "path": "after/mobile-progress-360.png",
+      "sha256": "b3c06a2bcb1374b179f1ceec5dbf08334174f5b032ff52ddfe6cdfa7920d7f42",
+      "bytes": 56783
+    },
+    {
+      "path": "after/progress-360.png",
+      "sha256": "63efdd956cef1cecc5a16bf49798e2d8a57b1dcbb9a6e80542bdd313eb09ecaf",
+      "bytes": 151126
+    },
+    {
+      "path": "after/progress-390.png",
+      "sha256": "574013070081609ce03d78e9eb3913b61b421f723b8c7dea0be20ca061644ecd",
+      "bytes": 158170
+    },
+    {
+      "path": "after/renewal-groups-1440.png",
+      "sha256": "2c41d86df163fb83491ac3619078e6bedde48345388a6e43399d4d78f71ef005",
+      "bytes": 668116
+    },
+    {
+      "path": "after/renewal-groups-390.png",
+      "sha256": "b67f95185f92bd0c242a0639d330900a382e2d00e6c60bdafe1854b83baa3e21",
+      "bytes": 328621
+    },
+    {
+      "path": "after/roads-block-1440.png",
+      "sha256": "3e8cf5f4b6b133302f418d6ff84f7d08c405e538c834491089bf03a841e0e821",
+      "bytes": 962464
+    },
+    {
+      "path": "backend-active-source.json",
+      "sha256": "1f5005b33a8425928c4ab11ff28cd3c51f982a1f7d43a96c6057609854f9224b",
+      "bytes": 11353
+    },
+    {
+      "path": "backend-final.txt",
+      "sha256": "bb933587bec0ce3360455ad5428bb78051c3b2f8b6a42ddde00814754b84bef1",
+      "bytes": 291
+    },
+    {
+      "path": "before/browser-probes.json",
+      "sha256": "393460a2c43d22a9b9618b22126fe6968b6c93798f083ccde2c5e9e32764b14d",
+      "bytes": 514
+    },
+    {
+      "path": "before/browser-source-controls.json",
+      "sha256": "c0a0374addfa6ddd11cb28f1776300c67d8100416e5b48e97ccc8243ab0e919f",
+      "bytes": 470
+    },
+    {
+      "path": "before/ideas-report-360.png",
+      "sha256": "04bce2745db716924406d447e6f05e4d198991d06999fa8031113583dbfbf5a6",
+      "bytes": 111215
+    },
+    {
+      "path": "before/international-filter-1440.png",
+      "sha256": "5e0c9077b4fc7d406d5980d3f1dbe6b1d789f50e251ce14d69910a511a22682f",
+      "bytes": 1131869
+    },
+    {
+      "path": "before/mobile-progress-360.png",
+      "sha256": "f845e30d7103d065cb2795af7758ff6dfcc41f2fa3a36f2e75b95ac5f659a7d9",
+      "bytes": 43939
+    },
+    {
+      "path": "before/renewal-groups-1440.png",
+      "sha256": "2ccd05eb67895b2f1b144c98fe114bd0bc45ab78fb2cbe2c18571b86167e4ccd",
+      "bytes": 654453
+    },
+    {
+      "path": "before/roads-block-1440.png",
+      "sha256": "ad3d17172c679b5d293355dd88334eb3abfa6c08df8d48532592c265957d9879",
+      "bytes": 962473
+    },
+    {
+      "path": "browser-final.txt",
+      "sha256": "bb7b2b8c4b986d8f52bb797f5fff641c31ee46155c0f61ed2bb273ee2f440f1f",
+      "bytes": 804
+    },
+    {
+      "path": "build-final.txt",
+      "sha256": "406fe9fab09fc3ee4ade48ffde91de2b3825ea0d2df9a9494051b19c33bf16ce",
+      "bytes": 6188
+    },
+    {
+      "path": "built-images.txt",
+      "sha256": "115c65f8684b732d6771cd5f99f876b51abd9f88e5cc187ed7a29ce8c69a1e9a",
+      "bytes": 323
+    },
+    {
+      "path": "controls-after.txt",
+      "sha256": "37d15b71bc71ec946368f1f219a96314aab38f7062281d6b99ee58722bfb2929",
+      "bytes": 553
+    },
+    {
+      "path": "controls-before.txt",
+      "sha256": "f7f8bc2ca1cb8af91c2ac912d40878a90bd9dbb8b158c4fa98bb2caefb90b5b5",
+      "bytes": 812
+    },
+    {
+      "path": "eslint-final.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "images-before.txt",
+      "sha256": "08e1e69cab698fc46a338b971565fb772e07f3657bb8921b6ad5cd0c6578ca2f",
+      "bytes": 487
+    },
+    {
+      "path": "images-final.txt",
+      "sha256": "36648d44074b2af5ad8ab80a869c4250546ce416e0f7e84f5131e70b0d1c3a42",
+      "bytes": 487
+    },
+    {
+      "path": "preservation.json",
+      "sha256": "5389ce0e698ef1b7aef45fe38b0b46d8d3271c5bb9978d56591b1ebca388ad10",
+      "bytes": 164
+    },
+    {
+      "path": "probe-after.txt",
+      "sha256": "fec706b7b4906358fb182608402612413a933b006471193c43ddb8a28b181f81",
+      "bytes": 503
+    },
+    {
+      "path": "probe-before.txt",
+      "sha256": "393460a2c43d22a9b9618b22126fe6968b6c93798f083ccde2c5e9e32764b14d",
+      "bytes": 514
+    },
+    {
+      "path": "push-code.txt",
+      "sha256": "2ed242fb6c7f5e7873a5c403ff252a26e50ef51e18dd5a9c45e6d416825cb790",
+      "bytes": 89
+    },
+    {
+      "path": "races-before.txt",
+      "sha256": "245c47d91183c484866e4e39f6559f168c7e077e2b18f999ab13664489e05d6a",
+      "bytes": 2441
+    },
+    {
+      "path": "races-final.txt",
+      "sha256": "6c6cef830ea70accc76044eff4db1eb051056d15a74476f2a4f0ce314e07b670",
+      "bytes": 195
+    },
+    {
+      "path": "reproduce-probe.cjs",
+      "sha256": "1c0c008a32f65cccbc8605282640b37b4d96653ab30ee216013b9112563b1741",
+      "bytes": 787
+    },
+    {
+      "path": "ruff-final.txt",
+      "sha256": "0d3b13e31c54f8909629c1501aa8eca8005c587a2cc73bb3615d6b151e624200",
+      "bytes": 116
+    },
+    {
+      "path": "source-inputs.json",
+      "sha256": "91b19f72bbe141da79ffbff70c5d716a7e3a043b879133e774c4cb32a658a90f",
+      "bytes": 30899
+    },
+    {
+      "path": "timing.json",
+      "sha256": "13d908ed9bfcc3845f701a0316f6dbb6c0e47f477bb58bf525cf8b94335daf02",
+      "bytes": 1575
+    },
+    {
+      "path": "typescript-final.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "web-active-bundle.json",
+      "sha256": "cf8a4334fc61e036bf73af3e68569dbc9f61a590fa4e9f75c82f95b00c3b1aaf",
+      "bytes": 132
+    }
+  ],
+  "report": {
+    "path": "../fix-01-report.md",
+    "sha256": "9de4432456fdeba173f6a713810ebb68f7c7530f47727ef258bf3764e62aacb5"
+  }
+}
