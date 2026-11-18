@@ -1,0 +1,434 @@
+{
+  "mission": "PROGRAMMER-S08-COMPLETE",
+  "status": "آماده آزمون مستقل جامع S08",
+  "version": {
+    "version": "S08-5f7f8dc28c28",
+    "utc": "2026-11-18T15:51:29.992141+00:00",
+    "code_sha256": "5f7f8dc28c283065bb463a8befb42efae6b99a6946bdb09dd707d9ee2b24627b",
+    "source_head": "95815bd7c6fb21161c3d044a100135c98378d582"
+  },
+  "runtime_url": "http://127.0.0.1:3108",
+  "implementation_commit": "be663690824d1d10669e0ee5c6ca92f2d205b7e8",
+  "baseline_commit": "95815bd7c6fb21161c3d044a100135c98378d582",
+  "implementation_files": [
+    "backend/apps/catalog/migrations/0011_service_values.py",
+    "backend/apps/core/api.py",
+    "backend/apps/core/cases.py",
+    "backend/apps/core/common.py",
+    "backend/apps/core/discovery.py",
+    "backend/apps/core/migrations/0005_case_service_draft_case_service_submission_and_more.py",
+    "backend/apps/core/models.py",
+    "backend/apps/core/personal.py",
+    "backend/apps/core/publication.py",
+    "backend/apps/services/__init__.py",
+    "backend/apps/services/advisories.json",
+    "backend/apps/services/advisories.py",
+    "backend/apps/services/api.py",
+    "backend/apps/services/apps.py",
+    "backend/apps/services/conditions.py",
+    "backend/apps/services/evaluation.py",
+    "backend/apps/services/guidance-text.json",
+    "backend/apps/services/international-references.json",
+    "backend/apps/services/migrations/0001_initial.py",
+    "backend/apps/services/migrations/0002_immutable_submission.py",
+    "backend/apps/services/migrations/__init__.py",
+    "backend/apps/services/models.py",
+    "backend/apps/services/notice-example.json",
+    "backend/apps/services/report-brand.html",
+    "backend/apps/services/report-font-OFL.txt",
+    "backend/apps/services/report-font.woff2",
+    "backend/apps/services/report.css",
+    "backend/apps/services/schemas.json",
+    "backend/apps/services/schemas.py",
+    "backend/apps/services/service.py",
+    "backend/apps/services/source-services.json",
+    "backend/apps/services/value-fields-v1.json",
+    "backend/apps/workspace/api.py",
+    "backend/apps/workspace/files.py",
+    "backend/apps/workspace/migrations/0004_alter_draft_kind.py",
+    "backend/apps/workspace/models.py",
+    "backend/apps/workspace/other_schema.py",
+    "backend/apps/workspace/service.py",
+    "backend/config/core_version.json",
+    "backend/config/settings.py",
+    "backend/config/urls.py",
+    "backend/tests/fixtures/s08/advisory-source-cases.json",
+    "backend/tests/fixtures/s08/synthetic.pdf",
+    "backend/tests/test_service_advisories.py",
+    "backend/tests/test_services.py",
+    "frontend/playwright.s08.config.ts",
+    "frontend/public/core-version.json",
+    "frontend/src/app/tools/[id]/page.tsx",
+    "frontend/src/app/tools/page.tsx",
+    "frontend/src/components/core/panels.tsx",
+    "frontend/src/components/core/profile.tsx",
+    "frontend/src/components/search/advanced-filter.tsx",
+    "frontend/src/components/tools/advisory-questions.tsx",
+    "frontend/src/components/tools/api.ts",
+    "frontend/src/components/tools/engine.tsx",
+    "frontend/src/components/tools/reference-library.tsx",
+    "frontend/src/components/tools/service-editor.tsx",
+    "frontend/src/components/tools/services.css",
+    "frontend/src/components/tools/snapshot.tsx",
+    "frontend/src/components/tools/tools.tsx",
+    "frontend/src/components/ui/sheet.tsx",
+    "frontend/src/components/workspace/field.tsx",
+    "frontend/src/components/workspace/types.ts",
+    "frontend/src/components/workspace/workspace.tsx",
+    "frontend/tests/browser/s08.spec.ts",
+    "specs/010-specialist-services/advisory-source-map.json",
+    "specs/010-specialist-services/analysis.md",
+    "specs/010-specialist-services/checklists/requirements.md",
+    "specs/010-specialist-services/contracts/api.md",
+    "specs/010-specialist-services/data-model.md",
+    "specs/010-specialist-services/forms-source-map.json",
+    "specs/010-specialist-services/plan.md",
+    "specs/010-specialist-services/quickstart.md",
+    "specs/010-specialist-services/research.md",
+    "specs/010-specialist-services/spec.md",
+    "specs/010-specialist-services/tasks.md"
+  ],
+  "validation": {
+    "backend_passed": 1875,
+    "backend_deselected": 52,
+    "source_expectation_cases": 1801,
+    "source_configs": 78,
+    "browser_s08_final_passed": 16,
+    "browser_full_service_journeys": 9,
+    "earlier_unchanged_shared_session_regression_passed": 1,
+    "ruff": "passed",
+    "eslint": "passed",
+    "typescript": "passed",
+    "build": "passed",
+    "previous_rows_preserved": 559,
+    "models_checked": 15,
+    "env_unchanged": true
+  },
+  "push": {
+    "remote": "origin",
+    "branch": "main",
+    "mode": "normal non-force",
+    "implementation_exit": 0,
+    "implementation_receipt": "evidence/push-implementation.txt",
+    "documentation_commit_and_final_remote_hash": "در پیام تحویل؛ برای جلوگیری از hash خودارجاع در این فایل ذخیره نمی‌شود"
+  },
+  "acceptance": {
+    "independent": false,
+    "human_design": false,
+    "public_deployed": false,
+    "s09_started": false
+  },
+  "timing": {
+    "started_utc": "2026-11-18T14:29:29Z",
+    "first_documentation_utc": "2026-11-18T15:25:57.318015+00:00",
+    "final_documentation_utc": "2026-11-18T16:00:13.455794+00:00",
+    "note": "نگارش با رفع یافته‌های همگرایی هم‌پوشان است؛ زمان فعال آماده‌سازی/گزارش جدا اندازه‌گیری نشده. زمان دقیق فرمان‌های ساخت/آزمون در evidence/timing.json."
+  },
+  "artifacts": [
+    {
+      "path": "evidence/advisory-supplement-before.txt",
+      "bytes": 4561,
+      "sha256": "73e73677aa8f06c3e8c3380dd376b96e0004924e5a6988010eb6d24ff8aec451"
+    },
+    {
+      "path": "evidence/backend-final.txt",
+      "bytes": 2293,
+      "sha256": "19f371a3ca2601ba953f3aa7a1e695ea8e32bdcdae7c5f020afa3177f27abafa"
+    },
+    {
+      "path": "evidence/browser-final.txt",
+      "bytes": 2079,
+      "sha256": "b5fe263048f83a244120d8543fdf5856c7588b42ba3281af14d5b6db5dc3571d"
+    },
+    {
+      "path": "evidence/browser-shared-earlier.txt",
+      "bytes": 2105,
+      "sha256": "91128d9375cc70edcb6cadad29cba719edee6909c7fa3627383dc4c7562ebf57"
+    },
+    {
+      "path": "evidence/build-final.txt",
+      "bytes": 6080,
+      "sha256": "e76344443b91156cd883eb266f4b8144abc3f76956f4e2eb2923b0a28df2881a"
+    },
+    {
+      "path": "evidence/charity-noncash-360.png",
+      "bytes": 460764,
+      "sha256": "86f19f6bc0f67f0f6bc7364b30cbcd04d688818b4db7accf8f42d9bf74e82a6c"
+    },
+    {
+      "path": "evidence/charity-summary-1440.png",
+      "bytes": 664817,
+      "sha256": "0b5a5d9d24c306a550c9e6c823cd3625cad1528c7f958c65b627cdfd5a19f59a"
+    },
+    {
+      "path": "evidence/consent-race-before.txt",
+      "bytes": 1126,
+      "sha256": "a104014747bf74a0b6328afe4c09bb38110d2904cadc07c4ee84625079e03e33"
+    },
+    {
+      "path": "evidence/eslint-final.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/foreign-investment-summary-1440.png",
+      "bytes": 635089,
+      "sha256": "8450b366380999d86cb79184f31df1a394de09c98f56fc5da87cafea86c55b47"
+    },
+    {
+      "path": "evidence/guards-final.txt",
+      "bytes": 515,
+      "sha256": "7c70f8d4b130ac3618dbe813064e1e8131dccf2272c5fb065e2c2b0c9b3ead0c"
+    },
+    {
+      "path": "evidence/ideas-report.html",
+      "bytes": 154722,
+      "sha256": "dfd0d3088a98dc19d22408bcff5dd099ccc7d53ec7a83620a9cd1ff44628c5b8"
+    },
+    {
+      "path": "evidence/ideas-summary-1440.png",
+      "bytes": 599879,
+      "sha256": "1dab24618b22a4142c201ed6e121ecf06e6a072888368abfeadd34779fd5fd26"
+    },
+    {
+      "path": "evidence/land-initial-1440.png",
+      "bytes": 672644,
+      "sha256": "a4b908c5e216ff06205eb1872436d9448448d4b2e67ad250f0ff8b9d04e8b89a"
+    },
+    {
+      "path": "evidence/land-initial-360.png",
+      "bytes": 428723,
+      "sha256": "abe178e704c3c53d573591638db101ecc89ffbc5aa71133277de56d3fecc645a"
+    },
+    {
+      "path": "evidence/land-initial-768.png",
+      "bytes": 544831,
+      "sha256": "edf0d4e645bcc5b2b79f5c45f2246ea4682eba87730ab6a1116c5f36271a1638"
+    },
+    {
+      "path": "evidence/land-preparation-summary-1440.png",
+      "bytes": 546890,
+      "sha256": "f55959496b4f3abfa936163078cb113c8e85942e45c1cccd9586a61355b4325a"
+    },
+    {
+      "path": "evidence/ma-exchange-summary-1440.png",
+      "bytes": 598864,
+      "sha256": "40e371acf5cd3097b24a1f430824cf09ed083fd43a3efbf269734db2f1e60a83"
+    },
+    {
+      "path": "evidence/ma-manager-summary-1440.png",
+      "bytes": 667235,
+      "sha256": "2206f07c3145fe87c45c41b87d0b9c71d1db1f7d1fc0d60b2ade514dcb42d34a"
+    },
+    {
+      "path": "evidence/ma-notice-summary-1440.png",
+      "bytes": 702657,
+      "sha256": "031ee5746e9bf11721b13a3f4e6047cc68abe4d6a4ff0ba0b2562085e1bf08e4"
+    },
+    {
+      "path": "evidence/ma-renewal-summary-1440.png",
+      "bytes": 641209,
+      "sha256": "a8aedbc465f7e08ce079c1fb0e8ea919bb4b4dc12e39c093f6197c2d160a3bcb"
+    },
+    {
+      "path": "evidence/migration-apply.txt",
+      "bytes": 509,
+      "sha256": "7ffe894162fbbbf2e4a9d433635d8440d62c7bf09ff3dd1213064330a05ed019"
+    },
+    {
+      "path": "evidence/migration-drift.txt",
+      "bytes": 123,
+      "sha256": "310d6b6a0e90938fecd00fd1cee4fcd57218aa24b79169e4ce7b21deaf21eb5a"
+    },
+    {
+      "path": "evidence/migrations-final.txt",
+      "bytes": 663,
+      "sha256": "dcfe09678bbe8252b22ee98248ac26852aceb4c5645632e0fd0f5324428c9eb7"
+    },
+    {
+      "path": "evidence/notice-historical-passport-1440.png",
+      "bytes": 895474,
+      "sha256": "db4a138df7dbbc7872383dd794a4c53d524e27604672e81074a05297410d59c6"
+    },
+    {
+      "path": "evidence/preservation.json",
+      "bytes": 96,
+      "sha256": "6336eeaaac2ed75fe3f7867fa0b4548f241ffcfaf1d740510c0598768b521faf"
+    },
+    {
+      "path": "evidence/product-tools-1440.png",
+      "bytes": 768787,
+      "sha256": "39579d60029ec444534c1e1c3f3b6920b43211092997e14d8ae06c5c2a7c9ee5"
+    },
+    {
+      "path": "evidence/product-tools-charity-1440.png",
+      "bytes": 684421,
+      "sha256": "2a4075a8e5283a45e0c98ae10f381e44810500dcb47c6537301c26b091790a65"
+    },
+    {
+      "path": "evidence/product-tools-foreign-investment-1440.png",
+      "bytes": 700116,
+      "sha256": "ac6058fb95be2cd703f681eedaf3cf6b0e50a2f9693e99481fc51ac4f476408d"
+    },
+    {
+      "path": "evidence/product-tools-ideas-1440.png",
+      "bytes": 586689,
+      "sha256": "ef73d1cd6eb580918b63737b11c441d35f72c52e3073abac7fe5db2a33e581e3"
+    },
+    {
+      "path": "evidence/product-tools-land-preparation-1440.png",
+      "bytes": 672644,
+      "sha256": "a4b908c5e216ff06205eb1872436d9448448d4b2e67ad250f0ff8b9d04e8b89a"
+    },
+    {
+      "path": "evidence/product-tools-ma-exchange-1440.png",
+      "bytes": 608069,
+      "sha256": "538a772cdcb72fb984c8a20cf1faf82dc51eb5ccf36c70931d59423e83280849"
+    },
+    {
+      "path": "evidence/product-tools-ma-manager-1440.png",
+      "bytes": 673429,
+      "sha256": "1e07e2152fbacd66d99b95dc065c9ee0aa0da576973916b27cdafe3a074246b5"
+    },
+    {
+      "path": "evidence/product-tools-ma-notice-1440.png",
+      "bytes": 723420,
+      "sha256": "b2ce534f8cf313351680df66cc700a460b54eee898a73d9883a1214150f119d7"
+    },
+    {
+      "path": "evidence/product-tools-ma-renewal-1440.png",
+      "bytes": 654405,
+      "sha256": "dc4d64de2b49eae32d8fd223cbeb766d309742dd0bd5012b692cd9e7ad52bc83"
+    },
+    {
+      "path": "evidence/product-tools-proposal-1440.png",
+      "bytes": 520132,
+      "sha256": "202d17a37678098f1eb57c54b04044aa2f52c6daf19c15b46a277431ebeb3b52"
+    },
+    {
+      "path": "evidence/proposal-summary-1440.png",
+      "bytes": 530603,
+      "sha256": "fba946558e006c8e006fd3161ecebeb93dd90e94b9fcc907ac4482d727e49853"
+    },
+    {
+      "path": "evidence/proposal-viewport-1440.png",
+      "bytes": 436456,
+      "sha256": "7f04fd596e7af07677a0ba8cfda0e9b6cdbd48592f74adfef6fd428dbb5c5406"
+    },
+    {
+      "path": "evidence/proposal-viewport-390.png",
+      "bytes": 149920,
+      "sha256": "403ed8be557eb7fa17bc36ee9b4bec7c9cae92728026e37d522644f88bec444f"
+    },
+    {
+      "path": "evidence/push-implementation.txt",
+      "bytes": 89,
+      "sha256": "200222497b7ebca1194748db14dc6ac0099fe224822f69c14b12e4945d4fdb13"
+    },
+    {
+      "path": "evidence/reference-comparison-dom.json",
+      "bytes": 5603,
+      "sha256": "b736c4e5b8f26eff14c6fbc4b30f8bb8338b0a7ec506b8f919a47997a862e57f"
+    },
+    {
+      "path": "evidence/reference-tools-1440.png",
+      "bytes": 753984,
+      "sha256": "27a6eca0ccb2af54a1ee1b006cdb4bb9b9174a982eb1c2553d4e423672fc616b"
+    },
+    {
+      "path": "evidence/reference-tools-charity-1440.png",
+      "bytes": 782767,
+      "sha256": "922d4df25c3ac5072fd9cb28bb287fedb444423c7f16f540da01453090692753"
+    },
+    {
+      "path": "evidence/reference-tools-foreign-investment-1440.png",
+      "bytes": 681560,
+      "sha256": "2f04b1aaf3b923e8799d4d8061db8fbaeab89bf38431a2efa3e4aa515d4fb9b6"
+    },
+    {
+      "path": "evidence/reference-tools-ideas-1440.png",
+      "bytes": 597988,
+      "sha256": "b5fe765c2b9dac86a865cfa7417d195a73a7396057178b07a188110c6659dc3a"
+    },
+    {
+      "path": "evidence/reference-tools-land-preparation-1440.png",
+      "bytes": 557362,
+      "sha256": "8bae611712b2195eef85b121268b11a43e06fdfb9fb5337f038a3f6ecd019f8a"
+    },
+    {
+      "path": "evidence/reference-tools-ma-exchange-1440.png",
+      "bytes": 638595,
+      "sha256": "91c06ac9e686849ab302eeb8aea1dc0e49d516ea28a26c69811f63236ad4b84b"
+    },
+    {
+      "path": "evidence/reference-tools-ma-manager-1440.png",
+      "bytes": 667464,
+      "sha256": "81f0c33ee401c6aea277ab75df4aedf3657af1aa695864bbfef66794652162fc"
+    },
+    {
+      "path": "evidence/reference-tools-ma-notice-1440.png",
+      "bytes": 710596,
+      "sha256": "e7445461361cc8443aba37775c135a872736fc619ffd7d9b79afd0ba4bcbb33c"
+    },
+    {
+      "path": "evidence/reference-tools-ma-renewal-1440.png",
+      "bytes": 681804,
+      "sha256": "258e83e607d83e286aeb21873f308cb694691d74c61ea5f6b8edcf485eae455e"
+    },
+    {
+      "path": "evidence/reference-tools-proposal-1440.png",
+      "bytes": 512931,
+      "sha256": "188e7edde87572dfb504daef09a837408d1057a6654ff42fbdfe6855f810958a"
+    },
+    {
+      "path": "evidence/renewal-exact-390.png",
+      "bytes": 447503,
+      "sha256": "3644b8b7f5afc828c8d6c233a439b12298fccc1d0cf35b02e6c8e70bdb2c6e3b"
+    },
+    {
+      "path": "evidence/report-1440.png",
+      "bytes": 118992,
+      "sha256": "eaad296bc63454bb9c297e365ffd222b5777696d2fec41f858a2ff9b2abf5b1e"
+    },
+    {
+      "path": "evidence/report-390.png",
+      "bytes": 71344,
+      "sha256": "261c666922895db9e95d8de136620347a73f2376029168ea252a5a2a799ac487"
+    },
+    {
+      "path": "evidence/ruff-final.txt",
+      "bytes": 116,
+      "sha256": "df10ccef9ddce314e63d545c2ba539ca86f9b1a55e9623629d008d6afa5e4463"
+    },
+    {
+      "path": "evidence/runtime.json",
+      "bytes": 1369,
+      "sha256": "9cffb0ec22d57a004af09d6a5540c41b757c85579010876b734301419e54a0e3"
+    },
+    {
+      "path": "evidence/timing.json",
+      "bytes": 4614,
+      "sha256": "fc6f8b6780da5534e671e290bc85245b85e0285056410790575bfb47e86ad6c6"
+    },
+    {
+      "path": "evidence/typescript-final.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "guide.md",
+      "bytes": 4881,
+      "sha256": "ac732d08b7f245499e8db7cfaad2500f437ca013a34f531cdf485be675ed69b6"
+    },
+    {
+      "path": "report.md",
+      "bytes": 13193,
+      "sha256": "4d266c1bbfad05f55b332253b33a6599125e4b5781733ef4bab26236e826b576"
+    },
+    {
+      "path": "scope-map.json",
+      "bytes": 321973,
+      "sha256": "0418d13e884fff57e74358823b66c48f11d617adc3271e29d41639ebd93a72ac"
+    }
+  ]
+}

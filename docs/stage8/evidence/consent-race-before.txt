@@ -1,0 +1,15 @@
+ Container invest-test-run-43bd7b442bde Creating
+ Container invest-test-run-43bd7b442bde Created
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_service_representative_replacement_serializes_named_consent _______
+tests/test_services.py:1020: in test_service_representative_replacement_serializes_named_consent
+    assert blocked and status==403
+E   assert (False)
+---------------------------- Captured stdout setup -----------------------------
+Classification imported: 11 groups, 78 subtypes, 31 provinces, 478 counties, 22 source city links; no opportunity records imported.
+----------------------------- Captured stdout call -----------------------------
+Classification imported: 11 groups, 78 subtypes, 31 provinces, 478 counties, 22 source city links; no opportunity records imported.
+=========================== short test summary info ============================
+FAILED tests/test_services.py::test_service_representative_replacement_serializes_named_consent
+1 failed, 66 deselected in 2.05s

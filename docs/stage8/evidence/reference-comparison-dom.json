@@ -1,0 +1,309 @@
+[
+  {
+    "label": "reference",
+    "route": "tools",
+    "h1": [
+      "پروژه‌تان را جلوی چشمسرمایه‌گذار بگذارید."
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 0,
+    "overflow": false
+  },
+  {
+    "label": "reference",
+    "route": "tools/proposal",
+    "h1": [
+      "معرفی طرح و نیاز مالی",
+      "برای توسعه و تامین مالی طرحم همراه می‌خواهم"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 3,
+    "overflow": false
+  },
+  {
+    "label": "reference",
+    "route": "tools/ideas",
+    "h1": [
+      "ایده‌های نو و طرح‌های پیشنهادی"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 5,
+    "overflow": false
+  },
+  {
+    "label": "reference",
+    "route": "tools/land-preparation",
+    "h1": [
+      "آماده‌سازی و توسعه زمین",
+      "آماده‌سازی و توسعه زمین"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 4,
+    "overflow": false
+  },
+  {
+    "label": "reference",
+    "route": "tools/foreign-investment",
+    "h1": [
+      "سرمایه‌گذاری بین‌المللی",
+      "سرمایه‌گذاری، تامین مالی و همکاری بین‌المللی"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 0,
+    "overflow": false
+  },
+  {
+    "label": "reference",
+    "route": "tools/ma-notice",
+    "h1": [
+      "پرونده فرصت",
+      "پرونده فرصت و خدمات تکمیلی"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 1,
+    "overflow": false
+  },
+  {
+    "label": "reference",
+    "route": "tools/ma-renewal",
+    "h1": [
+      "نوسازی و اسکان موقت",
+      "پرونده فرصت و خدمات تکمیلی"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 8,
+    "overflow": false
+  },
+  {
+    "label": "reference",
+    "route": "tools/ma-manager",
+    "h1": [
+      "اجاره‌داری حرفه‌ای",
+      "پرونده فرصت و خدمات تکمیلی"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 5,
+    "overflow": false
+  },
+  {
+    "label": "reference",
+    "route": "tools/ma-exchange",
+    "h1": [
+      "معاوضه ملک",
+      "پرونده فرصت و خدمات تکمیلی"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 6,
+    "overflow": false
+  },
+  {
+    "label": "reference",
+    "route": "tools/charity",
+    "h1": [
+      "همراهی در کار خیر"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 3,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools",
+    "h1": [
+      "پروژه‌تان را جلوی چشمسرمایه‌گذار بگذارید."
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 0,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools/proposal",
+    "h1": [
+      "معرفی طرح و نیاز مالی"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 8,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools/ideas",
+    "h1": [
+      "ایده‌های نو و طرح‌های پیشنهادی"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 10,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools/land-preparation",
+    "h1": [
+      "آماده‌سازی و توسعه زمین"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 30,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools/foreign-investment",
+    "h1": [
+      "سرمایه‌گذاری بین‌المللی"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 6,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools/ma-notice",
+    "h1": [
+      "پرونده فرصت"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 8,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools/ma-renewal",
+    "h1": [
+      "نوسازی و اسکان موقت"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 16,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools/ma-manager",
+    "h1": [
+      "اجاره‌داری حرفه‌ای"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 20,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools/ma-exchange",
+    "h1": [
+      "معاوضه ملک"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 15,
+    "overflow": false
+  },
+  {
+    "label": "product",
+    "route": "tools/charity",
+    "h1": [
+      "همراهی در کار خیر"
+    ],
+    "bounds": [
+      {
+        "x": 72.5,
+        "width": 1280
+      }
+    ],
+    "controls": 12,
+    "overflow": false
+  }
+]

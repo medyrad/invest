@@ -1,0 +1,71 @@
+ Container invest-test-run-59b0dee50241 Creating
+ Container invest-test-run-59b0dee50241 Created
+........................................................................ [  3%]
+........................................................................ [  7%]
+........................................................................ [ 11%]
+........................................................................ [ 15%]
+........................................................................ [ 19%]
+........................................................................ [ 23%]
+........................................................................ [ 27%]
+........................................................................ [ 31%]
+........................................................................ [ 35%]
+........................................................................ [ 39%]
+........................................................................ [ 43%]
+........................................................................ [ 47%]
+........................................................................ [ 51%]
+........................................................................ [ 55%]
+........................................................................ [ 59%]
+........................................................................ [ 63%]
+........................................................................ [ 67%]
+........................................................................ [ 71%]
+........................................................................ [ 75%]
+........................................................................ [ 79%]
+........................................................................ [ 83%]
+........................................................................ [ 87%]
+...........................................F...................FF....... [ 91%]
+............F........................................................... [ 95%]
+........................................................................ [ 99%]
+.                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_reference_advisory_case[residential:revenue:rent] ____________
+tests/test_service_advisories.py:14: in test_reference_advisory_case
+    assert actual["effective_answers"] == case["effective_answers"]
+E   AssertionError: assert {'phase': 'ne...: 'rent', ...} == {'phase': 'ne...: 'rent', ...}
+E
+E     Omitting 5 identical items, use -vv to show
+E     Left contains 1 more item:
+E     {'presale': 'no'}
+E     Use -v to get more diff
+______________ test_reference_advisory_case[office:revenue:sale] _______________
+tests/test_service_advisories.py:14: in test_reference_advisory_case
+    assert actual["effective_answers"] == case["effective_answers"]
+E   AssertionError: assert {'phase': 'ne...: 'sale', ...} == {'phase': 'ne...: 'sale', ...}
+E
+E     Omitting 5 identical items, use -vv to show
+E     Left contains 1 more item:
+E     {'commitment': 'pending'}
+E     Use -v to get more diff
+______________ test_reference_advisory_case[office:revenue:rent] _______________
+tests/test_service_advisories.py:14: in test_reference_advisory_case
+    assert actual["effective_answers"] == case["effective_answers"]
+E   AssertionError: assert {'phase': 'ne...: 'rent', ...} == {'phase': 'ne...: 'rent', ...}
+E
+E     Omitting 5 identical items, use -vv to show
+E     Left contains 1 more item:
+E     {'commitment': 'pending'}
+E     Use -v to get more diff
+____________ test_reference_advisory_case[commercial:revenue:sale] _____________
+tests/test_service_advisories.py:14: in test_reference_advisory_case
+    assert actual["effective_answers"] == case["effective_answers"]
+E   AssertionError: assert {'phase': 'ne...: 'sale', ...} == {'phase': 'ne...: 'sale', ...}
+E
+E     Omitting 5 identical items, use -vv to show
+E     Left contains 1 more item:
+E     {'operator': 'partner'}
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED tests/test_service_advisories.py::test_reference_advisory_case[residential:revenue:rent]
+FAILED tests/test_service_advisories.py::test_reference_advisory_case[office:revenue:sale]
+FAILED tests/test_service_advisories.py::test_reference_advisory_case[office:revenue:rent]
+FAILED tests/test_service_advisories.py::test_reference_advisory_case[commercial:revenue:sale]
+4 failed, 1797 passed in 1.16s

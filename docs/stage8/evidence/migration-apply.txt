@@ -1,0 +1,10 @@
+ Container invest-backend-run-a4dbb45216c6 Creating
+ Container invest-backend-run-a4dbb45216c6 Created
+Operations to perform:
+  Apply all migrations: auth, catalog, contenttypes, core, identity, services, sessions, workspace
+Running migrations:
+  Applying catalog.0011_service_values... OK
+  Applying workspace.0004_alter_draft_kind... OK
+  Applying services.0001_initial... OK
+  Applying core.0005_case_service_draft_case_service_submission_and_more... OK
+  Applying services.0002_immutable_submission... OK

@@ -1540,5 +1540,29 @@
         "T073"
       ]
     }
-  ]
+  ],
+  "s08_delivery": {
+    "feature": "010-specialist-services",
+    "mission": "PROGRAMMER-S08-COMPLETE",
+    "status": "ready-for-comprehensive-independent-test",
+    "features": [
+      "F08",
+      "F20",
+      "F21",
+      "F22",
+      "F23",
+      "F24",
+      "F25",
+      "F26",
+      "F27",
+      "F30",
+      "F41"
+    ],
+    "tasks": "specs/010-specialist-services/tasks.md",
+    "mapping": "docs/stage8/scope-map.json",
+    "evidence": "docs/stage8/manifest.json",
+    "independent_acceptance": false,
+    "human_visual_approved": false,
+    "baseline_tasks_fully_complete": false
+  }
 }

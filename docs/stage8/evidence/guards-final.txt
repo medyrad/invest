@@ -1,0 +1,3 @@
+44 objects imported automatically (use -v 2 for details).
+
+[('event_immutable', 'O'), ('immutable_field', 'O'), ('immutable_unit', 'O'), ('message_immutable', 'O'), ('money_basis_guard', 'O'), ('money_definition_guard', 'O'), ('quantity_basis_guard', 'O'), ('quantity_definition_guard', 'O'), ('report_immutable', 'O'), ('return_basis_guard', 'O'), ('return_definition_guard', 'O'), ('review_immutable', 'O'), ('reviewevidence_immutable', 'O'), ('service_submission_immutable', 'O'), ('submission_immutable', 'O')]

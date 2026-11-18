@@ -1,0 +1,46 @@
+{
+  "captured_utc": "2026-11-18T15:58:51.117457+00:00",
+  "api": {
+    "version": "S08-5f7f8dc28c28"
+  },
+  "web": {
+    "version": "S08-5f7f8dc28c28"
+  },
+  "containers": [
+    {
+      "service": "backend",
+      "image": "invest-backend",
+      "image_id": "sha256:c88cf827a82f8fcfa75d3203533eff0ab0ed9b52c47e4ea09299ebff87d2b192",
+      "state": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "db",
+      "image": "public.ecr.aws/docker/library/postgres:17.12-alpine@sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+      "image_id": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+      "state": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "scanner",
+      "image": "invest-scanner:1.5.4",
+      "image_id": "sha256:fa05ca425ea516fad521c4c9b4e0c15ebff3561f6c1d788951c671b274c6249e",
+      "state": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "web",
+      "image": "invest-web",
+      "image_id": "sha256:3ea009146319211bfdf60efb3b8feacef0cda80b8c71cc1fd24f07758aacfc9a",
+      "state": "running",
+      "health": ""
+    },
+    {
+      "service": "workspace-jobs",
+      "image": "invest-backend",
+      "image_id": "sha256:c88cf827a82f8fcfa75d3203533eff0ab0ed9b52c47e4ea09299ebff87d2b192",
+      "state": "running",
+      "health": ""
+    }
+  ]
+}

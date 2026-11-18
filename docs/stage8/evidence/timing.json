@@ -1,0 +1,183 @@
+{
+  "started_utc": "2026-11-18T14:29:29Z",
+  "measured_commands": [
+    {
+      "label": "test-expanded",
+      "start_utc": "2026-11-18T15:11:00.504531+00:00",
+      "seconds": 4.589,
+      "exit": 1
+    },
+    {
+      "label": "test-related-current",
+      "start_utc": "2026-11-18T15:12:52.121831+00:00",
+      "seconds": 6.665,
+      "exit": 0
+    },
+    {
+      "label": "backend-final-related",
+      "start_utc": "2026-11-18T15:18:51.771053+00:00",
+      "seconds": 7.616,
+      "exit": 0
+    },
+    {
+      "label": "build-final",
+      "start_utc": "2026-11-18T15:19:08.684389+00:00",
+      "seconds": 9.808,
+      "exit": 0
+    },
+    {
+      "label": "migrate-local",
+      "start_utc": "2026-11-18T15:20:17.948739+00:00",
+      "seconds": 1.587,
+      "exit": 0
+    },
+    {
+      "label": "browser-final",
+      "start_utc": "2026-11-18T15:21:05.971237+00:00",
+      "seconds": 105.125,
+      "exit": 0
+    },
+    {
+      "label": "backend-convergence-final",
+      "start_utc": "2026-11-18T15:24:16.755725+00:00",
+      "seconds": 7.729,
+      "exit": 0
+    },
+    {
+      "label": "build-convergence",
+      "start_utc": "2026-11-18T15:25:01.144288+00:00",
+      "seconds": 8.793,
+      "exit": 0
+    },
+    {
+      "label": "browser-affected-final",
+      "start_utc": "2026-11-18T15:26:32.713196+00:00",
+      "seconds": 77.219,
+      "exit": 1
+    },
+    {
+      "label": "advisory-78-coverage",
+      "start_utc": "2026-11-18T15:28:10.872601+00:00",
+      "seconds": 2.877,
+      "exit": 1
+    },
+    {
+      "label": "advisory-supplemental-fixed",
+      "start_utc": "2026-11-18T15:29:05.242420+00:00",
+      "seconds": 2.889,
+      "exit": 0
+    },
+    {
+      "label": "backend-frozen-final",
+      "start_utc": "2026-11-18T15:30:07.571097+00:00",
+      "seconds": 8.844,
+      "exit": 0
+    },
+    {
+      "label": "build-frozen",
+      "start_utc": "2026-11-18T15:30:08.692903+00:00",
+      "seconds": 8.814,
+      "exit": 0
+    },
+    {
+      "label": "build-passport-completion",
+      "start_utc": "2026-11-18T15:31:34.990088+00:00",
+      "seconds": 9.841,
+      "exit": 0
+    },
+    {
+      "label": "backend-delivery",
+      "start_utc": "2026-11-18T15:33:19.599046+00:00",
+      "seconds": 8.666,
+      "exit": 0
+    },
+    {
+      "label": "build-delivery",
+      "start_utc": "2026-11-18T15:33:20.720384+00:00",
+      "seconds": 8.788,
+      "exit": 0
+    },
+    {
+      "label": "backend-package-final",
+      "start_utc": "2026-11-18T15:36:11.706240+00:00",
+      "seconds": 8.132,
+      "exit": 1
+    },
+    {
+      "label": "build-package-final",
+      "start_utc": "2026-11-18T15:36:36.894659+00:00",
+      "seconds": 8.594,
+      "exit": 0
+    },
+    {
+      "label": "backend-validated-delivery",
+      "start_utc": "2026-11-18T15:36:53.862477+00:00",
+      "seconds": 8.193,
+      "exit": 0
+    },
+    {
+      "label": "build-verified-release",
+      "start_utc": "2026-11-18T15:37:36.422562+00:00",
+      "seconds": 8.694,
+      "exit": 0
+    },
+    {
+      "label": "browser-verified-release",
+      "start_utc": "2026-11-18T15:39:01.360128+00:00",
+      "seconds": 65.63,
+      "exit": 1
+    },
+    {
+      "label": "backend-legacy-final",
+      "start_utc": "2026-11-18T15:41:55.642682+00:00",
+      "seconds": 8.172,
+      "exit": 0
+    },
+    {
+      "label": "backend-final-handoff",
+      "start_utc": "2026-11-18T15:43:00.254058+00:00",
+      "seconds": 8.192,
+      "exit": 0
+    },
+    {
+      "label": "reproduce-consent-race",
+      "start_utc": "2026-11-18T15:45:24.709123+00:00",
+      "seconds": 3.753,
+      "exit": 1
+    },
+    {
+      "label": "backend-atomic-final",
+      "start_utc": "2026-11-18T15:46:04.014513+00:00",
+      "seconds": 9.203,
+      "exit": 0
+    },
+    {
+      "label": "build-atomic-release",
+      "start_utc": "2026-11-18T15:50:11.826961+00:00",
+      "seconds": 9.968,
+      "exit": 0
+    },
+    {
+      "label": "backend-parent-final",
+      "start_utc": "2026-11-18T15:51:30.010519+00:00",
+      "seconds": 9.261,
+      "exit": 0
+    },
+    {
+      "label": "build-handoff",
+      "start_utc": "2026-11-18T15:53:03.681430+00:00",
+      "seconds": 8.729,
+      "exit": 0
+    },
+    {
+      "label": "browser-handoff",
+      "start_utc": "2026-11-18T15:53:49.808494+00:00",
+      "seconds": 105.519,
+      "exit": 0
+    }
+  ],
+  "build_seconds": 82.029,
+  "build_count": 9,
+  "test_seconds": 458.274,
+  "note": "اندازه‌گیری فرمان‌ها؛ آماده‌سازی/پیاده‌سازی و نگارش هم‌پوشانی دارند و زمان فعال آن‌ها جدا اندازه‌گیری نشده است."
+}

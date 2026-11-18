@@ -26,7 +26,7 @@
 ## Phase 5 — شواهد و تحویل
 - [x] T016 pytest مرتبط PostgreSQL/قواعد منبع/دو حساب/مجوز/زمان و regression محدود پرونده/نشست؛ runner ترتیبی
 - [x] T017 سفر مرورگر۹خدمت و شاخه پرخطر، desktop/mobile و مقایسه تصویری مرجع؛ build نهایی3108
-- [ ] T018 تحلیل/converge، پوشش۴۴قابلیت، docs/stage8/report/manifest/guide/time، commit و push معمول origin
+- [x] T018 تحلیل/converge، پوشش۴۴قابلیت، docs/stage8/report/manifest/guide/time، commit و push معمول origin
 
 وابستگی: T001→T002→T003–T005؛ سپس T006–T012؛ T013–T015 روی قرارداد پایه؛ پایان T016–T018. پژوهش منبع طبق plan موازی بود؛ اجرای DB موازی نیست. این مأموریت تا تحویل یکپارچه ادامه می‌یابد و checkbox صرفاً با شاهد واقعی تکمیل می‌شود.
 
@@ -40,4 +40,4 @@
 - [x] T025 [US4] سری‌سازی رضایت و خواندن تماس خدمت سازمانی با جانشینی نماینده، با قفل سازمان و تراکنش؛ بازتولید شکست رقابتی و رد رضایت نماینده قبلی بعد از commit بررسی.
 - [x] T026 [US1,US3] والد نامشخص/ناهمخوان، فرزند مؤثر تولید نکند؛ نام گزینه از والد همان snapshot و واحدها با برچسب خوانای فارسی نمایش داده شوند؛ raw خصوصی حفظ و آزمون منبع/گزارش اجرا شود.
 
-شاهد T002–T017 و T019–T026: docs/stage8/report.md، evidence/backend-final.txt (۱۸۷۵)، evidence/browser-final.txt (۱۶)، scope-map.json و تصاویر reference/product. T018 پس از ثبت commit و push تکمیل می‌شود؛ این علامت‌ها پذیرش مستقل/انسانی نیستند.
+شاهد T002–T017 و T019–T026: docs/stage8/report.md، evidence/backend-final.txt (۱۸۷۵)، evidence/browser-final.txt (۱۶)، scope-map.json و تصاویر reference/product. T018 با commit پیاده‌سازی be66369 و push موفق main تکمیل شد؛ commit شواهد در تحویل نهایی آمده است؛ این علامت‌ها پذیرش مستقل/انسانی نیستند.
