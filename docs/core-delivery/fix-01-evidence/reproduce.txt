@@ -1,0 +1,36 @@
+ Container invest-test-run-8c2d127cb801 Creating
+ Container invest-test-run-8c2d127cb801 Created
+FF..F                                                                    [100%]
+=================================== FAILURES ===================================
+______ test_malformed_important_never_returns_internal_error[important0] _______
+/independent/test_gaps.py:11: in test_malformed_important_never_returns_internal_error
+    assert response.status_code==400,response.data
+E   AssertionError: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': '177acdd9-dc49-43b9-8677-a96bc48786bb'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=177acdd9-dc49-43b9-8677-a96bc48786bb type=TypeError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=177acdd9-dc49-43b9-8677-a96bc48786bb type=TypeError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/core/opportunities
+______ test_malformed_important_never_returns_internal_error[important1] _______
+/independent/test_gaps.py:11: in test_malformed_important_never_returns_internal_error
+    assert response.status_code==400,response.data
+E   AssertionError: {'error': {'code': 'internal_error', 'message': 'خطایی رخ داده است؛ دوباره تلاش کنید.', 'fields': {}, 'request_id': '9d45f4ff-3e43-4134-89b6-49f27fa08dc1'}}
+E   assert 500 == 400
+E    +  where 500 = <Response status_code=500, "application/json">.status_code
+----------------------------- Captured stderr call -----------------------------
+ERROR unhandled_error request_id=9d45f4ff-3e43-4134-89b6-49f27fa08dc1 type=TypeError
+------------------------------ Captured log call -------------------------------
+ERROR    invest:api.py:61 unhandled_error request_id=9d45f4ff-3e43-4134-89b6-49f27fa08dc1 type=TypeError
+ERROR    django.request:log.py:293 Internal Server Error: /api/v1/core/opportunities
+________________ test_operator_has_active_work_period_contract _________________
+/independent/test_gaps.py:28: in test_operator_has_active_work_period_contract
+    assert periods, 'F09 requires a work period; operator has no active time quantity'
+E   AssertionError: F09 requires a work period; operator has no active time quantity
+E   assert []
+=========================== short test summary info ============================
+FAILED ::test_malformed_important_never_returns_internal_error[important0] - ...
+FAILED ::test_malformed_important_never_returns_internal_error[important1] - ...
+FAILED ::test_operator_has_active_work_period_contract - AssertionError: F09 ...
+3 failed, 2 passed, 3 deselected in 1.08s

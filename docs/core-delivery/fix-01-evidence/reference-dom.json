@@ -1,0 +1,24 @@
+{
+  "source": "src/lib/compare.ts; src/components/compare/compare.tsx",
+  "source_ids": [
+    "DEMO-01",
+    "DEMO-02"
+  ],
+  "product_ids": [
+    "1f6896fb-de92-4888-942e-3b2a432a43d9",
+    "d12263b0-e776-4d1f-8fc3-a80ea199670d"
+  ],
+  "viewport": 1440,
+  "headings": [
+    "دستیار مقایسه",
+    "در یک نگاه",
+    "مقایسه روی نمودار",
+    "سرمایه شما کی برمی‌گردد؟",
+    "پول",
+    "زمان",
+    "ریسک و حقوق",
+    "پروژه و محل",
+    "افزودن پروژه به مقایسه"
+  ],
+  "synthetic": true
+}

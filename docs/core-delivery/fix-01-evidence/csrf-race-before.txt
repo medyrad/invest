@@ -1,0 +1,9 @@
+
+Running 1 test using 1 worker
+
+(node:81902) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+failed API /api/v1/core/compare 403 csrf_failed
+  ✓  1 tests/browser/core-fix-01.spec.ts:47:2 › compare groups, two to four, navigation and mobile: fund (5.8s)
+
+  1 passed (6.3s)

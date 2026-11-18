@@ -1,0 +1,11 @@
+
+Running 4 tests using 1 worker
+
+(node:107956) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/core-fix-01.spec.ts:7:1 › operator work period: explicit unit, resume, switch routes, publish, detail and frozen guide (8.4s)
+  ✓  2 tests/browser/core-fix-01.spec.ts:47:2 › compare groups, two to four, navigation and mobile: project (6.9s)
+  ✓  3 tests/browser/core-fix-01.spec.ts:47:2 › compare groups, two to four, navigation and mobile: fund (6.8s)
+  ✓  4 tests/browser/core-fix-01.spec.ts:47:2 › compare groups, two to four, navigation and mobile: sale (7.3s)
+
+  4 passed (29.9s)

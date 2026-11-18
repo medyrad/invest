@@ -1,0 +1,89 @@
+[
+  {
+    "criteria": {
+      "important": [
+        {}
+      ]
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "محور شرط مهم معتبر نیست.",
+      "fields": {
+        "criteria.important.0": "محور شرط مهم معتبر نیست."
+      },
+      "request_id": "692a6443-6dd5-459d-91f9-440f3f7e4a25"
+    }
+  },
+  {
+    "criteria": {
+      "important": [
+        []
+      ]
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "محور شرط مهم معتبر نیست.",
+      "fields": {
+        "criteria.important.0": "محور شرط مهم معتبر نیست."
+      },
+      "request_id": "1b0be1a2-72c7-4f53-8415-67ca6532ad9a"
+    }
+  },
+  {
+    "criteria": {
+      "important": [
+        1
+      ]
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "محور شرط مهم معتبر نیست.",
+      "fields": {
+        "criteria.important.0": "محور شرط مهم معتبر نیست."
+      },
+      "request_id": "690421f2-c4de-4fc8-84cb-74a3ab516411"
+    }
+  },
+  {
+    "criteria": {
+      "important": [
+        true
+      ]
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "محور شرط مهم معتبر نیست.",
+      "fields": {
+        "criteria.important.0": "محور شرط مهم معتبر نیست."
+      },
+      "request_id": "b014c8e7-f790-4a8d-87f8-54c238e657f3"
+    }
+  },
+  {
+    "criteria": {
+      "important": []
+    },
+    "status": 200,
+    "error": null
+  },
+  {
+    "criteria": {
+      "preferences": {
+        "risk": {}
+      }
+    },
+    "status": 400,
+    "error": {
+      "code": "core_error",
+      "message": "مقدار ترجیح باید متن، عدد یا فهرست ساده باشد.",
+      "fields": {
+        "criteria.preferences.risk": "مقدار ترجیح باید متن، عدد یا فهرست ساده باشد."
+      },
+      "request_id": "e03b6090-0d25-4518-bedb-b052a8962130"
+    }
+  }
+]

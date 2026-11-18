@@ -1,0 +1,6 @@
+ Container invest-backend-run-d163fd487373 Creating
+ Container invest-backend-run-d163fd487373 Created
+Operations to perform:
+  Apply all migrations: auth, catalog, contenttypes, core, identity, sessions, workspace
+Running migrations:
+  Applying catalog.0010_operator_work_period... OK

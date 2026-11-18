@@ -1,0 +1,40 @@
+{
+  "existing_data_before": {
+    "Draft": {
+      "count": 35,
+      "sha256": "483eb17878b25f7129b967a04b106508d1795c423b119d9fb48c8d832eb976f1"
+    },
+    "PrivateFile": {
+      "count": 8,
+      "sha256": "c6aaf81054d511c600e25f23e565fa651f93019257b8cabf46277a94e4ac2601"
+    },
+    "Submission": {
+      "count": 30,
+      "sha256": "63ab8e464824e41b135be0d6633f43c651297bf722e4f95dfa24daafaa6d5652"
+    },
+    "Report": {
+      "count": 5,
+      "sha256": "789b540f91542fa3ed7c984eb1a3f48414abbb412671452802b12208b9f36316"
+    }
+  },
+  "existing_data_after": {
+    "Draft": {
+      "count": 35,
+      "sha256": "483eb17878b25f7129b967a04b106508d1795c423b119d9fb48c8d832eb976f1"
+    },
+    "PrivateFile": {
+      "count": 8,
+      "sha256": "c6aaf81054d511c600e25f23e565fa651f93019257b8cabf46277a94e4ac2601"
+    },
+    "Submission": {
+      "count": 30,
+      "sha256": "63ab8e464824e41b135be0d6633f43c651297bf722e4f95dfa24daafaa6d5652"
+    },
+    "Report": {
+      "count": 5,
+      "sha256": "789b540f91542fa3ed7c984eb1a3f48414abbb412671452802b12208b9f36316"
+    }
+  },
+  "equal": true,
+  "scope": "Immediately across additive migration, before new browser fixtures"
+}

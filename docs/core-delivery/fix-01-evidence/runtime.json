@@ -1,0 +1,12 @@
+{
+  "api": {
+    "version": "CORE-443ca1cbf0c7"
+  },
+  "web": {
+    "version": "CORE-443ca1cbf0c7"
+  },
+  "ready": {
+    "status": "ok"
+  },
+  "env_unchanged": true
+}

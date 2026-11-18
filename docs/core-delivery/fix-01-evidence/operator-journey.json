@@ -1,0 +1,27 @@
+{
+  "opportunity_id": "fff6a942-d395-4da3-86e1-e586f21f9aa8",
+  "revision": "07b59ac3-9678-4ee4-bf1e-7383af462f74",
+  "period": {
+    "kind": "quantity",
+    "unit": {
+      "code": "DAY",
+      "version": 1
+    },
+    "basis": {
+      "start_basis": "تحویل کارگاه"
+    },
+    "field": {
+      "key": "operator_work_period",
+      "version": 1,
+      "namespace": "invest.opportunity.project"
+    },
+    "value": "18.5",
+    "status": "known",
+    "base_unit": "DAY",
+    "base_version": 1,
+    "source_value": "18.5",
+    "contract_version": 1,
+    "conversion_factor": "1"
+  },
+  "synthetic": true
+}

@@ -1,0 +1,76 @@
+{
+  "product_ids": [
+    "1f6896fb-de92-4888-942e-3b2a432a43d9",
+    "d12263b0-e776-4d1f-8fc3-a80ea199670d"
+  ],
+  "viewport": 1440,
+  "groups": [
+    {
+      "id": "money",
+      "title": "پول",
+      "rows": [
+        "row-min_capital",
+        "row-budget",
+        "row-irr",
+        "row-income",
+        "row-repay",
+        "row-finance",
+        "row-partner_share",
+        "row-partnership_settlements"
+      ]
+    },
+    {
+      "id": "time",
+      "title": "زمان",
+      "rows": [
+        "row-first_income_months",
+        "row-lockup_months",
+        "row-payback_years",
+        "row-payback_downside_years",
+        "row-execution_months",
+        "row-duration_years"
+      ]
+    },
+    {
+      "id": "risk",
+      "title": "ریسک و حقوق",
+      "rows": [
+        "row-risk",
+        "row-legal_status",
+        "row-ownership",
+        "row-sector",
+        "row-caution",
+        "row-checks",
+        "row-general_conditions",
+        "row-special_conditions"
+      ]
+    },
+    {
+      "id": "project",
+      "title": "پروژه و محل",
+      "rows": [
+        "row-group",
+        "row-subtype",
+        "row-phase",
+        "row-stage",
+        "row-model",
+        "row-model_id",
+        "row-routes",
+        "row-province",
+        "row-county",
+        "row-city",
+        "row-title",
+        "row-description",
+        "row-usage",
+        "row-metric_label",
+        "row-metric_quantity",
+        "row-revenues",
+        "row-interventions",
+        "row-steps"
+      ]
+    }
+  ],
+  "version": {
+    "version": "CORE-443ca1cbf0c7"
+  }
+}
