@@ -1,0 +1,61 @@
+{
+  "rows": 44,
+  "empty_destinations": [],
+  "s08": [
+    {
+      "id": "F08",
+      "usable_path": "/tools/charity",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F20",
+      "usable_path": "/tools/proposal",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F21",
+      "usable_path": "/tools/ideas",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F22",
+      "usable_path": "/tools/land-preparation",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F23",
+      "usable_path": "/tools/foreign-investment",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F24",
+      "usable_path": "/tools/ma-notice",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F25",
+      "usable_path": "/tools/ma-renewal",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F26",
+      "usable_path": "/tools/ma-manager",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F27",
+      "usable_path": "/tools/ma-exchange",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F30",
+      "usable_path": "/opportunities",
+      "delivery_package": "S08-COMPLETE"
+    },
+    {
+      "id": "F41",
+      "usable_path": "/drafts",
+      "delivery_package": "S08-COMPLETE"
+    }
+  ]
+}

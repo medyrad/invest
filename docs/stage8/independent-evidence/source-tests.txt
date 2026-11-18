@@ -1,0 +1,5 @@
+ Container invest-test-run-985b932e7402 Creating
+ Container invest-test-run-985b932e7402 Created
+........................................................................ [ 92%]
+......                                                                   [100%]
+78 passed in 0.21s

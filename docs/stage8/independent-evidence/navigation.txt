@@ -1,0 +1,21 @@
+{
+  "nineLinks": true,
+  "/tools/ma-profile": {
+    "status": 200,
+    "heading": [
+      "پروفایل حرفه‌ای من"
+    ]
+  },
+  "/tools/library": {
+    "status": 200,
+    "heading": [
+      "راهنما و مستندات"
+    ]
+  },
+  "/drafts": {
+    "status": 200,
+    "heading": [
+      "پیش‌نویس‌های من"
+    ]
+  }
+}

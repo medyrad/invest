@@ -1,0 +1,101 @@
+[
+  {
+    "kind": "proposal",
+    "missing": [
+      "city",
+      "need",
+      "province",
+      "sector",
+      "stage",
+      "type"
+    ],
+    "restored": true,
+    "reloadPreserved": true
+  },
+  {
+    "kind": "ideas",
+    "missing": [
+      "description",
+      "need",
+      "sector",
+      "stage"
+    ],
+    "restored": true,
+    "reloadPreserved": true
+  },
+  {
+    "kind": "land-preparation",
+    "missing": [
+      "role",
+      "types"
+    ],
+    "restored": true,
+    "reloadPreserved": true
+  },
+  {
+    "kind": "foreign-investment",
+    "missing": [
+      "applicant",
+      "contributions",
+      "currency",
+      "province",
+      "sector",
+      "type"
+    ],
+    "restored": true,
+    "reloadPreserved": true
+  },
+  {
+    "kind": "ma-notice",
+    "missing": [
+      "project"
+    ],
+    "restored": true,
+    "reloadPreserved": true
+  },
+  {
+    "kind": "ma-renewal",
+    "missing": [
+      "displacement",
+      "gis",
+      "province"
+    ],
+    "restored": true,
+    "reloadPreserved": true
+  },
+  {
+    "kind": "ma-manager",
+    "missing": [
+      "entity",
+      "province",
+      "services",
+      "units"
+    ],
+    "restored": true,
+    "reloadPreserved": true
+  },
+  {
+    "kind": "ma-exchange",
+    "missing": [
+      "area",
+      "kind",
+      "province",
+      "wanted"
+    ],
+    "restored": true,
+    "reloadPreserved": true
+  },
+  {
+    "kind": "charity",
+    "missing": [
+      "cause",
+      "followup",
+      "group",
+      "province",
+      "type",
+      "years"
+    ],
+    "restored": true,
+    "reloadPreserved": true
+  }
+]

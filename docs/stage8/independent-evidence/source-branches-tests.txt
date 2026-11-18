@@ -1,0 +1,5 @@
+ Container invest-test-run-b176a9dfda50 Creating
+ Container invest-test-run-b176a9dfda50 Created
+........................................................................ [ 92%]
+......                                                                   [100%]
+78 passed in 0.23s

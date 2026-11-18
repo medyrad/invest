@@ -1,0 +1,30 @@
+{
+  "renewalHeadings": {
+    "محدوده، حقوق و مشوق‌های قابل بررسی": 0,
+    "ساکنان و اسکان موقت": 0
+  },
+  "referenceFilterOptions": [
+    {
+      "value": "all",
+      "label": "همه منابع"
+    },
+    {
+      "value": "development",
+      "label": "همکاری توسعه‌ای"
+    },
+    {
+      "value": "finance",
+      "label": "تامین مالی و اعتبار"
+    }
+  ],
+  "insuranceCardVisible": true
+}
+AssertionError [ERR_ASSERTION]: Source grouping headings and risk-only reference filter must be preserved
+    at /home/mehdirad/Projects/company/invest/docs/stage8/independent-tests/browser-source-controls.cjs:5:716 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

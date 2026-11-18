@@ -1,0 +1,18 @@
+ Container invest-test-run-3f858f4d5b9f Creating
+ Container invest-test-run-3f858f4d5b9f Created
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______ test_authority_change_before_report_bytes_are_generated[download] _______
+/independent/test_download_race.py:51: in test_authority_change_before_report_bytes_are_generated
+    assert not committed_before_bytes or status in [403,409],f'{output}: replacement committed before rendering but response was {status}'
+E   AssertionError: download: replacement committed before rendering but response was 200
+E   assert (not True or 200 in [403, 409])
+_______ test_authority_change_before_report_bytes_are_generated[package] _______
+/independent/test_download_race.py:51: in test_authority_change_before_report_bytes_are_generated
+    assert not committed_before_bytes or status in [403,409],f'{output}: replacement committed before rendering but response was {status}'
+E   AssertionError: package: replacement committed before rendering but response was 200
+E   assert (not True or 200 in [403, 409])
+=========================== short test summary info ============================
+FAILED ::test_authority_change_before_report_bytes_are_generated[download] - ...
+FAILED ::test_authority_change_before_report_bytes_are_generated[package] - A...
+2 failed in 1.62s

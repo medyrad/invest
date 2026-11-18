@@ -1,0 +1,4 @@
+ Container invest-test-run-571aa7e6cef8 Creating
+ Container invest-test-run-571aa7e6cef8 Created
+.                                                                        [100%]
+1 passed in 2.68s

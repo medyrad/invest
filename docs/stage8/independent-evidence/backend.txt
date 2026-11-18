@@ -1,0 +1,28 @@
+گزیدهٔ بدون تغییر پیام/نتیجه از اجرای نخست؛ 10695 خط اصلی با SHA256=3dc8226e0ca4da8ebc159e316aff31511ef712e4003d3ec2a93d65336c04c861
+ Container invest-test-run-7a4becf7dd58 Creating
+ Container invest-test-run-7a4becf7dd58 Created
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE [  3%]
+EE...................................................................... [  7%]
+........................................................................ [ 11%]
+........................................................................ [ 15%]
+........................................................................ [ 19%]
+[tracebackهای تکراری حذف شده‌اند؛ نمونه خطای اتصال:]
+/app/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:320: in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+/app/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:296: in _cursor
+    self.ensure_connection()
+/app/.venv/lib/python3.14/site-packages/django/utils/asyncio.py:26: in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+/app/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:278: in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+/app/.venv/lib/python3.14/site-packages/django/db/utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+/app/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py:279: in ensure_connection
+[ادامه tracebackهای یکسان حذف شد؛ جمع نهایی اصلی:]
+ERROR tests/test_core.py::test_owner_contact_not_case_membership_and_revocation
+ERROR tests/test_services.py::test_concurrent_service_sends_one_case_and_receipt
+ERROR tests/test_services.py::test_service_representative_replacement_serializes_named_consent
+1801 passed, 52 deselected, 1 warning, 74 errors in 3.77s

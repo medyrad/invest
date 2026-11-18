@@ -1,0 +1,13 @@
+proposal partial save/resume/reload passed
+ideas partial save/resume/reload passed
+land-preparation partial save/resume/reload passed
+locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.service-editor form input:not([type=checkbox]):not([type=radio]):not([inputmode=decimal]):visible,.service-editor form textarea:visible').first() to be visible[22m
+
+    at /home/mehdirad/Projects/company/invest/docs/stage8/independent-tests/browser-partial-resume.cjs:4:233 {
+  log: [
+    "  - waiting for locator('.service-editor form input:not([type=checkbox]):not([type=radio]):not([inputmode=decimal]):visible,.service-editor form textarea:visible').first() to be visible"
+  ],
+  name: 'TimeoutError'
+}

@@ -1,0 +1,23 @@
+
+Running 16 tests using 1 worker
+
+(node:21215) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 .tools/test-s08/browser/s08.spec.ts:24:25 › S08 complete browser journey proposal (9.4s)
+  ✓   2 .tools/test-s08/browser/s08.spec.ts:24:25 › S08 complete browser journey ideas (7.4s)
+  ✓   3 .tools/test-s08/browser/s08.spec.ts:24:25 › S08 complete browser journey land-preparation (10.3s)
+  ✓   4 .tools/test-s08/browser/s08.spec.ts:24:25 › S08 complete browser journey foreign-investment (10.7s)
+  ✓   5 .tools/test-s08/browser/s08.spec.ts:24:25 › S08 complete browser journey ma-notice (7.7s)
+  ✓   6 .tools/test-s08/browser/s08.spec.ts:24:25 › S08 complete browser journey ma-renewal (7.6s)
+  ✓   7 .tools/test-s08/browser/s08.spec.ts:24:25 › S08 complete browser journey ma-manager (8.6s)
+  ✓   8 .tools/test-s08/browser/s08.spec.ts:24:25 › S08 complete browser journey ma-exchange (7.6s)
+  ✓   9 .tools/test-s08/browser/s08.spec.ts:24:25 › S08 complete browser journey charity (8.2s)
+  ✓  10 .tools/test-s08/browser/s08.spec.ts:45:1 › S08 mobile conditional housing, exact totals and hidden restore (2.1s)
+  ✓  11 .tools/test-s08/browser/s08.spec.ts:59:1 › S08 lost save response replays same operation and no extra revision (2.3s)
+  ✓  12 .tools/test-s08/browser/s08.spec.ts:65:1 › S08 responsive catalog, nested land order and no embedded engine (1.1s)
+  ✓  13 .tools/test-s08/browser/s08.spec.ts:73:1 › S08 guest input survives login, old private response cannot enter next account (1.4s)
+  ✓  14 .tools/test-s08/browser/s08.spec.ts:81:1 › S08 private service attachment uses real scanner and stays private after submission (9.2s)
+  ✓  15 .tools/test-s08/browser/s08.spec.ts:88:1 › S08 noncash charity exact capacity, unit, period and dormant values (4.7s)
+  ✓  16 .tools/test-s08/browser/s08.spec.ts:96:1 › S08 notice historical passport preserves issuer signature guarantee and source (735ms)
+
+  16 passed (1.7m)

@@ -1,0 +1,5 @@
+ Container invest-test-run-872886716c8b Creating
+ Container invest-test-run-872886716c8b Created
+........................................................................ [ 97%]
+..                                                                       [100%]
+74 passed, 52 deselected in 6.57s

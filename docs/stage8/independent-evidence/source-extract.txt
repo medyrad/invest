@@ -1,0 +1,17 @@
+evalmachine.<anonymous>:2
+ c.name=taxonomy.find(g=>g.id===group).subtypes.find(t=>t.id===type).name;
+                                      ^
+
+TypeError: Cannot read properties of undefined (reading 'subtypes')
+    at evalmachine.<anonymous>:2:39
+    at Script.runInContext (node:vm:149:12)
+    at Object.runInContext (node:vm:301:6)
+    at Object.<anonymous> (/home/mehdirad/Projects/company/invest/docs/stage8/independent-tests/extract-source.cjs:3:86)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+
+Node.js v24.22.3

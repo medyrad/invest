@@ -1,0 +1,116 @@
+service,reference_id,found_in_actual_html,native_keys,native_conditions,native_units,note
+proposal,ext-p-title,True,title,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-sector,True,sector,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-type,True,type,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-province,True,province,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-city,True,city,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-neighborhood,True,neighborhood,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-stage,True,stage,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-need,True,need,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-gap,True,gap,[null],BILLION_TOMAN,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-land,True,land,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-permit,True,permit,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-revenue,True,revenue,"[{""field"": ""need"", ""op"": ""ne"", ""value"": ""support""}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-progress,True,progress,"[{""field"": ""stage"", ""op"": ""eq"", ""value"": ""construction""}]",PERCENTAGE,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-utilities,True,utilities,"[{""any"": [{""field"": ""stage"", ""op"": ""in"", ""values"": [""construction"", ""operation""]}, {""field"": ""need"", ""op"": ""eq"", ""value"": ""infrastructure""}]}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-operator,True,operator,"[{""any"": [{""field"": ""need"", ""op"": ""in"", ""values"": [""support"", ""operator""]}, {""field"": ""type"", ""op"": ""in"", ""values"": [""medical"", ""education"", ""cultural"", ""sports"", ""watertreatment"", ""wastewater"", ""community"", ""fire""]}]}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+proposal,ext-p-description,True,description,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ideas,idea-title,True,title,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ideas,idea-sector,True,sector,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ideas,idea-stage,True,stage,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ideas,idea-province,True,province,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ideas,idea-city,True,city,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ideas,idea-description,True,description,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ideas,idea-need,True,need,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ideas,idea-capital,True,capital,[null],BILLION_TOMAN,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ideas,idea-files,True,,[],,پنل مشترک فایل خصوصی طبق D32؛ تفاوت مجاز قالب‌ها
+land-preparation,lp-role,True,role,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+land-preparation,lp-type,True,types,[null],,فیلتر نمایشی کتابخانه؛ گزینه risk حذف شده S08-IT-005
+land-preparation,lp-province,True,province,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+land-preparation,lp-city,True,city,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+land-preparation,lp-neighborhood,True,neighborhood,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+land-preparation,lp-area,True,area,[null],SQUARE_METRE,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+land-preparation,lp-keyword,True,keyword,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+land-preparation,lp-budget,True,budget,"[{""field"": ""role"", ""op"": ""ne"", ""value"": ""explore""}]",BILLION_TOMAN,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+land-preparation,lp-months,True,months,[null],MONTH,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-sector,True,sector,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-type,True,type,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-province,True,province,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-city,True,city,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-project,True,project,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-applicant,True,applicant,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-country,True,country,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-amount,True,amount,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-currency,True,currency,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-contribution,True,contributions,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-contribution,True,contributions,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-contribution,True,contributions,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-contribution,True,contributions,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-contribution,True,contributions,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-source-kind,True,source_kind,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-contract-form,True,contract_form,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-impact,True,impact,"[{""field"": ""route"", ""op"": ""eq"", ""value"": ""support""}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-insurance,True,insurance,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-risk-cover,True,risk_cover,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-blended,True,blended,"[{""field"": ""route"", ""op"": ""ne"", ""value"": ""support""}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-revenue,True,revenue,"[{""field"": ""route"", ""op"": ""ne"", ""value"": ""support""}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-rights,True,rights,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-license,True,license,"[{""field"": ""route"", ""op"": ""ne"", ""value"": ""support""}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-permit,True,permit,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-notes,True,notes,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+foreign-investment,fi-source-filter,True,,[],,فیلتر نمایشی کتابخانه؛ گزینه risk حذف شده S08-IT-005
+ma-notice,project,True,project,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-notice,ready,True,ready,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-notice,notes,True,notes,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,province,True,province,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,city,True,city,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,neighborhood,True,neighborhood,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,r1,True,,[],,عنوان گروه منبع؛ حذف مشاهده‌شده S08-IT-004
+ma-renewal,gis,True,gis,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,authority,True,authority,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,evidenceDate,True,evidenceDate,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,parcels,True,parcels,[null],ITEM,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,incentive,True,incentive,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,incentiveRef,True,incentiveRef,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,r2,True,,[],,عنوان گروه منبع؛ حذف مشاهده‌شده S08-IT-004
+ma-renewal,displacement,True,displacement,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,households,True,households,"[{""field"": ""displacement"", ""op"": ""ne"", ""value"": ""no""}]",ITEM,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,months,True,months,"[{""field"": ""displacement"", ""op"": ""eq"", ""value"": ""yes""}]",MONTH,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,deposit,True,deposit,"[{""field"": ""displacement"", ""op"": ""eq"", ""value"": ""yes""}]",MILLION_TOMAN,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,rent,True,rent,"[{""field"": ""displacement"", ""op"": ""eq"", ""value"": ""yes""}]",MILLION_TOMAN,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,payer,True,payer,"[{""field"": ""displacement"", ""op"": ""eq"", ""value"": ""yes""}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-renewal,notes,True,notes,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,province,True,province,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,city,True,city,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,neighborhood,True,neighborhood,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,entity,True,entity,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,units,True,units,[null],ITEM,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,usage,True,usage,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,services,True,services,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,experience,True,experience,[null],YEAR,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,fee,True,fee,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-manager,notes,True,notes,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,province,True,province,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,city,True,city,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,neighborhood,True,neighborhood,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,kind,True,kind,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,area,True,area,[null],SQUARE_METRE,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,value,True,value,[null],BILLION_TOMAN,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,rights,True,rights,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,occupied,True,occupied,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,balance,True,balance,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,wanted,True,wanted,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+ma-exchange,notes,True,notes,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,group,True,group,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,cause,True,cause,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,specialty,True,specialty,"[{""field"": ""cause"", ""op"": ""in"", ""values"": [""specialtyclinic"", ""specialtyhospital""]}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,province,True,province,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,city,True,city,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,neighborhood,True,neighborhood,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,type,True,type,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,amount,True,amount,"[{""field"": ""type"", ""op"": ""eq"", ""value"": ""cash""}]",MILLION_TOMAN,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,frequency,True,frequency,"[{""field"": ""type"", ""op"": ""eq"", ""value"": ""cash""}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,description,True,description,"[{""field"": ""type"", ""op"": ""in"", ""values"": [""materials"", ""land"", ""expertise"", ""delivery""]}]",,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,years,True,years,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,followup,True,followup,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش
+charity,demo,True,demo,[null],,تطبیق شناسه/مقصد؛ صحت معنایی از آزمون‌های نام‌برده در گزارش

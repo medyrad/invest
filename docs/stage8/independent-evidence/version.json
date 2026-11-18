@@ -1,0 +1,109 @@
+{
+  "backend": {
+    "actual": "sha256:800333f00833787c35b239b290f96f6bed3f5aca997d1e9f21b566a12195fe65",
+    "reported": "sha256:c88cf827a82f8fcfa75d3203533eff0ab0ed9b52c47e4ea09299ebff87d2b192",
+    "same_image": false
+  },
+  "db": {
+    "actual": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+    "reported": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+    "same_image": true
+  },
+  "scanner": {
+    "actual": "sha256:68129909fda9c06fec38140239dfb7aaa6daa239218453b9361e9708888d6662",
+    "reported": "sha256:fa05ca425ea516fad521c4c9b4e0c15ebff3561f6c1d788951c671b274c6249e",
+    "same_image": false
+  },
+  "web": {
+    "actual": "sha256:55df35e2582552b68b43e3c4fad70e6913b904595b60afaec5f5b7918c11ba3d",
+    "reported": "sha256:3ea009146319211bfdf60efb3b8feacef0cda80b8c71cc1fd24f07758aacfc9a",
+    "same_image": false
+  },
+  "workspace-jobs": {
+    "actual": "sha256:800333f00833787c35b239b290f96f6bed3f5aca997d1e9f21b566a12195fe65",
+    "reported": "sha256:c88cf827a82f8fcfa75d3203533eff0ab0ed9b52c47e4ea09299ebff87d2b192",
+    "same_image": false
+  },
+  "backend_source_files": 105,
+  "backend_differences": [],
+  "web_BUILD_ID": "do3uKOvSgcYNW-uxCq_5i",
+  "code_sha256": "5f7f8dc28c283065bb463a8befb42efae6b99a6946bdb09dd707d9ee2b24627b",
+  "matches_target_fingerprint": true,
+  "manifest_checks": {
+    "passed": [
+      "docs/stage8/evidence/advisory-supplement-before.txt",
+      "docs/stage8/evidence/backend-final.txt",
+      "docs/stage8/evidence/browser-final.txt",
+      "docs/stage8/evidence/browser-shared-earlier.txt",
+      "docs/stage8/evidence/build-final.txt",
+      "docs/stage8/evidence/charity-noncash-360.png",
+      "docs/stage8/evidence/charity-summary-1440.png",
+      "docs/stage8/evidence/consent-race-before.txt",
+      "docs/stage8/evidence/eslint-final.txt",
+      "docs/stage8/evidence/foreign-investment-summary-1440.png",
+      "docs/stage8/evidence/guards-final.txt",
+      "docs/stage8/evidence/ideas-report.html",
+      "docs/stage8/evidence/ideas-summary-1440.png",
+      "docs/stage8/evidence/land-initial-1440.png",
+      "docs/stage8/evidence/land-initial-360.png",
+      "docs/stage8/evidence/land-initial-768.png",
+      "docs/stage8/evidence/land-preparation-summary-1440.png",
+      "docs/stage8/evidence/ma-exchange-summary-1440.png",
+      "docs/stage8/evidence/ma-manager-summary-1440.png",
+      "docs/stage8/evidence/ma-notice-summary-1440.png",
+      "docs/stage8/evidence/ma-renewal-summary-1440.png",
+      "docs/stage8/evidence/migration-apply.txt",
+      "docs/stage8/evidence/migration-drift.txt",
+      "docs/stage8/evidence/migrations-final.txt",
+      "docs/stage8/evidence/notice-historical-passport-1440.png",
+      "docs/stage8/evidence/preservation.json",
+      "docs/stage8/evidence/product-tools-1440.png",
+      "docs/stage8/evidence/product-tools-charity-1440.png",
+      "docs/stage8/evidence/product-tools-foreign-investment-1440.png",
+      "docs/stage8/evidence/product-tools-ideas-1440.png",
+      "docs/stage8/evidence/product-tools-land-preparation-1440.png",
+      "docs/stage8/evidence/product-tools-ma-exchange-1440.png",
+      "docs/stage8/evidence/product-tools-ma-manager-1440.png",
+      "docs/stage8/evidence/product-tools-ma-notice-1440.png",
+      "docs/stage8/evidence/product-tools-ma-renewal-1440.png",
+      "docs/stage8/evidence/product-tools-proposal-1440.png",
+      "docs/stage8/evidence/proposal-summary-1440.png",
+      "docs/stage8/evidence/proposal-viewport-1440.png",
+      "docs/stage8/evidence/proposal-viewport-390.png",
+      "docs/stage8/evidence/push-implementation.txt",
+      "docs/stage8/evidence/reference-comparison-dom.json",
+      "docs/stage8/evidence/reference-tools-1440.png",
+      "docs/stage8/evidence/reference-tools-charity-1440.png",
+      "docs/stage8/evidence/reference-tools-foreign-investment-1440.png",
+      "docs/stage8/evidence/reference-tools-ideas-1440.png",
+      "docs/stage8/evidence/reference-tools-land-preparation-1440.png",
+      "docs/stage8/evidence/reference-tools-ma-exchange-1440.png",
+      "docs/stage8/evidence/reference-tools-ma-manager-1440.png",
+      "docs/stage8/evidence/reference-tools-ma-notice-1440.png",
+      "docs/stage8/evidence/reference-tools-ma-renewal-1440.png",
+      "docs/stage8/evidence/reference-tools-proposal-1440.png",
+      "docs/stage8/evidence/renewal-exact-390.png",
+      "docs/stage8/evidence/report-1440.png",
+      "docs/stage8/evidence/report-390.png",
+      "docs/stage8/evidence/ruff-final.txt",
+      "docs/stage8/evidence/runtime.json",
+      "docs/stage8/evidence/timing.json",
+      "docs/stage8/evidence/typescript-final.txt",
+      "docs/stage8/guide.md",
+      "docs/stage8/report.md",
+      "docs/stage8/scope-map.json"
+    ],
+    "failed": []
+  },
+  "/api/v1/core/version": {
+    "version": "S08-5f7f8dc28c28"
+  },
+  "/core-version.json": {
+    "version": "S08-5f7f8dc28c28"
+  },
+  "implementation_files_compared_to_product_commit": 76,
+  "implementation_file_differences": [
+    "specs/010-specialist-services/tasks.md"
+  ],
+  "test_image": "sha256:72c01834d0eadb3681c42139d9bbad2cec33f1d6364d09b1df3b2fad5ff014f1"
+}

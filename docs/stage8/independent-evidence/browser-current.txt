@@ -1,0 +1,11 @@
+Error: /home/mehdirad/Projects/company/invest/.tools/test-s08/browser.cjs does not exist
+    at resolveConfigFile2 (/home/mehdirad/Projects/company/invest/frontend/node_modules/playwright/lib/common/index.js:1576:11)
+    at resolveConfigLocation (/home/mehdirad/Projects/company/invest/frontend/node_modules/playwright/lib/common/index.js:1557:30)
+    at Object.loadConfigFromFile (/home/mehdirad/Projects/company/invest/frontend/node_modules/playwright/lib/common/index.js:1586:27)
+    at runTests (/home/mehdirad/Projects/company/invest/frontend/node_modules/playwright/lib/cli/testActions.js:44:51)
+    at _Command.<anonymous> (/home/mehdirad/Projects/company/invest/frontend/node_modules/playwright/lib/program.js:55:45)
+    at _Command.listener [as _actionHandler] (/home/mehdirad/Projects/company/invest/frontend/node_modules/playwright-core/lib/utilsBundle.js:54209:17)
+    at /home/mehdirad/Projects/company/invest/frontend/node_modules/playwright-core/lib/utilsBundle.js:55067:20
+    at _Command._chainOrCall (/home/mehdirad/Projects/company/invest/frontend/node_modules/playwright-core/lib/utilsBundle.js:54975:12)
+    at _Command._parseCommand (/home/mehdirad/Projects/company/invest/frontend/node_modules/playwright-core/lib/utilsBundle.js:55065:27)
+    at /home/mehdirad/Projects/company/invest/frontend/node_modules/playwright-core/lib/utilsBundle.js:54876:27

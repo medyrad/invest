@@ -1,0 +1,1 @@
+78 source configurations extracted; native product schema and programmer fixture not used

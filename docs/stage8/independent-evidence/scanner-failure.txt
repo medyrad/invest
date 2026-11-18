@@ -1,0 +1,12 @@
+ Container invest-test-run-31709593cb37 Creating
+ Container invest-test-run-31709593cb37 Created
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_scanner_unavailable_keeps_service_text_and_retries_to_quarantine _____
+/independent/test_scanner_failure.py:33: in test_scanner_unavailable_keeps_service_text_and_retries_to_quarantine
+    with pytest.raises(Fault):service.submit(SimpleNamespace(user=user),d.pk,{'key':str(uuid.uuid4()),'version':saved['version'],'text':'مصنوعی','previous':None})
+         ^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Fault
+=========================== short test summary info ============================
+FAILED ::test_scanner_unavailable_keeps_service_text_and_retries_to_quarantine
+1 failed in 1.28s

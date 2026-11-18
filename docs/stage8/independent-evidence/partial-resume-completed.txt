@@ -1,0 +1,6 @@
+foreign-investment partial save/resume/reload passed
+ma-notice partial save/resume/reload passed
+ma-renewal partial save/resume/reload passed
+ma-manager partial save/resume/reload passed
+ma-exchange partial save/resume/reload passed
+charity partial save/resume/reload passed

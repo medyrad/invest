@@ -1,0 +1,4 @@
+ Container invest-test-run-2ef389a7bc5d Creating
+ Container invest-test-run-2ef389a7bc5d Created
+.                                                                        [100%]
+1 passed in 0.08s

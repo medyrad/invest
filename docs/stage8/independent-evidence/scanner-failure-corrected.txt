@@ -1,0 +1,4 @@
+ Container invest-test-run-3bd75f97527a Creating
+ Container invest-test-run-3bd75f97527a Created
+.                                                                        [100%]
+1 passed in 1.28s

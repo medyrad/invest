@@ -1,0 +1,26 @@
+{
+  "started_utc": "2026-11-18T16:18:30.178021+00:00",
+  "first_test_log_created_utc": "2026-11-18T16:19:01.379633+00:00",
+  "report_started_utc": "2026-11-18T16:33:37.109562+00:00",
+  "recorded_utc": "2026-11-18T16:38:58.941779+00:00",
+  "preparation_wall_seconds": 31.202,
+  "build_seconds": 0,
+  "execution_and_independent_test_authoring_wall_seconds": 931.26,
+  "report_and_review_wall_seconds_to_record": 266.302,
+  "runner_seconds": {
+    "existing_pure_1801_with_74_fixture_errors": 3.77,
+    "existing_pg74_recovery": 6.57,
+    "independent_source78_initial": 0.21,
+    "independent_source78_new_combination_cases": 0.23,
+    "authority_race2": 1.62,
+    "quarantine_initial": 1.34,
+    "quarantine_archive_assertion": 1.32,
+    "migration": 2.68,
+    "scoring": 0.08,
+    "scanner_first_harness_assertion": 1.28,
+    "scanner_corrected": 1.28,
+    "browser16_rounded_minutes": 1.7
+  },
+  "note": "بازه‌های دیواری شامل مطالعه/ساخت ابزار و رفع harness هستند؛ مرحله تکمیلی ادامه پیش‌نویس از زمان گزارش جدا شده است. commit/push پس از ثبت انجام می‌شود؛ runtime برابر تعداد یکتا نیست.",
+  "late_partial_resume_gap_wall_seconds": 55.53
+}
