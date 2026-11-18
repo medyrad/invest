@@ -50,7 +50,7 @@ for(const kind of ['project','fund','sale']){
   expect(items.length).toBeGreaterThanOrEqual(4);const ids=items.slice(0,4).map(x=>x.id);
   for(const count of [2,3,4]){
    await p.goto('/compare?ids='+ids.slice(0,count).join(','));
-   const groups=p.locator('[data-compare-group]');await expect(groups).toHaveCount(kind==='sale'?3:4);
+   const groups=p.locator('[data-compare-group]');await expect(groups).toHaveCount(kind==='sale'?3:4);await expect(p.getByRole('heading',{name:'سرمایه شما کی برمی‌گردد؟',exact:true})).toHaveCount(kind==='project'?1:0);
    expect(await groups.evaluateAll(els=>els.map(e=>e.getAttribute('data-compare-group')))).toEqual(kind==='sale'?['money','risk','project']:['money','time','risk','project']);
    expect(await groups.locator('h2').allTextContents()).toEqual(kind==='project'?['پول','زمان','ریسک و حقوق','پروژه و محل']:kind==='fund'?['پول','زمان','ریسک و حقوق','صندوق و طرح']:['پول','ریسک و حقوق','دارایی و محل']);
    await expect(p.getByRole('navigation',{name:'پیمایش گروه‌های مقایسه'})).toBeVisible();
