@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="123.238773">
+<testsuite name="visual.spec.ts" timestamp="2026-11-19T23:01:37.216Z" hostname="" tests="4" failures="0" skipped="0" time="119.592" errors="0">
+<testcase name="fresh same-state profile and land reference 360" classname="visual.spec.ts" time="33.697">
+</testcase>
+<testcase name="fresh same-state profile and land reference 390" classname="visual.spec.ts" time="20.147">
+</testcase>
+<testcase name="fresh same-state profile and land reference 768" classname="visual.spec.ts" time="28.62">
+</testcase>
+<testcase name="fresh same-state profile and land reference 1440" classname="visual.spec.ts" time="37.128">
+</testcase>
+</testsuite>
+</testsuites>

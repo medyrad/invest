@@ -1,0 +1,49 @@
+{
+  "mission": "TEST-EXPERIENCE-RETEST-01",
+  "generated_at": "2026-11-20T02:45:00+03:30",
+  "source": {
+    "implementation_commit": "cb6aba7",
+    "delivery_commit": "785f2d4",
+    "initial_independent_report_commit": "c7ac09b",
+    "frontend_image": "sha256:40072e8c08fd71658ff709b42aa3e46fa5e2050d7740397cdfdc3c7c5e307a49",
+    "backend_image": "sha256:24149525c9843cc9bf520eb1ce8f83d3a34c53a2dfa401055d5ab5dace25988f",
+    "frontend_build_id": "myZDM7kEa-Q6fjMutJW5o",
+    "reference_archive_sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b"
+  },
+  "outcome": {
+    "backend_unique": 36,
+    "backend_passed": 35,
+    "backend_product_failures": 1,
+    "browser_functional_unique": 45,
+    "browser_functional_passed_after_targeted_rerun": 45,
+    "visual_capture_scenarios": 5,
+    "package": "technical-reject",
+    "open_finding": "EXP-IT-003",
+    "legacy_data_decision": "required",
+    "human_design_and_d28": "pending"
+  },
+  "notes": [
+    "The base browser run contains four harness failures; targeted rerun artifacts resolve all four without weakening assertions.",
+    "The route-label backend failure is an intentional independent product reproduction, not a harness failure.",
+    "Raw browser traces and caches are ignored; synthetic session and CSRF values in retained diagnostics are redacted.",
+    "Historical evidence is not copied or presented as fresh evidence."
+  ],
+  "sha256": {
+    "backend-combined.xml": "6b4e278a1cd0015939ec5c8759e3665651b23f0fc833977d446a66f090558b5a",
+    "backend-context-rerun.xml": "8069ecf7fbaf4b6ab0263c621d2acbc2c62de621761540d6d5176edcb3ac03b8",
+    "backend-semantic-final.xml": "7bf0da82856a6fb989870bac93e17f0fe62f974db8b36f736ec5b8efb8b0c589",
+    "backend-report-fresh.xml": "359f1404459c55dccc4c51e88ba215ad2e7e0af4c195d378b8f16e98acd13db1",
+    "backend-route-label.xml": "f1da0d1f66be60752675172b2f0f142ce9e56355545b81901dce8865a72ce13a",
+    "browser-independent.xml": "2d3ff14b88eae790bf52a27c958e5d0820a1b4d5bf50844f47fae8899a01f441",
+    "browser-targeted-rerun.xml": "d7053e59cc233f8f5cb548f41d7acea2ec2caae2d253dff75a94014dbd56ff47",
+    "browser-land-rerun.xml": "226d4345d1e2055b665fb05752a2fbd7969a9bcecddbbcf193a99ae708180024",
+    "browser-visual.xml": "7aad109afb73b38feadf7ba1119aa7967511be0f3fe2fd432d51370953030cf1",
+    "browser-report-visual.xml": "ff106a7492bd29d3182ef6fda719e1ac93a27b422a4ebdb18f147696eb23759e",
+    "first-download.html": "95c7818a0b845ca058d205269d0201fdce75b3651a114f5874806a6651a55b23",
+    "report-preview-visible.png": "873022707c090940ba07cf2bead092c676af4638a2af797309ca58c34d1b3509",
+    "report-download-visible.png": "3ac2cf7c2545692321983302e55be1cf82dea1a6972abdf38dc634d1bd3d998b",
+    "traceability-audit.json": "c03bedd56f5158ae9f53b09bdbabb82e8a786c63214730f8f3820bab58301008",
+    "d28-impact.txt": "6a0d319c96d40cea12663ee14f504f416f25f64445fefa871fdfedb6a32d8656",
+    "test_retest_independent.py": "169e5ed0b5c39cf2a78c71c4e83ea0ca46b18192c938a21545c4942c715a5ef0"
+  }
+}

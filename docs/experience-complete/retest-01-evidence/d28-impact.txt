@@ -1,0 +1,2 @@
+5352d2797a774508bde444c5e269596bf7b5bc304852cd2e361f1ef6002cf0c0  backend/apps/core/discovery.py
+c5f4e9171add1b4910f0046ff86beab27f88408d21731249817852f251ac5bc0  docs/experience-complete/d28-review-output.json

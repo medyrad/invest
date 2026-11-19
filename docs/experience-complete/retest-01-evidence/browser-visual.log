@@ -1,0 +1,14 @@
+
+Running 4 tests using 1 worker
+
+  ✓  1 ../checks/visual.spec.ts:5:44 › fresh same-state profile and land reference 360 (33.7s)
+  ✓  2 ../checks/visual.spec.ts:5:44 › fresh same-state profile and land reference 390 (20.1s)
+  ✓  3 ../checks/visual.spec.ts:5:44 › fresh same-state profile and land reference 768 (28.6s)
+  ✓  4 ../checks/visual.spec.ts:5:44 › fresh same-state profile and land reference 1440 (37.1s)
+
+  4 passed (2.1m)
+npm notice
+npm notice New major version of npm available! 11.20.0 -> 12.2.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+npm notice To update run: npm install -g npm@12.2.3
+npm notice

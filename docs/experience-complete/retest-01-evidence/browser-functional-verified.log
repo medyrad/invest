@@ -1,0 +1,194 @@
+
+Running 45 tests using 1 worker
+
+  ✘   1 ../independent/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit (36.7s)
+  ✓   2 ../independent/clipping.spec.ts:3:39 › hero real hit testing 360 (2.8s)
+  ✓   3 ../independent/clipping.spec.ts:3:39 › hero real hit testing 390 (3.4s)
+  ✓   4 ../independent/clipping.spec.ts:3:39 › hero real hit testing 768 (3.1s)
+  ✓   5 ../independent/clipping.spec.ts:3:39 › hero real hit testing 1440 (4.6s)
+  ✓   6 ../checks/independent-retest.spec.ts:26:62 › profile failure 400 (5.6s)
+  ✓   7 ../checks/independent-retest.spec.ts:26:62 › profile failure 401 (6.0s)
+  ✓   8 ../checks/independent-retest.spec.ts:26:62 › profile failure 500 (8.6s)
+  ✓   9 ../checks/independent-retest.spec.ts:26:62 › profile failure offline (4.3s)
+  ✓  10 ../checks/independent-retest.spec.ts:26:62 › profile failure lost (5.5s)
+  ✓  11 ../checks/independent-retest.spec.ts:49:1 › professional save then basic save preserves both roles (5.4s)
+  ✓  12 ../checks/independent-retest.spec.ts:66:1 › guide preview content survives first download (14.1s)
+  ✓  13 ../checks/independent-retest.spec.ts:80:44 › local geometry focus 360 (3.4s)
+  ✓  14 ../checks/independent-retest.spec.ts:80:44 › local geometry focus 390 (3.5s)
+  ✓  15 ../checks/independent-retest.spec.ts:80:44 › local geometry focus 768 (4.3s)
+  ✓  16 ../checks/independent-retest.spec.ts:80:44 › local geometry focus 1440 (5.1s)
+  ✓  17 ../checks/retest.spec.ts:24:62 › independent edit preserves record and stable retry 400 (10.8s)
+  ✓  18 ../checks/retest.spec.ts:24:62 › independent edit preserves record and stable retry 401 (9.8s)
+  ✓  19 ../checks/retest.spec.ts:24:62 › independent edit preserves record and stable retry 500 (9.6s)
+  ✓  20 ../checks/retest.spec.ts:24:62 › independent edit preserves record and stable retry offline (14.2s)
+  ✓  21 ../checks/retest.spec.ts:24:62 › independent edit preserves record and stable retry lost (11.6s)
+  ✓  22 ../checks/retest.spec.ts:66:62 › independent results-page save preserves input and stable retry 400 (12.2s)
+  ✓  23 ../checks/retest.spec.ts:66:62 › independent results-page save preserves input and stable retry 401 (12.3s)
+  ✓  24 ../checks/retest.spec.ts:66:62 › independent results-page save preserves input and stable retry 500 (12.8s)
+  ✓  25 ../checks/retest.spec.ts:66:62 › independent results-page save preserves input and stable retry offline (16.3s)
+  ✓  26 ../checks/retest.spec.ts:66:62 › independent results-page save preserves input and stable retry lost (14.0s)
+  ✓  27 ../checks/retest.spec.ts:100:1 › independent same-field profile conflict preserves losing tab input (6.9s)
+  ✓  28 ../checks/retest.spec.ts:126:37 › independent quick profile retry 500 (9.1s)
+  ✓  29 ../checks/retest.spec.ts:126:37 › independent quick profile retry lost (9.9s)
+  ✘  30 ../checks/retest.spec.ts:158:1 › independent real pointer opens save menu while results refresh (41.2s)
+  ✓  31 ../checks/retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 360 (12.7s)
+  ✓  32 ../checks/retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 390 (15.3s)
+  ✓  33 ../checks/retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 768 (13.9s)
+  ✘  34 ../checks/retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 1440 (15.2s)
+  ✓  35 ../checks/retest.spec.ts:240:44 › independent professional consumers visible and focusable 360 (12.5s)
+  ✓  36 ../checks/retest.spec.ts:240:44 › independent professional consumers visible and focusable 390 (13.9s)
+  ✓  37 ../checks/retest.spec.ts:240:44 › independent professional consumers visible and focusable 768 (12.1s)
+  ✓  38 ../checks/retest.spec.ts:240:44 › independent professional consumers visible and focusable 1440 (13.1s)
+  ✓  39 ../checks/saved-retest.spec.ts:6:56 › saved criteria preserves input on 400 (7.7s)
+  ✓  40 ../checks/saved-retest.spec.ts:6:56 › saved criteria preserves input on 401 (9.2s)
+  ✓  41 ../checks/saved-retest.spec.ts:6:56 › saved criteria preserves input on 500 (7.3s)
+  ✓  42 ../checks/saved-retest.spec.ts:6:56 › saved criteria preserves input on offline (9.5s)
+  ✓  43 ../checks/saved-retest.spec.ts:6:56 › saved criteria preserves input on lost (8.0s)
+  ✘  44 ../checks/saved-retest.spec.ts:19:1 › guest criteria snapshot and same-key replay across two tabs (10.0s)
+  ✓  45 ../checks/saved-retest.spec.ts:37:1 › late consumed handoff cannot be adopted by account B in second tab (9.3s)
+
+
+  1) ../independent/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ─────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('status')
+    Expected substring: "با رسید سرور"
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('status') with timeout 30000ms
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('status')
+
+
+       7 |  let release;const hold=new Promise<void>(r=>release=r);let post=false,captured=false;
+       8 |  await page.route('**/api/v1/core/personal',async r=>{if(r.request().method()==='POST'){post=true;return r.continue();}if(post&&!captured){const response=await r.fetch();captured=true;await hold;return r.fulfill({response});}return r.continue();});
+    >  9 |  await s.getByLabel('نام',{exact:true}).fill('نسخه ذخیره شده');await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});await expect.poll(()=>captured).toBe(true);
+         |                                                                                                                                                                                          ^
+      10 |  await s.getByLabel('نام',{exact:true}).fill('ویرایش تازه هنوز ذخیره نشده');release();
+      11 |  await expect(s.getByLabel('نام',{exact:true})).toHaveValue('ویرایش تازه هنوز ذخیره نشده');
+      12 |  await page.waitForLoadState('networkidle');
+        at /independent/race.spec.ts:9:186
+
+    Error Context: ../retest/browser-independent-artifacts/historical-independent-del-763c8-must-not-erase-a-newer-edit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../retest/browser-independent-artifacts/historical-independent-del-763c8-must-not-erase-a-newer-edit/trace.zip
+    Usage:
+
+        npx playwright show-trace ../retest/browser-independent-artifacts/historical-independent-del-763c8-must-not-erase-a-newer-edit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) ../checks/retest.spec.ts:158:1 › independent real pointer opens save menu while results refresh 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      175 |     return target === el || el.contains(target);
+      176 |   });
+    > 177 |   expect(hit).toBe(true);
+          |               ^
+      178 |   await item.click();
+      179 |   await expect(page.getByRole('dialog', {name: 'ذخیره این جست‌وجو'})).toBeVisible();
+      180 | });
+        at /checks/retest.spec.ts:177:15
+
+    Error Context: ../retest/browser-independent-artifacts/retest-independent-real-po-1c5ff--menu-while-results-refresh/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../retest/browser-independent-artifacts/retest-independent-real-po-1c5ff--menu-while-results-refresh/trace.zip
+    Usage:
+
+        npx playwright show-trace ../retest/browser-independent-artifacts/retest-independent-real-po-1c5ff--menu-while-results-refresh/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) ../checks/retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 1440 ─
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.service-editor').getByRole('heading', { name: /جمع‌بندی آماده‌سازی/ })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.service-editor').getByRole('heading', { name: /جمع‌بندی آماده‌سازی/ }) with timeout 5000ms
+      - waiting for locator('.service-editor').getByRole('heading', { name: /جمع‌بندی آماده‌سازی/ })
+
+
+      218 |   for (const name of names) await editor.locator(`[data-service-field] input[type=radio][name="${name}"]`).first().check();
+      219 |   await editor.getByRole('button', {name: 'نمایش جمع‌بندی بسته خدمات', exact: true}).click();
+    > 220 |   await expect(editor.getByRole('heading', {name: /جمع‌بندی آماده‌سازی/})).toBeVisible();
+          |                                                                            ^
+      221 |   await expect(editor.locator('.service-steps [aria-current=step]')).toContainText('جمع‌بندی بسته');
+      222 |   await editor.getByRole('button', {name: 'ویرایش شرایط بسته', exact: true}).click();
+      223 |   await editor.getByRole('button', {name: 'ویرایش خدمات و محل', exact: true}).click();
+        at /checks/retest.spec.ts:220:76
+
+    Error Context: ../retest/browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../retest/browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace ../retest/browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) ../checks/saved-retest.spec.ts:19:1 › guest criteria snapshot and same-key replay across two tabs 
+
+    Error: "route.fetch: Test ended.
+    Call log:
+      - → POST http://127.0.0.1:3109/api/v1/core/personal
+        - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/159.0.8154.6 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+        - accept-language: en-US
+        - content-type: application/json
+        - cookie: [REDACTED SYNTHETIC SESSION]
+        - origin: http://127.0.0.1:3109
+        - referer: http://127.0.0.1:3109/saved
+        - x-csrftoken: [REDACTED SYNTHETIC CSRF]
+        - sec-ch-ua: "HeadlessChrome";v="159", "Not/A)Brand";v="8", "Chromium";v="159"
+        - sec-ch-ua-mobile: ?0
+        - sec-ch-ua-platform: "Linux"
+        - content-length: 169
+    " while running route callback.
+    Consider awaiting `await page.unrouteAll({ behavior: 'ignoreErrors' })`
+    before the end of the test to ignore remaining routes in flight.
+
+       9 |  await page.route('**/api/v1/core/personal',async route=>{
+      10 |    if(route.request().method()!=='POST')return route.continue();
+    > 11 |    if(mode==='lost'){await route.fetch();return route.abort('connectionfailed');}
+         |                                  ^
+      12 |    if(mode==='offline')return route.abort('internetdisconnected');
+      13 |    return route.fulfill({status:Number(mode),contentType:'application/json',body:JSON.stringify({error:{message:'خطای ذخیره مستقل'}})});
+      14 |  });
+        at /checks/saved-retest.spec.ts:11:34
+
+    Error Context: ../retest/browser-independent-artifacts/saved-retest-guest-criteri-538cd--key-replay-across-two-tabs/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../retest/browser-independent-artifacts/saved-retest-guest-criteri-538cd--key-replay-across-two-tabs/trace.zip
+    Usage:
+
+        npx playwright show-trace ../retest/browser-independent-artifacts/saved-retest-guest-criteri-538cd--key-replay-across-two-tabs/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    ../independent/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ──────────
+    ../checks/retest.spec.ts:158:1 › independent real pointer opens save menu while results refresh 
+    ../checks/retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 1440 ──
+    ../checks/saved-retest.spec.ts:19:1 › guest criteria snapshot and same-key replay across two tabs 
+  41 passed (8.3m)
+npm notice
+npm notice New major version of npm available! 11.20.0 -> 12.2.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+npm notice To update run: npm install -g npm@12.2.3
+npm notice

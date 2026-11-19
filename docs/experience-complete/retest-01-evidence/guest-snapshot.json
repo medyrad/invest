@@ -1,0 +1,10 @@
+{
+  "criteria": {
+    "kind": "project",
+    "route": "investor"
+  },
+  "replayStatuses": [
+    200,
+    200
+  ]
+}

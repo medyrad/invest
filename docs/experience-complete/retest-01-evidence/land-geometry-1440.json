@@ -1,0 +1,134 @@
+{
+  "width": 1440,
+  "selected": [
+    "مطالعات و طراحی آماده‌سازی اراضی ↑↓حذف",
+    "تبدیل به احسن کردن املاک اوقافی ↑↓حذف"
+  ],
+  "controls": [
+    {
+      "left": 1016.171875,
+      "right": 1291.5,
+      "hit": false
+    },
+    {
+      "left": 740.828125,
+      "right": 1016.171875,
+      "hit": false
+    },
+    {
+      "left": 465.5,
+      "right": 740.828125,
+      "hit": false
+    },
+    {
+      "left": 1187.5,
+      "right": 1274.5,
+      "hit": true
+    },
+    {
+      "left": 1093.5,
+      "right": 1181.5,
+      "hit": true
+    },
+    {
+      "left": 465.5,
+      "right": 1291.5,
+      "hit": false
+    },
+    {
+      "left": 1154.5,
+      "right": 1291.5,
+      "hit": false
+    },
+    {
+      "left": 1013.5,
+      "right": 1144.5,
+      "hit": false
+    },
+    {
+      "left": 465.5,
+      "right": 1291.5,
+      "hit": false
+    },
+    {
+      "left": 465.5,
+      "right": 1291.5,
+      "hit": false
+    },
+    {
+      "left": 993.5,
+      "right": 1024.5,
+      "hit": false
+    },
+    {
+      "left": 957.5,
+      "right": 988.5,
+      "hit": false
+    },
+    {
+      "left": 906.5,
+      "right": 952.5,
+      "hit": false
+    },
+    {
+      "left": 994.5,
+      "right": 1025.5,
+      "hit": false
+    },
+    {
+      "left": 958.5,
+      "right": 989.5,
+      "hit": false
+    },
+    {
+      "left": 907.5,
+      "right": 953.5,
+      "hit": false
+    },
+    {
+      "left": 888.5,
+      "right": 1291.5,
+      "hit": true
+    },
+    {
+      "left": 465.5,
+      "right": 868.5,
+      "hit": true
+    },
+    {
+      "left": 888.5,
+      "right": 1291.5,
+      "hit": true
+    },
+    {
+      "left": 739.5,
+      "right": 868.5,
+      "hit": true
+    },
+    {
+      "left": 602.5,
+      "right": 731.5,
+      "hit": true
+    },
+    {
+      "left": 465.5,
+      "right": 594.5,
+      "hit": true
+    },
+    {
+      "left": 465.5,
+      "right": 1291.5,
+      "hit": true
+    },
+    {
+      "left": 1122.5,
+      "right": 1291.5,
+      "hit": true
+    },
+    {
+      "left": 1047.5,
+      "right": 1291.5,
+      "hit": true
+    }
+  ]
+}

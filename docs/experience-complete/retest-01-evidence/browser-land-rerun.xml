@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="20.911184000000002">
+<testsuite name="retest.spec.ts" timestamp="2026-11-19T23:00:53.212Z" hostname="" tests="1" failures="0" skipped="0" time="17.896" errors="0">
+<testcase name="independent land three-stage back and pointer geometry 1440" classname="retest.spec.ts" time="17.896">
+</testcase>
+</testsuite>
+</testsuites>

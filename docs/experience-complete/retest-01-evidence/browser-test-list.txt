@@ -1,0 +1,47 @@
+Listing tests:
+  ../independent/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit
+  ../independent/clipping.spec.ts:3:39 › hero real hit testing 360
+  ../independent/clipping.spec.ts:3:39 › hero real hit testing 390
+  ../independent/clipping.spec.ts:3:39 › hero real hit testing 768
+  ../independent/clipping.spec.ts:3:39 › hero real hit testing 1440
+  independent-retest.spec.ts:26:62 › profile failure 400
+  independent-retest.spec.ts:26:62 › profile failure 401
+  independent-retest.spec.ts:26:62 › profile failure 500
+  independent-retest.spec.ts:26:62 › profile failure offline
+  independent-retest.spec.ts:26:62 › profile failure lost
+  independent-retest.spec.ts:49:1 › professional save then basic save preserves both roles
+  independent-retest.spec.ts:66:1 › guide preview content survives first download
+  independent-retest.spec.ts:80:44 › local geometry focus 360
+  independent-retest.spec.ts:80:44 › local geometry focus 390
+  independent-retest.spec.ts:80:44 › local geometry focus 768
+  independent-retest.spec.ts:80:44 › local geometry focus 1440
+  retest.spec.ts:24:62 › independent edit preserves record and stable retry 400
+  retest.spec.ts:24:62 › independent edit preserves record and stable retry 401
+  retest.spec.ts:24:62 › independent edit preserves record and stable retry 500
+  retest.spec.ts:24:62 › independent edit preserves record and stable retry offline
+  retest.spec.ts:24:62 › independent edit preserves record and stable retry lost
+  retest.spec.ts:66:62 › independent results-page save preserves input and stable retry 400
+  retest.spec.ts:66:62 › independent results-page save preserves input and stable retry 401
+  retest.spec.ts:66:62 › independent results-page save preserves input and stable retry 500
+  retest.spec.ts:66:62 › independent results-page save preserves input and stable retry offline
+  retest.spec.ts:66:62 › independent results-page save preserves input and stable retry lost
+  retest.spec.ts:100:1 › independent same-field profile conflict preserves losing tab input
+  retest.spec.ts:126:37 › independent quick profile retry 500
+  retest.spec.ts:126:37 › independent quick profile retry lost
+  retest.spec.ts:158:1 › independent real pointer opens save menu while results refresh
+  retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 360
+  retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 390
+  retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 768
+  retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 1440
+  retest.spec.ts:240:44 › independent professional consumers visible and focusable 360
+  retest.spec.ts:240:44 › independent professional consumers visible and focusable 390
+  retest.spec.ts:240:44 › independent professional consumers visible and focusable 768
+  retest.spec.ts:240:44 › independent professional consumers visible and focusable 1440
+  saved-retest.spec.ts:6:56 › saved criteria preserves input on 400
+  saved-retest.spec.ts:6:56 › saved criteria preserves input on 401
+  saved-retest.spec.ts:6:56 › saved criteria preserves input on 500
+  saved-retest.spec.ts:6:56 › saved criteria preserves input on offline
+  saved-retest.spec.ts:6:56 › saved criteria preserves input on lost
+  saved-retest.spec.ts:19:1 › guest criteria snapshot and same-key replay across two tabs
+  saved-retest.spec.ts:37:1 › late consumed handoff cannot be adopted by account B in second tab
+Total: 45 tests in 5 files

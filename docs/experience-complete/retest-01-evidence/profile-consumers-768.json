@@ -1,0 +1,41 @@
+[
+  {
+    "route": "/tools/ma-profile",
+    "rect": {
+      "x": 61,
+      "y": 1156,
+      "width": 631,
+      "height": 48,
+      "top": 1156,
+      "right": 692,
+      "bottom": 1204,
+      "left": 61
+    }
+  },
+  {
+    "route": "/profile",
+    "rect": {
+      "x": 41,
+      "y": 1846.90625,
+      "width": 663,
+      "height": 44,
+      "top": 1846.90625,
+      "right": 704,
+      "bottom": 1890.90625,
+      "left": 41
+    }
+  },
+  {
+    "route": "/saved",
+    "rect": {
+      "x": 57,
+      "y": 1179.25,
+      "width": 639,
+      "height": 48,
+      "top": 1179.25,
+      "right": 696,
+      "bottom": 1227.25,
+      "left": 57
+    }
+  }
+]

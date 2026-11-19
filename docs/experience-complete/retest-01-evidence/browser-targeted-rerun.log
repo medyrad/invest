@@ -1,0 +1,50 @@
+
+Running 4 tests using 1 worker
+
+  ✓  1 ../checks/race-retest.spec.ts:4:1 › delayed profile refresh must not erase a newer edit (6.4s)
+  ✓  2 ../checks/retest.spec.ts:158:1 › independent real pointer opens save menu while results refresh (42.4s)
+  ✘  3 ../checks/retest.spec.ts:183:44 › independent land three-stage back and pointer geometry 1440 (22.5s)
+  ✓  4 ../checks/saved-retest.spec.ts:20:1 › guest criteria snapshot and same-key replay across two tabs (11.5s)
+
+
+  1) ../checks/retest.spec.ts:183:44 › independent land three-stage back and pointer geometry 1440 ─
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.service-editor').getByRole('heading', { name: /جمع‌بندی آماده‌سازی/ })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.service-editor').getByRole('heading', { name: /جمع‌بندی آماده‌سازی/ }) with timeout 5000ms
+      - waiting for locator('.service-editor').getByRole('heading', { name: /جمع‌بندی آماده‌سازی/ })
+
+
+      227 |   for (const name of names) await editor.locator(`[data-service-field] input[type=radio][name="${name}"]`).first().check();
+      228 |   await editor.getByRole('button', {name: 'نمایش جمع‌بندی بسته خدمات', exact: true}).click();
+    > 229 |   await expect(editor.getByRole('heading', {name: /جمع‌بندی آماده‌سازی/})).toBeVisible();
+          |                                                                            ^
+      230 |   await expect(editor.locator('.service-steps [aria-current=step]')).toContainText('جمع‌بندی بسته');
+      231 |   await editor.getByRole('button', {name: 'ویرایش شرایط بسته', exact: true}).click();
+      232 |   await editor.getByRole('button', {name: 'ویرایش خدمات و محل', exact: true}).click();
+        at /checks/retest.spec.ts:229:76
+
+    Error Context: ../retest/browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../retest/browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace ../retest/browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    ../checks/retest.spec.ts:183:44 › independent land three-stage back and pointer geometry 1440 ──
+  3 passed (1.5m)
+npm notice
+npm notice New major version of npm available! 11.20.0 -> 12.2.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+npm notice To update run: npm install -g npm@12.2.3
+npm notice

@@ -1,0 +1,188 @@
+{
+  "archive_sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b",
+  "route_state": {
+    "rows": 40,
+    "unique_keys": 40,
+    "statuses": {
+      "technically-covered": 38,
+      "programmer-verified": 2
+    },
+    "known_gaps": {
+      "hover styling and human visual approval": 2,
+      "human visual approval": 30,
+      "independent and human visual approval": 2,
+      "independent retest": 2,
+      "production readiness remains separate": 4
+    }
+  },
+  "contexts": {
+    "rows": 20,
+    "unique_ids": 20,
+    "contract_rows": 20,
+    "all_contract_match": true,
+    "all_source_lines_match": true,
+    "checks": [
+      {
+        "source_id": "DF-0230",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "advisories.evaluate→GuideView→Report.snapshot.effective_advisory",
+        "acceptance": "تغییر مدل درآمد پاسخ شرطی غیرفعال را حذف کند",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0231",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "advisories.questions/evaluate→GuideView→Report",
+        "acceptance": "هر گزینه اقدام منطبق خودش را بدهد",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0232",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "advisories.questions/evaluate→GuideView→Report",
+        "acceptance": "تغییر تحویل مستقل از طرح حفظ شود",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0237",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "advisories.evaluate→GuideView→Report",
+        "acceptance": "فقط revenue=public مؤثر باشد",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0282",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "SearchCriteria.amount→store.toCriteria→budget_min/max→score",
+        "acceptance": "۱ میلیون ورودی برابر ۱۰۰۰۰۰۰ تومان باشد",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0283",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields→criteria.preferences→preferences.RETURN_UNSPECIFIED→score",
+        "acceptance": "با IRR یا بازده هم‌مبنا جعل نشود",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0284",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields→criteria.preferences→preferences.RULES→score",
+        "acceptance": "گزینه مؤثر با payout ناشر مقایسه شود",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0285",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields/routes→criteria.preferences→preferences.RULES→score",
+        "acceptance": "fund و crowdfunding مستقل بمانند",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0286",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields→criteria.preferences→publication.bank_verified→score",
+        "acceptance": "نام بانک بدون سند verified نشود",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0287",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields→criteria.preferences→preferences.RULES→score",
+        "acceptance": "unknown و ناهمخوان فرصت را حذف نکند",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0300",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields→active_preferences→preferences.RULES→score",
+        "acceptance": "lease/offset/fee/mixed مستقل بمانند",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0301",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields→active_preferences→preferences.RULES→score",
+        "acceptance": "گزینه مصوب با مقدار ناشر مقایسه شود",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0302",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields→active_preferences→preferences.RULES→score",
+        "acceptance": "بدون مبنای شروع همسان نتیجه unknown باشد",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0303",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields/showWhen→active_preferences→preferences.RULES→score",
+        "acceptance": "فقط در شاخه fee/mixed فعال باشد",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0304",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields/showWhen→criteria→preferences.RETURN_UNSPECIFIED",
+        "acceptance": "عدد تنها مقایسه بازده نسازد",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0305",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields/showWhen→criteria→report assumptions",
+        "acceptance": "project و equity یکی فرض نشوند",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0306",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "fields/showWhen→criteria→report assumptions",
+        "acceptance": "nominal و real یکی فرض نشوند",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0307",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "profileFields→AdvancedFilter→criteria→describeCriteria→Report",
+        "acceptance": "خوداظهاری مجوز حساب نسازد",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0308",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "profileFields→AdvancedFilter→criteria→describeCriteria→Report",
+        "acceptance": "صلاحیت خوداظهاری جای احراز مستقل نباشد",
+        "status": "technical-contract-verified; independent-retest-pending"
+      },
+      {
+        "source_id": "DF-0309",
+        "contract_match": true,
+        "source_line_contains_field": true,
+        "consumer_chain": "profileFields→criteria→describeCriteria(fullText)→GuideView→Report",
+        "acceptance": "escaping و جداسازی حساب و متن کامل حفظ شود",
+        "status": "technical-contract-verified; independent-retest-pending"
+      }
+    ]
+  },
+  "independent_note": "Contract and source spans verified. Runtime behavior is independently tested only by behavior classes in backend-semantic-final.xml; this JSON alone is not 20/20 semantic coverage."
+}

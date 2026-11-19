@@ -1,0 +1,269 @@
+<testsuites id="" name="" tests="45" failures="3" skipped="0" errors="1" time="497.357571">
+<testsuite name="historical-independent.spec.ts" timestamp="2026-11-19T22:49:10.264Z" hostname="" tests="5" failures="1" skipped="0" time="50.54" errors="0">
+<testcase name="delayed profile refresh must not erase a newer edit" classname="historical-independent.spec.ts" time="36.721">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-independent-artifacts/historical-independent-del-763c8-must-not-erase-a-newer-edit/error-context.md]]
+
+[[ATTACHMENT|browser-independent-artifacts/historical-independent-del-763c8-must-not-erase-a-newer-edit/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
+<![CDATA[  ../independent/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('status')
+    Expected substring: "با رسید سرور"
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('status') with timeout 30000ms
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('status')
+
+
+       7 |  let release;const hold=new Promise<void>(r=>release=r);let post=false,captured=false;
+       8 |  await page.route('**/api/v1/core/personal',async r=>{if(r.request().method()==='POST'){post=true;return r.continue();}if(post&&!captured){const response=await r.fetch();captured=true;await hold;return r.fulfill({response});}return r.continue();});
+    >  9 |  await s.getByLabel('نام',{exact:true}).fill('نسخه ذخیره شده');await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});await expect.poll(()=>captured).toBe(true);
+         |                                                                                                                                                                                          ^
+      10 |  await s.getByLabel('نام',{exact:true}).fill('ویرایش تازه هنوز ذخیره نشده');release();
+      11 |  await expect(s.getByLabel('نام',{exact:true})).toHaveValue('ویرایش تازه هنوز ذخیره نشده');
+      12 |  await page.waitForLoadState('networkidle');
+        at /independent/race.spec.ts:9:186
+
+    Error Context: ../retest/browser-independent-artifacts/historical-independent-del-763c8-must-not-erase-a-newer-edit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../retest/browser-independent-artifacts/historical-independent-del-763c8-must-not-erase-a-newer-edit/trace.zip
+    Usage:
+
+        npx playwright show-trace ../retest/browser-independent-artifacts/historical-independent-del-763c8-must-not-erase-a-newer-edit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="hero real hit testing 360" classname="historical-independent.spec.ts" time="2.812">
+</testcase>
+<testcase name="hero real hit testing 390" classname="historical-independent.spec.ts" time="3.351">
+</testcase>
+<testcase name="hero real hit testing 768" classname="historical-independent.spec.ts" time="3.075">
+</testcase>
+<testcase name="hero real hit testing 1440" classname="historical-independent.spec.ts" time="4.581">
+</testcase>
+</testsuite>
+<testsuite name="independent-retest.spec.ts" timestamp="2026-11-19T22:49:10.264Z" hostname="" tests="11" failures="0" skipped="0" time="65.817" errors="0">
+<testcase name="profile failure 400" classname="independent-retest.spec.ts" time="5.569">
+</testcase>
+<testcase name="profile failure 401" classname="independent-retest.spec.ts" time="6.003">
+</testcase>
+<testcase name="profile failure 500" classname="independent-retest.spec.ts" time="8.571">
+</testcase>
+<testcase name="profile failure offline" classname="independent-retest.spec.ts" time="4.331">
+</testcase>
+<testcase name="profile failure lost" classname="independent-retest.spec.ts" time="5.519">
+</testcase>
+<testcase name="professional save then basic save preserves both roles" classname="independent-retest.spec.ts" time="5.39">
+</testcase>
+<testcase name="guide preview content survives first download" classname="independent-retest.spec.ts" time="14.074">
+</testcase>
+<testcase name="local geometry focus 360" classname="independent-retest.spec.ts" time="3.428">
+</testcase>
+<testcase name="local geometry focus 390" classname="independent-retest.spec.ts" time="3.541">
+</testcase>
+<testcase name="local geometry focus 768" classname="independent-retest.spec.ts" time="4.256">
+</testcase>
+<testcase name="local geometry focus 1440" classname="independent-retest.spec.ts" time="5.135">
+</testcase>
+</testsuite>
+<testsuite name="retest.spec.ts" timestamp="2026-11-19T22:49:10.264Z" hostname="" tests="22" failures="2" skipped="0" time="299.592" errors="0">
+<testcase name="independent edit preserves record and stable retry 400" classname="retest.spec.ts" time="10.842">
+</testcase>
+<testcase name="independent edit preserves record and stable retry 401" classname="retest.spec.ts" time="9.835">
+</testcase>
+<testcase name="independent edit preserves record and stable retry 500" classname="retest.spec.ts" time="9.631">
+</testcase>
+<testcase name="independent edit preserves record and stable retry offline" classname="retest.spec.ts" time="14.191">
+</testcase>
+<testcase name="independent edit preserves record and stable retry lost" classname="retest.spec.ts" time="11.608">
+</testcase>
+<testcase name="independent results-page save preserves input and stable retry 400" classname="retest.spec.ts" time="12.238">
+</testcase>
+<testcase name="independent results-page save preserves input and stable retry 401" classname="retest.spec.ts" time="12.328">
+</testcase>
+<testcase name="independent results-page save preserves input and stable retry 500" classname="retest.spec.ts" time="12.79">
+</testcase>
+<testcase name="independent results-page save preserves input and stable retry offline" classname="retest.spec.ts" time="16.317">
+</testcase>
+<testcase name="independent results-page save preserves input and stable retry lost" classname="retest.spec.ts" time="14.018">
+</testcase>
+<testcase name="independent same-field profile conflict preserves losing tab input" classname="retest.spec.ts" time="6.874">
+</testcase>
+<testcase name="independent quick profile retry 500" classname="retest.spec.ts" time="9.12">
+</testcase>
+<testcase name="independent quick profile retry lost" classname="retest.spec.ts" time="9.856">
+</testcase>
+<testcase name="independent real pointer opens save menu while results refresh" classname="retest.spec.ts" time="41.187">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-independent-artifacts/retest-independent-real-po-1c5ff--menu-while-results-refresh/error-context.md]]
+
+[[ATTACHMENT|browser-independent-artifacts/retest-independent-real-po-1c5ff--menu-while-results-refresh/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBe(expected) // Object.is equality" type="expect.toBe">
+<![CDATA[  retest.spec.ts:158:1 › independent real pointer opens save menu while results refresh ────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      175 |     return target === el || el.contains(target);
+      176 |   });
+    > 177 |   expect(hit).toBe(true);
+          |               ^
+      178 |   await item.click();
+      179 |   await expect(page.getByRole('dialog', {name: 'ذخیره این جست‌وجو'})).toBeVisible();
+      180 | });
+        at /checks/retest.spec.ts:177:15
+
+    Error Context: ../retest/browser-independent-artifacts/retest-independent-real-po-1c5ff--menu-while-results-refresh/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../retest/browser-independent-artifacts/retest-independent-real-po-1c5ff--menu-while-results-refresh/trace.zip
+    Usage:
+
+        npx playwright show-trace ../retest/browser-independent-artifacts/retest-independent-real-po-1c5ff--menu-while-results-refresh/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="independent land three-stage back and pointer geometry 360" classname="retest.spec.ts" time="12.749">
+</testcase>
+<testcase name="independent land three-stage back and pointer geometry 390" classname="retest.spec.ts" time="15.273">
+</testcase>
+<testcase name="independent land three-stage back and pointer geometry 768" classname="retest.spec.ts" time="13.869">
+</testcase>
+<testcase name="independent land three-stage back and pointer geometry 1440" classname="retest.spec.ts" time="15.184">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/error-context.md]]
+
+[[ATTACHMENT|browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  retest.spec.ts:182:44 › independent land three-stage back and pointer geometry 1440 ──────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.service-editor').getByRole('heading', { name: /جمع‌بندی آماده‌سازی/ })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.service-editor').getByRole('heading', { name: /جمع‌بندی آماده‌سازی/ }) with timeout 5000ms
+      - waiting for locator('.service-editor').getByRole('heading', { name: /جمع‌بندی آماده‌سازی/ })
+
+
+      218 |   for (const name of names) await editor.locator(`[data-service-field] input[type=radio][name="${name}"]`).first().check();
+      219 |   await editor.getByRole('button', {name: 'نمایش جمع‌بندی بسته خدمات', exact: true}).click();
+    > 220 |   await expect(editor.getByRole('heading', {name: /جمع‌بندی آماده‌سازی/})).toBeVisible();
+          |                                                                            ^
+      221 |   await expect(editor.locator('.service-steps [aria-current=step]')).toContainText('جمع‌بندی بسته');
+      222 |   await editor.getByRole('button', {name: 'ویرایش شرایط بسته', exact: true}).click();
+      223 |   await editor.getByRole('button', {name: 'ویرایش خدمات و محل', exact: true}).click();
+        at /checks/retest.spec.ts:220:76
+
+    Error Context: ../retest/browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../retest/browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace ../retest/browser-independent-artifacts/retest-independent-land-th-55af5-k-and-pointer-geometry-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="independent professional consumers visible and focusable 360" classname="retest.spec.ts" time="12.549">
+</testcase>
+<testcase name="independent professional consumers visible and focusable 390" classname="retest.spec.ts" time="13.88">
+</testcase>
+<testcase name="independent professional consumers visible and focusable 768" classname="retest.spec.ts" time="12.147">
+</testcase>
+<testcase name="independent professional consumers visible and focusable 1440" classname="retest.spec.ts" time="13.106">
+</testcase>
+</testsuite>
+<testsuite name="saved-retest.spec.ts" timestamp="2026-11-19T22:49:10.264Z" hostname="" tests="7" failures="0" skipped="0" time="60.743" errors="1">
+<testcase name="saved criteria preserves input on 400" classname="saved-retest.spec.ts" time="7.677">
+</testcase>
+<testcase name="saved criteria preserves input on 401" classname="saved-retest.spec.ts" time="9.157">
+</testcase>
+<testcase name="saved criteria preserves input on 500" classname="saved-retest.spec.ts" time="7.258">
+</testcase>
+<testcase name="saved criteria preserves input on offline" classname="saved-retest.spec.ts" time="9.478">
+</testcase>
+<testcase name="saved criteria preserves input on lost" classname="saved-retest.spec.ts" time="7.962">
+</testcase>
+<testcase name="guest criteria snapshot and same-key replay across two tabs" classname="saved-retest.spec.ts" time="9.961">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-independent-artifacts/saved-retest-guest-criteri-538cd--key-replay-across-two-tabs/error-context.md]]
+
+[[ATTACHMENT|browser-independent-artifacts/saved-retest-guest-criteri-538cd--key-replay-across-two-tabs/trace.zip]]
+]]>
+</system-out>
+<error message="&quot;route.fetch: Test ended." type="Error">
+<![CDATA[  saved-retest.spec.ts:19:1 › guest criteria snapshot and same-key replay across two tabs ──────────
+
+    Error: "route.fetch: Test ended.
+    Call log:
+      - → POST http://127.0.0.1:3109/api/v1/core/personal
+        - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/159.0.8154.6 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+        - accept-language: en-US
+        - content-type: application/json
+        - cookie: [REDACTED SYNTHETIC SESSION]
+        - origin: http://127.0.0.1:3109
+        - referer: http://127.0.0.1:3109/saved
+        - x-csrftoken: [REDACTED SYNTHETIC CSRF]
+        - sec-ch-ua: "HeadlessChrome";v="159", "Not/A)Brand";v="8", "Chromium";v="159"
+        - sec-ch-ua-mobile: ?0
+        - sec-ch-ua-platform: "Linux"
+        - content-length: 169
+    " while running route callback.
+    Consider awaiting `await page.unrouteAll({ behavior: 'ignoreErrors' })`
+    before the end of the test to ignore remaining routes in flight.
+
+       9 |  await page.route('**/api/v1/core/personal',async route=>{
+      10 |    if(route.request().method()!=='POST')return route.continue();
+    > 11 |    if(mode==='lost'){await route.fetch();return route.abort('connectionfailed');}
+         |                                  ^
+      12 |    if(mode==='offline')return route.abort('internetdisconnected');
+      13 |    return route.fulfill({status:Number(mode),contentType:'application/json',body:JSON.stringify({error:{message:'خطای ذخیره مستقل'}})});
+      14 |  });
+        at /checks/saved-retest.spec.ts:11:34
+
+    Error Context: ../retest/browser-independent-artifacts/saved-retest-guest-criteri-538cd--key-replay-across-two-tabs/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../retest/browser-independent-artifacts/saved-retest-guest-criteri-538cd--key-replay-across-two-tabs/trace.zip
+    Usage:
+
+        npx playwright show-trace ../retest/browser-independent-artifacts/saved-retest-guest-criteri-538cd--key-replay-across-two-tabs/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="late consumed handoff cannot be adopted by account B in second tab" classname="saved-retest.spec.ts" time="9.25">
+</testcase>
+</testsuite>
+</testsuites>

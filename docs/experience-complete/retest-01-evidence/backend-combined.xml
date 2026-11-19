@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="21" time="61.378" timestamp="2026-11-20T02:02:00.514853+03:30" hostname="1ea4a541893b"><testcase classname="" name="test_inactive_answer_never_rendered[roads-answers0-toll-buyer]" time="11.044" /><testcase classname="" name="test_inactive_answer_never_rendered[roads-answers1-buyer-toll]" time="6.745" /><testcase classname="" name="test_inactive_answer_never_rendered[residential-answers2-presale-revenue]" time="6.681" /><testcase classname="" name="test_residential_presale_active[yes]" time="5.038" /><testcase classname="" name="test_residential_presale_active[no]" time="4.988" /><testcase classname="" name="test_report_labels_and_followup_are_human_readable" time="4.825" /><testcase classname="" name="test_history_other_session_injection_isolation_no_case" time="5.210" /><testcase classname="" name="test_legacy_report_is_readable_html" time="10.157" /><testcase classname="" name="test_search_validation_atomic_owner[invalid0]" time="0.118" /><testcase classname="" name="test_search_validation_atomic_owner[invalid1]" time="0.129" /><testcase classname="" name="test_profile_two_sessions_roles_not_authority" time="0.345" /><testcase classname="tests.test_experience_fix" name="test_handoff_rejects_other_account_and_other_session" time="0.198" /><testcase classname="tests.test_experience_fix" name="test_profile_disjoint_fields_merge_and_stale_same_field_conflicts" time="0.211" /><testcase classname="tests.test_experience_fix" name="test_search_edit_lost_response_retry_and_stale_edit" time="0.170" /><testcase classname="tests.test_experience_fix" name="test_report_semantic_sections_preview_download_and_history" time="0.820" /><testcase classname="tests.test_experience_fix" name="test_report_document_design_and_effective_content_are_snapshot_only" time="0.730" /><testcase classname="tests.test_experience_fix" name="test_real_template_one_snapshot_shapes_are_readable_and_honest[False]" time="0.692" /><testcase classname="tests.test_experience_fix" name="test_real_template_one_snapshot_shapes_are_readable_and_honest[True]" time="1.320" /><testcase classname="tests.test_experience_fix" name="test_cancel_after_consume_blocks_delayed_mutation" time="0.122" /><testcase classname="tests.test_experience_fix" name="test_twenty_dynamic_contexts_match_runtime_contract" time="0.029"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/specs/009-core-journeys/dynamic-context-contract.json'">def test_twenty_dynamic_contexts_match_runtime_contract():
+        contract_path = (
+            Path(__file__).parents[2]
+            / "specs/009-core-journeys/dynamic-context-contract.json"
+        )
+&gt;       contexts = json.loads(contract_path.read_text())["contexts"]
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_experience_fix.py:246: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.14/pathlib/__init__.py:787: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/specs/009-core-journeys/dynamic-context-contract.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/specs/009-core-journeys/dynamic-context-contract.json'
+
+/usr/local/lib/python3.14/pathlib/__init__.py:771: FileNotFoundError</failure></testcase><testcase classname="" name="test_concurrent_search_same_key_once" time="0.497" /></testsuite></testsuites>

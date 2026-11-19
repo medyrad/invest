@@ -1,0 +1,53 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from frontend.Dockerfile
+#1 transferring dockerfile: 792B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/node:24.22.3-bookworm-slim@sha256:0e2646ab57e77b7a384a0cb59b6815b182c77e1f9c3ba36bd8435bd9c4e6680e
+#2 DONE 2.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 231B 0.0s done
+#3 DONE 1.2s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [builder 1/6] FROM public.ecr.aws/docker/library/node:24.22.3-bookworm-slim@sha256:0e2646ab57e77b7a384a0cb59b6815b182c77e1f9c3ba36bd8435bd9c4e6680e
+#5 resolve public.ecr.aws/docker/library/node:24.22.3-bookworm-slim@sha256:0e2646ab57e77b7a384a0cb59b6815b182c77e1f9c3ba36bd8435bd9c4e6680e 0.0s done
+#5 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 11.57MB 1.6s done
+#4 DONE 1.7s
+
+#6 [builder 2/6] WORKDIR /app
+#6 CACHED
+
+#7 [builder 3/6] COPY frontend/package.json frontend/package-lock.json frontend/.npmrc ./
+#7 CACHED
+
+#8 [builder 4/6] RUN npm ci
+#8 CACHED
+
+#9 [builder 5/6] COPY frontend/ ./
+#9 CACHED
+
+#10 [builder 6/6] RUN npm run build
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 21.8s done
+#11 exporting manifest sha256:84c0bf7fd005aa3de223b959b7819b02786d31d6f9fa999bc64a344f43ef3c02 0.1s done
+#11 exporting config sha256:21fabc578d91430c7f2249eac4a849762525ca8d50110376a1373df695c93173 0.0s done
+#11 exporting attestation manifest sha256:17490fe3ce26b426895fdbc4f29a3907e9c134294e0d33211dd9b5dc14c33991
+#11 exporting attestation manifest sha256:17490fe3ce26b426895fdbc4f29a3907e9c134294e0d33211dd9b5dc14c33991 0.1s done
+#11 exporting manifest list sha256:2536dd1fd1cd0c410489800faf0ee48fc02028845ef0bce16790ce5d32448e04 0.0s done
+#11 naming to docker.io/library/invest-expit-retest-source-proof:latest 0.0s done
+#11 unpacking to docker.io/library/invest-expit-retest-source-proof:latest
+#11 unpacking to docker.io/library/invest-expit-retest-source-proof:latest 14.6s done
+#11 DONE 36.7s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/u2j5x9jr661mkzfctyz9kle4f

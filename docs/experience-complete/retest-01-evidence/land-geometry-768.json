@@ -1,0 +1,134 @@
+{
+  "width": 768,
+  "selected": [
+    "مطالعات و طراحی آماده‌سازی اراضی ↑↓حذف",
+    "تبدیل به احسن کردن املاک اوقافی ↑↓حذف"
+  ],
+  "controls": [
+    {
+      "left": 481.671875,
+      "right": 692,
+      "hit": false
+    },
+    {
+      "left": 271.328125,
+      "right": 481.671875,
+      "hit": false
+    },
+    {
+      "left": 61,
+      "right": 271.328125,
+      "hit": false
+    },
+    {
+      "left": 588,
+      "right": 675,
+      "hit": true
+    },
+    {
+      "left": 494,
+      "right": 582,
+      "hit": true
+    },
+    {
+      "left": 61,
+      "right": 692,
+      "hit": false
+    },
+    {
+      "left": 555,
+      "right": 692,
+      "hit": false
+    },
+    {
+      "left": 414,
+      "right": 545,
+      "hit": false
+    },
+    {
+      "left": 61,
+      "right": 692,
+      "hit": false
+    },
+    {
+      "left": 61,
+      "right": 692,
+      "hit": false
+    },
+    {
+      "left": 394,
+      "right": 425,
+      "hit": false
+    },
+    {
+      "left": 358,
+      "right": 389,
+      "hit": false
+    },
+    {
+      "left": 307,
+      "right": 353,
+      "hit": false
+    },
+    {
+      "left": 395,
+      "right": 426,
+      "hit": false
+    },
+    {
+      "left": 359,
+      "right": 390,
+      "hit": false
+    },
+    {
+      "left": 308,
+      "right": 354,
+      "hit": false
+    },
+    {
+      "left": 386.5,
+      "right": 692,
+      "hit": false
+    },
+    {
+      "left": 61,
+      "right": 366.5,
+      "hit": false
+    },
+    {
+      "left": 386.5,
+      "right": 692,
+      "hit": true
+    },
+    {
+      "left": 217.75,
+      "right": 366.5,
+      "hit": true
+    },
+    {
+      "left": 61,
+      "right": 209.75,
+      "hit": true
+    },
+    {
+      "left": 61,
+      "right": 366.5,
+      "hit": true
+    },
+    {
+      "left": 61,
+      "right": 692,
+      "hit": true
+    },
+    {
+      "left": 523,
+      "right": 692,
+      "hit": true
+    },
+    {
+      "left": 448,
+      "right": 692,
+      "hit": true
+    }
+  ]
+}

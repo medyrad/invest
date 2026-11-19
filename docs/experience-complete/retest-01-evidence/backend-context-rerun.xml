@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="7.297" timestamp="2026-11-20T02:04:39.894940+03:30" hostname="2c1fc4386edf"><testcase classname="tests.test_experience_fix" name="test_twenty_dynamic_contexts_match_runtime_contract" time="6.688" /></testsuite></testsuites>

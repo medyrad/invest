@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="7.065" timestamp="2026-11-20T02:40:28.267447+03:30" hostname="554b12f20d31"><testcase classname="test_retest_independent" name="test_report_route_enum_is_human_readable_persian" time="6.278"><failure message="AssertionError: assert 'مسیر: investor' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'&#10;  &#10;  'مسیر: investor' is contained here:&#10;[+3 more lines; full report in element text]">team = [&lt;AuthSession: AuthSession object (cd043d75-9b84-4694-81ac-b1694400d912)&gt;, &lt;AuthSession: AuthSession object (f1da8d82-...ject (aab82011-c8ff-4052-89e8-756c35d99845)&gt;, &lt;AuthSession: AuthSession object (0d60e471-9538-4a3e-a842-fcdd11c9067a)&gt;]
+
+    def test_report_route_enum_is_human_readable_persian(team):
+        _, opportunity = publish(team, values={"title": "عنوان فارسی مستقل"})
+        body = personal.report_snapshot(
+            opportunity,
+            {"criteria": {"route": "investor"}, "guide_context": {"kind": "visit"}},
+            "independent-route-label",
+        )["rendered_html"]
+&gt;       assert "مسیر: investor" not in body
+E       AssertionError: assert 'مسیر: investor' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'
+E         
+E         'مسیر: investor' is contained here:
+E         ?           ^^^^^^^^^^^^                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+/independent/test_retest_independent.py:111: AssertionError</failure></testcase></testsuite></testsuites>

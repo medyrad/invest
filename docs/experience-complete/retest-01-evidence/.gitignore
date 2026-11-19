@@ -1,0 +1,9 @@
+*-artifacts/
+.pytest_cache/
+frontend-builder-probe.txt
+backend-semantic.xml
+browser-independent.log
+browser-independent-final.log
+browser-functional-final.log
+browser-report-visual.log
+browser-report-visual-rerun.log
