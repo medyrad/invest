@@ -19,10 +19,10 @@ export function MultiDrop({ items, onToggle, single }: { items: { key: string; c
           <span className="flex shrink-0 items-center gap-2 text-xs font-bold text-muted-foreground">{!single && on.length > 0 && `${faNumber(on.length)} از ${faNumber(items.length)}`}<ArrowDown2 size={16} className={cn("transition-transform", open && "rotate-180")} /></span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="start" className="thin-scroll max-h-80 w-(--radix-popover-trigger-width) overflow-y-auto rounded-2xl p-1.5">
+      <PopoverContent dir="rtl" align="start" collisionPadding={16} style={{maxWidth:'calc(100vw - 32px)',maxHeight:'min(20rem, var(--radix-popover-content-available-height))'}} className="thin-scroll w-(--radix-popover-trigger-width) overflow-y-auto rounded-2xl p-1.5">
         {items.map((i) => (
           <label key={i.key} className={cn("flex cursor-pointer items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-ink/[0.03]", i.checked && "bg-ink/[0.04]")}>
-            <Checkbox role={single ? "radio" : undefined} checked={i.checked} disabled={i.disabled} onCheckedChange={() => { if (single && i.checked) return; onToggle(i.key); if (single) setOpen(false); }} className={cn("mt-0.5 size-5 border-pine/25 bg-white", single ? "rounded-full" : "rounded-md")} />
+            <Checkbox role={single ? "radio" : "checkbox"} checked={i.checked} disabled={i.disabled} onCheckedChange={() => { if (single && i.checked) return; onToggle(i.key); if (single) setOpen(false); }} className={cn("mt-0.5 size-5 border-pine/25 bg-white", single ? "rounded-full" : "rounded-md")} />
             <span className="min-w-0"><span className="block text-sm font-bold leading-6 text-ink">{i.title}</span>{i.hint && <span className="block text-xs leading-5 text-muted-foreground">{i.hint}</span>}</span>
           </label>
         ))}
