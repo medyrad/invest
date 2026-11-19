@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="130.654008">
+<testsuite name="visual.spec.ts" timestamp="2026-11-19T19:42:56.105Z" hostname="" tests="4" failures="0" skipped="0" time="125.371" errors="0">
+<testcase name="profile consumers and source pairs 360" classname="visual.spec.ts" time="31.789">
+</testcase>
+<testcase name="profile consumers and source pairs 390" classname="visual.spec.ts" time="23.638">
+</testcase>
+<testcase name="profile consumers and source pairs 768" classname="visual.spec.ts" time="37.165">
+</testcase>
+<testcase name="profile consumers and source pairs 1440" classname="visual.spec.ts" time="32.779">
+</testcase>
+</testsuite>
+</testsuites>

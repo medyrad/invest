@@ -1,0 +1,1 @@
+module.exports={...require('./playwright.config.cjs'),testMatch:['selectors.spec.ts'],reporter:[['list'],['junit',{outputFile:'/evidence/browser-selectors-rerun.xml'}]],outputDir:'/evidence/browser-selector-artifacts'};

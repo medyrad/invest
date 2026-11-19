@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="12" time="59.507" timestamp="2026-11-19T21:36:21.245555+03:30" hostname="e64465bfe332"><testcase classname="test_experience_independent" name="test_inactive_answer_never_rendered[roads-answers0-toll-buyer]" time="17.951"><failure message="AssertionError: Inactive raw answer is rendered as effective&#10;assert '&lt;dt&gt;toll&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'&#10;  &#10;  '&lt;dt&gt;toll&lt;/dt&gt;' is contained here:&#10;[+3 more lines; full report in element text]">team = [&lt;AuthSession: AuthSession object (965f7946-89e8-4c61-8efe-5834a2f203eb)&gt;, &lt;AuthSession: AuthSession object (a27967ac-...ject (6fcff995-8de9-493f-a93c-730a09e942c2)&gt;, &lt;AuthSession: AuthSession object (8ffb8666-28dd-4f63-a254-fbf89183d06e)&gt;]
+subtype = 'roads'
+answers = {'revenue': 'public', 'toll': 'notallowed', 'buyer': 'documented'}
+inactive = 'toll', active = 'buyer'
+
+    @pytest.mark.parametrize('subtype,answers,inactive,active',[
+        ('roads',{'revenue':'public','toll':'notallowed','buyer':'documented'},'toll','buyer'),
+        ('roads',{'revenue':'user','toll':'allowed','buyer':'unknown'},'buyer','toll'),
+        ('residential',{'revenue':'rent','presale':'yes'},'presale','revenue'),
+    ])
+    def test_inactive_answer_never_rendered(team,subtype,answers,inactive,active):
+        report,_=make_report(team,subtype,answers)
+        effective=report.snapshot['effective_advisory']['effective_answers']
+        assert inactive not in effective and active in effective
+        Path('/evidence/'+subtype+'-'+answers['revenue']+'.html').write_text(report.snapshot['rendered_html'])
+&gt;       assert f'&lt;dt&gt;{inactive}&lt;/dt&gt;' not in report.snapshot['rendered_html'], 'Inactive raw answer is rendered as effective'
+E       AssertionError: Inactive raw answer is rendered as effective
+E       assert '&lt;dt&gt;toll&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'
+E         
+E         '&lt;dt&gt;toll&lt;/dt&gt;' is contained here:
+E         ?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+/independent/test_experience_independent.py:41: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_inactive_answer_never_rendered[roads-answers1-buyer-toll]" time="6.151"><failure message="AssertionError: Inactive raw answer is rendered as effective&#10;assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'&#10;  &#10;  '&lt;dt&gt;buyer&lt;/dt&gt;' is contained here:&#10;[+3 more lines; full report in element text]">team = [&lt;AuthSession: AuthSession object (a20d7dd5-538a-42a5-9077-7ee853e15b8c)&gt;, &lt;AuthSession: AuthSession object (b6ef92e5-...ject (81621328-5216-4e12-94cc-e1f4dbdbc6f5)&gt;, &lt;AuthSession: AuthSession object (4b20ffa5-0474-4998-ac66-a0338d2264ed)&gt;]
+subtype = 'roads'
+answers = {'revenue': 'user', 'toll': 'allowed', 'buyer': 'unknown'}
+inactive = 'buyer', active = 'toll'
+
+    @pytest.mark.parametrize('subtype,answers,inactive,active',[
+        ('roads',{'revenue':'public','toll':'notallowed','buyer':'documented'},'toll','buyer'),
+        ('roads',{'revenue':'user','toll':'allowed','buyer':'unknown'},'buyer','toll'),
+        ('residential',{'revenue':'rent','presale':'yes'},'presale','revenue'),
+    ])
+    def test_inactive_answer_never_rendered(team,subtype,answers,inactive,active):
+        report,_=make_report(team,subtype,answers)
+        effective=report.snapshot['effective_advisory']['effective_answers']
+        assert inactive not in effective and active in effective
+        Path('/evidence/'+subtype+'-'+answers['revenue']+'.html').write_text(report.snapshot['rendered_html'])
+&gt;       assert f'&lt;dt&gt;{inactive}&lt;/dt&gt;' not in report.snapshot['rendered_html'], 'Inactive raw answer is rendered as effective'
+E       AssertionError: Inactive raw answer is rendered as effective
+E       assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'
+E         
+E         '&lt;dt&gt;buyer&lt;/dt&gt;' is contained here:
+E         ?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+/independent/test_experience_independent.py:41: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_inactive_answer_never_rendered[residential-answers2-presale-revenue]" time="5.702"><failure message="AssertionError: Inactive raw answer is rendered as effective&#10;assert '&lt;dt&gt;presale&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'&#10;  &#10;  '&lt;dt&gt;presale&lt;/dt&gt;' is contained here:&#10;[+3 more lines; full report in element text]">team = [&lt;AuthSession: AuthSession object (b881357d-a361-48c9-9e77-538812e943d9)&gt;, &lt;AuthSession: AuthSession object (572c5fcb-...ject (357223af-c4d8-4815-9e62-e4d02feba5ba)&gt;, &lt;AuthSession: AuthSession object (e72d5fb4-ab12-4496-8873-6664e4e56917)&gt;]
+subtype = 'residential', answers = {'revenue': 'rent', 'presale': 'yes'}
+inactive = 'presale', active = 'revenue'
+
+    @pytest.mark.parametrize('subtype,answers,inactive,active',[
+        ('roads',{'revenue':'public','toll':'notallowed','buyer':'documented'},'toll','buyer'),
+        ('roads',{'revenue':'user','toll':'allowed','buyer':'unknown'},'buyer','toll'),
+        ('residential',{'revenue':'rent','presale':'yes'},'presale','revenue'),
+    ])
+    def test_inactive_answer_never_rendered(team,subtype,answers,inactive,active):
+        report,_=make_report(team,subtype,answers)
+        effective=report.snapshot['effective_advisory']['effective_answers']
+        assert inactive not in effective and active in effective
+        Path('/evidence/'+subtype+'-'+answers['revenue']+'.html').write_text(report.snapshot['rendered_html'])
+&gt;       assert f'&lt;dt&gt;{inactive}&lt;/dt&gt;' not in report.snapshot['rendered_html'], 'Inactive raw answer is rendered as effective'
+E       AssertionError: Inactive raw answer is rendered as effective
+E       assert '&lt;dt&gt;presale&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'
+E         
+E         '&lt;dt&gt;presale&lt;/dt&gt;' is contained here:
+E         ?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+/independent/test_experience_independent.py:41: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_residential_presale_active[yes]" time="4.822" /><testcase classname="test_experience_independent" name="test_residential_presale_active[no]" time="5.649" /><testcase classname="test_experience_independent" name="test_report_labels_and_followup_are_human_readable" time="4.916"><failure message="AssertionError: Raw English question ID, not Persian label&#10;assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'&#10;  &#10;  '&lt;dt&gt;buyer&lt;/dt&gt;' is contained here:&#10;[+3 more lines; full report in element text]">team = [&lt;AuthSession: AuthSession object (5dc07cdb-d502-4887-8084-c2552659f271)&gt;, &lt;AuthSession: AuthSession object (ab0057d1-...ject (71f6bd26-9f2c-42a4-a047-f6b8e348615b)&gt;, &lt;AuthSession: AuthSession object (ef3b12a8-f40c-4d49-96d4-a117349d63de)&gt;]
+
+    def test_report_labels_and_followup_are_human_readable(team):
+        report,_=make_report(team,'roads',{'revenue':'public','buyer':'documented'})
+        body=report.snapshot['rendered_html']
+&gt;       assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in body, 'Raw English question ID, not Persian label'
+E       AssertionError: Raw English question ID, not Persian label
+E       assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'
+E         
+E         '&lt;dt&gt;buyer&lt;/dt&gt;' is contained here:
+E         ?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+/independent/test_experience_independent.py:51: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_history_other_session_injection_isolation_no_case" time="6.644" /><testcase classname="test_experience_independent" name="test_legacy_report_is_readable_html" time="5.029"><failure message="AssertionError: AC-PC05 disallows raw JSON; legacy is not approved exclusion&#10;assert False&#10; +  where False = &lt;built-in method startswith of str object at 0x7fc0d5866790&gt;('text/html')&#10; +    where &lt;built-in method startswith of str object at 0x7fc0d5866790&gt; = 'application/json; charset=utf-8'.startswith">team = [&lt;AuthSession: AuthSession object (8fa373ec-0145-4242-a2a0-45c10af2e615)&gt;, &lt;AuthSession: AuthSession object (10dd3fcb-...ject (5d3d22a5-302b-4376-abf2-bffdb27bb2a4)&gt;, &lt;AuthSession: AuthSession object (287112d2-ac9d-4e25-9d97-0989726de58f)&gt;]
+
+    def test_legacy_report_is_readable_html(team):
+        report,_=make_report(team,'roads',{'revenue':'public'})
+        snapshot={k:v for k,v in report.snapshot.items() if k!='rendered_html'}
+        legacy=Report.objects.create(user=team[2].user,snapshot=snapshot)
+        response=client_for(team[2].user).get('/api/v1/core/reports/'+str(legacy.pk))
+        assert response.status_code==200
+&gt;       assert response['Content-Type'].startswith('text/html'), 'AC-PC05 disallows raw JSON; legacy is not approved exclusion'
+E       AssertionError: AC-PC05 disallows raw JSON; legacy is not approved exclusion
+E       assert False
+E        +  where False = &lt;built-in method startswith of str object at 0x7fc0d5866790&gt;('text/html')
+E        +    where &lt;built-in method startswith of str object at 0x7fc0d5866790&gt; = 'application/json; charset=utf-8'.startswith
+
+/independent/test_experience_independent.py:84: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_search_validation_atomic_owner[invalid0]" time="0.096" /><testcase classname="test_experience_independent" name="test_search_validation_atomic_owner[invalid1]" time="0.087" /><testcase classname="test_experience_independent" name="test_profile_two_sessions_roles_not_authority" time="0.128" /><testcase classname="test_experience_independent" name="test_concurrent_search_same_key_once" time="0.554" /></testsuite></testsuites>

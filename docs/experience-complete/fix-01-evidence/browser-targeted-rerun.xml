@@ -1,0 +1,8 @@
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="68.218834">
+<testsuite name="regression.spec.ts" timestamp="2026-11-19T19:15:19.013Z" hostname="" tests="2" failures="0" skipped="0" time="56.355" errors="0">
+<testcase name="search-page save retains input and same-key retry 401" classname="regression.spec.ts" time="25.857">
+</testcase>
+<testcase name="search-page save retains input and same-key retry offline" classname="regression.spec.ts" time="30.498">
+</testcase>
+</testsuite>
+</testsuites>

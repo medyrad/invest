@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="23" time="115.521" timestamp="2026-11-19T21:52:49.720490+03:30" hostname="1c44b229b746"><testcase classname="" name="test_inactive_answer_never_rendered[roads-answers0-toll-buyer]" time="27.243" /><testcase classname="" name="test_inactive_answer_never_rendered[roads-answers1-buyer-toll]" time="10.723" /><testcase classname="" name="test_inactive_answer_never_rendered[residential-answers2-presale-revenue]" time="9.831" /><testcase classname="" name="test_residential_presale_active[yes]" time="10.035" /><testcase classname="" name="test_residential_presale_active[no]" time="12.035" /><testcase classname="" name="test_report_labels_and_followup_are_human_readable" time="13.263" /><testcase classname="" name="test_legacy_report_is_readable_html" time="10.410" /><testcase classname="" name="test_search_validation_atomic_owner[invalid0]" time="0.184" /><testcase classname="" name="test_search_validation_atomic_owner[invalid1]" time="0.154" /><testcase classname="" name="test_profile_two_sessions_roles_not_authority" time="0.198" /><testcase classname="tests.test_experience_fix" name="test_handoff_rejects_other_account_and_other_session" time="0.186" /><testcase classname="tests.test_experience_fix" name="test_profile_disjoint_fields_merge_and_stale_same_field_conflicts" time="0.251" /><testcase classname="tests.test_experience_fix" name="test_search_edit_lost_response_retry_and_stale_edit" time="0.393" /><testcase classname="tests.test_experience_fix" name="test_report_semantic_sections_preview_download_and_history" time="1.286" /><testcase classname="tests.test_core" name="test_personal_isolation_report_no_case" time="1.051" /><testcase classname="tests.test_core" name="test_saved_search_update_is_atomic_and_report_redownload_is_readable" time="7.813"><failure message="assert 'شرایط ثبت\u200cشده شما' in '&lt;!doctype html&gt;&lt;html lang=&quot;fa&quot; dir=&quot;rtl&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-widt...ابق همین snapshot است.&lt;br&gt;دریافت گزارش پرونده یا درخواست تازه\u200cای ایجاد نمی\u200cکند.&lt;/footer&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;'">team = [&lt;AuthSession: AuthSession object (a5d436c0-4aff-4036-8b21-e1415a62c610)&gt;, &lt;AuthSession: AuthSession object (de027d0b-...ject (5ff7ebea-80a8-4cc4-ae53-3374f5cf561e)&gt;, &lt;AuthSession: AuthSession object (1d7bdcd4-0ec4-4495-87dd-51c5f0f49f94)&gt;]
+
+    def test_saved_search_update_is_atomic_and_report_redownload_is_readable(team):
+        call_command("import_reference", verbosity=0)
+        from apps.catalog.models import Subtype
+    
+        catalog_subtype = Subtype.objects.first()
+        _, op = publish(
+            team,
+            values={"group": catalog_subtype.group_id, "subtype": catalog_subtype.pk},
+        )
+        user = team[2].user
+        created = personal.mutate(
+            user,
+            {
+                "key": key(),
+                "action": "search",
+                "id": None,
+                "value": {"name": "شرایط اولیه", "criteria": {"route": "investor"}},
+            },
+        )
+        search_id = created["searches"][0]["id"]
+        personal.mutate(
+            user,
+            {
+                "key": key(),
+                "action": "search_update",
+                "id": search_id,
+                "value": {"name": "شرایط ویرایش‌شده", "criteria": {"route": "investor"}},
+            },
+        )
+        assert Search.objects.get(pk=search_id).name == "شرایط ویرایش‌شده"
+        with pytest.raises(Fault):
+            personal.mutate(
+                user,
+                {
+                    "key": key(),
+                    "action": "search_update",
+                    "id": search_id,
+                    "value": {"name": "نباید اعمال شود", "criteria": {"route": "invalid"}},
+                },
+            )
+        assert Search.objects.get(pk=search_id).name == "شرایط ویرایش‌شده"
+    
+        subtype = Subtype.objects.get(
+            pk=discovery.public_dto(op)["fields"]["subtype"]
+        ).raw_id
+        question = advisories.evaluate(subtype, {})["questions"][0]
+        answer = question["options"][0]["value"]
+        receipt = personal.mutate(
+            user,
+            {
+                "key": key(),
+                "action": "report",
+                "id": str(op.pk),
+                "value": {
+                    "criteria": {"route": "investor"},
+                    "guide_context": {
+                        "mine": [["بودجه", "۳۰ میلیارد تومان"]],
+                        "answers": {question["id"]: answer},
+                        "checked": ["بررسی سند"],
+                        "advisory_version": 1,
+                    },
+                },
+            },
+        )
+        report = Report.objects.get(pk=receipt["report_id"])
+        rendered = report.snapshot["rendered_html"]
+&gt;       assert "شرایط ثبت‌شده شما" in rendered
+E       assert 'شرایط ثبت\u200cشده شما' in '&lt;!doctype html&gt;&lt;html lang="fa" dir="rtl"&gt;&lt;head&gt;&lt;meta charset="utf-8"&gt;&lt;meta name="viewport" content="width=device-widt...ابق همین snapshot است.&lt;br&gt;دریافت گزارش پرونده یا درخواست تازه\u200cای ایجاد نمی\u200cکند.&lt;/footer&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;'
+
+tests/test_core.py:451: AssertionError</failure></testcase><testcase classname="tests.test_core" name="test_operator_work_period_roundtrip_hidden_restore_public_and_report[DAY]" time="1.767" /><testcase classname="tests.test_core" name="test_operator_work_period_roundtrip_hidden_restore_public_and_report[MONTH]" time="1.839" /><testcase classname="tests.test_core" name="test_operator_work_period_roundtrip_hidden_restore_public_and_report[YEAR]" time="1.765" /><testcase classname="" name="test_concurrent_search_same_key_once" time="0.830" /><testcase classname="tests.test_identity" name="test_intent_snapshot_replacement_expiry_cancel_and_owner" time="0.662" /><testcase classname="tests.test_identity" name="test_intent_replacement_and_account_switch_are_final" time="0.565" /><testcase classname="tests.test_identity" name="test_intent_cannot_revive_after_switching_away_and_back" time="0.740" /></testsuite></testsuites>

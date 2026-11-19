@@ -1,0 +1,6 @@
+# فقط همراه compose مستقل تستر؛ به محیط فعال پروژه اعمال نشود.
+services:
+  backend:
+    image: investexpfix-backend
+  web:
+    image: investexpfix-web

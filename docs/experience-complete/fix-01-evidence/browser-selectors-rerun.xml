@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="46.644598">
+<testsuite name="selectors.spec.ts" timestamp="2026-11-19T19:29:29.916Z" hostname="" tests="4" failures="0" skipped="0" time="33.401" errors="0">
+<testcase name="land grouped selectors retain independent choices and keyboard 360" classname="selectors.spec.ts" time="5.464">
+</testcase>
+<testcase name="land grouped selectors retain independent choices and keyboard 390" classname="selectors.spec.ts" time="7.657">
+</testcase>
+<testcase name="land grouped selectors retain independent choices and keyboard 768" classname="selectors.spec.ts" time="8.702">
+</testcase>
+<testcase name="land grouped selectors retain independent choices and keyboard 1440" classname="selectors.spec.ts" time="11.578">
+</testcase>
+</testsuite>
+</testsuites>

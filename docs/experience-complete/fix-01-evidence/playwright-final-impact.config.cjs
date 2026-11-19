@@ -1,0 +1,1 @@
+module.exports={...require('./playwright.config.cjs'),testMatch:['regression.spec.ts','visual.spec.ts','selectors.spec.ts'],grep:/profile consumers|guide preview content|land grouped selectors/,reporter:[['list'],['junit',{outputFile:'/evidence/browser-final-impact.xml'}]],outputDir:'/evidence/browser-rerun-artifacts'};

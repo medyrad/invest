@@ -1,0 +1,1 @@
+module.exports={...require('./playwright.config.cjs'),testMatch:['visual.spec.ts'],grep:/profile consumers/,reporter:[['list'],['junit',{outputFile:'/evidence/browser-visual-verified.xml'}]],outputDir:'/evidence/browser-rerun-artifacts'};

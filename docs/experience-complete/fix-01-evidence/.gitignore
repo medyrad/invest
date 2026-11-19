@@ -1,0 +1,5 @@
+browser-artifacts/
+browser-rerun-artifacts/
+browser-selector-artifacts/
+browser-results.json
+**/trace.zip

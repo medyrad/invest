@@ -1,0 +1,1 @@
+module.exports={...require('./playwright.config.cjs'),testMatch:['regression.spec.ts'],reporter:[['list'],['junit',{outputFile:'/evidence/browser-targeted-rerun.xml'}]],outputDir:'/evidence/browser-rerun-artifacts'};

@@ -1,0 +1,28 @@
+{
+  "commit": "4cb1be47b2906fa4a48209e055d2bd8ed06ee8cd",
+  "files": {
+    "backend/apps/core/api.py": "9b28d643a980991d982bac2a37d4fcb6020974e4df86d4653c42a71b3e9b221d",
+    "backend/apps/core/guide-steps-v1.json": "39708bf5202ded0e807e68537e8467b0ecd9778eb39960def6f01a1359b2f8b8",
+    "backend/apps/core/guide-v1.css": "0b284a1c55b8edf68cf89da720e31bcd2ee3622959e24ea0ffe11f43e75f539f",
+    "backend/apps/core/migrations/0006_login_operation_binding.py": "515eef8066240fdd08189e3dad9e41a0ce05a6f744bfbd44fecc3d06ed8689eb",
+    "backend/apps/core/models.py": "982fdb6b4a5b150b7c7c5d1b631e30f24b462a36029f5021c236aff8d1774a2b",
+    "backend/apps/core/personal.py": "edcaaac466e195a8b8f5f366f4cb9b32dbfeab1146b1332054fb1983b4ca5480",
+    "backend/apps/core/reporting.py": "a15c01314740bcf44f464f4fec3c53b67298c67fcfff9dd5039c0786a2ad1b2f",
+    "backend/apps/identity/otp.py": "681494c485fcc9cdbdee89ee51274c3a3d84a4ca2ad48675edba403223a041ad",
+    "backend/tests/test_experience_fix.py": "cf8a25021071e45cf6855f1e7ef6ee330507f7667eca61960e6f3facf251e0df",
+    "frontend/src/components/core/profile.tsx": "863f32c63534762dc9a9cae82ba1f80ff36f3179b45338919029c7a600e8385b",
+    "frontend/src/components/guide/guide-view.tsx": "d2aded8751ac5d1bba0bda5a224dd6fd369cb4e1017257c8d2ea4634903dbedf",
+    "frontend/src/components/saved/add-search.tsx": "994b3eff12dc1ad8a5175d7b38a2677db6485455c1c1b14e81e55527fa29820f",
+    "frontend/src/components/saved/saved.tsx": "7e9fc1a68a95f4294e23ebc6e1a712fc0616632b79d6ccd688ba7572ba6dfb45",
+    "frontend/src/components/search/pro-profile.tsx": "e4ddb27015f945d6c900bffd7ebe8ddf149499e44ea497b1c63f410f64bd5836",
+    "frontend/src/components/search/save-criteria.tsx": "15ef21efb166d7c5499f17479c3acffc91c792b77c616799f6c1c7bf28e32163",
+    "frontend/src/components/tools/multi-drop.tsx": "74f14f6d43934b09f62ae361614f01ad7a8e144fc545e62cedcf786f1cef4a9e",
+    "frontend/src/components/tools/service-editor.tsx": "3824e86a162bf1dd062ec90eecec4e25f1d2f12de2c90948ff985fd5d09881cb",
+    "frontend/src/components/tools/tools.tsx": "e642c29e32443216ae740501fa594dbfc176061c3ca7ea07ee6bc0a369a98fb6",
+    "frontend/src/lib/store.ts": "a31157a3bdff7e7b76b0ec9876017a58cfed2ad5fa06832ce09b8f7231c59f11",
+    "frontend/src/types/index.ts": "eee677277e51c8c8fd6ad7c2541990e9b03b4fe932381540a3165e083ee3c135",
+    "frontend/src/lib/criteria.ts": "bade9a821215684dc1760f0b65cf2ec2f68ee17854f2724f602cb94075b48ccf"
+  },
+  "backend_runtime_checked": 9,
+  "backend_runtime_mismatches": []
+}

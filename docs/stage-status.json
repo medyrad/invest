@@ -1,7 +1,7 @@
 {
   "date": "2026-11-19",
   "current_stage": "S08",
-  "status": "experience-technical-ready-awaiting-independent-and-human-review",
+  "status": "experience-fix-01-partial-delivery-with-open-technical-gaps",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -60,10 +60,10 @@
     "PROGRAMMER-S04-01 home/navigation/server catalog implemented with scoped SpecKit artifacts and local evidence; ready for independent testing, not human or full S04 acceptance",
     "Independent technical acceptance recorded from TEST-S03-03, TEST-S04-02 and TEST-S04-04; human/final stage acceptance unchanged; PRODUCT-S05-01 decision package prepared without S05 implementation authorization",
     "User approved P3 as D30 and recommended P1/P2 as D31/D32; PROGRAMMER-S05-A1 handoff authorized and prepared; implementation and human visual acceptance not claimed.",
-    "PROGRAMMER-EXPERIENCE-COMPLETE-01 technical implementation and programmer validation completed for PC-A01..A08; independent review, human visual approval and D28 expert judgment remain open"
+    "Historical PROGRAMMER-EXPERIENCE-COMPLETE-01 programmer claim was superseded by independent findings c7ac09b; it is not current technical acceptance"
   ],
   "remaining": [
-    "COMP-EXPERIENCE: پیاده‌سازی و شاهد برنامه‌نویس PC-A01..A08 آماده؛ آزمون مستقل، تأیید انسانی طراحی و داوری خبره D28 باز",
+    "COMP-EXPERIENCE: اصلاحات FIX-01 و شواهد تحویل برنامه‌نویس؛ شکاف‌های فنی طراحی/گزارش/پوشش باز، بدون پذیرش مستقل یا انسانی",
     "COMP-AI: F31–F33 و PC-D02؛ اتصال واقعی OpenAI و ارزیابی باز",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
@@ -119,18 +119,18 @@
     "package": "COMP-EXPERIENCE"
   },
   "active_step": {
-    "id": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
-    "mission": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
-    "status": "technical-ready-awaiting-independent-and-human-review",
-    "authorization": "Explicit user mission: implement COMP-EXPERIENCE against AC-PC01..AC-PC08; local commits only",
+    "id": "PROGRAMMER-EXPERIENCE-FIX-01",
+    "mission": "PROGRAMMER-EXPERIENCE-FIX-01",
+    "status": "fixing-independent-findings",
+    "authorization": "Explicit user mission: EXP-IT-001..010, COMP-EXPERIENCE; local commits only; no S09/AI/push/deploy",
     "documentation_authorized": true,
     "implementation_authorized": true,
     "push_authorized": false,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
     "final_acceptance": false,
-    "report_path": "docs/experience-complete/report.md",
-    "validation_path": "docs/experience-complete/manifest.json"
+    "report_path": "docs/experience-complete/fix-01-report.md",
+    "validation_path": "docs/experience-complete/fix-01-evidence"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -539,7 +539,7 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
+    "current_mission": "PROGRAMMER-EXPERIENCE-FIX-01",
     "current_mission_override": "local commit only; no push or deploy",
     "earlier_standing_push_authorization": true
   },
@@ -667,7 +667,7 @@
     "mission": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
     "base_commit": "e710781",
     "implementation_commit": "5e262b6",
-    "status": "programmer-technical-ready",
+    "status": "superseded-by-independent-findings-and-fix-01",
     "implementation_authorized": true,
     "independent_acceptance": false,
     "human_visual_approved": false,
@@ -679,17 +679,50 @@
     "backend_unique_passed": 96,
     "browser_unique_passed": 8,
     "source_archive_sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b",
-    "technical_findings_closed": [
-      "PC-A01",
-      "PC-A02",
-      "PC-A03",
-      "PC-A04",
-      "PC-A05"
-    ],
+    "technical_findings_closed": [],
     "human_or_independent_gates_open": [
       "PC-A06",
       "PC-A07",
       "PC-A08"
-    ]
+    ],
+    "independent_report": "docs/experience-complete/independent-test-report.md",
+    "fix_01": {
+      "mission": "PROGRAMMER-EXPERIENCE-FIX-01",
+      "base_commit": "c7ac09b",
+      "status": "partial-delivery-open-technical-work",
+      "report_path": "docs/experience-complete/fix-01-report.md",
+      "independent_acceptance": false,
+      "human_visual_approved": false,
+      "d28_human_accepted": false,
+      "push_authorized": false,
+      "public_deployment_authorized": false,
+      "manifest_path": "docs/experience-complete/fix-01-evidence/manifest.json",
+      "backend_unique_passed": 37,
+      "browser_behavior_unique_passed": 38,
+      "browser_capture_scenarios": 8,
+      "formatter_unit_passed": 2,
+      "programmer_reported_fixed": [
+        "EXP-IT-001",
+        "EXP-IT-002",
+        "EXP-IT-005",
+        "EXP-IT-008",
+        "EXP-IT-009",
+        "EXP-IT-010"
+      ],
+      "technical_findings_open": [
+        "EXP-IT-003",
+        "EXP-IT-004",
+        "EXP-IT-006",
+        "EXP-IT-007",
+        "land-stage-design-parity"
+      ],
+      "next_package_authorized": false,
+      "code_commits": [
+        "863f016b9209ae85c6bf99b3f5c3443e87075d1c",
+        "878d61904a3ea469071ff4bc200075eae603e3f9",
+        "4cb1be47b2906fa4a48209e055d2bd8ed06ee8cd"
+      ],
+      "code_commit": "4cb1be47b2906fa4a48209e055d2bd8ed06ee8cd"
+    }
   }
 }

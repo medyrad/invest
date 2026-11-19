@@ -1,0 +1,13 @@
+{
+  "build_id": "fOoXNLKKSNbFSeTYB9QSW",
+  "status": "interrupted-after-diagnosis-not-final",
+  "passed": 27,
+  "failed": 4,
+  "interrupted": 1,
+  "not_run": 10,
+  "duration_minutes_reported": 9.4,
+  "product_failures": ["profile failure 500: initial checked state changed between locator resolution and click", "profile failure lost: same bootstrap race"],
+  "harness_failures": ["edit criteria 400 and 401: runner did not select criteria tab before finding the new record"],
+  "changes": ["Do not mount editable profile fields before initial data is adopted; reset form identity on account change", "Select the criteria tab in the new regression runner; independent assertions unchanged"],
+  "counts_are_not_added_to_final_unique_total": true
+}

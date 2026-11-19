@@ -1,5 +1,13 @@
 # برنامه هسته
 
+## اصلاح مجاز PROGRAMMER-EXPERIENCE-FIX-01
+
+مبنای مستقل c7ac09b؛ push/deploy ممنوع. LoginOperation کلید handoff را به AuthSession و payload دقیق متصل می‌کند؛ لغو/انقضا و نشست جاری در همان ترتیب قفل identity→user بررسی می‌شوند. profile patch به‌جای replacement و base برای تشخیص تعارض داده متفاوت است؛ تعارض409 ورودی را حفظ می‌کند و سیاست merge بیزینسی تازه‌ای نمی‌سازد. search_update همان رکورد و کلید پایدار retry را حفظ می‌کند. فرم عمومی professional را نمی‌فرستد؛ refresh فرم dirty را جایگزین نمی‌کند.
+
+report_snapshot و reporting.render منبع مشترک preview و دریافت هستند؛ قالب۲ همراه labels و action_steps در snapshot ثبت می‌شود. دریافت legacy فقط داده تاریخی + تعاریف ایستای نسخه۱ را می‌خواند؛ مقدار زنده برای پرکردن سابقه ممنوع است. فقدان گام/نام مکان تاریخی باید در محدودیت گزارش شود، نه ساخته شود. JSON جای متن فارسی نیست. آزمون معنایی بخش‌ها علاوه بر ثبات بایت و مجوز جاری لازم است.
+
+مخرج route/state در fix-01-evidence/route-state-denominator.csv و نگاشت۲۰زمینه در catalog صاحب مسئله تکمیل می‌شود؛ شکاف شاهد فنی با امضای انسانی فرق دارد. تسک‌های اصلاح تا نتیجه واقعی بسته نمی‌شوند.
+
 Django/DRF/PostgreSQL و Next/React موجود، بدون تعویض زیرساخت. افزودن apps.core برای گردش، انتشار، پرونده و فضای شخصی؛ گسترش schema A1 با kind پایدار و schema مخصوص هر نوع؛ catalog append-only با migration تازه. عملیات با قفل تراکنشی و key/fingerprint، snapshot immutable در DB، کنترل دسترسی جاری در هر بار دریافت. DTO عمومی whitelist از effective snapshot، فایل فقط مشتق صریح تأییدشده. مدل role از حساب سرور؛ ابزار محلی جدا و ممنوع در public.
 
 تطبیق با Decimal و وزن سیاست D28@1، بدون حذف ترجیحی؛ cursor امضاشده شامل معیار/زمان/نسخه. تقویم مصنوعی نسخه‌دار و deadline پایدار؛ jobs زمان‌پذیر. Case/assignment/consent/message با قفل واحد پرونده؛ اعلان در همان تراکنش. گزارش snapshot ثابت و بدون شماره.

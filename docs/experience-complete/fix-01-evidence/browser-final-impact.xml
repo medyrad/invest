@@ -1,0 +1,26 @@
+<testsuites id="" name="" tests="9" failures="0" skipped="0" errors="0" time="156.161555">
+<testsuite name="regression.spec.ts" timestamp="2026-11-19T19:37:13.468Z" hostname="" tests="1" failures="0" skipped="0" time="17.121" errors="0">
+<testcase name="guide preview content survives first download" classname="regression.spec.ts" time="17.121">
+</testcase>
+</testsuite>
+<testsuite name="selectors.spec.ts" timestamp="2026-11-19T19:37:13.468Z" hostname="" tests="4" failures="0" skipped="0" time="15.578" errors="0">
+<testcase name="land grouped selectors retain independent choices and keyboard 360" classname="selectors.spec.ts" time="2.69">
+</testcase>
+<testcase name="land grouped selectors retain independent choices and keyboard 390" classname="selectors.spec.ts" time="3.775">
+</testcase>
+<testcase name="land grouped selectors retain independent choices and keyboard 768" classname="selectors.spec.ts" time="4.871">
+</testcase>
+<testcase name="land grouped selectors retain independent choices and keyboard 1440" classname="selectors.spec.ts" time="4.242">
+</testcase>
+</testsuite>
+<testsuite name="visual.spec.ts" timestamp="2026-11-19T19:37:13.468Z" hostname="" tests="4" failures="0" skipped="0" time="118.766" errors="0">
+<testcase name="profile consumers and source pairs 360" classname="visual.spec.ts" time="30.909">
+</testcase>
+<testcase name="profile consumers and source pairs 390" classname="visual.spec.ts" time="26.95">
+</testcase>
+<testcase name="profile consumers and source pairs 768" classname="visual.spec.ts" time="26.291">
+</testcase>
+<testcase name="profile consumers and source pairs 1440" classname="visual.spec.ts" time="34.616">
+</testcase>
+</testsuite>
+</testsuites>

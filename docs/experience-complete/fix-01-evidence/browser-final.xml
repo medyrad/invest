@@ -1,0 +1,200 @@
+<testsuites id="" name="" tests="42" failures="1" skipped="0" errors="3" time="1239.655856">
+<testsuite name="regression.spec.ts" timestamp="2026-11-19T19:02:22.410Z" hostname="" tests="34" failures="0" skipped="0" time="714.228" errors="2">
+<testcase name="saved criteria preserves input on 400" classname="regression.spec.ts" time="7.34">
+</testcase>
+<testcase name="saved criteria preserves input on 401" classname="regression.spec.ts" time="11.698">
+</testcase>
+<testcase name="saved criteria preserves input on 500" classname="regression.spec.ts" time="5.527">
+</testcase>
+<testcase name="saved criteria preserves input on offline" classname="regression.spec.ts" time="7.975">
+</testcase>
+<testcase name="saved criteria preserves input on lost" classname="regression.spec.ts" time="6.513">
+</testcase>
+<testcase name="guest criteria snapshot and same-key replay across two tabs" classname="regression.spec.ts" time="15.15">
+</testcase>
+<testcase name="late consumed handoff cannot be adopted by account B in second tab" classname="regression.spec.ts" time="12.212">
+</testcase>
+<testcase name="profile failure 400" classname="regression.spec.ts" time="9.162">
+</testcase>
+<testcase name="profile failure 401" classname="regression.spec.ts" time="21.661">
+</testcase>
+<testcase name="profile failure 500" classname="regression.spec.ts" time="17.471">
+</testcase>
+<testcase name="profile failure offline" classname="regression.spec.ts" time="10.048">
+</testcase>
+<testcase name="profile failure lost" classname="regression.spec.ts" time="9.032">
+</testcase>
+<testcase name="professional save then basic save preserves both roles" classname="regression.spec.ts" time="9.097">
+</testcase>
+<testcase name="guide preview content survives first download" classname="regression.spec.ts" time="50.935">
+</testcase>
+<testcase name="local geometry focus 360" classname="regression.spec.ts" time="27.724">
+</testcase>
+<testcase name="local geometry focus 390" classname="regression.spec.ts" time="46.554">
+</testcase>
+<testcase name="local geometry focus 768" classname="regression.spec.ts" time="23.012">
+</testcase>
+<testcase name="local geometry focus 1440" classname="regression.spec.ts" time="13.773">
+</testcase>
+<testcase name="delayed profile refresh must not erase a newer edit" classname="regression.spec.ts" time="16.509">
+</testcase>
+<testcase name="hero real hit testing 360" classname="regression.spec.ts" time="3.464">
+</testcase>
+<testcase name="hero real hit testing 390" classname="regression.spec.ts" time="9.958">
+</testcase>
+<testcase name="hero real hit testing 768" classname="regression.spec.ts" time="4.276">
+</testcase>
+<testcase name="hero real hit testing 1440" classname="regression.spec.ts" time="5.849">
+</testcase>
+<testcase name="two profile tabs preserve genuinely different dirty edits on conflict" classname="regression.spec.ts" time="7.064">
+</testcase>
+<testcase name="search-page save retains input and same-key retry 400" classname="regression.spec.ts" time="12.3">
+</testcase>
+<testcase name="search-page save retains input and same-key retry 401" classname="regression.spec.ts" time="120.329">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/regression-search-page-sav-b14e6-nput-and-same-key-retry-401/error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 120000ms exceeded." type="Error">
+<![CDATA[  regression.spec.ts:20:56 › search-page save retains input and same-key retry 401 ─────────────────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('menuitem', { name: /ذخیره/ }).first()
+        - locator resolved to <div tabindex="-1" role="menuitem" data-variant="default" data-orientation="vertical" data-radix-collection-item="" data-slot="dropdown-menu-item" class="relative flex cursor-default items-center gap-2 px-2 py-1.5 text-sm outline-hidden select-none focus:bg-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 data-[variant=destructive]:focus:text-destructive dark:data-[v…>…</div>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      - retrying click action
+        - waiting for element to be visible, enabled and stable
+      - element was detached from the DOM, retrying
+
+
+      20 | for(const mode of ['400','401','500','offline','lost'])test('search-page save retains input and same-key retry '+mode,async({page})=>{
+      21 |  await login(page);await page.goto('/opportunities');await page.getByRole('textbox',{name:'جست‌وجو در نتایج',exact:true}).fill('آزمون-'+mode+'-'+Date.now());await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+    > 22 |  await page.getByRole('menuitem',{name:/ذخیره/}).first().click();
+         |                                                          ^
+      23 |  await page.getByLabel('یک نام برایش بگذارید').fill('تلاش مجدد جست‌وجو '+mode);
+      24 |  let body;let finished=false;
+      25 |  await page.route('**/api/v1/core/personal',async r=>{
+        at /checks/regression.spec.ts:22:58
+
+    Error Context: ../evidence/browser-artifacts/regression-search-page-sav-b14e6-nput-and-same-key-retry-401/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="search-page save retains input and same-key retry 500" classname="regression.spec.ts" time="15.08">
+</testcase>
+<testcase name="search-page save retains input and same-key retry offline" classname="regression.spec.ts" time="120.12">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/regression-search-page-sav-df5e9--and-same-key-retry-offline/error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 120000ms exceeded." type="Error">
+<![CDATA[  regression.spec.ts:20:56 › search-page save retains input and same-key retry offline ─────────────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('menuitem', { name: /ذخیره/ }).first()
+        - locator resolved to <div tabindex="-1" role="menuitem" data-variant="default" data-orientation="vertical" data-radix-collection-item="" data-slot="dropdown-menu-item" class="relative flex cursor-default items-center gap-2 px-2 py-1.5 text-sm outline-hidden select-none focus:bg-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 data-[variant=destructive]:focus:text-destructive dark:data-[v…>…</div>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+      - element was detached from the DOM, retrying
+
+
+      20 | for(const mode of ['400','401','500','offline','lost'])test('search-page save retains input and same-key retry '+mode,async({page})=>{
+      21 |  await login(page);await page.goto('/opportunities');await page.getByRole('textbox',{name:'جست‌وجو در نتایج',exact:true}).fill('آزمون-'+mode+'-'+Date.now());await page.waitForLoadState('networkidle');
+    > 22 |  await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).press('Enter');
+         |                                                          ^
+      23 |  await page.getByRole('menuitem',{name:'ذخیره جست‌وجوی فعلی',exact:true}).press('Enter');
+      24 |  await page.getByLabel('یک نام برایش بگذارید').fill('تلاش مجدد جست‌وجو '+mode);
+      25 |  let body;let finished=false;
+        at /checks/regression.spec.ts:22:58
+
+    Error Context: ../evidence/browser-artifacts/regression-search-page-sav-df5e9--and-same-key-retry-offline/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="search-page save retains input and same-key retry lost" classname="regression.spec.ts" time="9.384">
+</testcase>
+<testcase name="edit criteria preserves old record and retry 400" classname="regression.spec.ts" time="15.94">
+</testcase>
+<testcase name="edit criteria preserves old record and retry 401" classname="regression.spec.ts" time="16.321">
+</testcase>
+<testcase name="edit criteria preserves old record and retry 500" classname="regression.spec.ts" time="16.856">
+</testcase>
+<testcase name="edit criteria preserves old record and retry offline" classname="regression.spec.ts" time="17.614">
+</testcase>
+<testcase name="edit criteria preserves old record and retry lost" classname="regression.spec.ts" time="18.28">
+</testcase>
+</testsuite>
+<testsuite name="visual.spec.ts" timestamp="2026-11-19T19:02:22.410Z" hostname="" tests="8" failures="1" skipped="0" time="497.791" errors="1">
+<testcase name="fresh matched land reference 1440" classname="visual.spec.ts" time="49.544">
+</testcase>
+<testcase name="fresh matched land reference 390" classname="visual.spec.ts" time="28.001">
+</testcase>
+<testcase name="fresh matched land reference 360" classname="visual.spec.ts" time="23.191">
+</testcase>
+<testcase name="fresh matched land reference 768" classname="visual.spec.ts" time="23.33">
+</testcase>
+<testcase name="profile consumers and source pairs 360" classname="visual.spec.ts" time="35.317">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/visual-profile-consumers-and-source-pairs-360/error-context.md]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  visual.spec.ts:4:39 › profile consumers and source pairs 360 ─────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.professional-form')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.professional-form') with timeout 5000ms
+      - waiting for locator('.professional-form')
+
+
+      14 |   await p.goto('http://127.0.0.1:3109'+route);await p.waitForLoadState('networkidle');await p.evaluate(()=>document.fonts.ready);
+      15 |   if(route==='/saved')await p.getByRole('tab',{name:/پروفایل حرفه/}).click();
+    > 16 |   const form=p.locator('.professional-form');await expect(form).toBeVisible();
+         |                                                                 ^
+      17 |   const geometry=await form.evaluate(e=>({width:innerWidth,rect:e.getBoundingClientRect().toJSON(),controls:[...e.querySelectorAll('input,select,button')].map(x=>x.getBoundingClientRect().toJSON())}));
+      18 |   expect(geometry.controls.filter(r=>r.width>0&&(r.left<0||r.right>width+1))).toEqual([]);
+      19 |   const slug=route.replaceAll('/','-');await p.screenshot({path:`/evidence/product${slug}-account-${width}.png`,fullPage:true});
+        at /checks/visual.spec.ts:16:65
+
+    Error Context: ../evidence/browser-artifacts/visual-profile-consumers-and-source-pairs-360/error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="profile consumers and source pairs 390" classname="visual.spec.ts" time="240.005">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/visual-profile-consumers-and-source-pairs-390/error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 240000ms exceeded." type="Error">
+<![CDATA[  visual.spec.ts:4:39 › profile consumers and source pairs 390 ─────────────────────────────────────
+
+    Test timeout of 240000ms exceeded.
+
+    Error Context: ../evidence/browser-artifacts/visual-profile-consumers-and-source-pairs-390/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="profile consumers and source pairs 768" classname="visual.spec.ts" time="33.98">
+</testcase>
+<testcase name="profile consumers and source pairs 1440" classname="visual.spec.ts" time="64.423">
+</testcase>
+</testsuite>
+</testsuites>

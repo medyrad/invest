@@ -1,0 +1,159 @@
+<testsuites id="" name="" tests="4" failures="3" skipped="0" errors="1" time="167.452155">
+<testsuite name="selectors.spec.ts" timestamp="2026-11-19T19:16:54.040Z" hostname="" tests="4" failures="3" skipped="0" time="146.671" errors="1">
+<testcase name="land grouped selectors retain independent choices and keyboard 360" classname="selectors.spec.ts" time="120.003">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-selector-artifacts/selectors-land-grouped-sel-a2b40-nt-choices-and-keyboard-360/error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 120000ms exceeded." type="Error">
+<![CDATA[  selectors.spec.ts:3:39 › land grouped selectors retain independent choices and keyboard 360 ──────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test ended.
+    Call log:
+      - waiting for getByRole('dialog').locator('label').first()
+        - locator resolved to <label class="flex cursor-pointer items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-ink/[0.03]">…</label>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying click action
+          - waiting 100ms
+        199 × waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - element is outside of the viewport
+          - retrying click action
+            - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+       9 |   const trigger=groups.nth(i).getByRole('combobox');await trigger.click();await expect(trigger).toHaveAttribute('aria-expanded','true');
+      10 |   const option=page.getByRole('dialog').locator('label').first();const title=await option.locator('span.block').first().innerText();
+    > 11 |   await option.click();await expect(trigger).toContainText(title);await page.keyboard.press('Escape');await expect(trigger).toHaveAttribute('aria-expanded','false');
+         |                ^
+      12 |   selected.push(title);
+      13 |  }
+      14 |  for(let i=0;i<2;i++)await expect(groups.nth(i).getByRole('combobox')).toContainText(selected[i]);
+        at /checks/selectors.spec.ts:11:16
+
+    Error Context: ../evidence/browser-selector-artifacts/selectors-land-grouped-sel-a2b40-nt-choices-and-keyboard-360/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="land grouped selectors retain independent choices and keyboard 390" classname="selectors.spec.ts" time="7.927">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-selector-artifacts/selectors-land-grouped-sel-705f8-nt-choices-and-keyboard-390/error-context.md]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeChecked() failed" type="expect.toBeChecked">
+<![CDATA[  selectors.spec.ts:3:39 › land grouped selectors retain independent choices and keyboard 390 ──────
+
+    Error: expect(locator).toBeChecked() failed
+
+    Locator: getByRole('dialog').getByRole('checkbox').first()
+    Expected: checked
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeChecked" getByRole('dialog').getByRole('checkbox').first() with timeout 5000ms
+      - waiting for getByRole('dialog').getByRole('checkbox').first()
+
+
+      14 |  for(let i=0;i<2;i++)await expect(groups.nth(i).getByRole('combobox')).toContainText(selected[i]);
+      15 |  const first=groups.first().getByRole('combobox');await first.focus();await page.keyboard.press('Enter');
+    > 16 |  await expect(first).toHaveAttribute('aria-expanded','true');await expect(page.getByRole('dialog').getByRole('checkbox').first()).toBeChecked();
+         |                                                                                                                                   ^
+      17 |  await page.keyboard.press('Escape');await first.scrollIntoViewIfNeeded();
+      18 |  const hit=await first.evaluate(e=>{const r=e.getBoundingClientRect();const target=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return e===target||e.contains(target)});expect(hit).toBe(true);
+      19 |  await page.screenshot({path:`/evidence/land-selected-${width}.png`,fullPage:true});fs.writeFileSync(`/evidence/land-selected-${width}.json`,JSON.stringify({width,selected,hit}));await context.close();
+        at /checks/selectors.spec.ts:16:131
+
+    Error Context: ../evidence/browser-selector-artifacts/selectors-land-grouped-sel-705f8-nt-choices-and-keyboard-390/error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="land grouped selectors retain independent choices and keyboard 768" classname="selectors.spec.ts" time="8.322">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-selector-artifacts/selectors-land-grouped-sel-ac532-nt-choices-and-keyboard-768/error-context.md]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeChecked() failed" type="expect.toBeChecked">
+<![CDATA[  selectors.spec.ts:3:39 › land grouped selectors retain independent choices and keyboard 768 ──────
+
+    Error: expect(locator).toBeChecked() failed
+
+    Locator: getByRole('dialog').getByRole('checkbox').first()
+    Expected: checked
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeChecked" getByRole('dialog').getByRole('checkbox').first() with timeout 5000ms
+      - waiting for getByRole('dialog').getByRole('checkbox').first()
+
+
+      14 |  for(let i=0;i<2;i++)await expect(groups.nth(i).getByRole('combobox')).toContainText(selected[i]);
+      15 |  const first=groups.first().getByRole('combobox');await first.focus();await page.keyboard.press('Enter');
+    > 16 |  await expect(first).toHaveAttribute('aria-expanded','true');await expect(page.getByRole('dialog').getByRole('checkbox').first()).toBeChecked();
+         |                                                                                                                                   ^
+      17 |  await page.keyboard.press('Escape');await first.scrollIntoViewIfNeeded();
+      18 |  const hit=await first.evaluate(e=>{const r=e.getBoundingClientRect();const target=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return e===target||e.contains(target)});expect(hit).toBe(true);
+      19 |  await page.screenshot({path:`/evidence/land-selected-${width}.png`,fullPage:true});fs.writeFileSync(`/evidence/land-selected-${width}.json`,JSON.stringify({width,selected,hit}));await context.close();
+        at /checks/selectors.spec.ts:16:131
+
+    Error Context: ../evidence/browser-selector-artifacts/selectors-land-grouped-sel-ac532-nt-choices-and-keyboard-768/error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="land grouped selectors retain independent choices and keyboard 1440" classname="selectors.spec.ts" time="10.419">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-selector-artifacts/selectors-land-grouped-sel-0904a-t-choices-and-keyboard-1440/error-context.md]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeChecked() failed" type="expect.toBeChecked">
+<![CDATA[  selectors.spec.ts:3:39 › land grouped selectors retain independent choices and keyboard 1440 ─────
+
+    Error: expect(locator).toBeChecked() failed
+
+    Locator: getByRole('dialog').getByRole('checkbox').first()
+    Expected: checked
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeChecked" getByRole('dialog').getByRole('checkbox').first() with timeout 5000ms
+      - waiting for getByRole('dialog').getByRole('checkbox').first()
+
+
+      14 |  for(let i=0;i<2;i++)await expect(groups.nth(i).getByRole('combobox')).toContainText(selected[i]);
+      15 |  const first=groups.first().getByRole('combobox');await first.focus();await page.keyboard.press('Enter');
+    > 16 |  await expect(first).toHaveAttribute('aria-expanded','true');await expect(page.getByRole('dialog').getByRole('checkbox').first()).toBeChecked();
+         |                                                                                                                                   ^
+      17 |  await page.keyboard.press('Escape');await first.scrollIntoViewIfNeeded();
+      18 |  const hit=await first.evaluate(e=>{const r=e.getBoundingClientRect();const target=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return e===target||e.contains(target)});expect(hit).toBe(true);
+      19 |  await page.screenshot({path:`/evidence/land-selected-${width}.png`,fullPage:true});fs.writeFileSync(`/evidence/land-selected-${width}.json`,JSON.stringify({width,selected,hit}));await context.close();
+        at /checks/selectors.spec.ts:16:131
+
+    Error Context: ../evidence/browser-selector-artifacts/selectors-land-grouped-sel-0904a-t-choices-and-keyboard-1440/error-context.md
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

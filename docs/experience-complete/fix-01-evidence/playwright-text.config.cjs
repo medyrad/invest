@@ -1,0 +1,1 @@
+module.exports={...require('./playwright.config.cjs'),testMatch:['criteria-text.spec.ts'],tsconfig:'/source/tsconfig.json',reporter:[['list'],['junit',{outputFile:'/evidence/criteria-text.xml'}]],outputDir:'/tmp/criteria-text-artifacts'};

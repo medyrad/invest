@@ -1,0 +1,8 @@
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="15.315872999999998">
+<testsuite name="criteria-text.spec.ts" timestamp="2026-11-19T19:35:04.137Z" hostname="" tests="2" failures="0" skipped="0" time="0.105" errors="0">
+<testcase name="document criteria preserve complete Persian notes without altering raw data" classname="criteria-text.spec.ts" time="0.038">
+</testcase>
+<testcase name="compact chips retain existing abbreviated presentation" classname="criteria-text.spec.ts" time="0.067">
+</testcase>
+</testsuite>
+</testsuites>
