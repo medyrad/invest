@@ -1,0 +1,52 @@
+{
+  "mission": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
+  "base_commit": "e710781",
+  "implementation_commit": "5e262b6",
+  "date": "2026-11-19",
+  "reference_archive": {
+    "path": "/Users/mehdi/Downloads/Investment_Advisor-main.zip",
+    "sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b"
+  },
+  "runtime": {
+    "frontend_image": "sha256:81f66cdbea8fe51be8063b8a865d107dfede5ceca0ff3fe260659d489adea906",
+    "backend_image": "sha256:dea6b65fdc784dde5f453035bc612a6325215b5f2b00bd87cc264d425dffbc92",
+    "node": "24.22.3",
+    "npm": "11.19.1",
+    "next": "16.4.6",
+    "playwright": "1.65.1-noble",
+    "docker_compose": "2.35.1-desktop.1"
+  },
+  "validation": {
+    "backend_unique_passed": 96,
+    "backend_seconds": 169.65,
+    "browser_unique_passed": 8,
+    "browser_duration": "4.3m",
+    "unique_total": 104,
+    "ruff": "passed",
+    "frontend_lint": "passed",
+    "frontend_build": "passed-15-of-15-pages",
+    "postgresql_isolated": true,
+    "human_visual_approved": false,
+    "d28_human_accepted": false,
+    "independent_acceptance": false
+  },
+  "d28": {
+    "policy": "D28@1",
+    "review_scenarios": 40,
+    "control_scenarios": 4,
+    "labels_included": false,
+    "output_sha256": "c5f4e9171add1b4910f0046ff86beab27f88408d21731249817852f251ac5bc0"
+  },
+  "evidence_sha256": {
+    "guide-360.png": "f702bd347b4364466f84edf688a7eae669fbc76406ca245ccc53f554ac748292",
+    "guide-390.png": "633290b5b88f8fbb777fa61a3cf3557516296b41a1576caf791adfc553618bfe",
+    "guide-768.png": "587a81b1eb2229b530b5adf82792847ab93650858d385c6dbb5ffc1cf4f78486",
+    "guide-1440.png": "58fbeaa44c50a8403f119ed1bd0d35c947f5b3afaeb75ba9637540b572ae687d",
+    "land-360.png": "b57dd1ce2b41c997d420ffb22e885227c47cb0e2b3858bfd65634857ed833e86",
+    "land-390.png": "30c130461b2a958fa92973ad440318e39ab7f69f76f7acab7e7a8c414faeb236",
+    "land-768.png": "f644e36962831c7988f2ab419d446cfcf85ef12e4f82e37f958016a4cd0680e9",
+    "land-1440.png": "32805055109509a14416abda0a5276f147164359713ce4511de9f3f9398b4fa1"
+  },
+  "public_deployed": false,
+  "pushed": false
+}

@@ -1,8 +1,8 @@
 {
   "date": "2026-11-19",
   "current_stage": "S08",
-  "status": "s08-technical-pass-product-completion-audit-documented",
-  "implementation_authorized": false,
+  "status": "experience-technical-ready-awaiting-independent-and-human-review",
+  "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
   "runtime_verified": true,
@@ -59,10 +59,11 @@
     "PROGRAMMER-S03-01 trial identity implemented and locally verified: 93 PostgreSQL tests, 28 browser checks at four widths, server OTP/session/revocation/quotas, reference dialog and synthetic audit; ready for independent testing, not final S03 acceptance",
     "PROGRAMMER-S04-01 home/navigation/server catalog implemented with scoped SpecKit artifacts and local evidence; ready for independent testing, not human or full S04 acceptance",
     "Independent technical acceptance recorded from TEST-S03-03, TEST-S04-02 and TEST-S04-04; human/final stage acceptance unchanged; PRODUCT-S05-01 decision package prepared without S05 implementation authorization",
-    "User approved P3 as D30 and recommended P1/P2 as D31/D32; PROGRAMMER-S05-A1 handoff authorized and prepared; implementation and human visual acceptance not claimed."
+    "User approved P3 as D30 and recommended P1/P2 as D31/D32; PROGRAMMER-S05-A1 handoff authorized and prepared; implementation and human visual acceptance not claimed.",
+    "PROGRAMMER-EXPERIENCE-COMPLETE-01 technical implementation and programmer validation completed for PC-A01..A08; independent review, human visual approval and D28 expert judgment remain open"
   ],
   "remaining": [
-    "شکاف‌های PC-A01..A08 و معیارهای AC-PC01..08 در COMP-EXPERIENCE؛ طراحی انسانی و داوری D28 باز",
+    "COMP-EXPERIENCE: پیاده‌سازی و شاهد برنامه‌نویس PC-A01..A08 آماده؛ آزمون مستقل، تأیید انسانی طراحی و داوری خبره D28 باز",
     "COMP-AI: F31–F33 و PC-D02؛ اتصال واقعی OpenAI و ارزیابی باز",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
@@ -111,25 +112,25 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
-    "description": "پیشنهاد تکمیل جامع سفر ورود/ذخیره/پروفایل/جست‌وجوی تخصصی/گزارش و طراحی همه مسیرها؛ نه شروع S09",
+    "id": "TEST-EXPERIENCE-COMPLETE-01",
+    "description": "پیشنهاد بازآزمایی مستقل COMP-EXPERIENCE و سپس گیت‌های انسانی طراحی/D28؛ نه شروع S09",
     "authorized": false,
     "scope_path": "docs/02-delivery-roadmap.md",
     "package": "COMP-EXPERIENCE"
   },
   "active_step": {
-    "id": "PRODUCT-COMPLETION-AUDIT-01",
-    "mission": "PRODUCT-COMPLETION-AUDIT-01",
-    "status": "documented-awaiting-coordinator-review",
-    "authorization": "Explicit latest user mission: documentation/traceability audit and local commit only",
+    "id": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
+    "mission": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
+    "status": "technical-ready-awaiting-independent-and-human-review",
+    "authorization": "Explicit user mission: implement COMP-EXPERIENCE against AC-PC01..AC-PC08; local commits only",
     "documentation_authorized": true,
-    "implementation_authorized": false,
+    "implementation_authorized": true,
     "push_authorized": false,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
     "final_acceptance": false,
-    "report_path": "docs/product-completion-audit.md",
-    "validation_path": "docs/product-completion-evidence/validation.json"
+    "report_path": "docs/experience-complete/report.md",
+    "validation_path": "docs/experience-complete/manifest.json"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -538,7 +539,7 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PRODUCT-COMPLETION-AUDIT-01",
+    "current_mission": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
     "current_mission_override": "local commit only; no push or deploy",
     "earlier_standing_push_authorization": true
   },
@@ -655,16 +656,40 @@
     "product_tests_rerun": false,
     "package_owner": "docs/02-delivery-roadmap.md",
     "open_findings": [
-      "PC-A01",
-      "PC-A02",
-      "PC-A03",
-      "PC-A04",
-      "PC-A05",
       "PC-A06",
       "PC-A07",
       "PC-A08",
       "PC-A09",
       "PC-A10"
+    ]
+  },
+  "experience_delivery": {
+    "mission": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
+    "base_commit": "e710781",
+    "implementation_commit": "5e262b6",
+    "status": "programmer-technical-ready",
+    "implementation_authorized": true,
+    "independent_acceptance": false,
+    "human_visual_approved": false,
+    "d28_human_accepted": false,
+    "public_deployment_authorized": false,
+    "pushed": false,
+    "report_path": "docs/experience-complete/report.md",
+    "manifest_path": "docs/experience-complete/manifest.json",
+    "backend_unique_passed": 96,
+    "browser_unique_passed": 8,
+    "source_archive_sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b",
+    "technical_findings_closed": [
+      "PC-A01",
+      "PC-A02",
+      "PC-A03",
+      "PC-A04",
+      "PC-A05"
+    ],
+    "human_or_independent_gates_open": [
+      "PC-A06",
+      "PC-A07",
+      "PC-A08"
     ]
   }
 }

@@ -1,0 +1,2883 @@
+{
+  "mission": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
+  "source": "backend/tests/fixtures/core/d28-human-review-inputs.json",
+  "runtime": "isolated PostgreSQL browser stack; synthetic opportunities only",
+  "policy": "D28@1",
+  "human_acceptance": "open",
+  "labels_included": false,
+  "results": [
+    {
+      "id": "D28-REVIEW-01",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "5000000000",
+        "budget_max": "20000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-02",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "200000000",
+        "budget_max": "2000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-03",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "15000000000",
+        "budget_max": "30000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-04",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "20000000000",
+        "budget_max": "35000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-05",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "0",
+        "budget_max": "3500000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-06",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "5000000000",
+        "budget_max": "45000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-07",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "10000000000",
+        "budget_max": "15000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-08",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "300000000",
+        "budget_max": "1500000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-09",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "20000000000",
+        "budget_max": "25000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-10",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "0",
+        "budget_max": "30000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-11",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "100000000",
+        "budget_max": "3000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-12",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "10000000000",
+        "budget_max": "40000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-13",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "15000000000",
+        "budget_max": "45000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-14",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "400000000",
+        "budget_max": "1000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "0",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "0",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-15",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "0",
+        "budget_max": "20000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-16",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "5000000000",
+        "budget_max": "25000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-17",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "200000000",
+        "budget_max": "2500000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-18",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "15000000000",
+        "budget_max": "35000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-19",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "20000000000",
+        "budget_max": "40000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-20",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "0",
+        "budget_max": "4000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-21",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "5000000000",
+        "budget_max": "15000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-22",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "10000000000",
+        "budget_max": "20000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-23",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "300000000",
+        "budget_max": "2000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-24",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "20000000000",
+        "budget_max": "30000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-25",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "0",
+        "budget_max": "35000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        },
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-26",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "100000000",
+        "budget_max": "3500000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-27",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "10000000000",
+        "budget_max": "45000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-28",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "15000000000",
+        "budget_max": "15000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-29",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "400000000",
+        "budget_max": "1500000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-30",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "0",
+        "budget_max": "25000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-31",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "5000000000",
+        "budget_max": "30000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        },
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-32",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "200000000",
+        "budget_max": "3000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-33",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "15000000000",
+        "budget_max": "40000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-34",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "20000000000",
+        "budget_max": "45000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-35",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "0",
+        "budget_max": "1000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "0",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "0",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-36",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "5000000000",
+        "budget_max": "20000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-37",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "10000000000",
+        "budget_max": "25000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": []
+        },
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-38",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "300000000",
+        "budget_max": "2500000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unknown",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-39",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "20000000000",
+        "budget_max": "35000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "unmet",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "met",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-REVIEW-40",
+      "cohort": "human_review_nonempty",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "0",
+        "budget_max": "40000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "amount",
+              "state": "met",
+              "reason": "حداقل ورود با سقف بودجه؛ خرید با بازه قیمت. قیمت واحد، مبلغ کل فرض نمی‌شود.",
+              "weight": "30"
+            },
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-CONTROL-NO-PREFERENCE",
+      "cohort": "no_preference_control",
+      "criteria": {
+        "route": "investor"
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": null,
+          "coverage": null,
+          "status": "no_preferences",
+          "checks": [],
+          "warnings": []
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": null,
+          "coverage": null,
+          "status": "no_preferences",
+          "checks": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "id": "D28-CONTROL-UNKNOWN",
+      "cohort": "unknown_control",
+      "criteria": {
+        "route": "investor",
+        "preferences": {
+          "horizon": 3
+        },
+        "important": [
+          "returns"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "5c97c71b-07b4-46ca-b44b-369590450f11",
+          "title": "فرصت مصنوعی project شماره 2",
+          "score": "0",
+          "coverage": "0",
+          "status": "insufficient_data",
+          "checks": [
+            {
+              "axis": "returns",
+              "state": "unknown",
+              "reason": "واحد یا مبنای «payback_years» قابل مقایسه نیست.",
+              "weight": "20"
+            }
+          ],
+          "warnings": [
+            "واحد یا مبنای «payback_years» قابل مقایسه نیست."
+          ]
+        },
+        {
+          "id": "b1583ef7-2b40-48fc-9275-7803c5fe4e94",
+          "title": "فرصت مصنوعی project شماره 1",
+          "score": "0",
+          "coverage": "0",
+          "status": "insufficient_data",
+          "checks": [
+            {
+              "axis": "returns",
+              "state": "unknown",
+              "reason": "واحد یا مبنای «payback_years» قابل مقایسه نیست.",
+              "weight": "20"
+            }
+          ],
+          "warnings": [
+            "واحد یا مبنای «payback_years» قابل مقایسه نیست."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D28-CONTROL-FUND-NO-PREFERENCE",
+      "cohort": "no_preference_control",
+      "criteria": {
+        "route": "fund"
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "9ca3c5d8-fe33-4e09-afca-3b1b26c2e187",
+          "title": "فرصت مصنوعی fund شماره 2",
+          "score": null,
+          "coverage": null,
+          "status": "no_preferences",
+          "checks": [],
+          "warnings": []
+        },
+        {
+          "id": "77d67660-8bfb-438d-8d69-eeb0df206ff8",
+          "title": "فرصت مصنوعی fund شماره 1",
+          "score": null,
+          "coverage": null,
+          "status": "no_preferences",
+          "checks": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "id": "D28-CONTROL-BUYER-UNKNOWN-LOCATION",
+      "cohort": "unknown_control",
+      "criteria": {
+        "route": "buyer",
+        "province": [
+          "province-99"
+        ],
+        "important": [
+          "location"
+        ]
+      },
+      "total": 2,
+      "policy_version": 1,
+      "top5": [
+        {
+          "id": "f81dcfa1-8e3b-42be-95eb-e1f4a25060ed",
+          "title": "فرصت مصنوعی sale شماره 2",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        },
+        {
+          "id": "2e371949-913e-43ec-9d78-05dc08d54d7d",
+          "title": "فرصت مصنوعی sale شماره 1",
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "checks": [
+            {
+              "axis": "location",
+              "state": "unmet",
+              "reason": "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند.",
+              "weight": "15"
+            }
+          ],
+          "warnings": [
+            "عمیق‌ترین سطح انتخابی؛ گزینه‌ها در یک سطح یا هستند."
+          ]
+        }
+      ]
+    }
+  ]
+}
