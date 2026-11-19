@@ -73,7 +73,7 @@ def get_flow(token, at):
 def uuid_value(value):
     try:
         return uuid.UUID(str(value))
-    except ValueError, TypeError, AttributeError:
+    except (ValueError, TypeError, AttributeError):
         raise Fault("invalid_request") from None
 
 
@@ -308,13 +308,13 @@ def intent(token, action, payload=None, session_token=None):
         if (
             not session
             or not flow.intent
-            or flow.intent_consumed
             or at >= flow.intent_at + timedelta(minutes=10)
             or flow.intent_account != session.user_id
             or flow.intent_session_id != session.pk
             or flow.intent["destination"] != "/saved"
         ):
             raise Fault("intent_unavailable", 409)
-        flow.intent_consumed = True
-        flow.save(update_fields=["intent_consumed"])
+        if not flow.intent_consumed:
+            flow.intent_consumed = True
+            flow.save(update_fields=["intent_consumed"])
         return {"handoff": flow.intent, "persisted": False}

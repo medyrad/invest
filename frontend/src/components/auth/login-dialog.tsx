@@ -1,12 +1,12 @@
 'use client';
 
-import {bindAccount,clearPrivateAccount} from '@/lib/store';
+import {applyLoginHandoff,bindAccount,clearPrivateAccount,pendingLoginHandoff,type LoginHandoff} from '@/lib/store';
 import { createContext, useContext, useCallback, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import Image from 'next/image';
 
 type Account = { id: string; mobile: string; role: string };
 type Receipt = { challenge_id: string; state: string; expires_at: string; resend_at: string; delivery: string; notification?: { code: string } };
-type Reply = Receipt & { authenticated?: boolean; user?: Account; flow_token?: string; csrfToken?: string; recovered?: boolean; error?: { code: string; message: string }; retry_after?: number };
+type Reply = Receipt & { authenticated?: boolean; user?: Account; flow_token?: string; csrfToken?: string; recovered?: boolean; handoff?:LoginHandoff; error?: { code: string; message: string }; retry_after?: number };
 const messageOf = (error: unknown) => error instanceof Error && /[\u0600-\u06ff]/.test(error.message) ? error.message : 'پاسخ سرور دریافت نشد؛ وضعیت اتصال را بررسی و دوباره تلاش کنید.';
 class PostFailure extends Error {
   constructor(message: string, readonly status: number) { super(message); }
@@ -53,6 +53,7 @@ export default function LoginShell({ children }: { children?: ReactNode }) {
   const issueInFlight = useRef(false);
   const meVersion = useRef(0);
   const authChannel = useRef<BroadcastChannel | null>(null);
+  const hasIntent = useRef(false);
   const [open, setOpen] = useState(false);
   const [mobile, setMobile] = useState('');
   const [code, setCode] = useState('');
@@ -129,6 +130,9 @@ export default function LoginShell({ children }: { children?: ReactNode }) {
     try {
       const result = await post('flows', {}, false);
       flow.current = result.flow_token!;
+      const handoff = pendingLoginHandoff();
+      hasIntent.current = !!handoff;
+      if (handoff) await post('intent', handoff);
       issueKey.current = ''; issuedMobile.current = ''; setIssueUncertain(false);
       setStep('mobile'); setCode(''); setReceipt(null); setWaitUntil(0); setClock(Date.now());
       setOpen(true); dialog.current?.showModal();
@@ -166,15 +170,28 @@ export default function LoginShell({ children }: { children?: ReactNode }) {
     if (step === 'mobile') { await requestCode(); return; }
     if (!receipt || issueUncertain) return;
     setBusy(true); setError('');
+    const finishIntent = async () => {
+      if (!hasIntent.current) return;
+      let last: unknown;
+      for (let attempt = 0; attempt < 2; attempt++) {
+        try {
+          const result = await post('intent/consume');
+          await applyLoginHandoff(result.handoff);
+          hasIntent.current = false;
+          return;
+        } catch (e) { last = e; }
+      }
+      throw last;
+    };
     try {
       await post('verify', { challenge_id: receipt.challenge_id, code });
-      await refresh(); setNotice('خوش آمدید. ورود آزمایشی انجام شد؛ مالکیت واقعی شماره احراز نشده است.');
+      await refresh(); await finishIntent(); setNotice('خوش آمدید. ورود و ذخیره با رسید سرور انجام شد؛ مالکیت واقعی شماره احراز نشده است.');
       dialog.current?.close(); setOpen(false); setCode(''); setReceipt(null); flow.current = ''; opener.current?.focus();
     } catch (e) {
       // A lost verify response may still have delivered Set-Cookie. Never replay to mint a session.
       const recovered = await refresh().catch(() => null);
       const canonical = en(mobile).replace(/[ -]/g, '').replace(/^0098/, '+98').replace(/^09/, '+989');
-      if (recovered && recovered.mobile === canonical) { dialog.current?.close(); setOpen(false); setCode(''); setReceipt(null); flow.current = ''; setNotice('وضعیت ورود از سرور بازیابی شد.'); }
+      if (recovered && recovered.mobile === canonical) { try { await finishIntent(); dialog.current?.close(); setOpen(false); setCode(''); setReceipt(null); flow.current = ''; setNotice('وضعیت ورود و ادامه عملیات از سرور بازیابی شد.'); } catch (intentError) { setError(messageOf(intentError)); } }
       else setError(messageOf(e));
     } finally { setBusy(false); }
   };

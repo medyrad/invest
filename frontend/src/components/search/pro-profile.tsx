@@ -16,7 +16,7 @@ import { useStore } from "@/lib/store";
 import type { RouteId, SearchCriteria } from "@/types";
 import { cn, faNumber } from "@/lib/utils";
 
-export interface ProProfile { name?: string; entity?: string; roles?: string[]; province?: string; specialty?: string; capacity?: string; capital?: number | string }
+export interface ProProfile { name?: string; entity?: string; roles?: string[]; province?: string; specialty?: string; capacity?: string; capital?: number | string; certificate?:string; certificateNo?:string; issuer?:string; expiry?:string; validity?:string; references?:string }
 
 const roleLabel: Record<string, string> = { investor: "سرمایه‌گذار", builder: "سازنده / توسعه‌گر", contractor: "پیمانکار", manager: "مدیر املاک استیجاری", consultant: "مشاور / تسهیل‌گر" };
 /** نقش حرفه‌ای → مسیر جست‌وجو (مشاور مسیر جداگانه‌ای ندارد) */
@@ -52,8 +52,14 @@ export function profileSummary(p: ProProfile) {
 export const openProfileTab = (push: (u: string) => void) => { try { sessionStorage.setItem("hs-saved-tab", "profile"); } catch { /* Optional navigation hint is unavailable. */ } push("/saved"); window.dispatchEvent(new Event("hs-saved-tab")); };
 
 /** پروفایل کوتاه را در همان ساختاری می‌نویسد که فرم کامل «پروفایل حرفه‌ای» می‌خواند */
-export function writeProProfile(patch: Partial<ProProfile>) {
- void core<{profile:Record<string,string>}>('personal').then(x=>core('personal',{key:crypto.randomUUID(),action:'profile',id:null,value:{...x.profile,professional:JSON.stringify({...JSON.parse(x.profile.professional||'{}'),...patch})}})).then(()=>window.dispatchEvent(new Event('invest-profile'))).catch(e=>toast(e.message));
+export async function writeProProfile(patch: Partial<ProProfile>) {
+ const x=await core<{profile:Record<string,string>}>('personal');
+ const current=JSON.parse(x.profile.professional||'{}') as ProProfile;
+ const next={...current,...patch};
+ await core('personal',{key:crypto.randomUUID(),action:'profile',id:null,value:{...x.profile,professional:JSON.stringify(next)}});
+ window.dispatchEvent(new Event('invest-profile'));
+ toast('پروفایل پس از تأیید سرور ذخیره شد.');
+ return next;
 }
 
 type Fact = { id: "route" | "province" | "amount"; label: string; value: string; on: boolean; patch: Partial<SearchCriteria> };
@@ -100,7 +106,7 @@ function QuickProfile({ open, onOpenChange, initial, onSaved }: { open: boolean;
             </div>
           )}
         </div>
-        <Button type="button" onClick={() => { const p: ProProfile = { ...(initial ?? {}), roles: [role], province: province ?? "all", capital: capital ? Number(capital) : initial?.capital }; writeProProfile(p); onSaved(p); onOpenChange(false); }}
+        <Button type="button" onClick={() => { const p: ProProfile = { ...(initial ?? {}), roles: Array.from(new Set([...(initial?.roles??[]),role])), province: province ?? "all", capital: capital || initial?.capital }; void writeProProfile(p).then(saved=>{onSaved(saved);onOpenChange(false)}).catch(e=>toast(e instanceof Error?e.message:'ذخیره انجام نشد.')); }}
           className="mt-6 h-12 w-full rounded-full bg-primary text-[14px] font-extrabold text-white hover:bg-primary/90">ذخیره و اعمال روی فیلترها</Button>
       </DialogContent>
     </Dialog>

@@ -52,3 +52,9 @@
 - [x] T033 آزمون‌های مستقل تاریخی و مکمل/مرورگر هدفمند، کیفیت/build، منشأ image فعال و manifest تازه، گزارش زمان/محدودیت، commit/push (FR-009/SC-005؛ partial).
 
 شاهد FIX-01 T027–T032: docs/stage8/fix-01-evidence/backend-final.txt، races-final.txt و browser-final.txt؛ سه آزمون مستقل تاریخی دست‌نخورده‌اند. T033 با manifest تازه، گزارش و push موفق commit 7c2632c تکمیل شد؛ commit شواهد در پیام تحویل است.
+
+## Phase 8: COMP-EXPERIENCE (مصرف‌کننده مشترک با 009)
+
+- [x] T034 PC-A04: advisory مؤثر نسخه‌دار در preview/گزارش و منع دانلود پیش از پاسخ سرور.
+- [x] T035 PC-A06: گروه‌بندی انتخاب‌گر زمین، حفظ ترتیب انتخاب و کنترل overflow در ۳۶۰/۳۹۰/۷۶۸/۱۴۴۰.
+- [ ] T036 PC-A08: شواهد فنی و نگاشت source→consumer ثبت شد؛ تأیید انسانی طراحی و پذیرش نهایی بسته باز است.

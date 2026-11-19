@@ -271,7 +271,7 @@ export function ToolView({ id }: { id: string }) {
               <Link href="/tools" className="inline-flex items-center gap-1.5 hover:text-white"><ArrowRight size={15} />جذب سرمایه</Link>
               <span className="text-white/40">/</span><span>{group.name}</span>
             </nav>
-            <div className="flex items-end justify-between gap-6">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
               <div className="flex items-center gap-4">
                 <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-white text-primary-ink shadow-xl"><I size={28} variant="Bulk" /></span>
                 <div>
@@ -279,7 +279,7 @@ export function ToolView({ id }: { id: string }) {
                   <p className="mt-1 max-w-2xl text-sm leading-7 text-white/80">{tool.description}</p>
                 </div>
               </div>
-              {id !== "library" && <GuideSheet toolId={id} />}
+              {id !== "library" && <div className="shrink-0"><GuideSheet toolId={id} /></div>}
             </div>
           </div>
         </SignaturePhoto>

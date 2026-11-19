@@ -1,0 +1,870 @@
+{
+  "mission": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
+  "policy": "D28@1",
+  "status": "awaiting_independent_human_labels",
+  "rules": {
+    "review_scenarios": 40,
+    "labels_are_human_only": true,
+    "weights_changed": false,
+    "acceptance_threshold_approved": false,
+    "note_fa": "فیلدهای داوری عمداً null هستند؛ آماده‌سازی خروجی به معنی پذیرش کیفیت نیست."
+  },
+  "scenarios": [
+    {
+      "id": "D28-REVIEW-01",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "5000000000",
+        "budget_max": "20000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-02",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "200000000",
+        "budget_max": "2000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-03",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "15000000000",
+        "budget_max": "30000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-04",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "20000000000",
+        "budget_max": "35000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-05",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "0",
+        "budget_max": "3500000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-06",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "5000000000",
+        "budget_max": "45000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-07",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "10000000000",
+        "budget_max": "15000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-08",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "300000000",
+        "budget_max": "1500000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-09",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "20000000000",
+        "budget_max": "25000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-10",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "0",
+        "budget_max": "30000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-11",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "100000000",
+        "budget_max": "3000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-12",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "10000000000",
+        "budget_max": "40000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-13",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "15000000000",
+        "budget_max": "45000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-14",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "400000000",
+        "budget_max": "1000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-15",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "0",
+        "budget_max": "20000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-16",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "5000000000",
+        "budget_max": "25000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-17",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "200000000",
+        "budget_max": "2500000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-18",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "15000000000",
+        "budget_max": "35000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-19",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "20000000000",
+        "budget_max": "40000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-20",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "0",
+        "budget_max": "4000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-21",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "5000000000",
+        "budget_max": "15000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-22",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "10000000000",
+        "budget_max": "20000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-23",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "300000000",
+        "budget_max": "2000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-24",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "20000000000",
+        "budget_max": "30000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-25",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "0",
+        "budget_max": "35000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-26",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "100000000",
+        "budget_max": "3500000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-27",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "10000000000",
+        "budget_max": "45000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-28",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "15000000000",
+        "budget_max": "15000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-29",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "400000000",
+        "budget_max": "1500000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-30",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "0",
+        "budget_max": "25000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-31",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "5000000000",
+        "budget_max": "30000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-32",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "200000000",
+        "budget_max": "3000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-33",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "15000000000",
+        "budget_max": "40000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-34",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "20000000000",
+        "budget_max": "45000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-35",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "0",
+        "budget_max": "1000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-36",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "5000000000",
+        "budget_max": "20000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-37",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "10000000000",
+        "budget_max": "25000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-38",
+      "cohort": "human_review_nonempty",
+      "route": "fund",
+      "criteria": {
+        "route": "fund",
+        "budget_min": "300000000",
+        "budget_max": "2500000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-39",
+      "cohort": "human_review_nonempty",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "budget_min": "20000000000",
+        "budget_max": "35000000000",
+        "province": [
+          "province-07"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-REVIEW-40",
+      "cohort": "human_review_nonempty",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "budget_min": "0",
+        "budget_max": "40000000000",
+        "province": [
+          "province-04"
+        ],
+        "important": [
+          "amount",
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-CONTROL-NO-PREFERENCE",
+      "cohort": "no_preference_control",
+      "route": "investor",
+      "criteria": {
+        "route": "investor"
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-CONTROL-UNKNOWN",
+      "cohort": "unknown_control",
+      "route": "investor",
+      "criteria": {
+        "route": "investor",
+        "preferences": {
+          "horizon": 3
+        },
+        "important": [
+          "returns"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-CONTROL-FUND-NO-PREFERENCE",
+      "cohort": "no_preference_control",
+      "route": "fund",
+      "criteria": {
+        "route": "fund"
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    },
+    {
+      "id": "D28-CONTROL-BUYER-UNKNOWN-LOCATION",
+      "cohort": "unknown_control",
+      "route": "buyer",
+      "criteria": {
+        "route": "buyer",
+        "province": [
+          "province-99"
+        ],
+        "important": [
+          "location"
+        ]
+      },
+      "pre_result_human_label": null,
+      "critical_misleading": null,
+      "reviewer_note": null
+    }
+  ]
+}

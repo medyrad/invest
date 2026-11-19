@@ -1,17 +1,21 @@
+import json
 import uuid
 from datetime import timedelta
 from decimal import Decimal
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
+from django.core.management import call_command
 from django.db import DatabaseError, transaction
 from django.utils import timezone
 
 from apps.core import cases, discovery, personal
 from apps.core import publication as pub
-from apps.core.models import Opportunity, Report, Submission
+from apps.core.models import Opportunity, Report, Search, Submission
 from apps.identity.models import User
 from apps.identity.sessions import mint_session
+from apps.services import advisories
 from apps.workspace import other_schema
 from apps.workspace import service as ws
 from apps.workspace.models import PrivateFile, RepresentationRequest
@@ -319,6 +323,24 @@ def test_matching_fixed_denominator(team):
     assert result["status"] == "insufficient_data"
 
 
+def test_d28_human_review_inputs_are_nonempty_and_unlabelled(team):
+    for kind in ["project", "fund", "sale"]:
+        publish(team, kind)
+    fixture = json.loads(
+        (Path(__file__).parent / "fixtures/core/d28-human-review-inputs.json").read_text()
+    )
+    review = [s for s in fixture["scenarios"] if s["cohort"] == "human_review_nonempty"]
+    assert len(review) == 40
+    assert {s["route"] for s in review} == {"investor", "fund", "buyer"}
+    for scenario in review:
+        assert set(scenario["criteria"]) - {"route"}
+        assert scenario["pre_result_human_label"] is None
+        assert scenario["critical_misleading"] is None
+        result = discovery.listing(scenario["criteria"])
+        assert result["items"], scenario["id"]
+        assert all("matching" in item for item in result["items"][:5])
+
+
 @pytest.mark.parametrize("kind", ["fund", "sale"])
 def test_inactive_values_not_effective(team, kind):
     d = draft(team[0], kind)
@@ -358,6 +380,80 @@ def test_personal_isolation_report_no_case(team):
         personal.mutate(
             user, {"key": key(), "action": "profile", "id": None, "value": {"role": "admin"}}
         )
+
+
+def test_saved_search_update_is_atomic_and_report_redownload_is_readable(team):
+    call_command("import_reference", verbosity=0)
+    from apps.catalog.models import Subtype
+
+    catalog_subtype = Subtype.objects.first()
+    _, op = publish(
+        team,
+        values={"group": catalog_subtype.group_id, "subtype": catalog_subtype.pk},
+    )
+    user = team[2].user
+    created = personal.mutate(
+        user,
+        {
+            "key": key(),
+            "action": "search",
+            "id": None,
+            "value": {"name": "شرایط اولیه", "criteria": {"route": "investor"}},
+        },
+    )
+    search_id = created["searches"][0]["id"]
+    personal.mutate(
+        user,
+        {
+            "key": key(),
+            "action": "search_update",
+            "id": search_id,
+            "value": {"name": "شرایط ویرایش‌شده", "criteria": {"route": "investor"}},
+        },
+    )
+    assert Search.objects.get(pk=search_id).name == "شرایط ویرایش‌شده"
+    with pytest.raises(Fault):
+        personal.mutate(
+            user,
+            {
+                "key": key(),
+                "action": "search_update",
+                "id": search_id,
+                "value": {"name": "نباید اعمال شود", "criteria": {"route": "invalid"}},
+            },
+        )
+    assert Search.objects.get(pk=search_id).name == "شرایط ویرایش‌شده"
+
+    subtype = Subtype.objects.get(
+        pk=discovery.public_dto(op)["fields"]["subtype"]
+    ).raw_id
+    question = advisories.evaluate(subtype, {})["questions"][0]
+    answer = question["options"][0]["value"]
+    receipt = personal.mutate(
+        user,
+        {
+            "key": key(),
+            "action": "report",
+            "id": str(op.pk),
+            "value": {
+                "criteria": {"route": "investor"},
+                "guide_context": {
+                    "mine": [["بودجه", "۳۰ میلیارد تومان"]],
+                    "answers": {question["id"]: answer},
+                    "checked": ["بررسی سند"],
+                    "advisory_version": 1,
+                },
+            },
+        },
+    )
+    report = Report.objects.get(pk=receipt["report_id"])
+    rendered = report.snapshot["rendered_html"]
+    assert "شرایط ثبت‌شده شما" in rendered
+    assert "پاسخ‌های مؤثر ثبت‌شده" in rendered
+    assert "کنترل‌های راهنمای مؤثر" in rendered
+    assert report.snapshot["effective_advisory"]["version"] == 1
+    assert "این دریافت پرونده یا درخواست تازه‌ای ایجاد نمی‌کند" in rendered
+    assert receipt["download"].endswith(str(report.pk))
 
 
 def test_organization_review_successor_hold_and_isolation(team):

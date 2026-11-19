@@ -19,3 +19,11 @@ revision شامل snapshot مؤثر و file refs ثابت؛ تصمیم/تاری�
 ## اصلاح CORE-FIX-01
 
 operator_work_period در namespace invest.opportunity.project، نسخه۱، Quantity غیرمنفی با دقت۹ و حد۲۴+۹، واحد صریح DAY/MONTH/YEAR@1 و start_basis طبق D29. required فقط هنگام operator؛ raw inactive محفوظ و snapshot مؤثر آن را حذف می‌کند. سوابق قبلی بازنویسی نمی‌شوند. criteria.important آرایه رشته از محورهای D28 است؛ عضو تو‌در‌تو/غیررشته/نامجاز پیش از lookup با۴۰۰ و مسیر criteria.important.N رد می‌شود. preferences/conditions نیز ساختار کنترل‌شده دارند.
+
+## قرارداد COMP-EXPERIENCE
+
+`POST /auth/intent` یک `destination=/saved` و snapshot نسخه۱ شامل operation دقیق `save-listing` یا `save-criteria` و UUID عملیات می‌پذیرد. consume برای همان session/account handoff ثابت را در retry برمی‌گرداند؛ اثر در `POST /core/personal` با همان UUID idempotent است. cancel/expiry handoff نمی‌دهد. تعویض حساب یا پاسخ نسل قبلی در client پذیرفته نمی‌شود.
+
+`POST /core/personal` action=`search_update`، id موجود و value کامل `{name,criteria}` می‌خواهد و اتمیک است. action=`profile` در `professional` JSON نقش‌های چندگانه مجاز، entity، نام استان catalog، Decimal غیرمنفی سرمایه و validity enum را کنترل می‌کند؛ profile هرگز role/authority حساب را تغییر نمی‌دهد. پاسخ موفق تنها مبنای success UI است.
+
+action=`report` با key UUID، opportunity عمومی و `{criteria,guide_context}` گزارش opportunity می‌سازد. `guide_context.advisory_version=1` و پاسخ‌ها/تیک‌ها محدود و ساختاری‌اند؛ subtype سلسله‌مراتبی فقط از catalog به advisory raw_id نگاشت می‌شود و guidance/check مؤثر در snapshot سرور ثبت می‌شود. `GET /core/reports/:id` پس از کنترل اختیار جاری همان `rendered_html` فارسی تاریخی را با `text/html` و CSP sandbox برمی‌گرداند؛ legacy بدون HTML فقط fallback JSON دارد و دریافت هیچ Case تازه‌ای ایجاد نمی‌کند.

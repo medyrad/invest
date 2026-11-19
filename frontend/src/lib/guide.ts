@@ -3,7 +3,7 @@ import {documents,exactText,basisText,type Typed} from './public-values';
 // برای پروژه‌هایی است که کارشناس اختصاصی ندارند (مطابق نسخه مرجع که خروجی راهنما را HTML می‌دهد).
 import { advisories } from "@/data/advisories";
 import { routeSteps } from "@/data/routes";
-import type { RouteId } from "@/types";
+import type { Advisory, RouteId } from "@/types";
 import { dossier, factGroups } from "./facts";
 import type { Listing, Opportunity } from "@/types";
 import { faNumber } from "./utils";
@@ -41,16 +41,16 @@ ol.steps li:has(input:checked){border-color:#007a78;background:#f3f9f8}ol.steps 
 `;
 
 /** آنچه کاربر خودش پر کرده و در فایل راهنما می‌آید (مطابق نسخه مرجع: شرایط، پاسخ پرسش‌ها، تیک گام‌ها و نوع پیگیری) */
-export interface GuideContext { mine?: [string, string][]; answers?: Record<string, string>; checked?: string[]; kind?: string }
+export interface GuideContext { mine?: [string, string][]; answers?: Record<string, string>; checked?: string[]; kind?: string; advisory_version?: number }
 export const followUpKinds = [
   { value: "documents", label: "درخواست بررسی اسناد و شرایط" },
   { value: "visit", label: "بررسی امکان بازدید" },
   { value: "interest", label: "اعلام علاقه‌مندی به همکاری" },
 ];
 
-export function guideHtml(l: Listing, ctx: GuideContext = {}): string {
+export function guideHtml(l: Listing, ctx: GuideContext = {}, effectiveAdvisory?: Advisory): string {
   const o = l.kind === "project" ? (l.raw as Opportunity) : null;
-  const adv = o ? advisories[o.subtype] : undefined;
+  const adv = o ? effectiveAdvisory ?? advisories[o.subtype] : undefined;
   const groups = factGroups(l);
   let n = 0;
   const sec = (title: string, body: string) => `<section><h2><b>${faNumber(++n)}</b>${title}</h2>${body}</section>`;
@@ -77,7 +77,7 @@ export function guideHtml(l: Listing, ctx: GuideContext = {}): string {
     if (flow.length) parts.push(sec("مسیر پول", `<div class="flow" style="grid-template-columns:${flow.map(() => "1fr").join(" auto ")}">${flow.map(([t, d], i) => `${i ? '<div class="arrow">←</div>' : ""}<div class="card"><h3>${t}</h3><p>${esc(d)}</p></div>`).join("")}</div>`));
     const checks = [...new Set([...(o.checks ?? []), ...(adv?.baseChecks ?? [])])];
     if (o.caution || checks.length) parts.push(sec("پیش از اقدام بدانید", `${o.caution ? `<div class="note">${esc(o.caution)}</div>` : ""}${checks.length ? `<ul class="check">${checks.map((c) => `<li><label><input type="checkbox" data-k="${esc(c)}"${ctx.checked?.includes(c) ? " checked" : ""}><i></i>${esc(c)}</label></li>`).join("")}</ul>` : ""}`));
-    if (adv?.questions.length) parts.push(sec("پرسش‌هایی که باید پاسخشان را آماده کنید", `${adv.context ? `<p style="margin:0 0 8px;color:#667473">${esc(adv.context)}</p>` : ""}${adv.questions.map((q) => { const a = ctx.answers?.[q.id]; const opt = q.options.find((x) => x.value === a);
+    if (adv?.questions.length) parts.push(sec("پرسش‌هایی که باید پاسخشان را آماده کنید", `${adv.context ? `<p style="margin:0 0 8px;color:#667473">${esc(adv.context)}</p>` : ""}${ctx.advisory_version ? `<p>نسخه قواعد پاسخ‌های مؤثر: ${faNumber(ctx.advisory_version)}</p>` : ""}${adv.questions.map((q) => { const a = ctx.answers?.[q.id]; const opt = q.options.find((x) => x.value === a);
       return `<div class="q"><p>${esc(q.label)}</p>${opt ? `<div class="ans"><b>پاسخ شما:</b> ${esc(opt.label)}</div>${q.actions[a!] ? `<small>${esc(q.actions[a!])}</small>` : ""}` : `<small>${q.options.map((x) => esc(x.label)).join(" / ")}</small>`}</div>`; }).join("")}`));
   }
   parts.push(sec("پرونده کامل", dossier(l).map((d) => `<div class="card" style="margin-bottom:10px"><h3>${esc(d.title)}</h3>${d.note ? `<p style="margin:0 0 6px;color:#667473;font-size:12px">${esc(d.note)}</p>` : ""}${rowsHtml(d.rows, "هنوز ثبت نشده و با دریافت اسناد کامل می‌شود")}${(d.notes ?? []).map(([k, v]) => `<p style="margin:8px 0 0;font-size:12px"><b>${esc(k)}: </b>${esc(v)}</p>`).join("")}</div>`).join("")));

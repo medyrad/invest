@@ -4,6 +4,8 @@ Django/DRF/PostgreSQL و Next/React موجود، بدون تعویض زیرسا�
 
 تطبیق با Decimal و وزن سیاست D28@1، بدون حذف ترجیحی؛ cursor امضاشده شامل معیار/زمان/نسخه. تقویم مصنوعی نسخه‌دار و deadline پایدار؛ jobs زمان‌پذیر. Case/assignment/consent/message با قفل واحد پرونده؛ اعلان در همان تراکنش. گزارش snapshot ثابت و بدون شماره.
 
+تکمیل COMP-EXPERIENCE روی ownerهای موجود انجام می‌شود: LoginFlow.intent برای handoff immutable؛ Operation هسته برای once-only؛ `search_update` زیر `select_for_update`؛ profile در Personal با اعتبارسنجی سرور؛ Report با شناسه operation و `rendered_html` ثابت. advisory گزارش از Subtype نسخه‌دار catalog به raw_id معتبر نگاشت و در سرور دوباره ارزیابی می‌شود. UI دانلود تا پاسخ مؤثر قفل است. آزمون اثر شامل race/replay احراز، PostgreSQL واقعی، مرورگر journey و چهار عرض است؛ suite کامل S08 دوباره اجرا نمی‌شود.
+
 فرانت: اجزای مرجع Results/Detail/Compare/Saved/Guide، adapter داده API و store حساب سروری؛ حفظ LoginShell و الگوی stale-response guards. پنل‌های مالک/ادمین/کارشناس با اجزای برند؛ مسیرهای واقعی جایگزین catch-all.
 
 برش‌ها: (۱) اسناد و schema سه نوع؛ (۲) بررسی/انتشار/سازمان؛ (۳) پرونده/رضایت/مهلت؛ (۴) discovery و فضای شخصی؛ (۵) UI/seed و نقش‌های محلی؛ (۶) آزمون یکپارچه و تطبیق مرجع/گزارش. تست انتخابی هر برش، build هنگام استفاده و یک regression نهایی. rollback مخرب فقط DB آزمون.

@@ -162,7 +162,7 @@ def test_resend_consumption_both_serial_orders():
             verify(b, rb)
 
 
-def test_parallel_intent_consumes_once():
+def test_parallel_intent_recovery_returns_same_idempotent_handoff():
     flow = otp.new_flow()["flow_token"]
     otp.intent(flow, "set", {"destination": "/saved", "snapshot": {"id": "synthetic"}})
     _, result = issue(flow=flow)
@@ -171,5 +171,5 @@ def test_parallel_intent_consumes_once():
         lambda: otp.intent(flow, "consume", session_token=token),
         lambda: otp.intent(flow, "consume", session_token=token),
     )
-    assert sum(isinstance(r, dict) for r in results) == 1
-    assert "intent_unavailable" in results
+    assert all(isinstance(r, dict) for r in results)
+    assert results[0]["handoff"] == results[1]["handoff"]

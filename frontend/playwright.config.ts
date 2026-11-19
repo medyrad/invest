@@ -21,7 +21,7 @@ export default defineConfig({
     command: 'npm run start',
     env: { PORT: '3109', HOSTNAME: '127.0.0.1' },
     url: 'http://127.0.0.1:3109',
-    reuseExistingServer: false,
+    reuseExistingServer: !!process.env.PLAYWRIGHT_REUSE_SERVER,
     timeout: 60_000,
   },
 });

@@ -320,8 +320,8 @@ def test_intent_snapshot_replacement_expiry_cancel_and_owner():
     handoff = otp.intent(flow, "consume", session_token=session)
     assert handoff["handoff"]["snapshot"]["listing"] == "synthetic-1"
     assert handoff["persisted"] is False
-    with pytest.raises(otp.Fault, match="intent_unavailable"):
-        otp.intent(flow, "consume", session_token=session)
+    replay = otp.intent(flow, "consume", session_token=session)
+    assert replay == handoff  # network recovery reuses the same immutable operation key
     otp.intent(flow, "set", payload, session)
     otp.intent(flow, "cancel")
     with pytest.raises(otp.Fault):

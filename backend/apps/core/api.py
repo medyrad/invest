@@ -224,13 +224,26 @@ class CoreAPI(PublicBase):
                         from apps.services.service import render_report
 
                         body = render_report(user, r.pk, as_json=True)
+                        content_type = "application/json; charset=utf-8"
+                        filename = "invest-report.json"
                     else:
-                        body = json.dumps(r.snapshot, ensure_ascii=False, indent=2)
+                        body = r.snapshot.get("rendered_html")
+                        if not isinstance(body, str):
+                            body = json.dumps(r.snapshot, ensure_ascii=False, indent=2)
+                            content_type = "application/json; charset=utf-8"
+                            filename = "invest-report.json"
+                        else:
+                            content_type = "text/html; charset=utf-8"
+                            filename = "invest-guide.html"
                     response = HttpResponse(
                         body,
-                        content_type="application/json; charset=utf-8",
+                        content_type=content_type,
                     )
-                    response["Content-Disposition"] = 'attachment; filename="invest-report.json"'
+                    response["Content-Disposition"] = f'attachment; filename="{filename}"'
+                    if content_type.startswith("text/html"):
+                        response["Content-Security-Policy"] = (
+                            "default-src 'none'; style-src 'unsafe-inline'; sandbox"
+                        )
                     return response
                 if parts[0] == "private-file" and len(parts) == 2:
                     return self.private_file(session, parts[1])

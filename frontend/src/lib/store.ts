@@ -6,7 +6,9 @@ import {toast} from './toast';
 import {clearRanking} from './match';
 import {geoNames} from './public-values';
 export const emptyCriteria:SearchCriteria={route:'investor',groups:[],provinces:[],amount:null,filters:{}};
-type Pending = { type: "save-listing"; id: string } | { type: "save-criteria"; name?: string } | null;
+type Pending = { type: "save-listing"; id: string } | { type: "save-criteria"; name: string; criteria: Record<string,unknown> } | null;
+type PendingRequest = { type: "save-listing"; id: string } | { type: "save-criteria"; name?: string } | null;
+export type LoginHandoff = { destination: "/saved"; snapshot: { version: 1; key: string; operation: Exclude<Pending,null> } };
 
 interface State {
   user: { mobile: string } | null;
@@ -33,17 +35,17 @@ interface State {
   setCriteria: (c: Partial<SearchCriteria>) => void;
   setFilter: (id: string, v: FilterValue) => void;
   resetFilters: () => void;
-  openLogin: (pending?: Pending) => void;
+  openLogin: (pending?: PendingRequest) => void;
   closeLogin: () => void;
   login: (mobile: string) => Pending;
   logout: () => void;
-  toggleSaved: (id: string) => void;
-  saveProfile: (name: string) => void;
+  toggleSaved: (id: string) => Promise<void>;
+  saveProfile: (name: string) => Promise<void>;
   /** افزودن جست‌وجوی تازه از صفحه علاقه‌مندی‌ها، بدون دست زدن به فیلترهای فعلی */
-  addProfile: (name: string, criteria: SearchCriteria) => void;
-  removeProfile: (id: string) => void;
-  updateProfile: (id: string, patch: { name?: string; criteria?: SearchCriteria }) => void;
-  touchProfile: (id: string) => void;
+  addProfile: (name: string, criteria: SearchCriteria) => Promise<void>;
+  removeProfile: (id: string) => Promise<void>;
+  updateProfile: (id: string, patch: { name?: string; criteria?: SearchCriteria }) => Promise<void>;
+  touchProfile: (id: string) => Promise<void>;
 }
 
 
@@ -51,7 +53,7 @@ const listeners=new Set<()=>void>();
 let open:()=>void=()=>{};let close:()=>void=()=>{};let logout:()=>void=()=>{};let generation=0;
 function set(p:Partial<State>){state={...state,...p};for(const fn of listeners)fn();}
 const stateActions={
- setPinned:(pinned:State['pinned'])=>set({pinned}),toggleCompare:(id:string)=>set({compare:state.compare.includes(id)?state.compare.filter(x=>x!==id):state.compare.length<4?[...state.compare,id]:state.compare}),setCompare:(compare:string[])=>set({compare:[...new Set(compare)].slice(0,4)}),clearCompare:()=>set({compare:[]}),setStarted:(started:boolean)=>set({started}),begin:(c:Partial<SearchCriteria>)=>set({criteria:{...emptyCriteria,...c},started:true}),setCriteria:(c:Partial<SearchCriteria>)=>set({criteria:{...state.criteria,...c}}),setFilter:(id:string,v:FilterValue)=>{const filters={...state.criteria.filters};if(v===undefined||v===''||v===false||(Array.isArray(v)&&!v.length))delete filters[id];else filters[id]=v;set({criteria:{...state.criteria,filters}})},resetFilters:()=>set({criteria:{...emptyCriteria,route:state.criteria.route}}),openLogin:(pending:Pending=null)=>{set({pending});open()},closeLogin:()=>close(),login:()=>null,logout:()=>logout(),toggleSaved:(id:string)=>{if(!state.user)return open();void mutation('save',id,!state.saved.includes(id))},saveProfile:(name:string)=>{void state.addProfile(name,state.criteria)},addProfile:(name:string,c:SearchCriteria)=>{void mutation('search',null,{name,criteria:toCriteria(c)})},removeProfile:(id:string)=>{void mutation('search_delete',id,null)},updateProfile:(id:string,patch:{name?:string;criteria?:SearchCriteria})=>{const p=state.profiles.find(p=>p.id===id);if(p){void mutation('search_delete',id,null).then(()=>mutation('search',null,{name:patch.name||p.name,criteria:toCriteria(patch.criteria||p.criteria)}))}},touchProfile:(id:string)=>{void mutation('search_seen',id,null)},applyProfile:(id:string)=>{const p=state.profiles.find(p=>p.id===id);if(p){set({criteria:p.criteria,started:true});state.touchProfile(id)}}
+ setPinned:(pinned:State['pinned'])=>set({pinned}),toggleCompare:(id:string)=>set({compare:state.compare.includes(id)?state.compare.filter(x=>x!==id):state.compare.length<4?[...state.compare,id]:state.compare}),setCompare:(compare:string[])=>set({compare:[...new Set(compare)].slice(0,4)}),clearCompare:()=>set({compare:[]}),setStarted:(started:boolean)=>set({started}),begin:(c:Partial<SearchCriteria>)=>set({criteria:{...emptyCriteria,...c},started:true}),setCriteria:(c:Partial<SearchCriteria>)=>set({criteria:{...state.criteria,...c}}),setFilter:(id:string,v:FilterValue)=>{const filters={...state.criteria.filters};if(v===undefined||v===''||v===false||(Array.isArray(v)&&!v.length))delete filters[id];else filters[id]=v;set({criteria:{...state.criteria,filters}})},resetFilters:()=>set({criteria:{...emptyCriteria,route:state.criteria.route}}),openLogin:(pending:null|{type:'save-listing';id:string}|{type:'save-criteria';name?:string}=null)=>{const exact:Pending=pending?.type==='save-criteria'?{type:'save-criteria',name:pending.name||'جست‌وجوی من',criteria:toCriteria(state.criteria)}:pending;set({pending:exact});open()},closeLogin:()=>close(),login:()=>null,logout:()=>logout(),toggleSaved:async(id:string)=>{if(!state.user){open();return;}await mutation('save',id,!state.saved.includes(id))},saveProfile:async(name:string)=>{await state.addProfile(name,state.criteria)},addProfile:async(name:string,c:SearchCriteria)=>{await mutation('search',null,{name,criteria:toCriteria(c)})},removeProfile:async(id:string)=>{await mutation('search_delete',id,null)},updateProfile:async(id:string,patch:{name?:string;criteria?:SearchCriteria})=>{const p=state.profiles.find(p=>p.id===id);if(p)await mutation('search_update',id,{name:patch.name||p.name,criteria:toCriteria(patch.criteria||p.criteria)})},touchProfile:async(id:string)=>{await mutation('search_seen',id,null)},applyProfile:(id:string)=>{const p=state.profiles.find(p=>p.id===id);if(p){set({criteria:p.criteria,started:true});void state.touchProfile(id)}}
 };
 let state:State={user:null,saved:[],profiles:[],criteria:emptyCriteria,started:true,loginOpen:false,pending:null,compare:[],pinned:null,...stateActions};
 const initial=state;
@@ -60,7 +62,9 @@ export function useHydrated(){const [ready,setReady]=useState(false);useEffect((
 export type PersonalState={profile:Record<string,string>;saved:{id:string}[];searches:{id:string;name:string;criteria:Record<string,unknown>;last_seen:string}[]};
 export async function refreshPersonal(){const g=generation;if(!state.user)return;const p=await core<PersonalState>('personal');if(g===generation)accept(p);}
 function accept(p:PersonalState){set({saved:p.saved.map(x=>x.id),profiles:p.searches.map(s=>({id:s.id,name:s.name,criteria:fromCriteria(s.criteria),createdAt:s.last_seen,lastSeenAt:s.last_seen}))});}
-async function mutation(action:string,id:string|null,value:unknown){const g=generation;try{const p=await core<PersonalState>('personal',{key:crypto.randomUUID(),action,id,value});if(g===generation){accept(p);toast('تغییر با رسید سرور ذخیره شد.')}}catch(e){if(g===generation)toast(e instanceof Error?e.message:'ذخیره انجام نشد.');return;}}
+async function mutation(action:string,id:string|null,value:unknown,key=crypto.randomUUID()){const g=generation;try{const p=await core<PersonalState>('personal',{key,action,id,value});if(g!==generation)return;accept(p);toast('تغییر با رسید سرور ذخیره شد.')}catch(e){if(g===generation)toast(e instanceof Error?e.message:'ذخیره انجام نشد.');throw e;}}
+export function pendingLoginHandoff():LoginHandoff|null{const operation=state.pending;if(!operation)return null;return {destination:'/saved',snapshot:{version:1,key:crypto.randomUUID(),operation}};}
+export async function applyLoginHandoff(value:unknown){const handoff=value as LoginHandoff;if(handoff?.destination!=='/saved'||handoff.snapshot?.version!==1||typeof handoff.snapshot.key!=='string')throw new Error('ادامه عملیات ورود معتبر نیست.');const op=handoff.snapshot.operation;if(op?.type==='save-listing'&&typeof op.id==='string')await mutation('save',op.id,true,handoff.snapshot.key);else if(op?.type==='save-criteria'&&typeof op.name==='string'&&op.criteria&&typeof op.criteria==='object')await mutation('search',null,{name:op.name,criteria:op.criteria},handoff.snapshot.key);else throw new Error('عملیات ذخیره پس از ورود معتبر نیست.');set({pending:null});}
 export function bindAccount(account:{id:string;mobile:string}|null,login:()=>void,leave:()=>void){generation++;const hadIdentity=!!state.user;if(state.user){clearRanking();set({criteria:emptyCriteria})}open=login;logout=leave;close=()=>{};set({user:account?{mobile:account.mobile}:null,saved:[],profiles:[],compare:hadIdentity?[]:state.compare,pending:null});if(account)void refreshPersonal().catch(e=>toast(e.message));}
 export function toCriteria(c:SearchCriteria):Record<string,unknown>{
  const kind=c.route==='fund'?'fund':c.route==='buyer'?undefined:'project';const f=c.filters;const result:Record<string,unknown>={...(kind?{kind}:{}),route:c.route};if(typeof f._query==='string'&&f._query)result.q=f._query;if(typeof f._sort==='string')result.sort=f._sort;if(c.amount){const factor=c.route==='fund'?1000000:1000000000;result.budget_min=scaleDecimal(String(c.amount[0]),factor===1000000?6:9);result.budget_max=scaleDecimal(String(c.amount[1]),factor===1000000?6:9)}if(c.provinces.length)result.province=c.provinces;if(c.groups.length)result.group=c.groups;
