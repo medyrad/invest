@@ -151,8 +151,8 @@ export function Saved() {
         ) : hydrated && (
           <>
             <Tabs dir="rtl" value={tab} onValueChange={(v) => setTab(v as Tab)} className="mt-7 gap-7">
-              <div className="flex items-center justify-between gap-4">
-              <TabsList className="surface h-auto bg-white rounded-full p-1 group-data-[orientation=horizontal]/tabs:h-auto">
+              <div className="flex min-w-0 items-center justify-between gap-4">
+              <TabsList className="surface h-auto max-w-full flex-wrap bg-white rounded-3xl p-1 sm:rounded-full group-data-[orientation=horizontal]/tabs:h-auto">
                 {tabs.map(([k, label, I, n]) => (
                   <TabsTrigger key={k} value={k} className="group/t h-auto gap-2 rounded-full border-0 px-4 py-2.5 text-sm font-bold text-ink/70 data-[state=active]:bg-cobalt data-[state=active]:text-white sm:px-5">
                     <I size={17} variant="Bulk" />{label}{n != null && <Badge className="h-5 min-w-5 bg-ink/10 px-1 text-[11px] text-ink group-data-[state=active]/t:bg-white">{faNumber(n)}</Badge>}
@@ -184,12 +184,12 @@ export function Saved() {
                 <CriteriaBoard />
               </TabsContent>
               <TabsContent value="profile">
-                <div className="grid grid-cols-[1fr_19rem] items-start gap-7">
-                  <Card className="surface block gap-0 rounded-[2rem] p-8 shadow-none">{tab === "profile" && <LegacyTool opener={profileTool.opener} root={profileTool.root} sections={profileSections} />}</Card>
-                  <Card className="surface sticky top-24 gap-4 rounded-[1.75rem] p-6 shadow-none">
+                <div className="saved-profile-layout grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_19rem] items-start gap-7">
+                  <Card className="surface block min-w-0 gap-0 rounded-[2rem] p-5 sm:p-8 shadow-none">{tab === "profile" && <LegacyTool opener={profileTool.opener} root={profileTool.root} sections={profileSections} />}</Card>
+                  <Card className="surface min-w-0 lg:sticky lg:top-24 gap-4 rounded-[1.75rem] p-6 shadow-none">
                     <h2 className="text-base font-extrabold text-ink">بعد از ثبت پروفایل</h2>
                     <ol className="space-y-3.5">
-                      {[["یک‌بار ثبت می‌کنید", "نقش، استان، تخصص و سرمایه‌ی قابل تخصیص روی همین دستگاه می‌ماند."],
+                      {[["یک‌بار ثبت می‌کنید", "نقش، استان، تخصص و سرمایه‌ی قابل تخصیص پس از تأیید سرور در حساب شما ذخیره می‌شود."],
                         ["در فیلترها می‌بینید", "بالای فرم شروع و ستون فیلترهای صفحه پروژه‌ها، نقش، استان و سرمایه‌تان جدا جدا روی نتایج روشن یا خاموش می‌شود."],
                         ["پروژه‌های متناسب را دنبال می‌کنید", "همان شرایط را به‌عنوان جست‌وجو ذخیره کنید تا پروژه‌های تازه‌اش اینجا بیاید."]].map(([t, d], i) => (
                         <li key={t} className="flex gap-3">

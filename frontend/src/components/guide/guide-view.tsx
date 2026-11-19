@@ -46,7 +46,7 @@ export function GuideView({ id }: { id: string }) {
     const answers: Record<string, string> = {};
     const mineOk = l.routes.includes(criteria.route);
     if (mineOk) {
-      const chips = describeCriteria(criteria).filter((c) => !c.key.startsWith("adv:"));
+      const chips = describeCriteria(criteria, {fullText:true}).filter((c) => !c.key.startsWith("adv:"));
       if (chips.length) mine.push(["مسیر ورود", routes.find((r) => r.id === criteria.route)!.name]);
       const provs = chips.filter((c) => c.kind === "province").map((c) => c.label), groups = chips.filter((c) => c.kind === "group").map((c) => c.label);
       if (provs.length) mine.push(["محدوده", provs.join("، ")]);

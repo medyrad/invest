@@ -26,7 +26,7 @@ function valueText(id: string, v: FilterValue): string {
   return opt(String(v));
 }
 
-export function describeCriteria(c: SearchCriteria): CriteriaChip[] {
+export function describeCriteria(c: SearchCriteria, options: { fullText?: boolean } = {}): CriteriaChip[] {
   const route = routes.find((r) => r.id === c.route)!;
   const out: CriteriaChip[] = [];
   for (const g of c.groups) out.push({ key: `group:${g}`, kind: "group", value: g, label: projectGroups.find((x) => x.id === g)?.name ?? g });
@@ -43,7 +43,7 @@ export function describeCriteria(c: SearchCriteria): CriteriaChip[] {
     const f = fieldById[id];
     const text = ['cities','counties'].includes(id)&&Array.isArray(v)?v.map(x=>geoNames.get(String(x))||x).join('، '):valueText(id, v);
     const label = id==='counties'?'شهرستان':f?.label ?? id;
-    out.push({ key: id, kind: "filter", value: id, label: text ? (text.length > 34 ? `${label}: ${text.slice(0, 32)}…` : `${label}: ${text}`) : label });
+    out.push({ key: id, kind: "filter", value: id, label: text ? (!options.fullText && text.length > 34 ? `${label}: ${text.slice(0, 32)}…` : `${label}: ${text}`) : label });
   }
   return out;
 }
