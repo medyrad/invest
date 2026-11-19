@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="52.870" timestamp="2026-11-19T21:08:54.154958+03:30" hostname="ec9b25eef0bd"><testcase classname="test_experience_independent" name="test_history_other_session_injection_isolation_no_case" time="46.924"><failure message="assert 403 == 401&#10; +  where 403 = &lt;Response status_code=403, &quot;application/json&quot;&gt;.status_code&#10; +    where &lt;Response status_code=403, &quot;application/json&quot;&gt; = get('/api/v1/core/reports/45c044e5-ef18-4ddb-9c77-f3693a75fe0f')&#10; +      where get = &lt;rest_framework.test.APIClient object at 0x7f3a90329a70&gt;.get&#10; +        where &lt;rest_framework.test.APIClient object at 0x7f3a90329a70&gt; = APIClient()">team = [&lt;AuthSession: AuthSession object (e59199b7-1f62-49c4-8d2e-8363e179a646)&gt;, &lt;AuthSession: AuthSession object (3201484b-...ject (a5f4d305-b6f9-4054-8d2f-5b84976b9aaa)&gt;, &lt;AuthSession: AuthSession object (0b612cc8-6485-4e60-a5e2-87f000218d69)&gt;]
+
+    def test_history_other_session_injection_isolation_no_case(team):
+        report,op=make_report(team,'roads',{'revenue':'public','buyer':'documented'})
+        client=client_for(team[2].user)
+        url=f'/api/v1/core/reports/{report.pk}'
+        first=client.get(url)
+        assert first.status_code==200
+        assert first['Content-Type'].startswith('text/html')
+        assert 'sandbox' in first['Content-Security-Policy']
+        op.availability='owner_paused';op.save()
+        assert client_for(team[2].user).get(url).content==first.content
+        assert client_for(team[3].user).get(url).status_code==404
+&gt;       assert APIClient().get(url).status_code==401
+E       assert 403 == 401
+E        +  where 403 = &lt;Response status_code=403, "application/json"&gt;.status_code
+E        +    where &lt;Response status_code=403, "application/json"&gt; = get('/api/v1/core/reports/45c044e5-ef18-4ddb-9c77-f3693a75fe0f')
+E        +      where get = &lt;rest_framework.test.APIClient object at 0x7f3a90329a70&gt;.get
+E        +        where &lt;rest_framework.test.APIClient object at 0x7f3a90329a70&gt; = APIClient()
+
+/evidence/test_experience_independent.py:71: AssertionError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,143 @@
+
+Running 4 tests using 1 worker
+
+  ✘  1 checks/clipping.spec.ts:3:39 › hero real hit testing 360 (28.1s)
+  ✘  2 checks/clipping.spec.ts:3:39 › hero real hit testing 390 (16.5s)
+  ✓  3 checks/clipping.spec.ts:3:39 › hero real hit testing 768 (7.4s)
+  ✓  4 checks/clipping.spec.ts:3:39 › hero real hit testing 1440 (10.6s)
+
+
+  1) checks/clipping.spec.ts:3:39 › hero real hit testing 360 ──────────────────────────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+       8 |  fs.writeFileSync(`/evidence/hit-${width}.json`,JSON.stringify(geometry,null,2));
+       9 |  await button.click({timeout:10000});await p.screenshot({path:`/evidence/guide-sheet-${width}.png`,animations:'disabled'});
+    > 10 |  expect(geometry.hitButton).toBe(true);await c.close();
+         |                             ^
+      11 | });
+      12 |
+        at /checks/clipping.spec.ts:10:29
+
+    Error Context: evidence/clipping-artifacts/clipping-hero-real-hit-testing-360/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/clipping-artifacts/clipping-hero-real-hit-testing-360/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/clipping-artifacts/clipping-hero-real-hit-testing-360/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) checks/clipping.spec.ts:3:39 › hero real hit testing 390 ──────────────────────────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+       8 |  fs.writeFileSync(`/evidence/hit-${width}.json`,JSON.stringify(geometry,null,2));
+       9 |  await button.click({timeout:10000});await p.screenshot({path:`/evidence/guide-sheet-${width}.png`,animations:'disabled'});
+    > 10 |  expect(geometry.hitButton).toBe(true);await c.close();
+         |                             ^
+      11 | });
+      12 |
+        at /checks/clipping.spec.ts:10:29
+
+    Error Context: evidence/clipping-artifacts/clipping-hero-real-hit-testing-390/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/clipping-artifacts/clipping-hero-real-hit-testing-390/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/clipping-artifacts/clipping-hero-real-hit-testing-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    checks/clipping.spec.ts:3:39 › hero real hit testing 360 ───────────────────────────────────────
+    checks/clipping.spec.ts:3:39 › hero real hit testing 390 ───────────────────────────────────────
+  2 passed (1.9m)
+<testsuites id="" name="" tests="4" failures="2" skipped="0" errors="0" time="116.867897">
+<testsuite name="clipping.spec.ts" timestamp="2026-11-19T17:45:47.350Z" hostname="" tests="4" failures="2" skipped="0" time="62.639" errors="0">
+<testcase name="hero real hit testing 360" classname="clipping.spec.ts" time="28.104">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/clipping-artifacts/clipping-hero-real-hit-testing-360/error-context.md]]
+
+[[ATTACHMENT|../evidence/clipping-artifacts/clipping-hero-real-hit-testing-360/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBe(expected) // Object.is equality" type="expect.toBe">
+<![CDATA[  clipping.spec.ts:3:39 › hero real hit testing 360 ────────────────────────────────────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+       8 |  fs.writeFileSync(`/evidence/hit-${width}.json`,JSON.stringify(geometry,null,2));
+       9 |  await button.click({timeout:10000});await p.screenshot({path:`/evidence/guide-sheet-${width}.png`,animations:'disabled'});
+    > 10 |  expect(geometry.hitButton).toBe(true);await c.close();
+         |                             ^
+      11 | });
+      12 |
+        at /checks/clipping.spec.ts:10:29
+
+    Error Context: ../evidence/clipping-artifacts/clipping-hero-real-hit-testing-360/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/clipping-artifacts/clipping-hero-real-hit-testing-360/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/clipping-artifacts/clipping-hero-real-hit-testing-360/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="hero real hit testing 390" classname="clipping.spec.ts" time="16.54">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/clipping-artifacts/clipping-hero-real-hit-testing-390/error-context.md]]
+
+[[ATTACHMENT|../evidence/clipping-artifacts/clipping-hero-real-hit-testing-390/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBe(expected) // Object.is equality" type="expect.toBe">
+<![CDATA[  clipping.spec.ts:3:39 › hero real hit testing 390 ────────────────────────────────────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+       8 |  fs.writeFileSync(`/evidence/hit-${width}.json`,JSON.stringify(geometry,null,2));
+       9 |  await button.click({timeout:10000});await p.screenshot({path:`/evidence/guide-sheet-${width}.png`,animations:'disabled'});
+    > 10 |  expect(geometry.hitButton).toBe(true);await c.close();
+         |                             ^
+      11 | });
+      12 |
+        at /checks/clipping.spec.ts:10:29
+
+    Error Context: ../evidence/clipping-artifacts/clipping-hero-real-hit-testing-390/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/clipping-artifacts/clipping-hero-real-hit-testing-390/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/clipping-artifacts/clipping-hero-real-hit-testing-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="hero real hit testing 768" classname="clipping.spec.ts" time="7.432">
+</testcase>
+<testcase name="hero real hit testing 1440" classname="clipping.spec.ts" time="10.563">
+</testcase>
+</testsuite>
+</testsuites>

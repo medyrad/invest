@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="50.832" timestamp="2026-11-19T21:11:05.991874+03:30" hostname="27bec696c303"><testcase classname="test_experience_independent" name="test_history_other_session_injection_isolation_no_case" time="38.483" /></testsuite></testsuites>

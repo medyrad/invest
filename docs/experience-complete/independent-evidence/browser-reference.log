@@ -1,0 +1,85 @@
+
+Running 4 tests using 1 worker
+
+  ✘  1 checks/reference.spec.ts:4:39 › fresh matched land reference 1440 (3.0m)
+  ✓  2 checks/reference.spec.ts:4:39 › fresh matched land reference 390 (2.2m)
+  ✓  3 checks/reference.spec.ts:4:39 › fresh matched land reference 360 (30.4s)
+  ✓  4 checks/reference.spec.ts:4:39 › fresh matched land reference 768 (1.8m)
+
+
+  1) checks/reference.spec.ts:4:39 › fresh matched land reference 1440 ─────────────────────────────
+
+    TimeoutError: page.goto: Timeout 180000ms exceeded.
+    Call log:
+      - navigating to "http://expit-reference:3107/tools/land-preparation", waiting until "load"
+
+
+       6 |  const rows=[];
+       7 |  for(const [name,base] of [['reference','http://expit-reference:3107'],['product','http://127.0.0.1:3109']]){
+    >  8 |   const p=await context.newPage();await p.goto(base+'/tools/land-preparation',{timeout:180000});
+         |                                           ^
+       9 |   await expect(p.getByRole('heading',{name:/آماده‌سازی/}).first()).toBeVisible({timeout:90000});
+      10 |   await p.evaluate(()=>document.fonts.ready);
+      11 |   const frames=p.frames();for(const f of frames){await f.evaluate(()=>document.fonts.ready).catch(()=>{});}
+        at /checks/reference.spec.ts:8:43
+
+    Error Context: evidence/reference-artifacts/reference-fresh-matched-land-reference-1440/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/reference-artifacts/reference-fresh-matched-land-reference-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/reference-artifacts/reference-fresh-matched-land-reference-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    checks/reference.spec.ts:4:39 › fresh matched land reference 1440 ──────────────────────────────
+  3 passed (8.1m)
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="1" time="486.813013">
+<testsuite name="reference.spec.ts" timestamp="2026-11-19T17:42:24.663Z" hostname="" tests="4" failures="0" skipped="0" time="452.015" errors="1">
+<testcase name="fresh matched land reference 1440" classname="reference.spec.ts" time="182.281">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/reference-artifacts/reference-fresh-matched-land-reference-1440/error-context.md]]
+
+[[ATTACHMENT|../evidence/reference-artifacts/reference-fresh-matched-land-reference-1440/trace.zip]]
+]]>
+</system-out>
+<error message="page.goto: Timeout 180000ms exceeded." type="TimeoutError">
+<![CDATA[  reference.spec.ts:4:39 › fresh matched land reference 1440 ───────────────────────────────────────
+
+    TimeoutError: page.goto: Timeout 180000ms exceeded.
+    Call log:
+      - navigating to "http://expit-reference:3107/tools/land-preparation", waiting until "load"
+
+
+       6 |  const rows=[];
+       7 |  for(const [name,base] of [['reference','http://expit-reference:3107'],['product','http://127.0.0.1:3109']]){
+    >  8 |   const p=await context.newPage();await p.goto(base+'/tools/land-preparation',{timeout:180000});
+         |                                           ^
+       9 |   await expect(p.getByRole('heading',{name:/آماده‌سازی/}).first()).toBeVisible({timeout:90000});
+      10 |   await p.evaluate(()=>document.fonts.ready);
+      11 |   const frames=p.frames();for(const f of frames){await f.evaluate(()=>document.fonts.ready).catch(()=>{});}
+        at /checks/reference.spec.ts:8:43
+
+    Error Context: ../evidence/reference-artifacts/reference-fresh-matched-land-reference-1440/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/reference-artifacts/reference-fresh-matched-land-reference-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/reference-artifacts/reference-fresh-matched-land-reference-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="fresh matched land reference 390" classname="reference.spec.ts" time="131.993">
+</testcase>
+<testcase name="fresh matched land reference 360" classname="reference.spec.ts" time="30.422">
+</testcase>
+<testcase name="fresh matched land reference 768" classname="reference.spec.ts" time="107.319">
+</testcase>
+</testsuite>
+</testsuites>

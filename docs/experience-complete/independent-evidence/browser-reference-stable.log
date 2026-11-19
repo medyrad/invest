@@ -1,0 +1,21 @@
+
+Running 4 tests using 1 worker
+
+  ✓  1 checks/reference.spec.ts:4:39 › fresh matched land reference 1440 (1.4m)
+  ✓  2 checks/reference.spec.ts:4:39 › fresh matched land reference 390 (19.8s)
+  ✓  3 checks/reference.spec.ts:4:39 › fresh matched land reference 360 (15.9s)
+  ✓  4 checks/reference.spec.ts:4:39 › fresh matched land reference 768 (15.1s)
+
+  4 passed (2.3m)
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="139.689206">
+<testsuite name="reference.spec.ts" timestamp="2026-11-19T17:54:21.540Z" hostname="" tests="4" failures="0" skipped="0" time="131.77" errors="0">
+<testcase name="fresh matched land reference 1440" classname="reference.spec.ts" time="81.028">
+</testcase>
+<testcase name="fresh matched land reference 390" classname="reference.spec.ts" time="19.796">
+</testcase>
+<testcase name="fresh matched land reference 360" classname="reference.spec.ts" time="15.875">
+</testcase>
+<testcase name="fresh matched land reference 768" classname="reference.spec.ts" time="15.071">
+</testcase>
+</testsuite>
+</testsuites>

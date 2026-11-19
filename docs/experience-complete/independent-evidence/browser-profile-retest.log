@@ -1,0 +1,166 @@
+
+Running 2 tests using 1 worker
+
+  ✘  1 checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles (2.1m)
+  ✘  2 checks/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit (38.0s)
+
+
+  1) checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles ──────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.fill: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByLabel('نام نمایشی', { exact: true })
+
+
+      32 |  await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();
+      33 |  await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});
+    > 34 |  await page.getByLabel('نام نمایشی',{exact:true}).fill('نام مستقل');
+         |                                                   ^
+      35 |  await page.getByRole('button',{name:'ذخیره پروفایل اختیاری',exact:true}).click();
+      36 |  await expect(page.getByText('پروفایل اختیاری در حساب ذخیره شد.',{exact:true})).toBeVisible();
+      37 |  const result=await (await page.request.get('/api/v1/core/personal')).json();
+        at /checks/independent.spec.ts:34:51
+
+    Error Context: evidence/profile-retest-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/profile-retest-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/profile-retest-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) checks/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ─────────────────
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('checkbox', { name: 'سرمایه‌گذار', exact: true })
+        - locator resolved to <input type="checkbox"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+      4 |  await page.goto('/local-roles');await page.getByRole('button',{name:/^مشتری مصنوعی ·/}).click();await page.waitForURL(u=>!u.pathname.includes('local-roles'));await page.goto('/profile');await page.waitForLoadState('networkidle');
+      5 |  const s=page.getByRole('heading',{name:'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو'}).locator('..');
+    > 6 |  await s.getByRole('checkbox',{name:'سرمایه‌گذار',exact:true}).check();
+        |                                                                ^
+      7 |  let release;const hold=new Promise<void>(r=>release=r);let post=false,captured=false;
+      8 |  await page.route('**/api/v1/core/personal',async r=>{if(r.request().method()==='POST'){post=true;return r.continue();}if(post&&!captured){const response=await r.fetch();captured=true;await hold;return r.fulfill({response});}return r.continue();});
+      9 |  await s.getByLabel('نام',{exact:true}).fill('نسخه ذخیره شده');await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});await expect.poll(()=>captured).toBe(true);
+        at /checks/race.spec.ts:6:64
+
+    Error Context: evidence/profile-retest-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/profile-retest-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/profile-retest-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles ───────
+    checks/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ──────────────────
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="2" time="200.823536">
+<testsuite name="independent.spec.ts" timestamp="2026-11-19T17:43:44.464Z" hostname="" tests="1" failures="0" skipped="0" time="127.586" errors="1">
+<testcase name="professional save then basic save preserves both roles" classname="independent.spec.ts" time="127.586">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/profile-retest-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md]]
+
+[[ATTACHMENT|../evidence/profile-retest-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip]]
+]]>
+</system-out>
+<error message="Test timeout of 120000ms exceeded." type="Error">
+<![CDATA[  independent.spec.ts:27:1 › professional save then basic save preserves both roles ────────────────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.fill: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByLabel('نام نمایشی', { exact: true })
+
+
+      32 |  await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();
+      33 |  await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});
+    > 34 |  await page.getByLabel('نام نمایشی',{exact:true}).fill('نام مستقل');
+         |                                                   ^
+      35 |  await page.getByRole('button',{name:'ذخیره پروفایل اختیاری',exact:true}).click();
+      36 |  await expect(page.getByText('پروفایل اختیاری در حساب ذخیره شد.',{exact:true})).toBeVisible();
+      37 |  const result=await (await page.request.get('/api/v1/core/personal')).json();
+        at /checks/independent.spec.ts:34:51
+
+    Error Context: ../evidence/profile-retest-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/profile-retest-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/profile-retest-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="race.spec.ts" timestamp="2026-11-19T17:43:44.464Z" hostname="" tests="1" failures="0" skipped="0" time="37.978" errors="1">
+<testcase name="delayed profile refresh must not erase a newer edit" classname="race.spec.ts" time="37.978">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/profile-retest-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/error-context.md]]
+
+[[ATTACHMENT|../evidence/profile-retest-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip]]
+]]>
+</system-out>
+<error message="locator.check: Clicking the checkbox did not change its state" type="Error">
+<![CDATA[  race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ───────────────────────────
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('checkbox', { name: 'سرمایه‌گذار', exact: true })
+        - locator resolved to <input type="checkbox"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+      4 |  await page.goto('/local-roles');await page.getByRole('button',{name:/^مشتری مصنوعی ·/}).click();await page.waitForURL(u=>!u.pathname.includes('local-roles'));await page.goto('/profile');await page.waitForLoadState('networkidle');
+      5 |  const s=page.getByRole('heading',{name:'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو'}).locator('..');
+    > 6 |  await s.getByRole('checkbox',{name:'سرمایه‌گذار',exact:true}).check();
+        |                                                                ^
+      7 |  let release;const hold=new Promise<void>(r=>release=r);let post=false,captured=false;
+      8 |  await page.route('**/api/v1/core/personal',async r=>{if(r.request().method()==='POST'){post=true;return r.continue();}if(post&&!captured){const response=await r.fetch();captured=true;await hold;return r.fulfill({response});}return r.continue();});
+      9 |  await s.getByLabel('نام',{exact:true}).fill('نسخه ذخیره شده');await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});await expect.poll(()=>captured).toBe(true);
+        at /checks/race.spec.ts:6:64
+
+    Error Context: ../evidence/profile-retest-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/profile-retest-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/profile-retest-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+</testsuites>

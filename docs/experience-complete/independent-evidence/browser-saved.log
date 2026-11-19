@@ -1,0 +1,508 @@
+
+Running 7 tests using 1 worker
+
+  ✘  1 checks/saved.spec.ts:4:56 › saved criteria preserves input on 400 (46.0s)
+  ✘  2 checks/saved.spec.ts:4:56 › saved criteria preserves input on 401 (30.5s)
+  ✘  3 checks/saved.spec.ts:4:56 › saved criteria preserves input on 500 (31.9s)
+  ✘  4 checks/saved.spec.ts:4:56 › saved criteria preserves input on offline (28.2s)
+  ✘  5 checks/saved.spec.ts:4:56 › saved criteria preserves input on lost (34.7s)
+  ✓  6 checks/saved.spec.ts:17:1 › guest criteria snapshot and same-key replay across two tabs (1.0m)
+  ✘  7 checks/saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab (2.0m)
+
+
+  1) checks/saved.spec.ts:4:56 › saved criteria preserves input on 400 ─────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل 400"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-400/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-400/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-400/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) checks/saved.spec.ts:4:56 › saved criteria preserves input on 401 ─────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل 401"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+        - locator resolved to <input value="" maxlength="40" data-slot="input" id="new-search-name" placeholder="سرمایه‌گذاری و مشارکت" class="w-full min-w-0 border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opa…/>
+        - unexpected value ""
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-401/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-401/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-401/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) checks/saved.spec.ts:4:56 › saved criteria preserves input on 500 ─────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل 500"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+        4 × locator resolved to <input value="" maxlength="40" data-slot="input" id="new-search-name" placeholder="سرمایه‌گذاری و مشارکت" class="w-full min-w-0 border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opa…/>
+          - unexpected value ""
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-500/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-500/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-500/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) checks/saved.spec.ts:4:56 › saved criteria preserves input on offline ─────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل offline"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+        2 × locator resolved to <input value="" maxlength="40" data-slot="input" id="new-search-name" placeholder="سرمایه‌گذاری و مشارکت" class="w-full min-w-0 border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opa…/>
+          - unexpected value ""
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-offline/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-offline/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-offline/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) checks/saved.spec.ts:4:56 › saved criteria preserves input on lost ────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل lost"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+        4 × locator resolved to <input value="" maxlength="40" data-slot="input" id="new-search-name" placeholder="سرمایه‌گذاری و مشارکت" class="w-full min-w-0 border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opa…/>
+          - unexpected value ""
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-lost/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-lost/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-lost/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) checks/saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab 
+
+    Error: expect(locator).not.toBeVisible() failed
+
+    Locator:  getByRole('dialog')
+    Expected: not visible
+    Received: visible
+    Timeout:  30000ms
+
+    Call log:
+      - Expect "not toBeVisible" getByRole('dialog') with timeout 30000ms
+      - waiting for getByRole('dialog')
+        37 × locator resolved to <dialog open="" tabindex="-1" class="login-dialog" aria-labelledby="login-title" aria-describedby="login-description">…</dialog>
+           - unexpected value "visible"
+
+
+      43 |  await expect.poll(()=>captured,{timeout:30000}).toBe(true);
+      44 |  const tab=await context.newPage();await tab.goto('/local-roles');await tab.getByRole('button',{name:/^مالک مصنوعی ·/}).click();await tab.waitForURL(u=>!u.pathname.includes('local-roles'));
+    > 45 |  release();await expect(page.getByRole('dialog')).not.toBeVisible({timeout:30000});
+         |                                                       ^
+      46 |  const other=await(await tab.request.get('/api/v1/core/personal')).json();
+      47 |  fs.writeFileSync('/evidence/late-handoff.json',JSON.stringify({target:id,otherAccountSaved:other.saved.map(x=>x.id)},null,2));
+      48 |  expect(other.saved.some(x=>x.id===id)).toBe(false);
+        at /checks/saved.spec.ts:45:55
+
+    Error Context: evidence/saved-browser-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/saved-browser-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/saved-browser-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6 failed
+    checks/saved.spec.ts:4:56 › saved criteria preserves input on 400 ──────────────────────────────
+    checks/saved.spec.ts:4:56 › saved criteria preserves input on 401 ──────────────────────────────
+    checks/saved.spec.ts:4:56 › saved criteria preserves input on 500 ──────────────────────────────
+    checks/saved.spec.ts:4:56 › saved criteria preserves input on offline ──────────────────────────
+    checks/saved.spec.ts:4:56 › saved criteria preserves input on lost ─────────────────────────────
+    checks/saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab ─
+  1 passed (7.2m)
+<testsuites id="" name="" tests="7" failures="6" skipped="0" errors="0" time="434.937918">
+<testsuite name="saved.spec.ts" timestamp="2026-11-19T17:39:50.612Z" hostname="" tests="7" failures="6" skipped="0" time="350.463" errors="0">
+<testcase name="saved criteria preserves input on 400" classname="saved.spec.ts" time="45.965">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-400/error-context.md]]
+
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-400/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveValue(expected) failed" type="expect.toHaveValue">
+<![CDATA[  saved.spec.ts:4:56 › saved criteria preserves input on 400 ───────────────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل 400"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-400/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-400/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-400/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="saved criteria preserves input on 401" classname="saved.spec.ts" time="30.528">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-401/error-context.md]]
+
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-401/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveValue(expected) failed" type="expect.toHaveValue">
+<![CDATA[  saved.spec.ts:4:56 › saved criteria preserves input on 401 ───────────────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل 401"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+        - locator resolved to <input value="" maxlength="40" data-slot="input" id="new-search-name" placeholder="سرمایه‌گذاری و مشارکت" class="w-full min-w-0 border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opa…/>
+        - unexpected value ""
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-401/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-401/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-401/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="saved criteria preserves input on 500" classname="saved.spec.ts" time="31.853">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-500/error-context.md]]
+
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-500/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveValue(expected) failed" type="expect.toHaveValue">
+<![CDATA[  saved.spec.ts:4:56 › saved criteria preserves input on 500 ───────────────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل 500"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+        4 × locator resolved to <input value="" maxlength="40" data-slot="input" id="new-search-name" placeholder="سرمایه‌گذاری و مشارکت" class="w-full min-w-0 border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opa…/>
+          - unexpected value ""
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-500/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-500/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-500/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="saved criteria preserves input on offline" classname="saved.spec.ts" time="28.181">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-offline/error-context.md]]
+
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-offline/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveValue(expected) failed" type="expect.toHaveValue">
+<![CDATA[  saved.spec.ts:4:56 › saved criteria preserves input on offline ───────────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل offline"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+        2 × locator resolved to <input value="" maxlength="40" data-slot="input" id="new-search-name" placeholder="سرمایه‌گذاری و مشارکت" class="w-full min-w-0 border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opa…/>
+          - unexpected value ""
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-offline/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-offline/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-offline/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="saved criteria preserves input on lost" classname="saved.spec.ts" time="34.725">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-lost/error-context.md]]
+
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-lost/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveValue(expected) failed" type="expect.toHaveValue">
+<![CDATA[  saved.spec.ts:4:56 › saved criteria preserves input on lost ──────────────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: getByLabel('نام', { exact: true })
+    Expected: "شرایط مستقل lost"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('نام', { exact: true })
+        4 × locator resolved to <input value="" maxlength="40" data-slot="input" id="new-search-name" placeholder="سرمایه‌گذاری و مشارکت" class="w-full min-w-0 border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opa…/>
+          - unexpected value ""
+
+
+      13 |  await page.getByRole('button',{name:'ذخیره جست‌وجو',exact:true}).click();
+      14 |  await expect(page.getByRole('dialog',{name:'جست‌وجوی تازه'})).toBeVisible();
+    > 15 |  await expect(page.getByLabel('نام',{exact:true})).toHaveValue('شرایط مستقل '+mode);
+         |                                                    ^
+      16 | });
+      17 | test('guest criteria snapshot and same-key replay across two tabs',async({page,context})=>{
+      18 |  await page.goto('/opportunities');await page.getByRole('button',{name:'فیلترهای ذخیره‌شده',exact:true}).click();
+        at /checks/saved.spec.ts:15:52
+
+    Error Context: ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-lost/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-lost/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/saved-browser-artifacts/saved-saved-criteria-preserves-input-on-lost/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="guest criteria snapshot and same-key replay across two tabs" classname="saved.spec.ts" time="61.144">
+</testcase>
+<testcase name="late consumed handoff cannot be adopted by account B in second tab" classname="saved.spec.ts" time="118.067">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/error-context.md]]
+
+[[ATTACHMENT|../evidence/saved-browser-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).not.toBeVisible() failed" type="expect.not.toBeVisible">
+<![CDATA[  saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab ──────────
+
+    Error: expect(locator).not.toBeVisible() failed
+
+    Locator:  getByRole('dialog')
+    Expected: not visible
+    Received: visible
+    Timeout:  30000ms
+
+    Call log:
+      - Expect "not toBeVisible" getByRole('dialog') with timeout 30000ms
+      - waiting for getByRole('dialog')
+        37 × locator resolved to <dialog open="" tabindex="-1" class="login-dialog" aria-labelledby="login-title" aria-describedby="login-description">…</dialog>
+           - unexpected value "visible"
+
+
+      43 |  await expect.poll(()=>captured,{timeout:30000}).toBe(true);
+      44 |  const tab=await context.newPage();await tab.goto('/local-roles');await tab.getByRole('button',{name:/^مالک مصنوعی ·/}).click();await tab.waitForURL(u=>!u.pathname.includes('local-roles'));
+    > 45 |  release();await expect(page.getByRole('dialog')).not.toBeVisible({timeout:30000});
+         |                                                       ^
+      46 |  const other=await(await tab.request.get('/api/v1/core/personal')).json();
+      47 |  fs.writeFileSync('/evidence/late-handoff.json',JSON.stringify({target:id,otherAccountSaved:other.saved.map(x=>x.id)},null,2));
+      48 |  expect(other.saved.some(x=>x.id===id)).toBe(false);
+        at /checks/saved.spec.ts:45:55
+
+    Error Context: ../evidence/saved-browser-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/saved-browser-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/saved-browser-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

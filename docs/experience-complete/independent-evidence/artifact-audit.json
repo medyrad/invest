@@ -1,0 +1,537 @@
+{
+  "mission": "TEST-EXPERIENCE-COMPLETE-01",
+  "scenario_count": 44,
+  "nonempty_review": 40,
+  "unique_queries": 44,
+  "prelabels": 0,
+  "fresh_vs_historical": [
+    {
+      "id": "D28-REVIEW-01",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-02",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-03",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-04",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-05",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-06",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-07",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-08",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-09",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-10",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-11",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-12",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-13",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-14",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-15",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-16",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-17",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-18",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-19",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-20",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-21",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-22",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-23",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-24",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-25",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-26",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-27",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-28",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-29",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-30",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-31",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-32",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-33",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-34",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-35",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-36",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-37",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-38",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-39",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-REVIEW-40",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-CONTROL-NO-PREFERENCE",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-CONTROL-UNKNOWN",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-CONTROL-FUND-NO-PREFERENCE",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    },
+    {
+      "id": "D28-CONTROL-BUYER-UNKNOWN-LOCATION",
+      "same_criteria": true,
+      "same_score_coverage": true,
+      "total": 2
+    }
+  ],
+  "shared_contexts": [
+    {
+      "source_id": "DF-0230",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "397",
+      "source_context_owner": "landhousing advisory",
+      "proposed_namespace": "advisory.landhousing.revenue",
+      "backlog_package": "T20/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/010-specialist-services/advisory-source-map.json",
+      "evidence_scope": "docs/stage8/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A04;PC-A08; field-level consumer proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0231",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "398",
+      "source_context_owner": "landhousing advisory",
+      "proposed_namespace": "advisory.landhousing.lhPlan",
+      "backlog_package": "T20/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/010-specialist-services/advisory-source-map.json",
+      "evidence_scope": "docs/stage8/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A04;PC-A08; field-level consumer proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0232",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "400",
+      "source_context_owner": "landhousing advisory",
+      "proposed_namespace": "advisory.landhousing.lhHandover",
+      "backlog_package": "T20/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/010-specialist-services/advisory-source-map.json",
+      "evidence_scope": "docs/stage8/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A04;PC-A08; field-level consumer proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0237",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "427",
+      "source_context_owner": "shared advisory when revenue=public",
+      "proposed_namespace": "advisory.common.public_payment.buyer",
+      "backlog_package": "T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/010-specialist-services/advisory-source-map.json",
+      "evidence_scope": "docs/stage8/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A04;PC-A08; field-level consumer proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0282",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "608",
+      "source_context_owner": "fund method schema",
+      "proposed_namespace": "fund.preferences.fundCapital",
+      "backlog_package": "T12",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0283",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "609",
+      "source_context_owner": "fund method schema",
+      "proposed_namespace": "fund.preferences.expectedReturn",
+      "backlog_package": "T12",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0284",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "610",
+      "source_context_owner": "fund method schema",
+      "proposed_namespace": "fund.preferences.payout",
+      "backlog_package": "T12",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0285",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "611",
+      "source_context_owner": "fund method schema",
+      "proposed_namespace": "fund.preferences.fundType",
+      "backlog_package": "T12",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0286",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "612",
+      "source_context_owner": "fund method schema",
+      "proposed_namespace": "fund.preferences.bankGuarantee",
+      "backlog_package": "T12",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0287",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "613",
+      "source_context_owner": "fund method schema",
+      "proposed_namespace": "fund.preferences.fundRisk",
+      "backlog_package": "T12",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0300",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "718",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.heritageReturn",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0301",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "719",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.heritageUse",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0302",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "720",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.heritageYears",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0303",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "721",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.heritagePayment",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0304",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "722",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.irrMin",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0305",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "723",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.irrBasis",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0306",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "724",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.irrPrice",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0307",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "725",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.general",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0308",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "726",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.special",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    },
+    {
+      "source_id": "DF-0309",
+      "source": "advisor/public/engine/advisor.html",
+      "line": "727",
+      "source_context_owner": "heritage method schema",
+      "proposed_namespace": "heritage.preferences.notes",
+      "backlog_package": "T12/T24",
+      "status": "source-context-identified; semantic-schema-and-runtime-validation-pending",
+      "current_owner": "specs/009-core-journeys/mapping.md",
+      "evidence_scope": "docs/core-delivery/retest-01-report.md; package-level evidence only",
+      "open_consumer_audit": "PC-A07;PC-A08; field-level proof pending",
+      "remaining_package": "COMP-EXPERIENCE"
+    }
+  ],
+  "backend_exact_match": true,
+  "bundle_exact_match": true
+}

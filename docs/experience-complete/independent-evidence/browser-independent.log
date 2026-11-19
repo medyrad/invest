@@ -1,0 +1,376 @@
+
+Running 11 tests using 1 worker
+
+  ✓   1 checks/independent.spec.ts:5:57 › profile failure 400 (48.7s)
+  ✓   2 checks/independent.spec.ts:5:57 › profile failure 401 (21.6s)
+  ✘   3 checks/independent.spec.ts:5:57 › profile failure 500 (25.1s)
+  ✓   4 checks/independent.spec.ts:5:57 › profile failure offline (34.6s)
+  ✓   5 checks/independent.spec.ts:5:57 › profile failure lost (31.4s)
+  ✘   6 checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles (23.8s)
+  ✘   7 checks/independent.spec.ts:39:1 › guide preview content survives first download (2.2m)
+  ✓   8 checks/independent.spec.ts:53:39 › local geometry focus 360 (28.8s)
+  ✓   9 checks/independent.spec.ts:53:39 › local geometry focus 390 (32.6s)
+  ✓  10 checks/independent.spec.ts:53:39 › local geometry focus 768 (40.3s)
+  ✓  11 checks/independent.spec.ts:53:39 › local geometry focus 1440 (53.1s)
+
+
+  1) checks/independent.spec.ts:5:57 › profile failure 500 ─────────────────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true })
+    Expected: "ورودی جدید 500"
+    Received: "نسخه قبلی 500"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true })
+        11 × locator resolved to <input value="نسخه قبلی 500"/>
+           - unexpected value "نسخه قبلی 500"
+
+
+      20 |  await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();
+      21 |  await expect(s.getByRole('alert')).toBeVisible({timeout:30000});
+    > 22 |  expect(sent).toBe(true);await expect(s.getByLabel('نام',{exact:true})).toHaveValue('ورودی جدید '+mode);
+         |                                                                         ^
+      23 |  await expect(s.getByRole('status')).toHaveCount(0);
+      24 |  const actual=await (await page.request.get('/api/v1/core/personal')).json();
+      25 |  expect(JSON.parse(actual.profile.professional).name).toBe((mode==='lost'?'ورودی جدید ':'نسخه قبلی ')+mode);
+        at /checks/independent.spec.ts:22:73
+
+    Error Context: evidence/independent-browser-artifacts/independent-profile-failure-500/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/independent-browser-artifacts/independent-profile-failure-500/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/independent-browser-artifacts/independent-profile-failure-500/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles ──────
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('checkbox', { name: 'سرمایه‌گذار', exact: true })
+        - locator resolved to <input type="checkbox"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+      27 | test('professional save then basic save preserves both roles',async({page})=>{
+      28 |  await login(page);await page.goto('/profile');const s=section(page);
+    > 29 |  await s.getByRole('checkbox',{name:'سرمایه‌گذار',exact:true}).check();
+         |                                                                ^
+      30 |  await s.getByRole('checkbox',{name:'پیمانکار',exact:true}).check();
+      31 |  await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();
+      32 |  await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});
+        at /checks/independent.spec.ts:29:64
+
+    Error Context: evidence/independent-browser-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/independent-browser-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/independent-browser-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) checks/independent.spec.ts:39:1 › guide preview content survives first download ───────────────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.check: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for locator('iframe[title="راهنمای اقدام"]').contentFrame().locator('input[data-k]').first()
+        - locator resolved to <input type="checkbox" data-k="بررسی سند، کاربری، تراکم و هزینه آماده‌سازی و ساخت"/>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <i></i> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <i></i> intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6">…</div> from <header class="z-40 w-full sticky top-0">…</header> subtree intercepts pointer events
+      23 × retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <i></i> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <i></i> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6">…</div> from <header class="z-40 w-full sticky top-0">…</header> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6">…</div> from <header class="z-40 w-full sticky top-0">…</header> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+      43 |  await expect(page.getByRole('button',{name:'دانلود فایل راهنما',exact:true})).toBeEnabled({timeout:30000});
+      44 |  const frame=page.frameLocator('iframe[title="راهنمای اقدام"]');
+    > 45 |  const before=await frame.locator('body').innerText();fs.writeFileSync('/evidence/preview.txt',before);
+         |                                                                                           ^
+      46 |  const checks=frame.locator('input[data-k]');if(await checks.count())await checks.first().check();
+      47 |  const wait=page.waitForEvent('download');await page.getByRole('button',{name:'دانلود فایل راهنما',exact:true}).click();const dl=await wait;
+      48 |  const html=fs.readFileSync((await dl.path())!,'utf8');fs.writeFileSync('/evidence/first-download.html',html);
+        at /checks/independent.spec.ts:45:91
+
+    Error Context: evidence/independent-browser-artifacts/independent-guide-preview-content-survives-first-download/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/independent-browser-artifacts/independent-guide-preview-content-survives-first-download/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/independent-browser-artifacts/independent-guide-preview-content-survives-first-download/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    checks/independent.spec.ts:5:57 › profile failure 500 ──────────────────────────────────────────
+    checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles ───────
+    checks/independent.spec.ts:39:1 › guide preview content survives first download ────────────────
+  8 passed (8.7m)
+<testsuites id="" name="" tests="11" failures="1" skipped="0" errors="2" time="523.6860479999999">
+<testsuite name="independent.spec.ts" timestamp="2026-11-19T17:37:55.882Z" hostname="" tests="11" failures="1" skipped="0" time="470.737" errors="2">
+<testcase name="profile failure 400" classname="independent.spec.ts" time="48.708">
+</testcase>
+<testcase name="profile failure 401" classname="independent.spec.ts" time="21.568">
+</testcase>
+<testcase name="profile failure 500" classname="independent.spec.ts" time="25.064">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/independent-browser-artifacts/independent-profile-failure-500/error-context.md]]
+
+[[ATTACHMENT|../evidence/independent-browser-artifacts/independent-profile-failure-500/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveValue(expected) failed" type="expect.toHaveValue">
+<![CDATA[  independent.spec.ts:5:57 › profile failure 500 ───────────────────────────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true })
+    Expected: "ورودی جدید 500"
+    Received: "نسخه قبلی 500"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true })
+        11 × locator resolved to <input value="نسخه قبلی 500"/>
+           - unexpected value "نسخه قبلی 500"
+
+
+      20 |  await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();
+      21 |  await expect(s.getByRole('alert')).toBeVisible({timeout:30000});
+    > 22 |  expect(sent).toBe(true);await expect(s.getByLabel('نام',{exact:true})).toHaveValue('ورودی جدید '+mode);
+         |                                                                         ^
+      23 |  await expect(s.getByRole('status')).toHaveCount(0);
+      24 |  const actual=await (await page.request.get('/api/v1/core/personal')).json();
+      25 |  expect(JSON.parse(actual.profile.professional).name).toBe((mode==='lost'?'ورودی جدید ':'نسخه قبلی ')+mode);
+        at /checks/independent.spec.ts:22:73
+
+    Error Context: ../evidence/independent-browser-artifacts/independent-profile-failure-500/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/independent-browser-artifacts/independent-profile-failure-500/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/independent-browser-artifacts/independent-profile-failure-500/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="profile failure offline" classname="independent.spec.ts" time="34.61">
+</testcase>
+<testcase name="profile failure lost" classname="independent.spec.ts" time="31.392">
+</testcase>
+<testcase name="professional save then basic save preserves both roles" classname="independent.spec.ts" time="23.802">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/independent-browser-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md]]
+
+[[ATTACHMENT|../evidence/independent-browser-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip]]
+]]>
+</system-out>
+<error message="locator.check: Clicking the checkbox did not change its state" type="Error">
+<![CDATA[  independent.spec.ts:27:1 › professional save then basic save preserves both roles ────────────────
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByRole('checkbox', { name: 'سرمایه‌گذار', exact: true })
+        - locator resolved to <input type="checkbox"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+      27 | test('professional save then basic save preserves both roles',async({page})=>{
+      28 |  await login(page);await page.goto('/profile');const s=section(page);
+    > 29 |  await s.getByRole('checkbox',{name:'سرمایه‌گذار',exact:true}).check();
+         |                                                                ^
+      30 |  await s.getByRole('checkbox',{name:'پیمانکار',exact:true}).check();
+      31 |  await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();
+      32 |  await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});
+        at /checks/independent.spec.ts:29:64
+
+    Error Context: ../evidence/independent-browser-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/independent-browser-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/independent-browser-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="guide preview content survives first download" classname="independent.spec.ts" time="130.784">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/independent-browser-artifacts/independent-guide-preview-content-survives-first-download/error-context.md]]
+
+[[ATTACHMENT|../evidence/independent-browser-artifacts/independent-guide-preview-content-survives-first-download/trace.zip]]
+]]>
+</system-out>
+<error message="Test timeout of 120000ms exceeded." type="Error">
+<![CDATA[  independent.spec.ts:39:1 › guide preview content survives first download ─────────────────────────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.check: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for locator('iframe[title="راهنمای اقدام"]').contentFrame().locator('input[data-k]').first()
+        - locator resolved to <input type="checkbox" data-k="بررسی سند، کاربری، تراکم و هزینه آماده‌سازی و ساخت"/>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <i></i> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <i></i> intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6">…</div> from <header class="z-40 w-full sticky top-0">…</header> subtree intercepts pointer events
+      23 × retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <i></i> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <i></i> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6">…</div> from <header class="z-40 w-full sticky top-0">…</header> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6">…</div> from <header class="z-40 w-full sticky top-0">…</header> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+      43 |  await expect(page.getByRole('button',{name:'دانلود فایل راهنما',exact:true})).toBeEnabled({timeout:30000});
+      44 |  const frame=page.frameLocator('iframe[title="راهنمای اقدام"]');
+    > 45 |  const before=await frame.locator('body').innerText();fs.writeFileSync('/evidence/preview.txt',before);
+         |                                                                                           ^
+      46 |  const checks=frame.locator('input[data-k]');if(await checks.count())await checks.first().check();
+      47 |  const wait=page.waitForEvent('download');await page.getByRole('button',{name:'دانلود فایل راهنما',exact:true}).click();const dl=await wait;
+      48 |  const html=fs.readFileSync((await dl.path())!,'utf8');fs.writeFileSync('/evidence/first-download.html',html);
+        at /checks/independent.spec.ts:45:91
+
+    Error Context: ../evidence/independent-browser-artifacts/independent-guide-preview-content-survives-first-download/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/independent-browser-artifacts/independent-guide-preview-content-survives-first-download/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/independent-browser-artifacts/independent-guide-preview-content-survives-first-download/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="local geometry focus 360" classname="independent.spec.ts" time="28.795">
+</testcase>
+<testcase name="local geometry focus 390" classname="independent.spec.ts" time="32.616">
+</testcase>
+<testcase name="local geometry focus 768" classname="independent.spec.ts" time="40.337">
+</testcase>
+<testcase name="local geometry focus 1440" classname="independent.spec.ts" time="53.061">
+</testcase>
+</testsuite>
+</testsuites>

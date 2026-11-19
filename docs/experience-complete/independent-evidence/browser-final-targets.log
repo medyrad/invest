@@ -1,0 +1,150 @@
+
+Running 3 tests using 1 worker
+
+  ✓  1 checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles (14.6s)
+  ✘  2 checks/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit (2.1m)
+  ✘  3 checks/saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab (43.5s)
+
+
+  1) checks/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ─────────────────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /^مشتری مصنوعی ·/ })
+
+
+      2 | import fs from 'node:fs';
+      3 | test('delayed profile refresh must not erase a newer edit',async({page})=>{
+    > 4 |  await page.goto('/local-roles');await page.getByRole('button',{name:/^مشتری مصنوعی ·/}).click();await page.waitForURL(u=>!u.pathname.includes('local-roles'));await page.goto('/profile');await page.waitForLoadState('networkidle');
+        |                                                                                          ^
+      5 |  const s=page.getByRole('heading',{name:'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو'}).locator('..');
+      6 |  await expect(s.getByLabel('نام',{exact:true})).not.toHaveValue('');
+      7 |  let release;const hold=new Promise<void>(r=>release=r);let post=false,captured=false;
+        at /checks/race.spec.ts:4:90
+
+    Error Context: evidence/final-target-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/final-target-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/final-target-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) checks/saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      46 |  const other=await(await tab.request.get('/api/v1/core/personal')).json();
+      47 |  fs.writeFileSync('/evidence/late-handoff.json',JSON.stringify({target:id,otherAccountSaved:other.saved.map(x=>x.id)},null,2));
+    > 48 |  expect(other.saved.some(x=>x.id===id)).toBe(false);
+         |                                         ^
+      49 | });
+      50 |
+        at /checks/saved.spec.ts:48:41
+
+    Error Context: evidence/final-target-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/final-target-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/final-target-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    checks/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ──────────────────
+    checks/saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab ─
+  1 passed (3.4m)
+<testsuites id="" name="" tests="3" failures="1" skipped="0" errors="1" time="202.471638">
+<testsuite name="independent.spec.ts" timestamp="2026-11-19T17:48:19.482Z" hostname="" tests="1" failures="0" skipped="0" time="14.626" errors="0">
+<testcase name="professional save then basic save preserves both roles" classname="independent.spec.ts" time="14.626">
+</testcase>
+</testsuite>
+<testsuite name="race.spec.ts" timestamp="2026-11-19T17:48:19.482Z" hostname="" tests="1" failures="0" skipped="0" time="124.062" errors="1">
+<testcase name="delayed profile refresh must not erase a newer edit" classname="race.spec.ts" time="124.062">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/final-target-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/error-context.md]]
+
+[[ATTACHMENT|../evidence/final-target-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip]]
+]]>
+</system-out>
+<error message="Test timeout of 120000ms exceeded." type="Error">
+<![CDATA[  race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ───────────────────────────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /^مشتری مصنوعی ·/ })
+
+
+      2 | import fs from 'node:fs';
+      3 | test('delayed profile refresh must not erase a newer edit',async({page})=>{
+    > 4 |  await page.goto('/local-roles');await page.getByRole('button',{name:/^مشتری مصنوعی ·/}).click();await page.waitForURL(u=>!u.pathname.includes('local-roles'));await page.goto('/profile');await page.waitForLoadState('networkidle');
+        |                                                                                          ^
+      5 |  const s=page.getByRole('heading',{name:'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو'}).locator('..');
+      6 |  await expect(s.getByLabel('نام',{exact:true})).not.toHaveValue('');
+      7 |  let release;const hold=new Promise<void>(r=>release=r);let post=false,captured=false;
+        at /checks/race.spec.ts:4:90
+
+    Error Context: ../evidence/final-target-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/final-target-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/final-target-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="saved.spec.ts" timestamp="2026-11-19T17:48:19.482Z" hostname="" tests="1" failures="1" skipped="0" time="43.506" errors="0">
+<testcase name="late consumed handoff cannot be adopted by account B in second tab" classname="saved.spec.ts" time="43.506">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/final-target-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/error-context.md]]
+
+[[ATTACHMENT|../evidence/final-target-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBe(expected) // Object.is equality" type="expect.toBe">
+<![CDATA[  saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab ──────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      46 |  const other=await(await tab.request.get('/api/v1/core/personal')).json();
+      47 |  fs.writeFileSync('/evidence/late-handoff.json',JSON.stringify({target:id,otherAccountSaved:other.saved.map(x=>x.id)},null,2));
+    > 48 |  expect(other.saved.some(x=>x.id===id)).toBe(false);
+         |                                         ^
+      49 | });
+      50 |
+        at /checks/saved.spec.ts:48:41
+
+    Error Context: ../evidence/final-target-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/final-target-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/final-target-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

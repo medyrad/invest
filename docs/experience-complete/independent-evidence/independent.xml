@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="12" time="296.743" timestamp="2026-11-19T21:02:02.888100+03:30" hostname="908aa63558f3"><testcase classname="test_experience_independent" name="test_inactive_answer_never_rendered[roads-answers0-toll-buyer]" time="42.508"><failure message="AssertionError: Inactive raw answer is rendered as effective&#10;assert '&lt;dt&gt;toll&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'&#10;  &#10;  '&lt;dt&gt;toll&lt;/dt&gt;' is contained here:&#10;[+3 more lines; full report in element text]">team = [&lt;AuthSession: AuthSession object (5c80811e-3d92-4ce7-b59f-13d0e718eab4)&gt;, &lt;AuthSession: AuthSession object (0fd93bbf-...ject (d989c8d7-443d-4012-8dce-ce1650f5be6b)&gt;, &lt;AuthSession: AuthSession object (6a6c7508-699f-4b90-9450-4272015ecc57)&gt;]
+subtype = 'roads'
+answers = {'revenue': 'public', 'toll': 'notallowed', 'buyer': 'documented'}
+inactive = 'toll', active = 'buyer'
+
+    @pytest.mark.parametrize('subtype,answers,inactive,active',[
+        ('roads',{'revenue':'public','toll':'notallowed','buyer':'documented'},'toll','buyer'),
+        ('roads',{'revenue':'user','toll':'allowed','buyer':'unknown'},'buyer','toll'),
+        ('residential',{'revenue':'rent','presale':'yes'},'presale','revenue'),
+    ])
+    def test_inactive_answer_never_rendered(team,subtype,answers,inactive,active):
+        report,_=make_report(team,subtype,answers)
+        effective=report.snapshot['effective_advisory']['effective_answers']
+        assert inactive not in effective and active in effective
+        Path('/evidence/'+subtype+'-'+answers['revenue']+'.html').write_text(report.snapshot['rendered_html'])
+&gt;       assert f'&lt;dt&gt;{inactive}&lt;/dt&gt;' not in report.snapshot['rendered_html'], 'Inactive raw answer is rendered as effective'
+E       AssertionError: Inactive raw answer is rendered as effective
+E       assert '&lt;dt&gt;toll&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'
+E         
+E         '&lt;dt&gt;toll&lt;/dt&gt;' is contained here:
+E         ?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+/evidence/test_experience_independent.py:41: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_inactive_answer_never_rendered[roads-answers1-buyer-toll]" time="38.532"><failure message="AssertionError: Inactive raw answer is rendered as effective&#10;assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'&#10;  &#10;  '&lt;dt&gt;buyer&lt;/dt&gt;' is contained here:&#10;[+3 more lines; full report in element text]">team = [&lt;AuthSession: AuthSession object (0a96972a-132c-4831-bf1a-f8c63a1bc9d9)&gt;, &lt;AuthSession: AuthSession object (2d682d49-...ject (e1de8c63-816b-4a94-a79f-0152b5f4384e)&gt;, &lt;AuthSession: AuthSession object (4db68dbe-620a-4451-9fac-9f0c21cb2cec)&gt;]
+subtype = 'roads'
+answers = {'revenue': 'user', 'toll': 'allowed', 'buyer': 'unknown'}
+inactive = 'buyer', active = 'toll'
+
+    @pytest.mark.parametrize('subtype,answers,inactive,active',[
+        ('roads',{'revenue':'public','toll':'notallowed','buyer':'documented'},'toll','buyer'),
+        ('roads',{'revenue':'user','toll':'allowed','buyer':'unknown'},'buyer','toll'),
+        ('residential',{'revenue':'rent','presale':'yes'},'presale','revenue'),
+    ])
+    def test_inactive_answer_never_rendered(team,subtype,answers,inactive,active):
+        report,_=make_report(team,subtype,answers)
+        effective=report.snapshot['effective_advisory']['effective_answers']
+        assert inactive not in effective and active in effective
+        Path('/evidence/'+subtype+'-'+answers['revenue']+'.html').write_text(report.snapshot['rendered_html'])
+&gt;       assert f'&lt;dt&gt;{inactive}&lt;/dt&gt;' not in report.snapshot['rendered_html'], 'Inactive raw answer is rendered as effective'
+E       AssertionError: Inactive raw answer is rendered as effective
+E       assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'
+E         
+E         '&lt;dt&gt;buyer&lt;/dt&gt;' is contained here:
+E         ?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+/evidence/test_experience_independent.py:41: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_inactive_answer_never_rendered[residential-answers2-presale-revenue]" time="54.613"><failure message="AssertionError: Inactive raw answer is rendered as effective&#10;assert '&lt;dt&gt;presale&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'&#10;  &#10;  '&lt;dt&gt;presale&lt;/dt&gt;' is contained here:&#10;[+3 more lines; full report in element text]">team = [&lt;AuthSession: AuthSession object (580197bd-3af3-44f2-9d40-a85281247a2d)&gt;, &lt;AuthSession: AuthSession object (fd79e5fe-...ject (04f0c064-2ad5-4577-9aca-c58eb640de88)&gt;, &lt;AuthSession: AuthSession object (097d5ddb-46c1-43ba-8f44-2b30cabde4ef)&gt;]
+subtype = 'residential', answers = {'revenue': 'rent', 'presale': 'yes'}
+inactive = 'presale', active = 'revenue'
+
+    @pytest.mark.parametrize('subtype,answers,inactive,active',[
+        ('roads',{'revenue':'public','toll':'notallowed','buyer':'documented'},'toll','buyer'),
+        ('roads',{'revenue':'user','toll':'allowed','buyer':'unknown'},'buyer','toll'),
+        ('residential',{'revenue':'rent','presale':'yes'},'presale','revenue'),
+    ])
+    def test_inactive_answer_never_rendered(team,subtype,answers,inactive,active):
+        report,_=make_report(team,subtype,answers)
+        effective=report.snapshot['effective_advisory']['effective_answers']
+        assert inactive not in effective and active in effective
+        Path('/evidence/'+subtype+'-'+answers['revenue']+'.html').write_text(report.snapshot['rendered_html'])
+&gt;       assert f'&lt;dt&gt;{inactive}&lt;/dt&gt;' not in report.snapshot['rendered_html'], 'Inactive raw answer is rendered as effective'
+E       AssertionError: Inactive raw answer is rendered as effective
+E       assert '&lt;dt&gt;presale&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'
+E         
+E         '&lt;dt&gt;presale&lt;/dt&gt;' is contained here:
+E         ?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+/evidence/test_experience_independent.py:41: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_residential_presale_active[yes]" time="27.472" /><testcase classname="test_experience_independent" name="test_residential_presale_active[no]" time="31.621" /><testcase classname="test_experience_independent" name="test_report_labels_and_followup_are_human_readable" time="39.143"><failure message="AssertionError: Raw English question ID, not Persian label&#10;assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'&#10;  &#10;  '&lt;dt&gt;buyer&lt;/dt&gt;' is contained here:&#10;[+3 more lines; full report in element text]">team = [&lt;AuthSession: AuthSession object (45b89bdc-4bfd-4417-abf0-105e5a9cdad2)&gt;, &lt;AuthSession: AuthSession object (95628921-...ject (d6fc03be-a0dc-4049-ac7c-9ac2336ce1b3)&gt;, &lt;AuthSession: AuthSession object (4bfff344-4331-4f6a-a398-bd37778257ea)&gt;]
+
+    def test_report_labels_and_followup_are_human_readable(team):
+        report,_=make_report(team,'roads',{'revenue':'public','buyer':'documented'})
+        body=report.snapshot['rendered_html']
+&gt;       assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in body, 'Raw English question ID, not Persian label'
+E       AssertionError: Raw English question ID, not Persian label
+E       assert '&lt;dt&gt;buyer&lt;/dt&gt;' not in '&lt;!doctype h...body&gt;&lt;/html&gt;'
+E         
+E         '&lt;dt&gt;buyer&lt;/dt&gt;' is contained here:
+E         ?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+/evidence/test_experience_independent.py:51: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_history_other_session_injection_isolation_no_case" time="19.213"><failure message="django.db.utils.IntegrityError: new row for relation &quot;core_opportunity&quot; violates check constraint &quot;core_availability&quot;&#10;DETAIL:  Failing row contains (fcc9b257-963d-487a-b347-34053cc0d0ac, paused, 2, null, t, 1e787a74-119d-4d12-a7ac-8472bf091fe8, 4378d569-6abf-4e09-97c5-f4dd09c8b92a).">self = &lt;django.db.backends.utils.CursorWrapper object at 0x7f5d48b249b0&gt;
+sql = 'UPDATE "core_opportunity" SET "draft_id" = %s, "public_revision_id" = %s, "availability" = %s, "version" = %s, "expires_at" = NULL, "synthetic" = %s WHERE "core_opportunity"."id" = %s'
+params = (UUID('1e787a74-119d-4d12-a7ac-8472bf091fe8'), UUID('4378d569-6abf-4e09-97c5-f4dd09c8b92a'), 'paused', Int4(2), True, UUID('fcc9b257-963d-487a-b347-34053cc0d0ac'))
+ignored_wrapper_args = (False, {'connection': &lt;DatabaseWrapper vendor='postgresql' alias='default'&gt;, 'cursor': &lt;django.db.backends.utils.CursorWrapper object at 0x7f5d48b249b0&gt;})
+
+    def _execute(self, sql, params, *ignored_wrapper_args):
+        # Raise a warning during app initialization (stored_app_configs is only
+        # ever set during testing).
+        if not apps.ready and not apps.stored_app_configs:
+            warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+        self.db.validate_no_broken_transaction()
+        with self.db.wrap_database_errors:
+            if params is None:
+                # params default might be backend specific.
+                return self.cursor.execute(sql)
+            else:
+&gt;               return self.cursor.execute(sql, params)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/app/.venv/lib/python3.14/site-packages/django/db/backends/utils.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;django.db.backends.postgresql.base.Cursor [closed] [INERROR] (host=db user=postgres database=test_expit_ind) at 0x7f5d48ca51d0&gt;
+query = 'UPDATE "core_opportunity" SET "draft_id" = %s, "public_revision_id" = %s, "availability" = %s, "version" = %s, "expires_at" = NULL, "synthetic" = %s WHERE "core_opportunity"."id" = %s'
+params = (UUID('1e787a74-119d-4d12-a7ac-8472bf091fe8'), UUID('4378d569-6abf-4e09-97c5-f4dd09c8b92a'), 'paused', Int4(2), True, UUID('fcc9b257-963d-487a-b347-34053cc0d0ac'))
+prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -&gt; Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+&gt;           raise ex.with_traceback(None)
+E           psycopg.errors.CheckViolation: new row for relation "core_opportunity" violates check constraint "core_availability"
+E           DETAIL:  Failing row contains (fcc9b257-963d-487a-b347-34053cc0d0ac, paused, 2, null, t, 1e787a74-119d-4d12-a7ac-8472bf091fe8, 4378d569-6abf-4e09-97c5-f4dd09c8b92a).
+
+/app/.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: CheckViolation
+
+The above exception was the direct cause of the following exception:
+
+team = [&lt;AuthSession: AuthSession object (317b3bf4-d58f-4b3b-802c-1cdd15acc067)&gt;, &lt;AuthSession: AuthSession object (a632c95b-...ject (62ce3ec1-6c81-4775-81be-cb686433b36d)&gt;, &lt;AuthSession: AuthSession object (a6bfffc2-e6a2-4acd-af0a-57b86a1f16f1)&gt;]
+
+    def test_history_other_session_injection_isolation_no_case(team):
+        report,op=make_report(team,'roads',{'revenue':'public','buyer':'documented'})
+        client=client_for(team[2].user)
+        url=f'/api/v1/core/reports/{report.pk}'
+        first=client.get(url)
+        assert first.status_code==200
+        assert first['Content-Type'].startswith('text/html')
+        assert 'sandbox' in first['Content-Security-Policy']
+&gt;       op.availability='paused';op.save()
+                                 ^^^^^^^^^
+
+/evidence/test_experience_independent.py:68: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/app/.venv/lib/python3.14/site-packages/django/db/models/base.py:902: in save
+    self.save_base(
+/app/.venv/lib/python3.14/site-packages/django/db/models/base.py:1008: in save_base
+    updated = self._save_table(
+/app/.venv/lib/python3.14/site-packages/django/db/models/base.py:1138: in _save_table
+    updated = self._do_update(
+/app/.venv/lib/python3.14/site-packages/django/db/models/base.py:1203: in _do_update
+    return filtered._update(values) &gt; 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+/app/.venv/lib/python3.14/site-packages/django/db/models/query.py:1288: in _update
+    return query.get_compiler(self.db).execute_sql(ROW_COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/app/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py:2060: in execute_sql
+    row_count = super().execute_sql(result_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/app/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py:1623: in execute_sql
+    cursor.execute(sql, params)
+/app/.venv/lib/python3.14/site-packages/django/db/backends/utils.py:79: in execute
+    return self._execute_with_wrappers(
+/app/.venv/lib/python3.14/site-packages/django/db/backends/utils.py:92: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/app/.venv/lib/python3.14/site-packages/django/db/backends/utils.py:100: in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/app/.venv/lib/python3.14/site-packages/django/db/utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+/app/.venv/lib/python3.14/site-packages/django/db/backends/utils.py:105: in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;django.db.backends.postgresql.base.Cursor [closed] [INERROR] (host=db user=postgres database=test_expit_ind) at 0x7f5d48ca51d0&gt;
+query = 'UPDATE "core_opportunity" SET "draft_id" = %s, "public_revision_id" = %s, "availability" = %s, "version" = %s, "expires_at" = NULL, "synthetic" = %s WHERE "core_opportunity"."id" = %s'
+params = (UUID('1e787a74-119d-4d12-a7ac-8472bf091fe8'), UUID('4378d569-6abf-4e09-97c5-f4dd09c8b92a'), 'paused', Int4(2), True, UUID('fcc9b257-963d-487a-b347-34053cc0d0ac'))
+prepare = None, binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -&gt; Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+&gt;           raise ex.with_traceback(None)
+E           django.db.utils.IntegrityError: new row for relation "core_opportunity" violates check constraint "core_availability"
+E           DETAIL:  Failing row contains (fcc9b257-963d-487a-b347-34053cc0d0ac, paused, 2, null, t, 1e787a74-119d-4d12-a7ac-8472bf091fe8, 4378d569-6abf-4e09-97c5-f4dd09c8b92a).
+
+/app/.venv/lib/python3.14/site-packages/psycopg/cursor.py:117: IntegrityError</failure></testcase><testcase classname="test_experience_independent" name="test_legacy_report_is_readable_html" time="29.385"><failure message="AssertionError: AC-PC05 disallows raw JSON; legacy is not approved exclusion&#10;assert False&#10; +  where False = &lt;built-in method startswith of str object at 0x7f5d48b30e40&gt;('text/html')&#10; +    where &lt;built-in method startswith of str object at 0x7f5d48b30e40&gt; = 'application/json; charset=utf-8'.startswith">team = [&lt;AuthSession: AuthSession object (7e73f223-728e-48ff-9f26-d6ca58af51f9)&gt;, &lt;AuthSession: AuthSession object (f0d5476b-...ject (42493eb2-6f8c-4842-b06d-3a31f9992f49)&gt;, &lt;AuthSession: AuthSession object (4abbf916-9743-41a0-90f5-2fe9186ef1b6)&gt;]
+
+    def test_legacy_report_is_readable_html(team):
+        report,_=make_report(team,'roads',{'revenue':'public'})
+        snapshot={k:v for k,v in report.snapshot.items() if k!='rendered_html'}
+        legacy=Report.objects.create(user=team[2].user,snapshot=snapshot)
+        response=client_for(team[2].user).get('/api/v1/core/reports/'+str(legacy.pk))
+        assert response.status_code==200
+&gt;       assert response['Content-Type'].startswith('text/html'), 'AC-PC05 disallows raw JSON; legacy is not approved exclusion'
+E       AssertionError: AC-PC05 disallows raw JSON; legacy is not approved exclusion
+E       assert False
+E        +  where False = &lt;built-in method startswith of str object at 0x7f5d48b30e40&gt;('text/html')
+E        +    where &lt;built-in method startswith of str object at 0x7f5d48b30e40&gt; = 'application/json; charset=utf-8'.startswith
+
+/evidence/test_experience_independent.py:84: AssertionError</failure></testcase><testcase classname="test_experience_independent" name="test_search_validation_atomic_owner[invalid0]" time="0.623" /><testcase classname="test_experience_independent" name="test_search_validation_atomic_owner[invalid1]" time="0.599" /><testcase classname="test_experience_independent" name="test_profile_two_sessions_roles_not_authority" time="0.802" /><testcase classname="test_experience_independent" name="test_concurrent_search_same_key_once" time="3.301" /></testsuite></testsuites>

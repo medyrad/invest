@@ -1,0 +1,225 @@
+
+Running 3 tests using 1 worker
+
+  ✘  1 checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles (37.0s)
+  ✘  2 checks/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit (26.3s)
+  ✘  3 checks/saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab (1.2m)
+
+
+  1) checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles ──────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "ویرایش مستقل 1795110803928"
+    Received: "ورودی جدید lost"
+
+      40 |  const result=await (await page.request.get('/api/v1/core/personal')).json();
+      41 |  expect(JSON.parse(result.profile.professional||'{}').roles).toEqual(expect.arrayContaining(['investor','contractor']));
+    > 42 |  expect(JSON.parse(result.profile.professional||'{}').name).toBe(professionalName);
+         |                                                             ^
+      43 | });
+      44 | test('guide preview content survives first download',async({page})=>{
+      45 |  await login(page);await page.goto('/opportunities');await expect(page.locator('article').first()).toBeVisible({timeout:30000});
+        at /checks/independent.spec.ts:42:61
+
+    Error Context: evidence/final-verified-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/final-verified-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/final-verified-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) checks/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ─────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true })
+    Expected: "ویرایش تازه هنوز ذخیره نشده"
+    Received: "نسخه ذخیره شده"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true })
+        13 × locator resolved to <input value="نسخه ذخیره شده"/>
+           - unexpected value "نسخه ذخیره شده"
+
+
+       9 |  await s.getByLabel('نام',{exact:true}).fill('نسخه ذخیره شده');await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});await expect.poll(()=>captured).toBe(true);
+      10 |  await s.getByLabel('نام',{exact:true}).fill('ویرایش تازه هنوز ذخیره نشده');release();
+    > 11 |  await expect(s.getByLabel('نام',{exact:true})).toHaveValue('ویرایش تازه هنوز ذخیره نشده');
+         |                                                 ^
+      12 |  await page.waitForLoadState('networkidle');
+      13 |  fs.writeFileSync('/evidence/profile-late-refresh.json',JSON.stringify({actual:await s.getByLabel('نام',{exact:true}).inputValue()}));
+      14 |  await expect(s.getByLabel('نام',{exact:true})).toHaveValue('ویرایش تازه هنوز ذخیره نشده');
+        at /checks/race.spec.ts:11:49
+
+    Error Context: evidence/final-verified-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/final-verified-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/final-verified-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) checks/saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      47 |  const other=await(await tab.request.get('/api/v1/core/personal')).json();
+      48 |  fs.writeFileSync('/evidence/late-handoff.json',JSON.stringify({target:id,before:before.saved.map(x=>x.id),otherAccountSaved:other.saved.map(x=>x.id)},null,2));
+    > 49 |  expect(other.saved.some(x=>x.id===id)).toBe(false);
+         |                                         ^
+      50 | });
+      51 |
+        at /checks/saved.spec.ts:49:41
+
+    Error Context: evidence/final-verified-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/final-verified-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/final-verified-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles ───────
+    checks/race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ──────────────────
+    checks/saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab ─
+<testsuites id="" name="" tests="3" failures="3" skipped="0" errors="0" time="161.27064000000001">
+<testsuite name="independent.spec.ts" timestamp="2026-11-19T17:52:59.034Z" hostname="" tests="1" failures="1" skipped="0" time="37.01" errors="0">
+<testcase name="professional save then basic save preserves both roles" classname="independent.spec.ts" time="37.01">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/final-verified-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md]]
+
+[[ATTACHMENT|../evidence/final-verified-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBe(expected) // Object.is equality" type="expect.toBe">
+<![CDATA[  independent.spec.ts:27:1 › professional save then basic save preserves both roles ────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "ویرایش مستقل 1795110803928"
+    Received: "ورودی جدید lost"
+
+      40 |  const result=await (await page.request.get('/api/v1/core/personal')).json();
+      41 |  expect(JSON.parse(result.profile.professional||'{}').roles).toEqual(expect.arrayContaining(['investor','contractor']));
+    > 42 |  expect(JSON.parse(result.profile.professional||'{}').name).toBe(professionalName);
+         |                                                             ^
+      43 | });
+      44 | test('guide preview content survives first download',async({page})=>{
+      45 |  await login(page);await page.goto('/opportunities');await expect(page.locator('article').first()).toBeVisible({timeout:30000});
+        at /checks/independent.spec.ts:42:61
+
+    Error Context: ../evidence/final-verified-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/final-verified-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/final-verified-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="race.spec.ts" timestamp="2026-11-19T17:52:59.034Z" hostname="" tests="1" failures="1" skipped="0" time="26.287" errors="0">
+<testcase name="delayed profile refresh must not erase a newer edit" classname="race.spec.ts" time="26.287">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/final-verified-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/error-context.md]]
+
+[[ATTACHMENT|../evidence/final-verified-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveValue(expected) failed" type="expect.toHaveValue">
+<![CDATA[  race.spec.ts:3:1 › delayed profile refresh must not erase a newer edit ───────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true })
+    Expected: "ویرایش تازه هنوز ذخیره نشده"
+    Received: "نسخه ذخیره شده"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو' }).locator('..').getByLabel('نام', { exact: true })
+        13 × locator resolved to <input value="نسخه ذخیره شده"/>
+           - unexpected value "نسخه ذخیره شده"
+
+
+       9 |  await s.getByLabel('نام',{exact:true}).fill('نسخه ذخیره شده');await s.getByRole('button',{name:'ذخیره اطلاعات حرفه‌ای اختیاری',exact:true}).click();await expect(s.getByRole('status')).toContainText('با رسید سرور',{timeout:30000});await expect.poll(()=>captured).toBe(true);
+      10 |  await s.getByLabel('نام',{exact:true}).fill('ویرایش تازه هنوز ذخیره نشده');release();
+    > 11 |  await expect(s.getByLabel('نام',{exact:true})).toHaveValue('ویرایش تازه هنوز ذخیره نشده');
+         |                                                 ^
+      12 |  await page.waitForLoadState('networkidle');
+      13 |  fs.writeFileSync('/evidence/profile-late-refresh.json',JSON.stringify({actual:await s.getByLabel('نام',{exact:true}).inputValue()}));
+      14 |  await expect(s.getByLabel('نام',{exact:true})).toHaveValue('ویرایش تازه هنوز ذخیره نشده');
+        at /checks/race.spec.ts:11:49
+
+    Error Context: ../evidence/final-verified-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/final-verified-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/final-verified-artifacts/race-delayed-profile-refresh-must-not-erase-a-newer-edit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="saved.spec.ts" timestamp="2026-11-19T17:52:59.034Z" hostname="" tests="1" failures="1" skipped="0" time="69.749" errors="0">
+<testcase name="late consumed handoff cannot be adopted by account B in second tab" classname="saved.spec.ts" time="69.749">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/final-verified-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/error-context.md]]
+
+[[ATTACHMENT|../evidence/final-verified-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBe(expected) // Object.is equality" type="expect.toBe">
+<![CDATA[  saved.spec.ts:35:1 › late consumed handoff cannot be adopted by account B in second tab ──────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      47 |  const other=await(await tab.request.get('/api/v1/core/personal')).json();
+      48 |  fs.writeFileSync('/evidence/late-handoff.json',JSON.stringify({target:id,before:before.saved.map(x=>x.id),otherAccountSaved:other.saved.map(x=>x.id)},null,2));
+    > 49 |  expect(other.saved.some(x=>x.id===id)).toBe(false);
+         |                                         ^
+      50 | });
+      51 |
+        at /checks/saved.spec.ts:49:41
+
+    Error Context: ../evidence/final-verified-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/final-verified-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/final-verified-artifacts/saved-late-consumed-handof-f7c1e--by-account-B-in-second-tab/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,20 @@
+
+Running 3 tests using 1 worker
+
+  ✓  1 checks/changed-visual.spec.ts:4:51 › changed empty route fresh reference /saved (1.6m)
+  ✓  2 checks/changed-visual.spec.ts:4:51 › changed empty route fresh reference /tools/ma-profile (53.9s)
+  ✓  3 checks/reference.spec.ts:4:39 › fresh matched land reference 1440 (1.1m)
+
+  3 passed (4.4m)
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="261.577841">
+<testsuite name="changed-visual.spec.ts" timestamp="2026-11-19T17:49:18.432Z" hostname="" tests="2" failures="0" skipped="0" time="152.666" errors="0">
+<testcase name="changed empty route fresh reference /saved" classname="changed-visual.spec.ts" time="98.794">
+</testcase>
+<testcase name="changed empty route fresh reference /tools/ma-profile" classname="changed-visual.spec.ts" time="53.872">
+</testcase>
+</testsuite>
+<testsuite name="reference.spec.ts" timestamp="2026-11-19T17:49:18.432Z" hostname="" tests="1" failures="0" skipped="0" time="63.643" errors="0">
+<testcase name="fresh matched land reference 1440" classname="reference.spec.ts" time="63.643">
+</testcase>
+</testsuite>
+</testsuites>

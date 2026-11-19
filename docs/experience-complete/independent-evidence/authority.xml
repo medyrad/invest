@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="48.577" timestamp="2026-11-19T21:13:41.047006+03:30" hostname="3eddb475e153"><testcase classname="tests.test_services" name="test_report_escape_and_current_authority" time="47.332" /></testsuite></testsuites>

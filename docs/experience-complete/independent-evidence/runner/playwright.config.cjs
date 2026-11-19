@@ -1,0 +1,1 @@
+module.exports={testDir:'/checks',testMatch:'*.spec.ts',timeout:120000,workers:1,retries:0,reporter:[['list'],['json',{outputFile:'/evidence/browser-results.json'}]],outputDir:'/evidence/browser-artifacts',use:{baseURL:'http://127.0.0.1:3109',viewport:{width:1440,height:1000},trace:'retain-on-failure'}};

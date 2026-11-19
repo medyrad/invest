@@ -1,0 +1,81 @@
+
+Running 1 test using 1 worker
+
+  ✘  1 checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles (2.0m)
+
+
+  1) checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles ──────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /^مشتری مصنوعی ·/ })
+
+
+      1 | import {test,expect} from '@playwright/test';
+      2 | import fs from 'node:fs';
+    > 3 | async function login(page){await page.goto('/local-roles');await page.getByRole('button',{name:/^مشتری مصنوعی ·/}).click();await page.waitForURL(u=>!u.pathname.includes('local-roles'));}
+        |                                                                                                                    ^
+      4 | const section=page=>page.getByRole('heading',{name:'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو'}).locator('..');
+      5 | for(const mode of ['400','401','500','offline','lost']) test('profile failure '+mode,async({page})=>{
+      6 |  await login(page);await page.goto('/profile');const s=section(page);
+        at login (/checks/independent.spec.ts:3:116)
+        at /checks/independent.spec.ts:28:2
+
+    Error Context: evidence/profile-field-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/profile-field-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/profile-field-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    checks/independent.spec.ts:27:1 › professional save then basic save preserves both roles ───────
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="1" time="137.64905900000002">
+<testsuite name="independent.spec.ts" timestamp="2026-11-19T17:49:42.835Z" hostname="" tests="1" failures="0" skipped="0" time="122.602" errors="1">
+<testcase name="professional save then basic save preserves both roles" classname="independent.spec.ts" time="122.602">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../evidence/profile-field-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md]]
+
+[[ATTACHMENT|../evidence/profile-field-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip]]
+]]>
+</system-out>
+<error message="Test timeout of 120000ms exceeded." type="Error">
+<![CDATA[  independent.spec.ts:27:1 › professional save then basic save preserves both roles ────────────────
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /^مشتری مصنوعی ·/ })
+
+
+      1 | import {test,expect} from '@playwright/test';
+      2 | import fs from 'node:fs';
+    > 3 | async function login(page){await page.goto('/local-roles');await page.getByRole('button',{name:/^مشتری مصنوعی ·/}).click();await page.waitForURL(u=>!u.pathname.includes('local-roles'));}
+        |                                                                                                                    ^
+      4 | const section=page=>page.getByRole('heading',{name:'اطلاعات حرفه‌ای برای اعمال اختیاری در جست‌وجو'}).locator('..');
+      5 | for(const mode of ['400','401','500','offline','lost']) test('profile failure '+mode,async({page})=>{
+      6 |  await login(page);await page.goto('/profile');const s=section(page);
+        at login (/checks/independent.spec.ts:3:116)
+        at /checks/independent.spec.ts:28:2
+
+    Error Context: ../evidence/profile-field-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../evidence/profile-field-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+    Usage:
+
+        npx playwright show-trace ../evidence/profile-field-artifacts/independent-professional-s-d42ea-c-save-preserves-both-roles/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+</testsuites>

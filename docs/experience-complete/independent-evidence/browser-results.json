@@ -1,0 +1,466 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/pw/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config=/checks/playwright.config.cjs",
+      "existing.spec.ts"
+    ],
+    "configFile": "/checks/playwright.config.cjs",
+    "rootDir": "/checks",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/evidence/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/checks",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/evidence/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/checks",
+        "snapshotDir": "/checks",
+        "testIgnore": [],
+        "testMatch": "*.spec.ts",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3109",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/evidence/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "existing.spec.ts",
+      "file": "existing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "@desktop PC-A01 keeps the exact save intent and applies it once after a lost response",
+          "ok": false,
+          "tags": [
+            "desktop"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 48162,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).first()\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).first() with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).first()\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).first()\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).first() with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).first()\u001b[22m\n\n    at /checks/existing.spec.ts:28:21",
+                    "location": {
+                      "file": "/checks/existing.spec.ts",
+                      "column": 21,
+                      "line": 28
+                    },
+                    "snippet": "  26 |   await page.goto('/opportunities');\n  27 |   const card=page.locator('article').filter({has:page.getByRole('button',{name:'ذخیره پروژه',exact:true})}).first();\n> 28 |   await ready(card).toBeVisible();\n     |                     ^\n  29 |   const href=await card.getByRole('link').first().getAttribute('href');\n  30 |   const id=href!.split('/').pop()!;\n  31 |   await card.getByRole('button',{name:'ذخیره پروژه',exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/checks/existing.spec.ts",
+                        "column": 21,
+                        "line": 28
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).first()\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).first() with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).first()\u001b[22m\n\n\n  26 |   await page.goto('/opportunities');\n  27 |   const card=page.locator('article').filter({has:page.getByRole('button',{name:'ذخیره پروژه',exact:true})}).first();\n> 28 |   await ready(card).toBeVisible();\n     |                     ^\n  29 |   const href=await card.getByRole('link').first().getAttribute('href');\n  30 |   const id=href!.split('/').pop()!;\n  31 |   await card.getByRole('button',{name:'ذخیره پروژه',exact:true}).click();\n    at /checks/existing.spec.ts:28:21"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T17:32:53.979Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/evidence/browser-artifacts/existing--desktop-PC-A01-k-01f68--once-after-a-lost-response/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/evidence/browser-artifacts/existing--desktop-PC-A01-k-01f68--once-after-a-lost-response/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/checks/existing.spec.ts",
+                    "column": 21,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c59bdb8ce65416ce7f12-cb116e544667c732ebf4",
+          "file": "existing.spec.ts",
+          "line": 24,
+          "column": 1
+        },
+        {
+          "title": "@desktop PC-A01 cancellation does not carry a save into a later account",
+          "ok": false,
+          "tags": [
+            "desktop"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 48840,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).nth(1)\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).nth(1) with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).nth(1)\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).nth(1)\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).nth(1) with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).nth(1)\u001b[22m\n\n    at /checks/existing.spec.ts:52:21",
+                    "location": {
+                      "file": "/checks/existing.spec.ts",
+                      "column": 21,
+                      "line": 52
+                    },
+                    "snippet": "  50 |   await page.goto('/opportunities');\n  51 |   const card=page.locator('article').filter({has:page.getByRole('button',{name:'ذخیره پروژه',exact:true})}).nth(1);\n> 52 |   await ready(card).toBeVisible();\n     |                     ^\n  53 |   const id=(await card.getByRole('link').first().getAttribute('href'))!.split('/').pop()!;\n  54 |   await card.getByRole('button',{name:'ذخیره پروژه',exact:true}).click();\n  55 |   await page.getByRole('button',{name:'بستن پنجره ورود',exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/checks/existing.spec.ts",
+                        "column": 21,
+                        "line": 52
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).nth(1)\nExpected: visible\nTimeout: 30000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).nth(1) with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('article').filter({ has: getByRole('button', { name: 'ذخیره پروژه', exact: true }) }).nth(1)\u001b[22m\n\n\n  50 |   await page.goto('/opportunities');\n  51 |   const card=page.locator('article').filter({has:page.getByRole('button',{name:'ذخیره پروژه',exact:true})}).nth(1);\n> 52 |   await ready(card).toBeVisible();\n     |                     ^\n  53 |   const id=(await card.getByRole('link').first().getAttribute('href'))!.split('/').pop()!;\n  54 |   await card.getByRole('button',{name:'ذخیره پروژه',exact:true}).click();\n  55 |   await page.getByRole('button',{name:'بستن پنجره ورود',exact:true}).click();\n    at /checks/existing.spec.ts:52:21"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T17:34:25.180Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/evidence/browser-artifacts/existing--desktop-PC-A01-c-2c3e8-a-save-into-a-later-account/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/evidence/browser-artifacts/existing--desktop-PC-A01-c-2c3e8-a-save-into-a-later-account/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/checks/existing.spec.ts",
+                    "column": 21,
+                    "line": 52
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c59bdb8ce65416ce7f12-4042a265c2ecbd0503cc",
+          "file": "existing.spec.ts",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "@desktop PC-A02/03 multi-role profile confirms server save and preserves input on failure",
+          "ok": true,
+          "tags": [
+            "desktop"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 24761,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T17:35:45.575Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c59bdb8ce65416ce7f12-53861803e8807a16cf73",
+          "file": "existing.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "@desktop PC-A04/05 guide preview and historical re-download use the same readable snapshot",
+          "ok": true,
+          "tags": [
+            "desktop"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 53549,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T17:36:11.895Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c59bdb8ce65416ce7f12-ba73eb94bb81ded3a04e",
+          "file": "existing.spec.ts",
+          "line": 92,
+          "column": 1
+        },
+        {
+          "title": "PC-A06 grouped land and guide have no horizontal overflow at 360px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 57796,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T17:37:06.057Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c59bdb8ce65416ce7f12-3e11bad17f2dd3b93688",
+          "file": "existing.spec.ts",
+          "line": 113,
+          "column": 40
+        },
+        {
+          "title": "PC-A06 grouped land and guide have no horizontal overflow at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 61500,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T17:38:04.068Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c59bdb8ce65416ce7f12-275c7efc63dd7047f7bb",
+          "file": "existing.spec.ts",
+          "line": 113,
+          "column": 40
+        },
+        {
+          "title": "PC-A06 grouped land and guide have no horizontal overflow at 768px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 38372,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T17:39:05.781Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c59bdb8ce65416ce7f12-2c2cf0817788bc8a642b",
+          "file": "existing.spec.ts",
+          "line": 113,
+          "column": 40
+        },
+        {
+          "title": "PC-A06 grouped land and guide have no horizontal overflow at 1440px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 66727,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T17:39:44.354Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c59bdb8ce65416ce7f12-f5d49713607c79ee4039",
+          "file": "existing.spec.ts",
+          "line": 113,
+          "column": 40
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-19T17:32:43.484Z",
+    "duration": 491531.401,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

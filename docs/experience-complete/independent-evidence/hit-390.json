@@ -1,0 +1,59 @@
+{
+  "rect": {
+    "x": 148,
+    "y": 347.5,
+    "width": 175,
+    "height": 44,
+    "top": 347.5,
+    "right": 323,
+    "bottom": 391.5,
+    "left": 148
+  },
+  "hit": "<div data-slot=\"card\" class=\"flex-col border bg-card text-card-foreground surface relative block min-h-[60dvh] min-w-0 gap-0 overflow-clip rounded-[2rem] p-5 sm:p-9 shadow-none\"><span aria-hidden=\"true\" class=\"absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-primary via-primary/60 to-transparent\"></span><section class=\"service-editor\" aria-label=\"فرم آماده‌سازی و توسعه زمین\"><header class=\"service-form-head\"><p class=\"service-eyebrow\">مسیر مستقل آماده‌سازی زمین</p><h2>آماده‌سازی و توسعه زمین</",
+  "hitButton": false,
+  "parents": [
+    {
+      "tag": "DIV",
+      "overflow": "hidden",
+      "rect": {
+        "x": 24,
+        "y": 112,
+        "width": 327,
+        "height": 224,
+        "top": 112,
+        "right": 351,
+        "bottom": 336,
+        "left": 24
+      }
+    },
+    {
+      "tag": "BODY",
+      "overflow": "clip visible",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 5042.625,
+        "top": 0,
+        "right": 375,
+        "bottom": 5042.625,
+        "left": 0
+      }
+    },
+    {
+      "tag": "HTML",
+      "overflow": "clip visible",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 5042.625,
+        "top": 0,
+        "right": 375,
+        "bottom": 5042.625,
+        "left": 0
+      }
+    }
+  ],
+  "viewport": 390
+}
