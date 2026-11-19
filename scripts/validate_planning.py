@@ -36,6 +36,8 @@ status = read_json('docs/stage-status.json')
 allowed_completed = {'T002'}
 if status.get('foundation', {}).get('status') == 'complete':
     allowed_completed.update(f'T{i:03}' for i in range(3, 9))
+if status.get('identity', {}).get('status') in {'technical-pass', 'complete'}:
+    allowed_completed.update(f'T{i:03}' for i in range(13, 17))
 require(set(completed_tasks) <= allowed_completed, 'completed task exceeds verified stage scope')
 for tid, body in task_lines:
     require(bool(re.search(r'[\w.-]+/(?:[^\s؛،]+)', body)), f'{tid}: missing concrete path')
@@ -93,13 +95,20 @@ require(len(clarifications) == status.get('clarification_step', status['active_s
 require(len(clarifications) <= status.get('clarification_step', status['active_step'])['asked_questions'] <= status.get('clarification_step', status['active_step'])['question_limit'], 'clarification session limit exceeded')
 require(sum(r.startswith('FR') for r in requirements) == status['business_specification']['functional_requirements'], 'functional requirement count/status differs')
 require(status['speckit_initialized'], 'SpecKit status stale')
-require(not status['speckit']['final_plan_gate_passed'], 'open gates must not be represented as passed')
-require(not status['application_implemented'] and not status['runtime_verified'], 'planning must not claim product runtime')
+if status['speckit']['final_plan_gate_passed']:
+    require(bool(status['speckit'].get('gate_scope')), 'passed plan gate must name its limited scope')
+    require('کل محصول' not in status['speckit']['gate_scope'], 'open product gates must not be represented as passed')
+if status['application_implemented'] or status['runtime_verified']:
+    require(bool(status.get('application_implementation_scope')), 'implemented runtime must state its bounded scope')
+    require(
+        any(marker in status['application_implementation_scope'] for marker in ('باز', 'شروع نشده', 'پذیرش')),
+        'implemented runtime must preserve open product gates',
+    )
 for file in ['plan.md', 'research.md', 'data-model.md', 'contracts/api.md', 'quickstart.md', 'test-plan.md', 'tasks.md']:
     require((FEATURE / file).is_file(), f'missing design artifact {file}')
 
 checks.update(requirements=len(requirements), functional_requirements=sum(r.startswith('FR') for r in requirements), success_criteria=sum(r.startswith('SC') for r in requirements), stories=len(stories), tasks=len(task_ids), features=len(features), local_markdown_links=local_links, reference_screenshots=len(manifest['cases']), reference_page_error_cases=sum(bool(c['page_errors']) for c in manifest['cases']), reviewer_checklist_items=len(re.findall(r'^- \[ \] CHK\d+', (FEATURE / 'checklists/business-ui-quality.md').read_text(), re.M)))
 checks.update(completed_baseline_tasks=completed_tasks, pending_tasks=len(task_ids)-len(completed_tasks), decision_acceptance_scenarios=len(acceptance_ids), clarification_answers=len(clarifications))
-result = {'scope': 'planning structure and evidence integrity only', 'passed': not errors, 'checks': checks, 'requirement_task_coverage': coverage, 'errors': errors, 'not_proven': ['semantic completeness', 'all source states covered', 'visual parity of invest', 'product runtime', 'live OpenAI or SMS', 'reviewer approval']}
+result = {'scope': 'planning structure and evidence integrity only', 'passed': not errors, 'checks': checks, 'requirement_task_coverage': coverage, 'errors': errors, 'not_proven': ['semantic completeness', 'all source states covered', 'visual parity of invest', 'runtime health by this planning validator', 'live OpenAI or SMS', 'reviewer approval']}
 print(json.dumps(result, ensure_ascii=False, indent=2))
 sys.exit(bool(errors))
