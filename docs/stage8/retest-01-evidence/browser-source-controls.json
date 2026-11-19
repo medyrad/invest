@@ -1,0 +1,25 @@
+{
+  "renewalHeadings": {
+    "محدوده، حقوق و مشوق‌های قابل بررسی": 1,
+    "ساکنان و اسکان موقت": 1
+  },
+  "referenceFilterOptions": [
+    {
+      "value": "all",
+      "label": "همه منابع"
+    },
+    {
+      "value": "development",
+      "label": "همکاری توسعه‌ای"
+    },
+    {
+      "value": "finance",
+      "label": "تامین مالی و اعتبار"
+    },
+    {
+      "value": "risk",
+      "label": "بیمه و پوشش ریسک"
+    }
+  ],
+  "insuranceCardVisible": true
+}

@@ -1,0 +1,51 @@
+{
+  "titles": {
+    "proposal": {
+      "status": 200,
+      "labels": "مرحله ۱ از ۲\nمعرفی طرح، موقعیت، مرحله و نیاز"
+    },
+    "ideas": {
+      "status": 200,
+      "labels": "۱\nمعرفی ایده و پیوست\n۲\nجمع‌بندی و اقدام"
+    },
+    "land-preparation": {
+      "status": 200,
+      "labels": "۱\nنقش، خدمات و موقعیت ملک\n۲\nپرسش‌های هر خدمت و ظرفیت\n۳\nجمع‌بندی و اقدام"
+    },
+    "foreign-investment": {
+      "status": 200,
+      "labels": "۱\nخانواده همکاری، مسیر، پروژه و کشور\n۲\nآورده و مبلغ/ارز، شرایط مسیر و ابزار پشتیبان\n۳\nجمع‌بندی و اقدام"
+    },
+    "ma-notice": {
+      "status": 200,
+      "labels": "۱\nفرم اختصاصی پرونده فرصت\n۲\nجمع‌بندی و اقدام"
+    },
+    "ma-renewal": {
+      "status": 200,
+      "labels": "۱\nفرم اختصاصی نوسازی و اسکان موقت\n۲\nجمع‌بندی و اقدام"
+    },
+    "ma-manager": {
+      "status": 200,
+      "labels": "۱\nفرم اختصاصی اجاره‌داری حرفه‌ای\n۲\nجمع‌بندی و اقدام"
+    },
+    "ma-exchange": {
+      "status": 200,
+      "labels": "۱\nفرم اختصاصی معاوضه ملک\n۲\nجمع‌بندی و اقدام"
+    },
+    "charity": {
+      "status": 200,
+      "labels": "۱\nحوزه و نوع کمک، موقعیت، ظرفیت/مبلغ و دوره\n۲\nجمع‌بندی و اقدام"
+    }
+  },
+  "boolean": {
+    "unanswered": true,
+    "trueLabel": true,
+    "falseLabel": true,
+    "summary": "خیر"
+  },
+  "freshHtml": {
+    "title": "همراهی در کار خیر",
+    "overflow": false,
+    "falseLabel": true
+  }
+}

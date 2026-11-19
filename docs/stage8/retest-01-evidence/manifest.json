@@ -1,0 +1,78 @@
+{
+  "mission": "TEST-S08-FIX-01",
+  "status": "technical-pass",
+  "generated_at": "2026-11-19T13:10:12+03:30",
+  "target": {
+    "version": "S08-FIX-01-e47b3701a586",
+    "implementation_commit": "7c2632c7b7e487a8ad5406155cdf4c2027a1b518",
+    "delivery_commit": "6328756c9cf25debe10c938d86d76fe7ec822134",
+    "checkout_head": "b3c411570865026fb3c7ed540121d6dc4ecb49f3",
+    "active_build_vcs_revision": "8ac58adb73e603eb96313d83ce6801229b60d0e8",
+    "product_diff_from_implementation_to_build": false
+  },
+  "runtime": {
+    "url": "http://127.0.0.1:3108",
+    "backend_image": "sha256:6d89ce7d7ba975ce4246497b93596e2ae296eaa2cefb50e03209095843acff5a",
+    "web_image": "sha256:d94025bdbfaaa9706cfd24b8d9d9dfdf868eeb078e324e184a19ebdb5c4e5c91",
+    "backend_source_files_equal": 108,
+    "web_build_id": "nOtT7Gffv1YsTdRUE1UcS",
+    "web_next_files": 588,
+    "web_next_sha256": "50c70e8762325de104bc35e82e68a7e2a41234797b08aaabe41d1f7b7786b1a9",
+    "postgres": "17.12-alpine",
+    "postgres_host_port": 55433,
+    "active_database_reset": false,
+    "product_rebuilt": false
+  },
+  "validation": {
+    "findings_passed": [
+      "S08-IT-001",
+      "S08-IT-002",
+      "S08-IT-003",
+      "S08-IT-004",
+      "S08-IT-005",
+      "S08-IT-006"
+    ],
+    "unique_pytest_passed": 88,
+    "related_pytest_passed": 84,
+    "historical_races_passed": 3,
+    "fresh_html_pytest_passed": 1,
+    "unique_historical_browser_tests_passed": 4,
+    "historical_probe_scripts_passed": 2,
+    "independent_semantic_probe_passed": true,
+    "product_failures": 0,
+    "human_visual_approved": false,
+    "production_ready": false
+  },
+  "limitations": [
+    "Investment_Advisor-main.zip was not present; historical baseline images were compared but not claimed as a fresh archive review",
+    "in-app Browser runtime failed before tab selection with SIGABRT; real Chrome in the official Playwright image was used",
+    "historical F30 probe observed zero items in the active fixture state, so its ranking equality is not evidence of result quality",
+    "full 1801-rule, nine-journey and authentication suites were not rerun by mission design"
+  ],
+  "artifacts_sha256": {
+    "browser-probes.json": "7da4db409ab5fc8d21939508181f1dc5689c4423a290bf977a251455877494d6",
+    "browser-source-controls.json": "37d15b71bc71ec946368f1f219a96314aab38f7062281d6b99ee58722bfb2929",
+    "charity-false-summary-1440.png": "e3465a301e662634e73a356c79b93308f2a71b329c0163c810c663059d93880e",
+    "charity-probe-form-error.png": "0883e4bb4fd7777c60bf5ab778df834193d8103428c323901ac02e4108f68ad7",
+    "fresh-charity-false-360.png": "84c9566d882a7b07db0dacd2a5b20b20841a9897e22d55bae2cddfdeda7c8643",
+    "fresh-charity-false.html": "95f497bad7dadf465b0bf10cf1eb0b94dbd966c533f819949fb512f467ae63c0",
+    "fresh-proposal-zero-unanswered.html": "6af41948e8cce2c9b5e9cbb9da0b1504cfb951474e2f6551616fea1803bf9e5b",
+    "ideas-report-360.png": "6c694bb97a3fde495a4312998878041b37cf6eed4850ff9ed58da0a0ff34b16f",
+    "international-filter-1440.png": "29c3abdc94904d4bd7f73a0d261a1bd389054ffeea00498e5bd617630bb45f4f",
+    "international-risk-1440.png": "348ae23e47ef3220f0bece677216340b1533a1820f388f22d45080d5d10bd10f",
+    "mobile-progress-360.png": "f5a7ffe8cefbb32716f8d2882f6554cecfdf684d08c970968e866cd69b5a4497",
+    "playwright-final-combined-results.json": "16de61fbe815776882fa22b70c919d68f9e5d4b13545912edc273a1c1bf54b7f",
+    "playwright-host-origin-results.json": "1d7eaa61340c24d4dcb78e9dbf229acedd1993a6fa30f6bfcd8d6965337b687c",
+    "playwright-proxy-30s-results.json": "fd20fd43bc32a8f6da08b9b6d1e20e59dc92eefc362b2a354d9703ec2b64ffde",
+    "playwright-results.json": "e6babe7a560a27a398850799e66e98c1093f5948909eb063cf435a940bc4c889",
+    "progress-360.png": "896a40669a7c9603af0303fe1c1f798c19bb5651cd9df7ab8116aef6732afcb5",
+    "progress-390.png": "2d7c7994089fee81bbb7720d1bfc0454f33e3c64e10ddc3e035d41771ff8ad6c",
+    "renewal-groups-1440.png": "5790cde0c4370a13e2e3f48b02a16ce12702d3a40c3472b4434f4da1c1246781",
+    "renewal-groups-390.png": "23f1c61506b00192966c4e0b96e4b2943f79229ad725d62bda6173d4d81e74b6",
+    "roads-block-1440.png": "59fd36fef1d9d3981e03865c0a5d9dd6a2948c73f67241787d9e735bd888a5d9",
+    "test_fresh_html.py": "e80b4872acbaa323ea8a2b92266d5c9b7fb291c0040f926d34f11fd6f8107b0c",
+    "ui-semantic-probe.cjs": "72ea3787974e1db5856327223c0f767b195b34eeb410c9dee04781be776c739d",
+    "ui-semantic-probe.json": "fc5f93680327e7a6a1918cbf52373bd2ad89f025718f639a7b06f0e521c500de",
+    "../retest-01-report.md": "648c830a68a7f3d6b0ae22eca406edc031985dc012507e620913274ad637822c"
+  }
+}

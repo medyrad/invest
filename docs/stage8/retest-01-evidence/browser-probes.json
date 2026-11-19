@@ -1,0 +1,21 @@
+{
+  "f30": {
+    "passed": true,
+    "items": 0,
+    "blockedAssessmentVisible": true,
+    "unchangedRanking": true
+  },
+  "mobileProgress": {
+    "width": 171,
+    "height": 50.375,
+    "text": "۰ از ۲ پرسش ضروری پاسخ داده شده",
+    "jumpFocused": "چگونه مایل به ورود هستید؟",
+    "tabFocus": "INPUT",
+    "readabilityPassed": true
+  },
+  "mobileReport": {
+    "overflow": false,
+    "title": "داده مصنوعی مرورگر"
+  },
+  "pageErrors": []
+}

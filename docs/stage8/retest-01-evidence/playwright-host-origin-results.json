@@ -1,0 +1,292 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/pw/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      ".tools/retest-s08/playwright.config.ts"
+    ],
+    "configFile": "/repo/frontend/.tools/retest-s08/playwright.config.ts",
+    "rootDir": "/repo/frontend/.tools/retest-s08/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/invest-retest-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/repo/frontend/.tools/retest-s08/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "s08-fix-01.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/invest-retest-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/repo/frontend/.tools/retest-s08/tests",
+        "snapshotDir": "/repo/frontend/.tools/retest-s08/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "s08-fix-01.spec.ts"
+        ],
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://host.docker.internal:3108",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "launchOptions": {
+            "executablePath": "/ms-playwright/chromium-1255/chrome-linux64/chrome"
+          },
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/repo/docs/stage8/retest-01-evidence/playwright-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "s08-fix-01.spec.ts",
+      "file": "s08-fix-01.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "S08 FIX progress readable at 360/390 with working focus and keyboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25064,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T09:18:39.690Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "00ec2509fb95aaef07aa-10833e8aa9fee6093612",
+          "file": "s08-fix-01.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "S08 FIX renewal source groups contain their fields in source order desktop/mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25065,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T09:19:06.423Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "00ec2509fb95aaef07aa-a1c52f800d99d52ba072",
+          "file": "s08-fix-01.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "S08 FIX risk filter uses source classification and preserves all development finance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16109,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T09:19:31.598Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "00ec2509fb95aaef07aa-b600ff992530dbe58159",
+          "file": "s08-fix-01.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "S08 FIX Persian step labels across nine services and true false remain meaningful",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 39552,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.service-editor form')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.service-editor form') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.service-editor form')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.service-editor form')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.service-editor form') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.service-editor form')\u001b[22m\n\n    at /repo/frontend/.tools/retest-s08/tests/s08-fix-01.spec.ts:38:110",
+                    "location": {
+                      "file": "/repo/frontend/.tools/retest-s08/tests/s08-fix-01.spec.ts",
+                      "column": 110,
+                      "line": 38
+                    },
+                    "snippet": "  36 |\n  37 | test('S08 FIX Persian step labels across nine services and true false remain meaningful',async({page})=>{\n> 38 |  for(const kind of kinds){await page.goto('/tools/'+kind);await expect(page.locator('.service-editor form')).toBeVisible();const labels=await page.locator('.service-steps,.service-compact-steps').innerText();expect(labels).not.toMatch(/renewal|notice|manager|exchange|true|false/);expect(labels).toMatch(/[آ-ی]/)}\n     |                                                                                                              ^\n  39 |  const box=page.locator('[data-service-field=\"demo\"] input[type=\"checkbox\"]');await expect(box).toBeVisible();await box.check();await expect(page.locator('[data-service-field=\"demo\"]')).toContainText('پاسخ: بله');await box.uncheck();await expect(page.locator('[data-service-field=\"demo\"]')).toContainText('پاسخ: خیر');\n  40 |  // Complete only the current charity form, then inspect the actual summary, including false.\n  41 |  for(let pass=0;pass<3;pass++){"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/repo/frontend/.tools/retest-s08/tests/s08-fix-01.spec.ts",
+                        "column": 110,
+                        "line": 38
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.service-editor form')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.service-editor form') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.service-editor form')\u001b[22m\n\n\n  36 |\n  37 | test('S08 FIX Persian step labels across nine services and true false remain meaningful',async({page})=>{\n> 38 |  for(const kind of kinds){await page.goto('/tools/'+kind);await expect(page.locator('.service-editor form')).toBeVisible();const labels=await page.locator('.service-steps,.service-compact-steps').innerText();expect(labels).not.toMatch(/renewal|notice|manager|exchange|true|false/);expect(labels).toMatch(/[آ-ی]/)}\n     |                                                                                                              ^\n  39 |  const box=page.locator('[data-service-field=\"demo\"] input[type=\"checkbox\"]');await expect(box).toBeVisible();await box.check();await expect(page.locator('[data-service-field=\"demo\"]')).toContainText('پاسخ: بله');await box.uncheck();await expect(page.locator('[data-service-field=\"demo\"]')).toContainText('پاسخ: خیر');\n  40 |  // Complete only the current charity form, then inspect the actual summary, including false.\n  41 |  for(let pass=0;pass<3;pass++){\n    at /repo/frontend/.tools/retest-s08/tests/s08-fix-01.spec.ts:38:110"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-19T09:19:47.879Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/invest-retest-results/s08-fix-01-S08-FIX-Persian-c03d6-rue-false-remain-meaningful/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/invest-retest-results/s08-fix-01-S08-FIX-Persian-c03d6-rue-false-remain-meaningful/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/repo/frontend/.tools/retest-s08/tests/s08-fix-01.spec.ts",
+                    "column": 110,
+                    "line": 38
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "00ec2509fb95aaef07aa-7e3d3a909dee1cfbcf6e",
+          "file": "s08-fix-01.spec.ts",
+          "line": 37,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-19T09:18:37.492Z",
+    "duration": 113148.791,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
