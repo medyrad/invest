@@ -26,8 +26,8 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
   return (
     <header className={cn("z-40 w-full", overlay ? "absolute inset-x-0 top-0" : "sticky top-0")}>
       <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6">
-        <nav className={cn("flex h-16 items-center justify-between gap-4 rounded-full px-3 pr-5", overlay ? "glass-dark text-white" : "border border-border bg-white/85 shadow-[0_14px_40px_-30px_rgb(22_32_48/0.3)] backdrop-blur-md")}>
-          <Link href="/" aria-label="صفحه نخست"><Logo light={overlay} /></Link>
+        <nav className={cn("flex h-16 min-w-0 items-center justify-between gap-2 rounded-full px-3 sm:gap-4 sm:pr-5", overlay ? "glass-dark text-white" : "border border-border bg-white/85 shadow-[0_14px_40px_-30px_rgb(22_32_48/0.3)] backdrop-blur-md")}>
+          <Link href="/" aria-label="صفحه نخست" className="min-w-0 shrink"><Logo light={overlay} /></Link>
           <ul className="hidden items-center gap-1 lg:flex">
             {links.map((l) => (
               <li key={l.href}>
@@ -39,12 +39,12 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
               </li>
             ))}
           </ul>
-          <DropdownMenu dir="rtl"><DropdownMenuTrigger asChild><Button variant="plain" aria-label="منوی اصلی" className="lg:hidden">منو</Button></DropdownMenuTrigger><DropdownMenuContent className="max-w-[calc(100vw-2rem)] rounded-2xl">{links.map(l => <DropdownMenuItem key={l.href} asChild><Link href={l.href}>{l.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu>
+          <DropdownMenu dir="rtl"><DropdownMenuTrigger asChild><Button variant="plain" aria-label="منوی اصلی" className="shrink-0 px-3 lg:hidden">منو</Button></DropdownMenuTrigger><DropdownMenuContent className="max-w-[calc(100vw-2rem)] rounded-2xl">{links.map(l => <DropdownMenuItem key={l.href} asChild><Link href={l.href}>{l.label}</Link></DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu>
           {hydrated && user ? (
-            <span role="region" aria-label="وضعیت ورود" className="account-status-header"><span className="sr-only">وارد شده‌اید</span><DropdownMenu dir="rtl">
+            <span role="region" aria-label="وضعیت ورود" className="account-status-header min-w-0 shrink-0"><span className="sr-only">وارد شده‌اید</span><DropdownMenu dir="rtl">
               <DropdownMenuTrigger asChild>
-                <Button ref={triggerRef} aria-label="حساب کاربری" variant="plain" size="auto" className={cn("h-10 rounded-full px-4 text-sm font-bold", overlay ? "bg-white text-ink" : "bg-teal-800 text-white hover:bg-teal-900")}>
-                  <ProfileCircle size={20} variant="Bulk" /><span dir="ltr">{faDigits(user.mobile)}</span>
+                <Button ref={triggerRef} aria-label={'حساب کاربری '+faDigits(user.mobile)} variant="plain" size="auto" className={cn("h-10 min-w-10 shrink-0 rounded-full px-2 text-sm font-bold sm:px-4", overlay ? "bg-white text-ink" : "bg-teal-800 text-white hover:bg-teal-900")}>
+                  <ProfileCircle size={20} variant="Bulk" /><span dir="ltr" className="hidden sm:inline">{faDigits(user.mobile)}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-52 rounded-2xl p-1.5">

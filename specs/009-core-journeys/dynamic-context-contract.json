@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "contexts": [
+    {"source_id":"DF-0230","source_field":"revenue","current_field":"adv:lhstudy:revenue","behavior":"advisory-effective","output":"راهنمای مؤثر و snapshot گزارش","acceptance":"تغییر مدل درآمد، پاسخ شرطی غیرفعال را از خروجی حذف می‌کند"},
+    {"source_id":"DF-0231","source_field":"lhPlan","current_field":"adv:lhstudy:lhPlan","behavior":"advisory-effective","output":"راهنمای مؤثر و snapshot گزارش","acceptance":"هر گزینه، اقدام فارسی همان snapshot را تولید می‌کند"},
+    {"source_id":"DF-0232","source_field":"lhHandover","current_field":"adv:lhstudy:lhHandover","behavior":"advisory-effective","output":"راهنمای مؤثر و snapshot گزارش","acceptance":"تعهد تحویل مستقل از طرح حفظ می‌شود"},
+    {"source_id":"DF-0237","source_field":"buyer","current_field":"adv:lhstudy:buyer","behavior":"advisory-conditional","output":"راهنمای مؤثر و snapshot گزارش","acceptance":"فقط برای revenue=public مؤثر است"},
+    {"source_id":"DF-0282","source_field":"fundCapital","current_field":"amount","behavior":"fund-amount-alias","output":"budget_min/budget_max به تومان","acceptance":"یک میلیون ورودی صندوق برابر ۱۰۰۰۰۰۰ تومان است"},
+    {"source_id":"DF-0283","source_field":"expectedReturn","current_field":"fundReturnMin","behavior":"return-without-basis","output":"unknown در محور بازده","acceptance":"نرخ ساده بدون مبنای کامل با IRR برابر فرض نمی‌شود"},
+    {"source_id":"DF-0284","source_field":"payout","current_field":"payout","behavior":"score-rule","output":"دلیل محور بازده","acceptance":"گزینه مؤثر با payout ناشر مقایسه می‌شود"},
+    {"source_id":"DF-0285","source_field":"fundType","current_field":"fundType","behavior":"score-rule","output":"دلیل محور دسته‌بندی","acceptance":"fund و crowdfunding مستقل می‌مانند"},
+    {"source_id":"DF-0286","source_field":"bankGuarantee","current_field":"bankGuarantee","behavior":"verified-bank-only","output":"met/unmet/unknown محور ریسک","acceptance":"نام بانک بدون سند مستقل verified نیست"},
+    {"source_id":"DF-0287","source_field":"fundRisk","current_field":"risk","behavior":"score-rule","output":"دلیل محور ریسک","acceptance":"unknown یا ناهمخوان، فرصت را پنهان نمی‌کند"},
+    {"source_id":"DF-0300","source_field":"heritageReturn","current_field":"heritageReturn","behavior":"score-rule","output":"دلیل محور شرایط","acceptance":"lease/offset/fee/mixed مستقل می‌مانند"},
+    {"source_id":"DF-0301","source_field":"heritageUse","current_field":"heritageUse","behavior":"score-rule","output":"دلیل محور شرایط","acceptance":"کاربری مصوب با مقدار ناشر مقایسه می‌شود"},
+    {"source_id":"DF-0302","source_field":"heritageYears","current_field":"heritageYears","behavior":"score-rule","output":"دلیل مدت YEAR با مبنای صریح","acceptance":"بدون مبنای شروع همسان، نتیجه unknown است"},
+    {"source_id":"DF-0303","source_field":"heritagePayment","current_field":"heritagePayment","behavior":"score-rule","output":"دلیل محور شرایط","acceptance":"فقط در شاخه fee/mixed فعال است"},
+    {"source_id":"DF-0304","source_field":"irrMin","current_field":"irrMin","behavior":"return-without-basis","output":"unknown در محور بازده","acceptance":"عدد تنها، مقایسه بازده نمی‌سازد"},
+    {"source_id":"DF-0305","source_field":"irrBasis","current_field":"irrBasis","behavior":"return-without-basis","output":"جزء مبنای گزارش، بدون امتیاز مستقل","acceptance":"project و equity یکی فرض نمی‌شوند"},
+    {"source_id":"DF-0306","source_field":"irrPrice","current_field":"irrPrice","behavior":"return-without-basis","output":"جزء مبنای گزارش، بدون امتیاز مستقل","acceptance":"nominal و real یکی فرض نمی‌شوند"},
+    {"source_id":"DF-0307","source_field":"general","current_field":"general","behavior":"context-only","output":"متن شرایط کاربر و snapshot؛ بدون اختیار/امتیاز","acceptance":"خوداظهاری مجوز حساب ایجاد نمی‌کند"},
+    {"source_id":"DF-0308","source_field":"special","current_field":"special","behavior":"context-only","output":"متن شرایط کاربر و snapshot؛ بدون اختیار/امتیاز","acceptance":"صلاحیت خوداظهاری جای احراز مستقل نیست"},
+    {"source_id":"DF-0309","source_field":"notes","current_field":"notes","behavior":"context-only","output":"متن کامل در snapshot و متن کوتاه فقط در chip","acceptance":"escaping و جداسازی حساب با متن کامل حفظ می‌شود"}
+  ]
+}

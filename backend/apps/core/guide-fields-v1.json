@@ -1,0 +1,652 @@
+{
+  "fund": {
+    "asset_sector": {
+      "label": "حوزه دارایی",
+      "options": {}
+    },
+    "bank_description": {
+      "label": "شرح و مرجع سند تضمین",
+      "options": {}
+    },
+    "bank_exists": {
+      "label": "ادعای تضمین بانکی",
+      "options": {
+        "no": "خیر",
+        "yes": "بله"
+      }
+    },
+    "bank_principal": {
+      "label": "دامنه تضمین اصل",
+      "options": {
+        "no": "خیر",
+        "yes": "بله"
+      }
+    },
+    "bank_profit": {
+      "label": "دامنه تضمین سود",
+      "options": {
+        "no": "خیر",
+        "yes": "بله"
+      }
+    },
+    "caution": {
+      "label": "هشدارها",
+      "options": {}
+    },
+    "description": {
+      "label": "شرح فرصت",
+      "options": {}
+    },
+    "duration_months": {
+      "label": "مدت طرح",
+      "options": {}
+    },
+    "exit": {
+      "label": "شرایط خروج",
+      "options": {}
+    },
+    "finance": {
+      "label": "روش تأمین مالی",
+      "options": {}
+    },
+    "forecast": {
+      "label": "بازده ادعایی",
+      "options": {}
+    },
+    "forecast_effective_rate": {
+      "label": "نرخ مؤثر ادعایی صندوق",
+      "options": {}
+    },
+    "forecast_irr": {
+      "label": "بازده داخلی ادعایی صندوق",
+      "options": {}
+    },
+    "forecast_simple_rate": {
+      "label": "نرخ ساده ادعایی صندوق",
+      "options": {}
+    },
+    "forecast_type": {
+      "label": "نوع نرخ بازده ادعایی",
+      "options": {
+        "effective_rate": "نرخ مؤثر",
+        "irr": "بازده داخلی IRR",
+        "simple_rate": "نرخ ساده"
+      }
+    },
+    "fund_kind": {
+      "label": "ساختار ابزار",
+      "options": {
+        "crowd": "طرح جمعی",
+        "fund": "صندوق"
+      }
+    },
+    "fund_type": {
+      "label": "نوع صندوق یا طرح",
+      "options": {
+        "crowd": "تأمین مالی جمعی",
+        "equity": "سهامی",
+        "fixed": "درآمد ثابت",
+        "gold": "طلا",
+        "landbuilding": "زمین و ساختمان",
+        "mixed": "مختلط",
+        "project": "پروژه",
+        "realestate": "املاک و مستغلات"
+      }
+    },
+    "minimum_investment": {
+      "label": "حداقل ورود",
+      "options": {}
+    },
+    "model": {
+      "label": "مدل همکاری",
+      "options": {}
+    },
+    "ownership": {
+      "label": "شرح حقوق",
+      "options": {}
+    },
+    "payout": {
+      "label": "تناوب پرداخت",
+      "options": {
+        "1": "ماهانه",
+        "12": "سالانه",
+        "3": "سه‌ماهه",
+        "6": "شش‌ماهه",
+        "maturity": "سررسید",
+        "none": "رشد ارزش"
+      }
+    },
+    "repay": {
+      "label": "بازگشت پول",
+      "options": {}
+    },
+    "risk": {
+      "label": "ریسک اعلامی",
+      "options": {
+        "high": "زیاد",
+        "low": "کم",
+        "medium": "متوسط"
+      }
+    },
+    "stage": {
+      "label": "مرحله اجرایی (اعلامی)",
+      "options": {}
+    },
+    "steps": {
+      "label": "گام‌ها",
+      "options": {}
+    },
+    "title": {
+      "label": "عنوان فرصت",
+      "options": {}
+    }
+  },
+  "project": {
+    "accepted_guarantees": {
+      "label": "تضمین قابل پذیرش",
+      "options": {
+        "bank": "ضمانت‌نامه بانکی / مؤسسه مجاز",
+        "cash": "سپرده نقدی",
+        "fund": "ضمانت‌نامه صندوق واجد مجوز و پذیرش",
+        "insurance": "ضمانت‌نامه بیمه‌گر واجد مجوز",
+        "note": "سفته / ابزار دیگر در حدود پذیرش قانونی",
+        "receivable": "گواهی مطالبات قطعی واجد شرایط"
+      }
+    },
+    "budget": {
+      "label": "نیاز مالی کل",
+      "options": {}
+    },
+    "caution": {
+      "label": "هشدارها",
+      "options": {}
+    },
+    "checks": {
+      "label": "بررسی‌های پروژه",
+      "options": {}
+    },
+    "city": {
+      "label": "شهر",
+      "options": {}
+    },
+    "contractor_settlements": {
+      "label": "تسویه صورت‌وضعیت",
+      "options": {
+        "cash": "نقدی",
+        "setoff": "تهاتری",
+        "swap": "معاوضه"
+      }
+    },
+    "county": {
+      "label": "شهرستان",
+      "options": {}
+    },
+    "deposit": {
+      "label": "ودیعه",
+      "options": {}
+    },
+    "description": {
+      "label": "شرح پروژه",
+      "options": {}
+    },
+    "duration_years": {
+      "label": "مدت کل طرح / اجاره",
+      "options": {}
+    },
+    "execution_months": {
+      "label": "مدت اجرا",
+      "options": {}
+    },
+    "finance": {
+      "label": "روش تأمین مالی",
+      "options": {}
+    },
+    "first_income_months": {
+      "label": "اولین دریافت",
+      "options": {}
+    },
+    "general_conditions": {
+      "label": "شرایط عمومی",
+      "options": {}
+    },
+    "government_share": {
+      "label": "سهم دولت",
+      "options": {}
+    },
+    "group": {
+      "label": "حوزه",
+      "options": {}
+    },
+    "heritage_payments": {
+      "label": "زمان دریافت قرارداد مرمت",
+      "options": {
+        "delivery": "پس از تحویل تاییدشده",
+        "progress": "متناسب با پیشرفت تاییدشده",
+        "staged": "ترکیبی از پیشرفت و تحویل"
+      }
+    },
+    "heritage_returns": {
+      "label": "جبران هزینه مرمت",
+      "options": {
+        "fee": "دریافت مبلغ قرارداد مرمت و تحویل بنا به مالک / دولت",
+        "lease": "مرمت و اجاره مدت‌دار بنا برای بهره‌برداری",
+        "mixed": "ترکیبی از دریافت وجه و حق بهره‌برداری مدت‌دار",
+        "offset": "مرمت و جبران هزینه تاییدشده از اجاره‌بها طبق قرارداد"
+      }
+    },
+    "heritage_uses": {
+      "label": "کاربری پس از مرمت",
+      "options": {
+        "any": "پس از بررسی ظرفیت بنا تعیین شود",
+        "boutique": "بوتیک‌هتل / اقامتگاه",
+        "cafe": "کافه",
+        "culture": "فرهنگی، هنری یا صنایع‌دستی",
+        "office": "استفاده اداری مالک / دستگاه پس از تحویل",
+        "restaurant": "رستوران / پذیرایی"
+      }
+    },
+    "heritage_years": {
+      "label": "مدت بهره‌برداری میراث",
+      "options": {}
+    },
+    "income": {
+      "label": "نوع درآمد",
+      "options": {
+        "any": "بدون محدودیت",
+        "end": "پایان طرح",
+        "periodic": "دوره‌ای"
+      }
+    },
+    "interventions": {
+      "label": "نوع مداخله دولت",
+      "options": {
+        "cash": "آورده نقدی دولت",
+        "concession": "اعطای حق بهره‌برداری مدت‌دار",
+        "infrastructure": "تامین زیرساخت و پشتیبانی قراردادی",
+        "land": "آورده زمین یا ساختمان",
+        "mixed": "آورده نقدی و غیرنقدی دولت",
+        "private": "بدون آورده یا تعهد دولت",
+        "purchase": "خرید خدمت یا تعهد پرداخت مجاز"
+      }
+    },
+    "irr": {
+      "label": "IRR اعلامی",
+      "options": {}
+    },
+    "lease_payments": {
+      "label": "نحوه پرداخت اجاره",
+      "options": {
+        "lump": "یکجا برای دوره مشخص",
+        "monthly": "ماهانه",
+        "setoff": "تهاتر مطالبات / دیون واجد شرایط",
+        "swap": "معاوضه عوض / حقوق با بررسی قرارداد"
+      }
+    },
+    "lease_types": {
+      "label": "نوع اجاره",
+      "options": {
+        "medium": "بلندمدت، بیش از یک سال",
+        "one": "کوتاه‌مدت، حداکثر یک سال",
+        "rent_to_own": "اجاره به شرط تملیک"
+      }
+    },
+    "legal_status": {
+      "label": "وضعیت حقوقی",
+      "options": {
+        "review": "نیازمند بررسی حقوقی",
+        "sample": "مستندات احراز نشده"
+      }
+    },
+    "lockup_months": {
+      "label": "قفل سرمایه",
+      "options": {}
+    },
+    "lump_rent": {
+      "label": "اجاره یکجای دوره",
+      "options": {}
+    },
+    "metric_label": {
+      "label": "عنوان ظرفیت",
+      "options": {}
+    },
+    "metric_quantity": {
+      "label": "مقدار ظرفیت",
+      "options": {}
+    },
+    "min_capital": {
+      "label": "حداقل سرمایه ورود",
+      "options": {}
+    },
+    "model": {
+      "label": "مدل همکاری",
+      "options": {}
+    },
+    "model_id": {
+      "label": "شناسه مدل قرارداد",
+      "options": {}
+    },
+    "monthly_rent": {
+      "label": "اجاره ماهانه",
+      "options": {}
+    },
+    "operator_work_period": {
+      "label": "دوره کار بهره‌برداری",
+      "options": {}
+    },
+    "ownership": {
+      "label": "شرح حقوق",
+      "options": {}
+    },
+    "partner_share": {
+      "label": "سهم شریک",
+      "options": {}
+    },
+    "partnership_settlements": {
+      "label": "نحوه تسویه سهم",
+      "options": {
+        "cash": "نقدی",
+        "mixed": "ترکیبی",
+        "other": "درصدی از پروژه دیگر",
+        "same": "درصدی از همین پروژه"
+      }
+    },
+    "payback_downside_years": {
+      "label": "بازگشت بدبینانه",
+      "options": {}
+    },
+    "payback_years": {
+      "label": "دوره بازگشت",
+      "options": {}
+    },
+    "phase": {
+      "label": "وضعیت پیشرفت",
+      "options": {
+        "existing": "موجود",
+        "new": "احداث جدید",
+        "unfinished": "نیمه‌تمام"
+      }
+    },
+    "province": {
+      "label": "استان",
+      "options": {}
+    },
+    "purchase_price": {
+      "label": "قیمت خرید",
+      "options": {}
+    },
+    "repay": {
+      "label": "بازگشت پول",
+      "options": {}
+    },
+    "revenues": {
+      "label": "منابع درآمد",
+      "options": {
+        "mixed": "ترکیبی",
+        "operate": "مدیریت بهره‌برداری",
+        "product": "محصول",
+        "public": "پرداخت قراردادی دستگاه عمومی",
+        "rent": "اجاره",
+        "sale": "فروش",
+        "service": "خدمات"
+      }
+    },
+    "rights_assignment": {
+      "label": "حق انتقال / رضایت",
+      "options": {}
+    },
+    "rights_claims": {
+      "label": "دعاوی و حقوق ثالث",
+      "options": {}
+    },
+    "rights_costs": {
+      "label": "هزینه انتقال و بدهی",
+      "options": {}
+    },
+    "rights_holder": {
+      "label": "دارنده منافع / سرقفلی / حق کسب",
+      "options": {}
+    },
+    "rights_key_money": {
+      "label": "شرح سرقفلی و دلیل پرداخت",
+      "options": {}
+    },
+    "rights_occupancy": {
+      "label": "وضعیت تصرف",
+      "options": {
+        "occupied": "دارای متصرف",
+        "vacant": "تخلیه‌شده ادعایی"
+      }
+    },
+    "rights_original_lease": {
+      "label": "تاریخ رابطه اولیه و انتقال",
+      "options": {}
+    },
+    "rights_permitted_use": {
+      "label": "کاربری و شغل مجاز",
+      "options": {}
+    },
+    "rights_regime": {
+      "label": "قانون حاکم و مستند",
+      "options": {}
+    },
+    "rights_registration": {
+      "label": "نوع سند و ثبت",
+      "options": {}
+    },
+    "rights_renewal": {
+      "label": "شروط تمدید و تخلیه",
+      "options": {}
+    },
+    "rights_subject": {
+      "label": "موضوع حق",
+      "options": {}
+    },
+    "rights_title_parties": {
+      "label": "مالک عرصه / اعیان",
+      "options": {}
+    },
+    "rights_valuation": {
+      "label": "شرح ارزش مستقل حقوق",
+      "options": {}
+    },
+    "risk": {
+      "label": "ریسک اعلامی",
+      "options": {
+        "high": "زیاد",
+        "low": "کم",
+        "medium": "متوسط"
+      }
+    },
+    "sale_payments": {
+      "label": "شرایط پرداخت خرید",
+      "options": {
+        "cash": "نقد",
+        "cash_installment": "نقد + اقساط",
+        "installment": "اقساطی",
+        "setoff": "تهاتر مطالبات / دیون واجد شرایط",
+        "swap": "معاوضه مال یا حقوق قابل انتقال"
+      }
+    },
+    "sector": {
+      "label": "صاحب پروژه (بخش)",
+      "options": {
+        "private": "خصوصی",
+        "public": "عمومی"
+      }
+    },
+    "special_conditions": {
+      "label": "شرایط تخصصی",
+      "options": {}
+    },
+    "stage": {
+      "label": "مرحله اجرایی (اعلامی)",
+      "options": {}
+    },
+    "steps": {
+      "label": "گام‌ها",
+      "options": {}
+    },
+    "subtype": {
+      "label": "زیردسته",
+      "options": {}
+    },
+    "title": {
+      "label": "عنوان پروژه",
+      "options": {}
+    },
+    "transfer_rights": {
+      "label": "حق قابل انتقال",
+      "options": {
+        "building": "مالکیت اعیان",
+        "business": "انتقال حق کسب یا پیشه یا تجارت، با احراز قابلیت انتقال",
+        "combined": "ترکیبی از عین و حقوق، با تفکیک در سند",
+        "full": "مالکیت عین، عرصه و اعیان در حدود سند",
+        "land": "مالکیت عرصه",
+        "lease": "منافع مدت‌دار، بدون انتقال مالکیت عین",
+        "sarqofli": "انتقال حق سرقفلی، بدون فرض مالکیت عین"
+      }
+    },
+    "usage": {
+      "label": "کاربری",
+      "options": {
+        "agricultural": "کشاورزی",
+        "commercial": "تجاری",
+        "cultural": "فرهنگی و مذهبی",
+        "education": "آموزشی",
+        "heritage": "میراث و بنای تاریخی",
+        "industrial": "صنعتی و لجستیک",
+        "infrastructure": "زیرساختی",
+        "medical": "درمانی",
+        "mixed": "چندمنظوره",
+        "office": "اداری",
+        "public": "خدمات عمومی",
+        "residential": "مسکونی",
+        "sports": "ورزشی",
+        "tourism": "اقامتی و گردشگری"
+      }
+    },
+    "working_capital_min": {
+      "label": "نقدینگی اجرای پیمان",
+      "options": {}
+    }
+  },
+  "sale": {
+    "area": {
+      "label": "مساحت موضوع",
+      "options": {}
+    },
+    "building_type": {
+      "label": "نوع بنا",
+      "options": {
+        "apartment": "آپارتمان",
+        "complex": "مجتمع",
+        "tower": "برج",
+        "villa": "ویلایی"
+      }
+    },
+    "category": {
+      "label": "دسته فروش",
+      "options": {
+        "land": "زمین",
+        "property": "ملک",
+        "scrap": "کالای اسقاطی"
+      }
+    },
+    "caution": {
+      "label": "هشدارها",
+      "options": {}
+    },
+    "city": {
+      "label": "شهر",
+      "options": {}
+    },
+    "county": {
+      "label": "شهرستان",
+      "options": {}
+    },
+    "description": {
+      "label": "شرح فرصت",
+      "options": {}
+    },
+    "finance": {
+      "label": "روش تأمین مالی",
+      "options": {}
+    },
+    "land_area": {
+      "label": "مساحت عرصه",
+      "options": {}
+    },
+    "model": {
+      "label": "مدل همکاری",
+      "options": {}
+    },
+    "neighborhood": {
+      "label": "محله",
+      "options": {}
+    },
+    "ownership": {
+      "label": "شرح حقوق",
+      "options": {}
+    },
+    "price": {
+      "label": "قیمت عرضه",
+      "options": {}
+    },
+    "price_mode": {
+      "label": "قیمت برای",
+      "options": {
+        "per_unit": "هر واحد مشخص",
+        "total": "کل موضوع"
+      }
+    },
+    "price_quantity": {
+      "label": "مقدار مبنای قیمت واحد",
+      "options": {}
+    },
+    "province": {
+      "label": "استان",
+      "options": {}
+    },
+    "quantity": {
+      "label": "مقدار کالای عرضه",
+      "options": {}
+    },
+    "quantity_source": {
+      "label": "متن مقدار منبع",
+      "options": {}
+    },
+    "repay": {
+      "label": "بازگشت پول",
+      "options": {}
+    },
+    "scrap_type": {
+      "label": "نوع کالای اسقاطی",
+      "options": {
+        "electronics": "الکترونیکی",
+        "equipment": "تجهیزات و ماشین‌آلات",
+        "metal": "فلزات",
+        "mixed": "ترکیبی"
+      }
+    },
+    "stage": {
+      "label": "مرحله اجرایی (اعلامی)",
+      "options": {}
+    },
+    "steps": {
+      "label": "گام‌ها",
+      "options": {}
+    },
+    "subject": {
+      "label": "موضوع فروش",
+      "options": {}
+    },
+    "title": {
+      "label": "عنوان فرصت",
+      "options": {}
+    },
+    "usage": {
+      "label": "کاربری",
+      "options": {}
+    }
+  }
+}

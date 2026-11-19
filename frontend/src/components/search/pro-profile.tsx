@@ -60,7 +60,7 @@ export function profileSummary(p: ProProfile) {
 export const openProfileTab = (push: (u: string) => void) => { try { sessionStorage.setItem("hs-saved-tab", "profile"); } catch { /* Optional navigation hint is unavailable. */ } push("/saved"); window.dispatchEvent(new Event("hs-saved-tab")); };
 
 /** پروفایل کوتاه را در همان ساختاری می‌نویسد که فرم کامل «پروفایل حرفه‌ای» می‌خواند */
-export async function writeProProfile(patch: Partial<ProProfile>, expected?: ProProfile|null, key=crypto.randomUUID()) {
+export async function writeProProfile(patch: Partial<ProProfile>, expected?: ProProfile|null, key:string=crypto.randomUUID()) {
  const x=await core<{profile:Record<string,string>}>('personal');
  const current=(expected===undefined?JSON.parse(x.profile.professional||'{}'):expected||{}) as ProProfile;
  const next={...current,...patch};
@@ -90,15 +90,16 @@ function QuickProfile({ open, onOpenChange, initial, onSaved }: { open: boolean;
   const [capital, setCapital] = useState(String(initial?.capital ?? ""));
   const [base] = useState(initial);
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
   const attempt = useRef<{payload:string;key:string}|null>(null);
   async function save() {
     if (busy) return;
     const p: ProProfile = { ...(base ?? {}), roles: Array.from(new Set([...(base?.roles??[]),role])), province: province ?? "all", capital: capital || base?.capital };
     const payload=JSON.stringify(p);
     if(attempt.current?.payload!==payload)attempt.current={payload,key:crypto.randomUUID()};
-    setBusy(true);
+    setBusy(true);setError("");
     try { const saved=await writeProProfile(p,base,attempt.current.key); onSaved(saved);onOpenChange(false); }
-    catch(e){toast(e instanceof Error?e.message:'ذخیره انجام نشد.');}
+    catch(e){const text=e instanceof Error?e.message:'ذخیره انجام نشد.';setError(text);toast(text);}
     finally{setBusy(false);}
   }
   return (
@@ -112,21 +113,22 @@ function QuickProfile({ open, onOpenChange, initial, onSaved }: { open: boolean;
           <div>
             <p className="mb-2 text-[13px] font-extrabold text-ink">با چه نقشی کار می‌کنید؟</p>
             <div className="grid grid-cols-4 gap-1.5">
-              {quickRoles.map(([id, l]) => <Button key={id} type="button" variant="plain" size="auto" aria-pressed={role === id} onClick={() => setRole(id)}
+              {quickRoles.map(([id, l]) => <Button key={id} type="button" variant="plain" size="auto" aria-pressed={role === id} onClick={() => {setError("");setRole(id)}}
                 className={cn("h-10 rounded-xl border text-[12.5px] font-bold transition-colors", role === id ? "border-cobalt bg-cobalt text-white" : "border-border bg-white text-ink hover:border-ink/30")}>{l}</Button>)}
             </div>
           </div>
           <div>
             <p className="mb-2 text-[13px] font-extrabold text-ink">در کدام استان فعالید؟</p>
-            <Dropdown options={provinces.map((x) => ({ value: x, label: x }))} value={province} onChange={setProvince} placeholder="سراسر کشور" />
+            <Dropdown options={provinces.map((x) => ({ value: x, label: x }))} value={province} onChange={v=>{setError("");setProvince(v)}} placeholder="سراسر کشور" />
           </div>
           {(role === "investor" || role === "builder") && (
             <div>
               <p className="mb-2 text-[13px] font-extrabold text-ink">سرمایه قابل تخصیص <span className="font-semibold text-muted-foreground">(میلیارد تومان)</span></p>
-              <Input inputMode="numeric" value={capital} onChange={(e) => setCapital(e.target.value.replace(/[^\d۰-۹]/g, "").replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))))} placeholder="مثلاً ۵۰" className="h-11 rounded-2xl bg-white text-[14px] font-bold" />
+              <Input inputMode="numeric" value={capital} onChange={(e) => {setError("");setCapital(e.target.value.replace(/[^\d۰-۹]/g, "").replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))))}} placeholder="مثلاً ۵۰" className="h-11 rounded-2xl bg-white text-[14px] font-bold" />
             </div>
           )}
         </div>
+        {error&&<p role="alert" className="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-bold text-red-800">{error} ورودی شما حفظ شده است؛ برای تلاش دوباره همان دکمه را بزنید.</p>}
         <Button type="button" disabled={busy} onClick={() => {void save();}}
           className="mt-6 h-12 w-full rounded-full bg-primary text-[14px] font-extrabold text-white hover:bg-primary/90">ذخیره و اعمال روی فیلترها</Button>
       </DialogContent>

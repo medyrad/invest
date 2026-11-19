@@ -105,7 +105,7 @@ export function SavedCriteriaMenu({ onSave, saved }: { onSave: () => void; saved
         ))}
         {!list.length && <p className="px-2 py-3 text-[13px] leading-6 text-muted-foreground">هنوز چیزی ذخیره نکرده‌اید. جست‌وجوی فعلی را ذخیره کنید تا دفعه بعد از همین‌جا ادامه دهید.</p>}
         <DropdownMenuSeparator />
-        {saved ? <p className="flex items-center gap-2 px-2 py-2 text-[13px] font-bold text-primary-ink"><TickCircle size={17} variant="Bold" />جست‌وجوی فعلی ذخیره شده است</p> : <DropdownMenuItem onSelect={onSave} className="rounded-xl font-bold text-primary-ink focus:text-primary-ink"><Add size={18} />ذخیره جست‌وجوی فعلی</DropdownMenuItem>}
+        {saved ? <p className="flex items-center gap-2 px-2 py-2 text-[13px] font-bold text-primary-ink"><TickCircle size={17} variant="Bold" />جست‌وجوی فعلی ذخیره شده است</p> : <DropdownMenuItem onPointerDown={e=>{if(e.pointerType==='mouse'&&e.button===0){e.preventDefault();onSave();h.onOpenChange(false)}}} onSelect={onSave} className="rounded-xl font-bold text-primary-ink focus:text-primary-ink"><Add size={18} />ذخیره جست‌وجوی فعلی</DropdownMenuItem>}
         {list.length > 0 && <DropdownMenuItem asChild className="rounded-xl"><Link href="/saved"><Setting4 size={17} />مدیریت جست‌وجوها</Link></DropdownMenuItem>}
       </DropdownMenuContent>
     </DropdownMenu>

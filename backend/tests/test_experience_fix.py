@@ -1,11 +1,12 @@
 """Regression for account-bound continuation and non-destructive edits."""
 
 import json
+from pathlib import Path
 
 import pytest
 from django.utils import timezone
 
-from apps.core import personal
+from apps.core import personal, preferences
 from apps.core.models import LoginOperation, Report, Search
 from apps.core.reporting import render
 from apps.identity.sessions import mint_session
@@ -131,6 +132,90 @@ def test_report_semantic_sections_preview_download_and_history(team):
     assert "در داده تاریخی این گزارش ثبت نشده" in render(legacy)
 
 
+def test_report_document_design_and_effective_content_are_snapshot_only(team):
+    from tests.test_core import number
+
+    _, op = publish(
+        team,
+        values={
+            "title": "عنوان فارسی سند",
+            "budget": number("project", "budget", "12.5", "BILLION_TOMAN"),
+        },
+    )
+    snapshot = personal.report_snapshot(
+        op,
+        {
+            "criteria": {},
+            "guide_context": {
+                "kind": "documents",
+                "mine": [["ظرفیت متقاضی", "۱۲ میلیارد تومان"]],
+            },
+        },
+        "snapshot-design",
+    )
+    body = snapshot["rendered_html"]
+    for expected in [
+        'class="doc-brand"',
+        'class="doc-stamp"',
+        'class="grid"',
+        'class="card"',
+        'class="doc-foot"',
+        "عنوان فارسی سند",
+        "نیاز مالی کل",
+        "12.5 میلیارد تومان",
+        "درخواست بررسی اسناد و شرایط",
+        "ظرفیت متقاضی",
+        "پرونده کامل",
+        "گام‌های اقدام",
+    ]:
+        assert expected in body
+    assert ">unknown<" not in body
+    # A rendered v2 report is the immutable document source for future downloads.
+    op.draft.raw["title"] = "عنوان زنده جدید"
+    op.draft.save(update_fields=["raw"])
+    assert "عنوان زنده جدید" not in snapshot["rendered_html"]
+
+
+@pytest.mark.parametrize("with_report_id", [False, True])
+def test_real_template_one_snapshot_shapes_are_readable_and_honest(
+    team, with_report_id
+):
+    _, op = publish(team, values={"title": "عنوان تاریخی قالب یک"})
+    current = personal.report_snapshot(
+        op,
+        {
+            "criteria": {},
+            "guide_context": {
+                "answers": {"inactive-secret": "نباید مؤثر معرفی شود"},
+                "checked": ["step-99"],
+            },
+        },
+        "legacy-source",
+    )
+    legacy = {
+        key: value
+        for key, value in current.items()
+        if key
+        not in {
+            "rendered_html",
+            "action_steps",
+            "effective_advisory",
+            "field_labels",
+            "title",
+        }
+    }
+    legacy["template_version"] = 1
+    if not with_report_id:
+        legacy.pop("report_id", None)
+    body = render(legacy)
+    assert "عنوان تاریخی قالب یک" in body
+    assert "فقط واژه‌نامه ایستای همان قالب استفاده شد" in body
+    assert "گام‌های اقدام در داده تاریخی" in body
+    assert "پاسخ خام به‌عنوان مؤثر معرفی نشده است" in body
+    assert "نباید مؤثر معرفی شود" not in body
+    assert ("شناسه گزارش در شکل قدیمی" in body) is (not with_report_id)
+
+
 def test_cancel_after_consume_blocks_delayed_mutation(team):
     from apps.identity import otp
 
@@ -151,3 +236,54 @@ def test_cancel_after_consume_blocks_delayed_mutation(team):
     with pytest.raises(Fault):
         personal.mutate(session.user, data, session=session)
     assert not Search.objects.filter(user=session.user).exists()
+
+
+def test_twenty_dynamic_contexts_match_runtime_contract():
+    contract_path = (
+        Path(__file__).parents[2]
+        / "specs/009-core-journeys/dynamic-context-contract.json"
+    )
+    contexts = json.loads(contract_path.read_text())["contexts"]
+    assert len(contexts) == 20
+    assert len({row["source_id"] for row in contexts}) == 20
+
+    search_fields = {row["id"] for row in preferences.SEARCH_FIELDS.values()}
+    advisory = json.loads(
+        (Path(__file__).parents[1] / "apps/services/advisories.json").read_text()
+    )
+    land = next(row for row in advisory["configs"] if row["id"] == "lhstudy")
+    questions = {row["id"]: row for row in land["questions"]}
+    expected_behaviors = {
+        "advisory-effective": 3,
+        "advisory-conditional": 1,
+        "fund-amount-alias": 1,
+        "return-without-basis": 4,
+        "score-rule": 7,
+        "verified-bank-only": 1,
+        "context-only": 3,
+    }
+    assert {
+        behavior: sum(row["behavior"] == behavior for row in contexts)
+        for behavior in expected_behaviors
+    } == expected_behaviors
+
+    for row in contexts:
+        current = row["current_field"]
+        behavior = row["behavior"]
+        assert row["output"] and row["acceptance"]
+        if behavior.startswith("advisory-"):
+            question = questions[current.rsplit(":", 1)[-1]]
+            if behavior == "advisory-conditional":
+                assert question["active_when"] == {"revenue": ["public"]}
+        elif behavior == "fund-amount-alias":
+            assert current == "amount"
+        else:
+            assert current in search_fields
+        if behavior == "score-rule":
+            assert current in preferences.RULES
+        elif behavior == "return-without-basis":
+            assert current in preferences.RETURN_UNSPECIFIED
+        elif behavior == "verified-bank-only":
+            assert current == "bankGuarantee" and current not in preferences.RULES
+        elif behavior == "context-only":
+            assert current not in set(preferences.RULES) | preferences.RETURN_UNSPECIFIED
