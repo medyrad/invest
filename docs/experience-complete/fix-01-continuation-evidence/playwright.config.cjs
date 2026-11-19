@@ -1,0 +1,1 @@
+module.exports={testDir:'/checks',testMatch:['continuation.spec.ts'],timeout:180000,workers:1,retries:0,reporter:[['list'],['junit',{outputFile:'/evidence/browser-continuation.xml'}]],outputDir:'/evidence/browser-artifacts',use:{baseURL:'http://127.0.0.1:3109',viewport:{width:1440,height:1000},reducedMotion:'reduce',trace:'off'}};

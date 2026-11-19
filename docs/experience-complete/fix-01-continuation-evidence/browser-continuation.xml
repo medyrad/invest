@@ -1,0 +1,42 @@
+<testsuites id="" name="" tests="19" failures="0" skipped="0" errors="0" time="214.339042">
+<testsuite name="continuation.spec.ts" timestamp="2026-11-19T21:55:01.027Z" hostname="" tests="19" failures="0" skipped="0" time="210.65" errors="0">
+<testcase name="same-condition reference baseline 360" classname="continuation.spec.ts" time="13.443">
+</testcase>
+<testcase name="same-condition reference baseline 390" classname="continuation.spec.ts" time="10.235">
+</testcase>
+<testcase name="same-condition reference baseline 768" classname="continuation.spec.ts" time="16.487">
+</testcase>
+<testcase name="same-condition reference baseline 1440" classname="continuation.spec.ts" time="11.276">
+</testcase>
+<testcase name="professional form structure, focus and account badge 360" classname="continuation.spec.ts" time="11.384">
+</testcase>
+<testcase name="professional form structure, focus and account badge 390" classname="continuation.spec.ts" time="11.374">
+</testcase>
+<testcase name="professional form structure, focus and account badge 768" classname="continuation.spec.ts" time="13.179">
+</testcase>
+<testcase name="professional form structure, focus and account badge 1440" classname="continuation.spec.ts" time="18.106">
+</testcase>
+<testcase name="land all stages preserve values and controls 360" classname="continuation.spec.ts" time="6.977">
+</testcase>
+<testcase name="land all stages preserve values and controls 390" classname="continuation.spec.ts" time="6.78">
+</testcase>
+<testcase name="land all stages preserve values and controls 768" classname="continuation.spec.ts" time="10.2">
+</testcase>
+<testcase name="land all stages preserve values and controls 1440" classname="continuation.spec.ts" time="10.639">
+</testcase>
+<testcase name="quick professional card preserves input and retries 400" classname="continuation.spec.ts" time="7.176">
+</testcase>
+<testcase name="quick professional card preserves input and retries 401" classname="continuation.spec.ts" time="8.763">
+</testcase>
+<testcase name="quick professional card preserves input and retries 500" classname="continuation.spec.ts" time="5.814">
+</testcase>
+<testcase name="quick professional card preserves input and retries offline" classname="continuation.spec.ts" time="6.455">
+</testcase>
+<testcase name="quick professional card preserves input and retries lost" classname="continuation.spec.ts" time="6.464">
+</testcase>
+<testcase name="real pointer click opens save dialog during ranking refresh" classname="continuation.spec.ts" time="22.469">
+</testcase>
+<testcase name="actual immutable report has preview semantics and readable document design" classname="continuation.spec.ts" time="13.429">
+</testcase>
+</testsuite>
+</testsuites>

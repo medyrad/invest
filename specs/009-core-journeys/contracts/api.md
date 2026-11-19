@@ -24,8 +24,12 @@ operator_work_period در namespace invest.opportunity.project، نسخه۱، Qu
 
 `POST /auth/intent` یک `destination=/saved` و snapshot نسخه۱ شامل operation دقیق `save-listing` یا `save-criteria` و UUID عملیات می‌پذیرد. consume برای همان session/account handoff ثابت را در retry برمی‌گرداند؛ اثر در `POST /core/personal` با همان UUID idempotent است. LoginOperation اتصال کلید به نشست/payload را در سرور حفظ می‌کند؛ تغییر حساب یا نشست، لغو و انقضا ادامه mutation را رد می‌کنند، حتی اگر client پاسخ قدیمی را آزاد کند.
 
+پروفایل حرفه‌ای patch فیلدی با base مقایسه‌شده است؛ ویرایش فیلدهای جدا merge و تغییر stale همان فیلد 409 می‌دهد. پاسخ شکست یا refresh قدیمی، ورودی dirty را پاک نمی‌کند. role/گواهینامه خوداظهاری فقط داده پروفایل است و هیچ نقش یا اختیار سروری نمی‌سازد.
+
 `POST /core/personal` action=`search_update`، id موجود و value کامل `{name,criteria}` می‌خواهد و اتمیک است. action=`profile` در `professional` JSON نقش‌های چندگانه مجاز، entity، نام استان catalog، Decimal غیرمنفی سرمایه و validity enum را کنترل می‌کند؛ profile هرگز role/authority حساب را تغییر نمی‌دهد. پاسخ موفق تنها مبنای success UI است.
 
 action=`report` با key UUID، opportunity عمومی و `{criteria,guide_context}` گزارش opportunity می‌سازد. `guide_context.advisory_version=1` و پاسخ‌ها/تیک‌ها محدود و ساختاری‌اند؛ subtype سلسله‌مراتبی فقط از catalog به advisory raw_id نگاشت می‌شود و guidance/check مؤثر در snapshot سرور ثبت می‌شود. `POST /core/guide/:id` همان ورودی و همان سازنده را برای preview بدون ذخیره/پرونده مصرف می‌کند. `GET /core/reports/:id` پس از کنترل اختیار جاری HTML فارسی را با CSP sandbox می‌دهد. قالب۲ همان بایت ذخیره‌شده را می‌دهد؛ legacy از snapshot تاریخی بازنمایی می‌شود و داده ناموجود صریح است؛ fallback JSON حذف شده است. raw پاسخ شرطی در context محفوظ ولی فقط effective در متن مصرف می‌شود.
+
+renderer قالب۱ فقط `guide-fields-v1.json` ثابت و خود snapshot را می‌خواند؛ شناسه/گام/label تاریخی ناموجود را با مقدار زنده پر نمی‌کند. قالب۲ title، label، واحد، effective advisory، action steps و HTML ثابت را نگه می‌دارد؛ دریافت مجدد پرونده تازه ایجاد نمی‌کند.
 
 profile اکنون patch فیلدهای ارسال‌شده است. base اختیاری، مقدار همان فیلدهای خوانده‌شده را برای compare-and-set می‌دهد؛ professional با معنای JSON مقایسه می‌شود، نه فاصله‌گذاری رشته. search_update با base={name,criteria} تعارض409 می‌دهد. کلید retry و payload ثابت باید پس از پاسخ گم‌شده حفظ شوند. این قرارداد overwrite خاموش یا حل تعارض خودکار را مجاز نمی‌کند.

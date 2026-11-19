@@ -38,19 +38,19 @@
 - [x] T018 تکمیل PC-A02/03: پروفایل چندنقشی و گزینه/واحد معتبر، جمع‌بندی/دریافت و ذخیره‌سازی صادقانه؛ تغییر شرایط ذخیره‌شده بدون حذف داده در شکست، AC-PC02/03.
 - [x] T019 بستن PC-A04/05 همراه 010: راهنمای نسخه‌دار از پاسخ‌های مؤثر مشترک، دریافت مجدد HTML فارسی از snapshot و حفظ اختیار جاری، AC-PC04/05.
 - [ ] T020 بستن PC-A06/07/08: بخش فنی ماتریس/مصرف‌کننده، اصلاح زمین/راهنما، چهار عرض و مجموعه۴۰سناریویی D28 آماده است؛ تأیید انسانی طراحی، label پیشینی خبره و پذیرش کیفی عمداً باز است، AC-PC06/07/08.
-- [ ] T021 تحویل جامع: regression براساس اثر (بدون تکرار بی‌دلیل S08)، گزارش/شواهد/نسخه، یک آزمون مستقل و ثبت گیت‌های انسانی باز؛ تغییر product فقط پس از دستور مأموریت.
+- [x] T021 تحویل جامع: regression اثرمحور، گزارش/شواهد/نسخه، اجرای تمام۱۲تست مستقل موجود توسط برنامه‌نویس و ثبت گیت‌های انسانی باز تکمیل شد؛ این علامت قبول مستقل نیست. شاهد: fix-01-report.md و fix-01-continuation-evidence.
 
 منبع و معیار دقیق این تسک‌ها [ممیزی](../../docs/product-completion-audit.md) و دامنه/پایان بسته در [roadmap](../../docs/02-delivery-roadmap.md) است. تسک جدید به معنی بازشدن یافتهٔ بسته‌شدهٔ CORE-IT/S08-IT نیست.
 
 ## PROGRAMMER-EXPERIENCE-FIX-01
 
 - [x] T022 EXP-IT-001/008/009/010: اتصال سروری کلید ادامه به نشست؛ ذخیره جزئی، حفظ dirty، retry ثابت و تعارض دو تب؛ آزمون واقعی PostgreSQL و مرورگر. شاهد: fix-01-evidence/backend-verified.xml، history-verified.xml، browser-final.xml و browser-targeted-rerun.xml؛ محدودیت مصرف‌کنندگان سریع در fix-01-report.md، بدون پذیرش مستقل.
-- [ ] T023 EXP-IT-002/003/004: محتوای مؤثر، متن فارسی و snapshot تاریخی؛ برابری معنایی preview/download، legacy بدون داده زنده و اختیار جاری.
-- [ ] T024 EXP-IT-005/007: سبک فرم در همه مصرف‌کنندگان و hit-test/focus راهنمای موبایل در چهار عرض؛ شاهد هم‌شرایط مرجع.
-- [ ] T025 EXP-IT-006: مخرج کامل route/state و نگاشت فیلدی۲۰زمینه؛ تفکیک شکاف فنی از داوری انسانی؛ گزارش تجمیعی، شمار یکتا و commit محلی.
+- [x] T023 EXP-IT-002/003/004: محتوای مؤثر، متن فارسی و snapshot تاریخی؛ برابری معنایی preview/download، legacy بدون داده زنده و اختیار جاری. شاهد: continuation-evidence/backend-final-*.xml، actual-report و legacy-snapshot-shapes.md.
+- [x] T024 EXP-IT-005/007: سبک فرم در همه مصرف‌کنندگان و hit-test/focus راهنمای موبایل در چهار عرض؛ شاهد هم‌شرایط مرجع. شاهد: continuation-evidence/browser-continuation.xml و تصاویر reference/product.
+- [x] T025 EXP-IT-006: مخرج کامل route/state و نگاشت فیلدی۲۰زمینه؛ تفکیک شکاف فنی از داوری انسانی؛ گزارش تجمیعی، شمار یکتا و commit محلی. شاهد: continuation-evidence و commit کد `cb6aba7`؛ commit اسناد در تحویل نهایی گزارش می‌شود.
 
 ## Phase 1: Convergence
 
-- [ ] T026 CRITICAL تطابق جزئیات انتخاب‌گر نقش، پیشرفت، ترتیب و فاصله فرم حرفه‌ای در سه مصرف‌کننده با مرجع هم‌شرایط؛ شواهد حالت پرشده/خطا نیز بررسی شوند. منبع: Constitution II، US5، AC-PC06، EXP-IT-007 (partial). styled بودن جای تطابق کامل نیست.
-- [ ] T027 تکمیل بازسازی نسخه‌دار بخش‌های قابل بازیابی legacy و مقابله کارت‌بندی/محتوای سند با مرجع؛ برای نام/متن واقعاً ناموجود محدودیت دقیق فیلدی بدهید، نه مقدار زنده. منبع: US5، plan: snapshot، AC-PC04/05، EXP-IT-003/004 (partial).
-- [ ] T028 تکمیل شواهد ردیفی مخرج route/state و۲۰زمینه، از جمله aliasهای expectedReturn/fundReturnMin و fundRisk/risk و general/special/notes؛ هر شاهد به خروجی و پذیرش همان زمینه وصل شود. منبع: Constitution III، AC-PC06/08، EXP-IT-006 (partial). گیت انسانی به‌تنهایی این شکاف فنی را نمی‌بندد.
+- [x] T026 CRITICAL تطابق جزئیات انتخاب‌گر نقش، پیشرفت، ترتیب و فاصله فرم حرفه‌ای در سه مصرف‌کننده با مرجع هم‌شرایط؛ حالت مهمان/حساب، خطای QuickProfile، focus و badge پس از font-ready در چهار عرض ثبت شد. منبع: continuation-evidence/browser-continuation.xml و تصاویر product/reference.
+- [x] T027 بازسازی نسخه‌دار بخش‌های قابل بازیابی legacy و کارت‌بندی/محتوای سند تکمیل شد؛ نام/گام واقعاً ناموجود با محدودیت فیلدی و بدون lookup زنده ثبت می‌شود. منبع: continuation-evidence/legacy-snapshot-shapes.md، actual-report و backend-final-primary.xml.
+- [x] T028 مخرج route/state و۲۰زمینه، aliasهای expectedReturn/fundReturnMin و fundRisk/risk و general/special/notes با خروجی و پذیرش ردیفی تکمیل شد. منبع: dynamic-context-contract.json، dynamic-context-review.csv و continuation-evidence/route-state-coverage.csv. گیت انسانی باز است.

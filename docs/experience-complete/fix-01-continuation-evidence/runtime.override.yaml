@@ -1,0 +1,6 @@
+# فقط برای compose مستقل invest-expit؛ به محیط فعال پروژه اعمال نشود.
+services:
+  backend:
+    image: investexpfix-continuation-backend
+  web:
+    image: investexpfix-continuation-web

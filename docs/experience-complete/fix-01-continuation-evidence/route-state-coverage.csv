@@ -1,0 +1,41 @@
+route,row,coverage_basis,current_impact_evidence,status,known_gap
+/tools/proposal,step-1,stage8 browser-final journey + proposal 390/1440 + shared ServiceEditor,continuation land shared navigation/controls at four widths,technically-covered,hover styling and human visual approval
+/tools/proposal,step-2,stage8 browser-final journey + proposal 390/1440 + shared ServiceEditor,unchanged schema and shared current build,technically-covered,hover styling and human visual approval
+/tools/proposal,step-3,stage8 proposal-summary-1440 + report 390/1440,actual-report four widths on current build,technically-covered,human visual approval
+/tools/ideas,step-1,stage8 browser-final journey + ideas summary/report,current report renderer four widths,technically-covered,human visual approval
+/tools/ideas,step-2,stage8 browser-final ZIP/report journey,current report renderer and backend snapshot regressions,technically-covered,human visual approval
+/tools/land-preparation,step-1,stage8 journey + historical 360/768/1440,new same-condition reference and current stage1 at 360/390/768/1440,technically-covered,human visual approval
+/tools/land-preparation,step-2,stage8 full journey,current conditional-field completion and stage2 at four widths,technically-covered,human visual approval
+/tools/land-preparation,step-3,stage8 summary-1440,current summary/back/value-preservation and stage3 at four widths,technically-covered,human visual approval
+/tools/foreign-investment,step-1,stage8 full journey + source-controls + risk 1440,shared current ServiceEditor navigation,technically-covered,human visual approval
+/tools/foreign-investment,step-2,stage8 full journey and current unchanged schema,shared current ServiceEditor controls,technically-covered,human visual approval
+/tools/foreign-investment,step-3,stage8 summary-1440 and source branch tests,current report renderer regressions,technically-covered,human visual approval
+/tools/ma-notice,step-1,stage8 full journey + historical passport 1440,shared current ServiceEditor controls,technically-covered,human visual approval
+/tools/ma-notice,step-2,stage8 summary/download journey,current report renderer regressions,technically-covered,human visual approval
+/tools/ma-renewal,step-1,stage8 full journey + renewal groups 390/1440,shared current ServiceEditor controls,technically-covered,human visual approval
+/tools/ma-renewal,step-2,stage8 summary/download journey,current report renderer regressions,technically-covered,human visual approval
+/tools/ma-manager,step-1,stage8 full journey and summary 1440,shared current ServiceEditor controls,technically-covered,human visual approval
+/tools/ma-manager,step-2,stage8 summary/download journey,current report renderer regressions,technically-covered,human visual approval
+/tools/ma-exchange,step-1,stage8 full journey and summary 1440,shared current ServiceEditor controls,technically-covered,human visual approval
+/tools/ma-exchange,step-2,stage8 summary/download journey,current report renderer regressions,technically-covered,human visual approval
+/tools/charity,step-1,stage8 full journey + noncash/false 360,current shared navigation/control build,technically-covered,human visual approval
+/tools/charity,step-2,stage8 summary 1440 + fresh false report 360,current report renderer regressions,technically-covered,human visual approval
+/,home,core/S08 historical route and responsive acceptance,current shared header badge geometry/focus representative,technically-covered,human visual approval
+/opportunities,search-start/results/filters,fix-01 create/edit/race tests,current pointer click during refresh + quick profile five errors,technically-covered,human visual approval
+/opportunities/:id,detail-project,core historical route + report semantic tests,current report renderer snapshot-only regressions,technically-covered,human visual approval
+/opportunities/:id,detail-fund,core historical route + fund source tests,current dynamic-context alias contract,technically-covered,human visual approval
+/opportunities/:id,detail-sale,core historical route + sale tests,current report renderer snapshot-only regressions,technically-covered,human visual approval
+/compare,2/3/4-project,core historical compare acceptance,no changed compare code; current shared header representative,technically-covered,human visual approval
+/compare,2/3/4-fund,core historical compare acceptance,no changed compare code; current fund alias contract,technically-covered,human visual approval
+/compare,2/3/4-sale,core historical compare acceptance,no changed compare code,technically-covered,human visual approval
+/saved,saved/criteria/profile,fix-01 create/edit/CAS and consumer captures,current professional form/account hit-test four widths,technically-covered,human visual approval
+/profile,basic/professional/notifications/reports,fix-01 dirty/CAS/late refresh and consumer captures,current professional form/account hit-test four widths,technically-covered,human visual approval
+/tools/ma-profile,professional,reference source + previous visual captures,new same-condition reference/product four widths and focus/role interaction,programmer-verified,independent and human visual approval
+/guide/:id,project/fund/sale/preview/download/history,backend semantic/history/authority tests,current actual report download and four-width rendering,programmer-verified,independent and human visual approval
+/login-dialog,intent/otp/cancel/error/late/account-switch,fix-01 server session/handoff and browser races,no changed login code after passing evidence,technically-covered,independent retest
+/library,list/search/empty,core historical route acceptance,no changed library code,technically-covered,human visual approval
+/workspace,personal/organization/representative,S08 authority and organization race acceptance,no changed workspace code,technically-covered,production readiness remains separate
+/drafts,list/create/edit/conflict,S08 draft/CAS/legacy acceptance,current land back/value retention representative,technically-covered,independent retest
+/requests,list/detail/follow-up/consent,S08 full journey and consent race acceptance,no changed request code,technically-covered,production readiness remains separate
+/admin,review/assignment/organizations,S08 full journey and authority tests,no changed admin code,technically-covered,production readiness remains separate
+/expert,assigned/response/access-denied,S08 full journey and authority tests,no changed expert code,technically-covered,production readiness remains separate

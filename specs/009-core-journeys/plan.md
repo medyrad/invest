@@ -6,6 +6,8 @@
 
 report_snapshot و reporting.render منبع مشترک preview و دریافت هستند؛ قالب۲ همراه labels و action_steps در snapshot ثبت می‌شود. دریافت legacy فقط داده تاریخی + تعاریف ایستای نسخه۱ را می‌خواند؛ مقدار زنده برای پرکردن سابقه ممنوع است. فقدان گام/نام مکان تاریخی باید در محدودیت گزارش شود، نه ساخته شود. JSON جای متن فارسی نیست. آزمون معنایی بخش‌ها علاوه بر ثبات بایت و مجوز جاری لازم است.
 
+واژه‌نامه legacy نسخه۱ در `apps/core/guide-fields-v1.json` کنار renderer منجمد است و import طرح‌واره زنده ندارد. شکل‌های تاریخی دارای/فاقد `report_id` و دارای پاسخ خام بدون `effective_advisory` جدا آزموده می‌شوند. قرارداد ۲۰ زمینه در `dynamic-context-contract.json`، alias منبع به فیلد جاری، اثر یا context-only بودن و سناریوی پذیرش هر زمینه را به runtime متصل می‌کند.
+
 مخرج route/state در fix-01-evidence/route-state-denominator.csv و نگاشت۲۰زمینه در catalog صاحب مسئله تکمیل می‌شود؛ شکاف شاهد فنی با امضای انسانی فرق دارد. تسک‌های اصلاح تا نتیجه واقعی بسته نمی‌شوند.
 
 Django/DRF/PostgreSQL و Next/React موجود، بدون تعویض زیرساخت. افزودن apps.core برای گردش، انتشار، پرونده و فضای شخصی؛ گسترش schema A1 با kind پایدار و schema مخصوص هر نوع؛ catalog append-only با migration تازه. عملیات با قفل تراکنشی و key/fingerprint، snapshot immutable در DB، کنترل دسترسی جاری در هر بار دریافت. DTO عمومی whitelist از effective snapshot، فایل فقط مشتق صریح تأییدشده. مدل role از حساب سرور؛ ابزار محلی جدا و ممنوع در public.

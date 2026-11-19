@@ -1,7 +1,7 @@
 {
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "current_stage": "S08",
-  "status": "experience-fix-01-partial-delivery-with-open-technical-gaps",
+  "status": "experience-fix-01-ready-for-independent-retest",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -60,10 +60,11 @@
     "PROGRAMMER-S04-01 home/navigation/server catalog implemented with scoped SpecKit artifacts and local evidence; ready for independent testing, not human or full S04 acceptance",
     "Independent technical acceptance recorded from TEST-S03-03, TEST-S04-02 and TEST-S04-04; human/final stage acceptance unchanged; PRODUCT-S05-01 decision package prepared without S05 implementation authorization",
     "User approved P3 as D30 and recommended P1/P2 as D31/D32; PROGRAMMER-S05-A1 handoff authorized and prepared; implementation and human visual acceptance not claimed.",
-    "Historical PROGRAMMER-EXPERIENCE-COMPLETE-01 programmer claim was superseded by independent findings c7ac09b; it is not current technical acceptance"
+    "Historical PROGRAMMER-EXPERIENCE-COMPLETE-01 programmer claim was superseded by independent findings c7ac09b; it is not current technical acceptance",
+    "PROGRAMMER-EXPERIENCE-FIX-01 continuation completed by programmer: all ten EXP-IT findings have a root fix and impact evidence; independent and human acceptance remain open"
   ],
   "remaining": [
-    "COMP-EXPERIENCE: اصلاحات FIX-01 و شواهد تحویل برنامه‌نویس؛ شکاف‌های فنی طراحی/گزارش/پوشش باز، بدون پذیرش مستقل یا انسانی",
+    "COMP-EXPERIENCE: بازآزمایی مستقل تجمیعی اصلاحات FIX-01؛ سپس تأیید انسانی طراحی و داوری D28، بدون پذیرش فعلی مستقل یا انسانی",
     "COMP-AI: F31–F33 و PC-D02؛ اتصال واقعی OpenAI و ارزیابی باز",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
@@ -107,9 +108,11 @@
   },
   "reference_audit": {
     "screenshots": 46,
-    "product_runtime_test": false,
+    "product_runtime_test": true,
     "full_visual_state_coverage": false,
-    "dynamic_semantic_coverage_complete": false
+    "dynamic_semantic_coverage_complete": true,
+    "technical_route_state_evidence_complete": true,
+    "human_visual_approved": false
   },
   "next_step": {
     "id": "TEST-EXPERIENCE-COMPLETE-01",
@@ -121,7 +124,7 @@
   "active_step": {
     "id": "PROGRAMMER-EXPERIENCE-FIX-01",
     "mission": "PROGRAMMER-EXPERIENCE-FIX-01",
-    "status": "fixing-independent-findings",
+    "status": "ready-for-independent-retest",
     "authorization": "Explicit user mission: EXP-IT-001..010, COMP-EXPERIENCE; local commits only; no S09/AI/push/deploy",
     "documentation_authorized": true,
     "implementation_authorized": true,
@@ -130,7 +133,10 @@
     "human_visual_approved": false,
     "final_acceptance": false,
     "report_path": "docs/experience-complete/fix-01-report.md",
-    "validation_path": "docs/experience-complete/fix-01-evidence"
+    "validation_path": "docs/experience-complete/fix-01-continuation-evidence",
+    "programmer_backend_unique_passed": 34,
+    "programmer_browser_unique_passed": 19,
+    "independent_acceptance": false
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -238,7 +244,7 @@
     "remote_ci_executed": false,
     "public_deployed": false
   },
-  "application_implementation_scope": "هسته و S08 قبول فنی در دامنه گزارش مستقل دارند؛ شکاف‌های تازه بین‌مرحله‌ای ممیزی بازند؛ طراحی انسانی، کیفیت D28، S09/F40 و آمادگی عرضه باز هستند",
+  "application_implementation_scope": "هسته و S08 قبول فنی تاریخی دارند؛ ده یافته COMP-EXPERIENCE توسط برنامه‌نویس اصلاح و برای بازآزمایی مستقل آماده شده‌اند؛ طراحی انسانی، کیفیت D28، S09/F40 و آمادگی عرضه باز هستند",
   "identity": {
     "mission": "PROGRAMMER-S03-01",
     "status": "technical-pass",
