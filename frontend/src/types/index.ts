@@ -142,6 +142,7 @@ export interface SearchCriteria {
 }
 
 export interface SavedProfile {
+  serverCriteria?: Record<string,unknown>;
   id: string;
   name: string;
   criteria: SearchCriteria;

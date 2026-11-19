@@ -18,7 +18,7 @@ import { ArchiveTick, ArrowLeft, Convertshape2, Login, Lovely, Setting4, Trash, 
 import Image from "next/image";
 import { CompareTray } from "@/components/compare/tray";
 import { hasAnyCriteria } from "@/lib/criteria";
-import { AddSearchButton } from "./add-search";
+import { AddSearchButton, AddSearchDialog } from "./add-search";
 import { ProProfileCard } from "@/components/search/pro-profile";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -40,13 +40,15 @@ function CriteriaBoard() {
   const router = useRouter();
   const { profiles, applyProfile, removeProfile } = useStore();
   const [sel, setSel] = useState<string | null>(null);
+  const [editing,setEditing]=useState<(typeof profiles)[number]|null>(null);
   const cur = profiles.find((p) => p.id === sel) ?? profiles[0];
   const [limit, setLimit] = useState(6);
   const data = useMemo(() => Object.fromEntries(profiles.map((p) => { const m = rank(listings, p.criteria); return [p.id, { m, fresh: m.filter((r) => r.listing.publishedAt > p.lastSeenAt).length }]; })), [profiles,tick]);
   useEffect(() => setLimit(6), [cur?.id]);
   const d = cur ? data[cur.id] : null;
   return (
-    <div className="grid grid-cols-[22rem_minmax(0,1fr)] items-start gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-[22rem_minmax(0,1fr)] items-start gap-6">
+      {editing&&<AddSearchDialog key={editing.id} initial={editing} open onOpenChange={v=>{if(!v)setEditing(null)}}/>}
       <aside className="surface sticky top-24 rounded-[1.75rem] p-3">
         <div className="flex items-center justify-between gap-3 px-2 pb-3 pt-1.5">
           <p className="text-[15px] font-black text-ink">فیلترهای من <span className="text-[12.5px] font-bold text-muted-foreground">{faNumber(profiles.length)}</span></p>
@@ -85,6 +87,7 @@ function CriteriaBoard() {
                 {describeCriteria(cur.criteria).map((c) => <Badge key={c.key} variant="outline" className="border-cobalt/20 bg-cobalt-soft/60 px-3 py-1 font-bold text-cobalt-deep">{c.label}</Badge>)}
               </div>
             </div>
+            <Button type="button" variant="outline" onClick={()=>setEditing(cur)}>ویرایش شرایط</Button>
             <Button variant="plain" size="auto" type="button" aria-label="حذف این فیلتر" title="حذف این فیلتر" onClick={() => { removeProfile(cur.id); setSel(null); }} className="grid size-10 shrink-0 place-items-center rounded-full text-muted-foreground hover:bg-destructive/10 hover:text-destructive"><Trash size={18} /></Button>
             <Button type="button" onClick={() => { applyProfile(cur.id); router.push("/opportunities"); }} className="h-11 shrink-0 gap-2 rounded-full px-5 font-extrabold">در صفحه پروژه‌ها<ArrowLeft size={16} /></Button>
           </div>

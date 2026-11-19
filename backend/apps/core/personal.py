@@ -1,4 +1,4 @@
-import html
+from datetime import timedelta
 from decimal import Decimal, InvalidOperation
 
 from django.db import transaction
@@ -10,7 +10,7 @@ from apps.workspace.schema import Fault, check_keys
 
 from .common import identifier, run, text
 from .discovery import criteria, public_dto
-from .models import Notification, Personal, Report, Saved, Search
+from .models import LoginOperation, Notification, Personal, Report, Saved, Search
 from .publication import get_op
 
 
@@ -62,105 +62,49 @@ def state(user):
 
 
 def _report_html(snapshot):
-    """Render the immutable opportunity snapshot as a readable, inert Persian report."""
+    from .reporting import render
 
-    opportunity = snapshot["opportunity"]
-    context = snapshot.get("guide_context", {})
-    effective = snapshot.get("effective_advisory", {})
-    def esc(value):
-        return html.escape(str(value), quote=True)
+    return render(snapshot)
 
-    advisory_version = effective.get("version", context.get("advisory_version", 1))
 
-    def rows(items):
-        return "".join(
-            f"<div><dt>{esc(label)}</dt><dd>{esc(value)}</dd></div>"
-            for label, value in items
-            if value not in (None, "", [], {})
-        )
-
-    mine = context.get("mine", [])
-    answers = context.get("answers", {})
-    checked = context.get("checked", [])
-    guidance = effective.get("guidance", {}) if isinstance(effective, dict) else {}
-    checks = guidance.get("checks", []) if isinstance(guidance, dict) else []
-    overview = [
-        ("عنوان", opportunity.get("title")),
-        ("نوع", opportunity.get("kind")),
-        ("استان", opportunity.get("province")),
-        ("شهر", opportunity.get("city")),
-        ("نسخه فرصت", opportunity.get("revision")),
-    ]
-    sections = [
-        "<section><h2>فرصت در یک نگاه</h2><dl>" + rows(overview) + "</dl></section>"
-    ]
-    if mine:
-        sections.append(
-            "<section><h2>شرایط ثبت‌شده شما</h2><dl>"
-            + rows(mine)
-            + "</dl></section>"
-        )
-    if answers:
-        sections.append(
-            "<section><h2>پاسخ‌های مؤثر ثبت‌شده</h2><dl>"
-            + rows(answers.items())
-            + f"</dl><p>نسخه قواعد: {esc(advisory_version)}</p></section>"
-        )
-    if guidance.get("why") or checks:
-        sections.append(
-            "<section><h2>کنترل‌های راهنمای مؤثر</h2>"
-            + f"<p>نسخه قواعد: {esc(advisory_version)}</p>"
-            + (f"<p>{esc(guidance['why'])}</p>" if guidance.get("why") else "")
-            + (
-                "<ul>"
-                + "".join(f"<li>{esc(item)}</li>" for item in checks)
-                + "</ul>"
-                if checks
-                else ""
-            )
-            + "</section>"
-        )
-    if checked:
-        sections.append(
-            "<section><h2>موارد بررسی‌شده</h2><ul>"
-            + "".join(f"<li>{esc(item)}</li>" for item in checked)
-            + "</ul></section>"
-        )
-    sections.append(
-        "<section><h2>رسید و مبنای ثابت گزارش</h2>"
-        f"<p>شناسه گزارش: {esc(snapshot['report_id'])}</p>"
-        f"<p>زمان ثبت: {esc(snapshot['created_at'])}</p>"
-        f"<p>{esc(snapshot['warning'])}</p>"
-        "<p>این دریافت پرونده یا درخواست تازه‌ای ایجاد نمی‌کند.</p></section>"
+def mutate(user, data, session=None):
+    check_keys(
+        data,
+        ["key", "action", "id", "value"]
+        + (["base"] if isinstance(data, dict) and "base" in data else []),
     )
-    head = (
-        '<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">'
-        '<meta name="viewport" content="width=device-width,initial-scale=1">'
-        "<title>راهنمای اقدام سرمایه‌گزین</title><style>"
-        "body{max-width:900px;margin:32px auto;padding:20px;color:#17343b;"
-        "background:#f5f6f2;font:14px/2 Tahoma,Arial,sans-serif}"
-        "header,section{background:#fff;border:1px solid #dce3df;border-radius:16px;"
-        "padding:22px;margin:14px 0}h1,h2{margin:0 0 14px}h1{font-size:24px}"
-        "h2{font-size:18px;color:#0e6266}dl>div{display:grid;"
-        "grid-template-columns:minmax(9rem,1fr) 2fr;gap:14px;"
-        "border-bottom:1px solid #edf0ee;padding:8px 0}dt{color:#657774}"
-        "dd{margin:0;font-weight:700;overflow-wrap:anywhere}@media(max-width:600px){"
-        "body{margin:0;padding:12px}dl>div{grid-template-columns:1fr;gap:2px}}"
-        "</style></head><body>"
-    )
-    return head + (
-        f"<header><h1>{esc(opportunity.get('title', 'راهنمای اقدام'))}</h1>"
-        "<p>گزارش فارسی نسخه‌دار از snapshot تاریخی؛ اختیار دریافت با حساب جاری "
-        "بررسی می‌شود.</p></header>"
-        + "".join(sections)
-        + "</body></html>"
-    )
-
-
-def mutate(user, data):
-    check_keys(data, ["key", "action", "id", "value"])
     action = data["action"]
     target = identifier(data["key"])
+
+    def authorize():
+        bound = LoginOperation.objects.select_related("session__user").filter(key=target).first()
+        if not bound:
+            return
+        linked = bound.session
+        if (
+            not session
+            or linked.pk != session.pk
+            or linked.user_id != user.pk
+            or linked.revoked
+            or not linked.user.is_active
+            or linked.epoch != linked.user.auth_epoch
+            or timezone.now()
+            >= linked.last_activity
+            + (timedelta(minutes=30) if linked.sensitive else timedelta(hours=24))
+            or timezone.now()
+            >= linked.created_at + (timedelta(hours=12) if linked.sensitive else timedelta(days=7))
+        ):
+            raise Fault("ادامه ذخیره متعلق به نشست دیگری است؛ دوباره اقدام کنید.", 403)
+        op = bound.operation
+        if op.get("cancelled") or timezone.now() >= bound.created_at + timedelta(minutes=10):
+            raise Fault("ادامه ذخیره لغو یا منقضی شده است؛ دوباره اقدام کنید.", 409)
+        expected = (
+            ("save", op.get("id"), True)
+            if op.get("type") == "save-listing"
+            else ("search", None, {"name": op.get("name"), "criteria": op.get("criteria")})
+        )
+        if (action, data.get("id"), data.get("value")) != expected:
+            raise Fault("اطلاعات ادامه ذخیره تغییر کرده است.", 409)
 
     def work():
         if action == "save":
@@ -254,10 +198,23 @@ def mutate(user, data):
                     ):
                         raise Fault("مقدار حرفه‌ای معتبر نیست.")
             p, _ = Personal.objects.get_or_create(user=user)
-            p.profile = {
-                **({"local_role": p.profile["local_role"]} if "local_role" in p.profile else {}),
-                **v,
-            }
+            base = data.get("base")
+
+            def same(k):
+                before, current = base.get(k), p.profile.get(k)
+                if k == "professional" and before is not None and current is not None:
+                    try:
+                        return json.loads(before) == json.loads(current)
+                    except TypeError, ValueError:
+                        return False
+                return before == current
+
+            if base is not None and (not isinstance(base, dict) or any(not same(k) for k in v)):
+                raise Fault(
+                    "پروفایل در جای دیگری تغییر کرده؛ ورودی شما حفظ شد. نسخه تازه را بررسی کنید.",
+                    409,
+                )
+            p.profile = {**p.profile, **v}
             p.save()
         elif action in ["search", "search_update"]:
             v = data["value"]
@@ -270,11 +227,18 @@ def mutate(user, data):
                 Search.objects.create(user=user, name=name, criteria=v["criteria"])
             else:
                 with transaction.atomic():
-                    saved_search = Search.objects.select_for_update().filter(
-                        user=user, pk=identifier(data["id"])
-                    ).first()
+                    saved_search = (
+                        Search.objects.select_for_update()
+                        .filter(user=user, pk=identifier(data["id"]))
+                        .first()
+                    )
                     if not saved_search:
                         raise Fault("جست‌وجو پیدا نشد.", 404)
+                    if "base" in data and data["base"] != {
+                        "name": saved_search.name,
+                        "criteria": saved_search.criteria,
+                    }:
+                        raise Fault("شرایط در جای دیگری تغییر کرده؛ ورودی شما حفظ شد.", 409)
                     saved_search.name = name
                     saved_search.criteria = v["criteria"]
                     saved_search.save(update_fields=["name", "criteria"])
@@ -294,96 +258,8 @@ def mutate(user, data):
             op = get_op(data["id"])
             if not op.public_revision_id:
                 raise Fault("فرصت عمومی نیست.", 404)
-            value = data["value"]
-            context = {}
-            if isinstance(value, dict) and "criteria" in value:
-                check_keys(value, ["criteria", "guide_context"])
-                context = value["guide_context"]
-                import json
-
-                if (
-                    not isinstance(context, dict)
-                    or set(context) - {"mine", "answers", "kind", "checked", "advisory_version"}
-                    or len(json.dumps(context, ensure_ascii=True)) > 50000
-                ):
-                    raise Fault("اطلاعات تکمیلی گزارش معتبر نیست.")
-                mine = context.get("mine", [])
-                answers = context.get("answers", {})
-                checked = context.get("checked", [])
-                if (
-                    not isinstance(mine, list)
-                    or len(mine) > 100
-                    or any(
-                        not isinstance(pair, list)
-                        or len(pair) != 2
-                        or any(not isinstance(x, str) or len(x) > 4000 for x in pair)
-                        for pair in mine
-                    )
-                ):
-                    raise Fault("شرایط گزارش معتبر نیست.")
-                if (
-                    not isinstance(answers, dict)
-                    or len(answers) > 100
-                    or any(
-                        not isinstance(k, str)
-                        or not isinstance(v, str)
-                        or len(k) > 200
-                        or len(v) > 4000
-                        for k, v in answers.items()
-                    )
-                ):
-                    raise Fault("پاسخ‌های گزارش معتبر نیست.")
-                if (
-                    not isinstance(checked, list)
-                    or len(checked) > 300
-                    or any(not isinstance(x, str) or len(x) > 200 for x in checked)
-                ):
-                    raise Fault("چک‌لیست گزارش معتبر نیست.")
-                if "kind" in context and (
-                    not isinstance(context["kind"], str) or len(context["kind"]) > 100
-                ):
-                    raise Fault("نوع پیگیری گزارش معتبر نیست.")
-                if "advisory_version" in context and (
-                    type(context["advisory_version"]) is not int
-                    or context["advisory_version"] != 1
-                ):
-                    raise Fault("نسخه پاسخ‌های مؤثر معتبر نیست.")
-                c = criteria(value["criteria"])
-            else:
-                c = criteria(value)
-            report_id = identifier(data["key"])
-            snapshot = {
-                    "template_version": 1,
-                    "policy_version": 1,
-                    "report_id": str(report_id),
-                    "opportunity": public_dto(op),
-                    "assumptions": c,
-                    "guide_context": context,
-                    "warning": (
-                        "داده و ادعاهای صاحب فرصت؛ تضمین سود یا توصیه قطعی نیست. "
-                        "مبلغ و واحد و مبنا مطابق همین snapshot است."
-                    ),
-                    "created_at": timezone.now().isoformat(),
-                }
-            subtype = snapshot["opportunity"].get("fields", {}).get("subtype")
-            if subtype:
-                from apps.catalog.models import Subtype
-                from apps.services import advisories
-
-                advisory_key = Subtype.objects.filter(pk=subtype).values_list(
-                    "raw_id", flat=True
-                ).first()
-                if advisory_key:
-                    try:
-                        snapshot["effective_advisory"] = advisories.evaluate(
-                            advisory_key,
-                            answers=context.get("answers", {}),
-                            funding="own",
-                            role="investor",
-                        )
-                    except Fault:
-                        raise Fault("راهنمای مؤثر این فرصت قابل بازیابی نیست.", 409) from None
-            snapshot["rendered_html"] = _report_html(snapshot)
+            snapshot = report_snapshot(op, data["value"], target)
+            report_id = target
             r = Report.objects.create(id=report_id, user=user, snapshot=snapshot)
             return {
                 "report_id": str(r.pk),
@@ -393,4 +269,115 @@ def mutate(user, data):
             raise Fault("اقدام معتبر نیست.")
         return state(user)
 
-    return run(user, data, "personal", target, lambda: None, work)
+    from apps.identity.locking import identity_transaction
+
+    with identity_transaction():
+        return run(user, data, "personal", target, authorize, work)
+
+
+def report_snapshot(op, value, report_id):
+    context = {}
+    if isinstance(value, dict) and "criteria" in value:
+        check_keys(value, ["criteria", "guide_context"])
+        context = value["guide_context"]
+        import json
+
+        if (
+            not isinstance(context, dict)
+            or set(context) - {"mine", "answers", "kind", "checked", "advisory_version"}
+            or len(json.dumps(context, ensure_ascii=True)) > 50000
+        ):
+            raise Fault("اطلاعات تکمیلی گزارش معتبر نیست.")
+        mine = context.get("mine", [])
+        answers = context.get("answers", {})
+        checked = context.get("checked", [])
+        if (
+            not isinstance(mine, list)
+            or len(mine) > 100
+            or any(
+                not isinstance(pair, list)
+                or len(pair) != 2
+                or any(not isinstance(x, str) or len(x) > 4000 for x in pair)
+                for pair in mine
+            )
+        ):
+            raise Fault("شرایط گزارش معتبر نیست.")
+        if (
+            not isinstance(answers, dict)
+            or len(answers) > 100
+            or any(
+                not isinstance(k, str) or not isinstance(v, str) or len(k) > 200 or len(v) > 4000
+                for k, v in answers.items()
+            )
+        ):
+            raise Fault("پاسخ‌های گزارش معتبر نیست.")
+        if (
+            not isinstance(checked, list)
+            or len(checked) > 300
+            or any(not isinstance(x, str) or len(x) > 200 for x in checked)
+        ):
+            raise Fault("چک‌لیست گزارش معتبر نیست.")
+        if "kind" in context and (
+            not isinstance(context["kind"], str) or len(context["kind"]) > 100
+        ):
+            raise Fault("نوع پیگیری گزارش معتبر نیست.")
+        if "advisory_version" in context and (
+            type(context["advisory_version"]) is not int or context["advisory_version"] != 1
+        ):
+            raise Fault("نسخه پاسخ‌های مؤثر معتبر نیست.")
+        c = criteria(value["criteria"])
+    else:
+        c = criteria(value)
+    snapshot = {
+        "template_version": 1,
+        "policy_version": 1,
+        "report_id": str(report_id),
+        "opportunity": public_dto(op),
+        "assumptions": c,
+        "guide_context": context,
+        "warning": (
+            "داده و ادعاهای صاحب فرصت؛ تضمین سود یا توصیه قطعی نیست. "
+            "مبلغ و واحد و مبنا مطابق همین snapshot است."
+        ),
+        "created_at": timezone.now().isoformat(),
+    }
+    subtype = snapshot["opportunity"].get("fields", {}).get("subtype")
+    if subtype:
+        from apps.catalog.models import Subtype
+        from apps.services import advisories
+
+        advisory_key = Subtype.objects.filter(pk=subtype).values_list("raw_id", flat=True).first()
+        if advisory_key:
+            try:
+                snapshot["effective_advisory"] = advisories.evaluate(
+                    advisory_key,
+                    answers=context.get("answers", {}),
+                    funding="own",
+                    role="investor",
+                )
+            except Fault:
+                raise Fault("راهنمای مؤثر این فرصت قابل بازیابی نیست.", 409) from None
+    from .reporting import STEPS, metadata
+
+    snapshot["template_version"] = 2
+    snapshot["title"] = snapshot["opportunity"]["fields"].get("title", "گزارش فرصت")
+    snapshot["field_labels"] = metadata(snapshot["opportunity"])
+    from apps.catalog import models as catalog
+
+    for field, model in [
+        ("province", catalog.Province),
+        ("county", catalog.County),
+        ("city", catalog.City),
+        ("group", catalog.Group),
+        ("subtype", catalog.Subtype),
+    ]:
+        value = snapshot["opportunity"]["fields"].get(field)
+        if value is not None and field in snapshot["field_labels"]:
+            name = model.objects.filter(pk=value).values_list("name", flat=True).first()
+            if name:
+                snapshot["field_labels"][field]["options"] = {str(value): name}
+    snapshot["action_steps"] = STEPS.get(
+        next(iter(snapshot["opportunity"].get("routes", [])), ""), []
+    )
+    snapshot["rendered_html"] = _report_html(snapshot)
+    return snapshot

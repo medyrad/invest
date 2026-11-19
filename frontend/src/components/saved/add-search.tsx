@@ -1,6 +1,6 @@
 "use client";
 // افزودن جست‌وجوی تازه از صفحه علاقه‌مندی‌ها: مسیر، حوزه، استان و بودجه در یک پنجره، فیلترهای صفحه پروژه‌ها دست نمی‌خورد.
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Add, FilterAdd } from "@/components/iconsax";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,7 +15,7 @@ import { routes } from "@/data/routes";
 import { listings } from "@/lib/listings";
 import { forRoute } from "@/lib/match";
 import { useStore } from "@/lib/store";
-import type { RouteId, SearchCriteria } from "@/types";
+import type { RouteId, SearchCriteria, SavedProfile } from "@/types";
 import { cn } from "@/lib/utils";
 
 /** افزودن فیلتر تازه: آیکون کنار تیتر علاقه‌مندی‌ها و کارت خالی اول فهرست جست‌وجوها. بدون ورود، اول ورود می‌خواهد. */
@@ -47,25 +47,33 @@ export function AddSearchButton({ variant = "icon" }: { variant?: "icon" | "tile
   );
 }
 
-function AddSearchDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
+export function AddSearchDialog({ open, onOpenChange, initial }: { open: boolean; onOpenChange: (o: boolean) => void; initial?: SavedProfile }) {
   const addProfile = useStore((s) => s.addProfile);
-  const [name, setName] = useState("");
-  const [c, setC] = useState<SearchCriteria>({ route: "investor", groups: [], provinces: [], amount: null, filters: {} });
+  const [name, setName] = useState(initial?.name||"");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const attempt = useRef<{payload:string;key:string}|null>(null);
+  const [c, setC] = useState<SearchCriteria>(initial?.criteria||{ route: "investor", groups: [], provinces: [], amount: null, filters: {} });
   const route = routes.find((r) => r.id === c.route)!;
   const amounts = useMemo(() => forRoute(listings, c.route).filter((l) => (!c.provinces.length || c.provinces.includes(l.province ?? "")) && (!c.groups.length || c.groups.includes(l.group ?? ""))).map((l) => l.amount).filter((x): x is number => x != null), [c]);
   const basis = useMemo(() => forRoute(listings, c.route).map((l) => l.amount).filter((x): x is number => x != null), [c.route]);
   const auto = [route.name, c.provinces.length === 1 ? `در ${c.provinces[0]}` : ""].filter(Boolean).join(" ");
-  const save = () => {
-    addProfile(name.trim() || auto, c);
-    onOpenChange(false); setName(""); setC({ route: "investor", groups: [], provinces: [], amount: null, filters: {} });
-
+  const save = async () => {
+    if (busy) return;
+    const n=name.trim() || auto, payload=JSON.stringify([n,c]);
+    if(attempt.current?.payload!==payload)attempt.current={payload,key:crypto.randomUUID()};
+    setBusy(true);setError("");
+    try { await (initial?useStore.getState().updateProfile(initial.id,{name:n,criteria:c},attempt.current.key,initial):addProfile(n, c, attempt.current.key)); attempt.current=null;
+      onOpenChange(false); setName(""); setC({ route: "investor", groups: [], provinces: [], amount: null, filters: {} });
+    } catch(e) { setError(e instanceof Error?e.message:'ذخیره انجام نشد؛ ورودی شما حفظ شده است.'); }
+    finally {setBusy(false);}
   };
   const setRoute = (id: RouteId) => setC({ route: id, groups: [], provinces: c.provinces, amount: null, filters: {} });
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="thin-scroll max-h-[92dvh] overflow-y-auto rounded-3xl bg-white sm:max-w-2xl">
         <DialogHeader className="pr-7 text-right">
-          <DialogTitle className="text-xl font-extrabold">جست‌وجوی تازه</DialogTitle>
+          <DialogTitle className="text-xl font-extrabold">{initial?"ویرایش جست‌وجو":"جست‌وجوی تازه"}</DialogTitle>
           <DialogDescription>شرایط را مشخص کنید تا هر بار پروژه‌های تازه‌ی متناسب با آن را ببینید.</DialogDescription>
         </DialogHeader>
         <form onSubmit={(e) => { e.preventDefault(); save(); }} className="space-y-6">
@@ -99,9 +107,10 @@ function AddSearchDialog({ open, onOpenChange }: { open: boolean; onOpenChange: 
           <div className="space-y-2"><Label htmlFor="new-search-name" className="text-[13px] font-bold">نام</Label>
             <Input id="new-search-name" value={name} onChange={(e) => setName(e.target.value)} placeholder={auto} maxLength={40} className="h-12 rounded-2xl font-semibold" /></div>
           <DialogFooter className="gap-2 sm:justify-start">
-            <Button type="submit" className="h-12 rounded-full px-7 font-extrabold">ذخیره جست‌وجو</Button>
+            <Button type="submit" disabled={busy} className="h-12 rounded-full px-7 font-extrabold">ذخیره جست‌وجو</Button>
             <Button type="button" variant="ghost" onClick={() => onOpenChange(false)} className="h-12 rounded-full px-5 font-bold">انصراف</Button>
           </DialogFooter>
+          {error&&<p role="alert">{error}</p>}
         </form>
       </DialogContent>
     </Dialog>

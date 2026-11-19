@@ -265,8 +265,8 @@ export function ToolView({ id }: { id: string }) {
     <>
       <Header />
       <main className="focus-blur relative mx-auto max-w-7xl px-6 pt-8">
-        <SignaturePhoto src={tool.image ?? "/images/hero/office.jpg"} alt="" priority sizes="90vw" className="h-56 rounded-[2rem]">
-          <div className="absolute inset-0 flex flex-col justify-between p-7">
+        <SignaturePhoto src={tool.image ?? "/images/hero/office.jpg"} alt="" priority sizes="90vw" className="min-h-56 rounded-[2rem]">
+          <div className="relative flex min-h-56 flex-col justify-between gap-6 p-5 sm:p-7">
             <nav className="flex items-center gap-2 self-start text-[13px] font-bold text-white/80" aria-label="مسیر">
               <Link href="/tools" className="inline-flex items-center gap-1.5 hover:text-white"><ArrowRight size={15} />جذب سرمایه</Link>
               <span className="text-white/40">/</span><span>{group.name}</span>

@@ -3,7 +3,7 @@
 // نقش، استان و سرمایه‌ی ثبت‌شده با یک کلیک روی فیلترها می‌نشیند. داده همان است که فرم نسخه مرجع روی دستگاه ذخیره می‌کند.
 import { core } from "@/lib/core-api";
 import { toast } from "@/lib/toast";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { TickCircle, UserEdit } from "@/components/iconsax";
 import { Button } from "@/components/ui/button";
@@ -24,10 +24,18 @@ const roleRoute: Record<string, RouteId | undefined> = { investor: "investor", b
 
 let cached: ProProfile | null = null;
 export function readProProfile(): ProProfile | null { return cached; }
-export function useProProfile() {
+export function useProProfileState() {
  const user=useStore(s=>s.user);const [p,setP]=useState<ProProfile|null>(null);
- useEffect(()=>{let live=true;cached=null;setP(null);const read=()=>{if(user)void core<{profile:Record<string,string>}>('personal').then(x=>{if(live){try{cached=JSON.parse(x.profile.professional||'null')}catch{cached=null}setP(cached)}}).catch(()=>{});};read();window.addEventListener('invest-profile',read);return()=>{live=false;window.removeEventListener('invest-profile',read)}},[user]);return p;
+ const [loadedFor,setLoadedFor]=useState<string|null>(null),[error,setError]=useState('');
+ useEffect(()=>{let live=true,sequence=0;cached=null;setP(null);setLoadedFor(null);setError('');
+  const read=()=>{const request=++sequence;if(user)void core<{profile:Record<string,string>}>('personal').then(x=>{
+   if(live&&request===sequence){try{cached=JSON.parse(x.profile.professional||'null')}catch{cached=null}setP(cached);setLoadedFor(user.mobile);setError('')}
+  }).catch(()=>{if(live&&request===sequence){setError('اطلاعات حساب دریافت نشد؛ برای حفظ داده قبلی صفحه را تازه کنید.');setLoadedFor(user.mobile)}});};
+  read();window.addEventListener('invest-profile',read);return()=>{live=false;window.removeEventListener('invest-profile',read)};
+ },[user]);
+ return {profile:p,ready:!user||(loadedFor===user.mobile&&!error),error};
 }
+export function useProProfile(){return useProProfileState().profile;}
 
 /** شرایط جست‌وجو از روی پروفایل، سرمایه فقط در مسیر سرمایه‌گذاری جای بودجه می‌نشیند (مثل نسخه مرجع) */
 export function profileCriteria(p: ProProfile, current: SearchCriteria): Partial<SearchCriteria> {
@@ -52,11 +60,11 @@ export function profileSummary(p: ProProfile) {
 export const openProfileTab = (push: (u: string) => void) => { try { sessionStorage.setItem("hs-saved-tab", "profile"); } catch { /* Optional navigation hint is unavailable. */ } push("/saved"); window.dispatchEvent(new Event("hs-saved-tab")); };
 
 /** پروفایل کوتاه را در همان ساختاری می‌نویسد که فرم کامل «پروفایل حرفه‌ای» می‌خواند */
-export async function writeProProfile(patch: Partial<ProProfile>) {
+export async function writeProProfile(patch: Partial<ProProfile>, expected?: ProProfile|null, key=crypto.randomUUID()) {
  const x=await core<{profile:Record<string,string>}>('personal');
- const current=JSON.parse(x.profile.professional||'{}') as ProProfile;
+ const current=(expected===undefined?JSON.parse(x.profile.professional||'{}'):expected||{}) as ProProfile;
  const next={...current,...patch};
- await core('personal',{key:crypto.randomUUID(),action:'profile',id:null,value:{...x.profile,professional:JSON.stringify(next)}});
+ await core('personal',{key,action:'profile',id:null,base:{professional:expected===undefined?x.profile.professional:expected===null?undefined:JSON.stringify(expected)},value:{professional:JSON.stringify(next)}});
  window.dispatchEvent(new Event('invest-profile'));
  toast('پروفایل پس از تأیید سرور ذخیره شد.');
  return next;
@@ -80,6 +88,19 @@ function QuickProfile({ open, onOpenChange, initial, onSaved }: { open: boolean;
   const [role, setRole] = useState(initial?.roles?.[0] ?? "investor");
   const [province, setProvince] = useState<string | undefined>(initial?.province && initial.province !== "all" ? initial.province : undefined);
   const [capital, setCapital] = useState(String(initial?.capital ?? ""));
+  const [base] = useState(initial);
+  const [busy, setBusy] = useState(false);
+  const attempt = useRef<{payload:string;key:string}|null>(null);
+  async function save() {
+    if (busy) return;
+    const p: ProProfile = { ...(base ?? {}), roles: Array.from(new Set([...(base?.roles??[]),role])), province: province ?? "all", capital: capital || base?.capital };
+    const payload=JSON.stringify(p);
+    if(attempt.current?.payload!==payload)attempt.current={payload,key:crypto.randomUUID()};
+    setBusy(true);
+    try { const saved=await writeProProfile(p,base,attempt.current.key); onSaved(saved);onOpenChange(false); }
+    catch(e){toast(e instanceof Error?e.message:'ذخیره انجام نشد.');}
+    finally{setBusy(false);}
+  }
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent dir="rtl" className="max-w-md rounded-[1.75rem] p-7">
@@ -106,7 +127,7 @@ function QuickProfile({ open, onOpenChange, initial, onSaved }: { open: boolean;
             </div>
           )}
         </div>
-        <Button type="button" onClick={() => { const p: ProProfile = { ...(initial ?? {}), roles: Array.from(new Set([...(initial?.roles??[]),role])), province: province ?? "all", capital: capital || initial?.capital }; void writeProProfile(p).then(saved=>{onSaved(saved);onOpenChange(false)}).catch(e=>toast(e instanceof Error?e.message:'ذخیره انجام نشد.')); }}
+        <Button type="button" disabled={busy} onClick={() => {void save();}}
           className="mt-6 h-12 w-full rounded-full bg-primary text-[14px] font-extrabold text-white hover:bg-primary/90">ذخیره و اعمال روی فیلترها</Button>
       </DialogContent>
     </Dialog>
@@ -115,12 +136,12 @@ function QuickProfile({ open, onOpenChange, initial, onSaved }: { open: boolean;
 
 /** کارت پروفایل حرفه‌ای در فیلترها و فرم شروع: هر بخش پروفایل یک فیلتر قابل روشن/خاموش */
 export function ProProfileCard({ className, onApplied }: { className?: string; onApplied?: () => void }) {
-  const p = useProProfile();
+  const {profile:p,ready} = useProProfileState();
   const router = useRouter();
   const { criteria, setCriteria } = useStore();
   const [quick, setQuick] = useState(false);
   const applyAll = (prof: ProProfile) => { setCriteria(profileCriteria(prof, criteria)); onApplied?.(); };
-  const dialog = <QuickProfile open={quick} onOpenChange={setQuick} initial={p} onSaved={applyAll} />;
+  const dialog = quick && ready ? <QuickProfile open={quick} onOpenChange={setQuick} initial={p} onSaved={applyAll} /> : null;
   if (!p) return (
     <div className={cn("rounded-2xl bg-[#f3f6fa] p-4", className)}>
       <div className="flex items-start gap-3">
@@ -168,10 +189,10 @@ export function ProProfileCard({ className, onApplied }: { className?: string; o
 
 /** نسخه یک‌خطی همان کارت برای بالای فرم شروع */
 export function ProProfileBar({ className }: { className?: string }) {
-  const p = useProProfile();
+  const {profile:p,ready} = useProProfileState();
   const { criteria, setCriteria } = useStore();
   const [quick, setQuick] = useState(false);
-  const dialog = <QuickProfile open={quick} onOpenChange={setQuick} initial={p} onSaved={(prof) => setCriteria(profileCriteria(prof, criteria))} />;
+  const dialog = quick && ready ? <QuickProfile open={quick} onOpenChange={setQuick} initial={p} onSaved={(prof) => setCriteria(profileCriteria(prof, criteria))} /> : null;
   const facts = p ? profileFacts(p, criteria) : [];
   return (
     <div className={cn("flex items-center gap-3 rounded-2xl bg-white/70 p-2.5 pr-3 ring-1 ring-border", className)}>

@@ -15,7 +15,7 @@ import { NodeMark } from "@/components/brand/algo-pattern";
 import { Dropdown } from "@/components/search/controls";
 import { routes } from "@/data/routes";
 import { describeCriteria } from "@/lib/criteria";
-import { followUpKinds, guideHtml, type GuideContext } from "@/lib/guide";
+import { followUpKinds, type GuideContext } from "@/lib/guide";
 import { listingById } from "@/lib/listings";
 import { useHydrated, useStore } from "@/lib/store";
 import type { Advisory, Opportunity } from "@/types";
@@ -38,7 +38,7 @@ export function GuideView({ id }: { id: string }) {
   const [effective,setEffective]=useState<EffectiveAdvisoryResult|null>(null);
   const [advisoryState,setAdvisoryState]=useState<'idle'|'loading'|'ready'|'error'>('idle');
   useEffect(()=>{if(!o){setEffective(null);setAdvisoryState('ready');return;}const answers=Object.fromEntries(Object.entries(criteria.filters).filter(([k,v])=>k.startsWith(`adv:${o.subtype}:`)&&typeof v==='string').map(([k,v])=>[k.slice(`adv:${o.subtype}:`.length),String(v)]));let live=true;setAdvisoryState('loading');void services<EffectiveAdvisoryResult>(`advisories/${o.subtype}`,{answers,funding:'own',role:'investor'}).then(x=>{if(live){setEffective(x);setAdvisoryState('ready')}}).catch(()=>{if(live){setEffective(null);setAdvisoryState('error')}});return()=>{live=false}},[o?.subtype,criteria.filters]);
-  const effectiveAdvisory=useMemo<Advisory|undefined>(()=>effective?{context:effective.guidance.why||'',baseChecks:effective.guidance.checks,questions:effective.questions,example:{}}:undefined,[effective]);
+
 
   const ctx = useMemo<GuideContext>(() => {
     if (!hydrated) return {};
@@ -60,7 +60,11 @@ export function GuideView({ id }: { id: string }) {
     return { mine, answers, kind, checked,advisory_version:effective?.version };
   }, [hydrated, criteria, kind, checked, l, o, effective]);
 
-  const html = useMemo(() => guideHtml(l, ctx,effectiveAdvisory), [l, ctx,effectiveAdvisory]);
+  const [html,setHtml]=useState(""),[previewReady,setPreviewReady]=useState(false),[previewError,setPreviewError]=useState("");
+  useEffect(()=>{let live=true;setPreviewReady(false);setPreviewError("");if(!hydrated||(o&&advisoryState!=='ready'))return;
+    void core<{html:string}>(`guide/${l.id}`,{criteria:toCriteria(criteria),guide_context:ctx}).then(x=>{if(live){setHtml(x.html);setPreviewReady(true)}}).catch(e=>{if(live)setPreviewError(e.message)});
+    return()=>{live=false};
+  },[l.id,ctx,criteria,hydrated,o,advisoryState]);
   // تیک‌ها داخل خود سند زده می‌شوند، پیش از هر بازسازی یا دانلود از سند خوانده می‌شوند تا از بین نروند
   const ticks = () => Array.from(frame.current?.contentDocument?.querySelectorAll<HTMLInputElement>("input[data-k]:checked") ?? []).map((i) => i.dataset.k!);
   const changeKind = (v: string | undefined) => { setChecked(ticks()); setKind(v); };
@@ -90,7 +94,8 @@ export function GuideView({ id }: { id: string }) {
               <p className="flex items-center gap-2 text-[13px] font-extrabold text-primary-ink"><NodeMark />راهنمای اقدام</p>
               <h1 className="mt-2 text-lg font-black leading-8 text-ink">{l.title}</h1>
               <div className="mt-4 space-y-2">
-                <Button disabled={saving||(!!o&&advisoryState!=='ready')} onClick={download} className="h-12 w-full gap-2 rounded-full font-extrabold"><DocumentDownload size={18} variant="Bold" />{advisoryState==='loading'?'دریافت راهنمای مؤثر…':'دانلود فایل راهنما'}</Button>
+                <Button disabled={saving||!previewReady||(!!o&&advisoryState!=='ready')} onClick={download} className="h-12 w-full gap-2 rounded-full font-extrabold"><DocumentDownload size={18} variant="Bold" />{advisoryState==='loading'?'دریافت راهنمای مؤثر…':'دانلود فایل راهنما'}</Button>
+                {previewError&&<p role="alert">{previewError}</p>}
                 {advisoryState==='error'&&<p role="alert" className="text-xs font-bold leading-6 text-red-700">راهنمای نسخه‌دار از سرور دریافت نشد؛ صفحه را تازه کنید و دوباره تلاش کنید.</p>}
                 <Button variant="outline" onClick={() => frame.current?.contentWindow?.print()} className="h-11 w-full gap-2 rounded-full bg-white font-bold shadow-none"><Printer size={18} />چاپ یا PDF</Button>
               </div>

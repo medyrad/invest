@@ -186,6 +186,15 @@ class Personal(models.Model):
     profile = models.JSONField(default=dict)
 
 
+class LoginOperation(models.Model):
+    """Permanent binding of a consumed save intent, including after flow cancellation."""
+
+    key = models.UUIDField(primary_key=True)
+    session = models.ForeignKey("identity.AuthSession", on_delete=models.PROTECT)
+    operation = models.JSONField()
+    created_at = models.DateTimeField(default=timezone.now)
+
+
 class Saved(models.Model):
     user = models.ForeignKey(U, on_delete=models.PROTECT)
     opportunity = models.ForeignKey(Opportunity, on_delete=models.PROTECT)

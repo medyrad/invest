@@ -72,6 +72,17 @@ class CoreAPI(PublicBase):
             if request.method == "POST" and path == "compare":
                 check_keys(request.data, ["ids"])
                 return Response(discovery.compare(request.data["ids"]))
+            if request.method == "POST" and len(parts) == 2 and parts[0] == "guide":
+                op = pub.get_op(parts[1])
+                if not op.public_revision_id:
+                    raise Fault("فرصت عمومی نیست.", 404)
+                snapshot = personal.report_snapshot(op, request.data, "پیش‌نمایش؛ هنوز ذخیره نشده")
+                return Response(
+                    {
+                        "html": snapshot["rendered_html"],
+                        "revision": snapshot["opportunity"]["revision"],
+                    }
+                )
             if path == "local-roles":
                 if settings.INVEST_ENV not in ["development", "test"]:
                     raise Fault("مسیر پیدا نشد.", 404)
@@ -228,13 +239,10 @@ class CoreAPI(PublicBase):
                         filename = "invest-report.json"
                     else:
                         body = r.snapshot.get("rendered_html")
-                        if not isinstance(body, str):
-                            body = json.dumps(r.snapshot, ensure_ascii=False, indent=2)
-                            content_type = "application/json; charset=utf-8"
-                            filename = "invest-report.json"
-                        else:
-                            content_type = "text/html; charset=utf-8"
-                            filename = "invest-guide.html"
+                        if not isinstance(body, str) or r.snapshot.get("template_version", 1) < 2:
+                            body = personal._report_html(r.snapshot)
+                        content_type = "text/html; charset=utf-8"
+                        filename = "invest-guide.html"
                     response = HttpResponse(
                         body,
                         content_type=content_type,
@@ -250,7 +258,7 @@ class CoreAPI(PublicBase):
             elif request.method == "POST":
                 data = request.data
                 if path == "personal":
-                    return Response(personal.mutate(user, data))
+                    return Response(personal.mutate(user, data, session=session))
                 if path == "cases":
                     return Response(cases.create(session, data))
                 if len(parts) == 2:

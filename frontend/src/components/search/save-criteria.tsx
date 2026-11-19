@@ -2,7 +2,7 @@
 // ذخیره شرایط واردشده و انتخاب دوباره آن‌ها، تا کاربر هر بار اطلاعات را از نو وارد نکند.
 import {usePublicTick} from "@/components/core/reference-shell";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "@/lib/toast";
 import { Add, ArchiveTick, Save2, Setting4, TickCircle } from "@/components/iconsax";
 import { Button } from "@/components/ui/button";
@@ -20,16 +20,23 @@ import { cn, faNumber } from "@/lib/utils";
 import { useHoverOpen } from "./hover-open";
 
 export function SaveCriteriaDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
-  const { user, criteria, openLogin, saveProfile } = useStore();
+  const { user, criteria, openLogin, addProfile } = useStore();
   const route = routes.find((r) => r.id === criteria.route)!;
   const chips = describeCriteria(criteria);
   const [name, setName] = useState("");
+  const [busy,setBusy]=useState(false),[error,setError]=useState("");
+  const attempt=useRef<{payload:string;key:string}|null>(null);
   useEffect(() => { if (open) setName(`${route.name}${criteria.provinces[0] ? `، ${criteria.provinces[0]}` : ""}`); }, [open, route.name, criteria.provinces]);
-  const save = () => {
+  const save = async () => {
+    if(busy)return;
     const n = name.trim() || "جست‌وجوی من";
-    onOpenChange(false);
-    if (!user) return openLogin({ type: "save-criteria", name: n });
-    saveProfile(n);
+    if (!user) {onOpenChange(false);return openLogin({ type: "save-criteria", name: n });}
+    const payload=JSON.stringify([n,criteria]);
+    if(attempt.current?.payload!==payload)attempt.current={payload,key:crypto.randomUUID()};
+    setBusy(true);setError("");
+    try{await addProfile(n,criteria,attempt.current.key);attempt.current=null;onOpenChange(false);}
+    catch(e){setError(e instanceof Error?e.message:'ذخیره انجام نشد.');}
+    finally{setBusy(false);}
   };
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -50,9 +57,10 @@ export function SaveCriteriaDialog({ open, onOpenChange }: { open: boolean; onOp
             </div>
           </div>
           <DialogFooter className="gap-2 sm:justify-start">
-            <Button type="submit" className="h-12 rounded-full px-7 font-extrabold">{user ? "ذخیره" : "ورود و ذخیره"}</Button>
+            <Button type="submit" disabled={busy} className="h-12 rounded-full px-7 font-extrabold">{user ? "ذخیره" : "ورود و ذخیره"}</Button>
             <Button type="button" variant="ghost" onClick={() => onOpenChange(false)} className="h-12 rounded-full px-5 font-bold">انصراف</Button>
           </DialogFooter>
+          {error&&<p role="alert">{error}</p>}
           {!user && <p className="text-xs text-muted-foreground">فقط شماره موبایل لازم است.</p>}
         </form>
       </DialogContent>

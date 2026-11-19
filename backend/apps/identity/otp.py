@@ -73,7 +73,7 @@ def get_flow(token, at):
 def uuid_value(value):
     try:
         return uuid.UUID(str(value))
-    except (ValueError, TypeError, AttributeError):
+    except ValueError, TypeError, AttributeError:
         raise Fault("invalid_request") from None
 
 
@@ -287,6 +287,23 @@ def intent(token, action, payload=None, session_token=None):
         flow = get_flow(token, at)
         session = current_session(session_token, at)
         if action == "cancel":
+            snapshot = (flow.intent or {}).get("snapshot", {})
+            if snapshot.get("version") == 1 and snapshot.get("key"):
+                import uuid
+
+                from apps.core.models import LoginOperation
+
+                try:
+                    operation_key = uuid.UUID(str(snapshot["key"]))
+                except ValueError, TypeError:
+                    operation_key = None
+                if operation_key:
+                    bound = LoginOperation.objects.filter(
+                        key=operation_key, session_id=flow.intent_session_id
+                    ).first()
+                    if bound:
+                        bound.operation = {**bound.operation, "cancelled": True}
+                        bound.save(update_fields=["operation"])
             flow.intent = None
             flow.save()
             return {"cancelled": True}
@@ -315,6 +332,22 @@ def intent(token, action, payload=None, session_token=None):
         ):
             raise Fault("intent_unavailable", 409)
         if not flow.intent_consumed:
+            snapshot = flow.intent.get("snapshot", {})
+            if snapshot.get("version") == 1 and snapshot.get("operation"):
+                import uuid
+
+                from apps.core.models import LoginOperation
+
+                try:
+                    operation_key = uuid.UUID(str(snapshot.get("key")))
+                except (ValueError, TypeError) as exc:
+                    raise Fault("invalid_request") from exc
+                bound, _ = LoginOperation.objects.get_or_create(
+                    key=operation_key,
+                    defaults={"session": session, "operation": snapshot["operation"]},
+                )
+                if bound.session_id != session.pk or bound.operation != snapshot["operation"]:
+                    raise Fault("intent_unavailable", 409)
             flow.intent_consumed = True
             flow.save(update_fields=["intent_consumed"])
         return {"handoff": flow.intent, "persisted": False}
