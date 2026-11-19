@@ -1,5 +1,5 @@
 {
-  "status": "planned-not-implemented",
+  "status": "baseline-task-index-with-scoped-execution-evidence",
   "tasks": [
     {
       "id": "T001",
@@ -16,7 +16,7 @@
         "SC-001",
         "SC-008"
       ],
-      "description": "در S01 تا S10 تکمیل تدریجی نگاشت معنایی DF/DR و ۶۷ فیلد و تعیین مقصد همهٔ ۴۴ قابلیت در docs/catalogs/semantic-mapping.csv؛ source/model/API/widget/acceptance و اختلاف مصوب هر ردیف؛ سیاست D29 مصوب و B06 باز"
+      "description": "در S01 تا S10 تکمیل تدریجی نگاشت معنایی DF/DR و ۶۷ فیلد و تعیین مقصد همهٔ ۴۴ قابلیت در docs/catalogs/implementation-traceability.json؛ source/model/API/widget/acceptance و اختلاف مصوب هر ردیف؛ سیاست D29 مصوب و B06 باز"
     },
     {
       "id": "T002",
@@ -940,7 +940,7 @@
         "FR-029",
         "FR-030"
       ],
-      "description": "اجرای سفر هر خدمت تا draft/report/explicit submit و شرط‌های toggle/مرزی و D29: پاسخ پنهان نامربوط، حفظ واحد/فرض گزارش، ودیعه/اجاره جدا و خیریه بدون مبنا در tests/browser/journeys/services.spec.ts؛ تصویر هر مرحله در tests/browser/visual/services.spec.ts و شاهد نگاشت docs/catalogs/semantic-mapping.csv"
+      "description": "اجرای سفر هر خدمت تا draft/report/explicit submit و شرط‌های toggle/مرزی و D29: پاسخ پنهان نامربوط، حفظ واحد/فرض گزارش، ودیعه/اجاره جدا و خیریه بدون مبنا در tests/browser/journeys/services.spec.ts؛ تصویر هر مرحله در tests/browser/visual/services.spec.ts و شاهد نگاشت docs/catalogs/implementation-traceability.json"
     },
     {
       "id": "T062",
@@ -1047,7 +1047,7 @@
         "SC-001",
         "SC-008"
       ],
-      "description": "تطبیق تمام ۴۴ قابلیت، DF/DR و فرم‌های مرجع با محصول در docs/catalogs/semantic-mapping.csv و docs/catalogs/feature-coverage.csv؛ ردیف باز/حذف خاموش مانع تحویل است"
+      "description": "تطبیق تمام ۴۴ قابلیت، DF/DR و فرم‌های مرجع با محصول در docs/catalogs/implementation-traceability.json و docs/catalogs/feature-coverage.csv؛ ردیف باز/حذف خاموش مانع تحویل است"
     },
     {
       "id": "T069",
@@ -1564,5 +1564,42 @@
     "independent_acceptance": false,
     "human_visual_approved": false,
     "baseline_tasks_fully_complete": false
+  },
+  "current_execution": {
+    "as_of": "2026-11-19",
+    "status_source": "docs/stage-status.json",
+    "registry": "docs/catalogs/feature-coverage.csv",
+    "audit": "docs/product-completion-audit.md",
+    "remaining_package_owner": "docs/02-delivery-roadmap.md",
+    "baseline_task_completion_is_not_runtime_completion": true,
+    "semantic_mapping_complete": false,
+    "all_source_runtime_states_verified": false,
+    "technical_acceptance_reports": [
+      "docs/core-delivery/retest-01-report.md",
+      "docs/stage8/retest-01-report.md"
+    ],
+    "semantic_mapping_owners": [
+      "specs/007-exact-values",
+      "specs/008-project-drafts",
+      "specs/009-core-journeys/mapping.md",
+      "specs/010-specialist-services/forms-source-map.json",
+      "specs/010-specialist-services/advisory-source-map.json",
+      "docs/stage8/scope-map.json",
+      "docs/catalogs/dynamic-context-review.csv"
+    ],
+    "open_findings": [
+      "PC-A01",
+      "PC-A02",
+      "PC-A03",
+      "PC-A04",
+      "PC-A05",
+      "PC-A06",
+      "PC-A07",
+      "PC-A08",
+      "PC-A09",
+      "PC-A10"
+    ],
+    "human_design_approved": false,
+    "production_ready": false
   }
 }

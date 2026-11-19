@@ -21,7 +21,7 @@
 
 مسیر رسمی برای هر قابلیت چنین است: `constitution → specify → clarify → plan → checklist → tasks → analyze → implement → converge`. اصول پروژه یک بار تعریف می‌شوند؛ نیازمندی، رفع ابهام، برنامه و تسک برای هر قابلیت تکرار می‌شوند. تحلیل ناسازگاری پیش از ساخت و بررسی پوشش پس از ساخت انجام می‌شود. [مرجع رسمی SpecKit](https://github.github.com/spec-kit/reference/agentic-sdd.html)
 
-در این گفتگو در مرحلهٔ تحلیل/clarify و بازبینی طرح هستیم. SpecKit رسمی 1.4.1 با integration مهارت‌های Codex در `.specify` و `.agents/skills` راه‌اندازی شده است. نقشهٔ فنی و بک‌لاگ فعلی پیش‌نویس برنامه‌اند؛ تا بستن تصمیم‌های مؤثر، plan و tasks نهایی محسوب نمی‌شوند. نام دستور به integration وابسته است؛ راهنمای رسمی برای Codex شکل `$speckit-*` را نیز ذکر می‌کند. این‌ها گردش کار agent هستند، نه دستورهای معمول shell. [راهنمای شروع SpecKit](https://github.github.com/spec-kit/quickstart)
+وضعیت جاری ۲۰۲۶/۱۱/۱۹: featureهای اجرایی تا 010 حاضرند و هسته/S08 قبول فنی دامنه‌دار دارند؛ مأموریت PRODUCT-COMPLETION-AUDIT-01 فقط تحلیل/اصلاح اسناد است. SpecKit رسمی 1.4.1 با integration مهارت‌های Codex در `.specify` و `.agents/skills` راه‌اندازی شده است. [بسته‌های باقی‌مانده](02-delivery-roadmap.md) تا بستن گیت مربوط و مجوز اجرا پیشنهادند؛ قبول فنی با طراحی انسانی/عرضه یکی نیست. نام دستور به integration وابسته است؛ راهنمای رسمی برای Codex شکل `$speckit-*` را نیز ذکر می‌کند. این‌ها گردش کار agent هستند، نه دستورهای معمول shell. [راهنمای شروع SpecKit](https://github.github.com/spec-kit/quickstart)
 
 | گام | خروجی invest |
 |---|---|
@@ -35,7 +35,7 @@
 | implement | اجرای بستهٔ مورد توافق و ثبت نتیجهٔ واقعی بررسی‌ها |
 | converge | تطبیق پیاده‌سازی با اسناد و افزودن کار باقی‌مانده تا رفع گپ |
 
-## ساختار هدف پس از توافق
+## ساختار نمونهٔ تاریخی؛ نه نام featureهای جاری
 
 ```text
 .specify/

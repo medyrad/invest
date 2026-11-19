@@ -1,0 +1,100 @@
+{
+  "kind": "read-only layout observation; no acceptance",
+  "at": "2026-11-19T10:19:13.175Z",
+  "rows": [
+    {
+      "width": 390,
+      "document": {
+        "clientWidth": 390,
+        "scrollWidth": 375,
+        "scrollHeight": 4772
+      },
+      "body": {
+        "scrollWidth": 431,
+        "scrollHeight": 4772
+      },
+      "headings": [
+        {
+          "text": "آماده‌سازی و توسعه زمین",
+          "rect": {
+            "x": 124,
+            "y": 159.5,
+            "width": 127,
+            "height": 126,
+            "top": 159.5,
+            "right": 251,
+            "bottom": 285.5,
+            "left": 124
+          },
+          "parent": {
+            "x": 124,
+            "y": 159.5,
+            "width": 127,
+            "height": 242,
+            "top": 159.5,
+            "right": 251,
+            "bottom": 401.5,
+            "left": 124
+          },
+          "parentOverflow": "visible"
+        }
+      ],
+      "overflow": [
+        {
+          "tag": "BUTTON",
+          "role": null,
+          "text": "راهنمای این خدمت",
+          "rect": {
+            "x": -75,
+            "y": 357.5,
+            "width": 175,
+            "height": 44,
+            "top": 357.5,
+            "right": 100,
+            "bottom": 401.5,
+            "left": -75
+          }
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1425,
+        "scrollHeight": 1399
+      },
+      "body": {
+        "scrollWidth": 1425,
+        "scrollHeight": 1399
+      },
+      "headings": [
+        {
+          "text": "آماده‌سازی و توسعه زمین",
+          "rect": {
+            "x": 800.5,
+            "y": 234,
+            "width": 428,
+            "height": 42,
+            "top": 234,
+            "right": 1228.5,
+            "bottom": 276,
+            "left": 800.5
+          },
+          "parent": {
+            "x": 800.5,
+            "y": 234,
+            "width": 428,
+            "height": 74,
+            "top": 234,
+            "right": 1228.5,
+            "bottom": 308,
+            "left": 800.5
+          },
+          "parentOverflow": "visible"
+        }
+      ],
+      "overflow": []
+    }
+  ]
+}

@@ -19,3 +19,15 @@
 مقایسه طبق src/lib/compare.ts:groups و rows گروه‌های money/time/risk/project و ترتیب منبع را می‌گیرد؛ فیلدهای افزوده هر نوع در همان گروه معنایی می‌آیند. فروش گروه زمان ساختگی ندارد؛ صندوق زمان/ریسک/ماهیت صندوق خود را دارد.
 
 شاهد اجرای مقایسه ناشناس در FIX-01 رقابت CSRF دو load آغازین را آشکار کرد؛ bootstrap فقط درحال‌اجرا اشتراک دارد و load لغوشده پیش از درخواست متوقف می‌شود. token دائمی cache نمی‌شود و کنترل CSRF سرور تغییر نکرده است.
+
+
+## مصرف‌کننده‌های تکمیلی ممیزی ۲۰۲۶/۱۱/۱۹
+
+| منبع/تصمیم | مصرف‌کننده محصول | ردیابی و پذیرش باقی‌مانده |
+|---|---|---|
+| ZIP login-dialog/store؛ FR-017 و US5 | store.bindAccount، save-criteria، listing-card | PC-A01 / T017 / AC-PC01؛ نیت ورود ذخیره را واقعاً یک بار ادامه دهد |
+| ZIP advisor.html بخش ma-profile / D09/D23/D29 | core/profile، search/pro-profile و core/personal | PC-A02/03 / T018 / AC-PC02/03؛ چندنقشی، خروجی، خطای ذخیره و عدم اختیار |
+| ZIP advisories و guide / D29 | services/advisories، guide/guide-view، lib/guide و core/api گزارش | PC-A04/05 / T019 / AC-PC04/05؛ پاسخ مؤثر در تمام خروجی‌ها و دریافت مجدد خواندنی |
+| ZIP CSS/component/state / D08/D09/D23 و D28 | همه صفحات موجود و مصرف‌کنندگان matching | PC-A06/07/08 / T020 / AC-PC06/07/08؛ تصویر هم‌شرایط، داوری غیرخالی و trace قابل بازیابی |
+
+این جدول وضعیت شاهد را به [ممیزی](../../docs/product-completion-audit.md) وصل می‌کند؛ spanهای آرشیو/کد آنجا آمده‌اند. نگاشت سطح قابلیت قبلی اثبات پوشش این مرزها نبوده است.

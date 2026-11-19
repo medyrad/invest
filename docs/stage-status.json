@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "current_stage": "S08",
-  "status": "s08-fix-ready-for-independent-retest",
-  "implementation_authorized": true,
+  "status": "s08-technical-pass-product-completion-audit-documented",
+  "implementation_authorized": false,
   "speckit_initialized": true,
   "application_implemented": true,
   "runtime_verified": true,
@@ -27,7 +27,13 @@
     "D31",
     "D32"
   ],
-  "pending_questions": [],
+  "pending_questions": [
+    "PC-D01",
+    "PC-D02",
+    "PC-D03",
+    "PC-D04",
+    "PC-D05"
+  ],
   "feature_count": 44,
   "completed": [
     "Reference archive static inventory and hashes",
@@ -56,11 +62,10 @@
     "User approved P3 as D30 and recommended P1/P2 as D31/D32; PROGRAMMER-S05-A1 handoff authorized and prepared; implementation and human visual acceptance not claimed."
   ],
   "remaining": [
-    "پذیرش فنی A1 طبق TEST-S05-A1-03 برقرار است؛ مأموریت جامع باقی S05/S06/S07 را مجاز کرده است. تأیید انسانی و عرضه عمومی باز هستند.",
-    "Complete per-field/per-rule semantic mappings and schemas before each dependent feature; all by S10",
-    "Stabilize visual state baselines and review mobile/new-panel designs before each UI acceptance",
-    "Validate matching relevance against product-expert reviewed examples before S06 acceptance",
-    "Close B05/B06/B07/B08 at their explicit gates; real OpenAI/SMS and operational acceptance remain unverified"
+    "شکاف‌های PC-A01..A08 و معیارهای AC-PC01..08 در COMP-EXPERIENCE؛ طراحی انسانی و داوری D28 باز",
+    "COMP-AI: F31–F33 و PC-D02؛ اتصال واقعی OpenAI و ارزیابی باز",
+    "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
+    "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
   ],
   "approved_decision_parts": [
     "D10:owner-types-and-single-representative",
@@ -97,7 +102,7 @@
     "constitution_version": "1.0.1",
     "feature": "010-specialist-services",
     "final_plan_gate_passed": true,
-    "gate_scope": "خدمات تخصصی S08؛ آزمون مستقل و انسانی جدا"
+    "gate_scope": "خدمات تخصصی S08 با قبول فنی مستقل؛ تأیید انسانی باز"
   },
   "reference_audit": {
     "screenshots": 46,
@@ -106,28 +111,25 @@
     "dynamic_semantic_coverage_complete": false
   },
   "next_step": {
-    "id": "TEST-S08-FIX-01",
-    "description": "بازآزمایی مستقل محدود هر شش اصلاح همین نسخه؛ پذیرش انسانی طراحی باز",
-    "authorized": false
+    "id": "PROGRAMMER-EXPERIENCE-COMPLETE-01",
+    "description": "پیشنهاد تکمیل جامع سفر ورود/ذخیره/پروفایل/جست‌وجوی تخصصی/گزارش و طراحی همه مسیرها؛ نه شروع S09",
+    "authorized": false,
+    "scope_path": "docs/02-delivery-roadmap.md",
+    "package": "COMP-EXPERIENCE"
   },
   "active_step": {
-    "id": "S08-FIX-01",
-    "mission": "PROGRAMMER-S08-FIX-01",
-    "authorization": "Latest explicit user handoff; docs/stage8/fix-mission-01.md",
-    "status": "ready-for-independent-retest",
-    "implementation_authorized": true,
+    "id": "PRODUCT-COMPLETION-AUDIT-01",
+    "mission": "PRODUCT-COMPLETION-AUDIT-01",
+    "status": "documented-awaiting-coordinator-review",
+    "authorization": "Explicit latest user mission: documentation/traceability audit and local commit only",
+    "documentation_authorized": true,
+    "implementation_authorized": false,
+    "push_authorized": false,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
-    "independent_acceptance": false,
     "final_acceptance": false,
-    "report_path": "docs/stage8/fix-01-report.md",
-    "verification_path": "docs/stage8/fix-01-evidence/manifest.json",
-    "runtime_url": "http://127.0.0.1:3108",
-    "version": "S08-FIX-01-e47b3701a586",
-    "implementation_commit": "7c2632c7b7e487a8ad5406155cdf4c2027a1b518",
-    "backend_unique_passed": 87,
-    "browser_targeted_passed": 4,
-    "public_deployed": false
+    "report_path": "docs/product-completion-audit.md",
+    "validation_path": "docs/product-completion-evidence/validation.json"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -235,7 +237,7 @@
     "remote_ci_executed": false,
     "public_deployed": false
   },
-  "application_implementation_scope": "هسته قبول فنی دارد؛ بسته اصلاح شش یافته S08 آماده بازآزمایی مستقل است؛ پذیرش S08 و طراحی انسانی بازند؛ S09/F40 و عرضه شروع نشده‌اند",
+  "application_implementation_scope": "هسته و S08 قبول فنی در دامنه گزارش مستقل دارند؛ شکاف‌های تازه بین‌مرحله‌ای ممیزی بازند؛ طراحی انسانی، کیفیت D28، S09/F40 و آمادگی عرضه باز هستند",
   "identity": {
     "mission": "PROGRAMMER-S03-01",
     "status": "technical-pass",
@@ -506,9 +508,18 @@
     "browser_core_passed": 7,
     "browser_auth_regression_passed": 2,
     "pushed": false,
-    "delivery_label": "آماده آزمون مستقل هسته کامل",
+    "delivery_label": "قبول فنی هسته؛ یافته‌های تکمیلی و طراحی انسانی باز",
     "technical_acceptance_report_path": "docs/core-delivery/retest-01-report.md",
-    "technical_acceptance_commit": "8bfc7276efc18f7e31301a83394939d830def50f"
+    "technical_acceptance_commit": "8bfc7276efc18f7e31301a83394939d830def50f",
+    "open_followup_findings": [
+      "PC-A01",
+      "PC-A02",
+      "PC-A03",
+      "PC-A04",
+      "PC-A05",
+      "PC-A06",
+      "PC-A07"
+    ]
   },
   "core_independent_review": {
     "status": "technical-pass-after-retest",
@@ -523,10 +534,13 @@
     "retest_commit": "8bfc7276efc18f7e31301a83394939d830def50f"
   },
   "git_delivery": {
-    "push_authorized": true,
+    "push_authorized": false,
     "remote": "origin",
     "branch": "main",
-    "force_push_authorized": false
+    "force_push_authorized": false,
+    "current_mission": "PRODUCT-COMPLETION-AUDIT-01",
+    "current_mission_override": "local commit only; no push or deploy",
+    "earlier_standing_push_authorization": true
   },
   "core_fix_01": {
     "mission": "PROGRAMMER-CORE-FIX-01",
@@ -555,16 +569,16 @@
   "s08_delivery": {
     "mission": "PROGRAMMER-S08-COMPLETE",
     "scope_path": "docs/programmer-s08-complete.md",
-    "status": "needs-fix",
+    "status": "technical-pass",
     "implementation_authorized": true,
-    "independent_acceptance": false,
+    "independent_acceptance": true,
     "human_visual_approved": false,
     "public_deployment_authorized": false,
     "feature": "010-specialist-services",
     "report_path": "docs/stage8/report.md",
     "manifest_path": "docs/stage8/manifest.json",
     "version": "S08-5f7f8dc28c28",
-    "delivery_label": "آماده آزمون مستقل جامع S08",
+    "delivery_label": "قبول فنی تجمیعی S08؛ طراحی انسانی و عرضه باز",
     "implementation_commit": "be663690824d1d10669e0ee5c6ca92f2d205b7e8",
     "backend_passed": 1875,
     "browser_s08_passed": 16,
@@ -572,11 +586,11 @@
     "public_deployed": false,
     "fix_01": {
       "mission": "PROGRAMMER-S08-FIX-01",
-      "status": "ready-for-independent-retest",
+      "status": "technical-pass",
       "implementation_authorized": true,
       "public_deployment_authorized": false,
       "human_visual_approved": false,
-      "independent_acceptance": false,
+      "independent_acceptance": true,
       "final_acceptance": false,
       "report_path": "docs/stage8/fix-01-report.md",
       "verification_path": "docs/stage8/fix-01-evidence/manifest.json",
@@ -585,11 +599,21 @@
       "implementation_commit": "7c2632c7b7e487a8ad5406155cdf4c2027a1b518",
       "backend_unique_passed": 87,
       "browser_targeted_passed": 4,
-      "public_deployed": false
-    }
+      "public_deployed": false,
+      "technical_acceptance_report_path": "docs/stage8/retest-01-report.md",
+      "technical_acceptance_commit": "5d37ad4"
+    },
+    "technical_acceptance_report_path": "docs/stage8/retest-01-report.md",
+    "technical_acceptance_commit": "5d37ad4",
+    "coordinator_acceptance_source": "Explicit starting state in PRODUCT-COMPLETION-AUDIT-01",
+    "open_followup_findings": [
+      "PC-A04",
+      "PC-A06",
+      "PC-A07"
+    ]
   },
   "s08_independent_review": {
-    "status": "needs-fix",
+    "status": "technical-pass-after-retest",
     "report_path": "docs/stage8/independent-test-report.md",
     "commit": "051782084461ad1913db1eb4c35e7ac4aba4c0b8",
     "issues": [
@@ -599,6 +623,48 @@
       "S08-IT-004",
       "S08-IT-005",
       "S08-IT-006"
+    ],
+    "initial_review_status": "needs-fix",
+    "retest_report_path": "docs/stage8/retest-01-report.md",
+    "retest_manifest_path": "docs/stage8/retest-01-evidence/manifest.json",
+    "retest_commit": "5d37ad4",
+    "issues_closed": [
+      "S08-IT-001",
+      "S08-IT-002",
+      "S08-IT-003",
+      "S08-IT-004",
+      "S08-IT-005",
+      "S08-IT-006"
+    ],
+    "pytest_unique_passed": 88,
+    "playwright_unique_passed": 4,
+    "scope": "six findings and bounded regression; no human design or production acceptance"
+  },
+  "product_completion_audit": {
+    "report_path": "docs/product-completion-audit.md",
+    "source_archive_sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b",
+    "source_archive_present": true,
+    "source_review": "static source plus historical same-hash baselines; targeted read-only product browser observations",
+    "runtime_version": "S08-FIX-01-e47b3701a586",
+    "technical_pass_registry_rows": 38,
+    "registry_rows": 44,
+    "product_completion_percentage": null,
+    "design_approved": false,
+    "production_ready": false,
+    "proposals_approved": false,
+    "product_tests_rerun": false,
+    "package_owner": "docs/02-delivery-roadmap.md",
+    "open_findings": [
+      "PC-A01",
+      "PC-A02",
+      "PC-A03",
+      "PC-A04",
+      "PC-A05",
+      "PC-A06",
+      "PC-A07",
+      "PC-A08",
+      "PC-A09",
+      "PC-A10"
     ]
   }
 }

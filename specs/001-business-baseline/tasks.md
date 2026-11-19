@@ -6,7 +6,7 @@
 
 مرحله: S01–S02. پذیرش S01: تصمیم‌ها و تحلیل مستند؛ پذیرش S02 پس از دستور کاربر: نسخه/قرارداد پایه، نصب تمیز، migration و CI. T001 کار پیوسته تا S10 است؛ ردیف‌های وابسته هر قابلیت پیش از اجرای همان قابلیت کامل شوند.
 
-- [ ] T001 در S01 تا S10 تکمیل تدریجی نگاشت معنایی DF/DR و ۶۷ فیلد و تعیین مقصد همهٔ ۴۴ قابلیت در docs/catalogs/semantic-mapping.csv؛ source/model/API/widget/acceptance و اختلاف مصوب هر ردیف؛ سیاست D29 مصوب و B06 باز — بسته T01؛ FR-016 FR-020 FR-021 FR-022 SC-001 SC-008.
+- [ ] T001 در S01 تا S10 تکمیل تدریجی نگاشت معنایی DF/DR و ۶۷ فیلد و تعیین مقصد همهٔ ۴۴ قابلیت در docs/catalogs/implementation-traceability.json؛ source/model/API/widget/acceptance و اختلاف مصوب هر ردیف؛ سیاست D29 مصوب و B06 باز — بسته T01؛ FR-016 FR-020 FR-021 FR-022 SC-001 SC-008.
 - [x] T002 ثبت D25–D29 مصوب B01–B04 و پنج پاسخ کاربر و ثبت نتیجه در docs/03-decisions.md و specs/001-business-baseline/spec.md؛ قواعد حدسی ممنوع؛ سپس analyze مجدد — بسته T01؛ FR-020 FR-022.
 - [x] T003 ثبت اجازه و دامنهٔ S02 در docs/stage-status.json پس از گزارش گام و دستور کاربر؛ تولید spec/plan/tasks/checklist زیرساخت در specs/004-platform-foundation/ و قرارداد پایه و analyze پیش از کد؛ آماده‌بودن کل محصول را از این اجازه استنتاج نکنید — بسته T01؛ FR-020 FR-022.
 - [x] T004 بررسی/قفل نسخه‌های سازگار و ثبت اجرای تمیز backend/pyproject.toml، backend/uv.lock، frontend/package.json و frontend/package-lock.json مطابق research؛ کد مرجع فقط مبنای UI — بسته T02؛ FR-022.
@@ -96,7 +96,7 @@
 - [ ] T058 [US06] ساخت دو جریان مستقل اجاره‌داری/معاوضه در backend/apps/services/rental.py و backend/apps/services/exchange.py و frontend/src/components/services/rental.tsx و frontend/src/components/services/exchange.tsx — بسته T23؛ FR-016 FR-021 FR-019.
 - [ ] T059 [US06] نهایی‌کردن ۶۱ پیکربندی و قواعد ساختمان/زمین/خیریه و همهٔ شرط‌های DF/DR مربوط در contracts/services/advisories.json و backend/tests/unit/test_advisories.py؛ AC-D29-11/12: هزینه واحد/ظرفیت/دوره با منبع/تاریخ؛ ضریب نمونه واقعی نباشد و نبود مبنا needs_expert_estimate دهد — بسته T24؛ FR-016 FR-021 SC-008 FR-029 FR-030.
 - [ ] T060 [US06] ساخت advisory/charity و summary با فرض‌های مصوب D29 و نتیجه نیازمند برآورد کارشناس بدون عدد ساختگی در نبود مبنا در backend/apps/services/advisories.py و frontend/src/components/services/advisories.tsx و frontend/src/components/services/charity.tsx — بسته T24؛ FR-016 FR-021 FR-019 FR-029 FR-030.
-- [ ] T061 [US06] اجرای سفر هر خدمت تا draft/report/explicit submit و شرط‌های toggle/مرزی و D29: پاسخ پنهان نامربوط، حفظ واحد/فرض گزارش، ودیعه/اجاره جدا و خیریه بدون مبنا در tests/browser/journeys/services.spec.ts؛ تصویر هر مرحله در tests/browser/visual/services.spec.ts و شاهد نگاشت docs/catalogs/semantic-mapping.csv — بسته T19 T20 T21 T22 T23 T24؛ FR-016 FR-017 FR-019 FR-021 SC-002 SC-003 SC-006 SC-008 FR-029 FR-030.
+- [ ] T061 [US06] اجرای سفر هر خدمت تا draft/report/explicit submit و شرط‌های toggle/مرزی و D29: پاسخ پنهان نامربوط، حفظ واحد/فرض گزارش، ودیعه/اجاره جدا و خیریه بدون مبنا در tests/browser/journeys/services.spec.ts؛ تصویر هر مرحله در tests/browser/visual/services.spec.ts و شاهد نگاشت docs/catalogs/implementation-traceability.json — بسته T19 T20 T21 T22 T23 T24؛ FR-016 FR-017 FR-019 FR-021 SC-002 SC-003 SC-006 SC-008 FR-029 FR-030.
 
 ## فاز 8: US04 دستیار متصل
 
@@ -113,7 +113,7 @@
 
 مرحله: S10–S11. پذیرش مستقل: همهٔ گیت‌ها با شاهد واقعی بسته؛ اجرای مرحله/انتشار فقط با دستور جدید کاربر.
 
-- [ ] T068 تطبیق تمام ۴۴ قابلیت، DF/DR و فرم‌های مرجع با محصول در docs/catalogs/semantic-mapping.csv و docs/catalogs/feature-coverage.csv؛ ردیف باز/حذف خاموش مانع تحویل است — بسته T28؛ FR-016 FR-021 FR-022 SC-001 SC-008.
+- [ ] T068 تطبیق تمام ۴۴ قابلیت، DF/DR و فرم‌های مرجع با محصول در docs/catalogs/implementation-traceability.json و docs/catalogs/feature-coverage.csv؛ ردیف باز/حذف خاموش مانع تحویل است — بسته T28؛ FR-016 FR-021 FR-022 SC-001 SC-008.
 - [ ] T069 بستن بخش اتصال بیرونی B06 و اجرای فقط اتصال مصوب بازآفرینی با قرارداد واقعی در backend/apps/services/external.py و backend/tests/contracts/test_external.py؛ در نبود API وضعیت deferred با تصمیم صریح، نه fake success — بسته T28؛ FR-016 FR-018.
 - [ ] T070 فعال‌سازی SMS واقعی، حذف OTP response/UI در public و اجرای smoke کنترل‌شده؛ شاهد در docs/stage11/sms-verification.json و تست gate در backend/tests/integration/test_public_launch.py — بسته T29؛ FR-011 SC-007.
 - [ ] T071 تکمیل بخش عرضه B07 و بازبینی سیاست فایل ثبت‌شده در T024، تست بار هدف/حریم/retention و backup/restore مستقل و rollback در deploy/backup.sh و deploy/restore.sh و tests/load/scenarios.js؛ gate تیم/تقویم/جانشین D25 و fixture تعطیلی/خارج ساعات کاری هم بررسی شود؛ نتیجه docs/stage11/verification.json — بسته T29؛ FR-017 FR-022 SC-004 SC-005 FR-025 SC-009.
@@ -137,3 +137,8 @@ T013–T016 با پیاده‌سازی و شواهد docs/stage3/report.md پو�
 
 ### ردیابی PROGRAMMER-S04-03 — T009/T011
 هسته مقدار/واحد/تعریف فیلد namespace و نسخه‌دار، مدل/قرارداد و نگاشت محدود۸فیلد در specs/007-exact-values و docs/stage4/values-report.md اجرا شد. T009 از نظر مدل مشترک این بسته شاهد دارد؛ نگاشت همه فیلدها و شرط‌های مقصدهای آینده تکمیل نشده و تیک کل تسک حفظ می‌شود. بخش مرتبط T011 برای تبدیل دقیق/parser/ذخیره/واحد/بازده آزموده شد؛ پذیرش hidden-field در UI/سرور فرم‌های واقعی، گزارش snapshot خدمات و همهٔ DF/DR باقی است؛ T011 کامل علامت نمی‌خورد.
+
+
+## ارجاع اجرای جاری — ممیزی ۲۰۲۶/۱۱/۱۹
+
+این checkboxها شاخص تکمیل کل محصول نیستند؛ 009 و 010 شواهد اجرای دامنه‌دار را دارند. T001/T061/T068 به index ردیابی موجود و نگاشت‌های صاحب feature اشاره می‌کنند؛ فایل semantic-mapping.csv برنامه‌ریزی‌شده ساخته نشده و دیگر مرجعِ ظاهراً موجود معرفی نمی‌شود. T030 و مسیر matching-review آن همچنان کار داوریِ انجام‌نشده‌اند؛ اعداد فرمول با داوری کیفیت فرق دارند. بسته‌های باقی‌مانده در [roadmap](../../docs/02-delivery-roadmap.md)، یافته‌های مرزی در [ممیزی](../../docs/product-completion-audit.md) و وضعیت واقعی در [stage-status](../../docs/stage-status.json) ثبت‌اند؛ معیارها و تسک‌های چندمرحله‌ای برای سازگارکردن نتیجه تیک نخورده‌اند.
