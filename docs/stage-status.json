@@ -123,19 +123,19 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "TEST-RUNTIME-HOME-LOADING-FIX-01",
-    "description": "بازآزمایی مستقل اجرای development، ورود دو alias، داده منتشرشده چندشهری، loading محلی و EVID-IT-004؛ پذیرش انسانی طراحی جدا می‌ماند",
+    "id": "TEST-RUNTIME-HOME-LOADING-FIX-02",
+    "description": "بازآزمایی مستقل زنجیره provenance اصلاح‌شده RHL-IT-001 و runtime اصلی آماده روی 3108؛ پذیرش انسانی طراحی جدا می‌ماند",
     "authorized": false,
     "scope_path": "docs/development.md",
     "package": "COMP-EXPERIENCE"
   },
   "active_step": {
-    "id": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-01",
-    "mission": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-01",
+    "id": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-02",
+    "mission": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-02",
     "status": "programmer-correction-complete-independent-retest-pending",
-    "authorization": "Explicit user mission: limited product/runtime/test changes for primary development on 3108, published multi-city seed, reusable loading UX and EVID-IT-004 recapture; no S09, AI, D28 policy, human votes, push or deployment",
+    "authorization": "Explicit user mission: repair RHL-IT-001 provenance, prepare primary development runtime on 3108, and run the previously blocked targeted backend controls; no product behavior, S09, AI, D28 policy, human votes, push or deployment",
     "documentation_authorized": true,
-    "implementation_authorized": true,
+    "implementation_authorized": false,
     "push_authorized": false,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
@@ -143,8 +143,8 @@
     "production_ready": false,
     "final_acceptance": false,
     "independent_acceptance": false,
-    "independently_accepted_product_scope": "Previous COMP-EXPERIENCE technical scope remains historical; current runtime/home/loading correction awaits independent retest",
-    "report_path": "docs/development.md",
+    "independently_accepted_product_scope": "Previous COMP-EXPERIENCE technical scope remains historical; RHL-IT-001 is programmer-corrected and awaits independent retest",
+    "report_path": "docs/experience-complete/runtime-home-loading-independent-report.md",
     "validation_path": "docs/experience-complete/tech-evidence-fix-01/design-validation.json"
   },
   "clarification_step": {

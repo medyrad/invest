@@ -14,7 +14,7 @@
     "version": "150.0.7871.125",
     "playwright": "1.65.1"
   },
-  "captured_at_utc": "2026-11-20T13:14:46.665Z",
+  "captured_at_utc": "2026-11-20T15:07:23.788Z",
   "font_condition": "document.fonts.ready + status=loaded",
   "motion_condition": "reduced",
   "interaction": {
@@ -34,5 +34,16 @@
     "fonts": "loaded",
     "motion": "reduce"
   },
-  "evidence_file": "design-library-360.png"
+  "evidence_file": "design-library-360.png",
+  "runtime_binding": {
+    "capture_checkout_commit": "ada2b455bc21d170a8284f5564afdb7f6a17159e",
+    "product_source_commit": "24ebb1fcacb7782a6e1526e906ffed5f3514bea5",
+    "product_source_tree": "468303589e836358afa2b353eb80dceecdab863c",
+    "frontend_source_sha256": "789d54ecda2388e2ff864d3ac2683f1b33009eba242c412a686bab3a299a6c58",
+    "backend_source_sha256": "7aead457446adcec7379f76e02f2027501f9e27d8ab0ec1351306051a8f343e6",
+    "frontend_image_id": "sha256:47508d0bb685a9108ea8eff6395e9821b902b34080006581a3de4af2d736feb3",
+    "backend_image_id": "sha256:095fdd7a623ade56449a43b5b87ec2e7db58553b534ec99180764fec8de80460",
+    "frontend_build_id": "DFT9TLJgVRDglJ-Kvtsm3",
+    "runtime_url": "http://127.0.0.1:3108"
+  }
 }

@@ -1,12 +1,12 @@
-<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="28.843193">
-<testsuite name="capture-fixed-slots.spec.cjs" timestamp="2026-11-20T13:14:37.982Z" hostname="" tests="4" failures="0" skipped="0" time="23.587" errors="0">
-<testcase name="DES-035 library provenance capture 360" classname="capture-fixed-slots.spec.cjs" time="5.165">
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="12.574812">
+<testsuite name="capture-fixed-slots.spec.cjs" timestamp="2026-11-20T15:07:19.702Z" hostname="" tests="4" failures="0" skipped="0" time="9.454" errors="0">
+<testcase name="DES-035 library provenance capture 360" classname="capture-fixed-slots.spec.cjs" time="2.329">
 </testcase>
-<testcase name="DES-035 library provenance capture 390" classname="capture-fixed-slots.spec.cjs" time="7.378">
+<testcase name="DES-035 library provenance capture 390" classname="capture-fixed-slots.spec.cjs" time="1.896">
 </testcase>
-<testcase name="DES-035 library provenance capture 768" classname="capture-fixed-slots.spec.cjs" time="4.64">
+<testcase name="DES-035 library provenance capture 768" classname="capture-fixed-slots.spec.cjs" time="2.19">
 </testcase>
-<testcase name="DES-035 library provenance capture 1440" classname="capture-fixed-slots.spec.cjs" time="6.404">
+<testcase name="DES-035 library provenance capture 1440" classname="capture-fixed-slots.spec.cjs" time="3.039">
 </testcase>
 </testsuite>
 </testsuites>

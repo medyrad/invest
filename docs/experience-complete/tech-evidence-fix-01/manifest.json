@@ -1,7 +1,9 @@
 {
   "schema": "invest.tech-evidence-fix.manifest@1",
-  "mission": "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01",
+  "mission": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-02",
   "independent_baseline_commit": "0380bbf3cdcf00f6997b060a7d43a1ad980dc56c",
+  "product_source_commit": "24ebb1fcacb7782a6e1526e906ffed5f3514bea5",
+  "capture_checkout_commit": "ada2b455bc21d170a8284f5564afdb7f6a17159e",
   "product_behavior_changed": false,
   "d28_formula_or_weights_changed": false,
   "human_votes_recorded": false,
@@ -12,12 +14,12 @@
       "checks": 8
     },
     "design": {
-      "passed": 8,
-      "checks": 8
-    },
-    "provenance": {
       "passed": 10,
       "checks": 10
+    },
+    "provenance": {
+      "passed": 12,
+      "checks": 12
     }
   },
   "files": [
@@ -33,8 +35,8 @@
     },
     {
       "path": "browser-results.xml",
-      "sha256": "3c2f63383cddec35af03bde5eb43a272b5666c9a3e4b4a556c93bb4c5b887dd4",
-      "bytes": 765
+      "sha256": "31d5f36386cb6c268170b0f93498e5bcb64ccb6c5512b6065d516bb82401fda7",
+      "bytes": 764
     },
     {
       "path": "browser-targeted.xml",
@@ -48,8 +50,8 @@
     },
     {
       "path": "build_manifest.py",
-      "sha256": "47a3bc07966b6eead70966d0f5d9615f6fe0a85fc0fbce90d42fc8d6c3f0fa24",
-      "bytes": 2334
+      "sha256": "672e5ce2ce5f8fb16d1a0977e9e77d3c54c24b7937c0de191d098baa61f5a9f9",
+      "bytes": 2521
     },
     {
       "path": "capture-charity-summary-390.json",
@@ -63,8 +65,8 @@
     },
     {
       "path": "capture-fixed-slots.spec.cjs",
-      "sha256": "ea2f189c0290964f1b2f8b166839fa873a54acedbbe6678016c0457ca95f129c",
-      "bytes": 7101
+      "sha256": "293a14f6499ea10206b6434541815454c23d009b02f4863cfb071ad63d505495",
+      "bytes": 7257
     },
     {
       "path": "capture-foreign-investment-step1-360.json",
@@ -83,23 +85,23 @@
     },
     {
       "path": "capture-library-1440.json",
-      "sha256": "49df35a593b9ba512bc6ab2bf0f6ed271205fb4b4bd91a59ccbb08a4747c8768",
-      "bytes": 966
+      "sha256": "197ce3637c9a9efbc4980ea76aea30ce7f067c8207161e4854b6fbf0688d18f1",
+      "bytes": 1700
     },
     {
       "path": "capture-library-360.json",
-      "sha256": "767baa7003a0be6bb25dd1560d489713ee1a0e7e4a63336d812a39d376baf514",
-      "bytes": 962
+      "sha256": "8b848a52ba8bfef8a14fd344150ad53e681cec34f9241b458b06939b64882d9f",
+      "bytes": 1696
     },
     {
       "path": "capture-library-390.json",
-      "sha256": "1c19a5f579d5ad45c0b752fa517b4c4141d5717cebd8930da925197910eb8fc4",
-      "bytes": 962
+      "sha256": "69c5f263f8c3860c20ffef2608946c86b3b8b5971263976e979e3e38e3b85fef",
+      "bytes": 1696
     },
     {
       "path": "capture-library-768.json",
-      "sha256": "7e4a27a142b8aba81b378258525775e65f49531d3c032d883db787f56b6b4f28",
-      "bytes": 962
+      "sha256": "0c8928fb51cbfa8b476b74ae8db27d2b5c3468f6f26905a1355c66e83cb49ec8",
+      "bytes": 1696
     },
     {
       "path": "capture-ma-renewal-step1-360.json",
@@ -123,8 +125,8 @@
     },
     {
       "path": "collect_runtime_provenance.py",
-      "sha256": "1cad125096f789affbb41ec0df06bb6470b8f606090ef8f1aa6d98750a882f41",
-      "bytes": 6902
+      "sha256": "20379cfd30c365edaf451af9399d1e21fd05139adae98cef7af1091a3a52fa8b",
+      "bytes": 9874
     },
     {
       "path": "d28-validation.json",
@@ -163,18 +165,18 @@
     },
     {
       "path": "design-library-360.png",
-      "sha256": "aa761233036c909358ce5a9d6b1a943f223b55e8a581877b662773bf30f973e8",
-      "bytes": 113759
+      "sha256": "ccf7d4ca1f93cdcbf4530f4b64e089031910383cb5caae0ff7579f920f0a4e9a",
+      "bytes": 113865
     },
     {
       "path": "design-library-390.png",
-      "sha256": "1c18b8329df7f6ef2ce04484ba34e2ee8f22083f43e64c8d528e32958aa88053",
-      "bytes": 115678
+      "sha256": "25fd6420a22f4397fc57b1f80957cab12d4c17c0e8f21f6ed346f639b148d59f",
+      "bytes": 115787
     },
     {
       "path": "design-library-768.png",
-      "sha256": "fefc4aa5bbfcd384208831fa0cbacdfe35fc239a290bdf15949717d4cfdffdd2",
-      "bytes": 120637
+      "sha256": "995dc01f4a3403d0eca9509d7f8c5834d38271e5c3141979780272fcf4fe9d60",
+      "bytes": 120650
     },
     {
       "path": "design-ma-renewal-step1-360.png",
@@ -198,8 +200,8 @@
     },
     {
       "path": "design-validation.json",
-      "sha256": "8e73fbd8c548bbab73b0c22db4ba36406308261b4dbb15361dce65642acbfb68",
-      "bytes": 2189
+      "sha256": "59b195468cc44b7c410ac028aa8c0d6afec0938cdd3e7d11a56a48f18199796b",
+      "bytes": 947
     },
     {
       "path": "fixture-change-log.json",
@@ -213,18 +215,18 @@
     },
     {
       "path": "runtime-provenance.json",
-      "sha256": "8208b6f36902302523232477e23e369ecadf108cbb18e663674ebc8f6399f104",
-      "bytes": 38626
+      "sha256": "a591c7cb43c84bf47afe6b9947e63ad877c7ce611c16c624d5350abc036e7e06",
+      "bytes": 46364
     },
     {
       "path": "source-fingerprints.json",
-      "sha256": "b66dcae203540a2d785971109c8bc8da5b2768f4fcc78dbfcde5834c4ee37a1d",
-      "bytes": 85047
+      "sha256": "313a4647d5edec01456ba6d6913b9050d132d160ff81d10f067ccfa0800126ac",
+      "bytes": 299819
     },
     {
       "path": "source_fingerprints.py",
-      "sha256": "2260cfad330ebbee8cdd30a7767175a2d1fd9c70603a23f16f9879827f915e00",
-      "bytes": 1902
+      "sha256": "efb67d80ea518b9cc44531748ea3777e083463bf88b22d82aa70fdda5dcaeb0f",
+      "bytes": 4677
     },
     {
       "path": "sync_human_design_index.py",
@@ -238,8 +240,8 @@
     },
     {
       "path": "validate_design_evidence.py",
-      "sha256": "bb237b2b13d5bb9dd3edaf872175e1d239f8cd46ac094c29b755bea6dd536345",
-      "bytes": 4948
+      "sha256": "8003a85149d25889ffef5d3c93a558677239af04494ace6012e39888faa2c5d5",
+      "bytes": 10277
     },
     {
       "path": "../tech-evidence-fix-01-report.md",
@@ -278,7 +280,7 @@
     },
     {
       "path": "../tech-evidence-01/design-slot-matrix.csv",
-      "sha256": "f5760eddb4fccb7af383e660171a682acffa23e32ffdde2c7f19d3137129be2c",
+      "sha256": "1bd3c9b533b97b9eff41e4199da21a124cdd928e8b63c71f8da10f085b45b3e1",
       "bytes": 86652
     },
     {

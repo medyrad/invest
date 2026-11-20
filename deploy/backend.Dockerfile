@@ -6,6 +6,12 @@ COPY backend/pyproject.toml backend/uv.lock ./
 RUN uv sync --locked --no-dev
 
 FROM public.ecr.aws/docker/library/python:3.14.10-slim-bookworm@sha256:1faf2343e747208b2a36e5f2b5ff908ec3b2d0078a6a7bfe73b535698fe83909 AS runtime
+ARG INVEST_SOURCE_COMMIT
+ARG INVEST_SOURCE_TREE
+ARG INVEST_BACKEND_SOURCE_SHA256
+LABEL org.opencontainers.image.revision=$INVEST_SOURCE_COMMIT \
+      invest.source.tree=$INVEST_SOURCE_TREE \
+      invest.source.backend.sha256=$INVEST_BACKEND_SOURCE_SHA256
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 WORKDIR /app
 RUN useradd --uid 10001 --create-home invest

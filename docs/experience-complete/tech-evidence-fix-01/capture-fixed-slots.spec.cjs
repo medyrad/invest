@@ -4,6 +4,7 @@ const path = require('node:path');
 
 const product = process.env.PRODUCT_URL || 'http://127.0.0.1:3120';
 const seed = process.env.SYNTHETIC_SEED || 'seed_core_demo@0380bbf-product-baseline-79519bb8';
+const binding = process.env.CAPTURE_BINDING_JSON ? JSON.parse(process.env.CAPTURE_BINDING_JSON) : null;
 
 const captures = [
   {row: 'DES-003', name: 'proposal-summary', route: '/tools/proposal', state: 'step-3: جمع‌بندی راهنمای اولیه', widths: [360, 768], summary: true},
@@ -106,6 +107,7 @@ async function writeEvidence(page, browser, item, width) {
     motion_condition: 'reduced',
     interaction,
     evidence_file: path.basename(evidence),
+    ...(binding ? {runtime_binding: binding} : {}),
   };
   fs.writeFileSync(path.join(__dirname, `capture-${item.name}-${width}.json`), JSON.stringify(metadata, null, 2) + '\n');
 }

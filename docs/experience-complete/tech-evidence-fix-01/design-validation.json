@@ -1,5 +1,5 @@
 {
-  "schema": "invest.tech-evidence-fix.design-validation@1",
+  "schema": "invest.tech-evidence-fix.design-validation@2",
   "checks": {
     "matrix_26x4": true,
     "nine_target_slots_exact": true,
@@ -8,9 +8,11 @@
     "thirteen_fresh_captures": true,
     "fresh_capture_provenance_valid": true,
     "four_library_recaptures_bound": true,
+    "commit_mutation_rejected": true,
+    "fingerprint_mutation_rejected": true,
     "human_fields_blank": true
   },
-  "passed": 8,
+  "passed": 10,
   "failed": [],
   "classifications": {
     "capture-needed→new-evidence": 13,
@@ -20,55 +22,11 @@
   },
   "representative_errors": [],
   "capture_errors": [],
-  "target_slots": [
-    {
-      "row_id": "DES-003",
-      "width": 360,
-      "path": "docs/experience-complete/tech-evidence-fix-01/design-proposal-summary-360.png"
-    },
-    {
-      "row_id": "DES-003",
-      "width": 768,
-      "path": "docs/experience-complete/tech-evidence-fix-01/design-proposal-summary-768.png"
-    },
-    {
-      "row_id": "DES-009",
-      "width": 360,
-      "path": "docs/experience-complete/tech-evidence-fix-01/design-foreign-investment-step1-360.png"
-    },
-    {
-      "row_id": "DES-009",
-      "width": 390,
-      "path": "docs/experience-complete/tech-evidence-fix-01/design-foreign-investment-step1-390.png"
-    },
-    {
-      "row_id": "DES-009",
-      "width": 768,
-      "path": "docs/experience-complete/tech-evidence-fix-01/design-foreign-investment-step1-768.png"
-    },
-    {
-      "row_id": "DES-014",
-      "width": 360,
-      "path": "docs/experience-complete/tech-evidence-fix-01/design-ma-renewal-step1-360.png"
-    },
-    {
-      "row_id": "DES-014",
-      "width": 768,
-      "path": "docs/experience-complete/tech-evidence-fix-01/design-ma-renewal-step1-768.png"
-    },
-    {
-      "row_id": "DES-021",
-      "width": 390,
-      "path": "docs/experience-complete/tech-evidence-fix-01/design-charity-summary-390.png"
-    },
-    {
-      "row_id": "DES-021",
-      "width": 768,
-      "path": "docs/experience-complete/tech-evidence-fix-01/design-charity-summary-768.png"
-    }
-  ],
+  "provenance_chain_errors": [],
   "mutation": {
     "temporary_copy_only": true,
-    "cross_route_representative_rejected": true
+    "cross_route_representative_rejected": true,
+    "wrong_commit_rejected": true,
+    "wrong_fingerprint_rejected": true
   }
 }

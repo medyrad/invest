@@ -42,8 +42,10 @@ def main() -> None:
     provenance = json.loads((HERE / "runtime-provenance.json").read_text())
     payload = {
         "schema": "invest.tech-evidence-fix.manifest@1",
-        "mission": "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01",
+        "mission": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-02",
         "independent_baseline_commit": "0380bbf3cdcf00f6997b060a7d43a1ad980dc56c",
+        "product_source_commit": provenance["current_recapture"]["product_source_commit"],
+        "capture_checkout_commit": provenance["current_recapture"]["capture_checkout_commit"],
         "product_behavior_changed": False,
         "d28_formula_or_weights_changed": False,
         "human_votes_recorded": False,

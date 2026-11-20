@@ -9,6 +9,12 @@ ENV BACKEND_INTERNAL_ORIGIN=$BACKEND_INTERNAL_ORIGIN
 RUN npm run build
 
 FROM public.ecr.aws/docker/library/node:24.22.3-bookworm-slim@sha256:0e2646ab57e77b7a384a0cb59b6815b182c77e1f9c3ba36bd8435bd9c4e6680e AS runtime
+ARG INVEST_SOURCE_COMMIT
+ARG INVEST_SOURCE_TREE
+ARG INVEST_FRONTEND_SOURCE_SHA256
+LABEL org.opencontainers.image.revision=$INVEST_SOURCE_COMMIT \
+      invest.source.tree=$INVEST_SOURCE_TREE \
+      invest.source.frontend.sha256=$INVEST_FRONTEND_SOURCE_SHA256
 WORKDIR /app
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 HOSTNAME=0.0.0.0 PORT=3000
 COPY --from=builder --chown=node:node /app/.next/standalone ./
