@@ -118,3 +118,7 @@ T034–T037 در 009 و T042 در 010 با شاهد فنی بسته شدند. T0
 - تصاویر و hit-test/focus خودکار، جای ممیزی تخصصی طراحی نیستند.
 - label انسانی، آستانه قبولی یا رأی useful/irrelevant/critical تولید نشده است.
 - بسته از دید برنامه‌نویس آماده `TEST-EXPERIENCE-EVIDENCE-FIX-01` است؛ اجرای آن مجوز این مأموریت نیست.
+
+## commit و remote
+
+commit اصلی مأموریت: `f550645fa65f92c6f71ea156ae3e1f42bd36cf0c`. push عادی non-force به `origin/main` اجرا شد، اما remote HTTPS در محیط جاری credential نداشت و با `could not read Username for 'https://github.com'` متوقف شد؛ remote تغییر نکرد و force/deploy انجام نشد. commit نهایی همگام‌سازی همین گزارش و manifest در handoff اعلام می‌شود.
