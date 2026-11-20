@@ -32,7 +32,7 @@ for (const width of [360, 390, 768, 1440]) test(`assistant complete journey rema
   fs.mkdirSync(evidence, { recursive: true });
   const context = await browser.newContext({ viewport: { width, height: width < 768 ? 844 : 1000 }, reducedMotion: "reduce" });
   const page = await context.newPage();
-  await page.route("**/api/v1/assistant/turns/stream", (route) => route.fulfill({ status: 200, contentType: "application/x-ndjson", body: stream() }));
+  await page.route("**/api/v1/assistant/turns/stream", async (route) => { await new Promise((resolve) => setTimeout(resolve, 1500)); await route.fulfill({ status: 200, contentType: "application/x-ndjson", body: stream() }); });
   await page.goto("/assistant");
   await page.evaluate(() => document.fonts.ready);
   const routePicker = page.getByRole("button", { name: "سرمایه‌گذاری" });
@@ -54,6 +54,8 @@ for (const width of [360, 390, 768, 1440]) test(`assistant complete journey rema
   await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
   await page.getByLabel("شرایط شما برای دستیار").fill("پروژه تهران تا ۳۰ میلیارد تومان");
   await page.getByLabel("شرایط شما برای دستیار").press("Enter");
+  await expect(page.getByRole("heading", { name: "در حال بررسی…" })).toBeVisible();
+  await page.screenshot({ path: path.join(evidence, `assistant-processing-${width}.png`), fullPage: true, animations: "disabled" });
   await expect(page.getByRole("heading", { name: "برداشت قابل اصلاح" })).toBeVisible();
   await expect(page.getByText("فرصت مصنوعی ۱", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "ادامه با فیلتر دستی" })).toBeVisible();

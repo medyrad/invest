@@ -1,0 +1,59 @@
+{
+  "mission": "PROGRAMMER-COMP-AI-EXPERIENCE-SECURITY-FIX-01",
+  "product_commit": "aaf836d964825c91327d52165ef432282f55870e",
+  "product_tree": "b4e655022623c3c0a136e90ca6c3cca3667cad1e",
+  "runtime": {
+    "url": "http://localhost:3108",
+    "version": "COMP-AI-EXPERIENCE-SECURITY-FIX-01",
+    "environment": "development",
+    "build_id": "IpVd2UIrhUrCcbBQXmnNL",
+    "backend_image_digest": "sha256:0734df99350724d490563d4f192a25d0bd448e2dbd3f2706bbc4dc7d5c6e684f",
+    "web_image_digest": "sha256:5460272c2853fd2cb74a070a0022298f12dd874c36cf728935f0b7958adbaf80",
+    "backend_source_sha256": "c20ce526578c2351cafae182878f0e5afe8c9570df764afa550356eefccfc806",
+    "frontend_source_sha256": "5540051f00899a97112b48085182bdece5310e5c976d00f742c8a35b178344b2",
+    "configured_provider": false
+  },
+  "versions": {
+    "router": "assistant-router-v1",
+    "prompt": "assistant-fa-v1",
+    "tool": "assistant-tools-v1",
+    "schema": "assistant-response-v1",
+    "price": "openai-standard-2026-11-20",
+    "openapi": "1.5.0"
+  },
+  "validation": {
+    "backend_unique": "26 passed on isolated PostgreSQL",
+    "migration_drift": "none",
+    "frontend_typecheck": "passed",
+    "frontend_lint": "passed",
+    "browser_unique_final": "7 passed",
+    "browser_impacted_rerun": "4 passed plus one 1440 evidence recapture",
+    "browser_widths": [360, 390, 768, 1440],
+    "runner_fake_fixture": "passed; 120 cases, 40 development, 80 held-out",
+    "runner_router": "120 cases enumerated with zero calls; acceptance scoring remains unavailable because the locked fixture has no per-case routing oracle",
+    "live_runner_missing_credential": "exit 2, zero calls, zero cost",
+    "provider_calls": 0,
+    "cost_usd": "0",
+    "secret_bundle_scan": "passed",
+    "secret_runtime_log_scan": "passed",
+    "docx_render": "12 pages; changed pages 11 and 12 visually inspected"
+  },
+  "harness_note": "The first browser attempt used host.docker.internal, where crypto.randomUUID is unavailable because that HTTP hostname is not a secure context and CSRF origin differs. This was a harness-origin error, not a product failure. The final run used the authorized localhost:3108 origin and passed 7/7.",
+  "runner_oracle_limitation": "The locked fixture expected field contains only critical_failure/manual_path/server_authoritative booleans. It does not contain independent expected criteria, required citations or route decisions. The runner can execute real same-set calls, enforce budgets/resume/idempotency and emit sanitized records, but extraction/citation/router acceptance percentages cannot be truthfully computed until the product/test owner supplies that independent oracle. No threshold or human verdict was fabricated.",
+  "timing": {
+    "preparation_and_implementation": "continued mission work; exact wall clock was not independently metered",
+    "final_build_and_recreate": "approximately 3 minutes",
+    "targeted_backend": "12.74 seconds",
+    "final_browser_unique": "approximately 1.3 minutes",
+    "browser_evidence_reruns": "approximately 32 seconds",
+    "report_and_evidence": "approximately 15 minutes"
+  },
+  "human_gates": {
+    "independent_acceptance": false,
+    "human_design": false,
+    "human_persian": false,
+    "d28": false,
+    "production_readiness": false,
+    "final_model_selection": false
+  }
+}

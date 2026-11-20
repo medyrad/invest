@@ -7,7 +7,7 @@ export default defineConfig({
   retries: 0,
   reporter: [['list'], ['json', { outputFile: 'test-results/results.json' }]],
   use: {
-    baseURL: 'http://127.0.0.1:3109', trace: 'retain-on-failure',
+    baseURL: process.env.INVEST_BROWSER_BASE_URL || 'http://127.0.0.1:3109', trace: 'retain-on-failure',
     launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
       ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE } : {},
   },
@@ -17,7 +17,7 @@ export default defineConfig({
     { name: 'mobile-390', grepInvert: /@desktop/, use: { viewport: { width: 390, height: 844 } } },
     { name: 'desktop-1440', use: { viewport: { width: 1440, height: 1000 } } },
   ],
-  webServer: {
+  webServer: process.env.INVEST_BROWSER_BASE_URL ? undefined : {
     command: 'npm run start',
     env: { PORT: '3109', HOSTNAME: '127.0.0.1' },
     url: 'http://127.0.0.1:3109',

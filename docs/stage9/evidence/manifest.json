@@ -97,6 +97,24 @@
     "render_review": "all 11 pages inspected; no blank page, overflow or broken table observed",
     "accessibility_audit": "0 high, 0 medium, 0 low"
   },
+  "fix_01": {
+    "mission": "PROGRAMMER-COMP-AI-EXPERIENCE-SECURITY-FIX-01",
+    "product_commit": "aaf836d964825c91327d52165ef432282f55870e",
+    "runtime_version": "COMP-AI-EXPERIENCE-SECURITY-FIX-01",
+    "build_id": "IpVd2UIrhUrCcbBQXmnNL",
+    "backend_image_digest": "sha256:0734df99350724d490563d4f192a25d0bd448e2dbd3f2706bbc4dc7d5c6e684f",
+    "web_image_digest": "sha256:5460272c2853fd2cb74a070a0022298f12dd874c36cf728935f0b7958adbaf80",
+    "validation_path": "docs/stage9/evidence/fix-01/validation.json",
+    "report": {"path": "docs/stage9/comp-ai-complete-report.docx", "sha256": "92c95e78f11e313b58844b48dd9a83ef55065beb35382bc0bbe5b6e95c5754a5", "pages": 12, "render_review": "changed pages 11-12 visually inspected; no clipping or overlap"},
+    "browser_widths": [360, 390, 768, 1440],
+    "browser_states": ["initial", "processing", "completed"],
+    "provider_calls": 0,
+    "cost_usd": "0",
+    "independent_acceptance": false,
+    "human_design_verdict": null,
+    "human_persian_verdict": null,
+    "d28_verdict": null
+  },
   "timing": {
     "preparation": "approximately 25 minutes",
     "build": "approximately 9 minutes 30 seconds",
