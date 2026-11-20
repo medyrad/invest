@@ -74,7 +74,7 @@ export function Assistant() {
     const opportunity = sessionStorage.getItem("invest:assistant-opportunity");
     if (opportunity) { setContextIds([opportunity]); sessionStorage.removeItem("invest:assistant-opportunity"); }
   }, []);
-  useEffect(() => { sessionStorage.setItem("invest:assistant-session", JSON.stringify(turns.slice(-12))); end.current?.scrollIntoView({ behavior: "smooth" }); }, [turns]);
+  useEffect(() => { sessionStorage.setItem("invest:assistant-session", JSON.stringify(turns.slice(-12))); if (turns.length) end.current?.scrollIntoView({ behavior: "smooth" }); }, [turns]);
   const latest = turns.at(-1)?.response;
   const items = useMemo(() => latest?.server_result?.items || [], [latest]);
   const submit = async (value = text) => {
