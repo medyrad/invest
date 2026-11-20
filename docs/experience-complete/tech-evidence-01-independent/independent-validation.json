@@ -1,0 +1,237 @@
+{
+  "schema": "invest.tech-evidence.independent-verification@1",
+  "checks": {
+    "manifest_83_hashes": true,
+    "input_freeze": true,
+    "attempt_1_freeze": true,
+    "attempt_2_freeze": true,
+    "attempt_3_freeze": true,
+    "heldout_history_preserved": true,
+    "eight_routes": true,
+    "fixture_is_synthetic": true,
+    "80_scenarios_96_ids": true,
+    "split_denominators": true,
+    "six_candidates": true,
+    "candidate_binding": true,
+    "96_semantically_distinct_opportunities": false,
+    "candidate_top5_denominators": true,
+    "independent_oracle_all_480_pairs": true,
+    "verifier_rejects_score_mutation": true,
+    "fresh_postgresql_development_replay": true,
+    "route_axis_64": true,
+    "unit_basis_rows_have_numeric_consumer": false,
+    "d28-relevance-labels.csv_400_unique_blank": true,
+    "d28-critical-review.csv_400_unique_blank": true,
+    "reviewer_has_no_system_fields": true,
+    "design_26x4": true,
+    "design_classification_total": true,
+    "design_metadata_and_paths": true,
+    "design_votes_blank": true,
+    "reference_component_only_not_full_pair": true,
+    "representative_same_route_and_state": false,
+    "fresh_capture_runtime_digest_recorded": false,
+    "independent_browser_library_four_widths": true
+  },
+  "passed": 26,
+  "failed": [
+    "96_semantically_distinct_opportunities",
+    "unit_basis_rows_have_numeric_consumer",
+    "representative_same_route_and_state",
+    "fresh_capture_runtime_digest_recorded"
+  ],
+  "findings": [
+    {
+      "id": "EVID-IT-001",
+      "severity": "high",
+      "summary": "32 opportunities collapse into 16 cross-split duplicate pairs after non-scoring title/IDs are removed."
+    },
+    {
+      "id": "EVID-IT-002",
+      "severity": "medium",
+      "summary": "unit-basis coverage is claimed without a numeric/return criterion for: operator, charity"
+    },
+    {
+      "id": "EVID-IT-003",
+      "severity": "high",
+      "summary": "9 representative slots use land-preparation step-2 captures for a different route/state."
+    },
+    {
+      "id": "EVID-IT-004",
+      "severity": "medium",
+      "summary": "Fresh captures name a product commit but record no runtime image/source digest that independently binds the captured server to that commit."
+    }
+  ],
+  "details": {
+    "manifest_mismatches": [],
+    "semantic_opportunity_signatures": 80,
+    "cross_split_duplicate_pairs": [
+      {
+        "route": "investor",
+        "index": 4
+      },
+      {
+        "route": "investor",
+        "index": 5
+      },
+      {
+        "route": "fund",
+        "index": 4
+      },
+      {
+        "route": "fund",
+        "index": 5
+      },
+      {
+        "route": "buyer",
+        "index": 4
+      },
+      {
+        "route": "buyer",
+        "index": 5
+      },
+      {
+        "route": "lessee",
+        "index": 4
+      },
+      {
+        "route": "lessee",
+        "index": 5
+      },
+      {
+        "route": "contractor",
+        "index": 4
+      },
+      {
+        "route": "contractor",
+        "index": 5
+      },
+      {
+        "route": "operator",
+        "index": 4
+      },
+      {
+        "route": "operator",
+        "index": 5
+      },
+      {
+        "route": "heritage",
+        "index": 4
+      },
+      {
+        "route": "heritage",
+        "index": 5
+      },
+      {
+        "route": "charity",
+        "index": 4
+      },
+      {
+        "route": "charity",
+        "index": 5
+      }
+    ],
+    "oracle_mismatches": [],
+    "mutation_rejected": true,
+    "development_replay_mismatches": [],
+    "weak_unit_basis_routes": [
+      "operator",
+      "charity"
+    ],
+    "form_counts": {
+      "d28-relevance-labels.csv": 400,
+      "d28-critical-review.csv": 400
+    },
+    "attempt_hashes": [
+      "644d9e97df9e9db521a935bd730242e731b2adf49b67f2b910fedf1ebc986915",
+      "0ade0a152acd7ccef2f9872241abc5569867b3bc7ce3b6ca6d5d1a472ce063cd",
+      "9125d5a2e7070b26c411f37c2e79db9e80e8adb0fa2ca195abf9852ac35faad8"
+    ],
+    "wrong_state_representatives": [
+      {
+        "row_id": "DES-003",
+        "width": 360,
+        "route": "/tools/proposal",
+        "state": "step-3: جمع‌بندی راهنمای اولیه",
+        "evidence": "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-360.png"
+      },
+      {
+        "row_id": "DES-003",
+        "width": 768,
+        "route": "/tools/proposal",
+        "state": "step-3: جمع‌بندی راهنمای اولیه",
+        "evidence": "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-768.png"
+      },
+      {
+        "row_id": "DES-009",
+        "width": 360,
+        "route": "/tools/foreign-investment",
+        "state": "step-1: خانواده همکاری، مسیر، پروژه و کشور",
+        "evidence": "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-360.png"
+      },
+      {
+        "row_id": "DES-009",
+        "width": 390,
+        "route": "/tools/foreign-investment",
+        "state": "step-1: خانواده همکاری، مسیر، پروژه و کشور",
+        "evidence": "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-390.png"
+      },
+      {
+        "row_id": "DES-009",
+        "width": 768,
+        "route": "/tools/foreign-investment",
+        "state": "step-1: خانواده همکاری، مسیر، پروژه و کشور",
+        "evidence": "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-768.png"
+      },
+      {
+        "row_id": "DES-014",
+        "width": 360,
+        "route": "/tools/ma-renewal",
+        "state": "step-1: فرم اختصاصی نوسازی و اسکان موقت",
+        "evidence": "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-360.png"
+      },
+      {
+        "row_id": "DES-014",
+        "width": 768,
+        "route": "/tools/ma-renewal",
+        "state": "step-1: فرم اختصاصی نوسازی و اسکان موقت",
+        "evidence": "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-768.png"
+      },
+      {
+        "row_id": "DES-021",
+        "width": 390,
+        "route": "/tools/charity",
+        "state": "step-2: جمع‌بندی اثر با فرض‌ها و پیگیری",
+        "evidence": "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-390.png"
+      },
+      {
+        "row_id": "DES-021",
+        "width": 768,
+        "route": "/tools/charity",
+        "state": "step-2: جمع‌بندی اثر با فرض‌ها و پیگیری",
+        "evidence": "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-768.png"
+      }
+    ],
+    "fresh_design_slots": [
+      {
+        "row_id": "DES-035",
+        "width": "360",
+        "path": "docs/experience-complete/tech-evidence-01/design-library-360.png"
+      },
+      {
+        "row_id": "DES-035",
+        "width": "390",
+        "path": "docs/experience-complete/tech-evidence-01/design-library-390.png"
+      },
+      {
+        "row_id": "DES-035",
+        "width": "768",
+        "path": "docs/experience-complete/tech-evidence-01/design-library-768.png"
+      },
+      {
+        "row_id": "DES-035",
+        "width": "1440",
+        "path": "docs/experience-complete/tech-evidence-01/design-library-1440.png"
+      }
+    ]
+  }
+}

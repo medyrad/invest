@@ -1,0 +1,13 @@
+{
+  "width": 390,
+  "route": "/library",
+  "focus": true,
+  "hit": true,
+  "overflow": false,
+  "libraryInput": false,
+  "accordionClick": true,
+  "expandedBefore": "true",
+  "expandedAfter": "false",
+  "fonts": "document.fonts.ready",
+  "motion": "reduce"
+}

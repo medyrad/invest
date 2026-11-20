@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="10.940479999999999">
+<testsuite name="independent-browser.spec.cjs" timestamp="2026-11-20T08:58:00.566Z" hostname="" tests="4" failures="0" skipped="0" time="8.298" errors="0">
+<testcase name="independent interactive sample 360" classname="independent-browser.spec.cjs" time="1.933">
+</testcase>
+<testcase name="independent interactive sample 390" classname="independent-browser.spec.cjs" time="1.517">
+</testcase>
+<testcase name="independent interactive sample 768" classname="independent-browser.spec.cjs" time="2.886">
+</testcase>
+<testcase name="independent interactive sample 1440" classname="independent-browser.spec.cjs" time="1.962">
+</testcase>
+</testsuite>
+</testsuites>
