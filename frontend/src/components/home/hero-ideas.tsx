@@ -87,6 +87,8 @@ function CompassRing() {
 export function HeroCompass() {
   const { ask, browse } = useGo();
   const [prompt, setPrompt] = useState("");
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
   return (
     <Shell map={<div className="relative mx-auto w-full max-w-[600px] py-10"><CompassRing /><MapScene /></div>}>
       <Eyebrow />
@@ -105,7 +107,7 @@ export function HeroCompass() {
           <Input value={prompt} onChange={(e) => setPrompt(e.target.value)} aria-label="شرایط شما برای دستیار" className="h-14 rounded-none border-0 !bg-transparent px-0 text-[15px] font-semibold text-ink shadow-none focus-visible:ring-0 md:text-[15px]" />
           <TypingHint hidden={!!prompt} />
         </span>
-        <Button type="submit" variant="plain" size="auto" className="group h-14 gap-2 rounded-full bg-primary px-7 font-extrabold text-white shadow-[0_18px_36px_-18px_var(--primary)] hover:bg-teal-700">پیشنهاد بگیرید<ArrowLeft size={20} className="transition-transform group-hover:-translate-x-1" /></Button>
+        <Button type="submit" variant="plain" size="auto" disabled={!ready || !prompt.trim()} className="group h-14 gap-2 rounded-full bg-primary px-7 font-extrabold text-white shadow-[0_18px_36px_-18px_var(--primary)] hover:bg-teal-700">پیشنهاد بگیرید<ArrowLeft size={20} className="transition-transform group-hover:-translate-x-1" /></Button>
       </form>
       <Button variant="plain" size="auto" onClick={() => browse()} className="group mt-4 gap-1.5 px-3 text-sm font-bold text-ink/60 hover:text-ink">مشاهده همه پروژه‌ها<ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" /></Button>
     </Shell>
