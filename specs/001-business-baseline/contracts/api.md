@@ -39,8 +39,8 @@
 | POST /reports | draft/revision + snapshot → report id/download | دانلود ≠ ارسال؛ snapshot و تاریخ/واحد ثابت |
 | POST /attachments و GET /attachments/{id}/content | upload metadata/content و download کنترل‌شده | B07 محدودیت؛ mime/content validation؛ عدم مسیر عمومی |
 | GET /notifications و POST /notifications/{id}/read | لیست مخاطب و read_at | دیگری نتواند بخواند/علامت بزند؛ کانال B06 |
-| POST /assistant/turns | متن/criteria/opportunity_ids/history محدود → پاسخ + references + quota + receipt؛ محتوا پایدار نمی‌شود | مهمان محدود/حساب بیشتر؛ CSRF/idempotency؛ بازخوانی داده عمومی؛ مدل هیچ submit tool ندارد |
-| GET /assistant/usage و PUT /assistant/policy | وضعیت مصرف و سیاست نسخه‌دار | سقف اتمیک؛ policy فقط admin و در کران‌های PC-D02؛ مدل حق تغییر ندارد |
+| POST /assistant/turns و POST /assistant/turns/stream | متن/criteria/opportunity_ids/history محدود، بدون فیلد model/token/key → پاسخ + references + quota + receipt؛ stream فقط progress مرز واقعی و سپس نتیجه validated؛ محتوا پایدار نمی‌شود | مهمان محدود/حساب بیشتر؛ CSRF/idempotency؛ بازخوانی داده عمومی؛ router فقط سرور؛ raw model output و submit tool ممنوع |
+| GET /assistant/usage، GET /assistant/status و PUT /assistant/policy | مصرف روز/ماه، configured boolean sanitized و سیاست نسخه‌دار | سقف اتمیک فردی۱۰/سراسری۱۰۰؛ policy فقط admin و در کران‌های PC-D02؛ کلید/مدل حق تغییر یا افشا ندارد |
 
 ## قرارداد ابزار دستیار
 

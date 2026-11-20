@@ -3,6 +3,7 @@ import json
 import threading
 import uuid
 from datetime import timedelta
+from decimal import Decimal
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -14,11 +15,13 @@ from django.test import override_settings
 from django.utils import timezone
 
 from apps.assistant import quota, tools
+from apps.assistant.routing import LUNA, SOL, ROUTER_VERSION, choose_model
 from apps.assistant.evaluation import assess
 from apps.assistant.models import QuotaPolicy, UsageLedger, UsageReservation
 from apps.assistant.provider import FakeProvider, OpenAIProvider, ProviderError, validate_output
 from apps.identity.sessions import mint_session
 from apps.workspace.schema import Fault
+from config.secrets import SecretRedactionFilter, load_private_value
 
 pytestmark = pytest.mark.django_db
 FIXTURE = Path(__file__).parent / "fixtures/assistant_cases.json"
@@ -334,6 +337,61 @@ def test_api_rejects_client_tool_role_and_unknown_model_before_call(client):
         HTTP_IDEMPOTENCY_KEY="invalid-model",
     )
     assert invalid_model.status_code == 400
+
+
+def test_router_is_deterministic_server_only_and_records_reason():
+    simple = choose_model(normalized={"criteria": {"route": "investor"}, "questions": []}, opportunity_ids=[], history=[], message="پروژه تهران")
+    complex_value = choose_model(normalized={"criteria": {"route": "investor", "province": "تهران"}, "questions": []}, opportunity_ids=["1", "2", "3"], history=[{"role": "user"}, {"role": "assistant"}], message="مقایسه")
+    assert (simple.model, simple.code, simple.version) == (LUNA, "simple_search", ROUTER_VERSION)
+    assert complex_value.model == SOL and complex_value.reason
+
+
+@pytest.mark.django_db(transaction=True)
+def test_principal_budget_last_reservation_is_atomic():
+    QuotaPolicy.objects.create(version=1, principal_monthly_usd="0.1000", concurrent_turns=2)
+    barrier = threading.Barrier(2); results = []; lock = threading.Lock()
+    def worker(index):
+        close_old_connections(); barrier.wait()
+        try: quota.reserve(principal("budget-race"), f"budget-{index}", str(index) * 64, LUNA); value = "reserved"
+        except quota.QuotaError as exc: value = exc.code
+        finally: close_old_connections()
+        with lock: results.append(value)
+    threads=[threading.Thread(target=worker,args=(i,)) for i in range(2)]
+    [thread.start() for thread in threads]; [thread.join() for thread in threads]
+    assert sorted(results) == ["principal_budget_exhausted", "reserved"]
+
+
+def test_principal_monthly_usage_rolls_over_without_credit():
+    policy = QuotaPolicy.objects.create(version=1, principal_monthly_usd="0.1000")
+    now = timezone.now(); prior = (now.replace(day=1) - timedelta(days=1)).replace(day=1)
+    old, _, _ = quota.reserve(principal("rollover"), "old-month", "a" * 64, LUNA, at=prior)
+    complete(old)
+    fresh, _, replay = quota.reserve(principal("rollover"), "new-month", "b" * 64, LUNA, at=now)
+    assert not replay and fresh.month_utc != old.month_utc and Decimal(str(policy.principal_monthly_usd)) == fresh.reserved_usd
+
+
+def test_secret_file_precedes_local_fallback_and_redaction(tmp_path):
+    secret = tmp_path / "key"; secret.write_text("sk-private-value-123456"); secret.chmod(0o600)
+    assert load_private_value(file_path=secret, fallback="sk-fallback-123456", public=True) == "sk-private-value-123456"
+    record = __import__("logging").LogRecord("test", 20, __file__, 1, "Authorization: Bearer sk-private-value-123456", (), None)
+    SecretRedactionFilter().filter(record)
+    assert "private-value" not in record.getMessage()
+
+
+@override_settings(ASSISTANT_PROVIDER_FACTORY=lambda: FakeProvider())
+def test_stream_reports_real_boundaries_before_validated_result(client, monkeypatch):
+    monkeypatch.setattr("apps.assistant.tools.discovery.listing", _server_result)
+    response = client.post("/api/v1/assistant/turns/stream", {"message": "پروژه سرمایه گذاری تا ۳۰ میلیارد تومان"}, format="json", HTTP_X_CSRFTOKEN=_csrf(client), HTTP_IDEMPOTENCY_KEY="stream-success")
+    lines = b"".join(response.streaming_content).decode().strip().splitlines()
+    events = [json.loads(line) for line in lines]
+    assert [event.get("stage") for event in events if event["event"] == "progress"] == ["interpretation", "interpretation", "public_data", "public_data", "explanation", "explanation"]
+    assert events[-1]["event"] == "result" and events[-1]["data"]["state"] == "completed"
+    assert not any("output_text" in line for line in lines)
+
+
+def test_status_is_sanitized_and_never_returns_key(client):
+    value = client.get("/api/v1/assistant/status").json()
+    assert set(value) == {"configured", "connection"} and isinstance(value["configured"], bool)
 
 
 def test_policy_update_requires_admin_and_preserves_hard_caps(client):

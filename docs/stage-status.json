@@ -859,7 +859,7 @@
       "PC-D02-04",
       "PC-D02-05"
     ],
-    "authorization_scope": "PROGRAMMER-COMP-AI-COMPLETE-01 only, nonpublic S09; implementation and controlled fake/browser evidence completed, no push/deploy",
+    "authorization_scope": "PROGRAMMER-COMP-AI-EXPERIENCE-SECURITY-FIX-01; nonpublic S09 experience/security correction only, no push/deploy",
     "approval_source": "Explicit user message PRODUCT-COMP-AI-FREEZE-01, 2026-11-20",
     "human_persian_evaluation_accepted": false,
     "final_model_selected": false,
@@ -871,9 +871,10 @@
       "T064": "programmer-complete",
       "T065": "programmer-complete",
       "T066": "programmer-complete",
-      "T067": "partial-fixture-fake-and-browser-complete-live-and-human-open"
+      "T067": "partial-live-runner-technically-ready-fixture-fake-and-browser-complete-live-and-human-open"
     },
-    "live_blocker": "OPENAI_API_KEY absent in authorized environment; provider calls=0 and cost=$0; Sol smoke/eval and Luna same-held-out comparison not run"
+    "live_blocker": "private runtime/eval credential absent (boolean audit only); provider calls=0 and cost=$0; Sol smoke/eval and Luna same-held-out comparison not run",
+    "experience_security_fix": "server-only assistant-router-v1, per-principal USD10 UTC-month cap, backend secret-file precedence, real NDJSON progress, multi-turn/picker/stale-compare and technically executable live runner; independent/human acceptance open"
   },
   "experience_fallback": {
     "decision": "PC-FALLBACK-01",

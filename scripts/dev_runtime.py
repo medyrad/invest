@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import os
 import subprocess
 import sys
@@ -83,8 +84,32 @@ def prepare() -> int:
     return port
 
 
-def run(command: list[str]) -> None:
-    subprocess.run(command, check=True, cwd=ROOT)
+def source_fingerprint(prefix: str) -> str:
+    paths = subprocess.run(
+        ["git", "ls-files", prefix, "contracts", "deploy"],
+        check=True, cwd=ROOT, capture_output=True, text=True,
+    ).stdout.splitlines()
+    digest = hashlib.sha256()
+    for relative in sorted(paths):
+        path = ROOT / relative
+        if path.is_file():
+            digest.update(relative.encode()); digest.update(b"\0"); digest.update(path.read_bytes()); digest.update(b"\0")
+    return digest.hexdigest()
+
+
+def provenance_env() -> dict[str, str]:
+    env = os.environ.copy()
+    env.update({
+        "INVEST_SOURCE_COMMIT": subprocess.run(["git", "rev-parse", "HEAD"], check=True, cwd=ROOT, capture_output=True, text=True).stdout.strip(),
+        "INVEST_SOURCE_TREE": subprocess.run(["git", "write-tree"], check=True, cwd=ROOT, capture_output=True, text=True).stdout.strip(),
+        "INVEST_BACKEND_SOURCE_SHA256": source_fingerprint("backend"),
+        "INVEST_FRONTEND_SOURCE_SHA256": source_fingerprint("frontend"),
+    })
+    return env
+
+
+def run(command: list[str], *, env=None) -> None:
+    subprocess.run(command, check=True, cwd=ROOT, env=env)
 
 
 def ensure_scanner() -> None:
@@ -103,7 +128,7 @@ def ensure_scanner() -> None:
 def start(build: bool) -> None:
     prepare()
     if build:
-        run(COMPOSE + ["build", "backend", "web"])
+        run(COMPOSE + ["build", "backend", "web"], env=provenance_env())
     ensure_scanner()
     run(COMPOSE + ["up", "-d", "--wait", "db", "scanner"])
     run(

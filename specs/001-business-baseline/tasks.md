@@ -111,6 +111,8 @@
 
 وضعیت T067: fixture قفل‌شده، fake قطعی، runner و شواهد UI فنی آماده‌اند؛ چون `OPENAI_API_KEY` امن در محیط مأموریت نبود، provider call واقعی صفر و هزینه صفر است. smoke بیست‌مکالمه، eval واقعی Sol، مقایسه همان held-out با Luna و رأی انسانی فارسی تکمیل/قبول نشده‌اند.
 
+الحاق FIX-01: قرارداد public model را نمی‌پذیرد؛ router سروری نسخه‌دار، سقف فردی ماهانه، secret-file runtime، credential جداگانه eval، progress واقعی و تعامل چندنوبتی/picker/compare در دامنه T062–T066 تقویت شدند. runner T067 دیگر placeholder نیست و با `--confirm-live` و credential خصوصی قابل اجراست، ولی چون credential موجود نبود همان بخش live و رأی انسانی همچنان باز و checkbox T067 بدون تغییر است.
+
 تفصیل لازم همان تسک‌ها، بدون backlog/feature موازی:
 
 | تسک | خروجی کامل و شرط پایان پس از مجوز | پذیرش/وابستگی |

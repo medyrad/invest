@@ -14,6 +14,7 @@ class QuotaPolicy(models.Model):
     guest_hourly_starts = models.PositiveIntegerField(default=10)
     account_hourly_starts = models.PositiveIntegerField(default=60)
     monthly_usd = models.DecimalField(max_digits=8, decimal_places=4, default="100.0000")
+    principal_monthly_usd = models.DecimalField(max_digits=6, decimal_places=4, default="10.0000")
     turn_reserve_usd = models.DecimalField(max_digits=6, decimal_places=4, default="0.1000")
     smoke_usd = models.DecimalField(max_digits=6, decimal_places=4, default="5.0000")
     eval_usd = models.DecimalField(max_digits=6, decimal_places=4, default="15.0000")
@@ -42,6 +43,9 @@ class UsageReservation(models.Model):
     payload_hash = models.CharField(max_length=64)
     policy_version = models.PositiveIntegerField()
     model = models.CharField(max_length=80)
+    route_code = models.CharField(max_length=40, default="legacy")
+    route_reason = models.CharField(max_length=80, default="legacy_policy")
+    router_version = models.CharField(max_length=40, default="assistant-router-v1")
     purpose = models.CharField(max_length=12, default="product")
     status = models.CharField(max_length=12, choices=STATUS, default="reserved")
     reserved_usd = models.DecimalField(max_digits=7, decimal_places=4)
@@ -68,6 +72,9 @@ class UsageLedger(models.Model):
     )
     model_requested = models.CharField(max_length=80)
     model_returned = models.CharField(max_length=80, blank=True)
+    route_code = models.CharField(max_length=40, default="legacy")
+    route_reason = models.CharField(max_length=80, default="legacy_policy")
+    router_version = models.CharField(max_length=40, default="assistant-router-v1")
     prompt_version = models.CharField(max_length=40)
     tool_version = models.CharField(max_length=40)
     schema_version = models.CharField(max_length=40)
@@ -80,15 +87,15 @@ class UsageLedger(models.Model):
 class GuestMerge(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     guest_hash = models.CharField(max_length=64)
-    day_utc = models.DateField()
+    month_utc = models.DateField()
     created_at = models.DateTimeField(default=timezone.now)
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["user", "guest_hash", "day_utc"], name="assistant_guest_merge_once"
+                fields=["user", "guest_hash", "month_utc"], name="assistant_guest_merge_once"
             ),
             models.UniqueConstraint(
-                fields=["guest_hash", "day_utc"], name="assistant_guest_one_account"
+                fields=["guest_hash", "month_utc"], name="assistant_guest_one_account"
             ),
         ]

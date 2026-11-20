@@ -17,9 +17,14 @@ services:
       context: ..
       dockerfile: deploy/backend.Dockerfile
       target: runtime
+      args:
+        INVEST_SOURCE_COMMIT: ${INVEST_SOURCE_COMMIT:-unknown}
+        INVEST_SOURCE_TREE: ${INVEST_SOURCE_TREE:-unknown}
+        INVEST_BACKEND_SOURCE_SHA256: ${INVEST_BACKEND_SOURCE_SHA256:-unknown}
     env_file: ../.env
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      OPENAI_API_KEY_FILE: ${OPENAI_API_KEY_FILE:-/run/secrets/openai_api_key}
     expose: ["8000"]
     depends_on:
       db: {condition: service_healthy}
@@ -34,6 +39,9 @@ services:
       dockerfile: deploy/frontend.Dockerfile
       args:
         BACKEND_INTERNAL_ORIGIN: http://backend:8000
+        INVEST_SOURCE_COMMIT: ${INVEST_SOURCE_COMMIT:-unknown}
+        INVEST_SOURCE_TREE: ${INVEST_SOURCE_TREE:-unknown}
+        INVEST_FRONTEND_SOURCE_SHA256: ${INVEST_FRONTEND_SOURCE_SHA256:-unknown}
     ports:
       - "127.0.0.1:${WEB_PORT:-3108}:3000"
     depends_on:
@@ -87,6 +95,8 @@ services:
     env_file: ../.env
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      OPENAI_API_KEY: ""
+      OPENAI_API_KEY_FILE: ""
     command: [/app/.venv/bin/python, manage.py, workspace_jobs]
     depends_on:
       backend: {condition: service_healthy}

@@ -17,11 +17,22 @@ function success() {
   };
 }
 
+function stream(value: ReturnType<typeof success> & { error?: { code: string; message: string } } = success()) {
+  return [
+    { event: "progress", stage: "interpretation", status: "active", detail: "متن در حال اعتبارسنجی است." },
+    { event: "progress", stage: "interpretation", status: "completed", detail: "شرط‌ها برداشت شدند." },
+    { event: "progress", stage: "public_data", status: "active", detail: "نسخه عمومی بازخوانی می‌شود." },
+    { event: "progress", stage: "public_data", status: "completed", detail: "سه مورد آماده شد." },
+    { event: "progress", stage: "explanation", status: "active", detail: "توضیح در حال اعتبارسنجی است." },
+    { event: value.state === "failed" ? "failure" : "result", data: value },
+  ].map((event) => JSON.stringify(event)).join("\n") + "\n";
+}
+
 for (const width of [360, 390, 768, 1440]) test(`assistant complete journey remains usable at ${width}`, async ({ browser }) => {
   fs.mkdirSync(evidence, { recursive: true });
   const context = await browser.newContext({ viewport: { width, height: width < 768 ? 844 : 1000 }, reducedMotion: "reduce" });
   const page = await context.newPage();
-  await page.route("**/api/v1/assistant/turns", (route) => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(success()) }));
+  await page.route("**/api/v1/assistant/turns/stream", (route) => route.fulfill({ status: 200, contentType: "application/x-ndjson", body: stream() }));
   await page.goto("/assistant");
   await page.evaluate(() => document.fonts.ready);
   const routePicker = page.getByRole("button", { name: "سرمایه‌گذاری" });
@@ -54,7 +65,7 @@ for (const width of [360, 390, 768, 1440]) test(`assistant complete journey rema
 
 test("assistant outage preserves text, criteria and manual continuation without false success", async ({ page }) => {
   const value = success();
-  await page.route("**/api/v1/assistant/turns", (route) => route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ ...value, state: "failed", answer: undefined, error: { code: "provider_unavailable", message: "دستیار متصل در دسترس نیست؛ مسیر دستی آماده است." } }) }));
+  await page.route("**/api/v1/assistant/turns/stream", (route) => route.fulfill({ status: 200, contentType: "application/x-ndjson", body: stream({ ...value, state: "failed", answer: "", error: { code: "provider_unavailable", message: "دستیار متصل در دسترس نیست؛ مسیر دستی آماده است." } }) }));
   await page.goto("/assistant");
   await page.getByLabel("شرایط شما برای دستیار").fill("پروژه تهران تا ۳۰ میلیارد تومان");
   await page.getByRole("button", { name: "ارسال برای بررسی" }).click();
@@ -102,5 +113,5 @@ test("@desktop comparison chat revalidates a same-kind selection and renders a g
   await page.getByLabel("پرسش درباره مقایسه").fill("تفاوت مهم این دو مورد چیست؟");
   await page.getByRole("button", { name: "پرسیدن درباره جدول" }).click();
   await expect(page.getByText("تفاوت‌ها فقط از ردیف‌های عمومی همین دو نسخه توضیح داده شد.")).toBeVisible();
-  await expect(page.getByText("۲ استناد به نسخه عمومی")).toBeVisible();
+  await expect(page.getByRole("link", { name: "matching" })).toHaveCount(2);
 });

@@ -9,6 +9,7 @@ from decimal import Decimal
 from django.conf import settings
 
 from apps.workspace.schema import Fault
+from config.secrets import load_private_value
 
 from .quota import PROMPT_VERSION, SCHEMA_VERSION, TOOL_VERSION, QuotaError
 
@@ -385,6 +386,20 @@ def get_provider():
         return factory()
     if settings.ASSISTANT_PROVIDER == "fake" and settings.INVEST_ENV == "test":
         return FakeProvider()
-    if settings.ASSISTANT_PROVIDER == "openai" and settings.ASSISTANT_OPENAI_API_KEY:
-        return OpenAIProvider(settings.ASSISTANT_OPENAI_API_KEY, settings.ASSISTANT_OPENAI_BASE_URL)
+    key = load_private_value(
+        file_path=settings.ASSISTANT_OPENAI_API_KEY_FILE,
+        fallback=settings.ASSISTANT_OPENAI_API_KEY_FALLBACK,
+        public=settings.INVEST_ENV == "public",
+    )
+    if settings.ASSISTANT_PROVIDER == "openai" and key:
+        return OpenAIProvider(key, settings.ASSISTANT_OPENAI_BASE_URL)
     return DisabledProvider()
+
+
+def provider_status():
+    key = load_private_value(
+        file_path=settings.ASSISTANT_OPENAI_API_KEY_FILE,
+        fallback=settings.ASSISTANT_OPENAI_API_KEY_FALLBACK,
+        public=settings.INVEST_ENV == "public",
+    )
+    return {"configured": bool(key), "connection": "not_verified"}

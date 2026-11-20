@@ -2332,7 +2332,7 @@
         "security": [],
         "summary": "مصرف بی‌محتوا برای principal مهمان یا حساب",
         "responses": {
-          "200": {"description": "سهمیه روز UTC و نسخه سیاست؛ no-store"}
+          "200": {"description": "سهمیه روز UTC، مصرف و مانده تقریبی ماه UTC و نسخه سیاست؛ no-store"}
         }
       }
     },
@@ -2354,7 +2354,6 @@
               "criteria": {"type": "object"},
               "opportunity_ids": {"type": "array", "maxItems": 4, "items": {"type": "string", "format": "uuid"}},
               "history": {"type": "array", "maxItems": 12},
-              "model": {"type": "string", "enum": ["gpt-6.2-sol", "gpt-6-luna"]},
               "purpose": {"type": "string", "enum": ["product"]}
             }
           }}}
@@ -2366,6 +2365,26 @@
           "429": {"description": "سهمیه، rate یا slot"},
           "503": {"description": "provider/timeout/budget؛ همراه مسیر دستی و بدون موفقیت جعلی"}
         }
+      }
+    },
+    "/assistant/turns/stream": {
+      "post": {
+        "operationId": "assistantTurnStream",
+        "security": [],
+        "summary": "همان قرارداد turn بدون model کلاینت؛ رخدادهای NDJSON فقط در مرزهای واقعی پردازش و نتیجه پس از validation",
+        "parameters": [
+          {"name": "X-CSRFToken", "in": "header", "required": true, "schema": {"type": "string"}},
+          {"name": "Idempotency-Key", "in": "header", "required": true, "schema": {"type": "string", "minLength": 8, "maxLength": 200}}
+        ],
+        "responses": {"200": {"description": "application/x-ndjson: progress، سپس دقیقاً یک result یا failure؛ raw model output ممنوع"}}
+      }
+    },
+    "/assistant/status": {
+      "get": {
+        "operationId": "assistantStatus",
+        "security": [],
+        "summary": "فقط configured boolean و وضعیت اتصال sanitized؛ هیچ شکل کلید بازگردانده نمی‌شود",
+        "responses": {"200": {"description": "وضعیت خصوصی‌زدایی‌شده provider"}}
       }
     },
     "/assistant/policy": {

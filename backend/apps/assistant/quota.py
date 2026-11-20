@@ -14,6 +14,7 @@ from django.utils import timezone
 from apps.identity.sessions import current_session
 
 from .models import GuestMerge, QuotaPolicy, UsageLedger, UsageReservation
+from .routing import ROUTER_VERSION
 
 PROMPT_VERSION = "assistant-fa-v1"
 TOOL_VERSION = "assistant-tools-v1"
@@ -73,9 +74,9 @@ def _policy_locked():
     return policy
 
 
-def _merged_guest_hashes(user, day):
+def _merged_guest_hashes(user, month):
     return list(
-        GuestMerge.objects.filter(user=user, day_utc=day).values_list("guest_hash", flat=True)
+        GuestMerge.objects.filter(user=user, month_utc=month).values_list("guest_hash", flat=True)
     )
 
 
@@ -83,14 +84,15 @@ def merge_guest_if_needed(p, at):
     if not p.user or not p.guest_value:
         return None
     guest_hash = _digest("guest:" + p.guest_value)
+    month = at.date().replace(day=1)
     existing = (
         GuestMerge.objects.select_for_update()
-        .filter(guest_hash=guest_hash, day_utc=at.date())
+        .filter(guest_hash=guest_hash, month_utc=month)
         .first()
     )
     if existing:
         return guest_hash if existing.user_id == p.user.pk else None
-    GuestMerge.objects.create(user=p.user, guest_hash=guest_hash, day_utc=at.date())
+    GuestMerge.objects.create(user=p.user, guest_hash=guest_hash, month_utc=month)
     return guest_hash
 
 
@@ -111,7 +113,18 @@ def _spent(month):
     return _spent_rows(rows)
 
 
-def reserve(p, key, payload_hash, model, purpose="product", at=None):
+def reserve(
+    p,
+    key,
+    payload_hash,
+    model,
+    purpose="product",
+    at=None,
+    *,
+    route_code="legacy",
+    route_reason="legacy_policy",
+    router_version=ROUTER_VERSION,
+):
     at = at or timezone.now()
     if not isinstance(key, str) or not 8 <= len(key) <= 200 or "\0" in key:
         raise QuotaError("invalid_idempotency_key", "کلید تکرار معتبر نیست.", 400)
@@ -147,7 +160,7 @@ def reserve(p, key, payload_hash, model, purpose="product", at=None):
             raise QuotaError("rate_limited", "شروع‌های این ساعت به سقف رسیده است.", retry_after=3600)
         hashes = [p.digest]
         if p.user:
-            hashes.extend(_merged_guest_hashes(p.user, at.date()))
+            hashes.extend(_merged_guest_hashes(p.user, month))
         completed = UsageReservation.objects.filter(
             principal_hash__in=hashes, day_utc=at.date(), status="completed"
         ).count()
@@ -165,6 +178,15 @@ def reserve(p, key, payload_hash, model, purpose="product", at=None):
         total = _spent(month)
         if total + policy.turn_reserve_usd > policy.monthly_usd:
             raise QuotaError("budget_exhausted", "بودجه ماهانه سرویس به پایان رسیده است.")
+        principal_rows = UsageReservation.objects.filter(
+            principal_hash__in=hashes, month_utc=month
+        ).exclude(status__in=["failed", "cancelled"])
+        principal_total = _spent_rows(principal_rows)
+        if principal_total + policy.turn_reserve_usd > policy.principal_monthly_usd:
+            raise QuotaError(
+                "principal_budget_exhausted",
+                "سقف هزینه ماهانه این حساب یا مهمان به پایان رسیده است.",
+            )
         if purpose in {"smoke", "eval"}:
             purpose_cap = policy.smoke_usd if purpose == "smoke" else policy.eval_usd
             purpose_rows = UsageReservation.objects.filter(
@@ -182,6 +204,9 @@ def reserve(p, key, payload_hash, model, purpose="product", at=None):
             payload_hash=payload_hash,
             policy_version=policy.version,
             model=model,
+            route_code=route_code,
+            route_reason=route_reason,
+            router_version=router_version,
             purpose=purpose,
             reserved_usd=policy.turn_reserve_usd,
         )
@@ -234,6 +259,9 @@ def settle(item, *, status, usage=None, model_returned="", request_id="", failur
             defaults={
                 "model_requested": row.model,
                 "model_returned": model_returned,
+                "route_code": row.route_code,
+                "route_reason": row.route_reason,
+                "router_version": row.router_version,
                 "prompt_version": PROMPT_VERSION,
                 "tool_version": TOOL_VERSION,
                 "schema_version": SCHEMA_VERSION,
@@ -250,14 +278,24 @@ def usage_view(p, at=None):
     policy = QuotaPolicy.objects.filter(active=True).order_by("-version").first()
     if not policy:
         policy = QuotaPolicy(version=1)
+    month = at.date().replace(day=1)
+    if p.user and p.guest_value:
+        with transaction.atomic():
+            merge_guest_if_needed(p, at)
     hashes = [p.digest]
     if p.user:
-        hashes.extend(_merged_guest_hashes(p.user, at.date()))
+        hashes.extend(_merged_guest_hashes(p.user, month))
     used = UsageReservation.objects.filter(
         principal_hash__in=hashes, day_utc=at.date(), status="completed"
     ).count()
     limit = policy.account_daily if p.kind == "account" else policy.guest_daily
     reset = at.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
+    monthly_rows = UsageReservation.objects.filter(
+        principal_hash__in=hashes, month_utc=month
+    ).exclude(status__in=["failed", "cancelled"])
+    spent = monthly_rows.filter(status="completed").aggregate(total=Sum("actual_usd"))["total"] or Decimal(0)
+    held = monthly_rows.filter(status__in=["reserved", "held"]).aggregate(total=Sum("reserved_usd"))["total"] or Decimal(0)
+    cap = Decimal(str(policy.principal_monthly_usd))
     return {
         "principal": p.kind,
         "used": used,
@@ -265,5 +303,11 @@ def usage_view(p, at=None):
         "remaining": max(0, limit - used),
         "reset_at": reset.isoformat(),
         "policy_version": policy.version,
-        "model": settings.ASSISTANT_MODEL,
+        "monthly": {
+            "spent_usd": str(spent),
+            "held_usd": str(held),
+            "cap_usd": str(cap),
+            "remaining_usd": str(max(Decimal(0), cap - spent - held)),
+            "reset_at": (month + timedelta(days=32)).replace(day=1).isoformat(),
+        },
     }

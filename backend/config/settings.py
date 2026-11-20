@@ -65,8 +65,9 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {"safe": {"format": "{levelname} {message}", "style": "{"}},
+    "filters": {"redact_secrets": {"()": "config.secrets.SecretRedactionFilter"}},
     "handlers": {
-        "console": {"class": "logging.StreamHandler", "formatter": "safe"},
+        "console": {"class": "logging.StreamHandler", "formatter": "safe", "filters": ["redact_secrets"]},
         "null": {"class": "logging.NullHandler"},
     },
     "loggers": {
@@ -89,7 +90,11 @@ WORKSPACE_HOURLY_RECEIVES = int(os.environ.get("WORKSPACE_HOURLY_RECEIVES", 60))
 CORE_VERSION = json.loads((BASE_DIR / "config/core_version.json").read_text())["version"]
 
 # Private runtime-only AI configuration. Never expose these values through version/schema APIs.
-ASSISTANT_OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+ASSISTANT_OPENAI_API_KEY_FILE = os.environ.get(
+    "OPENAI_API_KEY_FILE", "/run/secrets/openai_api_key"
+)
+ASSISTANT_OPENAI_API_KEY_FALLBACK = (
+    os.environ.get("OPENAI_API_KEY", "") if INVEST_ENV in {"development", "test"} else ""
+)
 ASSISTANT_OPENAI_BASE_URL = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
-ASSISTANT_MODEL = "gpt-6.2-sol"
 ASSISTANT_PROVIDER = os.environ.get("ASSISTANT_PROVIDER", "openai")

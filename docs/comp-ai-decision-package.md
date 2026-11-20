@@ -120,3 +120,7 @@ ZIP واقعی `/Users/mehdi/Downloads/Investment_Advisor-main.zip` مستقیم
 ## وضعیت اجرای پس از انجماد — PROGRAMMER-COMP-AI-COMPLETE-01
 
 اجرای غیرعمومی S09 در commitهای نسخه‌دار ثبت‌شده در `docs/stage9/evidence/manifest.json` به تحویل فنی برنامه‌نویس رسیده است. T062–T066 در سطح برنامه‌نویس تکمیل‌اند؛ T067 فقط از نظر fixture قفل‌شده، fake قطعی و مسیر مرورگر تکمیل است و به‌علت نبود credential خصوصی، تماس واقعی Sol، ارزیابی هم‌شرایط Luna و رأی انسانی فارسی باز مانده است. هزینه واقعی و فراخوانی provider هر دو صفر بوده‌اند. این الحاق سابقه تصمیم FREEZE را بازنویسی نمی‌کند و به معنی پذیرش مستقل، طراحی انسانی، D28، انتخاب نهایی مدل یا آمادگی production نیست.
+
+## الحاق اجرایی اصلاح تجربه/امنیت
+
+در PROGRAMMER-COMP-AI-EXPERIENCE-SECURITY-FIX-01 فیلد عمومی `model` حذف و درخواست دارای آن رد شد؛ router قطعی `assistant-router-v1` قبل از تماس، Luna را برای clarification/search/explanation/compare ساده و Sol را فقط برای reason codeهای پیچیده انتخاب می‌کند. route/reason/model و نسخه‌های policy/prompt/tool/schema در ledger بی‌محتوا می‌مانند و fallback پس از خطا وجود ندارد. سقف فردی ماه UTC ۱۰ دلار علاوه بر سقف سراسری اعمال و ادغام مهمان همان ماه انجام می‌شود. کلید runtime در public فقط از secret file بک‌اند و کلید eval از منبع جدا خوانده می‌شود. runner واقعی flag صریح، store=false، سقف پیش از تماس و خروجی sanitized دارد؛ نبود credential در این مأموریت همچنان صفر تماس/هزینه و گیت live باز ایجاد کرد. این الحاق پذیرش production router یا رأی انسانی نیست.
