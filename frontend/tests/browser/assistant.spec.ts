@@ -37,6 +37,10 @@ for (const width of [360, 390, 768, 1440]) test(`assistant complete journey rema
   await routePicker.press("Enter");
   await expect(routePicker).toHaveAttribute("aria-pressed", "true");
   await page.screenshot({ path: path.join(evidence, `assistant-initial-${width}.png`), fullPage: true, animations: "disabled" });
+  const finalExample = page.getByRole("button", { name: /مرمت خانه تاریخی در کاشان/ });
+  await finalExample.scrollIntoViewIfNeeded();
+  await expect(finalExample).toBeVisible();
+  await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
   await page.getByLabel("شرایط شما برای دستیار").fill("پروژه تهران تا ۳۰ میلیارد تومان");
   await page.getByLabel("شرایط شما برای دستیار").press("Enter");
   await expect(page.getByRole("heading", { name: "برداشت قابل اصلاح" })).toBeVisible();
