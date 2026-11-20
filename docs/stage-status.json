@@ -1,8 +1,8 @@
 {
   "date": "2026-11-20",
-  "current_stage": "S08",
-  "status": "pc-d02-approved-s09-nonpublic-authorized-documentation-freeze-release-gates-open",
-  "implementation_authorized": false,
+  "current_stage": "S09",
+  "status": "s09-programmer-technical-delivery-ready-independent-live-and-human-gates-open",
+  "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
   "runtime_verified": true,
@@ -77,11 +77,12 @@
     "TEST-EXPERIENCE-EVIDENCE-FIX-01 at 52a314b accepted EVID-IT-001..003; remaining library capture state/provenance was corrected and accepted in the runtime retest below; historical reports preserved",
     "TEST-RUNTIME-HOME-LOADING-FIX-02 accepted at a317094: RHL-IT-001 closed; primary runtime, library capture provenance, targeted backend/seed, login/Origin, map and loading technically accepted; supersedes prior pending-runtime state, not human design, D28 or production gates",
     "PRODUCT-COMP-AI-01: documentation synchronized and five unapproved PC-D02 subdecisions prepared; S09 journey/contracts/tasks/evaluation clarified; no product implementation, credential, live OpenAI, push or deployment",
-    "PRODUCT-COMP-AI-FREEZE-01: explicit approval of PC-D02-01..05 and nonpublic S09 authorization recorded; scope/handoff frozen without code, tests, fixtures, credentials, OpenAI calls, push or deploy; human gates remain open"
+    "PRODUCT-COMP-AI-FREEZE-01: explicit approval of PC-D02-01..05 and nonpublic S09 authorization recorded; scope/handoff frozen without code, tests, fixtures, credentials, OpenAI calls, push or deploy; human gates remain open",
+    "PROGRAMMER-COMP-AI-COMPLETE-01: T062–T066 implemented with bounded Responses adapter, content-free quota ledger, four read-only tools, complete responsive journey, 120-case locked fixture and PostgreSQL/browser evidence; no private credential was present, so live smoke/eval, Sol/Luna comparison, independent acceptance and human gates remain open"
   ],
   "remaining": [
     "COMP-EXPERIENCE: قبول فنی 8c327ec و runtime/home/loading در a317094؛ RHL-IT-001 بسته و legacy مصوب؛ بررسی مالک/تخصصی طراحی و کیفیت D28 باز، مانع توسعه غیرعمومی جداگانه‌مجاز نیستند.",
-    "COMP-AI: F31–F33 اجرا نشده؛ PC-D02-01..05 مصوب و اجرای غیرعمومی S09 برای برنامه‌نویس مجاز؛ credential، تماس واقعی، ارزیابی Sol/Luna، انتخاب نهایی و رأی فارسی باز",
+    "COMP-AI: F31–F33 از نظر فنی توسط برنامه‌نویس در commitهای f48ba84..3fa19c9 اجرا و آماده بازآزمایی مستقل؛ credential، تماس واقعی، ارزیابی Sol/Luna، انتخاب نهایی، رأی فارسی، طراحی انسانی و D28 باز",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
   ],
@@ -99,7 +100,7 @@
     "openai": {
       "provider_selected": true,
       "credential_received": false,
-      "configured": false,
+      "configured": true,
       "live_connection_verified": false,
       "model_selected": true,
       "selected_model": "gpt-6.2-sol",
@@ -135,19 +136,19 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "PROGRAMMER-COMP-AI-COMPLETE-01",
-    "description": "تحویل یکپارچه غیرعمومی S09 طبق PC-D02-01..05 مصوب؛ مجوز صریح کاربر ثبت شده، مأموریت جاری محصول آن را اجرا نمی‌کند؛ deploy و عرضه ممنوع",
-    "authorized": true,
-    "scope_path": "docs/comp-ai-decision-package.md",
+    "id": "TEST-COMP-AI-COMPLETE-01",
+    "description": "بازآزمایی مستقل تجمیعی تحویل فنی S09؛ live smoke/eval فقط در محیط دارای credential خصوصی و سقف‌های مصوب، بدون جعل رأی فارسی یا انتخاب نهایی مدل",
+    "authorized": false,
+    "scope_path": "docs/stage9/comp-ai-complete-report.docx",
     "package": "COMP-AI"
   },
   "active_step": {
-    "id": "PRODUCT-COMP-AI-FREEZE-01",
-    "mission": "PRODUCT-COMP-AI-FREEZE-01",
-    "status": "documentation-freeze-complete-programmer-handoff-ready",
-    "authorization": "Explicit user PRODUCT-COMP-AI-FREEZE-01: approve PC-D02-01..05 and authorize nonpublic S09 programmer work; this product mission only updates existing documentation and handoff, one local commit, no product code/tests/fixtures/credentials/OpenAI/push/deploy",
+    "id": "PROGRAMMER-COMP-AI-COMPLETE-01",
+    "mission": "PROGRAMMER-COMP-AI-COMPLETE-01",
+    "status": "programmer-technical-delivery-complete-live-and-independent-gates-open",
+    "authorization": "Explicit user PROGRAMMER-COMP-AI-COMPLETE-01: nonpublic S09 implementation and controlled evidence; no push, deploy, COMP-INTEGRATIONS or COMP-OPERATIONS",
     "documentation_authorized": true,
-    "implementation_authorized": false,
+    "implementation_authorized": true,
     "push_authorized": false,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
@@ -155,9 +156,9 @@
     "production_ready": false,
     "final_acceptance": false,
     "independent_acceptance": false,
-    "independently_accepted_product_scope": "COMP-EXPERIENCE at 8c327ec and runtime/home/loading at a317094; RHL-IT-001 closed; current documentation mission does not claim independent implementation acceptance",
-    "report_path": "docs/comp-ai-decision-package.md",
-    "validation_path": "docs/comp-ai-decision-package.md"
+    "independently_accepted_product_scope": "COMP-EXPERIENCE at 8c327ec and runtime/home/loading at a317094 only; S09 is not independently accepted",
+    "report_path": "docs/stage9/comp-ai-complete-report.docx",
+    "validation_path": "docs/stage9/evidence/manifest.json"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -265,7 +266,7 @@
     "remote_ci_executed": false,
     "public_deployed": false
   },
-  "application_implementation_scope": "هسته/S08، ده EXP و runtime/home/loading در a317094 قبول فنی محدود؛ RHL-IT-001 بسته؛ PC-LEGACY-01 مصوب؛ PC-FALLBACK-01 ادامه غیرعمومی با مجوز جدا را ممکن می‌کند؛ S09 اجرا نشده، طراحی تخصصی، کیفیت D28 و آمادگی عرضه بازند.",
+  "application_implementation_scope": "هسته/S08، ده EXP و runtime/home/loading در a317094 قبول فنی محدود؛ RHL-IT-001 بسته؛ PC-LEGACY-01 مصوب؛ S09 غیرعمومی در PROGRAMMER-COMP-AI-COMPLETE-01 به تحویل فنی برنامه‌نویس رسیده است؛ ارزیابی زنده دو مدل، پذیرش مستقل، طراحی و فارسی انسانی، کیفیت D28 و آمادگی عرضه بازند.",
   "identity": {
     "mission": "PROGRAMMER-S03-01",
     "status": "technical-pass",
@@ -566,8 +567,8 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PRODUCT-COMP-AI-FREEZE-01",
-    "current_mission_override": "Explicit latest mission overrides standing push authorization: one local commit only; no push or deployment",
+    "current_mission": "PROGRAMMER-COMP-AI-COMPLETE-01",
+    "current_mission_override": "Explicit latest mission overrides standing push authorization: local commits only; no push or deployment",
     "earlier_standing_push_authorization": true
   },
   "core_fix_01": {
@@ -820,15 +821,24 @@
     "final_acceptance": false
   },
   "comp_ai_preparation": {
-    "mission": "PRODUCT-COMP-AI-FREEZE-01",
-    "status": "approved-frozen-nonpublic-programmer-authorized",
+    "mission": "PROGRAMMER-COMP-AI-COMPLETE-01",
+    "status": "programmer-technical-delivery-ready-independent-live-blocked",
     "decision": "PC-D02",
     "proposals_approved": true,
     "implementation_authorized": true,
     "credential_received": false,
     "live_connection_verified": false,
     "official_documentation_checked_on": "2026-11-20",
-    "report_path": "docs/comp-ai-decision-package.md",
+    "report_path": "docs/stage9/comp-ai-complete-report.docx",
+    "evidence_path": "docs/stage9/evidence/manifest.json",
+    "implementation_commits": [
+      "f48ba846ed08e11ae6745f8dc1fc287b81ac8659",
+      "68274d94b03b00fd5cbfd3d415f3f4b5daa344c7",
+      "aba1393aa268dfc9b6c7d9dec05a0e10b8ceda82",
+      "817475c78957ecd6626ae779afc514b0f52073f7",
+      "a12cd565d406c03bd49c884475e02b4636ee02cc",
+      "3fa19c9297771dd19598f7f1083cb56ba9881f02"
+    ],
     "owner_feature": "specs/001-business-baseline",
     "tasks": [
       "T062",
@@ -849,12 +859,21 @@
       "PC-D02-04",
       "PC-D02-05"
     ],
-    "authorization_scope": "PROGRAMMER-COMP-AI-COMPLETE-01 only, nonpublic S09; not execution by current product mission",
+    "authorization_scope": "PROGRAMMER-COMP-AI-COMPLETE-01 only, nonpublic S09; implementation and controlled fake/browser evidence completed, no push/deploy",
     "approval_source": "Explicit user message PRODUCT-COMP-AI-FREEZE-01, 2026-11-20",
     "human_persian_evaluation_accepted": false,
     "final_model_selected": false,
     "required_same_held_out_comparison": "gpt-6.2-sol vs gpt-6-luna; all thresholds, zero critical, no >5 percentage-point degradation in any applicable quality metric/family; explicit final selection, no automatic switch",
-    "historical_runtime_observation": "Read-only HTTP version and assistant placeholder; browser bootstrap failed with Node SIGABRT; historical initial-state images viewed, not fresh interactive verification; observed in PRODUCT-COMP-AI-01, not repeated in FREEZE"
+    "historical_runtime_observation": "Superseded for programmer evidence by production-image browser run at 360/390/768/1440; 7/7 targeted browser checks passed. This is not independent or human design acceptance.",
+    "technical_tasks": {
+      "T062": "programmer-complete",
+      "T063": "programmer-complete",
+      "T064": "programmer-complete",
+      "T065": "programmer-complete",
+      "T066": "programmer-complete",
+      "T067": "partial-fixture-fake-and-browser-complete-live-and-human-open"
+    },
+    "live_blocker": "OPENAI_API_KEY absent in authorized environment; provider calls=0 and cost=$0; Sol smoke/eval and Luna same-held-out comparison not run"
   },
   "experience_fallback": {
     "decision": "PC-FALLBACK-01",
@@ -895,5 +914,5 @@
     "plan": "docs/experience-complete/fallback-gates-plan.md",
     "comp_ai_authorization_source": "Explicit PRODUCT-COMP-AI-FREEZE-01 user approval; nonpublic S09 only"
   },
-  "implementation_authorization_scope": "Current PRODUCT-COMP-AI-FREEZE-01 is documentation-only; nonpublic S09 programmer authorization is recorded separately in next_step and comp_ai_preparation."
+  "implementation_authorization_scope": "PROGRAMMER-COMP-AI-COMPLETE-01 nonpublic S09 implementation completed by programmer; independent acceptance, live evaluation, human gates, push, deploy and later packages are not authorized or claimed."
 }

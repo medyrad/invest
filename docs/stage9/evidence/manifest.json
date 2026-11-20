@@ -1,0 +1,106 @@
+{
+  "mission": "PROGRAMMER-COMP-AI-COMPLETE-01",
+  "generated_at": "2026-11-20T22:49:30+03:30",
+  "finalized_at": "2026-11-20T23:18:50+03:30",
+  "implementation_commits": [
+    "f48ba846ed08e11ae6745f8dc1fc287b81ac8659",
+    "68274d94b03b00fd5cbfd3d415f3f4b5daa344c7",
+    "aba1393aa268dfc9b6c7d9dec05a0e10b8ceda82",
+    "817475c78957ecd6626ae779afc514b0f52073f7",
+    "a12cd565d406c03bd49c884475e02b4636ee02cc",
+    "3fa19c9297771dd19598f7f1083cb56ba9881f02"
+  ],
+  "tested_checkout": "3fa19c9297771dd19598f7f1083cb56ba9881f02",
+  "tested_tree": "76210cc75a6dc923044a435824e14de1118a2eee",
+  "reference": {
+    "path": "/Users/mehdi/Downloads/Investment_Advisor-main.zip",
+    "sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b"
+  },
+  "versions": {
+    "requested_model": "gpt-6.2-sol",
+    "comparison_model": "gpt-6-luna",
+    "prompt": "assistant-fa-v1",
+    "tool": "assistant-tools-v1",
+    "schema": "assistant-response-v1",
+    "price": "openai-standard-2026-11-20",
+    "initial_policy": 1,
+    "openapi": "1.5.0"
+  },
+  "images": {
+    "backend": "sha256:1683af989cd76b0c65024673a67c5292ead7a050288d3aeb8a8eb4c186f4192b",
+    "test": "sha256:531d60d0506c78edb029c9a85ac8dd784ff553eac795974a3fc996d2476e0ac8",
+    "browser_api": "sha256:585f9b4f4db0e48000321c4deed39f92adb773fa166ef612a93928985b251c53",
+    "evidence_web": {
+      "digest": "sha256:d24b3ef70f7d84b2167fb2be4ba59523989ee6edae3b6998bb12c05e4accd6b4",
+      "source_commit": "a12cd565d406c03bd49c884475e02b4636ee02cc",
+      "source_tree": "cb8345abbf538dc324bd721e1edc39ea517711ef",
+      "frontend_sha256": "38ec5a671ce2b39a1d3451cbc2cca778c3ada4b0a66d2ebc0baac1b9f3aed0f9"
+    }
+  },
+  "fixture": {
+    "path": "backend/tests/fixtures/assistant_cases.json",
+    "sha256": "9bcc46ddb67670861bd9c539b71375cf2f11b6d9a7fe3ccb8c99ba6025ad3a7b",
+    "total": 120,
+    "development": 40,
+    "held_out": 80,
+    "families": 8,
+    "unique_ids": 120,
+    "unique_semantics": 120
+  },
+  "validation": {
+    "backend_assistant_and_core_impact": "24 passed",
+    "openapi_contract": "20 passed",
+    "browser_unique": "7 passed",
+    "browser_widths": [360, 390, 768, 1440],
+    "typecheck": "passed",
+    "lint": "passed",
+    "migration_drift": "none",
+    "fake_fixture_contract": "passed",
+    "live_smoke": "blocked_missing_private_credential",
+    "live_eval": "not_run",
+    "provider_calls": 0,
+    "cost_usd": "0",
+    "human_persian_verdict": null,
+    "human_design_verdict": null,
+    "d28_verdict": null,
+    "independent_acceptance": false
+  },
+  "browser_evidence_sha256": {
+    "assistant-initial-360.png": "6d5a098653a34bedf75386ed4f91736b1859295b262c62dcc3e7fdb77e141a91",
+    "assistant-complete-360.png": "e46fba6cc27ba98a9680a56539d954001649748f4df18ddb39a4bd3b410faae5",
+    "assistant-initial-390.png": "3d3b564deca5268c48d2c582ffcf1c5276b0c0c531a41564743d8725c38b530e",
+    "assistant-complete-390.png": "1362af5ae766a89db2812534c170740ed72405c31a57479c657737414e6f3215",
+    "assistant-initial-768.png": "f7b101070a99d9b75355a081419ae03cd2ea97f8346faa66b924339537859e14",
+    "assistant-complete-768.png": "b779e2e7cf65ebda47bff6b93ef0a781818b1e77a65a0a65478110d5bc9496dc",
+    "assistant-initial-1440.png": "b4668c46b4979995f5d4de08300c5bae59a2da9f881712d55dae2c328d1fd05f",
+    "assistant-complete-1440.png": "d0da8d8edded049351dd67de45313c0fe9ddd5856ce413f2a0c6502a8cac51e5"
+  },
+  "visual_review": {
+    "reference_compared_at": [390, 1440],
+    "responsive_adaptation_reviewed_at": [360, 390, 768, 1440],
+    "interaction_checked": [
+      "font-ready visibility",
+      "focus",
+      "hit-test",
+      "keyboard Enter",
+      "last mobile example reachable",
+      "reduced motion",
+      "no horizontal document overflow"
+    ],
+    "status": "programmer evidence only; human design approval remains open"
+  },
+  "report": {
+    "path": "docs/stage9/comp-ai-complete-report.docx",
+    "sha256": "2161917992cf6393b5a9d434061017435da6234f677812949f0d61ba3b063e2b",
+    "pages": 11,
+    "template_reference_sha256": "0a8a4c5b8b1d8c055e19c9eadcc7eac898899f067cbbd20602c4e7c078e545de",
+    "render_review": "all 11 pages inspected; no blank page, overflow or broken table observed",
+    "accessibility_audit": "0 high, 0 medium, 0 low"
+  },
+  "timing": {
+    "preparation": "approximately 25 minutes",
+    "build": "approximately 9 minutes 30 seconds",
+    "testing": "approximately 18 minutes including harness triage and final deterministic run",
+    "reporting_window": "2026-11-20T22:49:30+03:30/2026-11-20T23:18:50+03:30"
+  }
+}
