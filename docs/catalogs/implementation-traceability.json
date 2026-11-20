@@ -1590,7 +1590,6 @@
       "docs/catalogs/dynamic-context-review.csv"
     ],
     "open_findings": [
-      "PC-A05-irrecoverable-legacy-decision",
       "PC-A06-human-design",
       "PC-A07-D28-quality",
       "PC-A09",
@@ -1599,7 +1598,8 @@
     "human_design_approved": false,
     "production_ready": false,
     "experience_acceptance_commit": "8c327ec",
-    "human_gates_report": "docs/experience-complete/product-gates-report.md",
-    "d28_human_accepted": false
+    "human_gates_report": "docs/experience-complete/fallback-gates-plan.md",
+    "d28_human_accepted": false,
+    "legacy_decision": "PC-LEGACY-01 approved by explicit PRODUCT-EXPERIENCE-FALLBACK-01 user message"
   }
 }

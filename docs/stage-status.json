@@ -1,7 +1,7 @@
 {
   "date": "2026-11-20",
   "current_stage": "S08",
-  "status": "experience-technical-accepted-human-gates-open",
+  "status": "experience-technical-accepted-fallback-approved-release-gates-open",
   "implementation_authorized": false,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -25,15 +25,16 @@
     "D29",
     "D30",
     "D31",
-    "D32"
+    "D32",
+    "PC-LEGACY-01",
+    "PC-FALLBACK-01"
   ],
   "pending_questions": [
     "PC-D01",
     "PC-D02",
     "PC-D03",
     "PC-D04",
-    "PC-D05",
-    "PC-LEGACY-01"
+    "PC-D05"
   ],
   "feature_count": 44,
   "completed": [
@@ -65,10 +66,11 @@
     "PROGRAMMER-EXPERIENCE-FIX-01 continuation completed by programmer: all ten EXP-IT findings have a root fix and impact evidence; independent and human acceptance remain open",
     "PROGRAMMER-EXPERIENCE-FIX-02 completed by programmer: EXP-IT-003 route labels fixed for fresh reports with versioned vocabulary; independent acceptance remains open",
     "TEST-EXPERIENCE-FIX-02-RETEST accepted at 8c327ec: all ten EXP findings technically accepted in tested scope; supersedes earlier pending-independent entries above; human design, legacy decision and D28 quality remain open",
-    "PRODUCT-EXPERIENCE-GATES-01: current status synchronized and human review packets prepared; no human votes or proposal approvals recorded"
+    "PRODUCT-EXPERIENCE-GATES-01: current status synchronized and human review packets prepared; no human votes or proposal approvals recorded",
+    "PRODUCT-EXPERIENCE-FALLBACK-01: explicit user approval of PC-LEGACY-01 and nonpublic fallback PC-FALLBACK-01 recorded; no human verdict or technical execution"
   ],
   "remaining": [
-    "COMP-EXPERIENCE: ده یافته قبول فنی مستقل در 8c327ec؛ تصمیم PC-LEGACY-01، طراحی انسانی و کیفیت D28 باز هستند.",
+    "COMP-EXPERIENCE: قبول فنی 8c327ec و تصمیم legacy مصوب؛ تکمیل هدفمند شاهد و fixture پیشنهادی، بررسی مالک و ممیزی تخصصی طراحی/D28 باز؛ مانع توسعه غیرعمومی مجاز نیستند.",
     "COMP-AI: F31–F33 و PC-D02؛ اتصال واقعی OpenAI و ارزیابی باز",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
@@ -119,17 +121,17 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "HUMAN-EXPERIENCE-REVIEW-01",
-    "description": "پیشنهاد: تصمیم صریح legacy، تعیین داور طراحی و خبره D28 و تصویب پروتکل/آستانه پیش از افشای نتایج؛ نه اجرای COMP-AI",
+    "id": "TECH-EXPERIENCE-EVIDENCE-01",
+    "description": "پیشنهاد یک مأموریت فنی محدود برای شواهد۲۶ردیف و fixture مستقل D28؛ نیازمند مجوز و تعیین حجم dataset؛ سپس تصمیم‌های COMP-AI، نه اجرای آن",
     "authorized": false,
-    "scope_path": "docs/experience-complete/product-gates-report.md",
+    "scope_path": "docs/experience-complete/fallback-gates-plan.md",
     "package": "COMP-EXPERIENCE"
   },
   "active_step": {
-    "id": "PRODUCT-EXPERIENCE-GATES-01",
-    "mission": "PRODUCT-EXPERIENCE-GATES-01",
-    "status": "documentation-complete-human-decisions-pending",
-    "authorization": "Explicit user mission: status synchronization and human review packages only; normal push per AGENTS; no product code/tests, COMP-AI or deploy",
+    "id": "PRODUCT-EXPERIENCE-FALLBACK-01",
+    "mission": "PRODUCT-EXPERIENCE-FALLBACK-01",
+    "status": "documentation-complete-no-technical-execution",
+    "authorization": "Explicit user mission: record approved legacy and nonpublic fallback; documentation only; no product code/tests, fixtures execution, human votes, COMP-AI or deployment",
     "documentation_authorized": true,
     "implementation_authorized": false,
     "push_authorized": true,
@@ -140,8 +142,8 @@
     "final_acceptance": false,
     "independent_acceptance": true,
     "independent_acceptance_scope": "COMP-EXPERIENCE technical scope only; 8c327ec",
-    "report_path": "docs/experience-complete/product-gates-report.md",
-    "validation_path": "docs/experience-complete/product-gates-validation.json"
+    "report_path": "docs/experience-complete/fallback-gates-plan.md",
+    "validation_path": "docs/experience-complete/fallback-gates-plan.md"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -249,7 +251,7 @@
     "remote_ci_executed": false,
     "public_deployed": false
   },
-  "application_implementation_scope": "هسته و S08 قبول فنی تاریخی دارند؛ ده یافته COMP-EXPERIENCE در 8c327ec قبول فنی مستقل‌اند؛ تصمیم legacy، طراحی انسانی، کیفیت D28، S09/F40 و آمادگی عرضه باز هستند",
+  "application_implementation_scope": "هسته/S08 و ده EXP در دامنه مستقل قبول فنی؛ PC-LEGACY-01 مصوب؛ PC-FALLBACK-01 ادامه غیرعمومی با مجوز جدا را ممکن می‌کند؛ طراحی تخصصی، کیفیت D28 و آمادگی عرضه بازند.",
   "identity": {
     "mission": "PROGRAMMER-S03-01",
     "status": "technical-pass",
@@ -550,7 +552,7 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PRODUCT-EXPERIENCE-GATES-01",
+    "current_mission": "PRODUCT-EXPERIENCE-FALLBACK-01",
     "current_mission_override": "normal non-force push authorized by standing AGENTS; result reported in final handoff; no deployment",
     "earlier_standing_push_authorization": true
   },
@@ -703,7 +705,6 @@
       "EXP-IT-010"
     ],
     "human_or_independent_gates_open": [
-      "PC-LEGACY-01",
       "PC-A06-human-design",
       "PC-A07-D28"
     ],
@@ -770,17 +771,58 @@
     "technical_acceptance_scope": "All ten findings in tested scope; EXP-IT-004 existing historical data only; not every visual state or qualitative D28",
     "production_ready": false,
     "final_acceptance": false,
-    "historical_subreports_note": "fix_01 preserves delivery-time findings, superseded by retest-01 at 32b3410 and fix-02-retest at 8c327ec"
+    "historical_subreports_note": "fix_01 preserves delivery-time findings, superseded by retest-01 at 32b3410 and fix-02-retest at 8c327ec",
+    "legacy_decision_approved": true
   },
   "product_experience_gates": {
     "mission": "PRODUCT-EXPERIENCE-GATES-01",
     "report": "docs/experience-complete/product-gates-report.md",
     "design_package": "docs/experience-complete/human-design-review/README.md",
     "d28_package": "docs/experience-complete/d28-human-review/README.md",
-    "legacy_approved": false,
+    "legacy_approved": true,
     "design_approved": false,
     "d28_threshold_approved": false,
     "d28_quality_accepted": false,
-    "next_package_authorized": false
+    "next_package_authorized": false,
+    "superseding_decision_source": "Explicit user message PRODUCT-EXPERIENCE-FALLBACK-01",
+    "current_plan": "docs/experience-complete/fallback-gates-plan.md"
+  },
+  "experience_fallback": {
+    "decision": "PC-FALLBACK-01",
+    "approved": true,
+    "source": "Explicit user mission PRODUCT-EXPERIENCE-FALLBACK-01 paragraphs 2/3 and tasks b/c/d",
+    "legacy_decision": "PC-LEGACY-01",
+    "legacy_approved": true,
+    "independent_design_reviewer_available": false,
+    "d28_expert_available": false,
+    "owner_design_review_completed": false,
+    "specialist_design_approved": false,
+    "d28_human_accepted": false,
+    "d28_current_packet_scope": "pilot-calibration-only",
+    "pilot_threshold": {
+      "useful_percent": 80,
+      "critical_count": 0,
+      "status": "proposal-only",
+      "final_quality_threshold": false
+    },
+    "proposed_dataset": {
+      "status": "not-approved",
+      "routes": 8,
+      "scenarios": 80,
+      "unique_synthetic_opportunities": 96,
+      "development_scenarios": 32,
+      "held_out_scenarios": 48
+    },
+    "nonpublic_development_blocked_by_reviewer_absence": false,
+    "technical_next_mission_authorized": false,
+    "comp_ai_execution_authorized": false,
+    "public_release_authorized": false,
+    "release_gates": [
+      "specialist-design-review",
+      "D28-expert-quality",
+      "production-readiness",
+      "remaining-roadmap-dependencies-and-explicit-release-authorization"
+    ],
+    "plan": "docs/experience-complete/fallback-gates-plan.md"
   }
 }
