@@ -1,0 +1,37 @@
+{
+  "mission": "PROGRAMMER-EXPERIENCE-FIX-02",
+  "base_commit": "32b3410f14f2e679e03bd7b69e4f8051cedaa42b",
+  "date": "2026-11-20",
+  "database": "PostgreSQL 17.12, isolated invest-expit tmpfs",
+  "backend_image": "sha256:b26f984ef72b1cc63895c7bca0f481d83030679a9270d7e17d9e07825205a7df",
+  "frontend_image": "sha256:40072e8c08fd71658ff709b42aa3e46fa5e2050d7740397cdfdc3c7c5e307a49",
+  "browser_image": "mcr.microsoft.com/playwright:v1.65.1-noble",
+  "results": {
+    "backend_final": {"passed": 21, "failed": 0, "pytest_seconds": 22.54, "wall_seconds": 35.51},
+    "backend_distinct_scenarios": 20,
+    "independent_node_replay": {"passed": 1, "overlaps_investor_route_case": true},
+    "browser_final": {"passed": 1, "failed": 0, "test_seconds": 21.1, "wall_seconds": 36.11}
+  },
+  "source_sha256": {
+    "backend/apps/core/reporting.py": "2580682167bdab6b49216f809bb0046b9157b07e4c7aae82f2505df1999b152a",
+    "backend/apps/core/report-routes-v1.json": "31a39f0a4571ffdf2f0079313f4a874828e5b9899dff940958ba4414f9bcc24b",
+    "backend/apps/core/search_fields.json": "af879ccc3cde30c21ca7d1476f61dbd2e514a01e933387d05ce9f5ed0737e4eb",
+    "backend/tests/test_experience_fix.py": "636e6c44e5f39b28c15dfac444376eb27229a34a50481add33ae232f38878107"
+  },
+  "evidence_sha256": {
+    "backend-final.xml": "a98fae0a12c7b777141065a02a8abee26bcfc68872381fe88af636b73f06e7f8",
+    "browser-report.xml": "6fbe67bfd022da44274a65a9afc3e250fa395b263112ace75be75cc268ce046d",
+    "browser-preview.png": "e92a10632d31ad7d82130c700c7c674589e457a1176e389d4d76e44917035d27",
+    "browser-redownload.png": "21abb1571b117a9d02f43f0729757759ca46cd51b00bb9b44d84af301c60c854",
+    "fresh-report.html": "ad1f0eab870906a1100a9e2ab9f32b75f059d40b22f6b4f3cd7f36c78d8c7e76"
+  },
+  "claims": {
+    "programmer_fixed_exp_it_003": true,
+    "independent_acceptance": false,
+    "human_acceptance": false,
+    "legacy_html_migrated": false,
+    "d28_changed": false,
+    "pushed": false,
+    "deployed": false
+  }
+}

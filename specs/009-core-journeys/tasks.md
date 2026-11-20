@@ -54,3 +54,7 @@
 - [x] T026 CRITICAL تطابق جزئیات انتخاب‌گر نقش، پیشرفت، ترتیب و فاصله فرم حرفه‌ای در سه مصرف‌کننده با مرجع هم‌شرایط؛ حالت مهمان/حساب، خطای QuickProfile، focus و badge پس از font-ready در چهار عرض ثبت شد. منبع: continuation-evidence/browser-continuation.xml و تصاویر product/reference.
 - [x] T027 بازسازی نسخه‌دار بخش‌های قابل بازیابی legacy و کارت‌بندی/محتوای سند تکمیل شد؛ نام/گام واقعاً ناموجود با محدودیت فیلدی و بدون lookup زنده ثبت می‌شود. منبع: continuation-evidence/legacy-snapshot-shapes.md، actual-report و backend-final-primary.xml.
 - [x] T028 مخرج route/state و۲۰زمینه، aliasهای expectedReturn/fundReturnMin و fundRisk/risk و general/special/notes با خروجی و پذیرش ردیفی تکمیل شد. منبع: dynamic-context-contract.json، dynamic-context-review.csv و continuation-evidence/route-state-coverage.csv. گیت انسانی باز است.
+
+## PROGRAMMER-EXPERIENCE-FIX-02
+
+- [x] T029 EXP-IT-003: پوشش دقیق هر هشت route قرارداد با واژه‌نامه فارسی نسخه۱، نمایش صریح شناسه تاریخی ناشناخته، سازگاری preview/دانلود اول/دریافت مجدد و حفظ HTML منجمد قبلی؛ PostgreSQL ایزوله، آزمون مستقل و Chromium واقعی. شاهد: `docs/experience-complete/fix-02-report.md` و `fix-02-evidence/`. این علامت ادعای پذیرش مستقل یا انسانی نیست.

@@ -32,4 +32,6 @@ action=`report` با key UUID، opportunity عمومی و `{criteria,guide_conte
 
 renderer قالب۱ فقط `guide-fields-v1.json` ثابت و خود snapshot را می‌خواند؛ شناسه/گام/label تاریخی ناموجود را با مقدار زنده پر نمی‌کند. قالب۲ title، label، واحد، effective advisory، action steps و HTML ثابت را نگه می‌دارد؛ دریافت مجدد پرونده تازه ایجاد نمی‌کند.
 
+واژه‌نامه مسیر گزارش `report-routes-v1.json` نسخه۱ است و باید دقیقاً همه شناسه‌های مجاز قرارداد `search_fields.json:routes` را پوشش دهد. preview و گزارش تازه همان label فارسی نسخه‌دار را مصرف می‌کنند و دریافت مجدد قالب۲ همان HTML منجمد را برمی‌گرداند. شناسه تاریخی بیرون قرارداد با عبارت «شناسه تاریخی ناشناخته» و محدودیت داده نمایش می‌یابد؛ حدس مسیر، lookup زنده برای تکمیل سابقه و migration خودکار HTML قبلی ممنوع است.
+
 profile اکنون patch فیلدهای ارسال‌شده است. base اختیاری، مقدار همان فیلدهای خوانده‌شده را برای compare-and-set می‌دهد؛ professional با معنای JSON مقایسه می‌شود، نه فاصله‌گذاری رشته. search_update با base={name,criteria} تعارض409 می‌دهد. کلید retry و payload ثابت باید پس از پاسخ گم‌شده حفظ شوند. این قرارداد overwrite خاموش یا حل تعارض خودکار را مجاز نمی‌کند.

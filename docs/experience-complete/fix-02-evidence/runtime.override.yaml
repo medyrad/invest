@@ -1,0 +1,4 @@
+# فقط برای compose ایزوله invest-expit؛ وب و پایگاه داده فعال پروژه تغییر نمی‌کنند.
+services:
+  backend:
+    image: investexpfix02-backend

@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="25.681592">
+<testsuite name="browser-report.spec.ts" timestamp="2026-11-20T06:35:21.201Z" hostname="" tests="1" failures="0" skipped="0" time="21.082" errors="0">
+<testcase name="preview, first download and redownload use the same Persian route label" classname="browser-report.spec.ts" time="21.082">
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,7 +1,7 @@
 {
   "date": "2026-11-20",
   "current_stage": "S08",
-  "status": "experience-fix-01-ready-for-independent-retest",
+  "status": "experience-fix-02-ready-for-independent-retest",
   "implementation_authorized": true,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -61,10 +61,11 @@
     "Independent technical acceptance recorded from TEST-S03-03, TEST-S04-02 and TEST-S04-04; human/final stage acceptance unchanged; PRODUCT-S05-01 decision package prepared without S05 implementation authorization",
     "User approved P3 as D30 and recommended P1/P2 as D31/D32; PROGRAMMER-S05-A1 handoff authorized and prepared; implementation and human visual acceptance not claimed.",
     "Historical PROGRAMMER-EXPERIENCE-COMPLETE-01 programmer claim was superseded by independent findings c7ac09b; it is not current technical acceptance",
-    "PROGRAMMER-EXPERIENCE-FIX-01 continuation completed by programmer: all ten EXP-IT findings have a root fix and impact evidence; independent and human acceptance remain open"
+    "PROGRAMMER-EXPERIENCE-FIX-01 continuation completed by programmer: all ten EXP-IT findings have a root fix and impact evidence; independent and human acceptance remain open",
+    "PROGRAMMER-EXPERIENCE-FIX-02 completed by programmer: EXP-IT-003 route labels fixed for fresh reports with versioned vocabulary; independent acceptance remains open"
   ],
   "remaining": [
-    "COMP-EXPERIENCE: بازآزمایی مستقل تجمیعی اصلاحات FIX-01؛ سپس تأیید انسانی طراحی و داوری D28، بدون پذیرش فعلی مستقل یا انسانی",
+    "COMP-EXPERIENCE: بازآزمایی مستقل EXP-IT-003 پس از FIX-02 و حفظ نتایج قبول retest-01؛ سپس گیت‌های مستقل باقی‌مانده، طراحی انسانی و D28، بدون پذیرش جدید فعلی",
     "COMP-AI: F31–F33 و PC-D02؛ اتصال واقعی OpenAI و ارزیابی باز",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
@@ -115,27 +116,27 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "TEST-EXPERIENCE-COMPLETE-01",
-    "description": "پیشنهاد بازآزمایی مستقل COMP-EXPERIENCE و سپس گیت‌های انسانی طراحی/D28؛ نه شروع S09",
+    "id": "TEST-EXPERIENCE-FIX-02",
+    "description": "پیشنهاد بازآزمایی مستقل محدود EXP-IT-003 روی commit تحویل FIX-02؛ نه پذیرش انسانی، شروع S09 یا بسته بعدی",
     "authorized": false,
     "scope_path": "docs/02-delivery-roadmap.md",
     "package": "COMP-EXPERIENCE"
   },
   "active_step": {
-    "id": "PROGRAMMER-EXPERIENCE-FIX-01",
-    "mission": "PROGRAMMER-EXPERIENCE-FIX-01",
+    "id": "PROGRAMMER-EXPERIENCE-FIX-02",
+    "mission": "PROGRAMMER-EXPERIENCE-FIX-02",
     "status": "ready-for-independent-retest",
-    "authorization": "Explicit user mission: EXP-IT-001..010, COMP-EXPERIENCE; local commits only; no S09/AI/push/deploy",
+    "authorization": "Explicit user mission: close EXP-IT-003 only; local commit; no S09/AI/business change/push/deploy",
     "documentation_authorized": true,
     "implementation_authorized": true,
     "push_authorized": false,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
     "final_acceptance": false,
-    "report_path": "docs/experience-complete/fix-01-report.md",
-    "validation_path": "docs/experience-complete/fix-01-continuation-evidence",
-    "programmer_backend_unique_passed": 34,
-    "programmer_browser_unique_passed": 19,
+    "report_path": "docs/experience-complete/fix-02-report.md",
+    "validation_path": "docs/experience-complete/fix-02-evidence",
+    "programmer_backend_unique_passed": 20,
+    "programmer_browser_unique_passed": 1,
     "independent_acceptance": false
   },
   "clarification_step": {
@@ -545,7 +546,7 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PROGRAMMER-EXPERIENCE-FIX-01",
+    "current_mission": "PROGRAMMER-EXPERIENCE-FIX-02",
     "current_mission_override": "local commit only; no push or deploy",
     "earlier_standing_push_authorization": true
   },
@@ -729,6 +730,24 @@
         "4cb1be47b2906fa4a48209e055d2bd8ed06ee8cd"
       ],
       "code_commit": "4cb1be47b2906fa4a48209e055d2bd8ed06ee8cd"
+    },
+    "fix_02": {
+      "mission": "PROGRAMMER-EXPERIENCE-FIX-02",
+      "base_commit": "32b3410f14f2e679e03bd7b69e4f8051cedaa42b",
+      "status": "programmer-fixed-ready-for-independent-retest",
+      "finding": "EXP-IT-003",
+      "report_path": "docs/experience-complete/fix-02-report.md",
+      "manifest_path": "docs/experience-complete/fix-02-evidence/manifest.json",
+      "backend_unique_passed": 20,
+      "independent_node_replayed_by_programmer": 1,
+      "browser_unique_passed": 1,
+      "backend_image": "sha256:b26f984ef72b1cc63895c7bca0f481d83030679a9270d7e17d9e07825205a7df",
+      "independent_acceptance": false,
+      "human_visual_approved": false,
+      "d28_human_accepted": false,
+      "push_authorized": false,
+      "public_deployment_authorized": false,
+      "legacy_html_migrated": false
     }
   }
 }
