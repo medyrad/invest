@@ -8,7 +8,7 @@ from django.utils import timezone
 
 from apps.core import personal, preferences
 from apps.core.models import LoginOperation, Report, Search
-from apps.core.reporting import render
+from apps.core.reporting import ALLOWED_REPORT_ROUTES, ROUTE_LABELS, ROUTE_VOCABULARY, render
 from apps.identity.sessions import mint_session
 from apps.workspace.schema import Fault
 from tests.test_core import current_core_definitions as definitions_fixture
@@ -174,6 +174,79 @@ def test_report_document_design_and_effective_content_are_snapshot_only(team):
     op.draft.raw["title"] = "عنوان زنده جدید"
     op.draft.save(update_fields=["raw"])
     assert "عنوان زنده جدید" not in snapshot["rendered_html"]
+
+
+@pytest.mark.parametrize("route,label", list(ROUTE_LABELS.items()))
+def test_report_uses_versioned_persian_label_for_every_contract_route(route, label):
+    snapshot = {
+        "template_version": 2,
+        "opportunity": {
+            "kind": "project",
+            "routes": [route],
+            "fields": {"title": "گزارش مسیر"},
+        },
+        "field_labels": {},
+        "action_steps": ["بررسی"],
+        "report_id": "route-contract",
+    }
+    body = render(snapshot)
+    assert ROUTE_VOCABULARY["version"] == 1
+    assert f"مسیر: {label}" in body
+    assert f"مسیر: {route}" not in body
+    assert "شناسه تاریخی ناشناخته" not in body
+
+
+def test_versioned_route_vocabulary_exactly_covers_existing_route_contract():
+    assert set(ROUTE_LABELS) == ALLOWED_REPORT_ROUTES
+
+
+def test_unknown_historical_route_is_explicit_and_never_guessed():
+    snapshot = {
+        "template_version": 1,
+        "opportunity": {
+            "kind": "project",
+            "routes": ["future-route<script>"],
+            "fields": {"title": "گزارش تاریخی"},
+        },
+        "report_id": "historical-route",
+    }
+    body = render(snapshot)
+    assert "مسیر: شناسه تاریخی ناشناخته: future-route&lt;script&gt;" in body
+    assert "مسیر شناخته‌شده‌ای حدس زده نشد" in body
+    assert "future-route<script>" not in body
+
+
+def test_preview_first_download_and_redownload_share_label_but_old_html_stays_frozen(team):
+    from rest_framework.test import APIClient
+
+    _, op = publish(team, values={"title": "عنوان مسیر جاری"})
+    value = {"criteria": {"route": "investor"}, "guide_context": {"kind": "visit"}}
+    api = APIClient()
+    preview = api.post(f"/api/v1/core/guide/{op.pk}", value, format="json")
+    assert preview.status_code == 200
+    assert "مسیر: سرمایه‌گذار" in preview.json()["html"]
+
+    session, token = mint_session(team[2].user, timezone.now())
+    api.cookies["invest_session"] = token
+    receipt = personal.mutate(
+        session.user,
+        command("report", value, id=str(op.pk)),
+        session=session,
+    )
+    url = f"/api/v1/core/reports/{receipt['report_id']}"
+    first = api.get(url)
+    second = api.get(url)
+    assert first.status_code == second.status_code == 200
+    assert first.content == second.content
+    assert "مسیر: سرمایه‌گذار" in first.content.decode()
+
+    historical_html = "<!doctype html><p>مسیر: investor</p>"
+    historical = Report.objects.create(
+        user=session.user,
+        snapshot={"template_version": 2, "rendered_html": historical_html},
+    )
+    frozen = api.get(f"/api/v1/core/reports/{historical.pk}")
+    assert frozen.content == historical_html.encode()
 
 
 @pytest.mark.parametrize("with_report_id", [False, True])

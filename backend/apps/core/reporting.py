@@ -9,6 +9,18 @@ STEPS = json.loads(Path(__file__).with_name("guide-steps-v1.json").read_text())
 FIELD_DEFINITIONS = json.loads(
     Path(__file__).with_name("guide-fields-v1.json").read_text()
 )
+ROUTE_VOCABULARY = json.loads(
+    Path(__file__).with_name("report-routes-v1.json").read_text()
+)
+ROUTE_LABELS = ROUTE_VOCABULARY["routes"]
+SEARCH_ROUTE_CONTRACT = json.loads(
+    Path(__file__).with_name("search_fields.json").read_text()
+)
+ALLOWED_REPORT_ROUTES = frozenset(
+    route for field in SEARCH_ROUTE_CONTRACT for route in field.get("routes", [])
+)
+if set(ROUTE_LABELS) != ALLOWED_REPORT_ROUTES:
+    raise RuntimeError("واژه‌نامه مسیر گزارش با قرارداد مسیرهای جست‌وجو همگام نیست.")
 CSS = Path(__file__).with_name("guide-v1.css").read_text()
 UNITS = {
     "TOMAN": "تومان",
@@ -426,6 +438,25 @@ def render(snapshot):
         missing.append(
             "نسخه قواعد و پاسخ‌های مؤثر تاریخی در دسترس نیست؛ پاسخ خام به‌عنوان مؤثر معرفی نشده است."
         )
+    meta = [KIND_LABELS.get(opportunity.get("kind"), "نوع ثبت نشده")]
+    routes = opportunity.get("routes") or []
+    if routes:
+        route_labels = []
+        for route in routes:
+            route = str(route)
+            if route in ROUTE_LABELS:
+                route_labels.append(ROUTE_LABELS[route])
+            else:
+                route_labels.append("شناسه تاریخی ناشناخته: " + route)
+                missing.append(
+                    "واژه فارسی یکی از مسیرهای تاریخی در واژه‌نامه نسخه "
+                    + str(ROUTE_VOCABULARY["version"])
+                    + " موجود نیست؛ مسیر شناخته‌شده‌ای حدس زده نشد."
+                )
+        meta.append("مسیر: " + "، ".join(route_labels))
+    if opportunity.get("revision"):
+        meta.append("نسخه فرصت: " + str(opportunity["revision"]))
+
     if missing:
         section(
             "محدودیت داده تاریخی",
@@ -447,12 +478,6 @@ def render(snapshot):
         ),
     )
 
-    meta = [KIND_LABELS.get(opportunity.get("kind"), "نوع ثبت نشده")]
-    routes = opportunity.get("routes") or []
-    if routes:
-        meta.append("مسیر: " + "، ".join(str(route) for route in routes))
-    if opportunity.get("revision"):
-        meta.append("نسخه فرصت: " + str(opportunity["revision"]))
     mark = (
         '<svg viewBox="150 60 800 380" width="22" height="22" fill="none" '
         'stroke="currentColor" stroke-width="34" stroke-linecap="round" '

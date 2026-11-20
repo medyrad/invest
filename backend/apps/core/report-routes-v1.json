@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "source": "apps/core/search_fields.json:routes; frontend/src/data/routes.ts:routes",
+  "routes": {
+    "investor": "سرمایه‌گذار",
+    "fund": "صندوق سرمایه‌گذاری",
+    "contractor": "پیمانکار",
+    "buyer": "خریدار",
+    "lessee": "مستأجر",
+    "heritage": "مرمت و احیای میراث",
+    "charity": "مشارکت اجتماعی و خیریه",
+    "operator": "بهره‌بردار"
+  }
+}
