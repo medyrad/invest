@@ -1,0 +1,1365 @@
+{
+  "packet": "D28-HUMAN-REVIEW-01",
+  "distribution": "coordinator-only; do not include in blind handoff",
+  "human_acceptance": false,
+  "threshold_approved": false,
+  "source_provenance": {
+    "input_fixture": "backend/tests/fixtures/core/d28-human-review-inputs.json",
+    "selected_output": "docs/experience-complete/independent-evidence/d28-fresh-output.json",
+    "independent_mission": "TEST-EXPERIENCE-COMPLETE-01",
+    "product_commit": "5e262b6",
+    "evidence_checkout_commit": "138019b",
+    "review_packet_checkout": "8c327ec050bd87929a78f978be104c79a76052c6",
+    "runtime": "historical isolated PostgreSQL; synthetic opportunities",
+    "policy": "D28@1",
+    "hashes": {
+      "backend/tests/fixtures/core/d28-human-review-inputs.json": "88ff3c2eabc13e21d673e19f0cb9a33f93b41b4fda44f31e43b70a1258b2e4fd",
+      "docs/experience-complete/independent-evidence/d28-fresh-output.json": "42fdd658f0d9f0820318c32f27e16fc6fabbb45e3b8b7194b4e7288a7bb6414b",
+      "docs/experience-complete/d28-review-output.json": "c5f4e9171add1b4910f0046ff86beab27f88408d21731249817852f251ac5bc0",
+      "docs/experience-complete/independent-evidence/manifest.json": "c5e0bbd93eab410b3c07c6cbfa949b50e120fb2be4462516e32f9708dec37d30",
+      "docs/experience-complete/retest-01-evidence/d28-impact.txt": "6a0d319c96d40cea12663ee14f504f416f25f64445fefa871fdfedb6a32d8656"
+    },
+    "independent_retest": "docs/experience-complete/retest-01-report.md#d28",
+    "history_matches_by_case_title_score_coverage": true,
+    "note_fa": "شناسه فرصت خروجی برنامه‌نویس و آزمون مستقل متفاوت است؛ شناسه‌های این بسته فقط از snapshot مستقل انتخاب شده‌اند. برابری عنوان/score/coverage بین دو خروجی، یکسان‌بودن شناسه‌ها نیست.",
+    "label_sources_sha256": {
+      "backend/apps/catalog/fixtures/classification-v1.json": "c9ba4a3bbd8965b41e73eb9558d831f9263194220167b81fd4c749fcee7f4dfc",
+      "backend/apps/core/search_fields.json": "af879ccc3cde30c21ca7d1476f61dbd2e514a01e933387d05ce9f5ed0737e4eb"
+    }
+  },
+  "denominator": {
+    "main_cases": 40,
+    "main_candidate_judgments": 80,
+    "control_cases": 4,
+    "control_candidate_judgments": 8,
+    "unique_candidate_snapshots": 6,
+    "investor_cases": 14,
+    "fund_cases": 13,
+    "buyer_cases": 13,
+    "actual_results_per_case": 2,
+    "claimed_top5_complete": false,
+    "human_labels_filled": 0
+  },
+  "cases": [
+    {
+      "case_id": "D28-REVIEW-01",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/0",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/0/items/0",
+          "full_matching_pointer": "/0/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/0/items/1",
+          "full_matching_pointer": "/0/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-02",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/1",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/1/items/0",
+          "full_matching_pointer": "/1/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/1/items/1",
+          "full_matching_pointer": "/1/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-03",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/2",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/2/items/0",
+          "full_matching_pointer": "/2/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/2/items/1",
+          "full_matching_pointer": "/2/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-04",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/3",
+      "ranking": [
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/3/items/0",
+          "full_matching_pointer": "/3/items/0/matching"
+        },
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/3/items/1",
+          "full_matching_pointer": "/3/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-05",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/4",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/4/items/0",
+          "full_matching_pointer": "/4/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/4/items/1",
+          "full_matching_pointer": "/4/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-06",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/5",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/5/items/0",
+          "full_matching_pointer": "/5/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/5/items/1",
+          "full_matching_pointer": "/5/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-07",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/6",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/6/items/0",
+          "full_matching_pointer": "/6/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/6/items/1",
+          "full_matching_pointer": "/6/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-08",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/7",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/7/items/0",
+          "full_matching_pointer": "/7/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/7/items/1",
+          "full_matching_pointer": "/7/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-09",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/8",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/8/items/0",
+          "full_matching_pointer": "/8/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/8/items/1",
+          "full_matching_pointer": "/8/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-10",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/9",
+      "ranking": [
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/9/items/0",
+          "full_matching_pointer": "/9/items/0/matching"
+        },
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/9/items/1",
+          "full_matching_pointer": "/9/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-11",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/10",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/10/items/0",
+          "full_matching_pointer": "/10/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/10/items/1",
+          "full_matching_pointer": "/10/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-12",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/11",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/11/items/0",
+          "full_matching_pointer": "/11/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/11/items/1",
+          "full_matching_pointer": "/11/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-13",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/12",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/12/items/0",
+          "full_matching_pointer": "/12/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/12/items/1",
+          "full_matching_pointer": "/12/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-14",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/13",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "0",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/13/items/0",
+          "full_matching_pointer": "/13/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/13/items/1",
+          "full_matching_pointer": "/13/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-15",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/14",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/14/items/0",
+          "full_matching_pointer": "/14/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/14/items/1",
+          "full_matching_pointer": "/14/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-16",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/15",
+      "ranking": [
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/15/items/0",
+          "full_matching_pointer": "/15/items/0/matching"
+        },
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/15/items/1",
+          "full_matching_pointer": "/15/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-17",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/16",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/16/items/0",
+          "full_matching_pointer": "/16/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/16/items/1",
+          "full_matching_pointer": "/16/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-18",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/17",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/17/items/0",
+          "full_matching_pointer": "/17/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/17/items/1",
+          "full_matching_pointer": "/17/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-19",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/18",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/18/items/0",
+          "full_matching_pointer": "/18/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/18/items/1",
+          "full_matching_pointer": "/18/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-20",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/19",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/19/items/0",
+          "full_matching_pointer": "/19/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/19/items/1",
+          "full_matching_pointer": "/19/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-21",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/20",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/20/items/0",
+          "full_matching_pointer": "/20/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/20/items/1",
+          "full_matching_pointer": "/20/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-22",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/21",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/21/items/0",
+          "full_matching_pointer": "/21/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/21/items/1",
+          "full_matching_pointer": "/21/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-23",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/22",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/22/items/0",
+          "full_matching_pointer": "/22/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/22/items/1",
+          "full_matching_pointer": "/22/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-24",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/23",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/23/items/0",
+          "full_matching_pointer": "/23/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/23/items/1",
+          "full_matching_pointer": "/23/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-25",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/24",
+      "ranking": [
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 1,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/24/items/0",
+          "full_matching_pointer": "/24/items/0/matching"
+        },
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 2,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/24/items/1",
+          "full_matching_pointer": "/24/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-26",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/25",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/25/items/0",
+          "full_matching_pointer": "/25/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/25/items/1",
+          "full_matching_pointer": "/25/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-27",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/26",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/26/items/0",
+          "full_matching_pointer": "/26/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/26/items/1",
+          "full_matching_pointer": "/26/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-28",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/27",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/27/items/0",
+          "full_matching_pointer": "/27/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/27/items/1",
+          "full_matching_pointer": "/27/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-29",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/28",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/28/items/0",
+          "full_matching_pointer": "/28/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/28/items/1",
+          "full_matching_pointer": "/28/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-30",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/29",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/29/items/0",
+          "full_matching_pointer": "/29/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/29/items/1",
+          "full_matching_pointer": "/29/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-31",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/30",
+      "ranking": [
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 1,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/30/items/0",
+          "full_matching_pointer": "/30/items/0/matching"
+        },
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 2,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/30/items/1",
+          "full_matching_pointer": "/30/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-32",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/31",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/31/items/0",
+          "full_matching_pointer": "/31/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/31/items/1",
+          "full_matching_pointer": "/31/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-33",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/32",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/32/items/0",
+          "full_matching_pointer": "/32/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/32/items/1",
+          "full_matching_pointer": "/32/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-34",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/33",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/33/items/0",
+          "full_matching_pointer": "/33/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/33/items/1",
+          "full_matching_pointer": "/33/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-35",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/34",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "0",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/34/items/0",
+          "full_matching_pointer": "/34/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/34/items/1",
+          "full_matching_pointer": "/34/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-36",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/35",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/35/items/0",
+          "full_matching_pointer": "/35/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/35/items/1",
+          "full_matching_pointer": "/35/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-37",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/36",
+      "ranking": [
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 1,
+          "score": "100",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/36/items/0",
+          "full_matching_pointer": "/36/items/0/matching"
+        },
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 2,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/36/items/1",
+          "full_matching_pointer": "/36/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-38",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/37",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/37/items/0",
+          "full_matching_pointer": "/37/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "66.6666666666666666666666666666666666666666666666666666666667",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/37/items/1",
+          "full_matching_pointer": "/37/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-39",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/38",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/38/items/0",
+          "full_matching_pointer": "/38/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "33.3333333333333333333333333333333333333333333333333333333333",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/38/items/1",
+          "full_matching_pointer": "/38/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-REVIEW-40",
+      "cohort": "human_review_nonempty",
+      "total": 2,
+      "source_json_pointer": "/39",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/39/items/0",
+          "full_matching_pointer": "/39/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": "66.6666666666666666666666666666666666666666666666666666666667",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/39/items/1",
+          "full_matching_pointer": "/39/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-CONTROL-NO-PREFERENCE",
+      "cohort": "no_preference_control",
+      "total": 2,
+      "source_json_pointer": "/40",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": null,
+          "coverage": null,
+          "status": "no_preferences",
+          "policy_version": 1,
+          "source_json_pointer": "/40/items/0",
+          "full_matching_pointer": "/40/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": null,
+          "coverage": null,
+          "status": "no_preferences",
+          "policy_version": 1,
+          "source_json_pointer": "/40/items/1",
+          "full_matching_pointer": "/40/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-CONTROL-UNKNOWN",
+      "cohort": "unknown_control",
+      "total": 2,
+      "source_json_pointer": "/41",
+      "ranking": [
+        {
+          "candidate_id": "54d4fa15-d0d7-4fb2-a5f1-875189c7d976",
+          "revision": "94aca23a-63e0-4eeb-8289-6c677fb48eb6",
+          "system_rank": 1,
+          "score": "0",
+          "coverage": "0",
+          "status": "insufficient_data",
+          "policy_version": 1,
+          "source_json_pointer": "/41/items/0",
+          "full_matching_pointer": "/41/items/0/matching"
+        },
+        {
+          "candidate_id": "d2fa266e-a44f-4c22-9ec3-9cfb7181ae94",
+          "revision": "17858667-ff9f-4e32-8030-d841fa3110b7",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "0",
+          "status": "insufficient_data",
+          "policy_version": 1,
+          "source_json_pointer": "/41/items/1",
+          "full_matching_pointer": "/41/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-CONTROL-FUND-NO-PREFERENCE",
+      "cohort": "no_preference_control",
+      "total": 2,
+      "source_json_pointer": "/42",
+      "ranking": [
+        {
+          "candidate_id": "69813fab-3422-4930-916b-715c77d9e7a9",
+          "revision": "be4c401c-fc2a-4f08-a942-d149955376f6",
+          "system_rank": 1,
+          "score": null,
+          "coverage": null,
+          "status": "no_preferences",
+          "policy_version": 1,
+          "source_json_pointer": "/42/items/0",
+          "full_matching_pointer": "/42/items/0/matching"
+        },
+        {
+          "candidate_id": "483fa5b4-0049-47d4-aed6-b4dd3f1fc6be",
+          "revision": "4a9f308b-ac37-4b7b-af6e-8b3349aadf83",
+          "system_rank": 2,
+          "score": null,
+          "coverage": null,
+          "status": "no_preferences",
+          "policy_version": 1,
+          "source_json_pointer": "/42/items/1",
+          "full_matching_pointer": "/42/items/1/matching"
+        }
+      ]
+    },
+    {
+      "case_id": "D28-CONTROL-BUYER-UNKNOWN-LOCATION",
+      "cohort": "unknown_control",
+      "total": 2,
+      "source_json_pointer": "/43",
+      "ranking": [
+        {
+          "candidate_id": "f5a6a8b5-6a31-418f-8c47-8b95fd464df7",
+          "revision": "787257f3-f8af-47da-938c-e26bbe28e467",
+          "system_rank": 1,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/43/items/0",
+          "full_matching_pointer": "/43/items/0/matching"
+        },
+        {
+          "candidate_id": "f4461343-d482-4554-b66c-442554c79ee5",
+          "revision": "e2818db1-df76-4e6b-9fcc-b2a281256b6c",
+          "system_rank": 2,
+          "score": "0",
+          "coverage": "100",
+          "status": "ranked",
+          "policy_version": 1,
+          "source_json_pointer": "/43/items/1",
+          "full_matching_pointer": "/43/items/1/matching"
+        }
+      ]
+    }
+  ]
+}

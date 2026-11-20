@@ -1566,7 +1566,7 @@
     "baseline_tasks_fully_complete": false
   },
   "current_execution": {
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-20",
     "status_source": "docs/stage-status.json",
     "registry": "docs/catalogs/feature-coverage.csv",
     "audit": "docs/product-completion-audit.md",
@@ -1576,7 +1576,9 @@
     "all_source_runtime_states_verified": false,
     "technical_acceptance_reports": [
       "docs/core-delivery/retest-01-report.md",
-      "docs/stage8/retest-01-report.md"
+      "docs/stage8/retest-01-report.md",
+      "docs/experience-complete/retest-01-report.md",
+      "docs/experience-complete/fix-02-retest-report.md"
     ],
     "semantic_mapping_owners": [
       "specs/007-exact-values",
@@ -1588,18 +1590,16 @@
       "docs/catalogs/dynamic-context-review.csv"
     ],
     "open_findings": [
-      "PC-A01",
-      "PC-A02",
-      "PC-A03",
-      "PC-A04",
-      "PC-A05",
-      "PC-A06",
-      "PC-A07",
-      "PC-A08",
+      "PC-A05-irrecoverable-legacy-decision",
+      "PC-A06-human-design",
+      "PC-A07-D28-quality",
       "PC-A09",
       "PC-A10"
     ],
     "human_design_approved": false,
-    "production_ready": false
+    "production_ready": false,
+    "experience_acceptance_commit": "8c327ec",
+    "human_gates_report": "docs/experience-complete/product-gates-report.md",
+    "d28_human_accepted": false
   }
 }

@@ -1,5 +1,7 @@
 # تسک‌های تحویل یکپارچه S08
 
+وضعیت جاری ۲۰۲۶/۱۱/۲۰: مصرف مشترک و زمین در COMP-EXPERIENCE قبول فنی مستقل دارند؛ [مبنای 8c327ec](../../docs/experience-complete/fix-02-retest-report.md). T036 و امضای انسانی طراحی باز می‌مانند؛ [بسته داوری](../../docs/experience-complete/human-design-review/README.md). معیارهای مصوب و checkboxهای تاریخی تغییر نکردند.
+
 ## Phase 1 — مشخصات و ردیابی
 - [x] T001 بازیابی تصمیم‌ها/پژوهش منبع، spec/plan/contracts و mapping در specs/010-specialist-services
 - [x] T002 تثبیت schema قابل اجرا۹خدمت و قواعد/انتظار۶۱+۱۷config با source locator؛ تحلیل گیت پیش از ساخت
