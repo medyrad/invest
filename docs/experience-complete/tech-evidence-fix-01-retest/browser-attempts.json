@@ -1,0 +1,30 @@
+{
+  "schema": "invest.tech-evidence-fix.browser-attempts@1",
+  "attempts": [
+    {
+      "name": "initial-four-route-run",
+      "unique_routes": 4,
+      "passed": 2,
+      "failed": 2,
+      "failed_routes": [
+        "/tools/proposal",
+        "/tools/charity"
+      ],
+      "classification": "harness-environment",
+      "cause": "Browser داخل Docker با origin برابر host.docker.internal به runtime رسید؛ POST ارزیابی فرم به علت ناسازگاری origin با CSRF_TRUSTED_ORIGINS رد شد و summary ساخته نشد. دو مسیر step-1 که POST نداشتند قبول شدند.",
+      "product_failure": false,
+      "duration_seconds": 66
+    },
+    {
+      "name": "targeted-summary-rerun",
+      "unique_routes": 2,
+      "passed": 2,
+      "failed": 0,
+      "classification": "valid",
+      "harness_change": "proxy محدود فقط Host/origin را به 127.0.0.1:3120 منطبق کرد؛ انتظار، داده و assertion محصول تغییر نکرد.",
+      "duration_seconds": 17.2
+    }
+  ],
+  "unique_browser_routes_total": 4,
+  "targeted_reruns": 2
+}

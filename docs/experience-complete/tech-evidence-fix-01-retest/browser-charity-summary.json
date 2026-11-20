@@ -1,0 +1,16 @@
+{
+  "route": "/tools/charity",
+  "state": "summary",
+  "marker": "جمع‌بندی همراهی در کار خیر",
+  "width": 390,
+  "final_url": "http://127.0.0.1:3120/tools/charity",
+  "focus": true,
+  "hit": true,
+  "geometry": {
+    "width": 390,
+    "canvas": 375,
+    "overflow": false,
+    "fonts": "loaded",
+    "motion": true
+  }
+}

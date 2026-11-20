@@ -1,0 +1,584 @@
+{
+  "schema": "invest.tech-evidence-fix.independent-retest@1",
+  "checks": {
+    "fix_manifest_hashes": true,
+    "delivery_checkout": true,
+    "no_product_behavior_diff": true,
+    "oracle_unchanged": true,
+    "historical_heldout_untouched": true,
+    "heldout_still_regression": true,
+    "evid_it_001_96_semantic_unique": true,
+    "unknown_zero_not_cosmetic": true,
+    "semantic_duplicate_mutation_rejected": true,
+    "d28_denominators_preserved": true,
+    "evid_it_002_contract_and_oracle_samples": true,
+    "false_applicable_mutation_rejected": true,
+    "d28-relevance-labels.csv_400_unique_blank": true,
+    "d28-critical-review.csv_400_unique_blank": true,
+    "reviewer_input_blind": true,
+    "evid_it_003_nine_exact_route_state": true,
+    "six_remaining_representatives_valid": true,
+    "source_runtime_equality": true,
+    "thirteen_capture_provenance_chain": true,
+    "capture_state_matches_matrix": false,
+    "four_library_from_matching_runtime": true,
+    "human_fields_still_blank": true,
+    "fresh_development_replay": true,
+    "four_unique_browser_routes": true,
+    "independent_capture_runtime_bound": true
+  },
+  "passed": 24,
+  "failed": [
+    "capture_state_matches_matrix"
+  ],
+  "details": {
+    "manifest_files": 55,
+    "manifest_errors": [],
+    "post_delivery_files": [
+      "docs/experience-complete/tech-evidence-fix-01-retest-report.md",
+      "docs/experience-complete/tech-evidence-fix-01-retest/.gitignore",
+      "docs/experience-complete/tech-evidence-fix-01-retest/browser-attempts.json",
+      "docs/experience-complete/tech-evidence-fix-01-retest/browser-charity-summary.json",
+      "docs/experience-complete/tech-evidence-fix-01-retest/browser-foreign-investment-step1.json",
+      "docs/experience-complete/tech-evidence-fix-01-retest/browser-ma-renewal-step1.json",
+      "docs/experience-complete/tech-evidence-fix-01-retest/browser-proposal-summary.json",
+      "docs/experience-complete/tech-evidence-fix-01-retest/browser-proxy.cjs",
+      "docs/experience-complete/tech-evidence-fix-01-retest/browser-results.xml",
+      "docs/experience-complete/tech-evidence-fix-01-retest/browser-retest.spec.cjs",
+      "docs/experience-complete/tech-evidence-fix-01-retest/development-replay-results.json",
+      "docs/experience-complete/tech-evidence-fix-01-retest/development_replay.py",
+      "docs/experience-complete/tech-evidence-fix-01-retest/independent-capture-provenance.json",
+      "docs/experience-complete/tech-evidence-fix-01-retest/independent-proposal-summary-360.png",
+      "docs/experience-complete/tech-evidence-fix-01-retest/independent-validation.json",
+      "docs/experience-complete/tech-evidence-fix-01-retest/independent_verify.py",
+      "docs/experience-complete/tech-evidence-fix-01-retest/playwright.config.cjs",
+      "docs/experience-complete/tech-evidence-fix-01-retest/visual-inspection.md"
+    ],
+    "oracle_sha256": "ce182269b8e526d8f8b291d461d2a0b05da387ac68bfe204c132d5d4be250d86",
+    "historical_changed": [],
+    "semantic_signatures": 96,
+    "split_signatures": {
+      "development": 48,
+      "held-out": 48
+    },
+    "duplicates": [],
+    "unknown_zero_cross_split_changes": [
+      {
+        "route": "operator",
+        "index": 4,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "operator",
+        "index": 5,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "heritage",
+        "index": 4,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "heritage",
+        "index": 5,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "charity",
+        "index": 4,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "charity",
+        "index": 5,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "investor",
+        "index": 4,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "investor",
+        "index": 5,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "contractor",
+        "index": 4,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "contractor",
+        "index": 5,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "lessee",
+        "index": 4,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "lessee",
+        "index": 5,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "fund",
+        "index": 4,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "fund",
+        "index": 5,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "buyer",
+        "index": 4,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      },
+      {
+        "route": "buyer",
+        "index": 5,
+        "changed": [
+          "contract_mode",
+          "group",
+          "province",
+          "risk"
+        ]
+      }
+    ],
+    "numeric_route_fields": {
+      "operator": [],
+      "heritage": [
+        "horizon",
+        "irrMin",
+        "lockup",
+        "firstIncome",
+        "heritageYears",
+        "shareMin",
+        "executionMin",
+        "settlePercent"
+      ],
+      "charity": [],
+      "investor": [
+        "horizon",
+        "irrMin",
+        "lockup",
+        "firstIncome",
+        "shareMin",
+        "executionMin",
+        "settlePercent"
+      ],
+      "contractor": [
+        "governmentMin",
+        "workingCapital",
+        "executionMin"
+      ],
+      "lessee": [
+        "leaseRent",
+        "leaseYears",
+        "lumpBudget",
+        "offsetValue",
+        "area"
+      ],
+      "fund": [
+        "fundReturnMin"
+      ],
+      "buyer": [
+        "downPayment",
+        "installmentMonths",
+        "installmentBudget",
+        "saleOffsetValue",
+        "area"
+      ]
+    },
+    "unit_basis_errors": [],
+    "unit_basis_boundary_samples": [
+      {
+        "route": "investor",
+        "scenario": "D28-investor-development-01",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "investor",
+        "scenario": "D28-investor-development-02",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "investor",
+        "scenario": "D28-investor-held-out-02",
+        "axes": [
+          "returns"
+        ]
+      },
+      {
+        "route": "fund",
+        "scenario": "D28-fund-development-01",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "fund",
+        "scenario": "D28-fund-development-02",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "fund",
+        "scenario": "D28-fund-held-out-02",
+        "axes": [
+          "returns"
+        ]
+      },
+      {
+        "route": "buyer",
+        "scenario": "D28-buyer-development-01",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "buyer",
+        "scenario": "D28-buyer-development-02",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "lessee",
+        "scenario": "D28-lessee-development-01",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "lessee",
+        "scenario": "D28-lessee-development-02",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "contractor",
+        "scenario": "D28-contractor-development-01",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "contractor",
+        "scenario": "D28-contractor-development-02",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "heritage",
+        "scenario": "D28-heritage-development-01",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "heritage",
+        "scenario": "D28-heritage-development-02",
+        "axes": [
+          "amount"
+        ]
+      },
+      {
+        "route": "heritage",
+        "scenario": "D28-heritage-held-out-02",
+        "axes": [
+          "returns"
+        ]
+      }
+    ],
+    "unit_basis_amount_routes": [
+      "buyer",
+      "contractor",
+      "fund",
+      "heritage",
+      "investor",
+      "lessee"
+    ],
+    "unit_basis_return_routes": [
+      "fund",
+      "heritage",
+      "investor"
+    ],
+    "form_counts": {
+      "d28-relevance-labels.csv": 400,
+      "d28-critical-review.csv": 400
+    },
+    "target_slots": [
+      {
+        "row": "DES-003",
+        "width": "360",
+        "path": "docs/experience-complete/tech-evidence-fix-01/design-proposal-summary-360.png"
+      },
+      {
+        "row": "DES-003",
+        "width": "768",
+        "path": "docs/experience-complete/tech-evidence-fix-01/design-proposal-summary-768.png"
+      },
+      {
+        "row": "DES-009",
+        "width": "360",
+        "path": "docs/experience-complete/tech-evidence-fix-01/design-foreign-investment-step1-360.png"
+      },
+      {
+        "row": "DES-009",
+        "width": "390",
+        "path": "docs/experience-complete/tech-evidence-fix-01/design-foreign-investment-step1-390.png"
+      },
+      {
+        "row": "DES-009",
+        "width": "768",
+        "path": "docs/experience-complete/tech-evidence-fix-01/design-foreign-investment-step1-768.png"
+      },
+      {
+        "row": "DES-014",
+        "width": "360",
+        "path": "docs/experience-complete/tech-evidence-fix-01/design-ma-renewal-step1-360.png"
+      },
+      {
+        "row": "DES-014",
+        "width": "768",
+        "path": "docs/experience-complete/tech-evidence-fix-01/design-ma-renewal-step1-768.png"
+      },
+      {
+        "row": "DES-021",
+        "width": "390",
+        "path": "docs/experience-complete/tech-evidence-fix-01/design-charity-summary-390.png"
+      },
+      {
+        "row": "DES-021",
+        "width": "768",
+        "path": "docs/experience-complete/tech-evidence-fix-01/design-charity-summary-768.png"
+      }
+    ],
+    "representatives": [
+      {
+        "row": "DES-027",
+        "width": "360",
+        "route": "/compare",
+        "state": "2;3;4-project"
+      },
+      {
+        "row": "DES-027",
+        "width": "768",
+        "route": "/compare",
+        "state": "2;3;4-project"
+      },
+      {
+        "row": "DES-028",
+        "width": "360",
+        "route": "/compare",
+        "state": "2;3;4-fund"
+      },
+      {
+        "row": "DES-028",
+        "width": "768",
+        "route": "/compare",
+        "state": "2;3;4-fund"
+      },
+      {
+        "row": "DES-029",
+        "width": "360",
+        "route": "/compare",
+        "state": "2;3;4-sale"
+      },
+      {
+        "row": "DES-029",
+        "width": "768",
+        "route": "/compare",
+        "state": "2;3;4-sale"
+      }
+    ],
+    "capture_errors": [],
+    "capture_state_errors": [
+      {
+        "file": "design-library-360.png",
+        "row_state": "list;search;empty",
+        "evidence_state": "topic-index;accordion-open"
+      },
+      {
+        "file": "design-library-390.png",
+        "row_state": "list;search;empty",
+        "evidence_state": "topic-index;accordion-open"
+      },
+      {
+        "file": "design-library-768.png",
+        "row_state": "list;search;empty",
+        "evidence_state": "topic-index;accordion-open"
+      },
+      {
+        "file": "design-library-1440.png",
+        "row_state": "list;search;empty",
+        "evidence_state": "topic-index;accordion-open"
+      }
+    ],
+    "source_fingerprints": {
+      "frontend": "cc270663d1abc0161a49f502f91ff1a9316b2445a46800b019def015e1fe03cc",
+      "backend": "701b2ba699e709f1ee725104f89f4e85686cfeeeb9c73d44d2e6229c896b0d06"
+    },
+    "runtime": {
+      "frontend_image": "sha256:7287a4565a5009804135d718f1685ca38c43adc207c5c33f5b1f965fdac0840a",
+      "backend_image": "sha256:66d9622b61ba649030b770b68aed625224d503d0150b1160ddb8e09753b6feb7",
+      "build_id": "myZDM7kEa-Q6fjMutJW5o",
+      "backend_runtime_errors": [],
+      "frontend_runtime_errors": []
+    },
+    "development_replay_mismatches": [],
+    "browser_observations": [
+      {
+        "route": "/tools/proposal",
+        "state": "summary",
+        "marker": "جمع‌بندی معرفی طرح و نیاز مالی",
+        "width": 360,
+        "final_url": "http://127.0.0.1:3120/tools/proposal",
+        "focus": true,
+        "hit": true,
+        "geometry": {
+          "width": 360,
+          "canvas": 345,
+          "overflow": false,
+          "fonts": "loaded",
+          "motion": true
+        }
+      },
+      {
+        "route": "/tools/foreign-investment",
+        "state": "step-1",
+        "marker": "سرمایه‌گذاری، تامین مالی و همکاری بین‌المللی",
+        "width": 390,
+        "final_url": "http://host.docker.internal:3120/tools/foreign-investment",
+        "focus": true,
+        "hit": true,
+        "geometry": {
+          "width": 390,
+          "canvas": 375,
+          "overflow": false,
+          "fonts": "loaded",
+          "motion": true
+        }
+      },
+      {
+        "route": "/tools/ma-renewal",
+        "state": "step-1",
+        "marker": "پرونده فرصت و خدمات تکمیلی",
+        "width": 360,
+        "final_url": "http://host.docker.internal:3120/tools/ma-renewal",
+        "focus": true,
+        "hit": true,
+        "geometry": {
+          "width": 360,
+          "canvas": 345,
+          "overflow": false,
+          "fonts": "loaded",
+          "motion": true
+        }
+      },
+      {
+        "route": "/tools/charity",
+        "state": "summary",
+        "marker": "جمع‌بندی همراهی در کار خیر",
+        "width": 390,
+        "final_url": "http://127.0.0.1:3120/tools/charity",
+        "focus": true,
+        "hit": true,
+        "geometry": {
+          "width": 390,
+          "canvas": 375,
+          "overflow": false,
+          "fonts": "loaded",
+          "motion": true
+        }
+      }
+    ]
+  }
+}

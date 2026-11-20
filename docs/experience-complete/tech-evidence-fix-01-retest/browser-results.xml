@@ -1,0 +1,8 @@
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="17.188927">
+<testsuite name="browser-retest.spec.cjs" timestamp="2026-11-20T10:21:37.458Z" hostname="" tests="2" failures="0" skipped="0" time="14.245" errors="0">
+<testcase name="independent proposal-summary" classname="browser-retest.spec.cjs" time="7.859">
+</testcase>
+<testcase name="independent charity-summary" classname="browser-retest.spec.cjs" time="6.386">
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,16 @@
+{
+  "route": "/tools/proposal",
+  "state": "summary",
+  "marker": "جمع‌بندی معرفی طرح و نیاز مالی",
+  "width": 360,
+  "final_url": "http://127.0.0.1:3120/tools/proposal",
+  "focus": true,
+  "hit": true,
+  "geometry": {
+    "width": 360,
+    "canvas": 345,
+    "overflow": false,
+    "fonts": "loaded",
+    "motion": true
+  }
+}

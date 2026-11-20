@@ -1,0 +1,16 @@
+{
+  "route": "/tools/ma-renewal",
+  "state": "step-1",
+  "marker": "پرونده فرصت و خدمات تکمیلی",
+  "width": 360,
+  "final_url": "http://host.docker.internal:3120/tools/ma-renewal",
+  "focus": true,
+  "hit": true,
+  "geometry": {
+    "width": 360,
+    "canvas": 345,
+    "overflow": false,
+    "fonts": "loaded",
+    "motion": true
+  }
+}

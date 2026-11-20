@@ -1,0 +1,16 @@
+{
+  "route": "/tools/foreign-investment",
+  "state": "step-1",
+  "marker": "سرمایه‌گذاری، تامین مالی و همکاری بین‌المللی",
+  "width": 390,
+  "final_url": "http://host.docker.internal:3120/tools/foreign-investment",
+  "focus": true,
+  "hit": true,
+  "geometry": {
+    "width": 390,
+    "canvas": 375,
+    "overflow": false,
+    "fonts": "loaded",
+    "motion": true
+  }
+}

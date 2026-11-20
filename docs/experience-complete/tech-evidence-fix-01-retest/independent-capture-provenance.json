@@ -1,0 +1,42 @@
+{
+  "schema": "invest.tech-evidence-fix.independent-capture@1",
+  "route": "/tools/proposal",
+  "state": "step-3: جمع‌بندی راهنمای اولیه",
+  "identity": "guest",
+  "synthetic_seed": "independent-retest-01",
+  "product_url": "http://127.0.0.1:3120",
+  "final_url": "http://127.0.0.1:3120/tools/proposal",
+  "viewport_width": 360,
+  "viewport_height": 1000,
+  "browser": {
+    "engine": "chromium",
+    "version": "159.0.8154.6",
+    "playwright": "1.65.1"
+  },
+  "captured_at_utc": "2026-11-20T10:21:47.917Z",
+  "font_condition": "document.fonts.ready + status=loaded",
+  "motion_condition": "reduced",
+  "runtime": {
+    "frontend_image_id": "sha256:7287a4565a5009804135d718f1685ca38c43adc207c5c33f5b1f965fdac0840a",
+    "backend_image_id": "sha256:66d9622b61ba649030b770b68aed625224d503d0150b1160ddb8e09753b6feb7",
+    "frontend_build_id": "myZDM7kEa-Q6fjMutJW5o"
+  },
+  "evidence_file": "independent-proposal-summary-360.png",
+  "evidence_sha256": "6d1bd737cad1f128ec9c85c4c85a4828648aca1f39625bc7f55f6023bebdb6fc",
+  "observation": {
+    "route": "/tools/proposal",
+    "state": "summary",
+    "marker": "جمع‌بندی معرفی طرح و نیاز مالی",
+    "width": 360,
+    "final_url": "http://127.0.0.1:3120/tools/proposal",
+    "focus": true,
+    "hit": true,
+    "geometry": {
+      "width": 360,
+      "canvas": 345,
+      "overflow": false,
+      "fonts": "loaded",
+      "motion": true
+    }
+  }
+}
