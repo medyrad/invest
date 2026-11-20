@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "current_stage": "S09",
-  "status": "s09-programmer-technical-delivery-ready-independent-live-and-human-gates-open",
-  "implementation_authorized": true,
+  "status": "s09-independent-oracle-frozen-runner-integration-and-human-gates-open",
+  "implementation_authorized": false,
   "speckit_initialized": true,
   "application_implemented": true,
   "runtime_verified": true,
@@ -78,11 +78,12 @@
     "TEST-RUNTIME-HOME-LOADING-FIX-02 accepted at a317094: RHL-IT-001 closed; primary runtime, library capture provenance, targeted backend/seed, login/Origin, map and loading technically accepted; supersedes prior pending-runtime state, not human design, D28 or production gates",
     "PRODUCT-COMP-AI-01: documentation synchronized and five unapproved PC-D02 subdecisions prepared; S09 journey/contracts/tasks/evaluation clarified; no product implementation, credential, live OpenAI, push or deployment",
     "PRODUCT-COMP-AI-FREEZE-01: explicit approval of PC-D02-01..05 and nonpublic S09 authorization recorded; scope/handoff frozen without code, tests, fixtures, credentials, OpenAI calls, push or deploy; human gates remain open",
-    "PROGRAMMER-COMP-AI-COMPLETE-01: T062–T066 implemented with bounded Responses adapter, content-free quota ledger, four read-only tools, complete responsive journey, 120-case locked fixture and PostgreSQL/browser evidence; no private credential was present, so live smoke/eval, Sol/Luna comparison, independent acceptance and human gates remain open"
+    "PROGRAMMER-COMP-AI-COMPLETE-01: T062–T066 implemented with bounded Responses adapter, content-free quota ledger, four read-only tools, complete responsive journey, 120-case locked fixture and PostgreSQL/browser evidence; no private credential was present, so live smoke/eval, Sol/Luna comparison, independent acceptance and human gates remain open",
+    "PRODUCT-COMP-AI-EVAL-ORACLE-01: preserved all 120 original case IDs/inputs/splits, froze independent synthetic context/criteria/citation/router oracle pre-live; explicit scoring denominators and programmer handoff; no product code, runner, live call or human vote"
   ],
   "remaining": [
     "COMP-EXPERIENCE: قبول فنی 8c327ec و runtime/home/loading در a317094؛ RHL-IT-001 بسته و legacy مصوب؛ بررسی مالک/تخصصی طراحی و کیفیت D28 باز، مانع توسعه غیرعمومی جداگانه‌مجاز نیستند.",
-    "COMP-AI: F31–F33 از نظر فنی توسط برنامه‌نویس در commitهای f48ba84..3fa19c9 اجرا و آماده بازآزمایی مستقل؛ credential، تماس واقعی، ارزیابی Sol/Luna، انتخاب نهایی، رأی فارسی، طراحی انسانی و D28 باز",
+    "COMP-AI: تحویل برنامه‌نویس و FIX-01، بدون قبول مستقل؛ oracle 120-case منجمد، runner معتبر/اتصال prompt-tool-context/scorer و برچسب فارسی UI باز؛ live، رأی فارسی، طراحی/D28 و انتخاب نهایی باز",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
   ],
@@ -104,7 +105,7 @@
       "live_connection_verified": false,
       "model_selected": true,
       "selected_model": "gpt-6.2-sol",
-      "selection_scope": "initial-nonpublic-pilot",
+      "selection_scope": "Versioned server routing policy from explicit FIX-01: Luna for simple and Sol for justified complexity; historical selected_model is pilot default, not final selection",
       "final_model_selected": false,
       "required_comparison_model": "gpt-6-luna"
     }
@@ -136,19 +137,19 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "TEST-COMP-AI-COMPLETE-01",
-    "description": "بازآزمایی مستقل تجمیعی تحویل فنی S09؛ live smoke/eval فقط در محیط دارای credential خصوصی و سقف‌های مصوب، بدون جعل رأی فارسی یا انتخاب نهایی مدل",
+    "id": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
+    "description": "واگذاری یکپارچه اتصال runner به مسیر واقعی محصول، scorer مستقل و رفع نمایش کد داخلی UI طبق handoff T063/T065/T066/T067؛ این مأموریت محصول اجرا یا live را آغاز نمی‌کند",
     "authorized": false,
-    "scope_path": "docs/stage9/comp-ai-complete-report.docx",
+    "scope_path": "specs/001-business-baseline/tasks.md",
     "package": "COMP-AI"
   },
   "active_step": {
-    "id": "PROGRAMMER-COMP-AI-COMPLETE-01",
-    "mission": "PROGRAMMER-COMP-AI-COMPLETE-01",
-    "status": "programmer-technical-delivery-complete-live-and-independent-gates-open",
-    "authorization": "Explicit user PROGRAMMER-COMP-AI-COMPLETE-01: nonpublic S09 implementation and controlled evidence; no push, deploy, COMP-INTEGRATIONS or COMP-OPERATIONS",
+    "id": "PRODUCT-COMP-AI-EVAL-ORACLE-01",
+    "mission": "PRODUCT-COMP-AI-EVAL-ORACLE-01",
+    "status": "oracle-and-evaluation-contract-frozen",
+    "authorization": "Explicit user mission PRODUCT-COMP-AI-EVAL-ORACLE-01: one new independent machine-readable oracle, minimal owner-document updates, one local commit, no product code/runner/live OpenAI/push/deploy",
     "documentation_authorized": true,
-    "implementation_authorized": true,
+    "implementation_authorized": false,
     "push_authorized": false,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
@@ -157,8 +158,8 @@
     "final_acceptance": false,
     "independent_acceptance": false,
     "independently_accepted_product_scope": "COMP-EXPERIENCE at 8c327ec and runtime/home/loading at a317094 only; S09 is not independently accepted",
-    "report_path": "docs/stage9/comp-ai-complete-report.docx",
-    "validation_path": "docs/stage9/evidence/manifest.json"
+    "report_path": "specs/001-business-baseline/test-plan.md",
+    "validation_path": "specs/001-business-baseline/contracts/assistant-evaluation-oracle.json"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -567,7 +568,7 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PROGRAMMER-COMP-AI-COMPLETE-01",
+    "current_mission": "PRODUCT-COMP-AI-EVAL-ORACLE-01",
     "current_mission_override": "Explicit latest mission overrides standing push authorization: local commits only; no push or deployment",
     "earlier_standing_push_authorization": true
   },
@@ -809,7 +810,9 @@
     "independent_test_mission": "TEST-RUNTIME-HOME-LOADING-FIX-02",
     "acceptance_commit": "a317094",
     "report_path": "docs/experience-complete/runtime-home-loading-independent-report.md",
-    "findings_closed": ["RHL-IT-001"],
+    "findings_closed": [
+      "RHL-IT-001"
+    ],
     "backend_unique_passed": 20,
     "browser_unique_passed": 4,
     "validator_controls_passed": 10,
@@ -871,10 +874,45 @@
       "T064": "programmer-complete",
       "T065": "programmer-complete",
       "T066": "programmer-complete",
-      "T067": "partial-live-runner-technically-ready-fixture-fake-and-browser-complete-live-and-human-open"
+      "T067": "partial-independent-oracle-frozen-runner-path-scorer-integration-live-and-human-open"
     },
-    "live_blocker": "private runtime/eval credential absent (boolean audit only); provider calls=0 and cost=$0; Sol smoke/eval and Luna same-held-out comparison not run",
-    "experience_security_fix": "server-only assistant-router-v1, per-principal USD10 UTC-month cap, backend secret-file precedence, real NDJSON progress, multi-turn/picker/stale-compare and technically executable live runner; independent/human acceptance open"
+    "live_blocker": "Independent product-path runner/scorer is missing; prior FIX-01 evidence reported zero calls/cost and absent private credentials. Credential state not inspected in PRODUCT-COMP-AI-EVAL-ORACLE-01; file presence is not verification.",
+    "experience_security_fix": "server-only assistant-router-v1, per-principal USD10 UTC-month cap, backend secret-file precedence, real NDJSON progress, multi-turn/picker/stale-compare and technically executable live runner; independent/human acceptance open",
+    "current_product_mission": "PRODUCT-COMP-AI-EVAL-ORACLE-01",
+    "oracle_contract": {
+      "path": "specs/001-business-baseline/contracts/assistant-evaluation-oracle.json",
+      "status": "pre-live-frozen-not-untouched",
+      "case_count": 120,
+      "development": 40,
+      "held_out": 80,
+      "families": 8,
+      "original_inputs_ids_splits_preserved": true,
+      "synthetic_public_opportunities": 15,
+      "semantic_context_signatures": 120,
+      "semantic_duplicates_found": 0,
+      "oracle_sha256": "1cfe6230d7f5730ccbe4b11832ca81a893c2882e697cd3323b6abdd624fa2691",
+      "held_out_sha256": "f9b95745736ba2529379ce97550b590cbe913222087046241151268c2cfeadda",
+      "context_sha256": "27e31b534223af6547a7dce41a9b24af626b0055671f5da946b45b08398841aa",
+      "held_out_applicability": {
+        "extraction": 44,
+        "persian": 44,
+        "citation_cases": 24,
+        "required_citation_tuples": 53,
+        "router": 80
+      },
+      "no_dispatch_cases": 39,
+      "runner_product_path_validated": false,
+      "model_extraction_measurable": false,
+      "human_forms_empty": true,
+      "provider_calls_this_mission": 0,
+      "open_findings": [
+        "generic-runner-bypasses-product-prompt-tools-context",
+        "model-extraction-must-not-be-server-parser-score",
+        "UI-investor-project-revision-labels",
+        "human-Persian-and-D28-and-design-and-production-open"
+      ],
+      "validation": "13/13 static oracle checks passed; git diff --check passed. validate_planning failed with six pre-existing errors, reproduced with read-only HEAD text overlay: completed task exceeds verified stage scope and stale trace descriptions T062..T066. No product tests run. Details in test-plan."
+    }
   },
   "experience_fallback": {
     "decision": "PC-FALLBACK-01",
@@ -915,5 +953,5 @@
     "plan": "docs/experience-complete/fallback-gates-plan.md",
     "comp_ai_authorization_source": "Explicit PRODUCT-COMP-AI-FREEZE-01 user approval; nonpublic S09 only"
   },
-  "implementation_authorization_scope": "PROGRAMMER-COMP-AI-COMPLETE-01 nonpublic S09 implementation completed by programmer; independent acceptance, live evaluation, human gates, push, deploy and later packages are not authorized or claimed."
+  "implementation_authorization_scope": "PRODUCT-COMP-AI-EVAL-ORACLE-01: oracle and documentation only; no backend/frontend/runner changes, credentials, OpenAI calls, human votes, push or deploy."
 }

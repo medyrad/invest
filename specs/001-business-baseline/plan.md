@@ -73,6 +73,8 @@ deploy/
 
 ## طرح S09 — اجرای فنی غیرعمومی و گیت‌های باقی‌مانده
 
+وضعیت ارزیابی در PRODUCT-COMP-AI-EVAL-ORACLE-01: oracle مستقل و مخرج‌ها در [test-plan](test-plan.md) و [قرارداد موجود](contracts/api.md) منجمد شدند؛ runner فعلی هنوز مسیر واقعی prompt/tool/context محصول را مصرف نمی‌کند و فقط نبود credential مانع نیست. اتصال/scorer و اصلاح برچسب‌های داخلی UI، کار یکپارچه T063/T065/T066/T067 است؛ کد یا live در مأموریت محصول اجرا نشده و پذیرش انسانی/مستقل باز است.
+
 مرجع سیاستِ مصوب [PC-D02](../../docs/comp-ai-decision-package.md) است؛ اعداد در این plan دوباره تعریف نمی‌شوند. T062 مصوبات ثبت‌شده را مصرف و قرارداد اجرایی را قفل کند و artifact اجرایی S09 را آماده کند؛ سپس T063 تست/fixture و T064/T065 backend محدود، T066 کل سفر UI و T067 ارزیابی/شاهد تحویل، با یک گزارش تجمیعی و بررسی مستقل. مسیرهای برنامه‌ریزی‌شده در tasks نام فایلِ ساخته‌شده نیستند.
 
 معماری اجراشده: adapter بک‌اند Responses، schema strict صریح و validator مستقل؛ normalize criteria در مرز سرور و چهار ابزار خواندنی normalize/search/detail/compare فقط بر داده عمومی؛ خروجی نوع‌دار با ارجاع سروری. renderer عدد/score/coverage/واحد/لینک را از داده سرور می‌گیرد و متن مدل فقط توضیحِ قابل استناد است. public text داده غیرقابل اعتماد است؛ private tool، web search، فایل/حافظه hosted و submit tool اضافه نشده‌اند. دسترسی واقعی حساب/model به‌علت نبود credential اثبات نشده است.
