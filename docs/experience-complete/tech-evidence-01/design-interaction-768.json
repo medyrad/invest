@@ -1,0 +1,52 @@
+[
+  {
+    "panel": "workspace",
+    "route": "/workspace",
+    "role": "owner",
+    "width": 768,
+    "controls": 9,
+    "focus": true,
+    "hit": true,
+    "overflow": false
+  },
+  {
+    "panel": "drafts",
+    "route": "/drafts",
+    "role": "owner",
+    "width": 768,
+    "controls": 5,
+    "focus": true,
+    "hit": true,
+    "overflow": false
+  },
+  {
+    "panel": "requests",
+    "route": "/requests",
+    "role": "user",
+    "width": 768,
+    "controls": 8,
+    "focus": true,
+    "hit": true,
+    "overflow": false
+  },
+  {
+    "panel": "admin",
+    "route": "/admin",
+    "role": "admin",
+    "width": 768,
+    "controls": 8,
+    "focus": true,
+    "hit": true,
+    "overflow": false
+  },
+  {
+    "panel": "expert",
+    "route": "/expert",
+    "role": "expert",
+    "width": 768,
+    "controls": 8,
+    "focus": true,
+    "hit": true,
+    "overflow": false
+  }
+]

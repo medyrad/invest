@@ -1,0 +1,14 @@
+{
+  "schema": "invest.d28.input-freeze@1",
+  "path": "d28-inputs.json",
+  "sha256": "9125d5a2e7070b26c411f37c2e79db9e80e8adb0fa2ca195abf9852ac35faad8",
+  "seed": "TECH-EXPERIENCE-EVIDENCE-01/d28/v1",
+  "counts": {
+    "opportunities": 96,
+    "scenarios": 80,
+    "development": 32,
+    "held_out": 48
+  },
+  "human_labels_present": false,
+  "generated_before_product_execution": true
+}

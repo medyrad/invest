@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="51.720831000000004">
+<testsuite name="design-capture.spec.ts" timestamp="2026-11-20T07:58:54.447Z" hostname="" tests="4" failures="0" skipped="0" time="47.03" errors="0">
+<testcase name="role panels and real controls 360" classname="design-capture.spec.ts" time="11.542">
+</testcase>
+<testcase name="role panels and real controls 390" classname="design-capture.spec.ts" time="10.251">
+</testcase>
+<testcase name="role panels and real controls 768" classname="design-capture.spec.ts" time="14.359">
+</testcase>
+<testcase name="role panels and real controls 1440" classname="design-capture.spec.ts" time="10.878">
+</testcase>
+</testsuite>
+</testsuites>

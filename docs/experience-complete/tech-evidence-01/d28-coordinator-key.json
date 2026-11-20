@@ -1,0 +1,17 @@
+{
+  "schema": "invest.d28.coordinator-key@1",
+  "reviewer_input_sha256": "f4ac94d5a6c77e6f3b1b25a3340f6d5b8387f3f8aace6baa48bdfe18b139bf23",
+  "technical_result_files": {
+    "development": {
+      "path": "d28-development-results.json",
+      "sha256": "7fb20a311415e722752dd51e546da82f9cf3c74efadb6ae610a2b5020a357175"
+    },
+    "held-out": {
+      "path": "d28-held-out-results.json",
+      "sha256": "7d9a3854f20aa7cca2b95ba0aee528ecc60d9119e12a89a2f78eaade74f6516f"
+    }
+  },
+  "contains_system_rank_score_coverage": true,
+  "send_to_blind_reviewer": false,
+  "note": "held-out is regression evidence after the recorded fixture failure; absolute blinding is not claimed."
+}

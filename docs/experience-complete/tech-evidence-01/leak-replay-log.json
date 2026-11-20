@@ -1,0 +1,44 @@
+{
+  "schema": "invest.d28.leak-replay@1",
+  "absolute_blinding_claimed": false,
+  "shared_agent_workspace": true,
+  "events": [
+    {
+      "order": 1,
+      "split": "development",
+      "input_sha256": "644d9e97df9e9db521a935bd730242e731b2adf49b67f2b910fedf1ebc986915",
+      "result": "pass",
+      "note": "Initial development run reached scoring; later invalidated only as final package input by the return-basis fixture correction."
+    },
+    {
+      "order": 2,
+      "split": "held-out",
+      "input_sha256": "644d9e97df9e9db521a935bd730242e731b2adf49b67f2b910fedf1ebc986915",
+      "result": "fixture-contract-failure-before-scoring",
+      "note": "Preserved in heldout-first-attempt.json. Corrected runs cannot be called untouched confirming holdout."
+    },
+    {
+      "order": 3,
+      "split": "development+held-out",
+      "input_sha256": "0ade0a152acd7ccef2f9872241abc5569867b3bc7ce3b6ca6d5d1a472ce063cd",
+      "result": "regression-pass",
+      "note": "Complete return basis fixed. Later route×field audit found semantically inapplicable axes."
+    },
+    {
+      "order": 4,
+      "split": "development+held-out",
+      "input_sha256": "9125d5a2e7070b26c411f37c2e79db9e80e8adb0fa2ca195abf9852ac35faad8",
+      "result": "final-technical-regression-pass",
+      "note": "Route-inapplicable amount/return/risk are N/A and replaced by real contract conditions; later D29 audit required explicit unit metadata."
+    },
+    {
+      "order": 5,
+      "split": "development+held-out",
+      "input_sha256": "4f74b92e2cf72aaed04311cbd43470e6930f25710c967f7b2be137ca5160294f",
+      "result": "final-technical-regression-pass",
+      "note": "Canonical TOMAN@1 and return PERCENT@1 are explicit; held-out remains regression evidence."
+    }
+  ],
+  "product_or_weight_changes": 0,
+  "human_labels_created": 0
+}

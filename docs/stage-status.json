@@ -67,7 +67,8 @@
     "PROGRAMMER-EXPERIENCE-FIX-02 completed by programmer: EXP-IT-003 route labels fixed for fresh reports with versioned vocabulary; independent acceptance remains open",
     "TEST-EXPERIENCE-FIX-02-RETEST accepted at 8c327ec: all ten EXP findings technically accepted in tested scope; supersedes earlier pending-independent entries above; human design, legacy decision and D28 quality remain open",
     "PRODUCT-EXPERIENCE-GATES-01: current status synchronized and human review packets prepared; no human votes or proposal approvals recorded",
-    "PRODUCT-EXPERIENCE-FALLBACK-01: explicit user approval of PC-LEGACY-01 and nonpublic fallback PC-FALLBACK-01 recorded; no human verdict or technical execution"
+    "PRODUCT-EXPERIENCE-FALLBACK-01: explicit user approval of PC-LEGACY-01 and nonpublic fallback PC-FALLBACK-01 recorded; no human verdict",
+    "TECH-EXPERIENCE-EVIDENCE-01: 26/26 primary design rows and 104/104 width slots classified; approved 80-scenario/96-opportunity synthetic D28 evidence executed with independent oracle; held-out is regression after a preserved fixture failure; no human verdict or product behavior change"
   ],
   "remaining": [
     "COMP-EXPERIENCE: قبول فنی 8c327ec و تصمیم legacy مصوب؛ تکمیل هدفمند شاهد و fixture پیشنهادی، بررسی مالک و ممیزی تخصصی طراحی/D28 باز؛ مانع توسعه غیرعمومی مجاز نیستند.",
@@ -122,16 +123,16 @@
   },
   "next_step": {
     "id": "TECH-EXPERIENCE-EVIDENCE-01",
-    "description": "پیشنهاد یک مأموریت فنی محدود برای شواهد۲۶ردیف و fixture مستقل D28؛ نیازمند مجوز و تعیین حجم dataset؛ سپس تصمیم‌های COMP-AI، نه اجرای آن",
+    "description": "بازآزمایی مستقل تجمیعی بسته شواهد TECH-EXPERIENCE-EVIDENCE-01؛ سپس فقط با مجوز جدا تصمیم‌های COMP-AI، نه اجرای آن",
     "authorized": false,
-    "scope_path": "docs/experience-complete/fallback-gates-plan.md",
+    "scope_path": "docs/experience-complete/tech-evidence-01-report.md",
     "package": "COMP-EXPERIENCE"
   },
   "active_step": {
-    "id": "PRODUCT-EXPERIENCE-FALLBACK-01",
-    "mission": "PRODUCT-EXPERIENCE-FALLBACK-01",
-    "status": "documentation-complete-no-technical-execution",
-    "authorization": "Explicit user mission: record approved legacy and nonpublic fallback; documentation only; no product code/tests, fixtures execution, human votes, COMP-AI or deployment",
+    "id": "TECH-EXPERIENCE-EVIDENCE-01",
+    "mission": "TECH-EXPERIENCE-EVIDENCE-01",
+    "status": "technical-evidence-complete-independent-retest-pending",
+    "authorization": "Explicit user mission: 26-row design evidence and approved 80-scenario/96-opportunity synthetic D28 fixture/harness; no product behavior, human votes, COMP-AI or deployment",
     "documentation_authorized": true,
     "implementation_authorized": false,
     "push_authorized": true,
@@ -142,8 +143,8 @@
     "final_acceptance": false,
     "independent_acceptance": true,
     "independent_acceptance_scope": "COMP-EXPERIENCE technical scope only; 8c327ec",
-    "report_path": "docs/experience-complete/fallback-gates-plan.md",
-    "validation_path": "docs/experience-complete/fallback-gates-plan.md"
+    "report_path": "docs/experience-complete/tech-evidence-01-report.md",
+    "validation_path": "docs/experience-complete/tech-evidence-01/manifest.json"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -552,8 +553,8 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PRODUCT-EXPERIENCE-FALLBACK-01",
-    "current_mission_override": "normal non-force push authorized by standing AGENTS; result reported in final handoff; no deployment",
+    "current_mission": "TECH-EXPERIENCE-EVIDENCE-01",
+    "current_mission_override": "normal non-force push authorized by explicit mission and standing AGENTS; result reported in final handoff; no deployment",
     "earlier_standing_push_authorization": true
   },
   "core_fix_01": {
@@ -806,7 +807,7 @@
       "final_quality_threshold": false
     },
     "proposed_dataset": {
-      "status": "not-approved",
+      "status": "approved-and-executed-technical-evidence",
       "routes": 8,
       "scenarios": 80,
       "unique_synthetic_opportunities": 96,

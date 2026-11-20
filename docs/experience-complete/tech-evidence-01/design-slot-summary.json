@@ -1,0 +1,17 @@
+{
+  "rows": 26,
+  "slots": 104,
+  "widths": [
+    360,
+    390,
+    768,
+    1440
+  ],
+  "classifications": {
+    "representative-covered": 15,
+    "reuse-valid": 49,
+    "reference-component-only": 36,
+    "capture-needed→new-evidence": 4
+  },
+  "human_verdicts_filled": 0
+}

@@ -1,0 +1,65 @@
+route,kind,axis,applicable,contract_field_or_rule,reason,scenario_ids,oracle_result
+investor,project,amount,yes,amount,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-investor-development-01,pass
+investor,project,unit-basis,yes,unit-basis,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-investor-development-02;D28-investor-held-out-02,pass
+investor,project,location,yes,location,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-investor-development-02;D28-investor-held-out-01,pass
+investor,project,returns,yes,returns,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-investor-held-out-02,pass
+investor,project,unknown-zero-NA,yes,unknown-zero-NA,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-investor-held-out-06,pass
+investor,project,risk-important,yes,risk-important,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-investor-held-out-03,pass
+investor,project,category-contract,yes,category-contract,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-investor-development-03;D28-investor-held-out-04,pass
+investor,project,competition-tie-cursor,yes,competition-tie-cursor,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-investor-held-out-05,pass
+fund,fund,amount,yes,amount,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-fund-development-01,pass
+fund,fund,unit-basis,yes,unit-basis,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-fund-development-02;D28-fund-held-out-02,pass
+fund,fund,location,yes,location,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-fund-development-02;D28-fund-held-out-01,pass
+fund,fund,returns,yes,returns,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-fund-held-out-02,pass
+fund,fund,unknown-zero-NA,yes,unknown-zero-NA,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-fund-held-out-06,pass
+fund,fund,risk-important,yes,risk-important,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-fund-held-out-03,pass
+fund,fund,category-contract,yes,category-contract,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-fund-development-03;D28-fund-held-out-04,pass
+fund,fund,competition-tie-cursor,yes,competition-tie-cursor,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-fund-held-out-05,pass
+buyer,sale,amount,yes,amount,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-buyer-development-01,pass
+buyer,sale,unit-basis,yes,unit-basis,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-buyer-development-02;D28-buyer-held-out-02,pass
+buyer,sale,location,yes,location,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-buyer-development-02;D28-buyer-held-out-01,pass
+buyer,sale,returns,N/A,payment,N/A: بازده برای این route در search_fields نیست؛ فیلد ساختگی تولید نشده و payment پوشش داده شده است.,D28-buyer-held-out-02,pass
+buyer,sale,unknown-zero-NA,yes,unknown-zero-NA,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-buyer-held-out-06,pass
+buyer,sale,risk-important,N/A,payment,N/A: ریسک برای این route در search_fields نیست؛ هشدار فنی conditions با payment جدا آزموده شده است.,D28-buyer-held-out-03,pass
+buyer,sale,category-contract,yes,category-contract,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-buyer-development-03;D28-buyer-held-out-04,pass
+buyer,sale,competition-tie-cursor,yes,competition-tie-cursor,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-buyer-held-out-05,pass
+lessee,project,amount,yes,amount,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-lessee-development-01,pass
+lessee,project,unit-basis,yes,unit-basis,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-lessee-development-02;D28-lessee-held-out-02,pass
+lessee,project,location,yes,location,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-lessee-development-02;D28-lessee-held-out-01,pass
+lessee,project,returns,N/A,lease_type,N/A: بازده برای این route در search_fields نیست؛ فیلد ساختگی تولید نشده و lease_type پوشش داده شده است.,D28-lessee-held-out-02,pass
+lessee,project,unknown-zero-NA,yes,unknown-zero-NA,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-lessee-held-out-06,pass
+lessee,project,risk-important,N/A,lease_type,N/A: ریسک برای این route در search_fields نیست؛ هشدار فنی conditions با lease_type جدا آزموده شده است.,D28-lessee-held-out-03,pass
+lessee,project,category-contract,yes,category-contract,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-lessee-development-03;D28-lessee-held-out-04,pass
+lessee,project,competition-tie-cursor,yes,competition-tie-cursor,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-lessee-held-out-05,pass
+contractor,project,amount,yes,amount,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-contractor-development-01,pass
+contractor,project,unit-basis,yes,unit-basis,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-contractor-development-02;D28-contractor-held-out-02,pass
+contractor,project,location,yes,location,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-contractor-development-02;D28-contractor-held-out-01,pass
+contractor,project,returns,N/A,guarantees,N/A: بازده برای این route در search_fields نیست؛ فیلد ساختگی تولید نشده و guarantees پوشش داده شده است.,D28-contractor-held-out-02,pass
+contractor,project,unknown-zero-NA,yes,unknown-zero-NA,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-contractor-held-out-06,pass
+contractor,project,risk-important,N/A,guarantees,N/A: ریسک برای این route در search_fields نیست؛ هشدار فنی conditions با guarantees جدا آزموده شده است.,D28-contractor-held-out-03,pass
+contractor,project,category-contract,yes,category-contract,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-contractor-development-03;D28-contractor-held-out-04,pass
+contractor,project,competition-tie-cursor,yes,competition-tie-cursor,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-contractor-held-out-05,pass
+operator,project,amount,N/A,experience,N/A: search_fields این route مبلغ D28 ندارد؛ سناریو از فیلد واقعی experience استفاده می‌کند.,D28-operator-development-01,pass
+operator,project,unit-basis,yes,unit-basis,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-operator-development-02;D28-operator-held-out-02,pass
+operator,project,location,yes,location,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-operator-development-02;D28-operator-held-out-01,pass
+operator,project,returns,N/A,experience,N/A: بازده برای این route در search_fields نیست؛ فیلد ساختگی تولید نشده و experience پوشش داده شده است.,D28-operator-held-out-02,pass
+operator,project,unknown-zero-NA,yes,unknown-zero-NA,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-operator-held-out-06,pass
+operator,project,risk-important,N/A,experience,N/A: ریسک برای این route در search_fields نیست؛ هشدار فنی conditions با experience جدا آزموده شده است.,D28-operator-held-out-03,pass
+operator,project,category-contract,yes,category-contract,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-operator-development-03;D28-operator-held-out-04,pass
+operator,project,competition-tie-cursor,yes,competition-tie-cursor,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-operator-held-out-05,pass
+heritage,project,amount,yes,amount,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-heritage-development-01,pass
+heritage,project,unit-basis,yes,unit-basis,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-heritage-development-02;D28-heritage-held-out-02,pass
+heritage,project,location,yes,location,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-heritage-development-02;D28-heritage-held-out-01,pass
+heritage,project,returns,yes,returns,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-heritage-held-out-02,pass
+heritage,project,unknown-zero-NA,yes,unknown-zero-NA,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-heritage-held-out-06,pass
+heritage,project,risk-important,yes,risk-important,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-heritage-held-out-03,pass
+heritage,project,category-contract,yes,category-contract,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-heritage-development-03;D28-heritage-held-out-04,pass
+heritage,project,competition-tie-cursor,yes,competition-tie-cursor,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-heritage-held-out-05,pass
+charity,project,amount,N/A,charity_type,N/A: search_fields این route مبلغ D28 ندارد؛ سناریو از فیلد واقعی charity_type استفاده می‌کند.,D28-charity-development-01,pass
+charity,project,unit-basis,yes,unit-basis,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-charity-development-02;D28-charity-held-out-02,pass
+charity,project,location,yes,location,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-charity-development-02;D28-charity-held-out-01,pass
+charity,project,returns,N/A,charity_type,N/A: بازده برای این route در search_fields نیست؛ فیلد ساختگی تولید نشده و charity_type پوشش داده شده است.,D28-charity-held-out-02,pass
+charity,project,unknown-zero-NA,yes,unknown-zero-NA,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-charity-held-out-06,pass
+charity,project,risk-important,N/A,charity_type,N/A: ریسک برای این route در search_fields نیست؛ هشدار فنی conditions با charity_type جدا آزموده شده است.,D28-charity-held-out-03,pass
+charity,project,category-contract,yes,category-contract,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-charity-development-03;D28-charity-held-out-04,pass
+charity,project,competition-tie-cursor,yes,competition-tie-cursor,قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد.,D28-charity-held-out-05,pass

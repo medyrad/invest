@@ -1,0 +1,136 @@
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="4" time="113.393572">
+<testsuite name="design-capture.spec.ts" timestamp="2026-11-20T07:56:27.912Z" hostname="" tests="8" failures="0" skipped="0" time="98.894" errors="4">
+<testcase name="current detail kinds 360" classname="design-capture.spec.ts" time="14.665">
+</testcase>
+<testcase name="current detail kinds 390" classname="design-capture.spec.ts" time="12.287">
+</testcase>
+<testcase name="current detail kinds 768" classname="design-capture.spec.ts" time="13.512">
+</testcase>
+<testcase name="current detail kinds 1440" classname="design-capture.spec.ts" time="13.783">
+</testcase>
+<testcase name="role panels and real controls 360" classname="design-capture.spec.ts" time="14.009">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/design-capture-role-panels-and-real-controls-360/error-context.md]]
+]]>
+</system-out>
+<error message="locator.click: Error: strict mode violation: getByRole(&apos;button&apos;, { name: / · expert$/ }) resolved to 2 elements:" type="Error">
+<![CDATA[  design-capture.spec.ts:38:27 › role panels and real controls 360 ─────────────────────────────────
+
+    Error: locator.click: Error: strict mode violation: getByRole('button', { name: / · expert$/ }) resolved to 2 elements:
+        1) <button class="workspace-section block">کارشناس مصنوعی یک · expert</button> aka getByRole('button', { name: 'کارشناس مصنوعی یک · expert' })
+        2) <button class="workspace-section block">کارشناس مصنوعی دو · expert</button> aka getByRole('button', { name: 'کارشناس مصنوعی دو · expert' })
+
+    Call log:
+      - waiting for getByRole('button', { name: / · expert$/ })
+
+
+       9 | async function login(page:Page,role:string){
+      10 |   await page.goto(product+'/local-roles');
+    > 11 |   await page.getByRole('button',{name:new RegExp(` · ${role}$`)}).click();
+         |                                                                   ^
+      12 |   await page.waitForURL(url=>!url.pathname.includes('local-roles'));
+      13 | }
+      14 | async function stable(page:Page){
+        at login (/checks/design-capture.spec.ts:11:67)
+        at /checks/design-capture.spec.ts:42:5
+
+    Error Context: ../evidence/browser-artifacts/design-capture-role-panels-and-real-controls-360/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="role panels and real controls 390" classname="design-capture.spec.ts" time="10.479">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/design-capture-role-panels-and-real-controls-390/error-context.md]]
+]]>
+</system-out>
+<error message="locator.click: Error: strict mode violation: getByRole(&apos;button&apos;, { name: / · expert$/ }) resolved to 2 elements:" type="Error">
+<![CDATA[  design-capture.spec.ts:38:27 › role panels and real controls 390 ─────────────────────────────────
+
+    Error: locator.click: Error: strict mode violation: getByRole('button', { name: / · expert$/ }) resolved to 2 elements:
+        1) <button class="workspace-section block">کارشناس مصنوعی یک · expert</button> aka getByRole('button', { name: 'کارشناس مصنوعی یک · expert' })
+        2) <button class="workspace-section block">کارشناس مصنوعی دو · expert</button> aka getByRole('button', { name: 'کارشناس مصنوعی دو · expert' })
+
+    Call log:
+      - waiting for getByRole('button', { name: / · expert$/ })
+
+
+       9 | async function login(page:Page,role:string){
+      10 |   await page.goto(product+'/local-roles');
+    > 11 |   await page.getByRole('button',{name:new RegExp(` · ${role}$`)}).click();
+         |                                                                   ^
+      12 |   await page.waitForURL(url=>!url.pathname.includes('local-roles'));
+      13 | }
+      14 | async function stable(page:Page){
+        at login (/checks/design-capture.spec.ts:11:67)
+        at /checks/design-capture.spec.ts:42:5
+
+    Error Context: ../evidence/browser-artifacts/design-capture-role-panels-and-real-controls-390/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="role panels and real controls 768" classname="design-capture.spec.ts" time="8.956">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/design-capture-role-panels-and-real-controls-768/error-context.md]]
+]]>
+</system-out>
+<error message="locator.click: Error: strict mode violation: getByRole(&apos;button&apos;, { name: / · expert$/ }) resolved to 2 elements:" type="Error">
+<![CDATA[  design-capture.spec.ts:38:27 › role panels and real controls 768 ─────────────────────────────────
+
+    Error: locator.click: Error: strict mode violation: getByRole('button', { name: / · expert$/ }) resolved to 2 elements:
+        1) <button class="workspace-section block">کارشناس مصنوعی یک · expert</button> aka getByRole('button', { name: 'کارشناس مصنوعی یک · expert' })
+        2) <button class="workspace-section block">کارشناس مصنوعی دو · expert</button> aka getByRole('button', { name: 'کارشناس مصنوعی دو · expert' })
+
+    Call log:
+      - waiting for getByRole('button', { name: / · expert$/ })
+
+
+       9 | async function login(page:Page,role:string){
+      10 |   await page.goto(product+'/local-roles');
+    > 11 |   await page.getByRole('button',{name:new RegExp(` · ${role}$`)}).click();
+         |                                                                   ^
+      12 |   await page.waitForURL(url=>!url.pathname.includes('local-roles'));
+      13 | }
+      14 | async function stable(page:Page){
+        at login (/checks/design-capture.spec.ts:11:67)
+        at /checks/design-capture.spec.ts:42:5
+
+    Error Context: ../evidence/browser-artifacts/design-capture-role-panels-and-real-controls-768/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="role panels and real controls 1440" classname="design-capture.spec.ts" time="11.203">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/design-capture-role-panels-and-real-controls-1440/error-context.md]]
+]]>
+</system-out>
+<error message="locator.click: Error: strict mode violation: getByRole(&apos;button&apos;, { name: / · expert$/ }) resolved to 2 elements:" type="Error">
+<![CDATA[  design-capture.spec.ts:38:27 › role panels and real controls 1440 ────────────────────────────────
+
+    Error: locator.click: Error: strict mode violation: getByRole('button', { name: / · expert$/ }) resolved to 2 elements:
+        1) <button class="workspace-section block">کارشناس مصنوعی یک · expert</button> aka getByRole('button', { name: 'کارشناس مصنوعی یک · expert' })
+        2) <button class="workspace-section block">کارشناس مصنوعی دو · expert</button> aka getByRole('button', { name: 'کارشناس مصنوعی دو · expert' })
+
+    Call log:
+      - waiting for getByRole('button', { name: / · expert$/ })
+
+
+       9 | async function login(page:Page,role:string){
+      10 |   await page.goto(product+'/local-roles');
+    > 11 |   await page.getByRole('button',{name:new RegExp(` · ${role}$`)}).click();
+         |                                                                   ^
+      12 |   await page.waitForURL(url=>!url.pathname.includes('local-roles'));
+      13 | }
+      14 | async function stable(page:Page){
+        at login (/checks/design-capture.spec.ts:11:67)
+        at /checks/design-capture.spec.ts:42:5
+
+    Error Context: ../evidence/browser-artifacts/design-capture-role-panels-and-real-controls-1440/error-context.md
+]]>
+</error>
+</testcase>
+</testsuite>
+</testsuites>

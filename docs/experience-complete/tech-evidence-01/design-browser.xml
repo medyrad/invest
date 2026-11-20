@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="15.320879999999999">
+<testsuite name="design-capture.spec.ts" timestamp="2026-11-20T08:00:57.819Z" hostname="" tests="4" failures="0" skipped="0" time="12.557" errors="0">
+<testcase name="current library and frozen report 360" classname="design-capture.spec.ts" time="3.087">
+</testcase>
+<testcase name="current library and frozen report 390" classname="design-capture.spec.ts" time="3.141">
+</testcase>
+<testcase name="current library and frozen report 768" classname="design-capture.spec.ts" time="2.204">
+</testcase>
+<testcase name="current library and frozen report 1440" classname="design-capture.spec.ts" time="4.125">
+</testcase>
+</testsuite>
+</testsuites>

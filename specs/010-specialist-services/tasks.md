@@ -71,8 +71,8 @@
 - [x] T039 CRITICAL ساختار سه مرحله زمین و رفتار پرشده/سؤال شرطی/جمع‌بندی/بازگشت با مرجع تطبیق یافت؛ MultiDrop، دو گروه و ترتیب واحد حفظ شد. شاهد: continuation-evidence/product-land-stage*-{360,390,768,1440}.png و browser-continuation.xml.
 - [x] T040 پوشش ردیفی مراحل۹خدمت و مصرف‌های مشترک با مخرج جاری تکمیل شد؛ شاهد معتبر S08 حفظ و فقط زمین/پروفایل/گزارش/منوی متأثر تازه آزموده شد. شاهد: continuation-evidence/route-state-coverage.csv. تأیید انسانی طراحی باز است.
 
-## Phase 10: Fallback evidence — پیشنهاد، بدون مجوز اجرا
+## Phase 10: Fallback evidence — TECH-EXPERIENCE-EVIDENCE-01
 
-- [ ] T041 [US1,US3] تکمیل هدفمند شواهد خدماتِ primary (DES-003،006–009،014،021) در چهار عرض و state واقعی، انتخاب/بازگشت/جمع‌بندی، reuse معتبر و اختلاف مصوب؛ تحویل در گالری مشترک009/T030، با صورت شکاف و فرم انسانی خالی؛ PC-FALLBACK-01،FR-002/SC-005 وConstitution II. جزئیات و معیار پایان در [مسیر جایگزین](../../docs/experience-complete/fallback-gates-plan.md).
+- [x] T041 [US1,US3] هفت ردیف خدمات primary (DES-003،006–009،014،021) در چهار عرض با state واقعی/نماینده مستدل، انتخاب/بازگشت/جمع‌بندی و اختلاف مصوب به گالری مشترک009/T030 متصل شد؛ metadata و محدودیت در `docs/experience-complete/tech-evidence-01/design-slot-matrix.csv` و فرم انسانی خالی است.
 
 این تسک بخشی از همان مأموریت فنی تجمیعی است، نه تحویل یا feature جدا؛ T036 همچنان باز و رأی مالک جای ممیزی تخصصی پیش از عرضه نیست.

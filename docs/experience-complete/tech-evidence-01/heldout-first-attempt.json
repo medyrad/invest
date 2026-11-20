@@ -1,0 +1,14 @@
+{
+  "schema": "invest.d28.execution-attempt@1",
+  "split": "held-out",
+  "attempt": 1,
+  "result": "fixture-contract-failure",
+  "input_sha256": "644d9e97df9e9db521a935bd730242e731b2adf49b67f2b910fedf1ebc986915",
+  "runtime_source": "79519bb8e88cbf6c0bcf7614c63b3737cc668a70",
+  "error_type": "apps.workspace.schema.Fault",
+  "field": "return.basis",
+  "message": "نوع، دوره، افق، تاریخ و منبع بازده را کامل وارد کنید.",
+  "product_scoring_reached": false,
+  "classification": "fixture failure; not a product defect",
+  "consequence": "The corrected held-out execution is regression evidence, not untouched confirming holdout evidence."
+}
