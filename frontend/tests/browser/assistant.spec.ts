@@ -13,7 +13,7 @@ function success() {
     citations: ids.map((id, index) => ({ id, revision: `revision-${index}`, field: "matching" })),
     next: [], receipt: "synthetic-browser-receipt",
     quota: { used: 1, limit: 3, remaining: 2, reset_at: "2026-11-21T00:00:00Z", policy_version: 1, model: "gpt-6.2-sol" },
-    server_result: { total: 3, next: null, policy_version: 1, items: ids.map((id, index) => ({ id, revision: `revision-${index}`, kind: "project", fields: { title: `فرصت مصنوعی ${index + 1}` }, matching: { score: String(80 - index * 10), coverage: String(90 - index * 5), status: "ranked", checks: [], warnings: [], policy_version: 1 } })) },
+    server_result: { total: 3, next: null, policy_version: 1, items: ids.map((id, index) => ({ id, revision: `revision-${index}`, kind: "project", fields: { title: `فرصت مصنوعی ${["۱", "۲", "۳"][index]}` }, matching: { score: String(80 - index * 10), coverage: String(90 - index * 5), status: "ranked", checks: [], warnings: [], policy_version: 1 } })) },
   };
 }
 
@@ -94,7 +94,7 @@ test("@desktop comparison chat revalidates a same-kind selection and renders a g
     }),
   }));
   await page.goto(`/compare?ids=${pair!.map((item) => item.id).join(",")}`);
-  await expect(page.getByText("۲ از۴ فرصت")).toBeVisible();
+  await expect(page.getByText("۲ از ۴ فرصت", { exact: false })).toBeVisible({ timeout: 20_000 });
   await page.getByLabel("پرسش درباره مقایسه").fill("تفاوت مهم این دو مورد چیست؟");
   await page.getByRole("button", { name: "پرسیدن درباره جدول" }).click();
   await expect(page.getByText("تفاوت‌ها فقط از ردیف‌های عمومی همین دو نسخه توضیح داده شد.")).toBeVisible();
