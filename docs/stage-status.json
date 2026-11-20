@@ -1,7 +1,7 @@
 {
   "date": "2026-11-20",
   "current_stage": "S08",
-  "status": "experience-and-runtime-technical-pass-comp-ai-decisions-proposed-release-gates-open",
+  "status": "pc-d02-approved-s09-nonpublic-authorized-documentation-freeze-release-gates-open",
   "implementation_authorized": false,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -27,11 +27,15 @@
     "D31",
     "D32",
     "PC-LEGACY-01",
-    "PC-FALLBACK-01"
+    "PC-FALLBACK-01",
+    "PC-D02-01",
+    "PC-D02-02",
+    "PC-D02-03",
+    "PC-D02-04",
+    "PC-D02-05"
   ],
   "pending_questions": [
     "PC-D01",
-    "PC-D02",
     "PC-D03",
     "PC-D04",
     "PC-D05"
@@ -72,11 +76,12 @@
     "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01: EVID-IT-001..004 corrected in fixture/harness/evidence/docs; 96 semantic signatures are unique, operator/charity unit-basis are contract-backed N/A, 13 captures are source/runtime bound, development and held-out regression have zero oracle mismatch; independent retest and human gates remain open",
     "TEST-EXPERIENCE-EVIDENCE-FIX-01 at 52a314b accepted EVID-IT-001..003; remaining library capture state/provenance was corrected and accepted in the runtime retest below; historical reports preserved",
     "TEST-RUNTIME-HOME-LOADING-FIX-02 accepted at a317094: RHL-IT-001 closed; primary runtime, library capture provenance, targeted backend/seed, login/Origin, map and loading technically accepted; supersedes prior pending-runtime state, not human design, D28 or production gates",
-    "PRODUCT-COMP-AI-01: documentation synchronized and five unapproved PC-D02 subdecisions prepared; S09 journey/contracts/tasks/evaluation clarified; no product implementation, credential, live OpenAI, push or deployment"
+    "PRODUCT-COMP-AI-01: documentation synchronized and five unapproved PC-D02 subdecisions prepared; S09 journey/contracts/tasks/evaluation clarified; no product implementation, credential, live OpenAI, push or deployment",
+    "PRODUCT-COMP-AI-FREEZE-01: explicit approval of PC-D02-01..05 and nonpublic S09 authorization recorded; scope/handoff frozen without code, tests, fixtures, credentials, OpenAI calls, push or deploy; human gates remain open"
   ],
   "remaining": [
     "COMP-EXPERIENCE: قبول فنی 8c327ec و runtime/home/loading در a317094؛ RHL-IT-001 بسته و legacy مصوب؛ بررسی مالک/تخصصی طراحی و کیفیت D28 باز، مانع توسعه غیرعمومی جداگانه‌مجاز نیستند.",
-    "COMP-AI: F31–F33؛ پنج زیرتصمیم PC-D02 آماده ولی غیرمصوب، اجرای S09 مجاز نیست؛ credential و تماس واقعی/eval اثبات نشده‌اند",
+    "COMP-AI: F31–F33 اجرا نشده؛ PC-D02-01..05 مصوب و اجرای غیرعمومی S09 برای برنامه‌نویس مجاز؛ credential، تماس واقعی، ارزیابی Sol/Luna، انتخاب نهایی و رأی فارسی باز",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
   ],
@@ -96,7 +101,11 @@
       "credential_received": false,
       "configured": false,
       "live_connection_verified": false,
-      "model_selected": false
+      "model_selected": true,
+      "selected_model": "gpt-6.2-sol",
+      "selection_scope": "initial-nonpublic-pilot",
+      "final_model_selected": false,
+      "required_comparison_model": "gpt-6-luna"
     }
   },
   "business_specification": {
@@ -126,17 +135,17 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "REVIEW-PC-D02",
-    "description": "بررسی و تصویب صریح پنج زیرتصمیم PC-D02 توسط کاربر؛ سپس صدور مجوز جدا برای مأموریت جامع S09 در صورت موافقت؛ هیچ اجرای فنی اکنون مجاز نیست",
-    "authorized": false,
+    "id": "PROGRAMMER-COMP-AI-COMPLETE-01",
+    "description": "تحویل یکپارچه غیرعمومی S09 طبق PC-D02-01..05 مصوب؛ مجوز صریح کاربر ثبت شده، مأموریت جاری محصول آن را اجرا نمی‌کند؛ deploy و عرضه ممنوع",
+    "authorized": true,
     "scope_path": "docs/comp-ai-decision-package.md",
     "package": "COMP-AI"
   },
   "active_step": {
-    "id": "PRODUCT-COMP-AI-01",
-    "mission": "PRODUCT-COMP-AI-01",
-    "status": "documentation-complete-pc-d02-proposals-awaiting-user-review",
-    "authorization": "Explicit attached user request PRODUCT-COMP-AI-01: synchronize a317094 acceptance and prepare S09 decisions/documentation only; one local commit; no code/tests/dependencies/env/credential, AI execution, push or deploy",
+    "id": "PRODUCT-COMP-AI-FREEZE-01",
+    "mission": "PRODUCT-COMP-AI-FREEZE-01",
+    "status": "documentation-freeze-complete-programmer-handoff-ready",
+    "authorization": "Explicit user PRODUCT-COMP-AI-FREEZE-01: approve PC-D02-01..05 and authorize nonpublic S09 programmer work; this product mission only updates existing documentation and handoff, one local commit, no product code/tests/fixtures/credentials/OpenAI/push/deploy",
     "documentation_authorized": true,
     "implementation_authorized": false,
     "push_authorized": false,
@@ -557,7 +566,7 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PRODUCT-COMP-AI-01",
+    "current_mission": "PRODUCT-COMP-AI-FREEZE-01",
     "current_mission_override": "Explicit latest mission overrides standing push authorization: one local commit only; no push or deployment",
     "earlier_standing_push_authorization": true
   },
@@ -811,23 +820,41 @@
     "final_acceptance": false
   },
   "comp_ai_preparation": {
-    "mission": "PRODUCT-COMP-AI-01",
-    "status": "proposal-ready-not-approved",
+    "mission": "PRODUCT-COMP-AI-FREEZE-01",
+    "status": "approved-frozen-nonpublic-programmer-authorized",
     "decision": "PC-D02",
-    "proposed_subdecisions": ["PC-D02-01", "PC-D02-02", "PC-D02-03", "PC-D02-04", "PC-D02-05"],
-    "proposals_approved": false,
-    "implementation_authorized": false,
+    "proposals_approved": true,
+    "implementation_authorized": true,
     "credential_received": false,
     "live_connection_verified": false,
     "official_documentation_checked_on": "2026-11-20",
     "report_path": "docs/comp-ai-decision-package.md",
     "owner_feature": "specs/001-business-baseline",
-    "tasks": ["T062", "T063", "T064", "T065", "T066", "T067"],
+    "tasks": [
+      "T062",
+      "T063",
+      "T064",
+      "T065",
+      "T066",
+      "T067"
+    ],
     "reference_source_reviewed": true,
-    "fresh_runtime_observation": "Read-only HTTP version and assistant placeholder; browser bootstrap failed with Node SIGABRT; historical initial-state images viewed, not fresh interactive verification",
     "human_design_accepted": false,
     "d28_quality_accepted": false,
-    "production_ready": false
+    "production_ready": false,
+    "approved_subdecisions": [
+      "PC-D02-01",
+      "PC-D02-02",
+      "PC-D02-03",
+      "PC-D02-04",
+      "PC-D02-05"
+    ],
+    "authorization_scope": "PROGRAMMER-COMP-AI-COMPLETE-01 only, nonpublic S09; not execution by current product mission",
+    "approval_source": "Explicit user message PRODUCT-COMP-AI-FREEZE-01, 2026-11-20",
+    "human_persian_evaluation_accepted": false,
+    "final_model_selected": false,
+    "required_same_held_out_comparison": "gpt-6.2-sol vs gpt-6-luna; all thresholds, zero critical, no >5 percentage-point degradation in any applicable quality metric/family; explicit final selection, no automatic switch",
+    "historical_runtime_observation": "Read-only HTTP version and assistant placeholder; browser bootstrap failed with Node SIGABRT; historical initial-state images viewed, not fresh interactive verification; observed in PRODUCT-COMP-AI-01, not repeated in FREEZE"
   },
   "experience_fallback": {
     "decision": "PC-FALLBACK-01",
@@ -857,7 +884,7 @@
     },
     "nonpublic_development_blocked_by_reviewer_absence": false,
     "technical_next_mission_authorized": false,
-    "comp_ai_execution_authorized": false,
+    "comp_ai_execution_authorized": true,
     "public_release_authorized": false,
     "release_gates": [
       "specialist-design-review",
@@ -865,6 +892,8 @@
       "production-readiness",
       "remaining-roadmap-dependencies-and-explicit-release-authorization"
     ],
-    "plan": "docs/experience-complete/fallback-gates-plan.md"
-  }
+    "plan": "docs/experience-complete/fallback-gates-plan.md",
+    "comp_ai_authorization_source": "Explicit PRODUCT-COMP-AI-FREEZE-01 user approval; nonpublic S09 only"
+  },
+  "implementation_authorization_scope": "Current PRODUCT-COMP-AI-FREEZE-01 is documentation-only; nonpublic S09 programmer authorization is recorded separately in next_step and comp_ai_preparation."
 }
