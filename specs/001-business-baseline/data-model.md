@@ -22,7 +22,7 @@
 | MoneyValue / Quantity / ReturnMetric | مقدار دقیق رشته‌ای در API، واحد/تعریف نسخه‌دار، واحد ورودی و ضریب، status؛ مدت/مساحت/وزن/تعداد و نوع/دوره/مبنای بازده | D29: TOMAN داخلی؛ unknown/not_applicable بدون عدد؛ ارز متفاوت/بازده ناهم‌مبنا قابل مقایسه نیست؛ دقت/حدود هر فیلد در schema |
 | ServiceDraft / Report | حساب، service_kind، schema_version، پاسخ‌ها؛ report با snapshot و تاریخ و مبنای محاسبه | پیش‌نویس، دانلود گزارش و ارسال رخدادهای جدا؛ صفر/نامعلوم و واحد حفظ شود |
 | Notification | مخاطب، نوع، پرونده/فرصت، read_at | payload فقط مجاز؛ خوانده‌شدن مستقل؛ کانال‌ها B06 |
-| Conversation / Message / ToolCall | principal مهمان یا حساب، context مجاز، references revision، مصرف و وضعیت | ابزار محدود به دادهٔ قابل دسترس؛ پیام مدل اختیار نمی‌دهد؛ retention B05 |
+| Conversation / Message / ToolCall | principal مهمان یا حساب، context مجاز، references revision، مصرف و وضعیت | مفهومی، نه الزام جدول محتوای پایدار؛ retention طبق انتخاب غیرمصوب PC-D02-04/B05؛ ابزار فقط داده عمومی و پیام مدل بدون اختیار |
 | QuotaPolicy / UsageReservation / UsageLedger | نوع principal، مدل، دوره، سقف، رزرو، مصرف نهایی و request_id | رزرو و شمارش اتمیک؛ retry دوباره خرج نشود؛ آزادسازی/مصرف خطا B05؛ سیاست نسخه‌دار |
 | AuditEvent | actor، نوع اقدام، entity و version، زمان و نتیجه | append-only از مسیر سرویس؛ بدون OTP/key/متن خصوصی غیرضروری؛ دسترسی محدود و retention B07 |
 

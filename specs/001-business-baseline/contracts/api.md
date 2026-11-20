@@ -46,6 +46,27 @@
 
 ابزارها فقط normalize_criteria، search_public_opportunities، get_public_opportunity و compare_same_kind هستند. schema خروجی دارای revision_id و مقادیر سروری است. متن فرصت untrusted data است؛ نمی‌تواند دستور ابزار یا مجوز ایجاد کند. گزینهٔ ثبت درخواست در UI مسیر عادی POST /enquiries با اقدام صریح کاربر را باز می‌کند. شناسه‌های خصوصی، شماره تماس و اسناد سازمان وارد context عمومی نمی‌شوند. خطا/سهمیه مسیر فرم را حفظ می‌کند؛ streaming در صورت انتخاب باید قطع اتصال و تسویه مصرف را تعریف کند.
 
+### تکمیل قرارداد S09 در PRODUCT-COMP-AI-01
+
+outline زیر برای قفل‌کردن در T062/T065 است، نه endpoint ساخته‌شده یا سیاست مصوب جدید. D04/D07/D20/D28/D29 حاکم‌اند؛ اعداد/مدل/retention فقط پس از پاسخ [PC-D02-01..05](../../../docs/comp-ai-decision-package.md). نام endpointهای baseline باید به API واقعی موجود core وصل شود؛ کپی موتور matching یا ایجاد منبع حقیقت دوم ممنوع است.
+
+| مرز | داده مجاز و رفتار قابل آزمون |
+|---|---|
+| ورودی پیام | متن، criteria قابل مشاهده/اصلاح، زمینه عمومی فرصت یا۲–۴ شناسه هم‌نوع، نسخه گفتگو/نوبت و کلید تکرار؛ principal و مجوز از نشست سرور. role/owner/score/policy دلخواه پذیرفته نشود. متن از query URL به provider/log عبور نکند. |
+| normalize_criteria | فقط parse/validate نوع/واحد/گزینه‌های canonical؛ ابهام با `needs_clarification` و fields مبهم برگردد، نه ساخت تومان/مکان/IRR حدسی. شرایط ذخیره‌شده فقط انتخاب صریح کاربر و payload پاک‌سازی‌شده؛ ابزار هیچ read خصوصی workspace ندارد. |
+| search_public_opportunities | همان دامنه/criteria و API D28؛ `items,total_count,next_cursor,evaluation` و public revision/policy؛ بدون min_score، SQL، URL یا فیلتر مجوز ارسالی مدل. صفحه‌بندی لینک سروری به همه نتایج بدهد. |
+| get_public_opportunity | ID معتبر عمومی با کنترل جاری publication/دسترس‌پذیری؛ draft/pending/فایل/شماره/پرونده خصوصی حتی برای مالک از ابزار مدل قابل خواندن نباشد. توقف/تعویض نسخه پاسخ `stale`/`unavailable` صریح؛ داده سابق مخفی با نسخه تازه جایگزین نشود. |
+| compare_same_kind |۲–۴ ID متمایز هم‌نوع و نسخه‌ها؛ پاسخ server metrics/units/comparability و علت؛ داده ناهم‌مبنا/unknown برنده عددی نگیرد. row ID معتبر برای اشاره به جدول، همراه hash مجموعه/نسخه. |
+| خروجی پاسخ | proposed/normalized criteria، ابهام‌ها، متن فارسی و references به ID/revision/field/row واقعی؛ score/coverage/status/reasons/policy_version/criteria_hash از سرور و URLها از مسیرهای مجاز ساخته شوند. citation جعلی، عدد بدون پشتوانه، HTML/URL اجرایی یا خارج allowlist رد؛ JSON درست به‌تنهایی شاهد صحت نیست. |
+| نوبت و شکست | وضعیت‌های queued/reading/searching/completed/needs_clarification/failed/cancelled و کدهای quota_exhausted/budget_exhausted/provider_unavailable/timeout/incomplete/invalid_output/stale_revision؛ پیام فارسی، request_id، retry مجاز/موعد reset و ادامه دستی. کدها schema پیشنهادی‌اند، نگاشت HTTP طبق envelope مشترک؛ خطای داخلی/secret افشا نشود. |
+| مصرف/سهمیه | رزرو اتمیک principal+روز و بودجه ماه+slot، پیش از هر تماس؛ Idempotency-Key هم‌principal/هم‌payload همان نوبت، payload متفاوت409. سهمیه پاسخ کامل و ledger هزینه همه تلاش‌ها دو حساب مستقل‌اند. usage نامعلوم held، هزینه تکرار provider هرگز با dedupe مصرف مشتری ناپدید نشود؛ ادغام مهمان/حساب یک‌باره و نسخه policy هنگام رزرو ثابت. |
+| محتوای گفتگو | انتخاب retention هنوز باز. در گزینه بی‌ذخیره فقط حافظه فعال مشتری/پردازش موقت سرور، بدون DB/log/APM/URL/backup محتوا؛ ledger بی‌محتوا و شمارنده مستقل. store=false نزد provider وعده ZDR نیست. snapshotهای خصوصی پرونده/رضایت هرگز context مدل نشوند. |
+| اقدام مشتری | تنها لینک/CTA به مسیر عادی بازبینی/ارسال موجود؛ ابزار submit/save/اعطای role یا تغییر مالکیت وجود ندارد. متن «ارسال کن» مجوز ثبت نیست؛ وضعیت/اختیار/revision در ارسال صریح دوباره بررسی، رضایت تماس مستقل طبق D26. |
+
+پیشنهاد strict schema با `additionalProperties=false` و اعتبارسنجی مستقل معنا/مجوز؛ داده فرصت به‌عنوان پیام دستور تزریق نشود. تحویل تدریجی محتوای تأییدنشده به DOM ممنوع؛ اگر typing animation حفظ شد، نمایشی بودنش با انتظار واقعی provider اشتباه نشود. AC-AI01..10 و T063/T065 پذیرش این مرزها هستند؛ شکست parser/refusal/قطع خروجی موفقیت نیست. ورود/خروج/تعویض حساب، پاسخ دیررس و تغییر criteria هیچ نوبت خصوصی یا پاسخ کهنه را به زمینه جدید وصل نکند.
+
+در گزینه بی‌ذخیره PC-D02-04، replay همان کلید پس از خروج پاسخ از حافظه فقط status/receipt بی‌محتوای نوبت را می‌دهد؛ `completed_reply_unavailable` پیشنهادی یعنی پاسخ قبلاً در سرور کامل/اعتبارسنجی شده ولی متن قابل بازیابی نیست، نه موفقیت تحویل به مشتری. فراخوانی دوباره provider خودکار ممنوع؛ تولید مجدد درخواست صریح تازه و سهمیه/هزینه تازه دارد، ادامه دستی از ورودی مرورگر برقرار است. این تفصیل درباره پاسخ AI است و idempotency رسید پرونده پذیرفته‌شده را تغییر نمی‌دهد.
+
 ## قابلیت‌های غایب از این قرارداد
 
 پرداخت/قرارداد درون سامانه و جست‌وجوی بیرونی AI خارج دامنه مصوب‌اند. API بازآفرینی بدون مستند قابل ادعا نیست. گردش بستن/پیگیری مطابق D25 است؛ سیاست مدارک/تغییر نماینده طبق D27 و نوع/حجم/نگهداری/حذف فایل تابع B07 است؛ نبودن schema نهایی در این سند نباید با کدنویسی حدسی پر شود.

@@ -1,8 +1,8 @@
 # بک لاگ اجرایی invest
 
-به‌روزرسانی PRODUCT-EXPERIENCE-FALLBACK-01: تصمیم legacy مصوب شد؛ نبود داور مانع توسعه غیرعمومیِ جداگانه‌مجاز نیست. گیت‌های طراحی تخصصی/D28/عرضه بازند؛ قدم پیشنهادی شواهد و fixture در [roadmap](02-delivery-roadmap.md) و009/T030–T033،010/T041 است؛ هیچ‌کدام مجوز اجرا ندارند. یادداشت۱۱/۲۰ زیر وضعیت قبل از این تصمیم است.
+سابقه PRODUCT-EXPERIENCE-FALLBACK-01: legacy مصوب و ادامه غیرعمومیِ جداگانه‌مجاز با گیت انسانی باز پذیرفته شد. مأموریت شواهد و fixture بعداً اجرا شد؛ وضعیت جاری و قدم بعد در یادداشت زیر و [roadmap](02-delivery-roadmap.md) است، نه پرامپت تاریخی fallback.
 
-وضعیت جاری ۲۰۲۶/۱۱/۲۰: COMP-EXPERIENCE طبق [بازآزمایی مستقل](experience-complete/fix-02-retest-report.md)، `8c327ec` در دامنه فنی قبول است. تصمیم legacy، تأیید طراحی و کیفیت D28 در [گزارش گیت‌ها](experience-complete/product-gates-report.md) بازند؛ شروع COMP-AI/عرضه مجاز نشده است.
+وضعیت جاری ۲۰۲۶/۱۱/۲۰: COMP-EXPERIENCE در `8c327ec` و runtime/home/loading در [بازآزمایی مستقل](experience-complete/runtime-home-loading-independent-report.md)، `a317094` قبول فنی دارند؛ RHL-IT-001 بسته و legacy مصوب است. طراحی انسانی، D28 و production بازند. مأموریت PRODUCT-COMP-AI-01 فقط [بسته تصمیم S09](comp-ai-decision-package.md) را آماده می‌کند؛ اجرای T25–T27/عرضه، credential و push مجاز نیستند.
 
 این فهرست بسته‌های محصول را مشخص می‌کند و جای `tasks.md` هر feature را نمی‌گیرد. T02–T24 در چند feature اجرایی S02–S08 پیاده شده‌اند؛ قبول فنی/بازآزمایی هر بسته در `docs/stage-status.json` و گزارش مرحله است. T25–T29 باقی‌مانده‌اند و فقط پس از spec/plan/tasks و گیت‌های تصمیم مربوط اجرا می‌شوند.
 

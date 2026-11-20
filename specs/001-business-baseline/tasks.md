@@ -1,6 +1,6 @@
 # تسک‌های invest — پیش‌نویس مرحله‌بندی‌شده
 
-ورودی: spec/plan/research/data-model/contracts/test-plan. تسک‌های برنامه اجرا نشده‌اند؛ T002 کار مستنداتی بستن تصمیم‌ها و تحلیل است و در این گام کامل شد. ۷۲ تسک دیگر بازند. شماره‌های T001 به بعد اجرایی و T01 تا T29 بسته‌های قدیمی backlog هستند؛ با هم اشتباه نشوند. خروجی سند tasks برای بازبینی است: B01–B04 مصوب‌اند؛ کارهای وابسته به B05–B08 و schema تفصیلی تا بستن گیت مربوط قابل اجرا نیستند. این‌ها هنوز برنامهٔ نهایی implement نیستند.
+ورودی: spec/plan/research/data-model/contracts/test-plan. این baseline چندمرحله‌ای، شاخص تکمیل محصول نیست؛ checkboxها و ارجاع‌های تحویل پایین دامنه انجام‌شده را مشخص می‌کنند. شماره‌های T001 به بعد اجرایی و T01 تا T29 بسته‌های قدیمی backlog هستند؛ با هم اشتباه نشوند. B01–B04 مصوب‌اند؛ کارهای وابسته به تصمیم‌های باز و schema تفصیلی تا بستن گیت مربوط قابل اجرا نیستند. در PRODUCT-COMP-AI-01 فقط تفصیل مستنداتی T062–T067 مجاز است؛ هیچ تسک S09 اجرا یا کامل علامت نمی‌خورد.
 
 ## فاز 1: آماده‌سازی و بستن گیت‌ها
 
@@ -100,7 +100,7 @@
 
 ## فاز 8: US04 دستیار متصل
 
-مرحله: S09. پذیرش مستقل: جست‌وجو/توضیح/مقایسه از داده مجاز و امتیاز سرور با سهمیه واقعی؛ AC-D07/D20.
+مرحله: S09. پذیرش مستقل: جست‌وجو/توضیح/مقایسه از داده مجاز و امتیاز سرور با سهمیه واقعی؛ AC-D07/D20 و AC-AI01..10. PC-D02-01..05 در docs/comp-ai-decision-package.md بازند؛ T062–T067 همگی بدون مجوز اجرا هستند. مسیر specs/003-assistant در outline قدیمی زیر مقصد پیشنهادیِ ساخته‌نشده است؛ این مأموریت feature جدید نمی‌سازد.
 
 - [ ] T062 [US04] بستن B05، ثبت مدل/اعداد/دوره/هزینه/خطا/retention و تعریف مهمان در specs/003-assistant/spec.md؛ کلید در محیط خصوصی backend، نه سند — بسته T25؛ FR-012 FR-014.
 - [ ] T063 [US04] تست quota اتمیک مهمان/حساب و permission ابزار/context injection و retry در backend/tests/integration/test_assistant.py؛ fixture فارسی در backend/tests/fixtures/assistant_cases.json؛ D28: آزمون برابری score/coverage/policy/revision با API تطبیق، عدم ادعای سود و لینک ادامه همه نتایج — بسته T25 T27؛ FR-012 FR-013 FR-014 SC-004 SC-005 FR-028.
@@ -108,6 +108,19 @@
 - [ ] T065 [US04] ساخت ابزار read-only بر revision عمومی، parse/validate criteria و استناد، timeout/retry/تسویه مصرف در backend/apps/assistant/tools.py و backend/apps/assistant/api.py؛ submit tool وجود نداشته باشد؛ D28: مصرف همان score/coverage/reasons سرور و حفظ policy/revision و لینک ادامه نتایج — بسته T25 T26؛ FR-012 FR-013 FR-014 FR-028.
 - [ ] T066 [US04] حفظ صفحه/chat مقایسه و افزودن برداشت قابل اصلاح، references، quota/error و بازگشت فرم در frontend/src/app/assistant/page.tsx و frontend/src/components/compare/chat.tsx — بسته T26؛ FR-012 FR-013 FR-014 FR-019.
 - [ ] T067 [US04] اجرای ارزیابی فارسی و smoke محدود واقعی OpenAI جدا از mock؛ ثبت مدل/نسخه/نتیجه بدون secret در docs/stage9/verification.json و tests/browser/journeys/assistant.spec.ts — بسته T27؛ FR-012 FR-013 FR-014 SC-002 SC-007.
+
+تفصیل لازم همان تسک‌ها، بدون backlog/feature موازی:
+
+| تسک | خروجی کامل و شرط پایان پس از مجوز | پذیرش/وابستگی |
+|---|---|---|
+| T062 | ثبت پاسخ صریح پنج PC-D02 در docs/03-decisions.md و artifact اجرایی S09؛ مدل/قیمت/retention/quotas و rubric نهایی، analyze و قرارداد ماشین‌خوان. تحقیق رسمی این مأموریت جای دسترسی حساب/تصویب نیست؛ credential در سند نیاید. | AC-AI10؛ D04/D07/D20؛ قبل T063–T067، بدون تیک با صرف این بسته پیشنهاد |
+| T063 | fixture مصنوعی فارسی با انتظار مستقل، fake provider پایدار و تست قرارداد/مجوز/grounding/رقابت PostgreSQL/timeout/cost؛ تعداد و آستانه از test-plan پس از تصویب؛ حفظ وزن/فرمول D28. | AC-AI02..08/10؛ T062؛ زبان واقعی از fake نتیجه نشود |
+| T064 | adapter خصوصی و quota/ledger/version policy اتمیک، تفکیک سهمیه پاسخ/هزینه تلاش، ادغام ورود، رزرو بودجه نامعلوم و retention انتخاب‌شده؛ Conversation مفهومی الزام DB محتوا نیست. | AC-AI06/07/10؛ T063؛ PC-D02-01..04 |
+| T065 | چهار ابزار قرارداد با داده عمومی و خروجی واقعی server IDs/revisions/policy/score/coverage/reasons؛ strict+کنترل مستقل، محافظ تزریق و stale، هزینه/timeout تسویه‌شونده؛ نه private/web/submit tool. | AC-AI01..08؛ T063/T064؛ مصرف API هسته پذیرفته‌شده |
+| T066 | سفر یکپارچه خانه/فرصت→برداشت→کشف/مقایسه→فرم دستی/اقدام صریح؛ picker، ذخیره با رسید، chips، کارت/فهرست، highlight جدول، نوبت کهنه و همه حالات شکست؛ چهار عرض و فونت/حرکت، متن/criteria هنگام اختلال محفوظ. | AC-AI01..09؛ T065 و منبع واقعی در بسته تصمیم؛ رأی طراحی جدا |
+| T067 | گزارش تجمیعی تسترپسند: fake، smoke واقعی و eval فارسی جدا، مخرج/فایل شکست/مدل/قیمت/prompt/tool/revision/usage، زمان‌ها، محدودیت، طراحی و کیفیت انسانی باز یا با رأی واقعی؛ آماده بررسی مستقل، نه قبول خودکار. | AC-AI09/10 و SC-007؛ T063–T066؛ مجوز تماس/credential خصوصی؛ بدون استنتاج کیفیت D28 |
+
+این شش تسک یک مأموریت کامل سفر کاربرند؛ توقف بعد از هر فایل/تسک لازم نیست، ولی تصمیم/مجوز یا credential مفقود نباید با حدس دور زده شود. گیت‌های فنی و انسانی و production مستقل گزارش شوند.
 
 ## فاز 9: تطبیق نهایی و بهره‌برداری
 

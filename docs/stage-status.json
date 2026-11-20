@@ -1,7 +1,7 @@
 {
   "date": "2026-11-20",
   "current_stage": "S08",
-  "status": "experience-evidence-corrected-independent-retest-pending-release-gates-open",
+  "status": "experience-and-runtime-technical-pass-comp-ai-decisions-proposed-release-gates-open",
   "implementation_authorized": false,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -69,11 +69,14 @@
     "PRODUCT-EXPERIENCE-GATES-01: current status synchronized and human review packets prepared; no human votes or proposal approvals recorded",
     "PRODUCT-EXPERIENCE-FALLBACK-01: explicit user approval of PC-LEGACY-01 and nonpublic fallback PC-FALLBACK-01 recorded; no human verdict",
     "TECH-EXPERIENCE-EVIDENCE-01: 26/26 primary design rows and 104/104 width slots classified; approved 80-scenario/96-opportunity synthetic D28 evidence executed with independent oracle; held-out is regression after a preserved fixture failure; no human verdict or product behavior change",
-    "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01: EVID-IT-001..004 corrected in fixture/harness/evidence/docs; 96 semantic signatures are unique, operator/charity unit-basis are contract-backed N/A, 13 captures are source/runtime bound, development and held-out regression have zero oracle mismatch; independent retest and human gates remain open"
+    "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01: EVID-IT-001..004 corrected in fixture/harness/evidence/docs; 96 semantic signatures are unique, operator/charity unit-basis are contract-backed N/A, 13 captures are source/runtime bound, development and held-out regression have zero oracle mismatch; independent retest and human gates remain open",
+    "TEST-EXPERIENCE-EVIDENCE-FIX-01 at 52a314b accepted EVID-IT-001..003; remaining library capture state/provenance was corrected and accepted in the runtime retest below; historical reports preserved",
+    "TEST-RUNTIME-HOME-LOADING-FIX-02 accepted at a317094: RHL-IT-001 closed; primary runtime, library capture provenance, targeted backend/seed, login/Origin, map and loading technically accepted; supersedes prior pending-runtime state, not human design, D28 or production gates",
+    "PRODUCT-COMP-AI-01: documentation synchronized and five unapproved PC-D02 subdecisions prepared; S09 journey/contracts/tasks/evaluation clarified; no product implementation, credential, live OpenAI, push or deployment"
   ],
   "remaining": [
-    "COMP-EXPERIENCE: قبول فنی 8c327ec و تصمیم legacy مصوب؛ تکمیل هدفمند شاهد و fixture پیشنهادی، بررسی مالک و ممیزی تخصصی طراحی/D28 باز؛ مانع توسعه غیرعمومی مجاز نیستند.",
-    "COMP-AI: F31–F33 و PC-D02؛ اتصال واقعی OpenAI و ارزیابی باز",
+    "COMP-EXPERIENCE: قبول فنی 8c327ec و runtime/home/loading در a317094؛ RHL-IT-001 بسته و legacy مصوب؛ بررسی مالک/تخصصی طراحی و کیفیت D28 باز، مانع توسعه غیرعمومی جداگانه‌مجاز نیستند.",
+    "COMP-AI: F31–F33؛ پنج زیرتصمیم PC-D02 آماده ولی غیرمصوب، اجرای S09 مجاز نیست؛ credential و تماس واقعی/eval اثبات نشده‌اند",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
   ],
@@ -123,17 +126,17 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "TEST-RUNTIME-HOME-LOADING-FIX-02",
-    "description": "بازآزمایی مستقل زنجیره provenance اصلاح‌شده RHL-IT-001 و runtime اصلی آماده روی 3108؛ پذیرش انسانی طراحی جدا می‌ماند",
+    "id": "REVIEW-PC-D02",
+    "description": "بررسی و تصویب صریح پنج زیرتصمیم PC-D02 توسط کاربر؛ سپس صدور مجوز جدا برای مأموریت جامع S09 در صورت موافقت؛ هیچ اجرای فنی اکنون مجاز نیست",
     "authorized": false,
-    "scope_path": "docs/development.md",
-    "package": "COMP-EXPERIENCE"
+    "scope_path": "docs/comp-ai-decision-package.md",
+    "package": "COMP-AI"
   },
   "active_step": {
-    "id": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-02",
-    "mission": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-02",
-    "status": "programmer-correction-complete-independent-retest-pending",
-    "authorization": "Explicit user mission: repair RHL-IT-001 provenance, prepare primary development runtime on 3108, and run the previously blocked targeted backend controls; no product behavior, S09, AI, D28 policy, human votes, push or deployment",
+    "id": "PRODUCT-COMP-AI-01",
+    "mission": "PRODUCT-COMP-AI-01",
+    "status": "documentation-complete-pc-d02-proposals-awaiting-user-review",
+    "authorization": "Explicit attached user request PRODUCT-COMP-AI-01: synchronize a317094 acceptance and prepare S09 decisions/documentation only; one local commit; no code/tests/dependencies/env/credential, AI execution, push or deploy",
     "documentation_authorized": true,
     "implementation_authorized": false,
     "push_authorized": false,
@@ -143,9 +146,9 @@
     "production_ready": false,
     "final_acceptance": false,
     "independent_acceptance": false,
-    "independently_accepted_product_scope": "Previous COMP-EXPERIENCE technical scope remains historical; RHL-IT-001 is programmer-corrected and awaits independent retest",
-    "report_path": "docs/experience-complete/runtime-home-loading-independent-report.md",
-    "validation_path": "docs/experience-complete/tech-evidence-fix-01/design-validation.json"
+    "independently_accepted_product_scope": "COMP-EXPERIENCE at 8c327ec and runtime/home/loading at a317094; RHL-IT-001 closed; current documentation mission does not claim independent implementation acceptance",
+    "report_path": "docs/comp-ai-decision-package.md",
+    "validation_path": "docs/comp-ai-decision-package.md"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -253,7 +256,7 @@
     "remote_ci_executed": false,
     "public_deployed": false
   },
-  "application_implementation_scope": "هسته/S08 و ده EXP در دامنه مستقل قبول فنی؛ PC-LEGACY-01 مصوب؛ PC-FALLBACK-01 ادامه غیرعمومی با مجوز جدا را ممکن می‌کند؛ طراحی تخصصی، کیفیت D28 و آمادگی عرضه بازند.",
+  "application_implementation_scope": "هسته/S08، ده EXP و runtime/home/loading در a317094 قبول فنی محدود؛ RHL-IT-001 بسته؛ PC-LEGACY-01 مصوب؛ PC-FALLBACK-01 ادامه غیرعمومی با مجوز جدا را ممکن می‌کند؛ S09 اجرا نشده، طراحی تخصصی، کیفیت D28 و آمادگی عرضه بازند.",
   "identity": {
     "mission": "PROGRAMMER-S03-01",
     "status": "technical-pass",
@@ -550,12 +553,12 @@
     "retest_commit": "8bfc7276efc18f7e31301a83394939d830def50f"
   },
   "git_delivery": {
-    "push_authorized": true,
+    "push_authorized": false,
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "TECH-EXPERIENCE-EVIDENCE-01",
-    "current_mission_override": "normal non-force push authorized by explicit mission and standing AGENTS; result reported in final handoff; no deployment",
+    "current_mission": "PRODUCT-COMP-AI-01",
+    "current_mission_override": "Explicit latest mission overrides standing push authorization: one local commit only; no push or deployment",
     "earlier_standing_push_authorization": true
   },
   "core_fix_01": {
@@ -788,6 +791,43 @@
     "next_package_authorized": false,
     "superseding_decision_source": "Explicit user message PRODUCT-EXPERIENCE-FALLBACK-01",
     "current_plan": "docs/experience-complete/fallback-gates-plan.md"
+  },
+  "runtime_home_loading": {
+    "mission": "RUNTIME-HOME-LOADING-FIX-01",
+    "status": "closed-independent-technical-pass",
+    "independent_acceptance": true,
+    "independent_test_mission": "TEST-RUNTIME-HOME-LOADING-FIX-02",
+    "acceptance_commit": "a317094",
+    "report_path": "docs/experience-complete/runtime-home-loading-independent-report.md",
+    "findings_closed": ["RHL-IT-001"],
+    "backend_unique_passed": 20,
+    "browser_unique_passed": 4,
+    "validator_controls_passed": 10,
+    "evidence_source": "Independent tester report reused; no successful product tests rerun in PRODUCT-COMP-AI-01",
+    "scope": "Primary runtime provenance, four open-library captures, targeted PostgreSQL seed/backend, login/Origin, map and loading/Lottie",
+    "human_visual_approved": false,
+    "d28_human_accepted": false,
+    "production_ready": false,
+    "final_acceptance": false
+  },
+  "comp_ai_preparation": {
+    "mission": "PRODUCT-COMP-AI-01",
+    "status": "proposal-ready-not-approved",
+    "decision": "PC-D02",
+    "proposed_subdecisions": ["PC-D02-01", "PC-D02-02", "PC-D02-03", "PC-D02-04", "PC-D02-05"],
+    "proposals_approved": false,
+    "implementation_authorized": false,
+    "credential_received": false,
+    "live_connection_verified": false,
+    "official_documentation_checked_on": "2026-11-20",
+    "report_path": "docs/comp-ai-decision-package.md",
+    "owner_feature": "specs/001-business-baseline",
+    "tasks": ["T062", "T063", "T064", "T065", "T066", "T067"],
+    "reference_source_reviewed": true,
+    "fresh_runtime_observation": "Read-only HTTP version and assistant placeholder; browser bootstrap failed with Node SIGABRT; historical initial-state images viewed, not fresh interactive verification",
+    "human_design_accepted": false,
+    "d28_quality_accepted": false,
+    "production_ready": false
   },
   "experience_fallback": {
     "decision": "PC-FALLBACK-01",
