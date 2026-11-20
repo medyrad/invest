@@ -188,9 +188,9 @@
 
 | عرض | محصول | مرجع | طبقه‌بندی |
 |---:|---|---|---|
-| 360 | [تصویر](../fix-01-continuation-evidence/product-land-stage2-360.png) | [تصویر](../../stage1/evidence/proposal-390.png) | `representative-covered` |
+| 360 | [تصویر](../tech-evidence-fix-01/design-proposal-summary-360.png) | [تصویر](../../stage1/evidence/proposal-390.png) | `capture-needed→new-evidence` |
 | 390 | [تصویر](../../stage8/evidence/proposal-viewport-390.png) | [تصویر](../../stage1/evidence/proposal-390.png) | `reuse-valid` |
-| 768 | [تصویر](../fix-01-continuation-evidence/product-land-stage2-768.png) | [تصویر](../../stage1/evidence/proposal-1440.png) | `representative-covered` |
+| 768 | [تصویر](../tech-evidence-fix-01/design-proposal-summary-768.png) | [تصویر](../../stage1/evidence/proposal-1440.png) | `capture-needed→new-evidence` |
 | 1440 | [تصویر](../../stage8/evidence/proposal-summary-1440.png) | [تصویر](../../stage1/evidence/proposal-1440.png) | `reuse-valid` |
 
 ### DES-004 — /tools/ideas — step-1: معرفی ایده و پیوست
@@ -215,9 +215,9 @@
 
 | عرض | محصول | مرجع | طبقه‌بندی |
 |---:|---|---|---|
-| 360 | [تصویر](../fix-01-continuation-evidence/product-land-stage2-360.png) | [تصویر](../../stage1/evidence/foreign-investment-390.png) | `representative-covered` |
-| 390 | [تصویر](../fix-01-continuation-evidence/product-land-stage2-390.png) | [تصویر](../../stage1/evidence/foreign-investment-390.png) | `representative-covered` |
-| 768 | [تصویر](../fix-01-continuation-evidence/product-land-stage2-768.png) | [تصویر](../../stage1/evidence/foreign-investment-1440.png) | `representative-covered` |
+| 360 | [تصویر](../tech-evidence-fix-01/design-foreign-investment-step1-360.png) | [تصویر](../../stage1/evidence/foreign-investment-390.png) | `capture-needed→new-evidence` |
+| 390 | [تصویر](../tech-evidence-fix-01/design-foreign-investment-step1-390.png) | [تصویر](../../stage1/evidence/foreign-investment-390.png) | `capture-needed→new-evidence` |
+| 768 | [تصویر](../tech-evidence-fix-01/design-foreign-investment-step1-768.png) | [تصویر](../../stage1/evidence/foreign-investment-1440.png) | `capture-needed→new-evidence` |
 | 1440 | [تصویر](../../stage8/evidence/foreign-investment-summary-1440.png) | [تصویر](../../stage1/evidence/foreign-investment-1440.png) | `reuse-valid` |
 
 ### DES-010 — /tools/foreign-investment — step-2: آورده و مبلغ/ارز، شرایط مسیر و ابزار پشتیبان
@@ -260,9 +260,9 @@
 
 | عرض | محصول | مرجع | طبقه‌بندی |
 |---:|---|---|---|
-| 360 | [تصویر](../fix-01-continuation-evidence/product-land-stage2-360.png) | [تصویر](../../stage1/evidence/ma-renewal-390.png) | `representative-covered` |
+| 360 | [تصویر](../tech-evidence-fix-01/design-ma-renewal-step1-360.png) | [تصویر](../../stage1/evidence/ma-renewal-390.png) | `capture-needed→new-evidence` |
 | 390 | [تصویر](../../stage8/independent-evidence/renewal-exact-390.png) | [تصویر](../../stage1/evidence/ma-renewal-390.png) | `reuse-valid` |
-| 768 | [تصویر](../fix-01-continuation-evidence/product-land-stage2-768.png) | [تصویر](../../stage1/evidence/ma-renewal-1440.png) | `representative-covered` |
+| 768 | [تصویر](../tech-evidence-fix-01/design-ma-renewal-step1-768.png) | [تصویر](../../stage1/evidence/ma-renewal-1440.png) | `capture-needed→new-evidence` |
 | 1440 | [تصویر](../../stage8/evidence/ma-renewal-summary-1440.png) | [تصویر](../../stage1/evidence/ma-renewal-1440.png) | `reuse-valid` |
 
 ### DES-015 — /tools/ma-renewal — step-2: جمع‌بندی، بررسی لازم، دریافت و ذخیره
@@ -324,8 +324,8 @@
 | عرض | محصول | مرجع | طبقه‌بندی |
 |---:|---|---|---|
 | 360 | [تصویر](../../stage8/independent-evidence/charity-noncash-360.png) | [تصویر](../../stage1/evidence/charity-390.png) | `reuse-valid` |
-| 390 | [تصویر](../fix-01-continuation-evidence/product-land-stage2-390.png) | [تصویر](../../stage1/evidence/charity-390.png) | `representative-covered` |
-| 768 | [تصویر](../fix-01-continuation-evidence/product-land-stage2-768.png) | [تصویر](../../stage1/evidence/charity-1440.png) | `representative-covered` |
+| 390 | [تصویر](../tech-evidence-fix-01/design-charity-summary-390.png) | [تصویر](../../stage1/evidence/charity-390.png) | `capture-needed→new-evidence` |
+| 768 | [تصویر](../tech-evidence-fix-01/design-charity-summary-768.png) | [تصویر](../../stage1/evidence/charity-1440.png) | `capture-needed→new-evidence` |
 | 1440 | [تصویر](../../stage8/evidence/charity-summary-1440.png) | [تصویر](../../stage1/evidence/charity-1440.png) | `reuse-valid` |
 
 ## G10 — کتابخانه و پیش‌نویس
@@ -334,10 +334,10 @@
 
 | عرض | محصول | مرجع | طبقه‌بندی |
 |---:|---|---|---|
-| 360 | [تصویر](../tech-evidence-01/design-library-360.png) | [تصویر](../../stage1/evidence/library-390.png) | `capture-needed→new-evidence` |
-| 390 | [تصویر](../tech-evidence-01/design-library-390.png) | [تصویر](../../stage1/evidence/library-390.png) | `capture-needed→new-evidence` |
-| 768 | [تصویر](../tech-evidence-01/design-library-768.png) | [تصویر](../../stage1/evidence/library-1440.png) | `capture-needed→new-evidence` |
-| 1440 | [تصویر](../tech-evidence-01/design-library-1440.png) | [تصویر](../../stage1/evidence/library-1440.png) | `capture-needed→new-evidence` |
+| 360 | [تصویر](../tech-evidence-fix-01/design-library-360.png) | [تصویر](../../stage1/evidence/library-390.png) | `capture-needed→new-evidence` |
+| 390 | [تصویر](../tech-evidence-fix-01/design-library-390.png) | [تصویر](../../stage1/evidence/library-390.png) | `capture-needed→new-evidence` |
+| 768 | [تصویر](../tech-evidence-fix-01/design-library-768.png) | [تصویر](../../stage1/evidence/library-1440.png) | `capture-needed→new-evidence` |
+| 1440 | [تصویر](../tech-evidence-fix-01/design-library-1440.png) | [تصویر](../../stage1/evidence/library-1440.png) | `capture-needed→new-evidence` |
 
 ### DES-037 — /drafts — list;create;edit;conflict
 

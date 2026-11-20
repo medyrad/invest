@@ -2897,7 +2897,7 @@
           "id": "d079960f-2921-55c4-ab34-4659408469ff",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -2949,7 +2949,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -2984,8 +2984,8 @@
               }
             },
             "participation": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 5"
           },
           "synthetic": true
@@ -2994,7 +2994,7 @@
           "id": "27b63628-5001-5514-8ebc-0f78813fab38",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -3048,7 +3048,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -3085,8 +3085,8 @@
               "value": "0"
             },
             "participation": "equity",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 6"
           },
           "synthetic": true
@@ -3531,7 +3531,7 @@
           "id": "d079960f-2921-55c4-ab34-4659408469ff",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -3583,7 +3583,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -3618,8 +3618,8 @@
               }
             },
             "participation": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 5"
           },
           "synthetic": true
@@ -3628,7 +3628,7 @@
           "id": "27b63628-5001-5514-8ebc-0f78813fab38",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -3682,7 +3682,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -3719,8 +3719,8 @@
               "value": "0"
             },
             "participation": "equity",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 6"
           },
           "synthetic": true
@@ -4151,7 +4151,7 @@
           "id": "d079960f-2921-55c4-ab34-4659408469ff",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -4203,7 +4203,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -4238,8 +4238,8 @@
               }
             },
             "participation": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 5"
           },
           "synthetic": true
@@ -4248,7 +4248,7 @@
           "id": "27b63628-5001-5514-8ebc-0f78813fab38",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -4302,7 +4302,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -4339,8 +4339,8 @@
               "value": "0"
             },
             "participation": "equity",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 6"
           },
           "synthetic": true
@@ -4768,7 +4768,7 @@
           "id": "d079960f-2921-55c4-ab34-4659408469ff",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -4820,7 +4820,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -4855,8 +4855,8 @@
               }
             },
             "participation": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 5"
           },
           "synthetic": true
@@ -4865,7 +4865,7 @@
           "id": "27b63628-5001-5514-8ebc-0f78813fab38",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -4919,7 +4919,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -4956,8 +4956,8 @@
               "value": "0"
             },
             "participation": "equity",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 6"
           },
           "synthetic": true
@@ -5388,7 +5388,7 @@
           "id": "d079960f-2921-55c4-ab34-4659408469ff",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -5440,7 +5440,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -5475,8 +5475,8 @@
               }
             },
             "participation": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 5"
           },
           "synthetic": true
@@ -5485,7 +5485,7 @@
           "id": "27b63628-5001-5514-8ebc-0f78813fab38",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -5539,7 +5539,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -5576,8 +5576,8 @@
               "value": "0"
             },
             "participation": "equity",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 6"
           },
           "synthetic": true
@@ -6010,7 +6010,7 @@
           "id": "d079960f-2921-55c4-ab34-4659408469ff",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -6062,7 +6062,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -6097,8 +6097,8 @@
               }
             },
             "participation": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 5"
           },
           "synthetic": true
@@ -6107,7 +6107,7 @@
           "id": "27b63628-5001-5514-8ebc-0f78813fab38",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -6161,7 +6161,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -6198,8 +6198,8 @@
               "value": "0"
             },
             "participation": "equity",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی investor held-out 6"
           },
           "synthetic": true
@@ -9100,7 +9100,7 @@
           "id": "4bf34e0b-1cd9-5b3f-a7cf-f21bb2b74f30",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -9153,7 +9153,7 @@
             },
             "forecast_type": "irr",
             "fund_type": null,
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -9187,8 +9187,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 5"
           },
           "synthetic": true
@@ -9197,7 +9197,7 @@
           "id": "bf145f85-ac35-5774-bc35-4eaa8f5f37c1",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -9252,7 +9252,7 @@
             },
             "forecast_type": "irr",
             "fund_type": "fixed",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -9288,8 +9288,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 6"
           },
           "synthetic": true
@@ -9734,7 +9734,7 @@
           "id": "4bf34e0b-1cd9-5b3f-a7cf-f21bb2b74f30",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -9787,7 +9787,7 @@
             },
             "forecast_type": "irr",
             "fund_type": null,
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -9821,8 +9821,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 5"
           },
           "synthetic": true
@@ -9831,7 +9831,7 @@
           "id": "bf145f85-ac35-5774-bc35-4eaa8f5f37c1",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -9886,7 +9886,7 @@
             },
             "forecast_type": "irr",
             "fund_type": "fixed",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -9922,8 +9922,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 6"
           },
           "synthetic": true
@@ -10354,7 +10354,7 @@
           "id": "4bf34e0b-1cd9-5b3f-a7cf-f21bb2b74f30",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -10407,7 +10407,7 @@
             },
             "forecast_type": "irr",
             "fund_type": null,
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -10441,8 +10441,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 5"
           },
           "synthetic": true
@@ -10451,7 +10451,7 @@
           "id": "bf145f85-ac35-5774-bc35-4eaa8f5f37c1",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -10506,7 +10506,7 @@
             },
             "forecast_type": "irr",
             "fund_type": "fixed",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -10542,8 +10542,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 6"
           },
           "synthetic": true
@@ -10971,7 +10971,7 @@
           "id": "4bf34e0b-1cd9-5b3f-a7cf-f21bb2b74f30",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -11024,7 +11024,7 @@
             },
             "forecast_type": "irr",
             "fund_type": null,
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -11058,8 +11058,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 5"
           },
           "synthetic": true
@@ -11068,7 +11068,7 @@
           "id": "bf145f85-ac35-5774-bc35-4eaa8f5f37c1",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -11123,7 +11123,7 @@
             },
             "forecast_type": "irr",
             "fund_type": "fixed",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -11159,8 +11159,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 6"
           },
           "synthetic": true
@@ -11591,7 +11591,7 @@
           "id": "4bf34e0b-1cd9-5b3f-a7cf-f21bb2b74f30",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -11644,7 +11644,7 @@
             },
             "forecast_type": "irr",
             "fund_type": null,
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -11678,8 +11678,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 5"
           },
           "synthetic": true
@@ -11688,7 +11688,7 @@
           "id": "bf145f85-ac35-5774-bc35-4eaa8f5f37c1",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -11743,7 +11743,7 @@
             },
             "forecast_type": "irr",
             "fund_type": "fixed",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -11779,8 +11779,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 6"
           },
           "synthetic": true
@@ -12213,7 +12213,7 @@
           "id": "4bf34e0b-1cd9-5b3f-a7cf-f21bb2b74f30",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -12266,7 +12266,7 @@
             },
             "forecast_type": "irr",
             "fund_type": null,
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -12300,8 +12300,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 5"
           },
           "synthetic": true
@@ -12310,7 +12310,7 @@
           "id": "bf145f85-ac35-5774-bc35-4eaa8f5f37c1",
           "kind": "fund",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -12365,7 +12365,7 @@
             },
             "forecast_type": "irr",
             "fund_type": "fixed",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -12401,8 +12401,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی fund held-out 6"
           },
           "synthetic": true
@@ -15331,7 +15331,7 @@
           "id": "6479a220-2c38-5d70-b330-6913aa60314c",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -15383,7 +15383,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -15419,8 +15419,8 @@
               }
             },
             "price_mode": "total",
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 5"
           },
           "synthetic": true
@@ -15429,7 +15429,7 @@
           "id": "882478df-b0fc-5111-ada7-5365c77ac84f",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -15483,7 +15483,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -15521,8 +15521,8 @@
               "value": "0"
             },
             "price_mode": "total",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 6"
           },
           "synthetic": true
@@ -15956,7 +15956,7 @@
           "id": "6479a220-2c38-5d70-b330-6913aa60314c",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -16008,7 +16008,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -16044,8 +16044,8 @@
               }
             },
             "price_mode": "total",
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 5"
           },
           "synthetic": true
@@ -16054,7 +16054,7 @@
           "id": "882478df-b0fc-5111-ada7-5365c77ac84f",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -16108,7 +16108,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -16146,8 +16146,8 @@
               "value": "0"
             },
             "price_mode": "total",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 6"
           },
           "synthetic": true
@@ -16581,7 +16581,7 @@
           "id": "6479a220-2c38-5d70-b330-6913aa60314c",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -16633,7 +16633,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -16669,8 +16669,8 @@
               }
             },
             "price_mode": "total",
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 5"
           },
           "synthetic": true
@@ -16679,7 +16679,7 @@
           "id": "882478df-b0fc-5111-ada7-5365c77ac84f",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -16733,7 +16733,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -16771,8 +16771,8 @@
               "value": "0"
             },
             "price_mode": "total",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 6"
           },
           "synthetic": true
@@ -17204,7 +17204,7 @@
           "id": "6479a220-2c38-5d70-b330-6913aa60314c",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -17256,7 +17256,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -17292,8 +17292,8 @@
               }
             },
             "price_mode": "total",
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 5"
           },
           "synthetic": true
@@ -17302,7 +17302,7 @@
           "id": "882478df-b0fc-5111-ada7-5365c77ac84f",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -17356,7 +17356,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -17394,8 +17394,8 @@
               "value": "0"
             },
             "price_mode": "total",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 6"
           },
           "synthetic": true
@@ -17830,7 +17830,7 @@
           "id": "6479a220-2c38-5d70-b330-6913aa60314c",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -17882,7 +17882,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -17918,8 +17918,8 @@
               }
             },
             "price_mode": "total",
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 5"
           },
           "synthetic": true
@@ -17928,7 +17928,7 @@
           "id": "882478df-b0fc-5111-ada7-5365c77ac84f",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -17982,7 +17982,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -18020,8 +18020,8 @@
               "value": "0"
             },
             "price_mode": "total",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 6"
           },
           "synthetic": true
@@ -18458,7 +18458,7 @@
           "id": "6479a220-2c38-5d70-b330-6913aa60314c",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -18510,7 +18510,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -18546,8 +18546,8 @@
               }
             },
             "price_mode": "total",
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 5"
           },
           "synthetic": true
@@ -18556,7 +18556,7 @@
           "id": "882478df-b0fc-5111-ada7-5365c77ac84f",
           "kind": "sale",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -18610,7 +18610,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -18648,8 +18648,8 @@
               "value": "0"
             },
             "price_mode": "total",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی buyer held-out 6"
           },
           "synthetic": true
@@ -21550,7 +21550,7 @@
           "id": "d3f8d0d8-9af6-5061-8c46-42e4b0ea4e5f",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "deposit": {
               "source_value": null,
               "status": "unknown",
@@ -21610,7 +21610,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -21637,8 +21637,8 @@
               }
             },
             "lease_type": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 5"
           },
           "synthetic": true
@@ -21647,7 +21647,7 @@
           "id": "5afcb3be-b4d4-5c6c-9e6b-7f94edc99d14",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "deposit": {
               "source_value": "0",
               "status": "known",
@@ -21710,7 +21710,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -21738,8 +21738,8 @@
               "value": "0"
             },
             "lease_type": "long_term",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 6"
           },
           "synthetic": true
@@ -22169,7 +22169,7 @@
           "id": "d3f8d0d8-9af6-5061-8c46-42e4b0ea4e5f",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "deposit": {
               "source_value": null,
               "status": "unknown",
@@ -22229,7 +22229,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -22256,8 +22256,8 @@
               }
             },
             "lease_type": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 5"
           },
           "synthetic": true
@@ -22266,7 +22266,7 @@
           "id": "5afcb3be-b4d4-5c6c-9e6b-7f94edc99d14",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "deposit": {
               "source_value": "0",
               "status": "known",
@@ -22329,7 +22329,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -22357,8 +22357,8 @@
               "value": "0"
             },
             "lease_type": "long_term",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 6"
           },
           "synthetic": true
@@ -22788,7 +22788,7 @@
           "id": "d3f8d0d8-9af6-5061-8c46-42e4b0ea4e5f",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "deposit": {
               "source_value": null,
               "status": "unknown",
@@ -22848,7 +22848,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -22875,8 +22875,8 @@
               }
             },
             "lease_type": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 5"
           },
           "synthetic": true
@@ -22885,7 +22885,7 @@
           "id": "5afcb3be-b4d4-5c6c-9e6b-7f94edc99d14",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "deposit": {
               "source_value": "0",
               "status": "known",
@@ -22948,7 +22948,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -22976,8 +22976,8 @@
               "value": "0"
             },
             "lease_type": "long_term",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 6"
           },
           "synthetic": true
@@ -23405,7 +23405,7 @@
           "id": "d3f8d0d8-9af6-5061-8c46-42e4b0ea4e5f",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "deposit": {
               "source_value": null,
               "status": "unknown",
@@ -23465,7 +23465,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -23492,8 +23492,8 @@
               }
             },
             "lease_type": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 5"
           },
           "synthetic": true
@@ -23502,7 +23502,7 @@
           "id": "5afcb3be-b4d4-5c6c-9e6b-7f94edc99d14",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "deposit": {
               "source_value": "0",
               "status": "known",
@@ -23565,7 +23565,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -23593,8 +23593,8 @@
               "value": "0"
             },
             "lease_type": "long_term",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 6"
           },
           "synthetic": true
@@ -24025,7 +24025,7 @@
           "id": "d3f8d0d8-9af6-5061-8c46-42e4b0ea4e5f",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "deposit": {
               "source_value": null,
               "status": "unknown",
@@ -24085,7 +24085,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -24112,8 +24112,8 @@
               }
             },
             "lease_type": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 5"
           },
           "synthetic": true
@@ -24122,7 +24122,7 @@
           "id": "5afcb3be-b4d4-5c6c-9e6b-7f94edc99d14",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "deposit": {
               "source_value": "0",
               "status": "known",
@@ -24185,7 +24185,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -24213,8 +24213,8 @@
               "value": "0"
             },
             "lease_type": "long_term",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 6"
           },
           "synthetic": true
@@ -24647,7 +24647,7 @@
           "id": "d3f8d0d8-9af6-5061-8c46-42e4b0ea4e5f",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "deposit": {
               "source_value": null,
               "status": "unknown",
@@ -24707,7 +24707,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -24734,8 +24734,8 @@
               }
             },
             "lease_type": null,
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 5"
           },
           "synthetic": true
@@ -24744,7 +24744,7 @@
           "id": "5afcb3be-b4d4-5c6c-9e6b-7f94edc99d14",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "deposit": {
               "source_value": "0",
               "status": "known",
@@ -24807,7 +24807,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -24835,8 +24835,8 @@
               "value": "0"
             },
             "lease_type": "long_term",
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی lessee held-out 6"
           },
           "synthetic": true
@@ -27737,7 +27737,7 @@
           "id": "56df73b6-db60-5a2b-830d-a1bb17eef96a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -27789,7 +27789,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "guarantees": null,
             "irr": {
               "basis": {
@@ -27816,8 +27816,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 5",
             "working_capital_min": {
               "source_value": null,
@@ -27834,7 +27834,7 @@
           "id": "631d3074-9772-54e5-b394-84d1251d20da",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -27888,7 +27888,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "guarantees": "bond",
             "irr": {
               "basis": {
@@ -27916,8 +27916,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 6",
             "working_capital_min": {
               "source_value": "0",
@@ -28356,7 +28356,7 @@
           "id": "56df73b6-db60-5a2b-830d-a1bb17eef96a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -28408,7 +28408,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "guarantees": null,
             "irr": {
               "basis": {
@@ -28435,8 +28435,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 5",
             "working_capital_min": {
               "source_value": null,
@@ -28453,7 +28453,7 @@
           "id": "631d3074-9772-54e5-b394-84d1251d20da",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -28507,7 +28507,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "guarantees": "bond",
             "irr": {
               "basis": {
@@ -28535,8 +28535,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 6",
             "working_capital_min": {
               "source_value": "0",
@@ -28975,7 +28975,7 @@
           "id": "56df73b6-db60-5a2b-830d-a1bb17eef96a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -29027,7 +29027,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "guarantees": null,
             "irr": {
               "basis": {
@@ -29054,8 +29054,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 5",
             "working_capital_min": {
               "source_value": null,
@@ -29072,7 +29072,7 @@
           "id": "631d3074-9772-54e5-b394-84d1251d20da",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -29126,7 +29126,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "guarantees": "bond",
             "irr": {
               "basis": {
@@ -29154,8 +29154,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 6",
             "working_capital_min": {
               "source_value": "0",
@@ -29592,7 +29592,7 @@
           "id": "56df73b6-db60-5a2b-830d-a1bb17eef96a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -29644,7 +29644,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "guarantees": null,
             "irr": {
               "basis": {
@@ -29671,8 +29671,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 5",
             "working_capital_min": {
               "source_value": null,
@@ -29689,7 +29689,7 @@
           "id": "631d3074-9772-54e5-b394-84d1251d20da",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -29743,7 +29743,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "guarantees": "bond",
             "irr": {
               "basis": {
@@ -29771,8 +29771,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 6",
             "working_capital_min": {
               "source_value": "0",
@@ -30212,7 +30212,7 @@
           "id": "56df73b6-db60-5a2b-830d-a1bb17eef96a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -30264,7 +30264,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "guarantees": null,
             "irr": {
               "basis": {
@@ -30291,8 +30291,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 5",
             "working_capital_min": {
               "source_value": null,
@@ -30309,7 +30309,7 @@
           "id": "631d3074-9772-54e5-b394-84d1251d20da",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -30363,7 +30363,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "guarantees": "bond",
             "irr": {
               "basis": {
@@ -30391,8 +30391,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 6",
             "working_capital_min": {
               "source_value": "0",
@@ -30834,7 +30834,7 @@
           "id": "56df73b6-db60-5a2b-830d-a1bb17eef96a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -30886,7 +30886,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "guarantees": null,
             "irr": {
               "basis": {
@@ -30913,8 +30913,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 5",
             "working_capital_min": {
               "source_value": null,
@@ -30931,7 +30931,7 @@
           "id": "631d3074-9772-54e5-b394-84d1251d20da",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -30985,7 +30985,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "guarantees": "bond",
             "irr": {
               "basis": {
@@ -31013,8 +31013,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی contractor held-out 6",
             "working_capital_min": {
               "source_value": "0",
@@ -33932,7 +33932,7 @@
           "id": "6791aceb-a901-54a0-b614-ba09b7b4b038",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "experience": null,
             "forecast": {
               "basis": {
@@ -33985,7 +33985,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -34019,8 +34019,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 5"
           },
           "synthetic": true
@@ -34029,7 +34029,7 @@
           "id": "2582fb27-53e7-5163-80c3-8205a9e8a22d",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "experience": "experienced",
             "forecast": {
               "basis": {
@@ -34084,7 +34084,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -34120,8 +34120,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 6"
           },
           "synthetic": true
@@ -34551,7 +34551,7 @@
           "id": "6791aceb-a901-54a0-b614-ba09b7b4b038",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "experience": null,
             "forecast": {
               "basis": {
@@ -34604,7 +34604,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -34638,8 +34638,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 5"
           },
           "synthetic": true
@@ -34648,7 +34648,7 @@
           "id": "2582fb27-53e7-5163-80c3-8205a9e8a22d",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "experience": "experienced",
             "forecast": {
               "basis": {
@@ -34703,7 +34703,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -34739,8 +34739,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 6"
           },
           "synthetic": true
@@ -35170,7 +35170,7 @@
           "id": "6791aceb-a901-54a0-b614-ba09b7b4b038",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "experience": null,
             "forecast": {
               "basis": {
@@ -35223,7 +35223,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -35257,8 +35257,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 5"
           },
           "synthetic": true
@@ -35267,7 +35267,7 @@
           "id": "2582fb27-53e7-5163-80c3-8205a9e8a22d",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "experience": "experienced",
             "forecast": {
               "basis": {
@@ -35322,7 +35322,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -35358,8 +35358,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 6"
           },
           "synthetic": true
@@ -35787,7 +35787,7 @@
           "id": "6791aceb-a901-54a0-b614-ba09b7b4b038",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "experience": null,
             "forecast": {
               "basis": {
@@ -35840,7 +35840,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -35874,8 +35874,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 5"
           },
           "synthetic": true
@@ -35884,7 +35884,7 @@
           "id": "2582fb27-53e7-5163-80c3-8205a9e8a22d",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "experience": "experienced",
             "forecast": {
               "basis": {
@@ -35939,7 +35939,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -35975,8 +35975,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 6"
           },
           "synthetic": true
@@ -36407,7 +36407,7 @@
           "id": "6791aceb-a901-54a0-b614-ba09b7b4b038",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "experience": null,
             "forecast": {
               "basis": {
@@ -36460,7 +36460,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -36494,8 +36494,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 5"
           },
           "synthetic": true
@@ -36504,7 +36504,7 @@
           "id": "2582fb27-53e7-5163-80c3-8205a9e8a22d",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "experience": "experienced",
             "forecast": {
               "basis": {
@@ -36559,7 +36559,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -36595,8 +36595,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 6"
           },
           "synthetic": true
@@ -37029,7 +37029,7 @@
           "id": "6791aceb-a901-54a0-b614-ba09b7b4b038",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "experience": null,
             "forecast": {
               "basis": {
@@ -37082,7 +37082,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -37116,8 +37116,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 5"
           },
           "synthetic": true
@@ -37126,7 +37126,7 @@
           "id": "2582fb27-53e7-5163-80c3-8205a9e8a22d",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "experience": "experienced",
             "forecast": {
               "basis": {
@@ -37181,7 +37181,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -37217,8 +37217,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی operator held-out 6"
           },
           "synthetic": true
@@ -40119,7 +40119,7 @@
           "id": "25d98e44-be1b-5874-bb2a-4b0c6320d111",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -40171,7 +40171,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "heritage_use": null,
             "irr": {
               "basis": {
@@ -40206,8 +40206,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 5"
           },
           "synthetic": true
@@ -40216,7 +40216,7 @@
           "id": "1196e1e1-4bc2-5162-b7b4-a24ddfe7189a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -40270,7 +40270,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "heritage_use": "adaptive",
             "irr": {
               "basis": {
@@ -40307,8 +40307,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 6"
           },
           "synthetic": true
@@ -40753,7 +40753,7 @@
           "id": "25d98e44-be1b-5874-bb2a-4b0c6320d111",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -40805,7 +40805,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "heritage_use": null,
             "irr": {
               "basis": {
@@ -40840,8 +40840,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 5"
           },
           "synthetic": true
@@ -40850,7 +40850,7 @@
           "id": "1196e1e1-4bc2-5162-b7b4-a24ddfe7189a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -40904,7 +40904,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "heritage_use": "adaptive",
             "irr": {
               "basis": {
@@ -40941,8 +40941,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 6"
           },
           "synthetic": true
@@ -41373,7 +41373,7 @@
           "id": "25d98e44-be1b-5874-bb2a-4b0c6320d111",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -41425,7 +41425,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "heritage_use": null,
             "irr": {
               "basis": {
@@ -41460,8 +41460,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 5"
           },
           "synthetic": true
@@ -41470,7 +41470,7 @@
           "id": "1196e1e1-4bc2-5162-b7b4-a24ddfe7189a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -41524,7 +41524,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "heritage_use": "adaptive",
             "irr": {
               "basis": {
@@ -41561,8 +41561,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 6"
           },
           "synthetic": true
@@ -41990,7 +41990,7 @@
           "id": "25d98e44-be1b-5874-bb2a-4b0c6320d111",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -42042,7 +42042,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "heritage_use": null,
             "irr": {
               "basis": {
@@ -42077,8 +42077,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 5"
           },
           "synthetic": true
@@ -42087,7 +42087,7 @@
           "id": "1196e1e1-4bc2-5162-b7b4-a24ddfe7189a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -42141,7 +42141,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "heritage_use": "adaptive",
             "irr": {
               "basis": {
@@ -42178,8 +42178,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 6"
           },
           "synthetic": true
@@ -42610,7 +42610,7 @@
           "id": "25d98e44-be1b-5874-bb2a-4b0c6320d111",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -42662,7 +42662,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "heritage_use": null,
             "irr": {
               "basis": {
@@ -42697,8 +42697,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 5"
           },
           "synthetic": true
@@ -42707,7 +42707,7 @@
           "id": "1196e1e1-4bc2-5162-b7b4-a24ddfe7189a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -42761,7 +42761,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "heritage_use": "adaptive",
             "irr": {
               "basis": {
@@ -42798,8 +42798,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 6"
           },
           "synthetic": true
@@ -43232,7 +43232,7 @@
           "id": "25d98e44-be1b-5874-bb2a-4b0c6320d111",
           "kind": "project",
           "snapshot": {
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -43284,7 +43284,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "heritage_use": null,
             "irr": {
               "basis": {
@@ -43319,8 +43319,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 5"
           },
           "synthetic": true
@@ -43329,7 +43329,7 @@
           "id": "1196e1e1-4bc2-5162-b7b4-a24ddfe7189a",
           "kind": "project",
           "snapshot": {
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -43383,7 +43383,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "heritage_use": "adaptive",
             "irr": {
               "basis": {
@@ -43420,8 +43420,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی heritage held-out 6"
           },
           "synthetic": true
@@ -46331,7 +46331,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": null,
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -46383,7 +46383,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -46417,8 +46417,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 5"
           },
           "synthetic": true
@@ -46428,7 +46428,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": "cash",
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -46482,7 +46482,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -46518,8 +46518,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 6"
           },
           "synthetic": true
@@ -46950,7 +46950,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": null,
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -47002,7 +47002,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -47036,8 +47036,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 5"
           },
           "synthetic": true
@@ -47047,7 +47047,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": "cash",
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -47101,7 +47101,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -47137,8 +47137,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 6"
           },
           "synthetic": true
@@ -47569,7 +47569,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": null,
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -47621,7 +47621,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -47655,8 +47655,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 5"
           },
           "synthetic": true
@@ -47666,7 +47666,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": "cash",
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -47720,7 +47720,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -47756,8 +47756,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 6"
           },
           "synthetic": true
@@ -48186,7 +48186,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": null,
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -48238,7 +48238,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -48272,8 +48272,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 5"
           },
           "synthetic": true
@@ -48283,7 +48283,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": "cash",
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -48337,7 +48337,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -48373,8 +48373,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 6"
           },
           "synthetic": true
@@ -48806,7 +48806,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": null,
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -48858,7 +48858,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -48892,8 +48892,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 5"
           },
           "synthetic": true
@@ -48903,7 +48903,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": "cash",
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -48957,7 +48957,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -48993,8 +48993,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 6"
           },
           "synthetic": true
@@ -49428,7 +49428,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": null,
-            "contract_mode": null,
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -49480,7 +49480,7 @@
               }
             },
             "forecast_type": "irr",
-            "group": "unknown",
+            "group": "housing",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -49514,8 +49514,8 @@
                 "version": 1
               }
             },
-            "province": "unknown",
-            "risk": "unknown",
+            "province": "isfahan",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 5"
           },
           "synthetic": true
@@ -49525,7 +49525,7 @@
           "kind": "project",
           "snapshot": {
             "charity_type": "cash",
-            "contract_mode": "equity",
+            "contract_mode": "lease",
             "forecast": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -49579,7 +49579,7 @@
               "value": "0"
             },
             "forecast_type": "irr",
-            "group": "land",
+            "group": "industry",
             "irr": {
               "basis": {
                 "basis_date": "2026-11-20",
@@ -49615,8 +49615,8 @@
               },
               "value": "0"
             },
-            "province": "tehran",
-            "risk": "low",
+            "province": "fars",
+            "risk": "medium",
             "title": "فرصت مصنوعی charity held-out 6"
           },
           "synthetic": true

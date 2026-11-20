@@ -76,3 +76,9 @@
 - [x] T041 [US1,US3] هفت ردیف خدمات primary (DES-003،006–009،014،021) در چهار عرض با state واقعی/نماینده مستدل، انتخاب/بازگشت/جمع‌بندی و اختلاف مصوب به گالری مشترک009/T030 متصل شد؛ metadata و محدودیت در `docs/experience-complete/tech-evidence-01/design-slot-matrix.csv` و فرم انسانی خالی است.
 
 این تسک بخشی از همان مأموریت فنی تجمیعی است، نه تحویل یا feature جدا؛ T036 همچنان باز و رأی مالک جای ممیزی تخصصی پیش از عرضه نیست.
+
+## Phase 11: Evidence correction — PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01
+
+- [x] T042 [US1,US3] سهم خدمات EVID-IT-003/004 اصلاح شد: DES-003 در ۳۶۰/۷۶۸، DES-009 در ۳۶۰/۳۹۰/۷۶۸، DES-014 در ۳۶۰/۷۶۸ و DES-021 در ۳۹۰/۷۶۸ با capture واقعی همان route/state جایگزین و همراه چهار library به provenance source/runtime متصل شدند. validator نمایندگی cross-route/state بدون قرارداد را رد می‌کند؛ فرم/رأی انسانی خالی و T036 باز است.
+
+شاهد: `docs/experience-complete/tech-evidence-fix-01/design-validation.json`، `runtime-provenance.json` و ماتریس/گالری جاری. این تسک تغییر رفتار محصول یا پذیرش طراحی نیست.

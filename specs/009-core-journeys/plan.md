@@ -35,3 +35,9 @@ Migration افزایشی catalog0010 برای تعریف دوره operator؛ sch
 ترتیب T030 و010/T041، سپس T031/T032 و T033 در TECH-EXPERIENCE-EVIDENCE-01 اجرا شد؛ شواهد و fixture در `docs/experience-complete/tech-evidence-01/` و گزارش تجمیعی ثبت‌اند. تصمیم‌های COMP-AI همچنان مرحله و مجوز جدا می‌خواهند و در این اجرا آغاز نشدند.
 
 مجموعه۶فرصتی قدیم فقط calibration باقی است. حجم مصوب۸۰سناریو/۹۶فرصت در هشت مسیر با split۳۲/۴۸ ساخته شد؛ oracle عددی از تابع D28 مستقل و وزن/فرمول/label انسانی دست‌نخورده‌اند. نخستین held-out به‌علت basis ناقص fixture پیش از scoring شکست و حفظ شد؛ اجراهای اصلاح‌شده regression هستند و کورسازی مطلق ادعا نمی‌شود. این تحویل فقط fixture/harness/evidence/docs است؛ Constitution II/III/V/VI/VII و گیت‌های انسانی T020 برقرارند.
+
+## اصلاح شواهد PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01
+
+بدون تغییر کد محصول یا D28، canonical signature از route/kind/snapshot مؤثر ساخته می‌شود و شناسه/title/split/metadata در یکتایی نقشی ندارند. پروفایل‌های boundary با حفظ unknown/known-zero از زمینه مؤثر متفاوت استفاده می‌کنند. route×unit/basis فقط وقتی applicable است که criteria عددی یا return، unit/basis و check متناظر oracle وجود داشته باشد؛ operator و charity طبق قرارداد واقعی N/A هستند.
+
+captureهای اصلاحی از imageهای برچسب‌دار checkout مبنای مستقل، BUILD_ID و hash سورس/runtime به metadata هر تصویر وصل می‌شوند. development روی DB تازه و held-out فقط regression اجرا می‌شود؛ تلاش‌های تاریخی، replay و فرم‌های انسانی بازنویسی نمی‌شوند. validatorهای مستقل mutation موقت، route/state و provenance را بررسی می‌کنند و خروجی به manifest متصل است.

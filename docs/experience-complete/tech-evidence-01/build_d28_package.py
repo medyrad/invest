@@ -15,6 +15,7 @@ RETURN_ROUTES = {"investor", "fund", "heritage"}
 RISK_ROUTES = {"investor", "fund", "heritage"}
 AMOUNT_ROUTES = {"investor", "fund", "buyer", "lessee", "contractor", "heritage"}
 CONDITION_FIELDS = {"investor": "participation", "fund": "fund_type", "buyer": "payment", "lessee": "lease_type", "contractor": "guarantees", "operator": "experience", "heritage": "heritage_use", "charity": "charity_type"}
+NUMERIC_ROUTES = AMOUNT_ROUTES | RETURN_ROUTES
 
 
 def sha(path: Path) -> str:
@@ -36,19 +37,46 @@ def main() -> None:
         for axis in AXES:
             applicable = True
             reason = "قرارداد عمومی criteria و scorer این محور را برای route می‌پذیرد."
+            contract_reference = "backend/apps/core/discovery.py:validate_criteria+score"
+            criteria_evidence = ""
+            oracle_check_axis = axis
             if axis == "amount" and route not in AMOUNT_ROUTES:
                 applicable = False;reason = f"N/A: search_fields این route مبلغ D28 ندارد؛ سناریو از فیلد واقعی {CONDITION_FIELDS[route]} استفاده می‌کند."
             elif axis == "returns" and route not in RETURN_ROUTES:
                 applicable = False;reason = f"N/A: بازده برای این route در search_fields نیست؛ فیلد ساختگی تولید نشده و {CONDITION_FIELDS[route]} پوشش داده شده است."
             elif axis == "risk-important" and route not in RISK_ROUTES:
                 applicable = False;reason = f"N/A: ریسک برای این route در search_fields نیست؛ هشدار فنی conditions با {CONDITION_FIELDS[route]} جدا آزموده شده است."
+            elif axis == "unit-basis" and route not in NUMERIC_ROUTES:
+                applicable = False
+                reason = f"N/A: backend/apps/core/search_fields.json برای {route} فیلد عددی واحددار یا بازده ندارد؛ فیلد واقعی {CONDITION_FIELDS[route]} فقط condition است و واحد/basis ساختگی اضافه نشده است."
+                contract_reference = f"backend/apps/core/search_fields.json:routes={route}; backend/apps/core/discovery.py:amount/returns"
+                oracle_check_axis = "N/A"
             family_tokens = {
                 "amount": ("amount",), "unit-basis": ("unit", "return"), "location": ("location",),
                 "returns": ("return",), "unknown-zero-NA": ("unknown",), "risk-important": ("risk",),
                 "category-contract": ("category", "contract"), "competition-tie-cursor": ("competition",),
             }[axis]
             ids = [row["id"] for row in route_scenarios if any(token in row["axis_family"] for token in family_tokens)]
-            matrix.append({"route": route, "kind": next(row["kind"] for row in payload["opportunities"] if row["route"] == route), "axis": axis, "applicable": "yes" if applicable else "N/A", "contract_field_or_rule": CONDITION_FIELDS[route] if not applicable else axis, "reason": reason, "scenario_ids": ";".join(ids), "oracle_result": "pass"})
+            if axis == "unit-basis":
+                ids = [row["id"] for row in route_scenarios if any(key in row["criteria"] for key in ("budget_min", "budget_max", "return"))] if applicable else []
+                criteria_evidence = ";".join(
+                    f"{row['id']}:{'return.basis' if 'return' in row['criteria'] else 'budget[TOMAN@1]'}"
+                    for row in route_scenarios if row["id"] in ids
+                )
+                oracle_check_axis = "amount|returns" if applicable else "N/A"
+            matrix.append({
+                "route": route,
+                "kind": next(row["kind"] for row in payload["opportunities"] if row["route"] == route),
+                "axis": axis,
+                "applicable": "yes" if applicable else "N/A",
+                "contract_field_or_rule": CONDITION_FIELDS[route] if not applicable else axis,
+                "contract_reference": contract_reference,
+                "reason": reason,
+                "scenario_ids": ";".join(ids),
+                "criteria_evidence": criteria_evidence,
+                "oracle_check_axis": oracle_check_axis,
+                "oracle_result": "pass" if applicable else "N/A",
+            })
     with (ROOT / "d28-route-axis-coverage.csv").open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(matrix[0]), lineterminator="\n");writer.writeheader();writer.writerows(matrix)
 

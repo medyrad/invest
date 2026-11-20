@@ -75,6 +75,13 @@ def opportunity(route: str, split: str, index: int, billions: int | None) -> dic
     condition_key, condition_wanted = ROUTE_CONDITION[route]
     condition_value = (condition_wanted, "other", condition_wanted, "other", None, condition_wanted)[index]
     rate = (15, 8, 12, 20, None, 0)[index]
+    # The held-out unknown/known-zero records retain those boundary states while
+    # using materially different effective profiles.  IDs, titles and split
+    # metadata are deliberately insufficient to establish semantic uniqueness.
+    if split == "held-out" and index == 4:
+        province, group, risk, contract = "isfahan", "housing", "medium", "lease"
+    elif split == "held-out" and index == 5:
+        province, group, risk, contract = "fars", "industry", "medium", "lease"
     basis = return_basis() if index != 3 else return_basis(observation="observed")
     snapshot = {
         "title": f"فرصت مصنوعی {route} {split} {index + 1}",

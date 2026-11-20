@@ -1,0 +1,303 @@
+<testsuites id="" name="" tests="13" failures="0" skipped="0" errors="13" time="16.155988">
+<testsuite name="capture-fixed-slots.spec.cjs" timestamp="2026-11-20T09:17:41.751Z" hostname="" tests="13" failures="0" skipped="0" time="0.13" errors="13">
+<testcase name="DES-003 exact route/state 360" classname="capture-fixed-slots.spec.cjs" time="0.009">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-003-exact-route-state-360/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:112:3 › DES-003 exact route/state 360 ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-003-exact-route-state-360/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-003 exact route/state 768" classname="capture-fixed-slots.spec.cjs" time="0.008">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-003-exact-route-state-768/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:112:3 › DES-003 exact route/state 768 ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-003-exact-route-state-768/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-009 exact route/state 360" classname="capture-fixed-slots.spec.cjs" time="0.008">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-009-exact-route-state-360/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:112:3 › DES-009 exact route/state 360 ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-009-exact-route-state-360/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-009 exact route/state 390" classname="capture-fixed-slots.spec.cjs" time="0.013">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-009-exact-route-state-390/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:112:3 › DES-009 exact route/state 390 ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-009-exact-route-state-390/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-009 exact route/state 768" classname="capture-fixed-slots.spec.cjs" time="0.009">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-009-exact-route-state-768/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:112:3 › DES-009 exact route/state 768 ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-009-exact-route-state-768/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-014 exact route/state 360" classname="capture-fixed-slots.spec.cjs" time="0.009">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-014-exact-route-state-360/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:112:3 › DES-014 exact route/state 360 ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-014-exact-route-state-360/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-014 exact route/state 768" classname="capture-fixed-slots.spec.cjs" time="0.011">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-014-exact-route-state-768/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:112:3 › DES-014 exact route/state 768 ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-014-exact-route-state-768/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-021 exact route/state 390" classname="capture-fixed-slots.spec.cjs" time="0.009">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-021-exact-route-state-390/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:112:3 › DES-021 exact route/state 390 ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-021-exact-route-state-390/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-021 exact route/state 768" classname="capture-fixed-slots.spec.cjs" time="0.012">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-021-exact-route-state-768/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:112:3 › DES-021 exact route/state 768 ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-021-exact-route-state-768/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-035 library provenance capture 360" classname="capture-fixed-slots.spec.cjs" time="0.011">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-035-library-provenance-capture-360/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:126:3 › DES-035 library provenance capture 360 ──────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-035-library-provenance-capture-360/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-035 library provenance capture 390" classname="capture-fixed-slots.spec.cjs" time="0.007">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-035-library-provenance-capture-390/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:126:3 › DES-035 library provenance capture 390 ──────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-035-library-provenance-capture-390/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-035 library provenance capture 768" classname="capture-fixed-slots.spec.cjs" time="0.017">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-035-library-provenance-capture-768/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:126:3 › DES-035 library provenance capture 768 ──────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-035-library-provenance-capture-768/error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="DES-035 library provenance capture 1440" classname="capture-fixed-slots.spec.cjs" time="0.007">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|browser-artifacts/capture-fixed-slots-DES-035-library-provenance-capture-1440/error-context.md]]
+]]>
+</system-out>
+<error message="browserType.launch: Executable doesn&apos;t exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell" type="Error">
+<![CDATA[  capture-fixed-slots.spec.cjs:126:3 › DES-035 library provenance capture 1440 ─────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/mehdi/Library/Caches/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: browser-artifacts/capture-fixed-slots-DES-035-library-provenance-capture-1440/error-context.md
+]]>
+</error>
+</testcase>
+</testsuite>
+</testsuites>

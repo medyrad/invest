@@ -13,6 +13,7 @@ OUT = Path(__file__).resolve().parent
 WIDTHS = (360, 390, 768, 1440)
 PRIMARY = {"DES-003", *(f"DES-{i:03d}" for i in range(6, 10)), "DES-014", "DES-021", *(f"DES-{i:03d}" for i in range(22, 41))}
 PRODUCT_VERSION = "79519bb8e88cbf6c0bcf7614c63b3737cc668a70 (product behavior unchanged from independently accepted 8c327ec)"
+FIX_CHECKOUT = "0380bbf3cdcf00f6997b060a7d43a1ad980dc56c (product source equals 79519bb8 baseline)"
 REFERENCE_SHA = "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b"
 
 
@@ -34,6 +35,15 @@ def service(row: str, width: int) -> tuple[str, str, str, str]:
         "DES-003": "proposal", "DES-009": "foreign-investment", "DES-014": "ma-renewal", "DES-021": "charity"
     }[row]
     reference = f"docs/stage1/evidence/{ref}-{390 if width < 768 else 1440}.png"
+    fixed = {
+        "DES-003": {360: "proposal-summary", 768: "proposal-summary"},
+        "DES-009": {360: "foreign-investment-step1", 390: "foreign-investment-step1", 768: "foreign-investment-step1"},
+        "DES-014": {360: "ma-renewal-step1", 768: "ma-renewal-step1"},
+        "DES-021": {390: "charity-summary", 768: "charity-summary"},
+    }.get(row, {})
+    if width in fixed:
+        path = f"docs/experience-complete/tech-evidence-fix-01/design-{fixed[width]}-{width}.png"
+        return ("capture-needed→new-evidence", path, reference, "fresh capture of the exact route/state on source-bound runtime; metadata and image digest are in tech-evidence-fix-01/runtime-provenance.json")
     if width in direct:
         return ("reuse-valid", direct[width], reference, "same route/state evidence; accepted S08 runtime and shared ServiceEditor unchanged through current docs-only baseline")
     representative = "docs/experience-complete/fix-01-continuation-evidence/product-land-stage2-{}.png".format(width)
@@ -72,7 +82,7 @@ def slot(row: str, width: int) -> tuple[str, str, str, str]:
         suffix = {360: "mobile-360", 390: "mobile-390", 768: "tablet-768", 1440: "desktop-1440"}[width]
         return ("reuse-valid", f"docs/stage3/evidence/login-code-step-{suffix}.png", f"docs/stage1/evidence/login-{390 if width < 768 else 1440}.png", "OTP state and breakpoint unchanged; late/account-switch behavior is linked through interaction regression, not inferred from screenshot")
     if row == "DES-035":
-        return ("capture-needed→new-evidence", current("library", width), f"docs/stage1/evidence/library-{390 if width < 768 else 1440}.png", "previous gap closed with current font-ready capture at exact width")
+        return ("capture-needed→new-evidence", f"docs/experience-complete/tech-evidence-fix-01/design-library-{width}.png", f"docs/stage1/evidence/library-{390 if width < 768 else 1440}.png", "library recaptured on source-bound runtime with font, focus, hit-test, click and image digest provenance")
     panel = {"DES-036": "workspace", "DES-037": "drafts", "DES-038": "requests", "DES-039": "admin", "DES-040": "expert"}[row]
     reference = f"docs/stage1/evidence/drafts-{390 if width < 768 else 1440}.png" if row == "DES-037" else ""
     return ("reference-component-only", current(panel, width), reference, "new authenticated capture; no full ZIP equivalent for role panel, so shell/cards/buttons plus D03/D25-D27/D29-D32 are the only valid comparison basis")
@@ -80,9 +90,18 @@ def slot(row: str, width: int) -> tuple[str, str, str, str]:
 
 def capture_time(path: str) -> str:
     target = ROOT / path
-    if "tech-evidence-01/design-" in path and target.exists():
+    if ("tech-evidence-01/design-" in path or "tech-evidence-fix-01/design-" in path) and target.exists():
         return datetime.fromtimestamp(target.stat().st_mtime, timezone.utc).isoformat()
     return "historical; authoritative time/version in adjacent manifest/report"
+
+
+def capture_metadata(path: str) -> dict | None:
+    marker = "docs/experience-complete/tech-evidence-fix-01/design-"
+    if not path.startswith(marker):
+        return None
+    name = Path(path).name.removeprefix("design-").removesuffix(".png")
+    metadata_path = ROOT / "docs/experience-complete/tech-evidence-fix-01" / f"capture-{name}.json"
+    return json.loads(metadata_path.read_text())
 
 
 def main() -> None:
@@ -97,12 +116,17 @@ def main() -> None:
             assert product and (ROOT / product).exists(), (row_id, width, product)
             if reference:
                 assert (ROOT / reference).exists(), (row_id, width, reference)
+            metadata = capture_metadata(product)
             rows.append({
                 "row_id": row_id, "group": source["group"], "route": source["route"], "state": source["state"], "identity": source["identity"],
-                "viewport_width": width, "viewport_height": 1000, "canvas": "full-page; exact pixels available in PNG", "classification": classification,
+                "viewport_width": width, "viewport_height": metadata["viewport_height"] if metadata else 1000,
+                "canvas": f"{metadata['interaction']['canvas']['width']}x{metadata['interaction']['canvas']['height']}" if metadata else "full-page; exact pixels available in PNG", "classification": classification,
                 "product_evidence": product, "reference_evidence": reference, "proof_or_limitation": proof,
-                "product_version": PRODUCT_VERSION, "reference_zip_sha256": REFERENCE_SHA, "synthetic_data": "isolated seed_core_demo or frozen synthetic report",
-                "font": "document.fonts.ready", "motion": "reduced", "capture_time_utc": capture_time(product),
+                "evidence_route": metadata["route"] if metadata else source["route"], "evidence_state": metadata["state"] if metadata else source["state"],
+                "representative_contract": "same-route-state; width represented by the same component/breakpoint contract" if classification == "representative-covered" else "",
+                "product_version": FIX_CHECKOUT if metadata else PRODUCT_VERSION, "reference_zip_sha256": REFERENCE_SHA, "synthetic_data": metadata["synthetic_seed"] if metadata else "isolated seed_core_demo or frozen synthetic report",
+                "font": metadata["font_condition"] if metadata else "document.fonts.ready", "motion": metadata["motion_condition"] if metadata else "reduced", "capture_time_utc": metadata["captured_at_utc"] if metadata else capture_time(product),
+                "runtime_provenance": "docs/experience-complete/tech-evidence-fix-01/runtime-provenance.json" if metadata else "historical evidence path/version; no fresh-capture claim",
                 "interaction_evidence": "tech-evidence-01/interaction-evidence.csv", "human_verdict": "", "specialist_design_approval": "",
             })
     assert len(rows) == 104

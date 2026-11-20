@@ -8,10 +8,10 @@
     1440
   ],
   "classifications": {
-    "representative-covered": 15,
+    "capture-needed→new-evidence": 13,
     "reuse-valid": 49,
     "reference-component-only": 36,
-    "capture-needed→new-evidence": 4
+    "representative-covered": 6
   },
   "human_verdicts_filled": 0
 }

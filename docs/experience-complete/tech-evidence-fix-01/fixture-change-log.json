@@ -1,0 +1,99 @@
+{
+  "schema": "invest.tech-evidence-fix.fixture-change@1",
+  "mission": "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01",
+  "independent_baseline_commit": "0380bbf3cdcf00f6997b060a7d43a1ad980dc56c",
+  "previous_input_sha256": "4f74b92e2cf72aaed04311cbd43470e6930f25710c967f7b2be137ca5160294f",
+  "corrected_input_sha256": "89af376235955201ad0fc698a3090883bedda6a969954b12bac06b677e64fe6b",
+  "semantic_signatures": {
+    "development": 48,
+    "held_out": 48,
+    "global": 96
+  },
+  "execution": {
+    "development": {
+      "database": "evidence_fix_dev_20261120",
+      "status": "passed",
+      "role": "development"
+    },
+    "held_out": {
+      "database": "evidence_fix_heldout_20261120",
+      "status": "passed",
+      "role": "regression-after-fixture-correction"
+    }
+  },
+  "results": {
+    "d28-development-results.json": "2d0be91b9420ffbfe4307208b171b059b978f7383219ccd58520c96f4b6b4f9c",
+    "d28-held-out-results.json": "5eaff02b58cd48aedc0d4043db511a57f28d0aadda9e88df52b704cc0ca81a10"
+  },
+  "historical_artifacts": [
+    {
+      "path": "attempt-1-development-results.json",
+      "sha256": "5abee2812903e2426c457aa14de4b8d5914e1dc1aefcabe511f75a4f092c9c04",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-1-input-freeze.json",
+      "sha256": "3f4924db347f8c0208ee4d3c6720109ca4246f74dbab2468dfce7f8b83c2d880",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-1-inputs.json",
+      "sha256": "644d9e97df9e9db521a935bd730242e731b2adf49b67f2b910fedf1ebc986915",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-2-development-results.json",
+      "sha256": "67e68913d147f244eb04aa84498ffc0657a562a7cfea4d741bb554eb24666fba",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-2-held-out-regression-results.json",
+      "sha256": "3d99bf13efb40827627268a73999b240ec939cdee597b953eadd09e133927f7a",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-2-input-freeze.json",
+      "sha256": "1e365b73fbdfb3f83bddc7ad92d39fc100ab280f78f95d172eebb120cb58a447",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-2-inputs.json",
+      "sha256": "0ade0a152acd7ccef2f9872241abc5569867b3bc7ce3b6ca6d5d1a472ce063cd",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-3-development-results.json",
+      "sha256": "279ababcf4e2b6803769f614b001f1d63a3dfa7ab7a86888607eca0bc9c79093",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-3-held-out-regression-results.json",
+      "sha256": "76139256e113fd33f0dfd7ec3a5350ef68dc4d666fe198c640aadf38527c2639",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-3-input-freeze.json",
+      "sha256": "cf8e214cac870554cc1e504fc5fe839e050aafe654ec5d675fee59697424b866",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "attempt-3-inputs.json",
+      "sha256": "9125d5a2e7070b26c411f37c2e79db9e80e8adb0fa2ca195abf9852ac35faad8",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "heldout-first-attempt.json",
+      "sha256": "afb95bb83a9b317688b67b8c8f8b39283d75033f328f47ee4bf193a94ee7a724",
+      "equals_independent_baseline": true
+    },
+    {
+      "path": "leak-replay-log.json",
+      "sha256": "4ae7d5cddf4317b36313d8b09e1e63320c8e6cc86bc5139d5bab694cd18c992b",
+      "equals_independent_baseline": true
+    }
+  ],
+  "all_historical_artifacts_unchanged": true,
+  "human_labels_generated": false,
+  "formula_or_weights_changed": false,
+  "product_behavior_changed": false
+}

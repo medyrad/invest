@@ -11,6 +11,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
+FIX = HERE.parent / "tech-evidence-fix-01"
 
 
 def load(name: str):
@@ -31,7 +32,15 @@ def main() -> None:
     checks["d28_denominator"] = len(opportunities) == 96 and len({row["id"] for row in opportunities}) == 96 and len(scenarios) == 80 and len({row["id"] for row in scenarios}) == 80
     checks["route_counts"] = all(sum(row["route"] == route for row in opportunities) == 12 and sum(row["route"] == route for row in scenarios) == 10 for route in payload["routes"])
     checks["split_counts"] = sum(row["split"] == "development" for row in scenarios) == 32 and sum(row["split"] == "held-out" for row in scenarios) == 48 and all(sum(row["route"] == route and row["split"] == split for row in opportunities) == 6 for route in payload["routes"] for split in ("development", "held-out"))
-    signatures = {(row["route"], row["split"], json.dumps(row["snapshot"], sort_keys=True, ensure_ascii=False)) for row in opportunities}
+    signatures = {
+        json.dumps(
+            {"route": row["route"], "kind": row["kind"], "snapshot": row["snapshot"]},
+            sort_keys=True,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        for row in opportunities
+    }
     checks["genuine_pool_difference"] = len(signatures) == 96
     checks["explicit_units"] = all(any(isinstance(value, dict) and value.get("unit", {}).get("code") == "TOMAN" for value in row["snapshot"].values()) for row in opportunities)
     checks["human_fields_absent_from_inputs"] = all(row["pre_result_human_label"] is None and row["critical_misleading"] is None and row["expected_human_rank"] is None for row in scenarios)
@@ -55,12 +64,18 @@ def main() -> None:
 
     route_axis = list(csv.DictReader((HERE / "d28-route-axis-coverage.csv").open()))
     checks["route_axis_64"] = len(route_axis) == 64 and all(row["applicable"] in {"yes", "N/A"} and row["reason"] for row in route_axis)
+    checks["unit_basis_nonconsumer_NA"] = all(
+        row["applicable"] == "N/A" and not row["scenario_ids"] and row["oracle_result"] == "N/A"
+        for row in route_axis
+        if row["axis"] == "unit-basis" and row["route"] in {"operator", "charity"}
+    )
     for filename, human_fields in {
         "d28-relevance-labels.csv": ("relevance_label", "independent_group_rank", "reason", "evidence_fields", "missing_information", "reviewer", "reviewed_at"),
         "d28-critical-review.csv": ("critical_misleading", "missing_important_disclosure", "reason", "evidence_fields", "reviewer", "reviewed_at"),
     }.items():
         form = list(csv.DictReader((HERE / filename).open()))
         checks[filename + "_400_blank"] = len(form) == 400 and all(all(row[field] == "" for field in human_fields) for row in form)
+        checks[filename + "_400_unique"] = len({(row["scenario_id"], row["opportunity_id"]) for row in form}) == 400
     reviewer = (HERE / "d28-reviewer-inputs.json").read_text()
     checks["reviewer_has_no_system_output"] = not any(f'"{field}"' in reviewer for field in ("score", "coverage", "system_rank", "matching"))
 
@@ -75,6 +90,13 @@ def main() -> None:
     base = ROOT / "docs/experience-complete/human-design-review"
     broken = [link for link in links if not (base / link).resolve().exists()]
     checks["gallery_links"] = not broken and gallery.count("## G") == 12
+
+    d28_fix = json.loads((FIX / "d28-validation.json").read_text())
+    design_fix = json.loads((FIX / "design-validation.json").read_text())
+    provenance = json.loads((FIX / "runtime-provenance.json").read_text())
+    checks["independent_d28_fix_validation"] = d28_fix["passed"] == len(d28_fix["checks"]) and not d28_fix["failed"]
+    checks["independent_design_fix_validation"] = design_fix["passed"] == len(design_fix["checks"]) and not design_fix["failed"]
+    checks["fresh_runtime_provenance"] = all(provenance["checks"].values()) and not provenance["failed"] and len(provenance["captures"]) == 13
 
     failures = [name for name, passed in checks.items() if not passed]
     result = {"schema": "invest.tech-evidence.validation@1", "checks": len(checks), "passed": len(checks) - len(failures), "failed": failures, "details": checks}

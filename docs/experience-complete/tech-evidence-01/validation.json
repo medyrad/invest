@@ -1,7 +1,7 @@
 {
   "schema": "invest.tech-evidence.validation@1",
-  "checks": 28,
-  "passed": 28,
+  "checks": 34,
+  "passed": 34,
   "failed": [],
   "details": {
     "input_hash": true,
@@ -24,13 +24,19 @@
     "hiding_data_never_improves_score": true,
     "known_zero_has_coverage": true,
     "route_axis_64": true,
+    "unit_basis_nonconsumer_NA": true,
     "d28-relevance-labels.csv_400_blank": true,
+    "d28-relevance-labels.csv_400_unique": true,
     "d28-critical-review.csv_400_blank": true,
+    "d28-critical-review.csv_400_unique": true,
     "reviewer_has_no_system_output": true,
     "design_26x4": true,
     "design_paths": true,
     "design_votes_blank": true,
     "group_votes_12_blank": true,
-    "gallery_links": true
+    "gallery_links": true,
+    "independent_d28_fix_validation": true,
+    "independent_design_fix_validation": true,
+    "fresh_runtime_provenance": true
   }
 }

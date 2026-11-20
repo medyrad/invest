@@ -1,0 +1,37 @@
+{
+  "schema": "invest.design-capture@1",
+  "row_id": "DES-014",
+  "route": "/tools/ma-renewal",
+  "state": "step-1: فرم اختصاصی نوسازی و اسکان موقت",
+  "identity": "guest",
+  "synthetic_seed": "seed_core_demo@0380bbf-product-baseline-79519bb8",
+  "product_url": "http://127.0.0.1:3120",
+  "final_url": "http://127.0.0.1:3120/tools/ma-renewal",
+  "viewport_width": 360,
+  "viewport_height": 1000,
+  "browser": {
+    "engine": "chromium",
+    "version": "150.0.7871.125",
+    "playwright": "1.65.1"
+  },
+  "captured_at_utc": "2026-11-20T09:23:09.036Z",
+  "font_condition": "document.fonts.ready + status=loaded",
+  "motion_condition": "reduced",
+  "interaction": {
+    "controls": 38,
+    "focus": true,
+    "hit": true,
+    "viewport": {
+      "width": 360,
+      "height": 1000
+    },
+    "canvas": {
+      "width": 360,
+      "height": 4305
+    },
+    "overflow": false,
+    "fonts": "loaded",
+    "motion": "reduce"
+  },
+  "evidence_file": "design-ma-renewal-step1-360.png"
+}

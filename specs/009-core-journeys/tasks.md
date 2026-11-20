@@ -71,3 +71,12 @@
 - [x] T033 تحویل جامع شواهد/fixture با manifest، محدودیت، نسخه/زمان و گزارش برای بازبینی مستقل تجمیعی آماده شد؛ لینک/مخرج/فرم خالی اعتبارسنجی و شواهد تاریخی حفظ شدند. commit/push در تحویل مأموریت ثبت می‌شود؛ نه رأی انسانی، نه COMP-AI یا عرضه.
 
 تکمیل فنی این چهار تسک T020، گیت طراحی تخصصی، کیفیت انسانی D28 یا عرضه را خودکار نمی‌بندد. held-out نهایی به‌علت اصلاح fixture پس از نخستین تلاش، شاهد regression است و تأیید مستقل تازه هنوز لازم است.
+
+## Phase 3: Evidence correction — PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01
+
+- [x] T034 [US3] EVID-IT-001: پروفایل‌های unknown و known-zero با زمینه مؤثر متفاوت بازساخته شدند؛ validator مستقل ۹۶ امضای معنایی یکتا، ۴۸ در هر split و صفر duplicate را پس از حذف شناسه/metadata الزام می‌کند و mutation موقت را رد می‌کند.
+- [x] T035 [US3] EVID-IT-002: محور unit/basis برای operator و charity به‌علت نبود مصرف‌کننده عددی در قرارداد route برابر N/A شد؛ مسیرهای عددی به criteria، unit/basis و check واقعی oracle متصل و false-applicable در mutation رد شد.
+- [x] T036 [US5] EVID-IT-003/004 همراه 010/T042: نه slot دقیق route/state و چهار capture کتابخانه روی runtime منطبق recapture، به provenance محاسبه‌پذیر source→image→BUILD_ID/bundle→capture متصل و index/gallery فقط در همان ۱۳ slot همگام شد؛ هیچ verdict انسانی ثبت نشد.
+- [x] T037 development روی PostgreSQL تازه و held-out فقط با نقش regression پس از اصلاح fixture اجرا شد؛ ۴۸۰ مقایسه oracle بدون mismatch، ۴۰۰ ردیف فرم داوری خالی، validation تجمیعی و گزارش/manifest برای بازآزمایی مستقل آماده شد. شواهد تاریخی/replay دست‌نخورده‌اند و این علامت پذیرش مستقل/انسانی نیست.
+
+شاهد T034–T037: `docs/experience-complete/tech-evidence-fix-01/` و `tech-evidence-fix-01-report.md`. T020 و گیت‌های طراحی تخصصی/D28 انسانی/عرضه همچنان بازند.

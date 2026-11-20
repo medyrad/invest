@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="31.634837000000005">
+<testsuite name="capture-fixed-slots.spec.cjs" timestamp="2026-11-20T09:21:55.848Z" hostname="" tests="4" failures="0" skipped="0" time="28.173" errors="0">
+<testcase name="DES-003 exact route/state 360" classname="capture-fixed-slots.spec.cjs" time="8.364">
+</testcase>
+<testcase name="DES-003 exact route/state 768" classname="capture-fixed-slots.spec.cjs" time="7.719">
+</testcase>
+<testcase name="DES-021 exact route/state 390" classname="capture-fixed-slots.spec.cjs" time="6.183">
+</testcase>
+<testcase name="DES-021 exact route/state 768" classname="capture-fixed-slots.spec.cjs" time="5.907">
+</testcase>
+</testsuite>
+</testsuites>

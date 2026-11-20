@@ -1,7 +1,7 @@
 {
   "date": "2026-11-20",
   "current_stage": "S08",
-  "status": "experience-technical-accepted-fallback-approved-release-gates-open",
+  "status": "experience-evidence-corrected-independent-retest-pending-release-gates-open",
   "implementation_authorized": false,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -68,7 +68,8 @@
     "TEST-EXPERIENCE-FIX-02-RETEST accepted at 8c327ec: all ten EXP findings technically accepted in tested scope; supersedes earlier pending-independent entries above; human design, legacy decision and D28 quality remain open",
     "PRODUCT-EXPERIENCE-GATES-01: current status synchronized and human review packets prepared; no human votes or proposal approvals recorded",
     "PRODUCT-EXPERIENCE-FALLBACK-01: explicit user approval of PC-LEGACY-01 and nonpublic fallback PC-FALLBACK-01 recorded; no human verdict",
-    "TECH-EXPERIENCE-EVIDENCE-01: 26/26 primary design rows and 104/104 width slots classified; approved 80-scenario/96-opportunity synthetic D28 evidence executed with independent oracle; held-out is regression after a preserved fixture failure; no human verdict or product behavior change"
+    "TECH-EXPERIENCE-EVIDENCE-01: 26/26 primary design rows and 104/104 width slots classified; approved 80-scenario/96-opportunity synthetic D28 evidence executed with independent oracle; held-out is regression after a preserved fixture failure; no human verdict or product behavior change",
+    "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01: EVID-IT-001..004 corrected in fixture/harness/evidence/docs; 96 semantic signatures are unique, operator/charity unit-basis are contract-backed N/A, 13 captures are source/runtime bound, development and held-out regression have zero oracle mismatch; independent retest and human gates remain open"
   ],
   "remaining": [
     "COMP-EXPERIENCE: قبول فنی 8c327ec و تصمیم legacy مصوب؛ تکمیل هدفمند شاهد و fixture پیشنهادی، بررسی مالک و ممیزی تخصصی طراحی/D28 باز؛ مانع توسعه غیرعمومی مجاز نیستند.",
@@ -122,17 +123,17 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "TECH-EXPERIENCE-EVIDENCE-01",
-    "description": "بازآزمایی مستقل تجمیعی بسته شواهد TECH-EXPERIENCE-EVIDENCE-01؛ سپس فقط با مجوز جدا تصمیم‌های COMP-AI، نه اجرای آن",
+    "id": "TEST-EXPERIENCE-EVIDENCE-FIX-01",
+    "description": "بازآزمایی مستقل تجمیعی بسته اصلاح‌شده PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01؛ پذیرش طراحی و D28 انسانی جدا می‌ماند",
     "authorized": false,
-    "scope_path": "docs/experience-complete/tech-evidence-01-report.md",
+    "scope_path": "docs/experience-complete/tech-evidence-fix-01-report.md",
     "package": "COMP-EXPERIENCE"
   },
   "active_step": {
-    "id": "TECH-EXPERIENCE-EVIDENCE-01",
-    "mission": "TECH-EXPERIENCE-EVIDENCE-01",
-    "status": "technical-evidence-complete-independent-retest-pending",
-    "authorization": "Explicit user mission: 26-row design evidence and approved 80-scenario/96-opportunity synthetic D28 fixture/harness; no product behavior, human votes, COMP-AI or deployment",
+    "id": "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01",
+    "mission": "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01",
+    "status": "programmer-correction-complete-independent-retest-pending",
+    "authorization": "Explicit user mission: correct EVID-IT-001..004 in fixture/harness/evidence/docs only; no product behavior, D28 policy, human votes, COMP-AI or deployment",
     "documentation_authorized": true,
     "implementation_authorized": false,
     "push_authorized": true,
@@ -141,9 +142,9 @@
     "d28_human_accepted": false,
     "production_ready": false,
     "final_acceptance": false,
-    "independent_acceptance": true,
-    "independent_acceptance_scope": "COMP-EXPERIENCE technical scope only; 8c327ec",
-    "report_path": "docs/experience-complete/tech-evidence-01-report.md",
+    "independent_acceptance": false,
+    "independently_accepted_product_scope": "COMP-EXPERIENCE technical product scope only; 8c327ec (unchanged by this evidence correction)",
+    "report_path": "docs/experience-complete/tech-evidence-fix-01-report.md",
     "validation_path": "docs/experience-complete/tech-evidence-01/manifest.json"
   },
   "clarification_step": {

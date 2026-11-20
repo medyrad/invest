@@ -1,0 +1,37 @@
+{
+  "schema": "invest.design-capture@1",
+  "row_id": "DES-021",
+  "route": "/tools/charity",
+  "state": "step-2: جمع‌بندی اثر با فرض‌ها و پیگیری",
+  "identity": "guest",
+  "synthetic_seed": "seed_core_demo@0380bbf-product-baseline-79519bb8",
+  "product_url": "http://127.0.0.1:3120",
+  "final_url": "http://127.0.0.1:3120/tools/charity",
+  "viewport_width": 390,
+  "viewport_height": 1000,
+  "browser": {
+    "engine": "chromium",
+    "version": "150.0.7871.125",
+    "playwright": "1.65.1"
+  },
+  "captured_at_utc": "2026-11-20T09:23:18.694Z",
+  "font_condition": "document.fonts.ready + status=loaded",
+  "motion_condition": "reduced",
+  "interaction": {
+    "controls": 16,
+    "focus": true,
+    "hit": true,
+    "viewport": {
+      "width": 390,
+      "height": 1000
+    },
+    "canvas": {
+      "width": 390,
+      "height": 3929
+    },
+    "overflow": false,
+    "fonts": "loaded",
+    "motion": "reduce"
+  },
+  "evidence_file": "design-charity-summary-390.png"
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "invest.tech-evidence-fix.d28-validation@1",
+  "source_input_sha256": "89af376235955201ad0fc698a3090883bedda6a969954b12bac06b677e64fe6b",
+  "checks": {
+    "96_semantic_signatures": true,
+    "48_unique_per_split": true,
+    "zero_cross_split_or_internal_duplicates": true,
+    "semantic_mutation_rejected": true,
+    "unit_basis_contract_trace": true,
+    "unit_basis_false_applicable_mutation_rejected": true,
+    "operator_charity_unit_basis_NA": true,
+    "denominators_preserved": true
+  },
+  "passed": 8,
+  "failed": [],
+  "semantic_signature_count": 96,
+  "split_signature_counts": {
+    "development": 48,
+    "held-out": 48
+  },
+  "duplicates": [],
+  "unit_basis_errors": [],
+  "mutation": {
+    "temporary_copy_only": true,
+    "semantic_duplicate_rejected": true,
+    "false_applicable_rejected": true
+  }
+}
