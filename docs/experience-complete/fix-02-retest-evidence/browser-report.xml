@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="56.319496">
+<testsuite name="browser-report.spec.ts" timestamp="2026-11-20T06:58:55.195Z" hostname="" tests="1" failures="0" skipped="0" time="45.105" errors="0">
+<testcase name="investor preview and frozen downloads show the Persian route label" classname="browser-report.spec.ts" time="45.105">
+</testcase>
+</testsuite>
+</testsuites>

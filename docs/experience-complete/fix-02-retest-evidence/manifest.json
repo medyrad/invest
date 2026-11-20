@@ -1,0 +1,46 @@
+{
+  "mission": "TEST-EXPERIENCE-FIX-02-RETEST",
+  "date": "2026-11-20",
+  "prior_independent_commit": "32b3410f14f2e679e03bd7b69e4f8051cedaa42b",
+  "code_commit": "18b6c6e15de5d52f3d803c6a5fdc36062f37b56f",
+  "delivery_commit": "53af2c6931d06f28f284e1f0b7acae412b5f687e",
+  "backend_image": "sha256:b26f984ef72b1cc63895c7bca0f481d83030679a9270d7e17d9e07825205a7df",
+  "database": "PostgreSQL 17.12, isolated invest-expit tmpfs",
+  "results": {
+    "independent_backend": {"passed": 14, "failed": 0, "seconds": 4.781},
+    "prior_failing_node": {"passed": 1, "failed": 0, "seconds": 2.100, "overlaps_investor_case": true},
+    "independent_browser": {"passed": 1, "failed": 0, "test_seconds": 45.105, "wall_seconds": 56.3},
+    "product_regression_supporting": {"passed": 13, "failed": 0, "seconds": 4.188},
+    "unique_independent_tests": 15
+  },
+  "source_sha256": {
+    "backend/apps/core/reporting.py": "2580682167bdab6b49216f809bb0046b9157b07e4c7aae82f2505df1999b152a",
+    "backend/apps/core/report-routes-v1.json": "31a39f0a4571ffdf2f0079313f4a874828e5b9899dff940958ba4414f9bcc24b",
+    "backend/apps/core/search_fields.json": "af879ccc3cde30c21ca7d1476f61dbd2e514a01e933387d05ce9f5ed0737e4eb"
+  },
+  "evidence_sha256": {
+    ".gitignore": "180cdbdcb777df996f2feac5ea9176a92205408976582a6144beef37bb01b8b5",
+    "README.md": "67bb0926ec12390c9d5cdf8eae8c070dd2f5bfdeb0551d4456334f9781e88a64",
+    "browser-preview.png": "d62392c3b306b3433e3b05a9f73a1605843dbe6c062347f0f454754e520d56d4",
+    "browser-redownload.png": "2c029289c0087fe758cfdf7fb3f3a29e606904f9d2629eccf13898ce54719714",
+    "browser-report.spec.ts": "006c989f0adc411ecdd4dfabc17509fcfbab8ee21e14fbe301d85363b816ae28",
+    "browser-report.xml": "3a7a037ce82606a97810e216433e98988a2312169a5a84ffdea497b1a5584611",
+    "fresh-report.html": "403b97d02f760eb67c7eaa781b3cf4fc00517adcbb45b78840aca23f98c3085d",
+    "independent-backend.xml": "74b2ef4e752b1e83ad2ddbcb96ee10293df8982960b10430f270766485d87837",
+    "playwright.config.cjs": "7ee7d99a568d6fc5c8cc27be5d46495dba5a2f157869c9cb8e3b0949207ed384",
+    "prior-failing-node.xml": "45900827014af8af5e99ee0d97a1ee621e09f3536308f2c63caa79335a471ff0",
+    "product-regression.xml": "7e80ce06b724740454bd06595ae753eb9865b85f5aa441119536697213d50503",
+    "provenance.txt": "3b5018d7d038ddf59bd3c95a672069c891e503c4c16b15ce291b8f47ac41bf1a",
+    "test_fix02_retest_independent.py": "f5eac0a4523ff21eec3f577b2089e6e0e961157061ef0265910b39c6b981d0d9"
+  },
+  "report_sha256": "d6a1aa89eebb1863c4e410702821644b9895b4bca5f2761760b51fceda5ace7b",
+  "claims": {
+    "exp_it_003": "accepted",
+    "known_remaining_technical_blocker": false,
+    "legacy_missing_data_decision_open": true,
+    "human_design_approval_open": true,
+    "d28_human_gate_open": true,
+    "pushed": false,
+    "deployed": false
+  }
+}

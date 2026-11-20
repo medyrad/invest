@@ -1,0 +1,18 @@
+mission=TEST-EXPERIENCE-FIX-02-RETEST
+tested_at=2026-11-20T10:31:10+03:30
+checkout=53af2c6931d06f28f284e1f0b7acae412b5f687e
+code_commit=18b6c6e15de5d52f3d803c6a5fdc36062f37b56f
+product_diff_code_to_delivery=empty for backend/apps/core and backend/tests/test_experience_fix.py
+backend_image=sha256:b26f984ef72b1cc63895c7bca0f481d83030679a9270d7e17d9e07825205a7df
+backend_image_created=2026-11-20T06:33:15.313198903Z
+postgresql=17.12 isolated invest-expit tmpfs
+reporting.py checkout/runtime=2580682167bdab6b49216f809bb0046b9157b07e4c7aae82f2505df1999b152a
+report-routes-v1.json checkout/runtime=31a39f0a4571ffdf2f0079313f4a874828e5b9899dff940958ba4414f9bcc24b
+search_fields.json checkout/runtime=af879ccc3cde30c21ca7d1476f61dbd2e514a01e933387d05ce9f5ed0737e4eb
+independent_backend=14 passed, 0 failed, 4.781s final pytest
+prior_failing_node=1 passed, 0 failed, 2.100s; overlaps independent investor scenario
+product_regression=13 passed, 0 failed, 4.188s; supporting only
+browser=1 passed, 0 failed, 45.105s test, 56.3s wall
+fresh_report_label_count=1 Persian investor; 0 raw investor
+build_time=0; healthy matching images reused
+
