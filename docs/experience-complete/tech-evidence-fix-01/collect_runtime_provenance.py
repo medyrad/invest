@@ -15,6 +15,10 @@ WEB_IMAGE = "investevidencefix-web:0380bbf"
 BACKEND_IMAGE = "investevidencefix-backend:0380bbf"
 WEB_CONTAINER = "invest-evidencefix-web-1"
 BACKEND_CONTAINER = "invest-evidencefix-backend-1"
+CURRENT_WEB_IMAGE = "invest-web"
+CURRENT_BACKEND_IMAGE = "invest-backend"
+CURRENT_WEB_CONTAINER = "invest-web-validation"
+CURRENT_BACKEND_CONTAINER = "invest-backend-1"
 
 
 def run(*args: str) -> str:
@@ -50,6 +54,9 @@ def main() -> None:
     web = inspect_image(WEB_IMAGE)
     backend = inspect_image(BACKEND_IMAGE)
     build_id = run("docker", "exec", WEB_CONTAINER, "cat", "/app/.next/BUILD_ID")
+    current_web = inspect_image(CURRENT_WEB_IMAGE)
+    current_backend = inspect_image(CURRENT_BACKEND_IMAGE)
+    current_build_id = run("docker", "exec", CURRENT_WEB_CONTAINER, "cat", "/app/.next/BUILD_ID")
     frontend_runtime = runtime_hashes(
         WEB_CONTAINER,
         "find /app/.next/static /app/.next/server/app/tools /app/.next/server/app/library -type f -exec sha256sum {} +; sha256sum /app/.next/BUILD_ID /app/server.js",
@@ -73,6 +80,7 @@ def main() -> None:
     for metadata_path in sorted(HERE.glob("capture-*.json")):
         metadata = json.loads(metadata_path.read_text())
         image_path = HERE / metadata["evidence_file"]
+        current = metadata["product_url"] == "http://127.0.0.1:3108"
         captures.append({
             **metadata,
             "metadata_file": metadata_path.name,
@@ -80,9 +88,9 @@ def main() -> None:
             "evidence_sha256": sha(image_path),
             "evidence_bytes": image_path.stat().st_size,
             "runtime": {
-                "frontend_image_id": web["image_id"],
-                "backend_image_id": backend["image_id"],
-                "frontend_build_id": build_id,
+                "frontend_image_id": current_web["image_id"] if current else web["image_id"],
+                "backend_image_id": current_backend["image_id"] if current else backend["image_id"],
+                "frontend_build_id": current_build_id if current else build_id,
             },
         })
 
@@ -97,7 +105,7 @@ def main() -> None:
         "all_13_captures_bound": len(captures) == 13,
         "all_capture_files_exist": all((HERE / row["evidence_file"]).exists() for row in captures),
         "capture_conditions_complete": all(
-            row["final_url"].startswith("http://127.0.0.1:3120")
+            row["final_url"].startswith(("http://127.0.0.1:3120", "http://127.0.0.1:3108"))
             and row["font_condition"]
             and row["motion_condition"] == "reduced"
             and row["browser"]["version"]
@@ -126,6 +134,16 @@ def main() -> None:
             "frontend_affected_file_hashes": frontend_runtime,
             "backend_missing_tracked_files": backend_missing,
             "backend_mismatched_tracked_files": backend_mismatches,
+            "current_recapture": {
+                "mission": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-01",
+                "product_url": "http://127.0.0.1:3108",
+                "frontend_container": CURRENT_WEB_CONTAINER,
+                "backend_container": CURRENT_BACKEND_CONTAINER,
+                "frontend_image": current_web,
+                "backend_image": current_backend,
+                "frontend_build_id": current_build_id,
+                "scope": "DES-035 library accordion-open at 360/390/768/1440 only",
+            },
         },
         "checks": checks,
         "failed": failed,

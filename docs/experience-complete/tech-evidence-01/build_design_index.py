@@ -124,7 +124,7 @@ def main() -> None:
                 "product_evidence": product, "reference_evidence": reference, "proof_or_limitation": proof,
                 "evidence_route": metadata["route"] if metadata else source["route"], "evidence_state": metadata["state"] if metadata else source["state"],
                 "representative_contract": "same-route-state; width represented by the same component/breakpoint contract" if classification == "representative-covered" else "",
-                "product_version": FIX_CHECKOUT if metadata else PRODUCT_VERSION, "reference_zip_sha256": REFERENCE_SHA, "synthetic_data": metadata["synthetic_seed"] if metadata else "isolated seed_core_demo or frozen synthetic report",
+                "product_version": ("RUNTIME-HOME-LOADING-FIX-01 (programmer build; exact image/build digest in runtime-provenance.json)" if metadata and metadata["product_url"] == "http://127.0.0.1:3108" else FIX_CHECKOUT) if metadata else PRODUCT_VERSION, "reference_zip_sha256": REFERENCE_SHA, "synthetic_data": metadata["synthetic_seed"] if metadata else "isolated seed_core_demo or frozen synthetic report",
                 "font": metadata["font_condition"] if metadata else "document.fonts.ready", "motion": metadata["motion_condition"] if metadata else "reduced", "capture_time_utc": metadata["captured_at_utc"] if metadata else capture_time(product),
                 "runtime_provenance": "docs/experience-complete/tech-evidence-fix-01/runtime-provenance.json" if metadata else "historical evidence path/version; no fresh-capture claim",
                 "interaction_evidence": "tech-evidence-01/interaction-evidence.csv", "human_verdict": "", "specialist_design_approval": "",

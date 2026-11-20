@@ -33,8 +33,8 @@
     },
     {
       "path": "browser-results.xml",
-      "sha256": "d79cd911803df9f85b761db296635473e2c1f52b4bb9ad44eb39650e5789dc37",
-      "bytes": 1800
+      "sha256": "3c2f63383cddec35af03bde5eb43a272b5666c9a3e4b4a556c93bb4c5b887dd4",
+      "bytes": 765
     },
     {
       "path": "browser-targeted.xml",
@@ -63,8 +63,8 @@
     },
     {
       "path": "capture-fixed-slots.spec.cjs",
-      "sha256": "a596427df4f4648279a6fd82ef64d8ae2e9cf220886b3ded1442c6a12958ba21",
-      "bytes": 6909
+      "sha256": "ea2f189c0290964f1b2f8b166839fa873a54acedbbe6678016c0457ca95f129c",
+      "bytes": 7101
     },
     {
       "path": "capture-foreign-investment-step1-360.json",
@@ -83,23 +83,23 @@
     },
     {
       "path": "capture-library-1440.json",
-      "sha256": "4cb26ee6c7377fffb539abdd5d1b71d41a2a19543cfa2d24697efe3f42a3332f",
-      "bytes": 942
+      "sha256": "49df35a593b9ba512bc6ab2bf0f6ed271205fb4b4bd91a59ccbb08a4747c8768",
+      "bytes": 966
     },
     {
       "path": "capture-library-360.json",
-      "sha256": "41ae0d78f781c738de7305e54e1ee5eb2eb868f4b3c2345e9d445a7c71eed1c2",
-      "bytes": 938
+      "sha256": "767baa7003a0be6bb25dd1560d489713ee1a0e7e4a63336d812a39d376baf514",
+      "bytes": 962
     },
     {
       "path": "capture-library-390.json",
-      "sha256": "f6bdd315d1e189fc165ab9839807ae92a875e7062acc805a4ce6b54ba8c1b665",
-      "bytes": 938
+      "sha256": "1c19a5f579d5ad45c0b752fa517b4c4141d5717cebd8930da925197910eb8fc4",
+      "bytes": 962
     },
     {
       "path": "capture-library-768.json",
-      "sha256": "d9fcd6f54ce8cec03582b885ba3a63de9ae0330b998269a05cb11d87f734b776",
-      "bytes": 938
+      "sha256": "7e4a27a142b8aba81b378258525775e65f49531d3c032d883db787f56b6b4f28",
+      "bytes": 962
     },
     {
       "path": "capture-ma-renewal-step1-360.json",
@@ -123,8 +123,8 @@
     },
     {
       "path": "collect_runtime_provenance.py",
-      "sha256": "e433dbed7b4a4fba64ffa833c625e5b4a3d9e0961debd7ef88af5e54841d30ba",
-      "bytes": 5776
+      "sha256": "1cad125096f789affbb41ec0df06bb6470b8f606090ef8f1aa6d98750a882f41",
+      "bytes": 6902
     },
     {
       "path": "d28-validation.json",
@@ -158,23 +158,23 @@
     },
     {
       "path": "design-library-1440.png",
-      "sha256": "da452b5ae77b2c3f8dcaba00ecb3989e30a60b51644b43a5f7449280946c27e6",
-      "bytes": 114558
+      "sha256": "c448f05c2e03cb3dfb5bdf1aa4cf3fbde949fa718f176756d88769ba15071977",
+      "bytes": 134695
     },
     {
       "path": "design-library-360.png",
-      "sha256": "212fbed5969a3202997d026f5ba1c1e535611da935061eec2bbffd19c4d09195",
-      "bytes": 92366
+      "sha256": "aa761233036c909358ce5a9d6b1a943f223b55e8a581877b662773bf30f973e8",
+      "bytes": 113759
     },
     {
       "path": "design-library-390.png",
-      "sha256": "c63757a2376286eb1281731fa9811566fca9dce255aae2bca33b40d476047892",
-      "bytes": 92836
+      "sha256": "1c18b8329df7f6ef2ce04484ba34e2ee8f22083f43e64c8d528e32958aa88053",
+      "bytes": 115678
     },
     {
       "path": "design-library-768.png",
-      "sha256": "539646c7c8a12ce092d64fc33c65aa12637ecf112dacf1a37bee18ad47c3b270",
-      "bytes": 99608
+      "sha256": "fefc4aa5bbfcd384208831fa0cbacdfe35fc239a290bdf15949717d4cfdffdd2",
+      "bytes": 120637
     },
     {
       "path": "design-ma-renewal-step1-360.png",
@@ -213,8 +213,8 @@
     },
     {
       "path": "runtime-provenance.json",
-      "sha256": "35bac464bff10dee5a6bd0ae8dd80427e14ad8f81b96fb04d5bd9d6a1a5e55c7",
-      "bytes": 37085
+      "sha256": "8208b6f36902302523232477e23e369ecadf108cbb18e663674ebc8f6399f104",
+      "bytes": 38626
     },
     {
       "path": "source-fingerprints.json",
@@ -278,8 +278,8 @@
     },
     {
       "path": "../tech-evidence-01/design-slot-matrix.csv",
-      "sha256": "c4657d174986a8577e5406bf2daedf3312bf7c912e654119a7c3ea0fc88560d3",
-      "bytes": 86608
+      "sha256": "f5760eddb4fccb7af383e660171a682acffa23e32ffdde2c7f19d3137129be2c",
+      "bytes": 86652
     },
     {
       "path": "../tech-evidence-01/validation.json",
@@ -288,8 +288,8 @@
     },
     {
       "path": "../human-design-review/evidence-index.csv",
-      "sha256": "d216fa1eb36ca43b078cdafff9070c35f060866a5ba05e9035f962fe84ee6433",
-      "bytes": 66688
+      "sha256": "61a1acbdb29c91b37040bc0723e3be913c9ac59296d66b2032a9c1616e39cc76",
+      "bytes": 66756
     },
     {
       "path": "../human-design-review/evidence-gallery.md",

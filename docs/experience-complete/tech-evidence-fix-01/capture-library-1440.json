@@ -4,9 +4,9 @@
   "route": "/library",
   "state": "topic-index;accordion-open",
   "identity": "guest",
-  "synthetic_seed": "seed_core_demo@0380bbf-product-baseline-79519bb8",
-  "product_url": "http://127.0.0.1:3120",
-  "final_url": "http://127.0.0.1:3120/library",
+  "synthetic_seed": "seed_core_demo@RUNTIME-HOME-LOADING-FIX-01",
+  "product_url": "http://127.0.0.1:3108",
+  "final_url": "http://127.0.0.1:3108/library",
   "viewport_width": 1440,
   "viewport_height": 1000,
   "browser": {
@@ -14,20 +14,21 @@
     "version": "150.0.7871.125",
     "playwright": "1.65.1"
   },
-  "captured_at_utc": "2026-11-20T09:23:33.265Z",
+  "captured_at_utc": "2026-11-20T13:15:05.568Z",
   "font_condition": "document.fonts.ready + status=loaded",
   "motion_condition": "reduced",
   "interaction": {
     "controls": 16,
     "focus": true,
     "hit": true,
+    "expanded_accordions": 1,
     "viewport": {
       "width": 1440,
       "height": 1000
     },
     "canvas": {
       "width": 1440,
-      "height": 1061
+      "height": 1133
     },
     "overflow": false,
     "fonts": "loaded",

@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const product = process.env.PRODUCT_URL || 'http://127.0.0.1:3120';
-const seed = 'seed_core_demo@0380bbf-product-baseline-79519bb8';
+const seed = process.env.SYNTHETIC_SEED || 'seed_core_demo@0380bbf-product-baseline-79519bb8';
 
 const captures = [
   {row: 'DES-003', name: 'proposal-summary', route: '/tools/proposal', state: 'step-3: جمع‌بندی راهنمای اولیه', widths: [360, 768], summary: true},
@@ -81,7 +81,8 @@ async function interactionState(page) {
   expect(hit).toBeTruthy();
   expect(geometry.overflow).toBeFalsy();
   expect(geometry.fonts).toBe('loaded');
-  return {controls: count, focus, hit, ...geometry};
+  const expandedAccordions = await page.locator('main button[aria-expanded="true"]:visible').count();
+  return {controls: count, focus, hit, expanded_accordions: expandedAccordions, ...geometry};
 }
 
 async function writeEvidence(page, browser, item, width) {
@@ -131,9 +132,9 @@ for (const width of [360, 390, 768, 1440]) {
     await stable(page);
     const accordion = page.locator('main button:visible').first();
     const before = await accordion.getAttribute('aria-expanded');
-    await accordion.click();
+    if (before !== 'true') await accordion.click();
     const after = await accordion.getAttribute('aria-expanded');
-    expect(before).not.toBe(after);
+    expect(after).toBe('true');
     await writeEvidence(page, browser, {row: 'DES-035', name: 'library', route: '/library', state: 'topic-index;accordion-open'}, width);
     await context.close();
   });

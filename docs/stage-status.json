@@ -123,29 +123,29 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "TEST-EXPERIENCE-EVIDENCE-FIX-01",
-    "description": "بازآزمایی مستقل تجمیعی بسته اصلاح‌شده PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01؛ پذیرش طراحی و D28 انسانی جدا می‌ماند",
+    "id": "TEST-RUNTIME-HOME-LOADING-FIX-01",
+    "description": "بازآزمایی مستقل اجرای development، ورود دو alias، داده منتشرشده چندشهری، loading محلی و EVID-IT-004؛ پذیرش انسانی طراحی جدا می‌ماند",
     "authorized": false,
-    "scope_path": "docs/experience-complete/tech-evidence-fix-01-report.md",
+    "scope_path": "docs/development.md",
     "package": "COMP-EXPERIENCE"
   },
   "active_step": {
-    "id": "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01",
-    "mission": "PROGRAMMER-EXPERIENCE-EVIDENCE-FIX-01",
+    "id": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-01",
+    "mission": "PROGRAMMER-RUNTIME-HOME-LOADING-FIX-01",
     "status": "programmer-correction-complete-independent-retest-pending",
-    "authorization": "Explicit user mission: correct EVID-IT-001..004 in fixture/harness/evidence/docs only; no product behavior, D28 policy, human votes, COMP-AI or deployment",
+    "authorization": "Explicit user mission: limited product/runtime/test changes for primary development on 3108, published multi-city seed, reusable loading UX and EVID-IT-004 recapture; no S09, AI, D28 policy, human votes, push or deployment",
     "documentation_authorized": true,
-    "implementation_authorized": false,
-    "push_authorized": true,
+    "implementation_authorized": true,
+    "push_authorized": false,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
     "d28_human_accepted": false,
     "production_ready": false,
     "final_acceptance": false,
     "independent_acceptance": false,
-    "independently_accepted_product_scope": "COMP-EXPERIENCE technical product scope only; 8c327ec (unchanged by this evidence correction)",
-    "report_path": "docs/experience-complete/tech-evidence-fix-01-report.md",
-    "validation_path": "docs/experience-complete/tech-evidence-01/manifest.json"
+    "independently_accepted_product_scope": "Previous COMP-EXPERIENCE technical scope remains historical; current runtime/home/loading correction awaits independent retest",
+    "report_path": "docs/development.md",
+    "validation_path": "docs/experience-complete/tech-evidence-fix-01/design-validation.json"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
