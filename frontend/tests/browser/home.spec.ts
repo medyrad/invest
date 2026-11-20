@@ -9,7 +9,7 @@ test('home includes all active sections, real catalog and a truthful sample labe
   await page.goto('/');
   await expect(page.locator('[data-section="categories"]')).toBeVisible();
   for (const section of ['hero','main-categories','categories','featured','how','help']) await expect(page.locator(`[data-section="${section}"]`)).toHaveCount(1);
-  await expect(page.getByRole('note')).toContainText('داده نمونه');
+  await expect(page.getByRole('note')).toContainText('داده مصنوعی توسعه');
   await expect(page.locator('[data-section="featured"] article')).toHaveCount(6);
   await expect(page.locator('text=/\\d+٪ تطابق/')).toHaveCount(0);
   const groups = await page.getByLabel('دسته‌بندی', { exact: true }).locator('option').count();
@@ -59,14 +59,22 @@ test('catalog parent changes clear invalid children and remove/clear controls wo
 });
 
 test('catalog failure, retry, empty response and recovery never fabricate fresh data', async ({ page }) => {
+  let release!: () => void;
+  const delayed = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/api/v1/core/opportunities', async route => { await delayed; await route.continue(); });
+  await page.goto('/');
+  await expect(page.locator('[data-loading="home-map"]')).toBeVisible();
+  await expect(page.locator('[data-loading="home-catalog"]')).toBeVisible();
+  release(); await page.unroute('**/api/v1/core/opportunities');
+  await expect(page.getByLabel('دسته‌بندی', { exact: true })).toBeVisible();
   await page.route('**/api/v1/catalog/**', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{}' }));
-  await page.goto('/'); await expect(page.getByRole('region', { name: 'وضعیت کاتالوگ' })).toContainText('دریافت کاتالوگ انجام نشد');
+  await page.reload(); await expect(page.locator('[data-loading-error]')).toContainText('دریافت داده معتبر سرور انجام نشد');
   await expect(page.locator('[data-section="featured"] article')).toHaveCount(0);
   await page.unroute('**/api/v1/catalog/**');
   await page.route('**/api/v1/catalog/taxonomy', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ version: 'test-empty', groups: [] }) }));
   await page.getByRole('button', { name: 'تلاش دوباره', exact: true }).click();
-  await expect(page.getByRole('region', { name: 'وضعیت کاتالوگ' })).toContainText('کاتالوگ هنوز داده‌ای ندارد');
-  await page.unroute('**/api/v1/catalog/taxonomy'); await page.getByRole('button', { name: 'تلاش دوباره', exact: true }).click();
+  await expect(page.getByRole('status')).toContainText('کاتالوگ هنوز آماده نیست');
+  await page.unroute('**/api/v1/catalog/taxonomy'); await page.getByRole('button', { name: 'بررسی دوباره', exact: true }).click();
   await expect(page.getByLabel('دسته‌بندی', { exact: true })).toBeVisible();
 });
 
@@ -82,11 +90,11 @@ test('navigation, mobile menu and help disclose future destinations', async ({ p
   await expect(help).toHaveAttribute('aria-expanded','true'); await help.press('Enter'); await expect(help).toHaveAttribute('aria-expanded','false');
 });
 
-test('public preview-disabled response renders no synthetic cards or calculated score', async ({ page }) => {
-  await page.route('**/api/v1/catalog/preview', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ version: 'public', enabled: false, synthetic: true, listings: [] }) }));
-  await page.goto('/'); await expect(page.locator('[data-section="featured"]')).toBeVisible();
+test('empty published response renders an honest state without fixture fallback', async ({ page }) => {
+  await page.route('**/api/v1/core/opportunities', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ items: [], next: null, criteria: {} }) }));
+  await page.goto('/'); await expect(page.getByRole('status')).toContainText('هنوز فرصت عمومی منتشر نشده است');
   await expect(page.locator('[data-section="featured"] article')).toHaveCount(0);
-  await expect(page.getByText('فرصت نمایشی در حالت عمومی فعال نیست.', { exact: true })).toBeVisible();
+  await expect(page.getByText('نقشه ایران؛ هنوز فرصت عمومی منتشرشده‌ای وجود ندارد', { exact: true })).toBeVisible();
 });
 
 test('motion and reduced-motion remain distinct without hydration errors @desktop', async ({ browser }) => {

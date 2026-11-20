@@ -46,7 +46,7 @@ def test_identity_conflict_rolls_back_and_foreign_keys_unique():
         )
 
 
-def test_catalog_api_matches_fixture_and_public_has_no_preview(client, settings):
+def test_catalog_api_matches_fixture_and_preview_contract_is_retired(client):
     call_command("import_reference")
     from jsonschema import Draft202012Validator
 
@@ -68,7 +68,6 @@ def test_catalog_api_matches_fixture_and_public_has_no_preview(client, settings)
     for endpoint, name in [
         ("taxonomy", "CatalogTaxonomy"),
         ("geography", "CatalogGeography"),
-        ("preview", "CatalogPreview"),
     ]:
         schema = {"$ref": "#/components/schemas/" + name, "components": contract["components"]}
         Draft202012Validator(schema).validate(client.get("/api/v1/catalog/" + endpoint).json())
@@ -79,14 +78,7 @@ def test_catalog_api_matches_fixture_and_public_has_no_preview(client, settings)
     geography = client.get("/api/v1/catalog/geography").json()
     assert len(geography["provinces"]) == 31
     assert sum(len(p["counties"]) for p in geography["provinces"]) == 478
-    preview = client.get("/api/v1/catalog/preview").json()
-    assert preview["synthetic"] and len(preview["listings"]) == 273
-    assert all(
-        "mobile" not in (row.get("raw", {}).get("expert") or {}) for row in preview["listings"]
-    )
-    settings.INVEST_ENV = "public"
-    assert client.get("/api/v1/catalog/preview").json()["listings"] == []
-    assert client.get("/api/v1/catalog/preview").json()["enabled"] is False
+    assert client.get("/api/v1/catalog/preview").status_code == 404
     assert client.post("/api/v1/catalog/taxonomy", {}).status_code in (403, 405)
 
 

@@ -7,6 +7,7 @@ import { IranMap, cityXY } from "@/components/brand/iran-map";
 import { useCatalog } from "@/lib/catalog-context";
 import { cn } from "@/lib/utils";
 import type { Listing } from "@/types";
+import { MapSkeleton } from "@/components/loading/loading-system";
 export function cityPoints(listings: Listing[]) {
   const m = new Map<string, { city: string; province: string; count: number }>();
   for (const l of listings) if (l.city && l.province) { const k = l.city; m.set(k, { city: k, province: l.province, count: (m.get(k)?.count ?? 0) + 1 }); }
@@ -62,11 +63,12 @@ function useFeed(listings: Listing[]) {
 
 /** نقشه هیرو. active استان‌های انتخاب‌شده را پررنگ می‌کند، focus به‌جای کارت‌های چرخان فقط یک پروژه را نشان می‌دهد. */
 export function MapScene({ active = [], focus, caption = "تازه‌ترین پروژه‌ها از سراسر ایران" }: { active?: string[]; focus?: string; caption?: string }) {
-  const { listings, previewEnabled } = useCatalog();
+  const { listings, hasSynthetic, status } = useCatalog();
   const points = useMemo(() => cityPoints(listings), [listings]);
   const all = useFeed(listings);
   const feed = focus ? [] : all;
   const fl = focus ? listings.find((l) => l.id === focus) : null; const fp = fl?.city ? cityXY(fl.city) : null;
+  if (status === "loading") return <MapSkeleton />;
   return (
     <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.15, ease }} data-map-scene className="relative mx-auto w-full max-w-[620px]">
       <IranMap points={points} active={active} labels={false} links={false}>
@@ -93,8 +95,7 @@ export function MapScene({ active = [], focus, caption = "تازه‌ترین پ
           );
         })}
       </AnimatePresence>
-      <p className="mt-1 text-center text-xs font-semibold text-muted-foreground">{previewEnabled ? caption + " — داده نمونه" : "نقشه ایران؛ نمایش فرصت عمومی هنوز فعال نیست"}</p>
+      <p className="mt-1 text-center text-xs font-semibold text-muted-foreground">{listings.length ? caption + (hasSynthetic ? " — داده مصنوعی توسعه" : "") : "نقشه ایران؛ هنوز فرصت عمومی منتشرشده‌ای وجود ندارد"}</p>
     </motion.div>
   );
 }
-

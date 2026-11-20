@@ -7,15 +7,15 @@ import {toListing, type PublicOpportunity} from '@/lib/public-values';
 import {acceptRanking} from '@/lib/match';
 import {usePathname} from 'next/navigation';
 import {Header} from '@/components/site/header';
-import Link from 'next/link';
 import {documents,configureGeography} from '@/lib/public-values';
+import {LoadFailure,ResultsSkeleton} from '@/components/loading/loading-system';
 const Tick=createContext(0);export const usePublicTick=()=>useContext(Tick);
 type Feed={items:PublicOpportunity[];next:string|null;criteria:Record<string,unknown>};
 function Data({children,id}:{children:React.ReactNode;id?:string}){
- const c=useStore(s=>s.criteria),profiles=useStore(s=>s.profiles);const [ready,setReady]=useState(false),[error,setError]=useState(''),[tick,setTick]=useState(0);const path=usePathname();const initialURL=useRef(false);
+ const c=useStore(s=>s.criteria),profiles=useStore(s=>s.profiles);const [ready,setReady]=useState(false),[error,setError]=useState(''),[tick,setTick]=useState(0),[attempt,setAttempt]=useState(0);const path=usePathname();const initialURL=useRef(false);
 
 
- useEffect(()=>{let active=true;setError('');
+ useEffect(()=>{let active=true;setReady(false);setError('');
  async function feed(criteria:Record<string,unknown>){let next:string|null=null;const all:PublicOpportunity[]=[];do{const q=new URLSearchParams({criteria:JSON.stringify(criteria),...(next?{cursor:next}:{})});const r:Feed=await core<Feed>('opportunities?'+q.toString());all.push(...r.items);next=r.next;}while(next&&active);return all;}
  async function load(){
  const geography=await fetch('/api/v1/catalog/geography',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('دریافت موقعیت‌ها انجام نشد.');return r.json()});configureGeography(geography);if(!active)return;
@@ -28,7 +28,7 @@ function Data({children,id}:{children:React.ReactNode;id?:string}){
  if(active){setReady(true);setTick(t=>t+1)}
  }
  void load().catch(e=>{if(active){setReady(false);setError(e.message)}});return()=>{active=false};
- },[c,id,path,profiles]);
- return <Tick.Provider value={tick}>{error?<><Header/><p role="alert" className="m-10">{error} <Link href="/opportunities">بازگشت به فرصت‌ها</Link></p></>:ready?children:<><Header/><p role="status" className="m-10">در حال دریافت داده معتبر سرور…</p></>}</Tick.Provider>
+ },[attempt,c,id,path,profiles]);
+ return <Tick.Provider value={tick}>{error?<><Header/><LoadFailure message={error} onRetry={()=>setAttempt(value=>value+1)}/></>:ready?children:<><Header/><ResultsSkeleton/></>}</Tick.Provider>
 }
 export default function ReferenceShell({children,id}:{children:React.ReactNode;id?:string}){return <><Data id={id}>{children}</Data></>}

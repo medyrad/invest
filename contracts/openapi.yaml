@@ -1792,7 +1792,7 @@
         "security": [],
         "responses": {
           "200": {
-            "description": "کاتالوگ خواندنی نسخه‌دار؛ preview در public همیشه خالی",
+            "description": "جغرافیای خواندنی و نسخه‌دار کاتالوگ",
             "content": {
               "application/json": {
                 "schema": {
@@ -1815,24 +1815,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CatalogGeography"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/catalog/preview": {
-      "get": {
-        "operationId": "catalog_preview",
-        "security": [],
-        "responses": {
-          "200": {
-            "description": "کاتالوگ خواندنی نسخه‌دار؛ preview در public همیشه خالی",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CatalogPreview"
                 }
               }
             }
@@ -2806,92 +2788,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CatalogProvince"
-            }
-          }
-        }
-      },
-      "PreviewListing": {
-        "type": "object",
-        "required": [
-          "id",
-          "kind",
-          "title",
-          "image",
-          "stats",
-          "gallery"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "kind": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "image": {
-            "type": "string"
-          },
-          "stats": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "label",
-                "value"
-              ],
-              "properties": {
-                "label": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "gallery": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "src"
-              ],
-              "properties": {
-                "src": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "CatalogPreview": {
-        "type": "object",
-        "required": [
-          "version",
-          "synthetic",
-          "enabled",
-          "listings"
-        ],
-        "properties": {
-          "version": {
-            "const": "advisor-preview-v1"
-          },
-          "synthetic": {
-            "const": true
-          },
-          "enabled": {
-            "type": "boolean"
-          },
-          "listings": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PreviewListing"
             }
           }
         }

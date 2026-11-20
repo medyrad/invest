@@ -55,6 +55,21 @@ def read_environment(env):
             valid = False
         if not valid:
             fail("CSRF_TRUSTED_ORIGINS")
+    if mode == "development":
+        try:
+            web_port = int(env.get("WEB_PORT", ""))
+        except ValueError:
+            fail("WEB_PORT")
+        expected_origins = {
+            f"http://localhost:{web_port}",
+            f"http://127.0.0.1:{web_port}",
+        }
+        if not 1024 <= web_port <= 65535:
+            fail("WEB_PORT")
+        if set(hosts) != {"localhost", "127.0.0.1", "backend"}:
+            fail("DJANGO_ALLOWED_HOSTS")
+        if set(origins) != expected_origins:
+            fail("CSRF_TRUSTED_ORIGINS")
     otp = env.get("OTP_DELIVERY_MODE", "")
     launch = boolean("PUBLIC_LAUNCH_ENABLED")
     if otp not in ("notification", "sms"):

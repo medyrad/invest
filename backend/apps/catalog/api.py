@@ -1,7 +1,3 @@
-import json
-from pathlib import Path
-
-from django.conf import settings
 from rest_framework.response import Response
 
 from config.views import PublicBase
@@ -53,24 +49,6 @@ class Geography(PublicBase):
             )
         return Response(
             {"version": VERSION, "city_coverage": "source-linked-only", "provinces": provinces}
-        )
-
-
-class Preview(PublicBase):
-    def get(self, request):
-        enabled = settings.INVEST_ENV in ("development", "test")
-        data = (
-            json.loads((Path(__file__).parent / "fixtures/preview-v1.json").read_text())
-            if enabled
-            else {"listings": []}
-        )
-        return Response(
-            {
-                "version": "advisor-preview-v1",
-                "synthetic": True,
-                "enabled": enabled,
-                "listings": data["listings"],
-            }
         )
 
 

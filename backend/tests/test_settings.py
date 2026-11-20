@@ -1,6 +1,8 @@
 import pytest
 from django.core.exceptions import ImproperlyConfigured
+from django.test import RequestFactory
 
+from config.api import csrf_failure
 from config.env import read_environment
 
 
@@ -20,6 +22,45 @@ def test_positive_public():
     config = read_environment(public_env())
     assert config["secure"] and not config["debug"]
     assert not config["launch_enabled"]
+
+
+def test_development_origins_are_exactly_derived_from_web_port():
+    env = public_env() | {
+        "INVEST_ENV": "development",
+        "DJANGO_DEBUG": "true",
+        "OTP_DELIVERY_MODE": "notification",
+        "WEB_PORT": "43108",
+        "DJANGO_ALLOWED_HOSTS": "localhost,127.0.0.1,backend",
+        "CSRF_TRUSTED_ORIGINS": "http://localhost:43108,http://127.0.0.1:43108",
+    }
+    config = read_environment(env)
+    assert set(config["origins"]) == {
+        "http://localhost:43108",
+        "http://127.0.0.1:43108",
+    }
+    with pytest.raises(ImproperlyConfigured):
+        read_environment(env | {"CSRF_TRUSTED_ORIGINS": "http://127.0.0.1:43108"})
+    with pytest.raises(ImproperlyConfigured):
+        read_environment(
+            env
+            | {
+                "CSRF_TRUSTED_ORIGINS": (
+                    "http://localhost:43108,http://127.0.0.1:43108,http://example.test:43108"
+                )
+            }
+        )
+
+
+def test_csrf_failure_message_is_actionable_without_disclosing_reason():
+    request = RequestFactory().post("/api/v1/auth/issue")
+    request.request_id = "safe-request-id"
+    response = csrf_failure(request, reason="sensitive internal diagnostic")
+    import json
+
+    error = json.loads(response.content)["error"]
+    assert error["code"] == "csrf_failed"
+    assert "نشانی رسمی" in error["message"] and "تازه" in error["message"]
+    assert "sensitive" not in response.content.decode()
 
 
 def test_actual_public_settings_are_secure():

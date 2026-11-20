@@ -1,14 +1,11 @@
 COMPOSE = docker compose --env-file .env -f deploy/compose.yaml
 .PHONY: env build up stop check test browser smoke
 env:
-	python3 scripts/dev_env.py
+	python3 scripts/dev_runtime.py prepare
 build: env
 	$(COMPOSE) build backend web test browser-api
-up: env
-	$(COMPOSE) up -d db
-	$(COMPOSE) run --rm backend /app/.venv/bin/python manage.py migrate --noinput
-	$(COMPOSE) run --rm backend /app/.venv/bin/python manage.py import_reference
-	$(COMPOSE) up -d backend web
+up:
+	python3 scripts/dev_runtime.py up
 stop:
 	$(COMPOSE) --profile test stop
 check:

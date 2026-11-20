@@ -7,7 +7,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.utils import timezone
 from pypdf import PdfWriter
 
-from apps.catalog.models import City, County, Group, Province, Subtype
+from apps.catalog.models import City, Group, Subtype
 from apps.core import publication as pub
 from apps.core.models import Opportunity, Personal
 from apps.identity.models import User
@@ -39,6 +39,13 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         if settings.INVEST_ENV not in ["development", "test"]:
             raise CommandError("Synthetic seed is forbidden in public.")
+        city_names = ["تهران", "اصفهان", "شیراز", "تبریز", "مشهد", "اهواز"]
+        locations = {
+            city.name: city
+            for city in City.objects.select_related("county__province").filter(name__in=city_names)
+        }
+        if set(locations) != set(city_names):
+            raise CommandError("Versioned geography must be imported before the synthetic seed.")
         team = {}
         for index, (name, role) in enumerate(
             [
@@ -123,18 +130,25 @@ class Command(BaseCommand):
                     "result": "سه مدرک مصنوعی برای آزمون جریان تطبیق داده شد.",
                 },
             )
-        province = Province.objects.filter(name="تهران").first() or Province.objects.first()
-        county = County.objects.filter(province=province).first()
-        city = City.objects.filter(county=county).first()
         group = Group.objects.first()
         subtype = Subtype.objects.filter(group=group).first()
-        for kind in ["project", "fund", "sale"]:
+        if not group or not subtype:
+            raise CommandError("Versioned taxonomy must be imported before the synthetic seed.")
+        for kind_index, kind in enumerate(["project", "fund", "sale"]):
             for i in range(1, 3):
+                city = locations[city_names[kind_index * 2 + i - 1]]
+                county = city.county
+                province = county.province
+                location_values = {
+                    key: value
+                    for key, value in {
+                        "province": province.pk,
+                        "county": county.pk,
+                        "city": city.pk,
+                    }.items()
+                    if key in other_schema.fields(kind)
+                }
                 title = f"فرصت مصنوعی {kind} شماره {i}"
-                if Opportunity.objects.filter(
-                    synthetic=True, draft__raw__title=title, public_revision__isnull=False
-                ).exists():
-                    continue
                 d = Draft.objects.filter(creator=owner, kind=kind, raw__title=title).first()
                 if not d:
                     d0 = ws.create_draft(
@@ -219,12 +233,27 @@ class Command(BaseCommand):
                         },
                     )
                     d = Draft.objects.get(pk=row["id"])
-                op, created = Opportunity.objects.get_or_create(
+                elif any(d.raw.get(field) != value for field, value in location_values.items()):
+                    row = ws.save_draft(
+                        owner,
+                        d.pk,
+                        {
+                            "key": key(),
+                            "version": d.version,
+                            "routes": d.routes,
+                            "heritage_enabled": d.heritage_enabled,
+                            "values": location_values,
+                        },
+                    )
+                    d = Draft.objects.get(pk=row["id"])
+                op, _ = Opportunity.objects.get_or_create(
                     draft=d, defaults={"synthetic": True}
                 )
                 if not op.synthetic:
                     raise CommandError("Non-synthetic opportunity collision.")
-                s = op.submission_set.order_by("-created_at").first()
+                if op.public_revision_id and op.public_revision.draft_version == d.version:
+                    continue
+                s = op.submission_set.filter(draft_version=d.version).first()
                 if not s:
                     s0 = pub.submit(owner_session, d.pk, {"key": key(), "version": d.version})
                     s = op.submission_set.get(pk=s0["id"])
@@ -241,5 +270,5 @@ class Command(BaseCommand):
                     )
         self.stdout.write(
             "Synthetic journey seed ready: 5 local roles, organization and 6 "
-            "published opportunities. No credentials printed."
+            "published opportunities with mapped multi-city locations. No credentials printed."
         )

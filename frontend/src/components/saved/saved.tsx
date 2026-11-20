@@ -33,6 +33,7 @@ import { listings } from "@/lib/listings";
 import { matchListing, rank } from "@/lib/match";
 import { useHydrated, useStore } from "@/lib/store";
 import { cn, faNumber } from "@/lib/utils";
+import { SavedSkeleton } from "@/components/loading/loading-system";
 
 /** فیلترهای من: فهرست فیلترها در راست (با + برای افزودن)، پروژه‌های فیلتر انتخاب‌شده همین‌جا در چپ */
 function CriteriaBoard() {
@@ -141,14 +142,14 @@ export function Saved() {
           <AddSearchButton />
         </div>
 
-        {hydrated && !user ? (
+        {!hydrated ? <SavedSkeleton /> : !user ? (
           <Card className="surface mt-8 grid place-items-center gap-0 rounded-[2rem] px-6 py-20 text-center">
             <span className="grid size-16 place-items-center rounded-full bg-muted text-ink"><ArchiveTick size={30} variant="Bulk" /></span>
             <h2 className="mt-5 text-xl font-extrabold text-ink">برای دیدن علاقه‌مندی‌ها وارد شوید.</h2>
             <p className="mt-2 max-w-md text-sm leading-7 text-muted-foreground">پروژه‌ها و جست‌وجوهایی که ذخیره می‌کنید با شماره موبایل شما نگه داشته می‌شود.</p>
             <Button variant="plain" size="auto" type="button" onClick={() => openLogin()} className="mt-6 inline-flex h-12 items-center gap-2 rounded-full bg-primary px-7 font-extrabold text-white hover:bg-teal-700"><Login size={18} />ورود با موبایل</Button>
           </Card>
-        ) : hydrated && (
+        ) : (
           <>
             <Tabs dir="rtl" value={tab} onValueChange={(v) => setTab(v as Tab)} className="mt-7 gap-7">
               <div className="flex min-w-0 items-center justify-between gap-4">

@@ -5,18 +5,16 @@
 ## شروع از محیط خالی
 
 ```sh
-python3 scripts/dev_env.py
-docker compose --env-file .env -f deploy/compose.yaml build backend web test browser-api
-docker compose --env-file .env -f deploy/compose.yaml up -d db
-docker compose --env-file .env -f deploy/compose.yaml run --rm backend /app/.venv/bin/python manage.py migrate --noinput
-docker compose --env-file .env -f deploy/compose.yaml up -d backend web
+python3 scripts/dev_runtime.py up --build
 ```
 
-`dev_env.py` رازهای تصادفی را فقط در `.env` با مجوز0600 می‌نویسد؛ فایل موجود را تغییر نمی‌دهد. فایل واقعی را commit یا در خروجی اشکال‌زدایی چاپ نکنید. `.env.example` صرفاً الگو است. شروع عمومی با مقادیر نمایشی، debug یا OTP نمایشی رد می‌شود. `PUBLIC_LAUNCH_ENABLED=true` در S02 مجاز نیست.
+`dev_runtime.py` در اجرای اول `dev_env.py` را برای ساخت رازهای تصادفی با مجوز 0600 فراخوانی می‌کند و در اجراهای بعد فقط سه مقدار عمومی `WEB_PORT`، `DJANGO_ALLOWED_HOSTS` و `CSRF_TRUSTED_ORIGINS` را همگام می‌کند؛ هیچ راز یا مقدار خصوصی چاپ نمی‌شود. برای پورت دیگر، مثلاً `WEB_PORT=43108 python3 scripts/dev_runtime.py up`، دقیقاً originهای `localhost:43108` و `127.0.0.1:43108` تولید و در startup بک‌اند دوباره اعتبارسنجی می‌شوند. wildcard و origin سوم رد می‌شود. بدون تغییر image از `python3 scripts/dev_runtime.py up` یا `make up` استفاده کنید.
 
-پوسته در http://127.0.0.1:3108 و API در همان مبدأ `/api/v1/health/live`، `/health/ready`، `/auth/csrf` و `/schema` است. DB فقط localhost55432؛ backend فقط شبکه داخلی؛ volume پروژه `invest_pgdata`. Composeهای پروژه‌های دیگر مستقل می‌مانند. migration را پیش از شروع workerها با فرمان مستقل اجرا کنید.
+این مسیر DB و scanner محلی را تا سلامت آماده، سپس migration، catalog نسخه‌دار و seed مصنوعی چندشهری را پیش از بالا آوردن backend/web/worker اجرا می‌کند. seed فقط در development/test مجاز، idempotent و مبتنی بر همان گردش draft، بررسی مستقل و publication است. UI فقط `/api/v1/core/opportunities` را به‌عنوان منبع فرصت می‌خواند؛ endpoint قدیمی fixture preview حذف شده است. فایل واقعی `.env` را commit یا در خروجی اشکال‌زدایی چاپ نکنید. شروع عمومی با مقادیر نمایشی، debug یا OTP نمایشی رد می‌شود و `PUBLIC_LAUNCH_ENABLED=true` مجاز نیست.
 
-نام پروژه `invest` و پورت‌ها را پیش از اجرا با محیط خود تطبیق دهید. تغییر WEB_PORT باید همراه CSRF_TRUSTED_ORIGINS باشد؛ ابزار smoke فعلاً پورت پیش‌فرض3108 را می‌آزماید. `docker compose config` می‌تواند مقادیر خصوصی را چاپ کند؛ برای بررسی ساختار از `config --quiet` استفاده کنید.
+پوستهٔ اصلی development در http://127.0.0.1:3108 و http://localhost:3108 و API در همان مبدأ `/api/v1/health/live`، `/health/ready`، `/auth/csrf` و `/schema` است. هر دو alias در یک پورت دقیق برای CSRF معتبرند؛ origin دیگر 403 با کد `csrf_failed` و راهنمای امن تازه‌سازی/نشانی رسمی می‌گیرد. DB فقط localhost55432؛ backend فقط شبکه داخلی؛ volume پروژه `invest_pgdata`. Composeهای پروژه‌های دیگر مستقل می‌مانند.
+
+نام پروژه `invest` و پورت را پیش از اجرا با محیط خود تطبیق دهید؛ ابزار runtime همگامی port/origin را انجام می‌دهد و ابزار smoke فعلاً پورت پیش‌فرض 3108 را می‌آزماید. `docker compose config` می‌تواند مقادیر خصوصی را چاپ کند؛ برای بررسی ساختار از `config --quiet` استفاده کنید.
 
 ## آزمون بک‌اند و migration
 
@@ -55,7 +53,9 @@ npx playwright install --with-deps chromium
 npm run test:e2e
 ```
 
-Playwright سرور standalone را خودش روی3109 آغاز و متوقف می‌کند. مقصد rewrite هنگام build تثبیت می‌شود: build محلی `http://127.0.0.1:8008` و Docker `http://backend:8000`. تغییر env پس از build مقصد را عوض نمی‌کند. API مرورگر هم‌مبدأ است؛ CSRF token از bootstrap body به X-CSRFToken می‌رود، چون cookie HttpOnly است. اعتبار Origin/Referer مطابق سیاست Django است؛ HTTP بدون Origin همچنان به cookie/token معتبر نیاز دارد.
+Playwright سرور standalone را خودش روی3109 آغاز و متوقف می‌کند؛ این runtime ایزولهٔ test است، نه runtime اصلی 3108. مقصد rewrite هنگام build تثبیت می‌شود: build محلی `http://127.0.0.1:8008` و Docker `http://backend:8000`. تغییر env پس از build مقصد را عوض نمی‌کند. API مرورگر هم‌مبدأ است؛ CSRF token از bootstrap body به X-CSRFToken می‌رود، چون cookie HttpOnly است. اعتبار Origin/Referer مطابق سیاست Django است؛ HTTP بدون Origin همچنان به cookie/token معتبر نیاز دارد.
+
+نسخهٔ build در `/core-version.json` و نسخه/نوع runtime بک‌اند در `/api/v1/core/version` دیده می‌شود. پاسخ دوم `environment` و یکی از `primary-development`، `isolated-test` یا `public` را هم برمی‌گرداند؛ بنابراین اجرای evidence روی 3118/3120 یا test روی 3109 با اجرای اصلی اشتباه نمی‌شود.
 
 در شبکه فعلی CDN مرورگر با403 محدودیت محل پاسخ داد. آزمون محلی با Chrome151.0.7922.137 نصب‌شده انجام شد:
 

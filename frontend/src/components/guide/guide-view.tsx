@@ -20,6 +20,7 @@ import { listingById } from "@/lib/listings";
 import { useHydrated, useStore } from "@/lib/store";
 import type { Advisory, Opportunity } from "@/types";
 import { faNumber } from "@/lib/utils";
+import { LoadFailure, ReportSkeleton } from "@/components/loading/loading-system";
 
 type EffectiveAdvisoryResult={version:number;effective_answers:Record<string,string>;questions:Advisory['questions'];guidance:{why?:string;checks:string[]}};
 
@@ -37,7 +38,8 @@ export function GuideView({ id }: { id: string }) {
   const [height, setHeight] = useState(1400);
   const [effective,setEffective]=useState<EffectiveAdvisoryResult|null>(null);
   const [advisoryState,setAdvisoryState]=useState<'idle'|'loading'|'ready'|'error'>('idle');
-  useEffect(()=>{if(!o){setEffective(null);setAdvisoryState('ready');return;}const answers=Object.fromEntries(Object.entries(criteria.filters).filter(([k,v])=>k.startsWith(`adv:${o.subtype}:`)&&typeof v==='string').map(([k,v])=>[k.slice(`adv:${o.subtype}:`.length),String(v)]));let live=true;setAdvisoryState('loading');void services<EffectiveAdvisoryResult>(`advisories/${o.subtype}`,{answers,funding:'own',role:'investor'}).then(x=>{if(live){setEffective(x);setAdvisoryState('ready')}}).catch(()=>{if(live){setEffective(null);setAdvisoryState('error')}});return()=>{live=false}},[o?.subtype,criteria.filters]);
+  const [attempt,setAttempt]=useState(0);
+  useEffect(()=>{if(!o){setEffective(null);setAdvisoryState('ready');return;}const answers=Object.fromEntries(Object.entries(criteria.filters).filter(([k,v])=>k.startsWith(`adv:${o.subtype}:`)&&typeof v==='string').map(([k,v])=>[k.slice(`adv:${o.subtype}:`.length),String(v)]));let live=true;setAdvisoryState('loading');void services<EffectiveAdvisoryResult>(`advisories/${o.subtype}`,{answers,funding:'own',role:'investor'}).then(x=>{if(live){setEffective(x);setAdvisoryState('ready')}}).catch(()=>{if(live){setEffective(null);setAdvisoryState('error')}});return()=>{live=false}},[attempt,o?.subtype,criteria.filters]);
 
 
   const ctx = useMemo<GuideContext>(() => {
@@ -64,7 +66,7 @@ export function GuideView({ id }: { id: string }) {
   useEffect(()=>{let live=true;setPreviewReady(false);setPreviewError("");if(!hydrated||(o&&advisoryState!=='ready'))return;
     void core<{html:string}>(`guide/${l.id}`,{criteria:toCriteria(criteria),guide_context:ctx}).then(x=>{if(live){setHtml(x.html);setPreviewReady(true)}}).catch(e=>{if(live)setPreviewError(e.message)});
     return()=>{live=false};
-  },[l.id,ctx,criteria,hydrated,o,advisoryState]);
+  },[attempt,l.id,ctx,criteria,hydrated,o,advisoryState]);
   // تیک‌ها داخل خود سند زده می‌شوند، پیش از هر بازسازی یا دانلود از سند خوانده می‌شوند تا از بین نروند
   const ticks = () => Array.from(frame.current?.contentDocument?.querySelectorAll<HTMLInputElement>("input[data-k]:checked") ?? []).map((i) => i.dataset.k!);
   const changeKind = (v: string | undefined) => { setChecked(ticks()); setKind(v); };
@@ -86,17 +88,15 @@ export function GuideView({ id }: { id: string }) {
       <main className="focus-blur mx-auto max-w-7xl px-3 pt-6 sm:px-6">
         <Link href={`/opportunities/${l.id}`} className="mb-4 inline-flex items-center gap-2 text-sm font-bold text-ink/70 hover:text-ink"><ArrowRight size={18} />بازگشت به پروژه</Link>
         <div className="grid min-w-0 grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,1fr)_21rem]">
-          <iframe ref={frame} title="راهنمای اقدام" srcDoc={html} onLoad={() => { const d = frame.current?.contentDocument; if (d) setHeight(d.documentElement.scrollHeight + 8); }}
-            className="w-full rounded-[2rem] border border-border bg-muted" style={{ height }} />
+          {previewReady ? <iframe ref={frame} title="راهنمای اقدام" srcDoc={html} onLoad={() => { const d = frame.current?.contentDocument; if (d) setHeight(d.documentElement.scrollHeight + 8); }}
+            className="w-full rounded-[2rem] border border-border bg-muted" style={{ height }} /> : previewError || advisoryState==='error' ? <LoadFailure message={previewError || 'راهنمای نسخه‌دار از سرور دریافت نشد.'} onRetry={()=>setAttempt(value=>value+1)} /> : <ReportSkeleton />}
 
           <aside className="min-w-0 space-y-4 lg:sticky lg:top-24">
             <div className="surface rounded-[1.75rem] p-5">
               <p className="flex items-center gap-2 text-[13px] font-extrabold text-primary-ink"><NodeMark />راهنمای اقدام</p>
               <h1 className="mt-2 text-lg font-black leading-8 text-ink">{l.title}</h1>
               <div className="mt-4 space-y-2">
-                <Button disabled={saving||!previewReady||(!!o&&advisoryState!=='ready')} onClick={download} className="h-12 w-full gap-2 rounded-full font-extrabold"><DocumentDownload size={18} variant="Bold" />{advisoryState==='loading'?'دریافت راهنمای مؤثر…':'دانلود فایل راهنما'}</Button>
-                {previewError&&<p role="alert">{previewError}</p>}
-                {advisoryState==='error'&&<p role="alert" className="text-xs font-bold leading-6 text-red-700">راهنمای نسخه‌دار از سرور دریافت نشد؛ صفحه را تازه کنید و دوباره تلاش کنید.</p>}
+                <Button aria-busy={saving} disabled={saving||!previewReady||(!!o&&advisoryState!=='ready')} onClick={download} className="h-12 w-full gap-2 rounded-full font-extrabold"><DocumentDownload size={18} variant="Bold" />{saving?'در حال ساخت فایل…':advisoryState==='loading'?'دریافت راهنمای مؤثر…':'دانلود فایل راهنما'}</Button>
                 <Button variant="outline" onClick={() => frame.current?.contentWindow?.print()} className="h-11 w-full gap-2 rounded-full bg-white font-bold shadow-none"><Printer size={18} />چاپ یا PDF</Button>
               </div>
             </div>

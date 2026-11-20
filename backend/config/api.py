@@ -17,6 +17,12 @@ ERRORS = {
     429: ("rate_limited", "تعداد درخواست‌ها بیش از حد مجاز است."),
     500: ("internal_error", "خطایی رخ داده است؛ دوباره تلاش کنید."),
 }
+CODE_MESSAGES = {
+    "csrf_failed": (
+        "اعتبار امنیتی درخواست پذیرفته نشد؛ صفحه را از نشانی رسمی همین محیط باز کنید، "
+        "سپس تازه‌سازی و دوباره تلاش کنید."
+    ),
+}
 
 
 def error_data(request, status, code=None):
@@ -24,7 +30,7 @@ def error_data(request, status, code=None):
     return {
         "error": {
             "code": code or default_code,
-            "message": message,
+            "message": CODE_MESSAGES.get(code, message),
             "fields": {},
             "request_id": request.request_id,
         }

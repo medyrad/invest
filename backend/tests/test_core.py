@@ -7,6 +7,7 @@ from types import SimpleNamespace
 
 import pytest
 from django.core.management import call_command
+from django.core.management.base import CommandError
 from django.db import DatabaseError, transaction
 from django.utils import timezone
 
@@ -424,9 +425,7 @@ def test_saved_search_update_is_atomic_and_report_redownload_is_readable(team):
         )
     assert Search.objects.get(pk=search_id).name == "شرایط ویرایش‌شده"
 
-    subtype = Subtype.objects.get(
-        pk=discovery.public_dto(op)["fields"]["subtype"]
-    ).raw_id
+    subtype = Subtype.objects.get(pk=discovery.public_dto(op)["fields"]["subtype"]).raw_id
     question = advisories.evaluate(subtype, {})["questions"][0]
     answer = question["options"][0]["value"]
     receipt = personal.mutate(
@@ -1343,3 +1342,30 @@ def test_operator_definition_reverse_protects_saved_quantity_and_guard(team):
     with connection.cursor() as cur:
         cur.execute("SELECT tgenabled FROM pg_trigger WHERE tgname='immutable_field'")
         assert cur.fetchone()[0] == "O"
+
+
+def test_synthetic_seed_is_multicity_idempotent_and_forbidden_in_public(settings, monkeypatch):
+    monkeypatch.setattr("apps.workspace.files.scan", lambda data: "clean")
+    call_command("import_reference", verbosity=0)
+    call_command("seed_core_demo", verbosity=0)
+    first = list(
+        Opportunity.objects.filter(synthetic=True, public_revision__isnull=False)
+        .select_related("public_revision")
+        .order_by("pk")
+    )
+    assert len(first) == 6
+    mapped = [
+        row.public_revision.snapshot for row in first if "city" in row.public_revision.snapshot
+    ]
+    assert len({snapshot["city"] for snapshot in mapped}) >= 4
+    assert len({snapshot["province"] for snapshot in mapped}) >= 3
+    versions = {row.pk: row.public_revision_id for row in first}
+    call_command("seed_core_demo", verbosity=0)
+    assert Opportunity.objects.filter(synthetic=True).count() == 6
+    assert {
+        row.pk: row.public_revision_id
+        for row in Opportunity.objects.filter(synthetic=True).order_by("pk")
+    } == versions
+    settings.INVEST_ENV = "public"
+    with pytest.raises(CommandError, match="forbidden"):
+        call_command("seed_core_demo", verbosity=0)

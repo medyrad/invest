@@ -33,7 +33,19 @@ class CoreAPI(PublicBase):
         try:
             path = path.strip("/")
             if request.method == "GET" and path == "version":
-                return Response({"version": settings.CORE_VERSION})
+                return Response(
+                    {
+                        "version": settings.CORE_VERSION,
+                        "environment": settings.INVEST_ENV,
+                        "runtime": (
+                            "primary-development"
+                            if settings.INVEST_ENV == "development"
+                            else "isolated-test"
+                            if settings.INVEST_ENV == "test"
+                            else "public"
+                        ),
+                    }
+                )
             parts = path.split("/")
             at = timezone.now()
             if request.method == "POST":

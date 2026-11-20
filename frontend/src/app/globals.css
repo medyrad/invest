@@ -185,9 +185,16 @@
 @keyframes node-blink { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
 @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes sheen { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+@keyframes loading-shimmer { from { background-position: 180% 0; } to { background-position: -80% 0; } }
+.loading-skeleton {
+  background: linear-gradient(100deg, #e9eef4 20%, #f8fafc 38%, #e9eef4 56%);
+  background-size: 220% 100%;
+  animation: loading-shimmer 1.5s linear infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .loading-skeleton { animation: none !important; background: #e9eef4; }
 }
 
 /* کانسپت ۱: پرهای ستاره از مرکز ستاره باز می‌شوند (نه از گوشه خودشان) */

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from apps.catalog.api import Geography, NormalizeValue, Preview, Taxonomy, ValueDefinitions
+from apps.catalog.api import Geography, NormalizeValue, Taxonomy, ValueDefinitions
 from apps.core.api import CoreAPI
 from apps.identity.api import AuthAPI
 from apps.services.api import ServicesAPI
@@ -43,7 +43,6 @@ handler500 = "config.api.server_error"
 urlpatterns += [
     path("api/v1/catalog/taxonomy", Taxonomy.as_view()),
     path("api/v1/catalog/geography", Geography.as_view()),
-    path("api/v1/catalog/preview", Preview.as_view()),
     path("api/v1/catalog/value-definitions", ValueDefinitions.as_view()),
     path("api/v1/catalog/values/normalize", NormalizeValue.as_view()),
 ]
