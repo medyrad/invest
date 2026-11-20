@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "apps.workspace",
     "apps.core",
     "apps.services",
+    "apps.assistant",
 ]
 MIDDLEWARE = [
     "config.middleware.RequestContextMiddleware",
@@ -86,3 +87,9 @@ WORKSPACE_HOURLY_RECEIVES = int(os.environ.get("WORKSPACE_HOURLY_RECEIVES", 60))
 
 # Delivery fingerprint; generated from source, not from environment or credentials.
 CORE_VERSION = json.loads((BASE_DIR / "config/core_version.json").read_text())["version"]
+
+# Private runtime-only AI configuration. Never expose these values through version/schema APIs.
+ASSISTANT_OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+ASSISTANT_OPENAI_BASE_URL = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
+ASSISTANT_MODEL = "gpt-6.2-sol"
+ASSISTANT_PROVIDER = os.environ.get("ASSISTANT_PROVIDER", "openai")

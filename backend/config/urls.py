@@ -1,5 +1,6 @@
 from django.urls import path
 
+from apps.assistant.api import AssistantAPI
 from apps.catalog.api import Geography, NormalizeValue, Taxonomy, ValueDefinitions
 from apps.core.api import CoreAPI
 from apps.identity.api import AuthAPI
@@ -75,6 +76,7 @@ for suffix, action in [
 
 
 urlpatterns.append(path("api/v1/core/<path:path>", CoreAPI.as_view()))
+urlpatterns.append(path("api/v1/assistant/<path:path>", AssistantAPI.as_view()))
 
 
 urlpatterns.append(path("api/v1/services/<path:path>", ServicesAPI.as_view()))

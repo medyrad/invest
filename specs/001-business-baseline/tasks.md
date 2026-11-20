@@ -100,14 +100,16 @@
 
 ## فاز 8: US04 دستیار متصل
 
-مرحله: S09. پذیرش مستقل: جست‌وجو/توضیح/مقایسه از داده مجاز و امتیاز سرور با سهمیه واقعی؛ AC-D07/D20 و AC-AI01..10. PC-D02-01..05 در docs/comp-ai-decision-package.md مصوب‌اند؛ T062–T067 برای PROGRAMMER-COMP-AI-COMPLETE-01 مجوز غیرعمومی دارند و هنوز اجرا نشده‌اند. مسیر specs/003-assistant در outline قدیمی زیر مقصد پیشنهادیِ ساخته‌نشده است؛ این مأموریت feature جدید نمی‌سازد.
+مرحله: S09. پذیرش مستقل: جست‌وجو/توضیح/مقایسه از داده مجاز و امتیاز سرور با سهمیه واقعی؛ AC-D07/D20 و AC-AI01..10. PC-D02-01..05 در docs/comp-ai-decision-package.md مصوب‌اند. در PROGRAMMER-COMP-AI-COMPLETE-01 بخش فنی T062–T066 پیاده و برای بازآزمایی مستقل آماده شد؛ T067 به‌علت نبود credential خصوصی، اجرای واقعی Sol/Luna و رأی انسانی فارسی باز است. مسیر specs/003-assistant در outline قدیمی ساخته نشد؛ اسناد همین baseline صاحب مسئله باقی ماندند.
 
-- [ ] T062 [US04] بستن B05، ثبت مدل/اعداد/دوره/هزینه/خطا/retention و تعریف مهمان در specs/003-assistant/spec.md؛ کلید در محیط خصوصی backend، نه سند — بسته T25؛ FR-012 FR-014.
-- [ ] T063 [US04] تست quota اتمیک مهمان/حساب و permission ابزار/context injection و retry در backend/tests/integration/test_assistant.py؛ fixture فارسی در backend/tests/fixtures/assistant_cases.json؛ D28: آزمون برابری score/coverage/policy/revision با API تطبیق، عدم ادعای سود و لینک ادامه همه نتایج — بسته T25 T27؛ FR-012 FR-013 FR-014 SC-004 SC-005 FR-028.
-- [ ] T064 [US04] ساخت Conversation/QuotaPolicy/UsageReservation/Ledger و migration، تنظیم ادمین و adapter OpenAI در backend/apps/assistant/models.py و backend/apps/assistant/provider.py و backend/apps/assistant/quota.py — بسته T25؛ FR-012 FR-014.
-- [ ] T065 [US04] ساخت ابزار read-only بر revision عمومی، parse/validate criteria و استناد، timeout/retry/تسویه مصرف در backend/apps/assistant/tools.py و backend/apps/assistant/api.py؛ submit tool وجود نداشته باشد؛ D28: مصرف همان score/coverage/reasons سرور و حفظ policy/revision و لینک ادامه نتایج — بسته T25 T26؛ FR-012 FR-013 FR-014 FR-028.
-- [ ] T066 [US04] حفظ صفحه/chat مقایسه و افزودن برداشت قابل اصلاح، references، quota/error و بازگشت فرم در frontend/src/app/assistant/page.tsx و frontend/src/components/compare/chat.tsx — بسته T26؛ FR-012 FR-013 FR-014 FR-019.
+- [x] T062 [US04] بستن B05 و قفل‌کردن مدل/عدد/هزینه/خطا/retention در baseline، OpenAPI و policy اجرایی؛ کلید فقط از محیط خصوصی backend — بسته T25؛ FR-012 FR-014. شاهد: گزارش تجمیعی S09 و `contracts/openapi.yaml`.
+- [x] T063 [US04] تست quota اتمیک مهمان/حساب و permission ابزار/context injection و retry در `backend/tests/test_assistant.py`؛ fixture فارسی قفل‌شده در `backend/tests/fixtures/assistant_cases.json`؛ D28 بدون تغییر — بسته T25 T27؛ FR-012 FR-013 FR-014 SC-004 SC-005 FR-028.
+- [x] T064 [US04] ساخت QuotaPolicy/UsageReservation/Ledger بی‌محتوا و migration، policy ادمین و adapter Responses در `backend/apps/assistant/`؛ عمداً Conversation/Message پایدار ساخته نشد — بسته T25؛ FR-012 FR-014.
+- [x] T065 [US04] چهار ابزار read-only روی revision عمومی، parse/validate criteria و استناد، timeout/retry/تسویه مصرف در `backend/apps/assistant/tools.py` و `api.py`؛ submit/private/web tool وجود ندارد — بسته T25 T26؛ FR-012 FR-013 FR-014 FR-028.
+- [x] T066 [US04] سفر خانه/فرصت، برداشت قابل اصلاح، picker، کارت/فهرست، ذخیره با رسید، مقایسه و مسیر دستی در `frontend/src/app/assistant/`، component دستیار و chat مقایسه؛ چهار عرض در تست مرورگر — بسته T26؛ FR-012 FR-013 FR-014 FR-019.
 - [ ] T067 [US04] اجرای ارزیابی فارسی و smoke محدود واقعی OpenAI جدا از mock؛ ثبت مدل/نسخه/نتیجه بدون secret در docs/stage9/verification.json و tests/browser/journeys/assistant.spec.ts — بسته T27؛ FR-012 FR-013 FR-014 SC-002 SC-007.
+
+وضعیت T067: fixture قفل‌شده، fake قطعی، runner و شواهد UI فنی آماده‌اند؛ چون `OPENAI_API_KEY` امن در محیط مأموریت نبود، provider call واقعی صفر و هزینه صفر است. smoke بیست‌مکالمه، eval واقعی Sol، مقایسه همان held-out با Luna و رأی انسانی فارسی تکمیل/قبول نشده‌اند.
 
 تفصیل لازم همان تسک‌ها، بدون backlog/feature موازی:
 

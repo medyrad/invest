@@ -11,7 +11,7 @@ import { motion } from "motion/react";
 import { toast } from "@/lib/toast";
 import {
   ArrowLeft, ArrowRight, Call,  DocumentDownload, Location, Warning2, ShieldSearch, WalletMoney, MoneyRecive, Key,
-  Timer1, Lock1, Chart, Calendar, Building, TickCircle, InfoCircle, Danger, Convertshape2, AddCircle, DocumentText, type Icon,
+  Timer1, Lock1, Chart, Calendar, Building, TickCircle, InfoCircle, Danger, Convertshape2, AddCircle, DocumentText, MagicStar, type Icon,
 } from "@/components/iconsax";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -523,6 +523,7 @@ export function Detail({ id }: { id: string }) {
                   {o?.expert
                     ? <Button asChild className="h-12 gap-2 rounded-full px-6 font-extrabold"><Link href="/requests"><Call size={18} variant="Bold"/>پیگیری پرونده</Link></Button>
                     : <Button asChild className="h-12 gap-2 rounded-full px-6 font-extrabold"><Link href={`/guide/${l.id}`}><DocumentDownload size={18} variant="Bold" />دیدن راهنمای اقدام</Link></Button>}
+                  <Button asChild variant="outline" className="h-12 gap-2 rounded-full px-6 font-extrabold"><Link href="/assistant" onClick={() => { sessionStorage.setItem("invest:assistant-opportunity", l.id); sessionStorage.setItem("invest:assistant-draft", `این فرصت را با شرایط من توضیح بده: ${l.title}`); }}><MagicStar size={18} variant="Bold" />پرسیدن از دستیار</Link></Button>
                 </div>
               </Chapter>
             )}

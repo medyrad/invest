@@ -43,7 +43,7 @@ const useGo = () => {
   const router = useRouter();
   const { begin: setCriteria } = useHomeSelection();
   return {
-    ask: (q: string) => router.push(q ? `/assistant?q=${encodeURIComponent(q)}` : "/assistant"),
+    ask: (q: string) => { if (q) sessionStorage.setItem("invest:assistant-draft", q); router.push("/assistant"); },
     browse: (c: Parameters<typeof setCriteria>[0] = {}) => { setCriteria({ route: "investor", groups: [], provinces: [], amount: null, filters: {}, ...c });useStore.getState().begin({route:"investor",groups:[],provinces:[],amount:null,filters:{},...c});  router.push("/opportunities"); },
   };
 };
@@ -111,4 +111,3 @@ export function HeroCompass() {
     </Shell>
   );
 }
-

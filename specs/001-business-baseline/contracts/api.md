@@ -1,6 +1,6 @@
 # قرارداد API v1 — پیش‌نویس مرزها
 
-این سند مسیر و رفتار پیشنهادی را مشخص می‌کند؛ OpenAPI ماشین‌خوان و schema دقیق هر فرم باید در تسک مقصد تولید و با آزمون قرارداد کنترل شود. وجود این فایل به معنی API پیاده‌شده نیست. B01–B04 در D25–D29 مصوب‌اند؛ سیاست B05 در PC-D02-01..05 مصوب است؛ B06–B08 و schema تفصیلی گیت وابسته خود را دارند.
+این سند مرزهای baseline را مشخص می‌کند. برای S09، endpointهای اجرایی در `contracts/openapi.yaml` نسخه ۱٫۵ و `backend/apps/assistant/` پیاده شده‌اند؛ سایر outlineهای این سند فقط در حد وضعیت مقصد خود ادعای اجرا دارند. B01–B04 در D25–D29 و B05 در PC-D02-01..05 مصوب‌اند؛ B06–B08 گیت وابسته خود را دارند.
 
 ## قواعد مشترک
 
@@ -39,16 +39,16 @@
 | POST /reports | draft/revision + snapshot → report id/download | دانلود ≠ ارسال؛ snapshot و تاریخ/واحد ثابت |
 | POST /attachments و GET /attachments/{id}/content | upload metadata/content و download کنترل‌شده | B07 محدودیت؛ mime/content validation؛ عدم مسیر عمومی |
 | GET /notifications و POST /notifications/{id}/read | لیست مخاطب و read_at | دیگری نتواند بخواند/علامت بزند؛ کانال B06 |
-| POST /assistant/conversations و /assistant/conversations/{id}/messages | متن/criteria → پاسخ + references + quota | مهمان محدود/حساب بیشتر؛ داده مجاز؛ مدل هیچ submit tool ندارد |
-| GET /assistant/usage و PUT /admin/assistant/policy | وضعیت مصرف و سیاست نسخه‌دار | سقف اتمیک، admin-only؛ مدل و اعداد B05 |
+| POST /assistant/turns | متن/criteria/opportunity_ids/history محدود → پاسخ + references + quota + receipt؛ محتوا پایدار نمی‌شود | مهمان محدود/حساب بیشتر؛ CSRF/idempotency؛ بازخوانی داده عمومی؛ مدل هیچ submit tool ندارد |
+| GET /assistant/usage و PUT /assistant/policy | وضعیت مصرف و سیاست نسخه‌دار | سقف اتمیک؛ policy فقط admin و در کران‌های PC-D02؛ مدل حق تغییر ندارد |
 
 ## قرارداد ابزار دستیار
 
 ابزارها فقط normalize_criteria، search_public_opportunities، get_public_opportunity و compare_same_kind هستند. schema خروجی دارای revision_id و مقادیر سروری است. متن فرصت untrusted data است؛ نمی‌تواند دستور ابزار یا مجوز ایجاد کند. گزینهٔ ثبت درخواست در UI مسیر عادی POST /enquiries با اقدام صریح کاربر را باز می‌کند. شناسه‌های خصوصی، شماره تماس و اسناد سازمان وارد context عمومی نمی‌شوند. خطا/سهمیه مسیر فرم را حفظ می‌کند؛ streaming در صورت انتخاب باید قطع اتصال و تسویه مصرف را تعریف کند.
 
-### قرارداد S09 — همگام با PRODUCT-COMP-AI-FREEZE-01
+### قرارداد S09 — همگام با PROGRAMMER-COMP-AI-COMPLETE-01
 
-outline زیر برای قفل‌کردن در T062/T065 است، نه endpoint ساخته‌شده یا سیاست مصوب جدید. D04/D07/D20/D28/D29 حاکم‌اند؛ اعداد/مدل/retention طبق مصوبات [PC-D02-01..05](../../../docs/comp-ai-decision-package.md). نام endpointهای baseline باید به API واقعی موجود core وصل شود؛ کپی موتور matching یا ایجاد منبع حقیقت دوم ممنوع است.
+جدول زیر قرارداد اجراشده T062/T065 را توضیح می‌دهد؛ OpenAPI ماشین‌خوان مرجع شکل HTTP است. D04/D07/D20/D28/D29 حاکم‌اند؛ اعداد/مدل/retention طبق مصوبات [PC-D02-01..05](../../../docs/comp-ai-decision-package.md). endpointهای دستیار API واقعی core را مصرف می‌کنند و موتور matching یا منبع حقیقت دوم نساخته‌اند.
 
 | مرز | داده مجاز و رفتار قابل آزمون |
 |---|---|

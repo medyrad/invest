@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "invest API — زیرساخت و ورود آزمایشی",
-    "version": "1.4.0",
-    "description": "زیرساخت، هویت، کاتالوگ دقیق و هسته گردش فرصت/پرونده؛ محیط مصنوعی، پذیرش مستقل و انسانی جداست."
+    "version": "1.5.0",
+    "description": "زیرساخت، هویت، کاتالوگ، هسته گردش و دستیار غیرعمومی S09؛ اتصال واقعی و پذیرش انسانی جداست."
   },
   "servers": [
     {
@@ -2324,6 +2324,56 @@
             "description": "شناسه کد همان image اجرا"
           }
         }
+      }
+    },
+    "/assistant/usage": {
+      "get": {
+        "operationId": "assistantUsage",
+        "security": [],
+        "summary": "مصرف بی‌محتوا برای principal مهمان یا حساب",
+        "responses": {
+          "200": {"description": "سهمیه روز UTC و نسخه سیاست؛ no-store"}
+        }
+      }
+    },
+    "/assistant/turns": {
+      "post": {
+        "operationId": "assistantTurn",
+        "security": [],
+        "summary": "برداشت، ابزارهای عمومی محدود و پاسخ ساختاریافته بدون ذخیره محتوای گفتگو",
+        "parameters": [
+          {"name": "X-CSRFToken", "in": "header", "required": true, "schema": {"type": "string"}},
+          {"name": "Idempotency-Key", "in": "header", "required": true, "schema": {"type": "string", "minLength": 8, "maxLength": 200}}
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {"application/json": {"schema": {
+            "type": "object", "additionalProperties": false, "required": ["message"],
+            "properties": {
+              "message": {"type": "string", "minLength": 1, "maxLength": 4000},
+              "criteria": {"type": "object"},
+              "opportunity_ids": {"type": "array", "maxItems": 4, "items": {"type": "string", "format": "uuid"}},
+              "history": {"type": "array", "maxItems": 12},
+              "model": {"type": "string", "enum": ["gpt-6.2-sol", "gpt-6-luna"]},
+              "purpose": {"type": "string", "enum": ["product"]}
+            }
+          }}}
+        },
+        "responses": {
+          "200": {"description": "پاسخ کامل معتبر و رسید بی‌محتوا"},
+          "400": {"description": "ورودی یا خروجی ابزار نامعتبر"},
+          "409": {"description": "تعارض idempotency یا پاسخ قبلی غیرقابل بازیابی"},
+          "429": {"description": "سهمیه، rate یا slot"},
+          "503": {"description": "provider/timeout/budget؛ همراه مسیر دستی و بدون موفقیت جعلی"}
+        }
+      }
+    },
+    "/assistant/policy": {
+      "put": {
+        "operationId": "assistantPolicyUpdate",
+        "summary": "سیاست نسخه‌دار فقط برای مدیر؛ سقف‌های مصوب قابل افزایش نیستند",
+        "parameters": [{"name": "X-CSRFToken", "in": "header", "required": true, "schema": {"type": "string"}}],
+        "responses": {"200": {"description": "نسخه تازه"}, "403": {"description": "فقط مدیر"}, "409": {"description": "نسخه کهنه"}}
       }
     }
   },

@@ -19,7 +19,7 @@ COPY --from=builder /app/.venv /app/.venv
 COPY backend/ ./
 COPY contracts/ /contracts/
 USER invest
-CMD ["/app/.venv/bin/gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "2", "--timeout", "30", "--error-logfile", "-"]
+CMD ["/app/.venv/bin/gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "2", "--timeout", "50", "--error-logfile", "-"]
 
 FROM builder AS test-deps
 RUN uv sync --locked
