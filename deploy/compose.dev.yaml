@@ -1,0 +1,6 @@
+# Local frontend dev mode (`make dev`): publishes the backend on loopback so
+# `next dev` on the host can proxy /api/v1 to it. Not used by CI or delivery images.
+services:
+  backend:
+    ports:
+      - "127.0.0.1:${BACKEND_DEV_PORT:-8018}:8000"

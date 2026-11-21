@@ -36,6 +36,7 @@ Mission-specific exceptions override the standing push rule: PROGRAMMER-COMP-AI-
 - First run, from the repo root: `python3 scripts/dev_runtime.py up --build`. It creates `.env` (random secrets), builds images, migrates, seeds synthetic data and starts the stack.
 - Open http://127.0.0.1:3108; the API is same origin under `/api/v1/`. The Compose file is `deploy/compose.yaml` (not at the root).
 - Later: `make up` to start, `make stop` to stop. The web container serves a built frontend, so rerun with `--build` after code changes.
+- Frontend with hot reload: `make dev` (needs Node from `.nvmrc`). It publishes the backend on 127.0.0.1:8018 (`deploy/compose.dev.yaml`, override with `BACKEND_DEV_PORT`), stops the `web` container and runs `next dev` on `WEB_PORT`. It rebuilds a stale backend image, reruns `npm ci` when the lockfile changes, and moves a busy `POSTGRES_PORT`; `make dev BUILD=1` forces a rebuild. Ctrl+C stops only `next dev`; `make stop` stops the rest. Windows: WSL only, see `docs/development.md`.
 - Full guide (Persian): [docs/development.md](docs/development.md).
 
 ## Context files
