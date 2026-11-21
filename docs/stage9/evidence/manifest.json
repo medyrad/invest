@@ -1,190 +1,163 @@
 {
-  "mission": "PROGRAMMER-COMP-AI-COMPLETE-01",
-  "generated_at": "2026-11-20T22:49:30+03:30",
-  "finalized_at": "2026-11-20T23:18:50+03:30",
-  "implementation_commits": [
-    "f48ba846ed08e11ae6745f8dc1fc287b81ac8659",
-    "68274d94b03b00fd5cbfd3d415f3f4b5daa344c7",
-    "aba1393aa268dfc9b6c7d9dec05a0e10b8ceda82",
-    "817475c78957ecd6626ae779afc514b0f52073f7",
-    "a12cd565d406c03bd49c884475e02b4636ee02cc",
-    "3fa19c9297771dd19598f7f1083cb56ba9881f02"
+  "schema_version": "invest-s09-evidence-manifest-v2",
+  "mission": "PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-02",
+  "generated_at": "2026-11-21T08:17:00+03:30",
+  "baseline_commits": [
+    "c89da099491547d34e3e335fdb458dfd96588aa3",
+    "1ceafbc15de7bcb7c5d04a9365de0fd3579328ad",
+    "428407b9e606390f5de039b3b662ce3dede9af7b"
   ],
-  "tested_checkout": "3fa19c9297771dd19598f7f1083cb56ba9881f02",
-  "tested_tree": "76210cc75a6dc923044a435824e14de1118a2eee",
+  "mission_commits": [
+    "8c888c2bbbbcdbb872ece55c7f85eadae6820c80",
+    "b0123f92e4b80393691142d216f7ec8493863c2b",
+    "7b17518aea21cfb5695d7b7af2ab4e43832e45ca"
+  ],
+  "tested_checkout": "7b17518aea21cfb5695d7b7af2ab4e43832e45ca",
+  "tested_tree": "155e4a4002ff1dc660e936449c4a452c7ca55ffe",
+  "product_source": {
+    "commit": "b0123f92e4b80393691142d216f7ec8493863c2b",
+    "tree": "57b8bb27d8f85d6a4c3d215845428d93953b2b3f",
+    "product_code_diff_from_tested_checkout": "empty for frontend/src, backend/apps and scripts"
+  },
+  "runtime": {
+    "url": "http://127.0.0.1:3108/assistant",
+    "reference_url": "http://127.0.0.1:3000/assistant",
+    "image": "invest-web@sha256:281d146ddb19ca1582f7dd7ecd0c88f239cb3659dbdbae3f0cc738edabec4395",
+    "image_config": "sha256:348a13f69510ffa2c7852f1a30358cefd9d47ed3fc375d6847215889e7e7dc25",
+    "build_id": "c_MI5dY3Na5QzXym78AOt",
+    "source_commit_label": "b0123f92e4b80393691142d216f7ec8493863c2b",
+    "source_tree_label": "57b8bb27d8f85d6a4c3d215845428d93953b2b3f",
+    "frontend_source_sha256_label": "8449b8e091e4202f79fddd21bfff290348d52fe3729cd7ca95ecdddab570f06b",
+    "primary_container": "invest-web-1",
+    "backend_container": "invest-backend-1",
+    "browser": "Chromium",
+    "dpr": 1,
+    "reduced_motion": "reduce"
+  },
   "reference": {
-    "path": "/Users/mehdi/Downloads/Investment_Advisor-main.zip",
-    "sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b"
+    "archive_path": "/Users/mehdi/Downloads/Investment_Advisor-main.zip",
+    "archive_sha256": "6221401c736250c5ac7e5595aa988301f64b8d2fe576590291a7c2e53c247f5b",
+    "runtime_directly_inspected": true,
+    "instructions_inside_archive_used": false
   },
   "versions": {
-    "requested_model": "gpt-6.2-sol",
-    "comparison_model": "gpt-6-luna",
-    "prompt": "assistant-fa-v1",
-    "tool": "assistant-tools-v1",
-    "schema": "assistant-response-v1",
+    "requested_complex_model": "gpt-6.2-sol",
+    "requested_simple_model": "gpt-6-luna",
+    "router": "assistant-router-v2",
+    "prompt": "assistant-fa-v2",
+    "tool": "assistant-tools-v2",
+    "schema": "assistant-response-v2",
+    "extraction": "assistant-model-extraction-v1",
     "price": "openai-standard-2026-11-20",
-    "initial_policy": 1,
-    "openapi": "1.5.0"
+    "ui_vocabulary": "assistant-fa-labels-v1"
   },
-  "images": {
-    "backend": "sha256:1683af989cd76b0c65024673a67c5292ead7a050288d3aeb8a8eb4c186f4192b",
-    "test": "sha256:531d60d0506c78edb029c9a85ac8dd784ff553eac795974a3fc996d2476e0ac8",
-    "browser_api": "sha256:585f9b4f4db0e48000321c4deed39f92adb773fa166ef612a93928985b251c53",
-    "evidence_web": {
-      "digest": "sha256:d24b3ef70f7d84b2167fb2be4ba59523989ee6edae3b6998bb12c05e4accd6b4",
-      "source_commit": "a12cd565d406c03bd49c884475e02b4636ee02cc",
-      "source_tree": "cb8345abbf538dc324bd721e1edc39ea517711ef",
-      "frontend_sha256": "38ec5a671ce2b39a1d3451cbc2cca778c3ada4b0a66d2ebc0baac1b9f3aed0f9"
-    }
-  },
-  "fixture": {
-    "path": "backend/tests/fixtures/assistant_cases.json",
-    "sha256": "9bcc46ddb67670861bd9c539b71375cf2f11b6d9a7fe3ccb8c99ba6025ad3a7b",
-    "total": 120,
-    "development": 40,
-    "held_out": 80,
-    "families": 8,
-    "unique_ids": 120,
-    "unique_semantics": 120
+  "fake_campaign": {
+    "oracle_sha256": "1cfe6230d7f5730ccbe4b11832ca81a893c2882e697cd3323b6abdd624fa2691",
+    "held_out_sha256": "f9b95745736ba2529379ce97550b590cbe913222087046241151268c2cfeadda",
+    "context_sha256": "27e31b534223af6547a7dce41a9b24af626b0055671f5da946b45b08398841aa",
+    "shared_ledger_cap_usd": "2.00",
+    "service_tier": "standard",
+    "smoke_luna_records": 20,
+    "smoke_luna_provider_eligible": 20,
+    "eval_luna_records": 80,
+    "eval_luna_provider_eligible": 48,
+    "eval_sol_records": 80,
+    "eval_sol_provider_eligible": 48,
+    "total_records": 180,
+    "provider_eligible_total": 116,
+    "fake_provider_calls": 116,
+    "simulated_actual_usd": "0.006168",
+    "real_provider_calls": 0,
+    "real_cost_usd": "0",
+    "controlled_interrupt_after_record": 21,
+    "resumed": true,
+    "settled_replay_provider_calls": 0,
+    "duplicate_guard": "passed",
+    "process_concurrency_guard": "passed",
+    "unknown_cost_guard": "passed",
+    "budget_exhaustion_guard": "passed",
+    "per_case_atomic_checkpoint": "passed",
+    "credential_read": false
   },
   "validation": {
-    "backend_assistant_and_core_impact": "24 passed",
-    "openapi_contract": "20 passed",
-    "browser_unique": "7 passed",
-    "browser_widths": [360, 390, 768, 1440],
-    "typecheck": "passed",
-    "lint": "passed",
-    "migration_drift": "none",
-    "fake_fixture_contract": "passed",
-    "live_smoke": "blocked_missing_private_credential",
-    "live_eval": "not_run",
-    "provider_calls": 0,
-    "cost_usd": "0",
-    "human_persian_verdict": null,
-    "human_design_verdict": null,
-    "d28_verdict": null,
-    "independent_acceptance": false
-  },
-  "browser_evidence_sha256": {
-    "assistant-initial-360.png": "6d5a098653a34bedf75386ed4f91736b1859295b262c62dcc3e7fdb77e141a91",
-    "assistant-complete-360.png": "e46fba6cc27ba98a9680a56539d954001649748f4df18ddb39a4bd3b410faae5",
-    "assistant-initial-390.png": "3d3b564deca5268c48d2c582ffcf1c5276b0c0c531a41564743d8725c38b530e",
-    "assistant-complete-390.png": "1362af5ae766a89db2812534c170740ed72405c31a57479c657737414e6f3215",
-    "assistant-initial-768.png": "f7b101070a99d9b75355a081419ae03cd2ea97f8346faa66b924339537859e14",
-    "assistant-complete-768.png": "b779e2e7cf65ebda47bff6b93ef0a781818b1e77a65a0a65478110d5bc9496dc",
-    "assistant-initial-1440.png": "b4668c46b4979995f5d4de08300c5bae59a2da9f881712d55dae2c328d1fd05f",
-    "assistant-complete-1440.png": "d0da8d8edded049351dd67de45313c0fe9ddd5856ce413f2a0c6502a8cac51e5"
-  },
-  "visual_review": {
-    "reference_compared_at": [390, 1440],
-    "responsive_adaptation_reviewed_at": [360, 390, 768, 1440],
-    "interaction_checked": [
-      "font-ready visibility",
-      "focus",
-      "hit-test",
-      "keyboard Enter",
-      "last mobile example reachable",
-      "reduced motion",
-      "no horizontal document overflow"
+    "postgres": "isolated PostgreSQL 16 at loopback 55439",
+    "backend_targeted": "10 passed, 10 deselected, 53.06s",
+    "browser_behavior": "4/4 widths passed, 34.1s; evidence recapture 4/4 sequential passed, 2.2m",
+    "typecheck": "passed with Node 20.19.0",
+    "targeted_lint": "passed for assistant.tsx and assistant.spec.ts with zero warnings",
+    "production_builds": [
+      "build 1 passed; visual geometry failure discovered after capture",
+      "build 2 passed; authorized by the documented geometry failure and is the final runtime image"
     ],
-    "status": "programmer evidence only; human design approval remains open"
+    "planning_validator": "passed; structure/evidence integrity only, not visual or reviewer acceptance",
+    "git_diff_check": "passed",
+    "secret_or_content_leak_scan": "passed for committed evidence; .env and credential path are untracked and unstaged",
+    "harness_retries": "one backend test body passed before a PostgreSQL teardown timeout; final clean run passed. Parallel browser evidence attempt timed out in transient reference states; final sequential four-width run passed.",
+    "live_provider": "not called"
   },
-  "report": {
-    "path": "docs/stage9/comp-ai-complete-report.docx",
-    "sha256": "2161917992cf6393b5a9d434061017435da6234f677812949f0d61ba3b063e2b",
-    "pages": 11,
-    "template_reference_sha256": "0a8a4c5b8b1d8c055e19c9eadcc7eac898899f067cbbd20602c4e7c078e545de",
-    "render_review": "all 11 pages inspected; no blank page, overflow or broken table observed",
-    "accessibility_audit": "0 high, 0 medium, 0 low"
+  "visual_evidence": {
+    "directory": "docs/stage9/evidence/browser",
+    "index_path": "docs/stage9/evidence/browser/evidence-index.json",
+    "index_sha256": "ce8e5c33b46e2d530f31eca3302a7530fae2ee5c68563796d8289080886957e7",
+    "comparison_metrics_path": "docs/stage9/evidence/browser/comparison-metrics.json",
+    "comparison_metrics_sha256": "caf4828a9b2c0d69c86b73e1ed25a20190101e5630e91cf2b1daeb8c805008f2",
+    "viewports": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "sections": [
+      "processing",
+      "results-top",
+      "results-list",
+      "composer"
+    ],
+    "screenshot_mode": "viewport only; fullPage excluded from pixel metrics",
+    "fonts_ready": true,
+    "visible_images_decoded": true,
+    "masking": "none",
+    "processing_state": "two completed NDJSON events and third active NDJSON event",
+    "product_transport": "injected ReadableStream using the real NDJSON parser; no UI timer",
+    "data_source": "deterministic approved reference public seed, with valid local subtype images and server-shaped metadata",
+    "desktop_geometry": {
+      "result_card": "x/y/width/height deltas 0/0.5/0/0 px; within 2px",
+      "result_row": "x/width/height deltas 0/0/0 px; vertical scroll constrained by shorter product document",
+      "processing_card": "x/width deltas 0/0.31 px; height +18px from versioned contract detail lines",
+      "composer": "x/width/height deltas 0/0/0 px; fixed-bottom vertical offset 10.5px"
+    },
+    "responsive_differences": [
+      "At 360/390 the product deliberately uses the full safe width instead of reproducing the reference's clipped three-column cards and narrow rows.",
+      "At 768 the product uses available width for cards/rows; reference leaves a 52px assistant-avatar rail.",
+      "Navbar keeps the approved invest registration entry absent from the older reference runtime."
+    ],
+    "programmer_status": "technical evidence prepared; not human design acceptance"
   },
-  "fix_01": {
-    "mission": "PROGRAMMER-COMP-AI-EXPERIENCE-SECURITY-FIX-01",
-    "product_commit": "aaf836d964825c91327d52165ef432282f55870e",
-    "runtime_version": "COMP-AI-EXPERIENCE-SECURITY-FIX-01",
-    "build_id": "IpVd2UIrhUrCcbBQXmnNL",
-    "backend_image_digest": "sha256:0734df99350724d490563d4f192a25d0bd448e2dbd3f2706bbc4dc7d5c6e684f",
-    "web_image_digest": "sha256:5460272c2853fd2cb74a070a0022298f12dd874c36cf728935f0b7958adbaf80",
-    "validation_path": "docs/stage9/evidence/fix-01/validation.json",
-    "report": {"path": "docs/stage9/comp-ai-complete-report.docx", "sha256": "92c95e78f11e313b58844b48dd9a83ef55065beb35382bc0bbe5b6e95c5754a5", "pages": 12, "render_review": "changed pages 11-12 visually inspected; no clipping or overlap"},
-    "browser_widths": [360, 390, 768, 1440],
-    "browser_states": ["initial", "processing", "completed"],
-    "provider_calls": 0,
-    "cost_usd": "0",
+  "historical_evidence": {
+    "preserved_in_git_history": true,
+    "superseded_manifest_commits": [
+      "3fa19c9297771dd19598f7f1083cb56ba9881f02",
+      "0d8310768f1fc5c46f0fd9a3fdbc450d0c12ff1c",
+      "428407b9e606390f5de039b3b662ce3dede9af7b"
+    ],
+    "note": "Superseded assistant-initial/processing/complete captures were removed from the current bundle; they remain recoverable from Git history."
+  },
+  "gates": {
     "independent_acceptance": false,
-    "human_design_verdict": null,
-    "human_persian_verdict": null,
-    "d28_verdict": null
-  },
-  "eval_integration_01": {
-    "mission": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
-    "product_commit": "0d8310768f1fc5c46f0fd9a3fdbc450d0c12ff1c",
-    "product_tree": "ad09122309ab1dd8215a7cb0235f59388afa7ba8",
-    "oracle_sha256": "1cfe6230d7f5730ccbe4b11832ca81a893c2882e697cd3323b6abdd624fa2691",
-    "versions": {
-      "router": "assistant-router-v2",
-      "prompt": "assistant-fa-v2",
-      "tool": "assistant-tools-v2",
-      "schema": "assistant-response-v2",
-      "model_extraction": "assistant-model-extraction-v1",
-      "ui_vocabulary": "assistant-fa-labels-v1"
-    },
-    "runtime": {
-      "url": "http://127.0.0.1:3108",
-      "backend_image": "sha256:dc7087b2f01059d0b36ae5001d96e35a004c764b732f637fdca01d6b27920d59",
-      "web_image": "sha256:66b5b56794fe6c7375be67147ff434dcb46cfec7cc34e13a8ed0f51c14fb67c3",
-      "backend_source_sha256": "4e8bf3c3cf27dd91bf43399d44cfbdf4b59afbbf2ae5daa7c8ae30dd705e0527",
-      "frontend_source_sha256": "684f75e73a1531f9f74cb582fdd2712c975a4f09847622f36d6aefbff50c2ded"
-    },
-    "validation": {
-      "backend": "39 passed on isolated PostgreSQL",
-      "router": "120/120; 81 dispatch and 39 no-dispatch",
-      "browser_widths": [360, 390, 768, 1440],
-      "browser_final": "4/4 passed after harness-only locator correction",
-      "planning": "passed with zero errors",
-      "provider_calls": 0,
-      "cost_usd": "0"
-    },
-    "browser_evidence_sha256": {
-      "assistant-complete-360.png": "7d193490b2dcf85dd73f994afce67196446d32fcdb996652b155dbe7a168e4de",
-      "assistant-complete-390.png": "eb4867f3300e4f14333eedf8706399fdb1c19d56793ba71f22131b7b3147e140",
-      "assistant-complete-768.png": "f7d33342885fa6ab9095f0d3d536167191cf72ba537857ac397f5a3a239eb599",
-      "assistant-complete-1440.png": "84f766812921f05629308913f1bcee78fb1646c858050360bbb2167f785b7ea6"
-    },
-    "report": {
-      "path": "docs/stage9/comp-ai-complete-report.docx",
-      "sha256": "7d35016e0ed70f1577e1b8d10cd9c0c76858548169ff7adb09d062686a86dc99",
-      "pages": 12,
-      "changed_page_reviewed": 12
-    },
-    "human_persian": false,
-    "human_design": false,
-    "d28": false,
-    "independent_acceptance": false,
-    "final_model_selection": false
-  },
-  "live_eval_harness_ui_fix_01": {
-    "mission": "PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-01",
-    "implementation_commits": ["c89da099491547d34e3e335fdb458dfd96588aa3", "1ceafbc15de7bcb7c5d04a9365de0fd3579328ad"],
-    "runtime": {"url": "http://127.0.0.1:3108/assistant", "web_image": "sha256:a7a74a59a1e24593b0b17bfdabb1815034162358b30915fd30ff125ea030f77c", "source_commit": "1ceafbc15de7bcb7c5d04a9365de0fd3579328ad", "source_tree": "0e127fc90b7d0c77c08baa2e18ddd58bc9bf4cfd"},
-    "harness": {"internal_principal_kind": "eval", "campaign_cap_usd": "2.00", "service_tier": "standard", "checkpoint": "atomic per case", "provider_calls": 0, "cost_usd": "0"},
-    "validation": {"backend": "34 passed on isolated PostgreSQL", "browser": "5 passed: four widths plus outage/draft preservation", "typecheck": "passed", "targeted_lint": "passed", "production_build": "passed", "live_provider": "not called"},
-    "browser_evidence_sha256": {
-      "assistant-processing-360.png": "a99ccd1ce6d8b5807a014213d42b936b048dc70348c50297fb8c8579564dbad2",
-      "assistant-processing-390.png": "d0d0ecec170f777711cb1e4e7ee3bd34fdf245d94d6e77fa590295a5f55d3d97",
-      "assistant-processing-768.png": "039cf8add3f7f0b1051b61ade798ec07f064b2f04e64ad790adef9afd184faf7",
-      "assistant-processing-1440.png": "d8f594199bcf77139f3e2660fe6d9f3ed4ade6a171d5b2c4618843cd37f95674",
-      "assistant-complete-360.png": "9add86e974327df33fa20c62a7dd8cd55b11e282bf3586e79937137fe9423250",
-      "assistant-complete-390.png": "f68cf07e8cd362105d4c7e8d3a6d9b6e6fecf69cf82543c8ad16687e627be144",
-      "assistant-complete-768.png": "3b7be51b5304797cd1585b8adeba63c6d1a1f81801e71cfa10be756d8c762c03",
-      "assistant-complete-1440.png": "39cfb7344961cdc39aeae08e1a6f09bc945832c3d55b0aa976533e990e49d799"
-    },
-    "limits": {"human_design": false, "live_eval": false, "production_readiness": false, "pixel_diff_numeric_gate": "not independently accepted"},
-    "timing": {"preparation": "~18m", "build": "~5m total; second web build required by broken fallback image found in visual review", "testing": "~12m", "reporting": "~5m"}
+    "human_design_acceptance": false,
+    "human_persian_evaluation": false,
+    "live_sol_luna_evaluation": false,
+    "final_model_selection": false,
+    "d28_human_acceptance": false,
+    "production_readiness": false,
+    "public_deployment": false
   },
   "timing": {
-    "preparation": "approximately 25 minutes",
-    "build": "approximately 9 minutes 30 seconds",
-    "testing": "approximately 18 minutes including harness triage and final deterministic run",
-    "reporting_window": "2026-11-20T22:49:30+03:30/2026-11-20T23:18:50+03:30"
+    "preparation_and_diagnosis": "approximately 24 minutes",
+    "build_1": "approximately 2 minutes 15 seconds",
+    "build_2_after_documented_geometry_failure": "approximately 2 minutes 17 seconds",
+    "targeted_backend_tests": "53.06 seconds final; one earlier successful body with teardown timeout recorded separately",
+    "browser_behavior_and_capture": "34.1 seconds behavior plus 2.2 minutes final sequential evidence; harness retries excluded",
+    "reporting_and_hashing": "approximately 12 minutes"
   }
 }

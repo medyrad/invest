@@ -1,0 +1,504 @@
+{
+  "schema_version": "assistant-visual-comparison-v2",
+  "method": {
+    "browser": "Chromium",
+    "dpr": 1,
+    "motion": "reduce",
+    "screenshots": "viewport-only",
+    "masking": "none",
+    "diff": "absolute RGB with red changed-pixel overlay",
+    "changed_threshold_rgb_max": 16
+  },
+  "comparisons": {
+    "processing-360": {
+      "width": 360,
+      "height": 800,
+      "mae_rgb": 21.1603,
+      "rmse_rgb": 51.2519,
+      "changed_pixels": 88263,
+      "changed_ratio": 0.306469
+    },
+    "results-top-360": {
+      "width": 360,
+      "height": 800,
+      "mae_rgb": 48.3213,
+      "rmse_rgb": 83.6681,
+      "changed_pixels": 143233,
+      "changed_ratio": 0.497337
+    },
+    "results-list-360": {
+      "width": 360,
+      "height": 800,
+      "mae_rgb": 23.8592,
+      "rmse_rgb": 52.2906,
+      "changed_pixels": 106425,
+      "changed_ratio": 0.369531
+    },
+    "composer-360": {
+      "width": 360,
+      "height": 800,
+      "mae_rgb": 40.7659,
+      "rmse_rgb": 79.0654,
+      "changed_pixels": 127961,
+      "changed_ratio": 0.444309
+    },
+    "processing-390": {
+      "width": 390,
+      "height": 844,
+      "mae_rgb": 21.0486,
+      "rmse_rgb": 51.13,
+      "changed_pixels": 98591,
+      "changed_ratio": 0.299523
+    },
+    "results-top-390": {
+      "width": 390,
+      "height": 844,
+      "mae_rgb": 51.9491,
+      "rmse_rgb": 87.5819,
+      "changed_pixels": 169615,
+      "changed_ratio": 0.515297
+    },
+    "results-list-390": {
+      "width": 390,
+      "height": 844,
+      "mae_rgb": 23.7344,
+      "rmse_rgb": 51.8874,
+      "changed_pixels": 124522,
+      "changed_ratio": 0.378302
+    },
+    "composer-390": {
+      "width": 390,
+      "height": 844,
+      "mae_rgb": 41.5768,
+      "rmse_rgb": 79.9715,
+      "changed_pixels": 148345,
+      "changed_ratio": 0.450677
+    },
+    "processing-768": {
+      "width": 768,
+      "height": 1000,
+      "mae_rgb": 24.9535,
+      "rmse_rgb": 55.2659,
+      "changed_pixels": 339560,
+      "changed_ratio": 0.442135
+    },
+    "results-top-768": {
+      "width": 768,
+      "height": 1000,
+      "mae_rgb": 25.0776,
+      "rmse_rgb": 56.53,
+      "changed_pixels": 290443,
+      "changed_ratio": 0.378181
+    },
+    "results-list-768": {
+      "width": 768,
+      "height": 1000,
+      "mae_rgb": 23.0335,
+      "rmse_rgb": 52.051,
+      "changed_pixels": 308720,
+      "changed_ratio": 0.401979
+    },
+    "composer-768": {
+      "width": 768,
+      "height": 1000,
+      "mae_rgb": 33.4171,
+      "rmse_rgb": 70.509,
+      "changed_pixels": 316960,
+      "changed_ratio": 0.412708
+    },
+    "processing-1440": {
+      "width": 1440,
+      "height": 1000,
+      "mae_rgb": 10.7028,
+      "rmse_rgb": 28.6984,
+      "changed_pixels": 274727,
+      "changed_ratio": 0.190783
+    },
+    "results-top-1440": {
+      "width": 1440,
+      "height": 1000,
+      "mae_rgb": 9.8755,
+      "rmse_rgb": 27.5897,
+      "changed_pixels": 236359,
+      "changed_ratio": 0.164138
+    },
+    "results-list-1440": {
+      "width": 1440,
+      "height": 1000,
+      "mae_rgb": 16.9509,
+      "rmse_rgb": 42.3426,
+      "changed_pixels": 443024,
+      "changed_ratio": 0.307656
+    },
+    "composer-1440": {
+      "width": 1440,
+      "height": 1000,
+      "mae_rgb": 24.367,
+      "rmse_rgb": 59.0218,
+      "changed_pixels": 436377,
+      "changed_ratio": 0.30304
+    }
+  },
+  "geometry": {
+    "360": {
+      "processing_card": {
+        "product": {
+          "x": 16,
+          "y": 184,
+          "width": 328,
+          "height": 212
+        },
+        "reference": {
+          "x": 16,
+          "y": 188,
+          "width": 320,
+          "height": 210
+        },
+        "absolute_delta_px": {
+          "x": 0,
+          "y": 4,
+          "width": 8,
+          "height": 2
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      },
+      "result_card": {
+        "product": {
+          "x": 16,
+          "y": 120,
+          "width": 328,
+          "height": 338.25
+        },
+        "reference": {
+          "x": 260,
+          "y": 120,
+          "width": 76,
+          "height": 347.75
+        },
+        "absolute_delta_px": {
+          "x": 244,
+          "y": 0,
+          "width": 252,
+          "height": 9.5
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      },
+      "result_row": {
+        "product": {
+          "x": 16,
+          "y": 119.75,
+          "width": 328,
+          "height": 82
+        },
+        "reference": {
+          "x": 76,
+          "y": 119.75,
+          "width": 260,
+          "height": 212.5
+        },
+        "absolute_delta_px": {
+          "x": 60,
+          "y": 0.0,
+          "width": 68,
+          "height": 130.5
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      },
+      "composer": {
+        "product": {
+          "x": 16,
+          "y": 693,
+          "width": 328,
+          "height": 68
+        },
+        "reference": {
+          "x": 25,
+          "y": 682.5,
+          "width": 310,
+          "height": 68
+        },
+        "absolute_delta_px": {
+          "x": 9,
+          "y": 10.5,
+          "width": 18,
+          "height": 0
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      }
+    },
+    "390": {
+      "processing_card": {
+        "product": {
+          "x": 16,
+          "y": 184,
+          "width": 358,
+          "height": 212
+        },
+        "reference": {
+          "x": 46,
+          "y": 188,
+          "width": 320,
+          "height": 210
+        },
+        "absolute_delta_px": {
+          "x": 30,
+          "y": 4,
+          "width": 38,
+          "height": 2
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      },
+      "result_card": {
+        "product": {
+          "x": 16,
+          "y": 120,
+          "width": 358,
+          "height": 357
+        },
+        "reference": {
+          "x": 280,
+          "y": 120,
+          "width": 86,
+          "height": 354
+        },
+        "absolute_delta_px": {
+          "x": 264,
+          "y": 0,
+          "width": 272,
+          "height": 3
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      },
+      "result_row": {
+        "product": {
+          "x": 16,
+          "y": 120,
+          "width": 358,
+          "height": 82
+        },
+        "reference": {
+          "x": 76,
+          "y": 120,
+          "width": 290,
+          "height": 212.5
+        },
+        "absolute_delta_px": {
+          "x": 60,
+          "y": 0,
+          "width": 68,
+          "height": 130.5
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      },
+      "composer": {
+        "product": {
+          "x": 16,
+          "y": 737,
+          "width": 358,
+          "height": 68
+        },
+        "reference": {
+          "x": 25,
+          "y": 726.5,
+          "width": 340,
+          "height": 68
+        },
+        "absolute_delta_px": {
+          "x": 9,
+          "y": 10.5,
+          "width": 18,
+          "height": 0
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      }
+    },
+    "768": {
+      "processing_card": {
+        "product": {
+          "x": 76,
+          "y": 184,
+          "width": 408,
+          "height": 212
+        },
+        "reference": {
+          "x": 76,
+          "y": 188,
+          "width": 407.69,
+          "height": 194
+        },
+        "absolute_delta_px": {
+          "x": 0,
+          "y": 4,
+          "width": 0.31,
+          "height": 18
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      },
+      "result_card": {
+        "product": {
+          "x": 514.67,
+          "y": 120,
+          "width": 229.33,
+          "height": 303.08
+        },
+        "reference": {
+          "x": 532,
+          "y": 119.5,
+          "width": 212,
+          "height": 292.25
+        },
+        "absolute_delta_px": {
+          "x": 17.33,
+          "y": 0.5,
+          "width": 17.33,
+          "height": 10.83
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      },
+      "result_row": {
+        "product": {
+          "x": 24,
+          "y": 186.08,
+          "width": 720,
+          "height": 82
+        },
+        "reference": {
+          "x": 76,
+          "y": 119.75,
+          "width": 668,
+          "height": 82
+        },
+        "absolute_delta_px": {
+          "x": 52,
+          "y": 66.33,
+          "width": 52,
+          "height": 0
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      },
+      "composer": {
+        "product": {
+          "x": 16,
+          "y": 893,
+          "width": 736,
+          "height": 68
+        },
+        "reference": {
+          "x": 25,
+          "y": 882.5,
+          "width": 718,
+          "height": 68
+        },
+        "absolute_delta_px": {
+          "x": 9,
+          "y": 10.5,
+          "width": 18,
+          "height": 0
+        },
+        "tolerance_px": 3,
+        "within_tolerance": false
+      }
+    },
+    "1440": {
+      "processing_card": {
+        "product": {
+          "x": 284,
+          "y": 184,
+          "width": 408,
+          "height": 212
+        },
+        "reference": {
+          "x": 284,
+          "y": 188,
+          "width": 407.69,
+          "height": 194
+        },
+        "absolute_delta_px": {
+          "x": 0,
+          "y": 4,
+          "width": 0.31,
+          "height": 18
+        },
+        "tolerance_px": 2,
+        "within_tolerance": false
+      },
+      "result_card": {
+        "product": {
+          "x": 910.67,
+          "y": 120,
+          "width": 297.33,
+          "height": 319.08
+        },
+        "reference": {
+          "x": 910.67,
+          "y": 119.5,
+          "width": 297.33,
+          "height": 319.08
+        },
+        "absolute_delta_px": {
+          "x": 0.0,
+          "y": 0.5,
+          "width": 0.0,
+          "height": 0.0
+        },
+        "tolerance_px": 2,
+        "within_tolerance": true
+      },
+      "result_row": {
+        "product": {
+          "x": 284,
+          "y": 186.08,
+          "width": 924,
+          "height": 82
+        },
+        "reference": {
+          "x": 284,
+          "y": 119.58,
+          "width": 924,
+          "height": 82
+        },
+        "absolute_delta_px": {
+          "x": 0,
+          "y": 66.5,
+          "width": 0,
+          "height": 0
+        },
+        "tolerance_px": 2,
+        "within_tolerance": false
+      },
+      "composer": {
+        "product": {
+          "x": 337,
+          "y": 893,
+          "width": 766,
+          "height": 68
+        },
+        "reference": {
+          "x": 337,
+          "y": 882.5,
+          "width": 766,
+          "height": 68
+        },
+        "absolute_delta_px": {
+          "x": 0,
+          "y": 10.5,
+          "width": 0,
+          "height": 0
+        },
+        "tolerance_px": 2,
+        "within_tolerance": false
+      }
+    }
+  }
+}

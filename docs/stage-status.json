@@ -1,7 +1,7 @@
 {
   "date": "2026-11-21",
   "current_stage": "S09",
-  "status": "s09-live-campaign-budget-guard-programmer-complete-live-and-human-gates-open",
+  "status": "s09-live-eval-harness-ui-fix-02-programmer-complete-independent-live-human-gates-open",
   "implementation_authorized": false,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -79,11 +79,12 @@
     "PRODUCT-COMP-AI-01: documentation synchronized and five unapproved PC-D02 subdecisions prepared; S09 journey/contracts/tasks/evaluation clarified; no product implementation, credential, live OpenAI, push or deployment",
     "PRODUCT-COMP-AI-FREEZE-01: explicit approval of PC-D02-01..05 and nonpublic S09 authorization recorded; scope/handoff frozen without code, tests, fixtures, credentials, OpenAI calls, push or deploy; human gates remain open",
     "PROGRAMMER-COMP-AI-COMPLETE-01: T062–T066 implemented with bounded Responses adapter, content-free quota ledger, four read-only tools, complete responsive journey, 120-case locked fixture and PostgreSQL/browser evidence; no private credential was present, so live smoke/eval, Sol/Luna comparison, independent acceptance and human gates remain open",
-    "PRODUCT-COMP-AI-EVAL-ORACLE-01: preserved all 120 original case IDs/inputs/splits, froze independent synthetic context/criteria/citation/router oracle pre-live; explicit scoring denominators and programmer handoff; no product code, runner, live call or human vote"
+    "PRODUCT-COMP-AI-EVAL-ORACLE-01: preserved all 120 original case IDs/inputs/splits, froze independent synthetic context/criteria/citation/router oracle pre-live; explicit scoring denominators and programmer handoff; no product code, runner, live call or human vote",
+    "PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-02: fake campaign 20 Luna smoke + 80 Luna eval + 80 Sol eval completed through one 2.00 USD ledger with exactly 116 provider-eligible fake calls, controlled crash/resume and zero repeated settled calls; assistant processing/results/composer were aligned and captured at four widths with deterministic public seed; real provider calls/cost stayed zero and independent/human/live gates remain open"
   ],
   "remaining": [
     "COMP-EXPERIENCE: قبول فنی 8c327ec و runtime/home/loading در a317094؛ RHL-IT-001 بسته و legacy مصوب؛ بررسی مالک/تخصصی طراحی و کیفیت D28 باز، مانع توسعه غیرعمومی جداگانه‌مجاز نیستند.",
-    "COMP-AI: تحویل برنامه‌نویس و FIX-01، بدون قبول مستقل؛ oracle 120-case منجمد، runner معتبر/اتصال prompt-tool-context/scorer و برچسب فارسی UI باز؛ live، رأی فارسی، طراحی/D28 و انتخاب نهایی باز",
+    "COMP-AI: تحویل فنی PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-02 آماده بازآزمایی مستقل است؛ کمپین fake و شواهد UI چهارعرض تکمیل شده، اما live، رأی فارسی، تأیید انسانی طراحی/D28 و انتخاب نهایی مدل بازند",
     "COMP-INTEGRATIONS: F39/F40 و PC-D01؛ تعویق بدون مصوبه مجاز نیست",
     "COMP-OPERATIONS: PC-D03/04؛ پیامک/احراز حساس واقعی، داده، ظرفیت، تیم/تقویم، امنیت، بازیابی و انتشار باز"
   ],
@@ -137,17 +138,17 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "INDEPENDENT-COMP-AI-EVAL-INTEGRATION-RETEST",
-    "description": "بازآزمایی مستقل اتصال فنی runner و UI؛ live Sol/Luna فقط با مجوز و credential خصوصی جدا",
+    "id": "INDEPENDENT-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-02-RETEST",
+    "description": "بازآزمایی مستقل کمپین fake، crash/resume و شواهد هم‌شرایط UI؛ live Sol/Luna فقط با مجوز و credential خصوصی جدا",
     "authorized": false,
     "scope_path": "specs/001-business-baseline/tasks.md",
     "package": "COMP-AI"
   },
   "active_step": {
-    "id": "PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01",
-    "mission": "PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01",
-    "status": "programmer-budget-guard-complete-live-and-human-open",
-    "authorization": "Explicit user mission: atomic fail-closed 2.00 USD live campaign guard and offline tests only; no real provider call, push, deploy or human acceptance",
+    "id": "PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-02",
+    "mission": "PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-02",
+    "status": "programmer-complete-ready-for-independent-retest-live-and-human-open",
+    "authorization": "Explicit user mission: complete injected fake campaign and UI comparison only; no real provider call, secret read, push, deploy or acceptance claim",
     "documentation_authorized": true,
     "implementation_authorized": true,
     "push_authorized": false,
@@ -158,8 +159,8 @@
     "final_acceptance": false,
     "independent_acceptance": false,
     "independently_accepted_product_scope": "COMP-EXPERIENCE at 8c327ec and runtime/home/loading at a317094 only; S09 is not independently accepted",
-    "report_path": "docs/stage9/comp-ai-complete-report.docx",
-    "validation_path": "specs/001-business-baseline/contracts/assistant-evaluation-oracle.json"
+    "report_path": "docs/stage9/evidence/manifest.json",
+    "validation_path": "docs/stage9/evidence/browser/evidence-index.json"
   },
   "clarification_step": {
     "id": "S01-clarify-and-freeze",
@@ -568,7 +569,7 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01",
+    "current_mission": "PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-02",
     "current_mission_override": "Explicit latest mission overrides standing push authorization: local commits only; no push or deployment",
     "earlier_standing_push_authorization": true
   },
@@ -879,9 +880,9 @@
     },
     "live_blocker": "Product-path runner/scorers and the shared 2.00 USD campaign guard are technically integrated. Live Sol/Luna and human Persian remain unexecuted by explicit mission boundary; credential content/state was deliberately not inspected and provider calls/cost are zero.",
     "experience_security_fix": "server-only assistant-router-v2, prompt assistant-fa-v2, tools assistant-tools-v2 and schema assistant-response-v2; independent/human acceptance open",
-    "current_product_mission": "PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01",
+    "current_product_mission": "PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-02",
     "live_campaign_budget_guard": {
-      "status": "programmer-complete-independent-live-retest-open",
+      "status": "programmer-fake-campaign-and-ui-complete-independent-live-retest-open",
       "cap_usd": "2.00",
       "shared_across": [
         "smoke",
@@ -898,6 +899,16 @@
       "credential_source": "OPENAI_EVAL_API_KEY_FILE only",
       "real_provider_calls": 0,
       "real_cost_usd": "0",
+      "fake_campaign": {
+        "records": 180,
+        "provider_eligible": 116,
+        "smoke_luna": 20,
+        "eval_luna": 80,
+        "eval_sol": 80,
+        "controlled_interrupt_after_record": 21,
+        "settled_replay_provider_calls": 0,
+        "evidence": "docs/stage9/evidence/manifest.json"
+      },
       "product_principal_monthly_cap_usd_unchanged": "10.0000",
       "independent_acceptance": false
     },
@@ -973,5 +984,5 @@
     "plan": "docs/experience-complete/fallback-gates-plan.md",
     "comp_ai_authorization_source": "Explicit PRODUCT-COMP-AI-FREEZE-01 user approval; nonpublic S09 only"
   },
-  "implementation_authorization_scope": "PRODUCT-COMP-AI-EVAL-ORACLE-01: oracle and documentation only; no backend/frontend/runner changes, credentials, OpenAI calls, human votes, push or deploy."
+  "implementation_authorization_scope": "PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-02 completed within injected fake harness and assistant UI evidence scope; no credentials, real OpenAI calls, human votes, push or deploy."
 }

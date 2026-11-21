@@ -1,0 +1,57 @@
+{
+  "viewport": {
+    "width": 768,
+    "height": 1000
+  },
+  "dpr": 1,
+  "browser": "chromium",
+  "reduced_motion": "reduce",
+  "product_processing_card": {
+    "x": 76,
+    "y": 184,
+    "width": 408,
+    "height": 212
+  },
+  "product_result_card": {
+    "x": 514.67,
+    "y": 120,
+    "width": 229.33,
+    "height": 303.08
+  },
+  "product_composer": {
+    "x": 16,
+    "y": 893,
+    "width": 736,
+    "height": 68
+  },
+  "product_result_row": {
+    "x": 24,
+    "y": 186.08,
+    "width": 720,
+    "height": 82
+  },
+  "reference_processing_card": {
+    "x": 76,
+    "y": 188,
+    "width": 407.69,
+    "height": 194
+  },
+  "reference_result_card": {
+    "x": 532,
+    "y": 119.5,
+    "width": 212,
+    "height": 292.25
+  },
+  "reference_composer": {
+    "x": 25,
+    "y": 882.5,
+    "width": 718,
+    "height": 68
+  },
+  "reference_result_row": {
+    "x": 76,
+    "y": 119.75,
+    "width": 668,
+    "height": 82
+  }
+}
