@@ -37,6 +37,47 @@ docker compose --env-file .env -f deploy/compose.yaml run --rm --user "$(id -u):
 
 ## فرانت و مرورگر
 
+### حالت توسعهٔ فرانت با HMR
+
+```sh
+make dev
+```
+
+این فرمان runtime اصلی را بالا می‌آورد، بک‌اند را با `deploy/compose.dev.yaml` فقط روی `127.0.0.1:8018` منتشر می‌کند، کانتینر `web` را متوقف می‌کند و `next dev` را روی `WEB_PORT` (پیش‌فرض 3108) به همان بک‌اند اجرا می‌کند. تغییرات فرانت بدون build دوباره دیده می‌شوند. Ctrl+C فقط `next dev` را می‌بندد؛ برای توقف بقیه `make stop` و برای بازگشت به وب build‌شده `make up`.
+
+کارهایی که خودکار انجام می‌شوند:
+
+- اگر Node نصب‌شده با `.nvmrc` یکی نباشد، پیش از هر کار کند با راهنمای نصب متوقف می‌شود.
+- اگر پورت وب اشغال باشد (مثلاً `make dev` دیگری باز است)، در چند ثانیه با پیام روشن متوقف می‌شود.
+- اگر پورت DB (`POSTGRES_PORT`) را برنامهٔ دیگری گرفته باشد، اولین پورت آزاد بعدی در `.env` ثبت و اعلام می‌شود.
+- اگر کد بک‌اند از آخرین build تغییر کرده باشد، image بک‌اند دوباره build می‌شود. برای build اجباری: `make dev BUILD=1`.
+- اگر `package-lock.json` تغییر کرده یا اجرای اول باشد، `npm ci` اجرا می‌شود.
+- اگر پورت 8018 اشغال باشد، با پورت دیگر اجرا کنید: `make dev BACKEND_DEV_PORT=8028`.
+
+### راه‌اندازی در Windows با WSL
+
+همه چیز داخل WSL اجرا می‌شود، نه در PowerShell یا CMD. این مسیر روی Windows واقعی هنوز آزموده نشده است.
+
+1. WSL 2 و Ubuntu را نصب کنید (`wsl --install` در PowerShell با دسترسی Administrator، سپس راه‌اندازی دوبارهٔ سیستم).
+2. Docker Desktop را نصب کنید و در Settings → Resources → WSL integration گزینهٔ Ubuntu را روشن کنید. در ترمینال Ubuntu باید `docker compose version` کار کند.
+3. در ترمینال Ubuntu ابزارها را نصب کنید:
+
+```sh
+sudo apt update && sudo apt install -y make git python3
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+```
+
+ترمینال را ببندید و دوباره باز کنید، سپس:
+
+```sh
+nvm install 24.22.3
+```
+
+4. مخزن را داخل فایل‌سیستم WSL clone کنید، مثلاً `~/invest`، نه زیر `/mnt/c/...`. مسیر Windows کند است و بازخوانی خودکار فرانت در آن قابل اعتماد نیست.
+5. از ریشهٔ مخزن `make dev` را اجرا کنید و http://localhost:3108 را در مرورگر Windows باز کنید. اجرای اول به دلیل ساخت imageها چند دقیقه طول می‌کشد.
+
+
+
 Node24.22.3 و npm11.19.1 را مطابق `.nvmrc` نصب کنید؛ engine-strict نسخه دیگر را رد می‌کند. بک‌اند probe فقط در profile آزمون و روی localhost8008 فعال می‌شود. URLConf آزمون از production جداست و فقط INVEST_ENV=test را می‌پذیرد.
 
 ```sh

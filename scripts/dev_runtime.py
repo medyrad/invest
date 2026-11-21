@@ -6,6 +6,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import os
+import re
+import socket
 import subprocess
 import sys
 from pathlib import Path
@@ -108,8 +110,8 @@ def provenance_env() -> dict[str, str]:
     return env
 
 
-def run(command: list[str], *, env=None) -> None:
-    subprocess.run(command, check=True, cwd=ROOT, env=env)
+def run(command: list[str], *, env=None, cwd: Path = ROOT) -> None:
+    subprocess.run(command, check=True, cwd=cwd, env=env)
 
 
 def ensure_scanner() -> None:
@@ -125,47 +127,135 @@ def ensure_scanner() -> None:
         run([str(ROOT / "deploy/prepare-scanner.sh")])
 
 
-def start(build: bool) -> None:
-    prepare()
+def port_free(port: int) -> bool:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
+        # Same as Node and Docker: ignore TIME_WAIT leftovers, fail only on a live listener.
+        probe.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        try:
+            probe.bind(("127.0.0.1", port))
+        except OSError:
+            return False
+    return True
+
+
+def published(service: str, container_port: int, compose: list[str] = COMPOSE) -> bool:
+    """True when this project's own container already holds the host port."""
+    result = subprocess.run(
+        compose + ["port", service, str(container_port)],
+        capture_output=True, text=True, check=False, cwd=ROOT,
+    )
+    return result.returncode == 0 and bool(result.stdout.strip())
+
+
+def ensure_db_port() -> None:
+    """Move POSTGRES_PORT to a free port when another program already uses it."""
+    if published("db", 5432):
+        return
+    values = _values(_read_lines())
+    current = int(values.get("POSTGRES_PORT", "55432"))
+    if port_free(current):
+        return
+    replacement = next((p for p in range(current + 1, current + 100) if port_free(p)), None)
+    if replacement is None:
+        raise SystemExit(f"Database port {current} is in use and no free port was found nearby.")
+    text = ENV_FILE.read_text()
+    text = re.sub(r"(?m)^POSTGRES_PORT=\d+$", f"POSTGRES_PORT={replacement}", text)
+    text = re.sub(
+        r"(?m)^(DATABASE_URL=.*@127\.0\.0\.1:)\d+/", rf"\g<1>{replacement}/", text
+    )
+    ENV_FILE.write_text(text)
+    print(f"Database port {current} is used by another program; using {replacement} instead.")
+
+
+def require_node() -> None:
+    wanted = (ROOT / ".nvmrc").read_text().strip()
+    try:
+        found = subprocess.run(
+            ["node", "--version"], capture_output=True, text=True, check=True
+        ).stdout.strip().lstrip("v")
+    except (OSError, subprocess.CalledProcessError):
+        found = ""
+    if found != wanted:
+        raise SystemExit(
+            f"`make dev` needs Node {wanted} (found: {found or 'none'}). "
+            f"Install it with nvm: `nvm install {wanted}` then `nvm use {wanted}`."
+        )
+
+
+def image_fingerprint(image: str, label: str) -> str:
+    result = subprocess.run(
+        ["docker", "image", "inspect", image, "--format", f'{{{{index .Config.Labels "{label}"}}}}'],
+        capture_output=True, text=True, check=False, cwd=ROOT,
+    )
+    return result.stdout.strip() if result.returncode == 0 else ""
+
+
+def backend_image_stale() -> bool:
+    built = image_fingerprint("invest-backend", "invest.source.backend.sha256")
+    return built != source_fingerprint("backend")
+
+
+def ensure_frontend_packages() -> None:
+    frontend = ROOT / "frontend"
+    wanted = hashlib.sha256((frontend / "package-lock.json").read_bytes()).hexdigest()
+    stamp = frontend / "node_modules/.invest-lock.sha256"
+    if stamp.is_file() and stamp.read_text().strip() == wanted:
+        return
+    print("Installing frontend packages (package-lock.json changed or first run)...")
+    run(["npm", "ci"], cwd=frontend)
+    stamp.write_text(wanted + "\n")
+
+
+def start(build: bool, frontend_dev: bool = False) -> None:
+    port = prepare()
+    if frontend_dev:
+        require_node()
+        # The built web container also binds the port; stop it before checking.
+        run(COMPOSE + ["stop", "web"])
+        if not port_free(port):
+            raise SystemExit(
+                f"Port {port} is already in use, so `next dev` cannot start. "
+                "Another `make dev` or dev server is probably running: stop it "
+                f"(Ctrl+C in its terminal, or find it with `ss -ltnp | grep {port}`) and retry."
+            )
+    ensure_db_port()
     if build:
-        run(COMPOSE + ["build", "backend", "web"], env=provenance_env())
+        services = ["backend"] if frontend_dev else ["backend", "web"]
+        run(COMPOSE + ["build", *services], env=provenance_env())
+    elif frontend_dev and backend_image_stale():
+        print("Backend code changed since the last image build; rebuilding the backend image...")
+        run(COMPOSE + ["build", "backend"], env=provenance_env())
     ensure_scanner()
     run(COMPOSE + ["up", "-d", "--wait", "db", "scanner"])
-    run(
-        COMPOSE
-        + [
-            "run",
-            "--rm",
-            "backend",
-            "/app/.venv/bin/python",
-            "manage.py",
-            "migrate",
-            "--noinput",
-        ]
+    for command in (["migrate", "--noinput"], ["import_reference"], ["seed_core_demo"]):
+        run(COMPOSE + ["run", "--rm", "backend", "/app/.venv/bin/python", "manage.py", *command])
+    if not frontend_dev:
+        run(COMPOSE + ["up", "-d", "backend", "web", "workspace-jobs"])
+        return
+    # `make dev`: publish the backend for `next dev` on the host and leave the web
+    # port free instead of starting the built web container.
+    backend_port = int(os.environ.get("BACKEND_DEV_PORT", "8018"))
+    dev_compose = COMPOSE + ["-f", str(ROOT / "deploy/compose.dev.yaml")]
+    if not published("backend", 8000, dev_compose) and not port_free(backend_port):
+        raise SystemExit(
+            f"Backend dev port {backend_port} is in use. Pick another one, for example "
+            "`make dev BACKEND_DEV_PORT=8028`."
+        )
+    env = os.environ | {"BACKEND_DEV_PORT": str(backend_port)}
+    run(dev_compose + ["up", "-d", "--wait", "backend", "workspace-jobs"], env=env)
+    ensure_frontend_packages()
+    frontend = ROOT / "frontend"
+    next_bin = str(frontend / "node_modules/.bin/next")
+    print(
+        f"\nOpen http://127.0.0.1:{port} . Frontend edits reload instantly.\n"
+        "Ctrl+C stops only the frontend; run `make stop` to stop the backend too.\n"
     )
-    run(
-        COMPOSE
-        + [
-            "run",
-            "--rm",
-            "backend",
-            "/app/.venv/bin/python",
-            "manage.py",
-            "import_reference",
-        ]
+    os.chdir(frontend)
+    os.execve(
+        next_bin,
+        [next_bin, "dev", "--hostname", "127.0.0.1", "--port", str(port)],
+        env | {"BACKEND_INTERNAL_ORIGIN": f"http://127.0.0.1:{backend_port}"},
     )
-    run(
-        COMPOSE
-        + [
-            "run",
-            "--rm",
-            "backend",
-            "/app/.venv/bin/python",
-            "manage.py",
-            "seed_core_demo",
-        ]
-    )
-    run(COMPOSE + ["up", "-d", "backend", "web", "workspace-jobs"])
 
 
 def main() -> None:
@@ -176,11 +266,16 @@ def main() -> None:
         action="store_true",
         help="build the affected runtime images before starting",
     )
+    parser.add_argument(
+        "--frontend-dev",
+        action="store_true",
+        help="run `next dev` with hot reload against the dockerized backend",
+    )
     args = parser.parse_args()
     if args.action == "prepare":
         prepare()
     else:
-        start(args.build)
+        start(args.build, args.frontend_dev)
 
 
 if __name__ == "__main__":
