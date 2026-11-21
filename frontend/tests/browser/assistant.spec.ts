@@ -215,6 +215,16 @@ async function geometry(locator: import("@playwright/test").Locator) {
   );
 }
 
+async function alignSection(
+  locator: import("@playwright/test").Locator,
+  top = 120,
+) {
+  await locator.evaluate((element, expectedTop) => {
+    const current = element.getBoundingClientRect().top;
+    scrollBy({ top: current - expectedTop, behavior: "instant" });
+  }, top);
+}
+
 test("assistant complete journey remains usable at the project viewport", async ({
   page,
 }) => {
@@ -259,7 +269,11 @@ test("assistant complete journey remains usable at the project viewport", async 
   ).toBeVisible();
   await expect(page.getByText("شرط‌ها برداشت شدند.")).toBeVisible();
   await expect(page.getByText("سه مورد آماده شد.")).toBeVisible();
-  await expect(page.getByText("توضیح در حال اعتبارسنجی است.")).toBeVisible();
+  const activeStep = page
+    .getByText("مرتب‌سازی بر اساس درصد تطابق", { exact: true })
+    .locator("xpath=ancestor::li[1]");
+  await expect(activeStep).toBeVisible();
+  await expect(activeStep.locator("span").first()).toHaveClass(/ring-teal-400/);
   measurements.product_processing_card = await geometry(
     page.getByRole("heading", { name: "در حال بررسی..." }).locator(".."),
   );
@@ -305,8 +319,13 @@ test("assistant complete journey remains usable at the project viewport", async 
   await page
     .locator("article")
     .filter({ hasText: /پیشنهاد [1۱]/ })
-    .first()
-    .scrollIntoViewIfNeeded();
+    .last()
+    .evaluate((element) => {
+      scrollBy({
+        top: element.getBoundingClientRect().top - 120,
+        behavior: "instant",
+      });
+    });
   if (evidence)
     await page.screenshot({
       path: path.join(evidence, `product-results-top-${width}.png`),
@@ -316,6 +335,7 @@ test("assistant complete journey remains usable at the project viewport", async 
     .locator("article")
     .filter({ hasText: /پیشنهاد [1۱]/ })
     .last();
+  await alignSection(productCard);
   measurements.product_result_card = await geometry(productCard);
   measurements.product_composer = await geometry(
     composer.locator("xpath=ancestor::form[1]"),
@@ -323,7 +343,7 @@ test("assistant complete journey remains usable at the project viewport", async 
   const productRow = page
     .getByText("توسعه مجموعه مسکونی", { exact: true })
     .locator("xpath=ancestor::article[1]");
-  await productRow.scrollIntoViewIfNeeded();
+  await alignSection(productRow);
   await captureReady(page);
   measurements.product_result_row = await geometry(productRow);
   if (evidence)
@@ -358,7 +378,6 @@ test("assistant complete journey remains usable at the project viewport", async 
     await expect(
       reference.getByText("مرتب‌سازی بر اساس درصد تطابق"),
     ).toBeVisible();
-    await captureReady(reference);
     measurements.reference_processing_card = await geometry(
       reference.getByText("در حال بررسی…", { exact: true }).locator(".."),
     );
@@ -373,7 +392,7 @@ test("assistant complete journey remains usable at the project viewport", async 
       .locator("article")
       .filter({ hasText: /پیشنهاد [1۱]/ })
       .first();
-    await referenceCard.scrollIntoViewIfNeeded();
+    await alignSection(referenceCard);
     await captureReady(reference);
     measurements.reference_result_card = await geometry(referenceCard);
     measurements.reference_composer = await geometry(
@@ -386,7 +405,7 @@ test("assistant complete journey remains usable at the project viewport", async 
     const referenceRow = reference
       .getByText("توسعه مجموعه مسکونی", { exact: true })
       .locator("xpath=ancestor::li[1]");
-    await referenceRow.scrollIntoViewIfNeeded();
+    await alignSection(referenceRow);
     await captureReady(reference);
     measurements.reference_result_row = await geometry(referenceRow);
     await reference.screenshot({
