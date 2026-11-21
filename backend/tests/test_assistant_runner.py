@@ -1,16 +1,17 @@
 import importlib.util
 import json
+import multiprocessing
 import sys
 from copy import deepcopy
+from decimal import Decimal
 from pathlib import Path
 
 import pytest
 
-from apps.assistant import evaluation
+from apps.assistant import evaluation, evaluation_budget
 from apps.assistant.models import UsageReservation
 from apps.assistant.provider import OUTPUT_SCHEMA, SYSTEM, TOOLS
 from apps.core.models import Opportunity
-
 
 SCRIPT = (
     Path("/scripts/run_assistant_evaluation.py")
@@ -34,6 +35,36 @@ def module():
 
 def oracle():
     return evaluation.load_oracle(ORACLE)
+
+
+def budget_manifest():
+    return {
+        "oracle_sha256": evaluation.ORACLE_SHA256,
+        "held_out_sha256": evaluation.HELD_OUT_SHA256,
+        "context_sha256": evaluation.CONTEXT_SHA256,
+        "commit": "fixed-test-commit",
+        "product_prompt_tool_schema_router_versions": {
+            "prompt": "p",
+            "tool": "t",
+            "schema": "s",
+            "router": "r",
+        },
+    }
+
+
+def concurrent_reserve(path, request_hash, queue):
+    try:
+        ledger = evaluation_budget.CampaignLedger(Path(path), "2.00", budget_manifest())
+        ledger.reserve(
+            request_hash,
+            case_id=request_hash[:8],
+            model="gpt-6.2-sol",
+            purpose="eval",
+            reserved_usd=Decimal("1.20"),
+        )
+        queue.put("reserved")
+    except evaluation_budget.CampaignBudgetError as exc:
+        queue.put(str(exc))
 
 
 def proposed(case):
@@ -131,6 +162,7 @@ def test_injected_run_uses_product_prompt_tools_schema_and_never_sends_expected(
     )
     assert calls == 1 and record["metric"]["extraction"]["passed"]
     payload = captured[0]
+    assert payload["service_tier"] == "default"
     assert payload["tools"] == TOOLS
     assert payload["text"]["format"]["schema"] == OUTPUT_SCHEMA
     encoded = json.dumps(payload, ensure_ascii=False)
@@ -274,3 +306,206 @@ def test_contract_mode_has_zero_provider_calls_cost_and_no_selection(monkeypatch
     result = json.loads(capsys.readouterr().out)
     assert result["provider_calls"] == 0 and result["cost_usd"] == "0"
     assert result["selection"] is None and result["human_persian_votes"] == 0
+
+
+@pytest.mark.django_db
+def test_live_mode_requires_explicit_campaign_guard_before_credential(
+    settings, monkeypatch, capsys
+):
+    settings.INVEST_ENV = "test"
+    runner = module()
+    monkeypatch.setattr(sys, "argv", [str(SCRIPT), "--mode", "smoke"])
+    monkeypatch.setattr(
+        runner,
+        "_credential",
+        lambda: pytest.fail("credential_must_not_be_read_without_campaign_guard"),
+    )
+    assert runner.main() == 4
+    result = json.loads(capsys.readouterr().out)
+    assert result["status"] == "blocked_campaign_guard_required"
+    assert result["provider_calls"] == 0 and result["cost_usd"] == "0"
+
+
+def test_campaign_cap_exact_boundary_and_rejects_above_two_dollars(tmp_path):
+    path = tmp_path / "campaign.json"
+    ledger = evaluation_budget.CampaignLedger(path, "2.00", budget_manifest())
+    ledger.reserve(
+        "a" * 64,
+        case_id="case-a",
+        model="gpt-6.2-sol",
+        purpose="smoke",
+        reserved_usd=Decimal("2.00"),
+    )
+    assert ledger.summary()["exposure_usd"] == "2.00"
+    with pytest.raises(evaluation_budget.CampaignBudgetError, match="campaign_budget_exhausted"):
+        ledger.reserve(
+            "b" * 64,
+            case_id="case-b",
+            model="gpt-6-luna",
+            purpose="eval",
+            reserved_usd=Decimal("0.0001"),
+        )
+    with pytest.raises(evaluation_budget.CampaignBudgetError, match="campaign_budget_out_of_range"):
+        evaluation_budget.CampaignLedger(tmp_path / "too-much.json", "2.0001", budget_manifest())
+
+
+def test_campaign_ledger_is_shared_across_modes_models_and_resume(tmp_path):
+    path = tmp_path / "campaign.json"
+    first = evaluation_budget.CampaignLedger(path, "2.00", budget_manifest())
+    first.reserve(
+        "c" * 64,
+        case_id="smoke-sol",
+        model="gpt-6.2-sol",
+        purpose="smoke",
+        reserved_usd=Decimal("0.104"),
+    )
+    first.settle(
+        "c" * 64,
+        model_returned="gpt-6.2-sol",
+        usage={"input_tokens": 8000, "output_tokens": 1000, "calls": 1},
+    )
+    resumed = evaluation_budget.CampaignLedger(path, "2.00", budget_manifest())
+    resumed.reserve(
+        "d" * 64,
+        case_id="eval-luna",
+        model="gpt-6-luna",
+        purpose="eval",
+        reserved_usd=Decimal("0.0052"),
+    )
+    summary = resumed.summary()
+    assert summary["actual_usd"] == "0.026"
+    assert summary["reserved_usd"] == "0.0052"
+    assert summary["exposure_usd"] == "0.0312"
+
+
+def test_campaign_ledger_serializes_competing_processes(tmp_path):
+    path = tmp_path / "campaign.json"
+    evaluation_budget.CampaignLedger(path, "2.00", budget_manifest())
+    context = multiprocessing.get_context("fork")
+    queue = context.Queue()
+    processes = [
+        context.Process(target=concurrent_reserve, args=(str(path), character * 64, queue))
+        for character in ("e", "f")
+    ]
+    for process in processes:
+        process.start()
+    for process in processes:
+        process.join(10)
+        assert process.exitcode == 0
+    assert sorted(queue.get(timeout=2) for _ in processes) == [
+        "campaign_budget_exhausted",
+        "reserved",
+    ]
+
+
+def test_retry_unknown_cost_remains_held_and_blocks_reuse(tmp_path):
+    path = tmp_path / "campaign.json"
+    ledger = evaluation_budget.CampaignLedger(path, "0.104", budget_manifest())
+    ledger.reserve(
+        "1" * 64,
+        case_id="unknown",
+        model="gpt-6.2-sol",
+        purpose="eval",
+        reserved_usd=Decimal("0.104"),
+    )
+    ledger.hold_unknown("1" * 64, calls=1, failure_code="timeout")
+    assert ledger.summary()["unknown_usd"] == "0.104"
+    with pytest.raises(evaluation_budget.CampaignBudgetError, match="campaign_budget_exhausted"):
+        ledger.reserve(
+            "2" * 64,
+            case_id="retry",
+            model="gpt-6.2-sol",
+            purpose="eval",
+            reserved_usd=Decimal("0.104"),
+        )
+
+
+@pytest.mark.parametrize(
+    ("returned,usage,error"),
+    [
+        ("gpt-6-luna", {"input_tokens": 1, "output_tokens": 1, "calls": 1}, "model_mismatch"),
+        ("gpt-6.2-sol", {"input_tokens": 1, "output_tokens": 1}, "missing_or_invalid_usage"),
+    ],
+)
+def test_model_or_usage_mismatch_fails_closed(tmp_path, returned, usage, error):
+    ledger = evaluation_budget.CampaignLedger(
+        tmp_path / (error + ".json"), "2.00", budget_manifest()
+    )
+    ledger.reserve(
+        "3" * 64,
+        case_id="bad-result",
+        model="gpt-6.2-sol",
+        purpose="eval",
+        reserved_usd=Decimal("0.104"),
+    )
+    with pytest.raises(evaluation_budget.CampaignBudgetError, match=error):
+        ledger.settle("3" * 64, model_returned=returned, usage=usage)
+    assert ledger.summary()["unknown_usd"] == "0.104"
+
+
+def test_price_version_mismatch_and_content_leak_are_rejected(tmp_path):
+    path = tmp_path / "campaign.json"
+    ledger = evaluation_budget.CampaignLedger(path, "2.00", budget_manifest())
+    ledger.reserve(
+        "4" * 64,
+        case_id="AI-E01-01",
+        model="gpt-6-luna",
+        purpose="smoke",
+        reserved_usd=Decimal("0.0052"),
+    )
+    encoded = path.read_text()
+    for forbidden in (
+        "private-secret",
+        "متن گفتگو",
+        "raw_response",
+        "نمونه محتوای پرامپت",
+    ):
+        assert forbidden not in encoded
+    changed_manifest = budget_manifest()
+    changed_manifest["commit"] = "different-source-commit"
+    with pytest.raises(
+        evaluation_budget.CampaignBudgetError, match="campaign_ledger_mismatch"
+    ):
+        evaluation_budget.CampaignLedger(path, "2.00", changed_manifest)
+    changed = json.loads(encoded)
+    changed["price_version"] = "changed"
+    path.write_text(json.dumps(changed))
+    with pytest.raises(evaluation_budget.CampaignBudgetError, match="campaign_ledger_mismatch"):
+        evaluation_budget.CampaignLedger(path, "2.00", budget_manifest())
+
+
+@pytest.mark.django_db
+def test_insufficient_campaign_budget_stops_before_provider_call(settings, tmp_path):
+    settings.INVEST_ENV = "test"
+    value = oracle()
+    evaluation.seed_public_context(value)
+    runner = module()
+    case = next(case for case in value["cases"] if case["id"] == "AI-E01-01")
+    manifest = evaluation.version_manifest(
+        value,
+        commit="abc",
+        mode="smoke",
+        versions=runner._versions(),
+        timestamp="fixed",
+    )
+    ledger = evaluation_budget.CampaignLedger(tmp_path / "campaign.json", "0.001", manifest)
+    calls = []
+    with pytest.raises(evaluation_budget.CampaignBudgetError, match="campaign_budget_exhausted"):
+        runner._run_model_case(
+            value,
+            case,
+            "gpt-6-luna",
+            "smoke",
+            lambda *args: calls.append(args),
+            "injected-test-credential",
+            campaign=ledger,
+            manifest=manifest,
+        )
+    assert calls == []
+
+
+def test_live_credential_has_no_environment_value_fallback(monkeypatch):
+    runner = module()
+    monkeypatch.delenv("OPENAI_EVAL_API_KEY_FILE", raising=False)
+    monkeypatch.setenv("OPENAI_EVAL_API_KEY", "must-not-be-used")
+    assert runner._credential() == ""

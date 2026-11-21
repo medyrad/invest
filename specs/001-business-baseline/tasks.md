@@ -109,7 +109,7 @@
 - [x] T066 [US04] سفر خانه/فرصت، برداشت قابل اصلاح، picker، کارت/فهرست، ذخیره با رسید، مقایسه و مسیر دستی در `frontend/src/app/assistant/`، component دستیار و chat مقایسه؛ چهار عرض در تست مرورگر — بسته T26؛ FR-012 FR-013 FR-014 FR-019.
 - [ ] T067 [US04] اجرای ارزیابی فارسی و smoke محدود واقعی OpenAI جدا از mock؛ ثبت مدل/نسخه/نتیجه بدون secret در docs/stage9/verification.json و tests/browser/journeys/assistant.spec.ts — بسته T27؛ FR-012 FR-013 FR-014 SC-002 SC-007.
 
-وضعیت T067: fixture قفل‌شده، fake قطعی، runner و شواهد UI فنی آماده‌اند؛ چون `OPENAI_API_KEY` امن در محیط مأموریت نبود، provider call واقعی صفر و هزینه صفر است. smoke بیست‌مکالمه، eval واقعی Sol، مقایسه همان held-out با Luna و رأی انسانی فارسی تکمیل/قبول نشده‌اند.
+وضعیت T067: fixture قفل‌شده، fake قطعی، runner و شواهد UI فنی آماده‌اند. guard کمپین live با ledger مشترک اتمیک، Decimal، رزرو محافظه‌کارانه و سقف صریح۲دلار تکمیل شد؛ credential فقط از `OPENAI_EVAL_API_KEY_FILE` پذیرفته می‌شود. در مأموریت guard تماس واقعی و هزینه صفر بود؛ smoke، eval واقعی Sol/Luna روی همان held-out و رأی انسانی فارسی تکمیل/قبول نشده‌اند.
 
 به‌روزرسانی PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01: مسیر فنی T063/T065/T066 با orchestrator مشترک، schema برداشت مدل نسخه‌دار، seed عمومی مصنوعی ۱۵ فرصت قفل‌شده، scorerهای مستقل با مخرج‌های ۴۴/۵۳/۱۲۰، guard عدم dispatch و خروجی allowlist بی‌محتوا تکمیل شد. کدهای canonical UI با واژگان فارسی نسخه‌دار نمایش داده می‌شوند. تماس واقعی، هزینه، رأی فارسی و انتخاب مدل انجام نشده‌اند؛ T067 باز می‌ماند.
 

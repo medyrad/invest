@@ -73,7 +73,7 @@ deploy/
 
 ## طرح S09 — اجرای فنی غیرعمومی و گیت‌های باقی‌مانده
 
-وضعیت پس از PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01: oracle مستقل و مخرج‌ها بدون تغییر منجمد ماندند. runner اکنون orchestrator، prompt، چهار ابزار read-only، schema و validator محصول را روی داده عمومی مصنوعی PostgreSQL مصرف می‌کند؛ برداشت مدل از parser سرور جدا و scorerهای extraction/citation/router مستقل و حافظه‌ای هستند. contract/fault/router بدون تماس provider اجرا شده‌اند؛ live Sol/Luna، رأی فارسی و پذیرش انسانی/مستقل بازند.
+وضعیت پس از PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01: oracle مستقل و مخرج‌ها بدون تغییر منجمد ماندند. runner اکنون orchestrator، prompt، چهار ابزار read-only، schema و validator محصول را روی داده عمومی مصنوعی PostgreSQL مصرف می‌کند؛ برداشت مدل از parser سرور جدا و scorerهای extraction/citation/router مستقل و حافظه‌ای هستند. contract/fault/router بدون تماس provider اجرا شده‌اند و live فقط با ledger مشترک اتمیک، سقف صریح حداکثر۲دلار و credential فایل خصوصی مجاز است؛ live Sol/Luna، رأی فارسی و پذیرش انسانی/مستقل بازند.
 
 مرجع سیاستِ مصوب [PC-D02](../../docs/comp-ai-decision-package.md) است؛ اعداد در این plan دوباره تعریف نمی‌شوند. T062 مصوبات ثبت‌شده را مصرف و قرارداد اجرایی را قفل کند و artifact اجرایی S09 را آماده کند؛ سپس T063 تست/fixture و T064/T065 backend محدود، T066 کل سفر UI و T067 ارزیابی/شاهد تحویل، با یک گزارش تجمیعی و بررسی مستقل. مسیرهای برنامه‌ریزی‌شده در tasks نام فایلِ ساخته‌شده نیستند.
 
@@ -83,6 +83,6 @@ QuotaPolicy/UsageReservation/Ledger نسخه‌دار و تراکنش PostgreSQL
 
 کنترل محتوا پیش از نمایش، refusal/incomplete مستقل و نمایش مرحله فقط پس از رخداد واقعی؛ افشای متن در URL، لاگ، APM یا پیام خطا ممنوع. ورودی خانه/فرصت، chips اصلاح، picker صریح شرایط، ذخیره با receipt، کارت/فهرست، جدول و حالت stale حفظ شوند. capture تازه فقط برای stateهای S09 که شاهد هم‌شرایط معتبر ندارند؛ به قبول فنی runtime/هسته دست‌نخورده تکیه شود. تستر نتیجه قرارداد/محاسبات را از کیفیت بیان انسانی و relevance خبره D28 جدا گزارش کند. هیچ تغییر فرمول یا بازاجرای بی‌دلیل suiteهای موفق قبلی برنامه این مأموریت نیست.
 
-Sol اولیه و ارزیابی الزامی Luna روی همان۸۰ held-out پیش از پذیرش نهایی طبق PC-D02-01؛ هر دو در زیرسقف مشترک eval۱۵دلار و ماه۱۰۰دلار. انتخاب نهایی پیشنهادی از آستانه‌ها و مقایسه هر خانواده می‌آید، نه fallback خودکار؛ داوری فارسی و D28 جدا باقی می‌مانند.
+Sol و Luna روی همان۸۰ held-out پیش از پذیرش نهایی طبق PC-D02-01 مقایسه می‌شوند. تصمیم صریح PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01 سقف کل تماس‌های واقعی همین کمپین را، شامل smoke/eval/هر دو مدل/retry/resume/هزینه نامعلوم، دقیقاً۲دلار تعیین کرد؛ سقف۱۰دلار هر principal در محصول تغییر نکرد. انتخاب نهایی پیشنهادی از آستانه‌ها و مقایسه هر خانواده می‌آید، نه fallback خودکار؛ داوری فارسی و D28 جدا باقی می‌مانند.
 
 اصلاح اجرایی مصوب بعدی: client هیچ model/token/key تعیین نمی‌کند؛ router قطعی و نسخه‌دار سرور بدون تماس مدل برای routing، Luna را در مسیر ساده و Sol را فقط با reason code پیچیدگی انتخاب می‌کند. سقف اتمیک principal برابر۱۰دلار در ماه UTC است و UI فقط مصرف/مانده تقریبی sanitized را می‌بیند. progress سه‌مرحله‌ای از رخداد واقعی backend به NDJSON می‌آید و raw output پیش از validation نمایش داده نمی‌شود. credential محیط عمومی از secret mount قابل rotation بک‌اند و eval از credential جداست؛ پیکربندی عملیات بیرونی بدون شاهد configured محسوب نمی‌شود.

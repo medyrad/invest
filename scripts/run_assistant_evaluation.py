@@ -34,6 +34,12 @@ from apps.assistant.evaluation import (  # noqa: E402
     seed_public_context,
     version_manifest,
 )
+from apps.assistant.evaluation_budget import (  # noqa: E402
+    CampaignBudgetError,
+    CampaignLedger,
+    conservative_reservation_usd,
+    content_free_request_hash,
+)
 from apps.assistant.models import QuotaPolicy  # noqa: E402
 from apps.assistant.orchestrator import (  # noqa: E402
     prepare_turn,
@@ -59,6 +65,8 @@ ALLOWED_FAILURES = {
     "budget_exhausted",
     "purpose_budget_exhausted",
     "principal_budget_exhausted",
+    "model_mismatch",
+    "missing_usage",
 }
 
 
@@ -66,7 +74,7 @@ def _credential():
     path = os.environ.get("OPENAI_EVAL_API_KEY_FILE", "")
     if path and Path(path).is_file():
         return Path(path).read_text().strip()
-    return os.environ.get("OPENAI_EVAL_API_KEY", "").strip()
+    return ""
 
 
 def _commit():
@@ -176,7 +184,17 @@ def _reserve(case, model, purpose):
     )
 
 
-def _run_model_case(oracle, case, model, purpose, transport, key):
+def _run_model_case(
+    oracle,
+    case,
+    model,
+    purpose,
+    transport,
+    key,
+    *,
+    campaign=None,
+    manifest=None,
+):
     prepared, observed = prepare_case(case)
     router_metric = score_router(case, observed)
     if prepared is None:
@@ -198,6 +216,25 @@ def _run_model_case(oracle, case, model, purpose, transport, key):
     reservation, policy, replay = _reserve(case, model, purpose)
     if replay:
         raise ValueError("unexpected_evaluation_replay")
+    campaign_hash = None
+    if campaign is not None:
+        if manifest is None:
+            quota.settle(reservation, status="failed", failure_code="campaign_manifest_missing")
+            raise CampaignBudgetError("campaign_manifest_missing")
+        campaign_hash = content_free_request_hash(
+            case_id=case["id"], model=model, purpose=purpose, manifest=manifest
+        )
+        try:
+            campaign.reserve(
+                campaign_hash,
+                case_id=case["id"],
+                model=model,
+                purpose=purpose,
+                reserved_usd=conservative_reservation_usd(model, policy),
+            )
+        except CampaignBudgetError:
+            quota.settle(reservation, status="failed", failure_code="campaign_budget_blocked")
+            raise
     provider = OpenAIProvider(key, settings.ASSISTANT_OPENAI_BASE_URL)
     if transport is not None:
         provider._request = transport
@@ -210,6 +247,12 @@ def _run_model_case(oracle, case, model, purpose, transport, key):
         )
         output = result.output
         failure = None
+        if campaign is not None:
+            campaign.settle(
+                campaign_hash,
+                model_returned=result.model,
+                usage=result.usage,
+            )
         quota.settle(
             reservation,
             status="completed",
@@ -219,6 +262,16 @@ def _run_model_case(oracle, case, model, purpose, transport, key):
         )
         usage = result.usage
         calls = int(usage.get("calls", 0))
+    except CampaignBudgetError as exc:
+        quota.settle(
+            reservation,
+            status="held",
+            usage=getattr(result, "usage", {}),
+            model_returned=getattr(result, "model", ""),
+            request_id=getattr(result, "request_id", ""),
+            failure_code=str(exc),
+        )
+        raise
     except ProviderError as exc:
         output = {}
         failure = exc.code if exc.code in ALLOWED_FAILURES else "provider_unavailable"
@@ -231,6 +284,17 @@ def _run_model_case(oracle, case, model, purpose, transport, key):
         )
         usage = exc.usage
         calls = exc.calls
+        if campaign is not None:
+            if calls:
+                campaign.hold_unknown(
+                    campaign_hash,
+                    calls=calls,
+                    failure_code=failure,
+                    model_returned=exc.model_returned,
+                    usage=exc.usage,
+                )
+            else:
+                campaign.cancel_before_call(campaign_hash)
     metrics = {
         "extraction": score_extraction(case, output, failure),
         "citation": score_citations(oracle, case, output, failure),
@@ -267,6 +331,8 @@ def main(transport=None):
     parser.add_argument("--model", choices=["gpt-6.2-sol", "gpt-6-luna"], default="gpt-6.2-sol")
     parser.add_argument("--confirm-live", action="store_true")
     parser.add_argument("--output")
+    parser.add_argument("--campaign-budget-usd")
+    parser.add_argument("--campaign-ledger")
     args = parser.parse_args()
     oracle = load_oracle(ORACLE)
     manifest = version_manifest(
@@ -318,15 +384,28 @@ def main(transport=None):
         print(json.dumps(result, ensure_ascii=False, separators=(",", ":")))
         return int(any(not row["metric"]["router"]["passed"] for row in records))
     if transport is None:
+        if not args.campaign_budget_usd or not args.campaign_ledger:
+            print(json.dumps({"manifest": manifest, "status": "blocked_campaign_guard_required", "provider_calls": 0, "cost_usd": "0"}))
+            return 4
+        try:
+            campaign = CampaignLedger(
+                _safe_target(args.campaign_ledger),
+                args.campaign_budget_usd,
+                manifest,
+            )
+        except CampaignBudgetError as exc:
+            print(json.dumps({"manifest": manifest, "status": "blocked_" + str(exc), "provider_calls": 0, "cost_usd": "0"}))
+            return 4
+        if not args.confirm_live:
+            print(json.dumps({"manifest": manifest, "status": "blocked_confirmation_required", "provider_calls": 0, "cost_usd": "0"}))
+            return 3
         key = _credential()
         if not key:
             print(json.dumps({"manifest": manifest, "status": "blocked_missing_private_credential", "provider_calls": 0, "cost_usd": "0"}))
             return 2
-        if not args.confirm_live:
-            print(json.dumps({"manifest": manifest, "status": "blocked_confirmation_required", "provider_calls": 0, "cost_usd": "0"}))
-            return 3
     else:
         key = "injected-test-credential"
+        campaign = None
     target = _safe_target(args.output) if args.output else None
     prior = None
     records = []
@@ -336,12 +415,24 @@ def main(transport=None):
         records = prior.get("records", [])
     done = {row["case_id"] for row in records}
     calls = 0
+    campaign_failure = None
     for case in _selected(oracle, args.mode):
         if case["id"] in done:
             continue
-        record, used_calls = _run_model_case(
-            oracle, case, args.model, args.mode, transport, key
-        )
+        try:
+            record, used_calls = _run_model_case(
+                oracle,
+                case,
+                args.model,
+                args.mode,
+                transport,
+                key,
+                campaign=campaign,
+                manifest=manifest,
+            )
+        except CampaignBudgetError as exc:
+            campaign_failure = str(exc)
+            break
         records.append(record)
         calls += used_calls
     total_cost = sum((Decimal(row["cost"]) for row in records), Decimal("0"))
@@ -354,12 +445,16 @@ def main(transport=None):
         "human_persian_votes": 0,
         "selection": None,
     }
+    if campaign is not None:
+        result["campaign"] = campaign.summary()
+    if campaign_failure:
+        result["status"] = "blocked_" + campaign_failure
     encoded = json.dumps(result, ensure_ascii=False, separators=(",", ":"))
     if target:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(encoded)
     print(encoded)
-    return 0
+    return 4 if campaign_failure else 0
 
 
 if __name__ == "__main__":

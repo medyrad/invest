@@ -4,13 +4,13 @@ import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
-from decimal import Decimal
 
 from django.conf import settings
 
 from apps.workspace.schema import Fault
 from config.secrets import load_private_value
 
+from .evaluation_budget import CampaignBudgetError, cost_usd
 from .quota import PROMPT_VERSION, SCHEMA_VERSION, TOOL_VERSION, QuotaError
 
 SYSTEM = """شما دستیار فارسی سرمایه‌گزین هستید. فقط داده ابزارهای مجاز را توضیح دهید.
@@ -157,12 +157,22 @@ OUTPUT_SCHEMA = {
 
 
 class ProviderError(Exception):
-    def __init__(self, code, *, unknown_cost=False, usage=None, calls=0, request_id=""):
+    def __init__(
+        self,
+        code,
+        *,
+        unknown_cost=False,
+        usage=None,
+        calls=0,
+        request_id="",
+        model_returned="",
+    ):
         self.code = code
         self.unknown_cost = unknown_cost
         self.usage = usage or {}
         self.calls = calls
         self.request_id = request_id
+        self.model_returned = model_returned
 
 
 @dataclass
@@ -174,14 +184,10 @@ class ProviderResult:
 
 
 def _cost(model, input_tokens, output_tokens):
-    prices = {
-        "gpt-6.2-sol": (Decimal("2"), Decimal("10")),
-        "gpt-6-luna": (Decimal("0.10"), Decimal("0.50")),
-    }
-    if model not in prices:
+    try:
+        return str(cost_usd(model, input_tokens, output_tokens))
+    except CampaignBudgetError:
         return None
-    ip, op = prices[model]
-    return str((Decimal(input_tokens) * ip + Decimal(output_tokens) * op) / Decimal(1_000_000))
 
 
 def _canonical_json(value):
@@ -381,6 +387,7 @@ class OpenAIProvider:
                 raise ProviderError("timeout", unknown_cost=calls > 0, calls=calls)
             payload = {
                 "model": reservation.model,
+                "service_tier": "default",
                 "input": inputs if previous is None else inputs[-1:],
                 "store": False,
                 "tools": TOOLS,
@@ -430,11 +437,47 @@ class OpenAIProvider:
             previous = data.get("id")
             request_id = data.get("id", "")
             returned_model = data.get("model")
-            if returned_model and returned_model != reservation.model:
-                raise ProviderError("model_mismatch", calls=calls, request_id=request_id)
-            usage = data.get("usage") or {}
-            input_tokens += int(usage.get("input_tokens", 0))
-            output_tokens += int(usage.get("output_tokens", 0))
+            usage = data.get("usage")
+            if returned_model != reservation.model:
+                safe_usage = {}
+                if isinstance(usage, dict):
+                    for name in ("input_tokens", "output_tokens"):
+                        if type(usage.get(name)) is int and usage[name] >= 0:
+                            safe_usage[name] = usage[name]
+                raise ProviderError(
+                    "model_mismatch",
+                    unknown_cost=True,
+                    usage=safe_usage,
+                    calls=calls,
+                    request_id=request_id,
+                    model_returned=returned_model or "",
+                )
+            if not isinstance(usage, dict) or not {
+                "input_tokens",
+                "output_tokens",
+            }.issubset(usage):
+                raise ProviderError(
+                    "missing_usage",
+                    unknown_cost=True,
+                    calls=calls,
+                    request_id=request_id,
+                    model_returned=returned_model,
+                )
+            if (
+                type(usage["input_tokens"]) is not int
+                or type(usage["output_tokens"]) is not int
+                or usage["input_tokens"] < 0
+                or usage["output_tokens"] < 0
+            ):
+                raise ProviderError(
+                    "missing_usage",
+                    unknown_cost=True,
+                    calls=calls,
+                    request_id=request_id,
+                    model_returned=returned_model,
+                )
+            input_tokens += usage["input_tokens"]
+            output_tokens += usage["output_tokens"]
             if input_tokens > policy.max_input_tokens or output_tokens > policy.max_output_tokens:
                 raise ProviderError(
                     "token_limit",

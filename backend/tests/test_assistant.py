@@ -15,10 +15,10 @@ from django.test import override_settings
 from django.utils import timezone
 
 from apps.assistant import quota, tools
-from apps.assistant.routing import LUNA, SOL, ROUTER_VERSION, choose_model
 from apps.assistant.evaluation import assess
 from apps.assistant.models import QuotaPolicy, UsageLedger, UsageReservation
 from apps.assistant.provider import FakeProvider, OpenAIProvider, ProviderError, validate_output
+from apps.assistant.routing import LUNA, ROUTER_VERSION, SOL, choose_model
 from apps.identity.sessions import mint_session
 from apps.workspace.schema import Fault
 from config.secrets import SecretRedactionFilter, load_private_value
@@ -265,6 +265,9 @@ def test_provider_rejects_a_returned_model_different_from_the_reserved_model(mon
     with pytest.raises(ProviderError) as failure:
         provider.complete(context, lambda name, args: {}, policy, reservation)
     assert failure.value.code == "model_mismatch"
+    assert failure.value.unknown_cost
+    assert failure.value.model_returned == "gpt-6-luna"
+    assert failure.value.usage == {"input_tokens": 1, "output_tokens": 1}
 
 
 def test_model_recommendation_requires_thresholds_human_vote_and_family_delta():

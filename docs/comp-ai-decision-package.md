@@ -124,3 +124,7 @@ ZIP واقعی `/Users/mehdi/Downloads/Investment_Advisor-main.zip` مستقیم
 ## الحاق اجرایی اصلاح تجربه/امنیت
 
 در PROGRAMMER-COMP-AI-EXPERIENCE-SECURITY-FIX-01 فیلد عمومی `model` حذف و درخواست دارای آن رد شد؛ router قطعی `assistant-router-v1` قبل از تماس، Luna را برای clarification/search/explanation/compare ساده و Sol را فقط برای reason codeهای پیچیده انتخاب می‌کند. route/reason/model و نسخه‌های policy/prompt/tool/schema در ledger بی‌محتوا می‌مانند و fallback پس از خطا وجود ندارد. سقف فردی ماه UTC ۱۰ دلار علاوه بر سقف سراسری اعمال و ادغام مهمان همان ماه انجام می‌شود. کلید runtime در public فقط از secret file بک‌اند و کلید eval از منبع جدا خوانده می‌شود. runner واقعی flag صریح، store=false، سقف پیش از تماس و خروجی sanitized دارد؛ نبود credential در این مأموریت همچنان صفر تماس/هزینه و گیت live باز ایجاد کرد. این الحاق پذیرش production router یا رأی انسانی نیست.
+
+## الحاق بودجه کمپین live
+
+در PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01 سقف مستقل تمام تماس‌های واقعی کمپین S09 دقیقاً۲٫۰۰دلار شد؛ smoke، eval، Sol، Luna، retry، resume و unknown-cost از یک ledger فایل‌محور اتمیک زیر `.tools/` مصرف می‌کنند. runner بدون سقف صریح/ledger مشترک یا با سقف بیش از۲دلار fail-closed است؛ بدترین هزینه چهار call با نرخ نسخه‌دار پیش از provider رزرو، tier Standard صریح و model/usage/price mismatch نامطمئن نگه داشته می‌شود. credential eval فقط از `OPENAI_EVAL_API_KEY_FILE` خوانده می‌شود. این guard سهمیه و سقف۱۰دلاری principal محصول را تغییر نمی‌دهد؛ در مأموریت guard هیچ تماس واقعی یا هزینه‌ای انجام نشد و live/رأی فارسی/انتخاب نهایی باز ماند.

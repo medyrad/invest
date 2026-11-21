@@ -1,7 +1,7 @@
 {
   "date": "2026-11-21",
   "current_stage": "S09",
-  "status": "s09-independent-oracle-frozen-runner-integration-and-human-gates-open",
+  "status": "s09-live-campaign-budget-guard-programmer-complete-live-and-human-gates-open",
   "implementation_authorized": false,
   "speckit_initialized": true,
   "application_implemented": true,
@@ -144,10 +144,10 @@
     "package": "COMP-AI"
   },
   "active_step": {
-    "id": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
-    "mission": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
-    "status": "programmer-technical-integration-complete-live-and-human-open",
-    "authorization": "Explicit user mission: product-path runner/scorers and canonical UI labels; no live OpenAI, push, deploy or human acceptance",
+    "id": "PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01",
+    "mission": "PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01",
+    "status": "programmer-budget-guard-complete-live-and-human-open",
+    "authorization": "Explicit user mission: atomic fail-closed 2.00 USD live campaign guard and offline tests only; no real provider call, push, deploy or human acceptance",
     "documentation_authorized": true,
     "implementation_authorized": true,
     "push_authorized": false,
@@ -568,7 +568,7 @@
     "remote": "origin",
     "branch": "main",
     "force_push_authorized": false,
-    "current_mission": "PRODUCT-COMP-AI-EVAL-ORACLE-01",
+    "current_mission": "PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01",
     "current_mission_override": "Explicit latest mission overrides standing push authorization: local commits only; no push or deployment",
     "earlier_standing_push_authorization": true
   },
@@ -877,9 +877,30 @@
       "T066": "programmer-complete",
       "T067": "partial-independent-oracle-frozen-runner-path-scorer-integration-live-and-human-open"
     },
-    "live_blocker": "Product-path runner/scorers are technically integrated. Live Sol/Luna and human Persian remain unexecuted; credential state was deliberately not inspected and provider calls/cost are zero.",
+    "live_blocker": "Product-path runner/scorers and the shared 2.00 USD campaign guard are technically integrated. Live Sol/Luna and human Persian remain unexecuted by explicit mission boundary; credential content/state was deliberately not inspected and provider calls/cost are zero.",
     "experience_security_fix": "server-only assistant-router-v2, prompt assistant-fa-v2, tools assistant-tools-v2 and schema assistant-response-v2; independent/human acceptance open",
-    "current_product_mission": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
+    "current_product_mission": "PROGRAMMER-COMP-AI-LIVE-BUDGET-GUARD-01",
+    "live_campaign_budget_guard": {
+      "status": "programmer-complete-independent-live-retest-open",
+      "cap_usd": "2.00",
+      "shared_across": [
+        "smoke",
+        "eval",
+        "gpt-6.2-sol",
+        "gpt-6-luna",
+        "retry",
+        "resume",
+        "separate_processes",
+        "unknown_cost"
+      ],
+      "price_version": "openai-standard-2026-11-20",
+      "service_tier": "standard",
+      "credential_source": "OPENAI_EVAL_API_KEY_FILE only",
+      "real_provider_calls": 0,
+      "real_cost_usd": "0",
+      "product_principal_monthly_cap_usd_unchanged": "10.0000",
+      "independent_acceptance": false
+    },
     "oracle_contract": {
       "path": "specs/001-business-baseline/contracts/assistant-evaluation-oracle.json",
       "status": "pre-live-frozen-not-untouched",
