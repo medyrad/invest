@@ -231,12 +231,19 @@ class CampaignLedger:
             )
             self._write(data)
 
+    def entry(self, request_hash: str) -> dict | None:
+        with self._locked() as data:
+            self._assert_compatible(data)
+            value = data["entries"].get(request_hash)
+            return json.loads(json.dumps(value)) if value else None
+
     def settle(
         self,
         request_hash: str,
         *,
         model_returned: str,
         usage: dict,
+        outcome: dict | None = None,
     ) -> Decimal:
         with self._locked() as data:
             self._assert_compatible(data)
@@ -277,6 +284,7 @@ class CampaignLedger:
                     "output_tokens": usage["output_tokens"],
                     "calls": calls,
                 },
+                outcome=outcome,
             )
             self._write(data)
             return actual

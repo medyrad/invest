@@ -60,6 +60,13 @@ def principal(request, at=None):
     return Principal(_digest("guest:" + guest), "guest", guest, None)
 
 
+def internal_evaluation_principal(identity):
+    """Create the server-only principal used by the locked evaluation harness."""
+    if not isinstance(identity, str) or not identity.startswith("s09:"):
+        raise ValueError("invalid_internal_evaluation_identity")
+    return Principal(_digest("internal-evaluation:" + identity), "eval", None, None)
+
+
 def signed_guest(value):
     return signing.dumps(value, salt="assistant-guest", compress=True)
 
@@ -146,47 +153,50 @@ def reserve(
                     "idempotency_conflict", "این کلید برای درخواست دیگری استفاده شده است.", 409
                 )
             return old, policy, True
-        active = UsageReservation.objects.filter(principal_hash=p.digest, status="reserved").count()
-        if active >= policy.concurrent_turns:
-            raise QuotaError("concurrency_exhausted", "دو نوبت هنوز در حال پردازش است.")
-        hour = (
-            UsageReservation.objects.filter(
-                principal_hash=p.digest, created_at__gte=at - timedelta(hours=1)
-            ).aggregate(total=Sum("provider_calls"))["total"]
-            or 0
-        )
-        hourly = policy.account_hourly_starts if p.kind == "account" else policy.guest_hourly_starts
-        if hour >= hourly:
-            raise QuotaError("rate_limited", "شروع‌های این ساعت به سقف رسیده است.", retry_after=3600)
+        if p.kind != "eval":
+            active = UsageReservation.objects.filter(principal_hash=p.digest, status="reserved").count()
+            if active >= policy.concurrent_turns:
+                raise QuotaError("concurrency_exhausted", "دو نوبت هنوز در حال پردازش است.")
+            hour = (
+                UsageReservation.objects.filter(
+                    principal_hash=p.digest, created_at__gte=at - timedelta(hours=1)
+                ).aggregate(total=Sum("provider_calls"))["total"]
+                or 0
+            )
+            hourly = policy.account_hourly_starts if p.kind == "account" else policy.guest_hourly_starts
+            if hour >= hourly:
+                raise QuotaError("rate_limited", "شروع‌های این ساعت به سقف رسیده است.", retry_after=3600)
         hashes = [p.digest]
         if p.user:
             hashes.extend(_merged_guest_hashes(p.user, month))
-        completed = UsageReservation.objects.filter(
-            principal_hash__in=hashes, day_utc=at.date(), status="completed"
-        ).count()
-        reserved = UsageReservation.objects.filter(
-            principal_hash__in=hashes, day_utc=at.date(), status__in=["reserved", "held"]
-        ).count()
-        daily = policy.account_daily if p.kind == "account" else policy.guest_daily
-        if completed + reserved >= daily:
-            tomorrow = at.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
-            raise QuotaError(
-                "quota_exhausted",
-                "سهمیه پاسخ کامل امروز به پایان رسیده است.",
-                retry_after=max(1, int((tomorrow - at).total_seconds())),
-            )
+        if p.kind != "eval":
+            completed = UsageReservation.objects.filter(
+                principal_hash__in=hashes, day_utc=at.date(), status="completed"
+            ).count()
+            reserved = UsageReservation.objects.filter(
+                principal_hash__in=hashes, day_utc=at.date(), status__in=["reserved", "held"]
+            ).count()
+            daily = policy.account_daily if p.kind == "account" else policy.guest_daily
+            if completed + reserved >= daily:
+                tomorrow = at.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
+                raise QuotaError(
+                    "quota_exhausted",
+                    "سهمیه پاسخ کامل امروز به پایان رسیده است.",
+                    retry_after=max(1, int((tomorrow - at).total_seconds())),
+                )
         total = _spent(month)
         if total + policy.turn_reserve_usd > policy.monthly_usd:
             raise QuotaError("budget_exhausted", "بودجه ماهانه سرویس به پایان رسیده است.")
-        principal_rows = UsageReservation.objects.filter(
-            principal_hash__in=hashes, month_utc=month
-        ).exclude(status__in=["failed", "cancelled"])
-        principal_total = _spent_rows(principal_rows)
-        if principal_total + policy.turn_reserve_usd > policy.principal_monthly_usd:
-            raise QuotaError(
-                "principal_budget_exhausted",
-                "سقف هزینه ماهانه این حساب یا مهمان به پایان رسیده است.",
-            )
+        if p.kind != "eval":
+            principal_rows = UsageReservation.objects.filter(
+                principal_hash__in=hashes, month_utc=month
+            ).exclude(status__in=["failed", "cancelled"])
+            principal_total = _spent_rows(principal_rows)
+            if principal_total + policy.turn_reserve_usd > policy.principal_monthly_usd:
+                raise QuotaError(
+                    "principal_budget_exhausted",
+                    "سقف هزینه ماهانه این حساب یا مهمان به پایان رسیده است.",
+                )
         if purpose in {"smoke", "eval"}:
             purpose_cap = policy.smoke_usd if purpose == "smoke" else policy.eval_usd
             purpose_rows = UsageReservation.objects.filter(
@@ -219,6 +229,10 @@ def claim_provider_call(item):
         row = UsageReservation.objects.select_for_update().get(pk=item.pk)
         if row.status != "reserved":
             raise QuotaError("reservation_inactive", "رزرو این نوبت فعال نیست.", 409)
+        if row.principal_kind == "eval":
+            row.provider_calls += 1
+            row.save(update_fields=["provider_calls"])
+            return row.provider_calls
         used = (
             UsageReservation.objects.filter(
                 principal_hash=row.principal_hash,

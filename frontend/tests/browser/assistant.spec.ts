@@ -3,17 +3,17 @@ import fs from "node:fs";
 import path from "node:path";
 
 const evidence = process.env.INVEST_AI_EVIDENCE || path.resolve(__dirname, "../../../docs/stage9/evidence/browser");
-const ids = ["11111111-1111-1111-1111-111111111111", "22222222-2222-2222-2222-222222222222", "33333333-3333-3333-3333-333333333333"];
+const ids = Array.from({ length: 8 }, (_, index) => `${String(index + 1).repeat(8)}-${String(index + 1).repeat(4)}-${String(index + 1).repeat(4)}-${String(index + 1).repeat(4)}-${String(index + 1).repeat(12)}`);
 
 function success() {
   return {
     state: "completed",
     interpretation: { criteria: { kind: "project", route: "investor", budget_max: "30000000000" }, needs_clarification: false, questions: [] },
-    answer: "سه نتیجه بر پایه نسخه عمومی و محاسبه سرور آماده است.",
+    answer: "هشت نتیجه بر پایه نسخه عمومی و محاسبه سرور آماده است.",
     citations: ids.map((id, index) => ({ id, revision: `revision-${index}`, field: "matching" })),
     next: [], receipt: "synthetic-browser-receipt",
     quota: { used: 1, limit: 3, remaining: 2, reset_at: "2026-11-21T00:00:00Z", policy_version: 1, model: "gpt-6.2-sol" },
-    server_result: { total: 3, next: null, policy_version: 1, items: ids.map((id, index) => ({ id, revision: `revision-${index}`, kind: "project", fields: { title: `فرصت مصنوعی ${["۱", "۲", "۳"][index]}` }, matching: { score: String(80 - index * 10), coverage: String(90 - index * 5), status: "ranked", checks: [], warnings: [], policy_version: 1 } })) },
+    server_result: { total: 8, next: null, policy_version: 1, items: ids.map((id, index) => ({ id, revision: `revision-${index}`, kind: "project", fields: { title: `فرصت مصنوعی ${index + 1}`, province: "تهران", minimum_investment: `${20 + index} میلیارد تومان` }, matching: { score: String(95 - index * 5), coverage: String(90 - index * 3), status: "ranked", checks: [{ axis: "استان", state: "met", reason: "synthetic" }], warnings: [], policy_version: 1 } })) },
   };
 }
 
@@ -54,18 +54,19 @@ for (const width of [360, 390, 768, 1440]) test(`assistant complete journey rema
   await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
   await page.getByLabel("شرایط شما برای دستیار").fill("پروژه تهران تا ۳۰ میلیارد تومان");
   await page.getByLabel("شرایط شما برای دستیار").press("Enter");
-  await expect(page.getByRole("heading", { name: "در حال بررسی…" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "در حال بررسی..." })).toBeVisible();
   await page.screenshot({ path: path.join(evidence, `assistant-processing-${width}.png`), fullPage: true, animations: "disabled" });
-  await expect(page.getByRole("heading", { name: "برداشت قابل اصلاح" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "برداشت من از درخواست شما" })).toBeVisible();
   await expect(page.locator("span.inline-flex").filter({ hasText: "مسیر:" }).filter({ hasText: "سرمایه‌گذاری و مشارکت" })).toBeVisible();
   await expect(page.locator("span.inline-flex").filter({ hasText: "نوع:" }).filter({ hasText: "پروژه" })).toBeVisible();
-  await expect(page.getByText("نسخه عمومی جاری", { exact: true })).toHaveCount(3);
+  await expect(page.getByText(/پیشنهاد [123]/)).toHaveCount(3);
   await expect(page.getByText("investor", { exact: true })).toHaveCount(0);
   await expect(page.getByText("project", { exact: true })).toHaveCount(0);
   await expect(page.getByText(/revision-/)).toHaveCount(0);
-  await expect(page.getByText("فرصت مصنوعی ۱", { exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "ادامه با فیلتر دستی" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "ذخیره با رسید سرور" })).toBeVisible();
+  await expect(page.getByText("فرصت مصنوعی 1", { exact: true })).toBeVisible();
+  await expect(page.getByText("فرصت مصنوعی 8", { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "دقیق‌تر کردن با فیلترها" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "ذخیره شرایط" })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   await page.screenshot({ path: path.join(evidence, `assistant-complete-${width}.png`), fullPage: true, animations: "disabled" });
   await context.close();
@@ -79,7 +80,7 @@ test("assistant outage preserves text, criteria and manual continuation without 
   await page.getByRole("button", { name: "ارسال برای بررسی" }).click();
   await expect(page.getByText("موفقیت ثبت نشده است.")).toBeVisible();
   await expect(page.getByText("سقف بودجه:")).toBeVisible();
-  await expect(page.getByRole("button", { name: "ادامه با فیلتر دستی" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "دقیق‌تر کردن با فیلترها" })).toBeEnabled();
 });
 
 test("home handoff keeps private text out of URL", async ({ page }) => {

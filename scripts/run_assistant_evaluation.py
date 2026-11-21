@@ -6,6 +6,7 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 from decimal import Decimal
 from pathlib import Path
 
@@ -73,7 +74,10 @@ ALLOWED_FAILURES = {
 def _credential():
     path = os.environ.get("OPENAI_EVAL_API_KEY_FILE", "")
     if path and Path(path).is_file():
-        return Path(path).read_text().strip()
+        value = Path(path).read_text().strip()
+        if not value or value.lower() in {"changeme", "placeholder", "your-api-key"} or value.startswith("sk-example"):
+            return ""
+        return value
     return ""
 
 
@@ -158,7 +162,7 @@ def _policy():
 
 
 def _principal():
-    return quota.Principal("e" * 64, "account", None, None)
+    return quota.internal_evaluation_principal("s09:locked-oracle-v1")
 
 
 def _reserve(case, model, purpose):
@@ -214,8 +218,6 @@ def _run_model_case(
         }
         return sanitized_record(case["id"], model, metrics, failure_code="injected_fault"), 0
     reservation, policy, replay = _reserve(case, model, purpose)
-    if replay:
-        raise ValueError("unexpected_evaluation_replay")
     campaign_hash = None
     if campaign is not None:
         if manifest is None:
@@ -224,14 +226,23 @@ def _run_model_case(
         campaign_hash = content_free_request_hash(
             case_id=case["id"], model=model, purpose=purpose, manifest=manifest
         )
+        existing = campaign.entry(campaign_hash)
+        if existing and existing.get("status") == "completed" and existing.get("outcome"):
+            if reservation.status == "reserved":
+                quota.settle(reservation, status="completed", usage=existing["usage"], model_returned=existing["model_returned"])
+            return existing["outcome"], 0
+        if replay and reservation.status != "reserved":
+            raise CampaignBudgetError("evaluation_replay_without_recoverable_outcome")
+        if existing and reservation.provider_calls:
+            quota.settle(reservation, status="held", failure_code="resume_unknown_provider_result")
+            raise CampaignBudgetError("resume_unknown_provider_result")
         try:
-            campaign.reserve(
-                campaign_hash,
-                case_id=case["id"],
-                model=model,
-                purpose=purpose,
-                reserved_usd=conservative_reservation_usd(model, policy),
-            )
+            if not existing:
+                campaign.reserve(
+                    campaign_hash,
+                    case_id=case["id"], model=model, purpose=purpose,
+                    reserved_usd=conservative_reservation_usd(model, policy),
+                )
         except CampaignBudgetError:
             quota.settle(reservation, status="failed", failure_code="campaign_budget_blocked")
             raise
@@ -247,19 +258,6 @@ def _run_model_case(
         )
         output = result.output
         failure = None
-        if campaign is not None:
-            campaign.settle(
-                campaign_hash,
-                model_returned=result.model,
-                usage=result.usage,
-            )
-        quota.settle(
-            reservation,
-            status="completed",
-            usage=result.usage,
-            model_returned=result.model,
-            request_id=result.request_id,
-        )
         usage = result.usage
         calls = int(usage.get("calls", 0))
     except CampaignBudgetError as exc:
@@ -306,6 +304,9 @@ def _run_model_case(
     }
     cost = usage.get("cost_usd") or "0"
     record = sanitized_record(case["id"], model, metrics, usage, cost, failure)
+    if campaign is not None and failure is None:
+        campaign.settle(campaign_hash, model_returned=result.model, usage=result.usage, outcome=record)
+        quota.settle(reservation, status="completed", usage=result.usage, model_returned=result.model, request_id=result.request_id)
     output = None
     return record, calls
 
@@ -323,6 +324,18 @@ def _safe_target(value):
     if allowed not in target.parents:
         raise ValueError("output_must_be_under_tools")
     return target
+
+
+def _write_atomic(target, value):
+    target.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary = tempfile.mkstemp(prefix=target.name + ".", dir=target.parent)
+    try:
+        with os.fdopen(descriptor, "w") as handle:
+            json.dump(value, handle, ensure_ascii=False, separators=(",", ":"))
+            handle.flush(); os.fsync(handle.fileno())
+        os.replace(temporary, target)
+    finally:
+        if os.path.exists(temporary): os.unlink(temporary)
 
 
 def main(transport=None):
@@ -430,11 +443,14 @@ def main(transport=None):
                 campaign=campaign,
                 manifest=manifest,
             )
-        except CampaignBudgetError as exc:
-            campaign_failure = str(exc)
+        except (CampaignBudgetError, quota.QuotaError) as exc:
+            campaign_failure = getattr(exc, "code", str(exc))
             break
         records.append(record)
         calls += used_calls
+        if target:
+            partial = {"manifest": manifest, "counts": counts, "records": records, "provider_calls": calls, "cost_usd": str(sum((Decimal(row["cost"]) for row in records), Decimal("0"))), "human_persian_votes": 0, "selection": None}
+            _write_atomic(target, partial)
     total_cost = sum((Decimal(row["cost"]) for row in records), Decimal("0"))
     result = {
         "manifest": manifest,
@@ -451,8 +467,7 @@ def main(transport=None):
         result["status"] = "blocked_" + campaign_failure
     encoded = json.dumps(result, ensure_ascii=False, separators=(",", ":"))
     if target:
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(encoded)
+        _write_atomic(target, result)
     print(encoded)
     return 4 if campaign_failure else 0
 
