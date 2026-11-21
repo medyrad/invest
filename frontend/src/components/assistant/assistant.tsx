@@ -41,7 +41,7 @@ function Chips({ criteria, onRemove }: { criteria: Record<string, unknown>; onRe
 function ResultCard({ item, index }: { item: AssistantItem; index: number }) {
   const title = String(item.fields.title || "فرصت بدون عنوان");
   const score = item.matching?.score;
-  const image = String(item.fields.image_url || item.fields.image || "/images/opportunity-placeholder.jpg");
+  const image = String(item.fields.image_url || item.fields.image || "/images/hero/construction.jpg");
   const location = String(item.fields.city || item.fields.province || "موقعیت نامعلوم");
   const amount = String(item.fields.minimum_investment || item.fields.budget || item.fields.price || "مبلغ نامعلوم");
   const checks = (item.matching?.checks || []).filter((check) => check.state === "met").slice(0, 3);
@@ -57,7 +57,7 @@ function ResultCard({ item, index }: { item: AssistantItem; index: number }) {
 }
 
 function CompactResult({ item, index }: { item: AssistantItem; index: number }) {
-  const image = String(item.fields.image_url || item.fields.image || "/images/opportunity-placeholder.jpg");
+  const image = String(item.fields.image_url || item.fields.image || "/images/hero/construction.jpg");
   const score = item.matching?.score;
   return <article className="flex min-h-24 items-center gap-3 rounded-[1.7rem] bg-white p-2.5 shadow-[0_14px_35px_-30px_rgb(22_32_48/0.6)] sm:gap-5 sm:p-3">
     <span className="w-6 shrink-0 text-center text-sm font-black text-muted-foreground">{index + 1}</span>

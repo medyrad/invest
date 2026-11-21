@@ -13,7 +13,7 @@ function success() {
     citations: ids.map((id, index) => ({ id, revision: `revision-${index}`, field: "matching" })),
     next: [], receipt: "synthetic-browser-receipt",
     quota: { used: 1, limit: 3, remaining: 2, reset_at: "2026-11-21T00:00:00Z", policy_version: 1, model: "gpt-6.2-sol" },
-    server_result: { total: 8, next: null, policy_version: 1, items: ids.map((id, index) => ({ id, revision: `revision-${index}`, kind: "project", fields: { title: `فرصت مصنوعی ${index + 1}`, province: "تهران", minimum_investment: `${20 + index} میلیارد تومان` }, matching: { score: String(95 - index * 5), coverage: String(90 - index * 3), status: "ranked", checks: [{ axis: "استان", state: "met", reason: "synthetic" }], warnings: [], policy_version: 1 } })) },
+    server_result: { total: 8, next: null, policy_version: 1, items: ids.map((id, index) => ({ id, revision: `revision-${index}`, kind: "project", fields: { title: `فرصت مصنوعی ${index + 1}`, province: "تهران", minimum_investment: `${20 + index} میلیارد تومان`, image_url: `/images/hero/${["construction.jpg", "tehran.webp", "office.jpg"][index % 3]}` }, matching: { score: String(95 - index * 5), coverage: String(90 - index * 3), status: "ranked", checks: [{ axis: "استان", state: "met", reason: "synthetic" }], warnings: [], policy_version: 1 } })) },
   };
 }
 
@@ -48,7 +48,7 @@ for (const width of [360, 390, 768, 1440]) test(`assistant complete journey rema
   await routePicker.press("Enter");
   await expect(routePicker).toHaveAttribute("aria-pressed", "true");
   await page.screenshot({ path: path.join(evidence, `assistant-initial-${width}.png`), fullPage: true, animations: "disabled" });
-  const finalExample = page.getByRole("button", { name: /مرمت خانه تاریخی در کاشان/ });
+  const finalExample = page.getByRole("button", { name: /مرمت خانه تاریخی در کاشان/ }).first();
   await finalExample.scrollIntoViewIfNeeded();
   await expect(finalExample).toBeVisible();
   await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
