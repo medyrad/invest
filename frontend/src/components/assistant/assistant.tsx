@@ -31,7 +31,7 @@ import { fromCriteria, useStore } from "@/lib/store";
 type Turn = { id: string; question: string; response: AssistantResponse };
 const examples = [
   "مسکونی در تهران تا ۳۰ میلیارد",
-  "صندوق کم‌ریسک با پرداخت ماهانه",
+  "صندوق کم‌ریسک با سود ماهانه",
   "نیروگاه خورشیدی در یزد",
   "خرید ملک در شیراز",
   "اجاره دفتر در اصفهان",
@@ -455,7 +455,7 @@ function Processing({
           {question}
         </p>
       </div>
-      <div className="relative mx-auto mr-auto w-[408px] max-w-[calc(100vw-2rem)] rounded-[1.5rem] rounded-tl-md bg-white px-5 py-4 shadow-[0_22px_55px_-38px_rgb(22_32_48/0.7)] sm:ml-[52px] lg:ml-[calc((100vw-976px)/2+52px)]">
+      <div className="relative mx-auto mr-auto mt-1 w-[408px] max-w-[calc(100vw-2rem)] rounded-[1.5rem] rounded-tl-md bg-white px-5 py-4 shadow-[0_22px_55px_-38px_rgb(22_32_48/0.7)] sm:ml-[52px] lg:ml-[116px]">
         <span className="absolute -top-12 left-2 grid size-10 place-items-center rounded-full border-4 border-white bg-ink text-white shadow-lg sm:-left-[52px] sm:top-0">
           <MagicStar size={20} variant="Bold" />
         </span>
@@ -489,7 +489,7 @@ function Processing({
                 >
                   {processingLabels[step.id]}
                 </h3>
-                {step.status !== "pending" && (
+                {(step.status === "completed" || step.status === "failed") && (
                   <p className="mt-1 text-[11px] leading-5 text-muted-foreground">
                     {step.detail}
                   </p>
@@ -499,7 +499,7 @@ function Processing({
           ))}
         </ol>
       </div>
-      <div className="mx-auto grid w-full max-w-[924px] gap-4 md:grid-cols-3">
+      <div className="mx-auto grid w-full max-w-[924px] gap-4 lg:translate-x-[26px] md:grid-cols-3">
         {[0, 1, 2].map((value) => (
           <div
             key={value}
@@ -776,7 +776,7 @@ export function Assistant() {
                     variants={{
                       show: { transition: { staggerChildren: 0.07 } },
                     }}
-                    className="mx-auto grid w-full max-w-[924px] gap-4 md:grid-cols-3"
+                    className="mx-auto grid w-full max-w-[924px] gap-4 lg:translate-x-[26px] md:grid-cols-3"
                   >
                     {turn.response.server_result.items
                       .slice(0, 3)
@@ -792,7 +792,7 @@ export function Assistant() {
                         </motion.div>
                       ))}
                   </motion.div>
-                  <div className="mx-auto max-w-[924px] space-y-2.5">
+                  <div className="mx-auto max-w-[924px] space-y-2.5 lg:translate-x-[26px]">
                     {turn.response.server_result.items
                       .slice(3)
                       .map((item, index) => (
@@ -859,7 +859,7 @@ export function Assistant() {
       </div>
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-20 bg-gradient-to-t from-[#eef3f9] via-[#eef3f9]/95 to-transparent px-4 pb-4 pt-16">
         <div
-          className="pointer-events-auto mx-auto mb-3 flex max-w-4xl flex-nowrap justify-start gap-2 overflow-x-auto pb-1 sm:justify-center"
+          className="pointer-events-auto mx-auto mb-3 flex max-w-[766px] flex-nowrap justify-start gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center"
           aria-label="پیشنهادهای سریع"
         >
           {examples.slice(1).map((example) => (
@@ -882,7 +882,7 @@ export function Assistant() {
             void submit();
           }}
           aria-busy={busy}
-          className="pointer-events-auto mx-auto flex max-w-4xl items-end gap-2 rounded-[2rem] border border-border bg-white p-2 pr-4 shadow-[0_24px_65px_-30px_rgb(22_32_48/0.45)]"
+          className="pointer-events-auto mx-auto flex min-h-[68px] max-w-[766px] items-end gap-2 rounded-[2rem] border border-border bg-white p-2 pr-4 shadow-[0_24px_65px_-30px_rgb(22_32_48/0.45)]"
         >
           {user && (
             <SavedPicker

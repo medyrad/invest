@@ -185,10 +185,47 @@ async function installStreamingTransport(
   }, events);
 }
 
+async function captureReady(page: import("@playwright/test").Page) {
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    const visible = Array.from(document.images).filter((image) => {
+      const box = image.getBoundingClientRect();
+      return (
+        box.bottom > 0 &&
+        box.top < innerHeight &&
+        box.right > 0 &&
+        box.left < innerWidth
+      );
+    });
+    await Promise.all(
+      visible.map((image) => image.decode().catch(() => undefined)),
+    );
+  });
+}
+
+async function geometry(locator: import("@playwright/test").Locator) {
+  const value = await locator.boundingBox();
+  return (
+    value && {
+      x: Math.round(value.x * 100) / 100,
+      y: Math.round(value.y * 100) / 100,
+      width: Math.round(value.width * 100) / 100,
+      height: Math.round(value.height * 100) / 100,
+    }
+  );
+}
+
 test("assistant complete journey remains usable at the project viewport", async ({
   page,
 }) => {
+  test.setTimeout(90_000);
   const width = page.viewportSize()?.width || 1440;
+  const measurements: Record<string, unknown> = {
+    viewport: page.viewportSize(),
+    dpr: 1,
+    browser: "chromium",
+    reduced_motion: "reduce",
+  };
   if (evidence) fs.mkdirSync(evidence, { recursive: true });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await installStreamingTransport(page);
@@ -223,6 +260,9 @@ test("assistant complete journey remains usable at the project viewport", async 
   await expect(page.getByText("شرط‌ها برداشت شدند.")).toBeVisible();
   await expect(page.getByText("سه مورد آماده شد.")).toBeVisible();
   await expect(page.getByText("توضیح در حال اعتبارسنجی است.")).toBeVisible();
+  measurements.product_processing_card = await geometry(
+    page.getByRole("heading", { name: "در حال بررسی..." }).locator(".."),
+  );
   if (evidence)
     await page.screenshot({
       path: path.join(evidence, `product-processing-${width}.png`),
@@ -264,7 +304,7 @@ test("assistant complete journey remains usable at the project viewport", async 
   ).toBe(true);
   await page
     .locator("article")
-    .filter({ hasText: "پیشنهاد ۱" })
+    .filter({ hasText: /پیشنهاد [1۱]/ })
     .first()
     .scrollIntoViewIfNeeded();
   if (evidence)
@@ -272,6 +312,104 @@ test("assistant complete journey remains usable at the project viewport", async 
       path: path.join(evidence, `product-results-top-${width}.png`),
       animations: "disabled",
     });
+  const productCard = page
+    .locator("article")
+    .filter({ hasText: /پیشنهاد [1۱]/ })
+    .last();
+  measurements.product_result_card = await geometry(productCard);
+  measurements.product_composer = await geometry(
+    composer.locator("xpath=ancestor::form[1]"),
+  );
+  const productRow = page
+    .getByText("توسعه مجموعه مسکونی", { exact: true })
+    .locator("xpath=ancestor::article[1]");
+  await productRow.scrollIntoViewIfNeeded();
+  await captureReady(page);
+  measurements.product_result_row = await geometry(productRow);
+  if (evidence)
+    await page.screenshot({
+      path: path.join(evidence, "product-results-list-" + width + ".png"),
+      animations: "disabled",
+    });
+  await page.evaluate(() =>
+    scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "instant",
+    }),
+  );
+  await captureReady(page);
+  if (evidence)
+    await page.screenshot({
+      path: path.join(evidence, "product-composer-" + width + ".png"),
+      animations: "disabled",
+    });
+
+  if (evidence) {
+    const reference = await page.context().newPage();
+    await reference.emulateMedia({ reducedMotion: "reduce" });
+    await reference.goto("http://127.0.0.1:3000/assistant");
+    await captureReady(reference);
+    await reference
+      .getByRole("button", { name: /مسکونی در تهران تا ۳۰ میلیارد/ })
+      .click();
+    await expect(reference.getByText(/سنجیده شد/)).toBeVisible({
+      timeout: 10_000,
+    });
+    await expect(
+      reference.getByText("مرتب‌سازی بر اساس درصد تطابق"),
+    ).toBeVisible();
+    await captureReady(reference);
+    measurements.reference_processing_card = await geometry(
+      reference.getByText("در حال بررسی…", { exact: true }).locator(".."),
+    );
+    await reference.screenshot({
+      path: path.join(evidence, "reference-processing-" + width + ".png"),
+      animations: "disabled",
+    });
+    await expect(
+      reference.getByRole("heading", { name: "توسعه مسکن اجاره‌ای" }).first(),
+    ).toBeVisible({ timeout: 10_000 });
+    const referenceCard = reference
+      .locator("article")
+      .filter({ hasText: /پیشنهاد [1۱]/ })
+      .first();
+    await referenceCard.scrollIntoViewIfNeeded();
+    await captureReady(reference);
+    measurements.reference_result_card = await geometry(referenceCard);
+    measurements.reference_composer = await geometry(
+      reference.locator("form").last(),
+    );
+    await reference.screenshot({
+      path: path.join(evidence, "reference-results-top-" + width + ".png"),
+      animations: "disabled",
+    });
+    const referenceRow = reference
+      .getByText("توسعه مجموعه مسکونی", { exact: true })
+      .locator("xpath=ancestor::li[1]");
+    await referenceRow.scrollIntoViewIfNeeded();
+    await captureReady(reference);
+    measurements.reference_result_row = await geometry(referenceRow);
+    await reference.screenshot({
+      path: path.join(evidence, "reference-results-list-" + width + ".png"),
+      animations: "disabled",
+    });
+    await reference.evaluate(() =>
+      scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "instant",
+      }),
+    );
+    await captureReady(reference);
+    await reference.screenshot({
+      path: path.join(evidence, "reference-composer-" + width + ".png"),
+      animations: "disabled",
+    });
+    fs.writeFileSync(
+      path.join(evidence, "geometry-" + width + ".json"),
+      JSON.stringify(measurements, null, 2) + "\n",
+    );
+    await reference.close();
+  }
 });
 
 test("assistant outage preserves text, criteria and manual continuation without false success", async ({
