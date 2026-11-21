@@ -12,10 +12,10 @@ from apps.identity.sessions import current_session
 from apps.workspace.schema import Fault
 from config.views import PublicBase
 
-from . import quota, tools
+from . import quota
 from .models import QuotaPolicy
+from .orchestrator import prepare_turn, product_tool_runner, provider_context
 from .provider import ProviderError, get_provider, provider_status
-from .routing import choose_model
 
 
 def _payload(value):
@@ -93,38 +93,14 @@ class AssistantAPI(PublicBase):
             ):
                 raise Fault("شناسه فرصت معتبر نیست.")
             history = _history(request.data.get("history"))
-            normalized = tools.normalize(message, criteria)
-            decision = choose_model(
-                normalized=normalized,
-                opportunity_ids=ids,
-                history=history,
-                message=message,
+            prepared = prepare_turn(
+                message=message, criteria=criteria, opportunity_ids=ids, history=history
             )
+            normalized = prepared.normalized
+            decision = prepared.decision
             model = decision.model
-            if normalized["needs_clarification"]:
-                response = Response(
-                    {
-                        "state": "needs_clarification",
-                        "interpretation": normalized,
-                        "answer": " ".join(normalized["questions"]),
-                        "citations": [],
-                        "next": ["شرط‌ها را اصلاح می‌کنم", "جست‌وجوی دستی"],
-                        "quota": quota.usage_view(p),
-                        "steps": [
-                            {"id": "interpretation", "status": "completed"},
-                            {"id": "public_data", "status": "not_run"},
-                            {"id": "explanation", "status": "not_run"},
-                        ],
-                    }
-                )
-                return self._with_guest(response, p)
-            server_result = (
-                {"items": [tools.run("get_public_opportunity", {"id": ids[0]})], "total": 1}
-                if len(ids) == 1
-                else tools.run("compare_same_kind", {"ids": ids})
-                if ids
-                else tools.run("search_public_opportunities", {"criteria": normalized["criteria"]})
-            )
+            clarification_only = prepared.server_result is None
+            server_result = prepared.server_result or {"items": [], "total": 0}
             provider = get_provider()
             if not provider.available:
                 response = Response(
@@ -200,19 +176,10 @@ class AssistantAPI(PublicBase):
                 )
             try:
                 result = provider.complete(
-                    {
-                        "message": message,
-                        "normalized": normalized,
-                        "server_result": server_result,
-                        "history": history,
-                        "claim_call": lambda: quota.claim_provider_call(reservation),
-                    },
-                    lambda name, args: tools.run(
-                        name,
-                        args,
-                        fallback_text=message,
-                        fallback_criteria=normalized["criteria"],
+                    provider_context(
+                        prepared, lambda: quota.claim_provider_call(reservation)
                     ),
+                    product_tool_runner(prepared),
                     policy,
                     reservation,
                 )
@@ -258,7 +225,7 @@ class AssistantAPI(PublicBase):
             return self._with_guest(
                 Response(
                     {
-                        "state": "completed",
+                        "state": "needs_clarification" if clarification_only else "completed",
                         "interpretation": normalized,
                         "server_result": server_result,
                         **result.output,
@@ -277,7 +244,10 @@ class AssistantAPI(PublicBase):
                         },
                         "steps": [
                             {"id": "interpretation", "status": "completed"},
-                            {"id": "public_data", "status": "completed"},
+                            {
+                                "id": "public_data",
+                                "status": "not_run" if clarification_only else "completed",
+                            },
                             {"id": "explanation", "status": "completed"},
                         ],
                     }
@@ -337,7 +307,10 @@ class AssistantAPI(PublicBase):
                         "detail": "متن و شرط‌های قابل مشاهده در حال اعتبارسنجی است.",
                     }
                 )
-                normalized = tools.normalize(message, criteria)
+                prepared = prepare_turn(
+                    message=message, criteria=criteria, opportunity_ids=ids, history=history
+                )
+                normalized = prepared.normalized
                 yield line(
                     {
                         "event": "progress",
@@ -347,32 +320,8 @@ class AssistantAPI(PublicBase):
                         "interpretation": normalized,
                     }
                 )
-                decision = choose_model(
-                    normalized=normalized,
-                    opportunity_ids=ids,
-                    history=history,
-                    message=message,
-                )
-                if normalized["needs_clarification"]:
-                    yield line(
-                        {
-                            "event": "result",
-                            "data": {
-                                "state": "needs_clarification",
-                                "interpretation": normalized,
-                                "answer": " ".join(normalized["questions"]),
-                                "citations": [],
-                                "next": normalized["questions"],
-                                "quota": quota.usage_view(p),
-                                "steps": [
-                                    {"id": "interpretation", "status": "completed", "detail": "برای ادامه یک پاسخ روشن لازم است."},
-                                    {"id": "public_data", "status": "pending", "detail": "پس از روشن‌شدن درخواست اجرا می‌شود."},
-                                    {"id": "explanation", "status": "pending", "detail": "هنوز پاسخی تولید نشده است."},
-                                ],
-                            },
-                        }
-                    )
-                    return
+                decision = prepared.decision
+                clarification_only = prepared.server_result is None
                 yield line(
                     {
                         "event": "progress",
@@ -381,20 +330,16 @@ class AssistantAPI(PublicBase):
                         "detail": "نسخه‌های عمومی جاری در سرور بازخوانی می‌شوند.",
                     }
                 )
-                server_result = (
-                    {"items": [tools.run("get_public_opportunity", {"id": ids[0]})], "total": 1}
-                    if len(ids) == 1
-                    else tools.run("compare_same_kind", {"ids": ids})
-                    if ids
-                    else tools.run("search_public_opportunities", {"criteria": normalized["criteria"]})
-                )
+                server_result = prepared.server_result or {"items": [], "total": 0}
                 count = len(server_result.get("items") or server_result.get("rows") or [])
                 yield line(
                     {
                         "event": "progress",
                         "stage": "public_data",
-                        "status": "completed",
-                        "detail": f"{count} مورد از داده عمومی جاری آماده شد.",
+                        "status": "not_run" if clarification_only else "completed",
+                        "detail": "تا رفع ابهام، جست‌وجوی عمومی اجرا نمی‌شود."
+                        if clarification_only
+                        else f"{count} مورد از داده عمومی جاری آماده شد.",
                         "server_result": server_result,
                     }
                 )
@@ -448,14 +393,10 @@ class AssistantAPI(PublicBase):
                     )
                 try:
                     result = provider.complete(
-                        {
-                            "message": message,
-                            "normalized": normalized,
-                            "server_result": server_result,
-                            "history": history,
-                            "claim_call": lambda: quota.claim_provider_call(reservation),
-                        },
-                        lambda name, args: tools.run(name, args, fallback_text=message, fallback_criteria=normalized["criteria"]),
+                        provider_context(
+                            prepared, lambda: quota.claim_provider_call(reservation)
+                        ),
+                        product_tool_runner(prepared),
                         policy,
                         reservation,
                     )
@@ -508,7 +449,7 @@ class AssistantAPI(PublicBase):
                     {
                         "event": "result",
                         "data": {
-                            "state": "completed",
+                            "state": "needs_clarification" if clarification_only else "completed",
                             "interpretation": normalized,
                             "server_result": server_result,
                             **result.output,

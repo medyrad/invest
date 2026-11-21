@@ -15,6 +15,7 @@ PERSIAN_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "0123
 ROUTES = {
     "صندوق": ("fund", "fund"),
     "خرید": ("sale", "buyer"),
+    "فروش": ("sale", "buyer"),
     "اجاره": ("project", "lessee"),
     "مرمت": ("project", "heritage"),
     "پیمانکار": ("project", "contractor"),
@@ -39,20 +40,28 @@ def normalize(text, supplied=None):
     ambiguities = []
     if not criteria.get("route"):
         ambiguities.append("مسیر سرمایه‌گذاری، صندوق، خرید، اجاره یا همکاری را مشخص کنید.")
-    amount = re.search(
+    maximum = re.search(
         r"(?:تا|حداکثر)\s*([0-9]+(?:[./][0-9]+)?)\s*(میلیون|میلیارد)\s*(?:تومان)?", value
     )
+    minimum = re.search(
+        r"(?:از|حداقل)\s*([0-9]+(?:[./][0-9]+)?)\s*(میلیون|میلیارد)\s*(?:تومان)?", value
+    )
+    amount = maximum or minimum
     if amount:
         raw = amount.group(1).replace("/", ".")
         factor = 1_000_000 if amount.group(2) == "میلیون" else 1_000_000_000
         from decimal import Decimal
 
-        criteria["budget_max"] = str(Decimal(raw) * factor)
+        criteria["budget_max" if maximum else "budget_min"] = str(Decimal(raw) * factor)
     elif re.search(r"\b[0-9]+\b", value):
         ambiguities.append("واحد مبلغ یا معنای عدد را مشخص کنید.")
+    elif "بودجه" in value and "اصلاح" in value:
+        ambiguities.append("مقدار و واحد بودجه تازه را مشخص کنید.")
     percent = re.search(r"([0-9]+(?:[./][0-9]+)?)\s*٪", value)
     if percent and not any(x in value for x in ("سالانه", "ماهانه", "IRR", "بازده ساده")):
         ambiguities.append("نوع، دوره و مبنای درصد بازده را مشخص کنید.")
+    elif "بازده" in value and "return" not in criteria:
+        ambiguities.append("مقدار، دوره و مبنای بازده مورد انتظار را مشخص کنید.")
     for province in Province.objects.all().only("id", "name"):
         if province.name and province.name in value:
             criteria["province"] = [str(province.pk)]

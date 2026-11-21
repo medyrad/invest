@@ -57,6 +57,12 @@ for (const width of [360, 390, 768, 1440]) test(`assistant complete journey rema
   await expect(page.getByRole("heading", { name: "در حال بررسی…" })).toBeVisible();
   await page.screenshot({ path: path.join(evidence, `assistant-processing-${width}.png`), fullPage: true, animations: "disabled" });
   await expect(page.getByRole("heading", { name: "برداشت قابل اصلاح" })).toBeVisible();
+  await expect(page.locator("span.inline-flex").filter({ hasText: "مسیر:" }).filter({ hasText: "سرمایه‌گذاری و مشارکت" })).toBeVisible();
+  await expect(page.locator("span.inline-flex").filter({ hasText: "نوع:" }).filter({ hasText: "پروژه" })).toBeVisible();
+  await expect(page.getByText("نسخه عمومی جاری", { exact: true })).toHaveCount(3);
+  await expect(page.getByText("investor", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("project", { exact: true })).toHaveCount(0);
+  await expect(page.getByText(/revision-/)).toHaveCount(0);
   await expect(page.getByText("فرصت مصنوعی ۱", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "ادامه با فیلتر دستی" })).toBeVisible();
   await expect(page.getByRole("button", { name: "ذخیره با رسید سرور" })).toBeVisible();
@@ -115,5 +121,5 @@ test("@desktop comparison chat revalidates a same-kind selection and renders a g
   await page.getByLabel("پرسش درباره مقایسه").fill("تفاوت مهم این دو مورد چیست؟");
   await page.getByRole("button", { name: "پرسیدن درباره جدول" }).click();
   await expect(page.getByText("تفاوت‌ها فقط از ردیف‌های عمومی همین دو نسخه توضیح داده شد.")).toBeVisible();
-  await expect(page.getByRole("link", { name: "matching" })).toHaveCount(2);
+  await expect(page.getByRole("link", { name: "نتیجه تطبیق سرور" })).toHaveCount(2);
 });

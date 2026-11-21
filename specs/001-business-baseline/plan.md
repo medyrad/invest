@@ -73,7 +73,7 @@ deploy/
 
 ## طرح S09 — اجرای فنی غیرعمومی و گیت‌های باقی‌مانده
 
-وضعیت ارزیابی در PRODUCT-COMP-AI-EVAL-ORACLE-01: oracle مستقل و مخرج‌ها در [test-plan](test-plan.md) و [قرارداد موجود](contracts/api.md) منجمد شدند؛ runner فعلی هنوز مسیر واقعی prompt/tool/context محصول را مصرف نمی‌کند و فقط نبود credential مانع نیست. اتصال/scorer و اصلاح برچسب‌های داخلی UI، کار یکپارچه T063/T065/T066/T067 است؛ کد یا live در مأموریت محصول اجرا نشده و پذیرش انسانی/مستقل باز است.
+وضعیت پس از PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01: oracle مستقل و مخرج‌ها بدون تغییر منجمد ماندند. runner اکنون orchestrator، prompt، چهار ابزار read-only، schema و validator محصول را روی داده عمومی مصنوعی PostgreSQL مصرف می‌کند؛ برداشت مدل از parser سرور جدا و scorerهای extraction/citation/router مستقل و حافظه‌ای هستند. contract/fault/router بدون تماس provider اجرا شده‌اند؛ live Sol/Luna، رأی فارسی و پذیرش انسانی/مستقل بازند.
 
 مرجع سیاستِ مصوب [PC-D02](../../docs/comp-ai-decision-package.md) است؛ اعداد در این plan دوباره تعریف نمی‌شوند. T062 مصوبات ثبت‌شده را مصرف و قرارداد اجرایی را قفل کند و artifact اجرایی S09 را آماده کند؛ سپس T063 تست/fixture و T064/T065 backend محدود، T066 کل سفر UI و T067 ارزیابی/شاهد تحویل، با یک گزارش تجمیعی و بررسی مستقل. مسیرهای برنامه‌ریزی‌شده در tasks نام فایلِ ساخته‌شده نیستند.
 

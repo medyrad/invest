@@ -16,9 +16,9 @@ from apps.identity.sessions import current_session
 from .models import GuestMerge, QuotaPolicy, UsageLedger, UsageReservation
 from .routing import ROUTER_VERSION
 
-PROMPT_VERSION = "assistant-fa-v1"
-TOOL_VERSION = "assistant-tools-v1"
-SCHEMA_VERSION = "assistant-response-v1"
+PROMPT_VERSION = "assistant-fa-v2"
+TOOL_VERSION = "assistant-tools-v2"
+SCHEMA_VERSION = "assistant-response-v2"
 PRICE_VERSION = "openai-standard-2026-11-20"
 COOKIE = "invest_ai_guest"
 

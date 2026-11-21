@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-ROUTER_VERSION = "assistant-router-v1"
+ROUTER_VERSION = "assistant-router-v2"
 LUNA = "gpt-6-luna"
 SOL = "gpt-6.2-sol"
 
@@ -16,10 +16,12 @@ class RouteDecision:
 def choose_model(*, normalized, opportunity_ids, history, message=""):
     """Choose once, before provider dispatch, without calling another model."""
     criteria = normalized.get("criteria") or {}
-    questions = normalized.get("questions") or []
     ids = opportunity_ids or []
-    conflict_words = ("متناقض", "همزمان", "هم‌زمان", "به جز", "اما", "یا ")
-    conflict = len(questions) > 1 or any(word in message for word in conflict_words)
+    history_text = " ".join(
+        item.get("text", "") for item in (history or []) if isinstance(item, dict)
+    )
+    conflict_words = ("متناقض", "ناسازگار", "تعارض")
+    conflict = any(word in f"{history_text} {message}" for word in conflict_words)
     basis_count = sum(
         key in criteria
         for key in ("budget_min", "budget_max", "province", "city", "risk", "return")

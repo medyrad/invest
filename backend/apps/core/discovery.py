@@ -474,7 +474,13 @@ def compare(ids):
     keys = set().union(*(o.public_revision.snapshot for o in ops))
     for key in sorted(keys):
         values = [o.public_revision.snapshot.get(key) for o in ops]
-        typed = all(isinstance(v, dict) and v.get("status") == "known" for v in values)
+        typed = all(
+            isinstance(v, dict)
+            and v.get("status") == "known"
+            and "field" in v
+            and "source_value" in v
+            for v in values
+        )
         from apps.catalog.values import compare as compare_value
 
         compatible = typed and all(compare_value(values[0], v)["comparable"] for v in values)

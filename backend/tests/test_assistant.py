@@ -57,6 +57,9 @@ def test_normalize_preserves_ambiguity_and_exact_toman():
     exact = tools.normalize("پروژه سرمایه گذاری تا ۳۰ میلیارد تومان")
     assert exact["criteria"]["budget_max"] == "30000000000"
     assert exact["criteria"]["route"] == "investor"
+    minimum = tools.normalize("صندوق با حداقل ۵۰۰ میلیون تومان")
+    assert not minimum["needs_clarification"]
+    assert minimum["criteria"]["budget_min"] == "500000000"
 
 
 def test_tools_reject_private_or_unknown_capability():
@@ -186,11 +189,34 @@ def test_output_citations_must_match_server_revision():
     server = {"items": [{"id": "one", "revision": "rev-one"}]}
     good = {
         "answer": "پاسخ",
-        "citations": [{"id": "one", "revision": "rev-one", "field": "matching"}],
+        "citations": [
+            {
+                "id": "one",
+                "revision": "rev-one",
+                "field": "matching",
+                "value_json": "null",
+            }
+        ],
         "next": [],
+        "model_proposed_criteria": {
+            "version": "assistant-model-extraction-v1",
+            "fields": [],
+            "needs_clarification": False,
+            "clarification_fields": [],
+        },
     }
     assert validate_output(good, [server]) == good
-    bad = {**good, "citations": [{"id": "one", "revision": "invented", "field": "matching"}]}
+    bad = {
+        **good,
+        "citations": [
+            {
+                "id": "one",
+                "revision": "invented",
+                "field": "matching",
+                "value_json": "null",
+            }
+        ],
+    }
     with pytest.raises(ProviderError):
         validate_output(bad, [server])
 
@@ -204,7 +230,19 @@ def test_provider_rejects_a_returned_model_different_from_the_reserved_model(mon
             "id": "opaque-request",
             "model": "gpt-6-luna",
             "status": "completed",
-            "output_text": json.dumps({"answer": "پاسخ", "citations": [], "next": []}),
+            "output_text": json.dumps(
+                {
+                    "answer": "پاسخ",
+                    "citations": [],
+                    "next": [],
+                    "model_proposed_criteria": {
+                        "version": "assistant-model-extraction-v1",
+                        "fields": [],
+                        "needs_clarification": False,
+                        "clarification_fields": [],
+                    },
+                }
+            ),
             "usage": {"input_tokens": 1, "output_tokens": 1},
             "output": [],
         },
@@ -316,6 +354,26 @@ def test_api_disabled_provider_returns_manual_data_without_debit(client, monkeyp
     assert response.json()["server_result"]["items"]
     assert response.json()["error"]["code"] == "provider_unavailable"
     assert not UsageReservation.objects.exists()
+
+
+@override_settings(ASSISTANT_PROVIDER_FACTORY=lambda: FakeProvider())
+def test_clarification_uses_real_provider_schema_but_never_dispatches_search(client, monkeypatch):
+    monkeypatch.setattr(
+        "apps.assistant.tools.discovery.listing",
+        lambda criteria: pytest.fail("clarification must not dispatch search"),
+    )
+    response = client.post(
+        "/api/v1/assistant/turns",
+        {"message": "بودجه ۳۰ و بازده خوب می‌خواهم"},
+        format="json",
+        HTTP_X_CSRFTOKEN=_csrf(client),
+        HTTP_IDEMPOTENCY_KEY="clarification-provider",
+    )
+    assert response.status_code == 200
+    assert response.json()["state"] == "needs_clarification"
+    assert response.json()["server_result"] == {"items": [], "total": 0}
+    assert response.json()["model_proposed_criteria"]["version"] == "assistant-model-extraction-v1"
+    assert UsageReservation.objects.get().status == "completed"
 
 
 @override_settings(ASSISTANT_PROVIDER_FACTORY=lambda: FakeProvider())

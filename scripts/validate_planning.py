@@ -38,6 +38,9 @@ if status.get('foundation', {}).get('status') == 'complete':
     allowed_completed.update(f'T{i:03}' for i in range(3, 9))
 if status.get('identity', {}).get('status') in {'technical-pass', 'complete'}:
     allowed_completed.update(f'T{i:03}' for i in range(13, 17))
+for tid, task_status in status.get('comp_ai_preparation', {}).get('technical_tasks', {}).items():
+    if task_status == 'programmer-complete':
+        allowed_completed.add(tid)
 require(set(completed_tasks) <= allowed_completed, 'completed task exceeds verified stage scope')
 for tid, body in task_lines:
     require(bool(re.search(r'[\w.-]+/(?:[^\s؛،]+)', body)), f'{tid}: missing concrete path')

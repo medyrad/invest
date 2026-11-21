@@ -2359,7 +2359,10 @@
           }}}
         },
         "responses": {
-          "200": {"description": "پاسخ کامل معتبر و رسید بی‌محتوا"},
+          "200": {
+            "description": "پاسخ کامل معتبر و رسید بی‌محتوا؛ استخراج مدل فقط پیشنهاد نسخه‌دار است و معیار/استناد سروری را تغییر نمی‌دهد",
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/AssistantTurnResponse"}}}
+          },
           "400": {"description": "ورودی یا خروجی ابزار نامعتبر"},
           "409": {"description": "تعارض idempotency یا پاسخ قبلی غیرقابل بازیابی"},
           "429": {"description": "سهمیه، rate یا slot"},
@@ -2398,6 +2401,54 @@
   },
   "components": {
     "schemas": {
+      "AssistantTurnResponse": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["answer", "citations", "next", "model_proposed_criteria"],
+        "properties": {
+          "answer": {"type": "string"},
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "revision", "field", "value_json"],
+              "properties": {
+                "id": {"type": "string"},
+                "revision": {"type": "string"},
+                "field": {"type": "string"},
+                "value_json": {}
+              }
+            }
+          },
+          "next": {"type": ["string", "null"]},
+          "model_proposed_criteria": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["version", "fields", "needs_clarification", "clarification_fields"],
+            "properties": {
+              "version": {"type": "string", "const": "assistant-model-extraction-v1"},
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["field", "status", "value_json", "unit", "basis_json"],
+                  "properties": {
+                    "field": {"type": "string"},
+                    "status": {"type": "string", "enum": ["known", "unknown", "absent"]},
+                    "value_json": {},
+                    "unit": {"type": ["string", "null"]},
+                    "basis_json": {}
+                  }
+                }
+              },
+              "needs_clarification": {"type": "boolean"},
+              "clarification_fields": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        }
+      },
       "Error": {
         "type": "object",
         "additionalProperties": false,

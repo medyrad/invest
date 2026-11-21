@@ -18,7 +18,7 @@ export type AssistantResponse = {
   interpretation?: { criteria: Record<string, unknown>; needs_clarification: boolean; questions: string[] };
   server_result?: { items?: AssistantItem[]; total?: number; next?: string | null; policy_version?: number; rows?: unknown[] };
   answer?: string;
-  citations?: { id: string; revision: string; field: string }[];
+  citations?: { id: string; revision: string; field: string; value_json?: string }[];
   next?: string[];
   receipt?: string;
   quota?: { used: number; limit: number; remaining: number; reset_at: string; policy_version: number; monthly?: { spent_usd: string; held_usd: string; cap_usd: string; remaining_usd: string; reset_at: string } };

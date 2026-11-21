@@ -953,7 +953,7 @@
         "FR-012",
         "FR-014"
       ],
-      "description": "بستن B05، ثبت مدل/اعداد/دوره/هزینه/خطا/retention و تعریف مهمان در specs/003-assistant/spec.md؛ کلید در محیط خصوصی backend، نه سند"
+      "description": "بستن B05 و قفل‌کردن مدل/عدد/هزینه/خطا/retention در baseline، OpenAPI و policy اجرایی"
     },
     {
       "id": "T063",
@@ -971,7 +971,7 @@
         "SC-005",
         "FR-028"
       ],
-      "description": "تست quota اتمیک مهمان/حساب و permission ابزار/context injection و retry در backend/tests/integration/test_assistant.py؛ fixture فارسی در backend/tests/fixtures/assistant_cases.json؛ D28: آزمون برابری score/coverage/policy/revision با API تطبیق، عدم ادعای سود و لینک ادامه همه نتایج"
+      "description": "تست quota اتمیک مهمان/حساب و permission ابزار/context injection و retry"
     },
     {
       "id": "T064",
@@ -984,7 +984,7 @@
         "FR-012",
         "FR-014"
       ],
-      "description": "ساخت Conversation/QuotaPolicy/UsageReservation/Ledger و migration، تنظیم ادمین و adapter OpenAI در backend/apps/assistant/models.py و backend/apps/assistant/provider.py و backend/apps/assistant/quota.py"
+      "description": "ساخت QuotaPolicy/UsageReservation/Ledger بی‌محتوا و migration، policy ادمین و adapter Responses"
     },
     {
       "id": "T065",
@@ -1000,7 +1000,7 @@
         "FR-014",
         "FR-028"
       ],
-      "description": "ساخت ابزار read-only بر revision عمومی، parse/validate criteria و استناد، timeout/retry/تسویه مصرف در backend/apps/assistant/tools.py و backend/apps/assistant/api.py؛ submit tool وجود نداشته باشد؛ D28: مصرف همان score/coverage/reasons سرور و حفظ policy/revision و لینک ادامه نتایج"
+      "description": "چهار ابزار read-only روی revision عمومی، parse/validate criteria و استناد، timeout/retry/تسویه مصرف"
     },
     {
       "id": "T066",
@@ -1015,7 +1015,7 @@
         "FR-014",
         "FR-019"
       ],
-      "description": "حفظ صفحه/chat مقایسه و افزودن برداشت قابل اصلاح، references، quota/error و بازگشت فرم در frontend/src/app/assistant/page.tsx و frontend/src/components/compare/chat.tsx"
+      "description": "سفر خانه/فرصت، برداشت قابل اصلاح، picker، کارت/فهرست، ذخیره با رسید، مقایسه و مسیر دستی"
     },
     {
       "id": "T067",

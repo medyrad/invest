@@ -9,6 +9,7 @@ import { AlgoPattern } from "@/components/brand/algo-pattern";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { assistantTurnStream, type AssistantItem, type AssistantResponse, type AssistantStep } from "@/lib/assistant-api";
+import { assistantValueLabel } from "@/lib/assistant-labels";
 import { fromCriteria, useStore } from "@/lib/store";
 
 type Turn = { id: string; question: string; response: AssistantResponse };
@@ -33,14 +34,14 @@ function Orb({ busy = false }: { busy?: boolean }) {
 function Chips({ criteria, onRemove }: { criteria: Record<string, unknown>; onRemove: (key: string) => void }) {
   const labels: Record<string, string> = { route: "مسیر", kind: "نوع", budget_max: "سقف بودجه", province: "استان", city: "شهر", group: "گروه", risk: "ریسک", return: "بازده" };
   const values = Object.entries(criteria).filter(([key]) => key in labels);
-  return <div className="flex flex-wrap gap-2">{values.map(([key, value]) => <span key={key} className="inline-flex items-center gap-1.5 rounded-full border border-ink/10 bg-white px-3 py-1.5 text-xs font-bold text-ink/75"><span className="text-muted-foreground">{labels[key]}:</span>{typeof value === "string" ? value : Array.isArray(value) ? value.join("، ") : "ثبت‌شده"}<button type="button" onClick={() => onRemove(key)} aria-label={`حذف ${labels[key]}`} className="grid size-6 place-items-center rounded-full hover:bg-muted"><CloseCircle size={15} /></button></span>)}</div>;
+  return <div className="flex flex-wrap gap-2">{values.map(([key, value]) => <span key={key} className="inline-flex items-center gap-1.5 rounded-full border border-ink/10 bg-white px-3 py-1.5 text-xs font-bold text-ink/75"><span className="text-muted-foreground">{labels[key]}:</span>{assistantValueLabel(key, value)}<button type="button" onClick={() => onRemove(key)} aria-label={`حذف ${labels[key]}`} className="grid size-6 place-items-center rounded-full hover:bg-muted"><CloseCircle size={15} /></button></span>)}</div>;
 }
 
 function ResultCard({ item, index }: { item: AssistantItem; index: number }) {
   const title = String(item.fields.title || "فرصت بدون عنوان");
   const score = item.matching?.score;
   const coverage = item.matching?.coverage;
-  return <article className="surface flex min-h-64 flex-col rounded-[1.75rem] p-5"><div className="flex items-start justify-between gap-3"><span className="grid size-9 place-items-center rounded-full bg-cobalt-soft text-sm font-black text-cobalt">{index + 1}</span><span className="rounded-full bg-muted px-3 py-1 text-[11px] font-bold text-muted-foreground">نسخه {item.revision.slice(0, 8)}</span></div><h3 className="mt-5 text-lg font-black leading-8">{title}</h3><div className="mt-4 grid grid-cols-2 gap-2 text-xs"><div className="rounded-2xl bg-muted p-3"><span className="block text-muted-foreground">امتیاز سرور</span><strong className="mt-1 block text-base">{score === null || score === undefined ? "بدون ترجیح" : `${Number(score).toFixed(0)}٪`}</strong></div><div className="rounded-2xl bg-muted p-3"><span className="block text-muted-foreground">پوشش داده</span><strong className="mt-1 block text-base">{coverage === null || coverage === undefined ? "نامعلوم" : `${Number(coverage).toFixed(0)}٪`}</strong></div></div><p className="mt-3 text-xs leading-6 text-muted-foreground">امتیاز احتمال سود یا تأیید مناسب‌بودن نیست.</p><Link className="mt-auto pt-5 text-sm font-extrabold text-cobalt" href={`/opportunities/${item.id}`}>دیدن نسخه عمومی <ArrowLeft className="inline" size={15} /></Link></article>;
+  return <article className="surface flex min-h-64 flex-col rounded-[1.75rem] p-5"><div className="flex items-start justify-between gap-3"><span className="grid size-9 place-items-center rounded-full bg-cobalt-soft text-sm font-black text-cobalt">{index + 1}</span><span className="rounded-full bg-muted px-3 py-1 text-[11px] font-bold text-muted-foreground">نسخه عمومی جاری</span></div><h3 className="mt-5 text-lg font-black leading-8">{title}</h3><div className="mt-4 grid grid-cols-2 gap-2 text-xs"><div className="rounded-2xl bg-muted p-3"><span className="block text-muted-foreground">امتیاز سرور</span><strong className="mt-1 block text-base">{score === null || score === undefined ? "بدون ترجیح" : `${Number(score).toFixed(0)}٪`}</strong></div><div className="rounded-2xl bg-muted p-3"><span className="block text-muted-foreground">پوشش داده</span><strong className="mt-1 block text-base">{coverage === null || coverage === undefined ? "نامعلوم" : `${Number(coverage).toFixed(0)}٪`}</strong></div></div><p className="mt-3 text-xs leading-6 text-muted-foreground">امتیاز احتمال سود یا تأیید مناسب‌بودن نیست.</p><Link className="mt-auto pt-5 text-sm font-extrabold text-cobalt" href={`/opportunities/${item.id}`}>دیدن نسخه عمومی <ArrowLeft className="inline" size={15} /></Link></article>;
 }
 
 function SavedPicker({ onPick }: { onPick: (criteria: Record<string, unknown>) => void }) {
