@@ -3,11 +3,16 @@ export type AssistantItem = {
   revision: string;
   kind: "project" | "fund" | "sale";
   fields: Record<string, unknown>;
+  images?: string[];
   matching?: {
     score: string | null;
     coverage: string | null;
     status: string;
-    checks: { axis: string; state: "met" | "unmet" | "unknown"; reason: string }[];
+    checks: {
+      axis: string;
+      state: "met" | "unmet" | "unknown";
+      reason: string;
+    }[];
     warnings: string[];
     policy_version: number;
   };
@@ -15,13 +20,41 @@ export type AssistantItem = {
 
 export type AssistantResponse = {
   state: "completed" | "needs_clarification" | "failed";
-  interpretation?: { criteria: Record<string, unknown>; needs_clarification: boolean; questions: string[] };
-  server_result?: { items?: AssistantItem[]; total?: number; next?: string | null; policy_version?: number; rows?: unknown[] };
+  interpretation?: {
+    criteria: Record<string, unknown>;
+    needs_clarification: boolean;
+    questions: string[];
+  };
+  server_result?: {
+    items?: AssistantItem[];
+    total?: number;
+    next?: string | null;
+    policy_version?: number;
+    rows?: unknown[];
+  };
   answer?: string;
-  citations?: { id: string; revision: string; field: string; value_json?: string }[];
+  citations?: {
+    id: string;
+    revision: string;
+    field: string;
+    value_json?: string;
+  }[];
   next?: string[];
   receipt?: string;
-  quota?: { used: number; limit: number; remaining: number; reset_at: string; policy_version: number; monthly?: { spent_usd: string; held_usd: string; cap_usd: string; remaining_usd: string; reset_at: string } };
+  quota?: {
+    used: number;
+    limit: number;
+    remaining: number;
+    reset_at: string;
+    policy_version: number;
+    monthly?: {
+      spent_usd: string;
+      held_usd: string;
+      cap_usd: string;
+      remaining_usd: string;
+      reset_at: string;
+    };
+  };
   error?: { code: string; message: string };
   steps?: AssistantStep[];
 };
@@ -33,7 +66,14 @@ export type AssistantStep = {
 };
 
 export type AssistantStreamEvent =
-  | { event: "progress"; stage: AssistantStep["id"]; status: AssistantStep["status"]; detail?: string; interpretation?: AssistantResponse["interpretation"]; server_result?: AssistantResponse["server_result"] }
+  | {
+      event: "progress";
+      stage: AssistantStep["id"];
+      status: AssistantStep["status"];
+      detail?: string;
+      interpretation?: AssistantResponse["interpretation"];
+      server_result?: AssistantResponse["server_result"];
+    }
   | { event: "result" | "failure"; data: AssistantResponse };
 
 async function csrf() {
@@ -75,7 +115,8 @@ export async function assistantTurnStream(
     },
     body: JSON.stringify(body),
   });
-  if (!response.ok || !response.body) throw new Error("ارتباط با دستیار انجام نشد.");
+  if (!response.ok || !response.body)
+    throw new Error("ارتباط با دستیار انجام نشد.");
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
@@ -89,7 +130,8 @@ export async function assistantTurnStream(
       if (!line.trim()) continue;
       const event = JSON.parse(line) as AssistantStreamEvent;
       onEvent(event);
-      if (event.event === "result" || event.event === "failure") finalValue = event.data;
+      if (event.event === "result" || event.event === "failure")
+        finalValue = event.data;
     }
     if (done) break;
   }

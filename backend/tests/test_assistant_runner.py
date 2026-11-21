@@ -107,6 +107,24 @@ def output_for(case, *, citations=None):
     }
 
 
+def injected_transport_for(cases, model, captured):
+    queue = iter(cases)
+
+    def transport(payload, key, timeout):
+        case = next(queue)
+        captured.append(case["id"])
+        return {
+            "id": "opaque-injected",
+            "model": model,
+            "status": "completed",
+            "output_text": json.dumps(output_for(case), ensure_ascii=False),
+            "output": [],
+            "usage": {"input_tokens": 10, "output_tokens": 10},
+        }
+
+    return transport
+
+
 def test_oracle_hash_schema_and_fixed_denominators():
     value = oracle()
     held = [case for case in value["cases"] if case["split"] == "held-out"]
@@ -509,3 +527,85 @@ def test_live_credential_has_no_environment_value_fallback(monkeypatch):
     monkeypatch.delenv("OPENAI_EVAL_API_KEY_FILE", raising=False)
     monkeypatch.setenv("OPENAI_EVAL_API_KEY", "must-not-be-used")
     assert runner._credential() == ""
+
+
+@pytest.mark.django_db
+def test_full_injected_campaign_shares_ledger_and_resumes_without_duplicate_call(
+    settings, monkeypatch, tmp_path, capsys
+):
+    settings.INVEST_ENV = "test"
+    value = oracle()
+    runner = module()
+    monkeypatch.setattr(runner, "_safe_target", lambda value: Path(value).resolve())
+    ledger = tmp_path / "campaign.json"
+    smoke_output = tmp_path / "smoke-luna.json"
+    luna_output = tmp_path / "eval-luna.json"
+    sol_output = tmp_path / "eval-sol.json"
+
+    smoke_cases = runner._selected(value, "smoke")
+    held_out = runner._selected(value, "eval")
+    eligible_held_out = [
+        case
+        for case in held_out
+        if not case["execution"]["must_not_dispatch"]
+        and not case["execution"].get("provider_fault_injection")
+    ]
+    assert len(smoke_cases) == 20
+    assert len(held_out) == 80
+    assert len(eligible_held_out) == 48
+
+    captured = []
+    shared = ["--campaign-budget-usd", "2.00", "--campaign-ledger", str(ledger)]
+    assert runner.main(
+        injected_transport_for(smoke_cases, "gpt-6-luna", captured),
+        ["--mode", "smoke", "--model", "gpt-6-luna", "--output", str(smoke_output), *shared],
+    ) == 0
+    capsys.readouterr()
+
+    with pytest.raises(runner.ControlledHarnessInterrupt, match="after_case:21"):
+        runner.main(
+            injected_transport_for(eligible_held_out, "gpt-6-luna", captured),
+            ["--mode", "eval", "--model", "gpt-6-luna", "--output", str(luna_output), *shared],
+            interrupt_after_cases=21,
+        )
+    checkpoint = json.loads(luna_output.read_text())
+    assert len(checkpoint["records"]) == 21
+    checkpoint_calls = checkpoint["provider_calls"]
+    done = {row["case_id"] for row in checkpoint["records"]}
+    remaining_luna = [case for case in eligible_held_out if case["id"] not in done]
+    assert runner.main(
+        injected_transport_for(remaining_luna, "gpt-6-luna", captured),
+        ["--mode", "eval", "--model", "gpt-6-luna", "--output", str(luna_output), *shared],
+    ) == 0
+    capsys.readouterr()
+    completed_luna = json.loads(luna_output.read_text())
+    assert len(completed_luna["records"]) == 80
+    assert completed_luna["provider_calls"] == 48
+    assert completed_luna["provider_calls"] >= checkpoint_calls
+
+    assert runner.main(
+        injected_transport_for(eligible_held_out, "gpt-6.2-sol", captured),
+        ["--mode", "eval", "--model", "gpt-6.2-sol", "--output", str(sol_output), *shared],
+    ) == 0
+    capsys.readouterr()
+    completed_sol = json.loads(sol_output.read_text())
+    assert len(completed_sol["records"]) == 80
+    assert completed_sol["provider_calls"] == 48
+
+    before_replay = len(captured)
+
+    def unexpected_provider_call(*args):
+        pytest.fail("settled case dispatched again during resume")
+
+    assert runner.main(
+        unexpected_provider_call,
+        ["--mode", "eval", "--model", "gpt-6-luna", "--output", str(luna_output), *shared],
+    ) == 0
+    capsys.readouterr()
+    assert len(captured) == before_replay == 116
+
+    persisted = json.loads(ledger.read_text())
+    assert len(persisted["entries"]) == 116
+    assert {entry["status"] for entry in persisted["entries"].values()} == {"completed"}
+    assert Decimal(persisted["cap_usd"]) == Decimal("2.00")
+    assert all(entry["service_tier"] == "standard" for entry in persisted["entries"].values())

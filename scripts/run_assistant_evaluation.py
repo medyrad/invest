@@ -71,6 +71,10 @@ ALLOWED_FAILURES = {
 }
 
 
+class ControlledHarnessInterrupt(RuntimeError):
+    """Test-only interruption raised after an atomic per-case checkpoint."""
+
+
 def _credential():
     path = os.environ.get("OPENAI_EVAL_API_KEY_FILE", "")
     if path and Path(path).is_file():
@@ -338,7 +342,7 @@ def _write_atomic(target, value):
         if os.path.exists(temporary): os.unlink(temporary)
 
 
-def main(transport=None):
+def main(transport=None, argv=None, interrupt_after_cases=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=["contract", "router", "smoke", "eval"], default="contract")
     parser.add_argument("--model", choices=["gpt-6.2-sol", "gpt-6-luna"], default="gpt-6.2-sol")
@@ -346,7 +350,7 @@ def main(transport=None):
     parser.add_argument("--output")
     parser.add_argument("--campaign-budget-usd")
     parser.add_argument("--campaign-ledger")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     oracle = load_oracle(ORACLE)
     manifest = version_manifest(
         oracle, commit=_commit(), mode=args.mode, versions=_versions()
@@ -418,7 +422,17 @@ def main(transport=None):
             return 2
     else:
         key = "injected-test-credential"
-        campaign = None
+        if bool(args.campaign_budget_usd) != bool(args.campaign_ledger):
+            raise CampaignBudgetError("injected_campaign_guard_incomplete")
+        campaign = (
+            CampaignLedger(
+                _safe_target(args.campaign_ledger),
+                args.campaign_budget_usd,
+                manifest,
+            )
+            if args.campaign_ledger
+            else None
+        )
     target = _safe_target(args.output) if args.output else None
     prior = None
     records = []
@@ -427,7 +441,7 @@ def main(transport=None):
         assert_resume_compatible(prior, manifest, args.model)
         records = prior.get("records", [])
     done = {row["case_id"] for row in records}
-    calls = 0
+    calls = int(prior.get("provider_calls", 0)) if prior else 0
     campaign_failure = None
     for case in _selected(oracle, args.mode):
         if case["id"] in done:
@@ -450,7 +464,15 @@ def main(transport=None):
         calls += used_calls
         if target:
             partial = {"manifest": manifest, "counts": counts, "records": records, "provider_calls": calls, "cost_usd": str(sum((Decimal(row["cost"]) for row in records), Decimal("0"))), "human_persian_votes": 0, "selection": None}
+            if campaign is not None:
+                partial["campaign"] = campaign.summary()
             _write_atomic(target, partial)
+        if interrupt_after_cases is not None and len(records) >= interrupt_after_cases:
+            if transport is None:
+                raise ValueError("controlled_interrupt_requires_injected_transport")
+            raise ControlledHarnessInterrupt(
+                f"controlled_interrupt_after_case:{len(records)}"
+            )
     total_cost = sum((Decimal(row["cost"]) for row in records), Decimal("0"))
     result = {
         "manifest": manifest,

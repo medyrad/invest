@@ -403,6 +403,7 @@ def assert_resume_compatible(prior, current, model):
     ):
         if prior.get("manifest", {}).get(key) != current.get(key):
             raise ValueError("resume_manifest_mismatch:" + key)
-    models = {row.get("model") for row in prior.get("records", [])}
+    # Preflight/no-dispatch records intentionally have no provider model.
+    models = {row.get("model") for row in prior.get("records", []) if row.get("model")}
     if models and models != {model}:
         raise ValueError("resume_model_mismatch")
