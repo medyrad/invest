@@ -137,19 +137,19 @@
     "human_visual_approved": false
   },
   "next_step": {
-    "id": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
-    "description": "واگذاری یکپارچه اتصال runner به مسیر واقعی محصول، scorer مستقل و رفع نمایش کد داخلی UI طبق handoff T063/T065/T066/T067؛ این مأموریت محصول اجرا یا live را آغاز نمی‌کند",
+    "id": "INDEPENDENT-COMP-AI-EVAL-INTEGRATION-RETEST",
+    "description": "بازآزمایی مستقل اتصال فنی runner و UI؛ live Sol/Luna فقط با مجوز و credential خصوصی جدا",
     "authorized": false,
     "scope_path": "specs/001-business-baseline/tasks.md",
     "package": "COMP-AI"
   },
   "active_step": {
-    "id": "PRODUCT-COMP-AI-EVAL-ORACLE-01",
-    "mission": "PRODUCT-COMP-AI-EVAL-ORACLE-01",
-    "status": "oracle-and-evaluation-contract-frozen",
-    "authorization": "Explicit user mission PRODUCT-COMP-AI-EVAL-ORACLE-01: one new independent machine-readable oracle, minimal owner-document updates, one local commit, no product code/runner/live OpenAI/push/deploy",
+    "id": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
+    "mission": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
+    "status": "programmer-technical-integration-complete-live-and-human-open",
+    "authorization": "Explicit user mission: product-path runner/scorers and canonical UI labels; no live OpenAI, push, deploy or human acceptance",
     "documentation_authorized": true,
-    "implementation_authorized": false,
+    "implementation_authorized": true,
     "push_authorized": false,
     "public_deployment_authorized": false,
     "human_visual_approved": false,
@@ -158,7 +158,7 @@
     "final_acceptance": false,
     "independent_acceptance": false,
     "independently_accepted_product_scope": "COMP-EXPERIENCE at 8c327ec and runtime/home/loading at a317094 only; S09 is not independently accepted",
-    "report_path": "specs/001-business-baseline/test-plan.md",
+    "report_path": "docs/stage9/comp-ai-complete-report.docx",
     "validation_path": "specs/001-business-baseline/contracts/assistant-evaluation-oracle.json"
   },
   "clarification_step": {
@@ -840,7 +840,8 @@
       "aba1393aa268dfc9b6c7d9dec05a0e10b8ceda82",
       "817475c78957ecd6626ae779afc514b0f52073f7",
       "a12cd565d406c03bd49c884475e02b4636ee02cc",
-      "3fa19c9297771dd19598f7f1083cb56ba9881f02"
+      "3fa19c9297771dd19598f7f1083cb56ba9881f02",
+      "0d8310768f1fc5c46f0fd9a3fdbc450d0c12ff1c"
     ],
     "owner_feature": "specs/001-business-baseline",
     "tasks": [
@@ -876,9 +877,9 @@
       "T066": "programmer-complete",
       "T067": "partial-independent-oracle-frozen-runner-path-scorer-integration-live-and-human-open"
     },
-    "live_blocker": "Independent product-path runner/scorer is missing; prior FIX-01 evidence reported zero calls/cost and absent private credentials. Credential state not inspected in PRODUCT-COMP-AI-EVAL-ORACLE-01; file presence is not verification.",
-    "experience_security_fix": "server-only assistant-router-v1, per-principal USD10 UTC-month cap, backend secret-file precedence, real NDJSON progress, multi-turn/picker/stale-compare and technically executable live runner; independent/human acceptance open",
-    "current_product_mission": "PRODUCT-COMP-AI-EVAL-ORACLE-01",
+    "live_blocker": "Product-path runner/scorers are technically integrated. Live Sol/Luna and human Persian remain unexecuted; credential state was deliberately not inspected and provider calls/cost are zero.",
+    "experience_security_fix": "server-only assistant-router-v2, prompt assistant-fa-v2, tools assistant-tools-v2 and schema assistant-response-v2; independent/human acceptance open",
+    "current_product_mission": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
     "oracle_contract": {
       "path": "specs/001-business-baseline/contracts/assistant-evaluation-oracle.json",
       "status": "pre-live-frozen-not-untouched",
@@ -901,17 +902,15 @@
         "router": 80
       },
       "no_dispatch_cases": 39,
-      "runner_product_path_validated": false,
-      "model_extraction_measurable": false,
+      "runner_product_path_validated": true,
+      "model_extraction_measurable": true,
       "human_forms_empty": true,
       "provider_calls_this_mission": 0,
       "open_findings": [
-        "generic-runner-bypasses-product-prompt-tools-context",
-        "model-extraction-must-not-be-server-parser-score",
-        "UI-investor-project-revision-labels",
+        "live-Sol-and-Luna-same-held-out-not-run",
         "human-Persian-and-D28-and-design-and-production-open"
       ],
-      "validation": "13/13 static oracle checks passed; git diff --check passed. validate_planning failed with six pre-existing errors, reproduced with read-only HEAD text overlay: completed task exceeds verified stage scope and stale trace descriptions T062..T066. No product tests run. Details in test-plan."
+      "validation": "Product-path contract/scorer/router tests passed on isolated PostgreSQL; all 120 router cases passed with zero provider calls. Planning validator passed with zero errors; browser and final build evidence are recorded in the existing stage9 evidence bundle."
     }
   },
   "experience_fallback": {

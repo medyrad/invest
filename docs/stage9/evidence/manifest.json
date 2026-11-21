@@ -115,6 +115,53 @@
     "human_persian_verdict": null,
     "d28_verdict": null
   },
+  "eval_integration_01": {
+    "mission": "PROGRAMMER-COMP-AI-EVAL-INTEGRATION-01",
+    "product_commit": "0d8310768f1fc5c46f0fd9a3fdbc450d0c12ff1c",
+    "product_tree": "ad09122309ab1dd8215a7cb0235f59388afa7ba8",
+    "oracle_sha256": "1cfe6230d7f5730ccbe4b11832ca81a893c2882e697cd3323b6abdd624fa2691",
+    "versions": {
+      "router": "assistant-router-v2",
+      "prompt": "assistant-fa-v2",
+      "tool": "assistant-tools-v2",
+      "schema": "assistant-response-v2",
+      "model_extraction": "assistant-model-extraction-v1",
+      "ui_vocabulary": "assistant-fa-labels-v1"
+    },
+    "runtime": {
+      "url": "http://127.0.0.1:3108",
+      "backend_image": "sha256:dc7087b2f01059d0b36ae5001d96e35a004c764b732f637fdca01d6b27920d59",
+      "web_image": "sha256:66b5b56794fe6c7375be67147ff434dcb46cfec7cc34e13a8ed0f51c14fb67c3",
+      "backend_source_sha256": "4e8bf3c3cf27dd91bf43399d44cfbdf4b59afbbf2ae5daa7c8ae30dd705e0527",
+      "frontend_source_sha256": "684f75e73a1531f9f74cb582fdd2712c975a4f09847622f36d6aefbff50c2ded"
+    },
+    "validation": {
+      "backend": "39 passed on isolated PostgreSQL",
+      "router": "120/120; 81 dispatch and 39 no-dispatch",
+      "browser_widths": [360, 390, 768, 1440],
+      "browser_final": "4/4 passed after harness-only locator correction",
+      "planning": "passed with zero errors",
+      "provider_calls": 0,
+      "cost_usd": "0"
+    },
+    "browser_evidence_sha256": {
+      "assistant-complete-360.png": "7d193490b2dcf85dd73f994afce67196446d32fcdb996652b155dbe7a168e4de",
+      "assistant-complete-390.png": "eb4867f3300e4f14333eedf8706399fdb1c19d56793ba71f22131b7b3147e140",
+      "assistant-complete-768.png": "f7d33342885fa6ab9095f0d3d536167191cf72ba537857ac397f5a3a239eb599",
+      "assistant-complete-1440.png": "84f766812921f05629308913f1bcee78fb1646c858050360bbb2167f785b7ea6"
+    },
+    "report": {
+      "path": "docs/stage9/comp-ai-complete-report.docx",
+      "sha256": "7d35016e0ed70f1577e1b8d10cd9c0c76858548169ff7adb09d062686a86dc99",
+      "pages": 12,
+      "changed_page_reviewed": 12
+    },
+    "human_persian": false,
+    "human_design": false,
+    "d28": false,
+    "independent_acceptance": false,
+    "final_model_selection": false
+  },
   "timing": {
     "preparation": "approximately 25 minutes",
     "build": "approximately 9 minutes 30 seconds",
