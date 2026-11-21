@@ -23,3 +23,21 @@ The user now requires larger delivery missions covering complete user journeys a
 Standing authorization from earlier missions: push completed mission commits to the configured origin on the current branch using a normal non-force push. Include the remote result in the handoff. This supersedes earlier per-mission instructions to avoid push. Public deployment remains a separate action.
 
 Mission-specific exceptions override the standing push rule: PROGRAMMER-COMP-AI-COMPLETE-01 authorizes nonpublic S09 implementation only and requires local commits without push or deployment. Live OpenAI smoke/evaluation requires a private credential in the authorized environment; fake evidence cannot replace it. Human Persian, design, D28 and production gates remain separate.
+
+## Stack
+- Backend: Python 3.14.10, Django 5.2, DRF, PostgreSQL (psycopg), uv 0.11.32
+- Frontend: Node 24.22.3, npm 11.19.1, Next.js 16, React 19, Tailwind 4, Playwright
+- Runtime: Docker Compose (`deploy/compose.yaml`), Linux/amd64 images; app at http://127.0.0.1:3108
+
+## Commands
+- `make up` start · `make check` lint, format, migrations, typecheck · `make test` pytest · `make browser` e2e · `make smoke` persistence check
+
+## Run in dev
+- First run, from the repo root: `python3 scripts/dev_runtime.py up --build`. It creates `.env` (random secrets), builds images, migrates, seeds synthetic data and starts the stack.
+- Open http://127.0.0.1:3108; the API is same origin under `/api/v1/`. The Compose file is `deploy/compose.yaml` (not at the root).
+- Later: `make up` to start, `make stop` to stop. The web container serves a built frontend, so rerun with `--build` after code changes.
+- Full guide (Persian): [docs/development.md](docs/development.md).
+
+## Context files
+- [backend/AGENTS.md](backend/AGENTS.md) (Django API apps, Docker test and migration rules, contract gotchas)
+- [frontend/AGENTS.md](frontend/AGENTS.md) (Next.js 16 app; read the bundled Next.js docs before coding)

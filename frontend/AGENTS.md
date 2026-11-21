@@ -7,3 +7,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Conventions
+- Persian RTL app (`lang="fa" dir="rtl"` in `src/app/layout.tsx`); local Vazirmatn font.
+- Dev server on 3108; Playwright starts its own standalone server on 3109.
+- The API rewrite target is fixed at build time; changing env after the build has no effect.
