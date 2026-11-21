@@ -162,6 +162,25 @@
     "independent_acceptance": false,
     "final_model_selection": false
   },
+  "live_eval_harness_ui_fix_01": {
+    "mission": "PROGRAMMER-COMP-AI-LIVE-EVAL-HARNESS-UI-FIX-01",
+    "implementation_commits": ["c89da099491547d34e3e335fdb458dfd96588aa3", "1ceafbc15de7bcb7c5d04a9365de0fd3579328ad"],
+    "runtime": {"url": "http://127.0.0.1:3108/assistant", "web_image": "sha256:a7a74a59a1e24593b0b17bfdabb1815034162358b30915fd30ff125ea030f77c", "source_commit": "1ceafbc15de7bcb7c5d04a9365de0fd3579328ad", "source_tree": "0e127fc90b7d0c77c08baa2e18ddd58bc9bf4cfd"},
+    "harness": {"internal_principal_kind": "eval", "campaign_cap_usd": "2.00", "service_tier": "standard", "checkpoint": "atomic per case", "provider_calls": 0, "cost_usd": "0"},
+    "validation": {"backend": "34 passed on isolated PostgreSQL", "browser": "5 passed: four widths plus outage/draft preservation", "typecheck": "passed", "targeted_lint": "passed", "production_build": "passed", "live_provider": "not called"},
+    "browser_evidence_sha256": {
+      "assistant-processing-360.png": "a99ccd1ce6d8b5807a014213d42b936b048dc70348c50297fb8c8579564dbad2",
+      "assistant-processing-390.png": "d0d0ecec170f777711cb1e4e7ee3bd34fdf245d94d6e77fa590295a5f55d3d97",
+      "assistant-processing-768.png": "039cf8add3f7f0b1051b61ade798ec07f064b2f04e64ad790adef9afd184faf7",
+      "assistant-processing-1440.png": "d8f594199bcf77139f3e2660fe6d9f3ed4ade6a171d5b2c4618843cd37f95674",
+      "assistant-complete-360.png": "9add86e974327df33fa20c62a7dd8cd55b11e282bf3586e79937137fe9423250",
+      "assistant-complete-390.png": "f68cf07e8cd362105d4c7e8d3a6d9b6e6fecf69cf82543c8ad16687e627be144",
+      "assistant-complete-768.png": "3b7be51b5304797cd1585b8adeba63c6d1a1f81801e71cfa10be756d8c762c03",
+      "assistant-complete-1440.png": "39cfb7344961cdc39aeae08e1a6f09bc945832c3d55b0aa976533e990e49d799"
+    },
+    "limits": {"human_design": false, "live_eval": false, "production_readiness": false, "pixel_diff_numeric_gate": "not independently accepted"},
+    "timing": {"preparation": "~18m", "build": "~5m total; second web build required by broken fallback image found in visual review", "testing": "~12m", "reporting": "~5m"}
+  },
   "timing": {
     "preparation": "approximately 25 minutes",
     "build": "approximately 9 minutes 30 seconds",
